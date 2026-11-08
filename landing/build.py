@@ -1,7 +1,7 @@
 # Builds the public, signed-out landing page (globe hero + about + long read).
 # Base: world-base.html = a fresh read of the live World globe artifact (WXKBrXY78yuhpghQCpK3RU).
 # Usage: python3 build.py   ->  timecapsule-landing.html
-import re, json
+import re, json, os, sys
 SIGNIN = 'https://claude.ai/artifact/BFBabdFxq8LxqDChfvRn61'
 ONB = 'https://claude.ai/artifact/Q7o5JaMGP7bHLXzJ6aw6TH'
 AGENDA = 'https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5'
@@ -75,3 +75,8 @@ t = rep(t, '<a href="../auth/timecapsule-signin.html" target="_top">Sign in</a><
 open('timecapsule-landing.html', 'w', encoding='utf8').write(t)
 left = sorted(set(re.findall(r'claude\.ai/artifact/[A-Za-z0-9]+', t)))
 print(len(s), 'bytes,', n, 'landing strings; claude.ai links left in site version:', left)
+# 3) Greek (EL): post-process both outputs (script owned by the "Add Greek to the languages" thread)
+import subprocess
+GR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'i18n', 'add-greek.py')
+if os.path.exists(GR):
+    subprocess.run([sys.executable, GR, 'timecapsule-landing-artifact.html', 'timecapsule-landing.html'], check=True)
