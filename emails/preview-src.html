@@ -51,7 +51,7 @@ iframe{display:block;border:0;width:100%;height:600px;background:var(--paper)}
     <div><span class="eyebrow">Transactional emails · v1</span><h1>Five emails, one calm voice</h1>
       <p>Welcome, table reminder, rate and tip reminder, and the two invites. Sample content is shown; the sources use placeholders.</p></div>
     <div class="ctls">
-      <div class="seg" role="group" aria-label="Language" id="lang"><button data-v="en" aria-pressed="true">English</button><button data-v="it" aria-pressed="false">Italiano</button><button data-v="es" aria-pressed="false">Español</button></div>
+      <div class="seg" role="group" aria-label="Language" id="lang"><button data-v="en" aria-pressed="true">English</button><button data-v="it" aria-pressed="false">Italiano</button><button data-v="es" aria-pressed="false">Español</button><button data-v="el" aria-pressed="false">Ελληνικά</button></div>
       <div class="seg" role="group" aria-label="Width" id="width"><button data-v="desktop" aria-pressed="true">Desktop</button><button data-v="mobile" aria-pressed="false">Mobile</button></div>
     </div>
   </header>
@@ -84,7 +84,7 @@ var EMAILS=[
   note:"Sent from Invite friends, tab 'Join a table', with the inviter's personal message. Both earn 5 TimeCoins when they sit at the table together. 'Take a chair' opens the private invite view of the Table page.",
   v:["inviter_first_name","personal_message","topic_name","table_title","host_name","table_when","chairs_taken","chairs_total","table_length","url_accept","url_decline"]}
 ];
-var LBL={en:{from:"From",subj:"Subject",pre:"Preview",to:"To",when:"Sent",vars:"Placeholders in the source"},it:{from:"Da",subj:"Oggetto",pre:"Anteprima",to:"A",when:"Inviata",vars:"Segnaposto nel sorgente"},es:{from:"De",subj:"Asunto",pre:"Vista previa",to:"Para",when:"Se envía",vars:"Marcadores en el código"}};
+var LBL={en:{from:"From",subj:"Subject",pre:"Preview",to:"To",when:"Sent",vars:"Placeholders in the source"},it:{from:"Da",subj:"Oggetto",pre:"Anteprima",to:"A",when:"Inviata",vars:"Segnaposto nel sorgente"},es:{from:"De",subj:"Asunto",pre:"Vista previa",to:"Para",when:"Se envía",vars:"Marcadores en el código"},el:{from:"Από",subj:"Θέμα",pre:"Προεπισκόπηση",to:"Προς",when:"Αποστολή",vars:"Μεταβλητές στον κώδικα"}};
 var st={k:"welcome",lang:"en",width:"desktop"};
 try{var s=JSON.parse(localStorage.getItem("tc-email-prev")||"{}");if(s.lang)st.lang=s.lang;if(s.width)st.width=s.width}catch(e){}
 var h=(location.hash||"").slice(1).replace(/-/g,"_");if(EMAILS.some(function(e){return e.k===h}))st.k=h;

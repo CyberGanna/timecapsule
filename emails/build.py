@@ -20,6 +20,10 @@ SAMPLE = {
             when="jueves 12 de noviembre · 19:00 (CET)", taken="6", chairs="8", others="Tomás, Aiko y 3 más", length="45 minutos",
             rtopic="Philosophy", rtitle="What do we owe future generations?", names="Mia, Tomás y 4 personas más", coins="8", expiry="martes 10 de noviembre",
             note="I think you'd love this one. Come and argue with me about bikes!"),
+ "el": dict(first="Gregory", host="Mia Laurent", inviter="Mia", topic="Cities", title="Should cities ban cars from their centres?",
+            when="Πέμπτη 12 Νοεμβρίου · 19:00 (CET)", taken="6", chairs="8", others="Tomás, Aiko και 3 ακόμα", length="45 λεπτά",
+            rtopic="Philosophy", rtitle="What do we owe future generations?", names="Mia, Tomás και 4 ακόμα", coins="8", expiry="Τρίτη 10 Νοεμβρίου",
+            note="I think you'd love this one. Come and argue with me about bikes!"),
 }
 VARS = dict(first="first_name", host="host_name", inviter="inviter_first_name", topic="topic_name", title="table_title", when="table_when",
             taken="chairs_taken", chairs="chairs_total", others="other_guests", length="table_length", rtopic="topic_name", rtitle="table_title",
@@ -142,7 +146,7 @@ if __name__ == "__main__":
     b64 = lambda f: "data:image/png;base64," + base64.b64encode(open(os.path.join(HERE, f), "rb").read()).decode()
     logo64, coin64 = b64("timecapsule-logo-email.png"), b64("timecoin.png")
     preview = {}
-    for lang in ["en", "it", "es"]:
+    for lang in ["en", "it", "es", "el"]:
         for k in KEYS:
             t, subj, pre = page(k, lang, "template", "{{asset_url}}/timecapsule-logo-email.png", "{{asset_url}}/timecoin.png")
             open(os.path.join(HERE, "templates", f"{k.replace('_','-')}.{lang}.html"), "w", encoding="utf-8").write(t)

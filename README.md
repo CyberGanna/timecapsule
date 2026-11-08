@@ -2,7 +2,7 @@
 
 A digital place with a different relationship with technology: room for reflection, dialogue and sustained participation. People sit at small tables to talk, share ideas and challenge perspectives. Trust grows through repeated participation, knowledge emerges through dialogue, and each discussion can leave a lasting record of ideas with authorship and context, an inheritance for future generations. Technology serves human expression.
 
-This repository holds the design prototypes of the product: self-contained HTML pages (English, Italian, Spanish), the sources and scripts they are built from, email templates, legal drafts and the manifesto.
+This repository holds the design prototypes of the product: self-contained HTML pages (English, Italian, Spanish, Greek), the sources and scripts they are built from, email templates, legal drafts and the manifesto.
 
 ## Pages
 
@@ -38,7 +38,7 @@ This repository holds the design prototypes of the product: self-contained HTML 
 
 ## Layout
 
-One folder per page. Each folder keeps its sources (`body.html`, `dict-*.txt` translation dictionaries, CSS/JS parts) next to the built, self-contained HTML (`timecapsule-*.html`). `i18n/` holds the shared language script (EN/IT/ES; the language is carried in the URL as `#lang=it`). `help/live-pages/` and `invite/pages/` are snapshots of the published pages used when adding the shared footer and links.
+One folder per page. Each folder keeps its sources (`body.html`, `dict-*.txt` translation dictionaries, CSS/JS parts) next to the built, self-contained HTML (`timecapsule-*.html`). `i18n/` holds the shared language script (EN/IT/ES/EL; the language is carried in the URL as `#lang=it`). Greek is added after a build with `python3 i18n/add-greek.py <page.html>`, from `i18n/dict-el.txt`. `help/live-pages/` and `invite/pages/` are snapshots of the published pages used when adding the shared footer and links.
 
 ## Rebuilding a page
 

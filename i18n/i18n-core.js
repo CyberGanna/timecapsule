@@ -1,17 +1,17 @@
 (function(){
 var W=window;if(W.TCI18N)return;
-var KEY="tc-lang",OK={en:1,it:1,es:1},L="en";
+var KEY="tc-lang",OK={en:1,it:1,es:1,el:1},L="en";
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
-try{var h=location.hash,m=h.match(/[#&]lang=(en|it|es)\b/);if(m){L=m[1];ls(KEY,L);var nh=h.replace(/&?lang=(en|it|es)\b/,"").replace(/^#&/,"#");if(nh==="#")nh="";try{history.replaceState(history.state,"",location.pathname+location.search+nh)}catch(e){}}else{var s=ls(KEY);if(s&&OK[s])L=s}}catch(e){}
+try{var h=location.hash,m=h.match(/[#&]lang=(en|it|es|el)\b/);if(m){L=m[1];ls(KEY,L);var nh=h.replace(/&?lang=(en|it|es|el)\b/,"").replace(/^#&/,"#");if(nh==="#")nh="";try{history.replaceState(history.state,"",location.pathname+location.search+nh)}catch(e){}}else{var s=ls(KEY);if(s&&OK[s])L=s}}catch(e){}
 try{if(W.parent!==W&&W.parent.TCI18N)L=W.parent.TCI18N.lang}catch(e){}
-var D=W.TCI18N_DICT||{},I={it:0,es:1};
+var D=W.TCI18N_DICT||{},I={it:0,es:1,el:2};
 var MS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],MF=["January","February","March","April","May","June","July","August","September","October","November","December"];
 var M={it:["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"],es:["ene","feb","mar","abr","may","jun","jul","ago","sept","oct","nov","dic"]};
 var MFL={it:["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"],es:["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]};
 var DS=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],DF=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 var DY={it:["Lun","Mar","Mer","Gio","Ven","Sab","Dom"],es:["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"]};
 var DFL={it:["lunedì","martedì","mercoledì","giovedì","venerdì","sabato","domenica"],es:["lunes","martes","miércoles","jueves","viernes","sábado","domingo"]};
-function dt(s,l){var r=s.replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\b( (\d{4}))?/g,function(_,m,y,yy){return MFL[l][MF.indexOf(m)]+(yy?(l==="es"?" de ":" ")+yy:"")});
+function dt(s,l){if(l==="el")return dtEl(s);var r=s.replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\b( (\d{4}))?/g,function(_,m,y,yy){return MFL[l][MF.indexOf(m)]+(yy?(l==="es"?" de ":" ")+yy:"")});
 r=r.replace(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/g,function(m){return DFL[l][DF.indexOf(m)]});
 r=r.replace(/\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\b/g,function(m){return DY[l][DS.indexOf(m)]});
 r=r.replace(/\b(\d{1,2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b/g,function(_,d,m){return d+" "+M[l][MS.indexOf(m)]});
@@ -98,10 +98,100 @@ var P=[
 [/^Thanks for joining, (.+)$/,function(m){return ["Grazie di esserci, "+m[1],"Gracias por unirte, "+m[1]]}],
 [/^Now viewing as (.+), (?:the host|a guest)$/,function(m,s){return null}]
 ];
-function pre(s,l){var m=s.match(/^(.+?) \(?(\d+)\)?$/);if(m&&D[m[1]]){return D[m[1]][I[l]]+s.slice(m[1].length)}return null}
-function one(s,l){var t=D[s];if(t)return t[I[l]];for(var i=0;i<P.length;i++){var m=s.match(P[i][0]);if(m){var r=P[i][1](m);if(r)return r[I[l]]}}
+var MGS=["Ιαν","Φεβ","Μαρ","Απρ","Μαΐ","Ιουν","Ιουλ","Αυγ","Σεπ","Οκτ","Νοε","Δεκ"],MGG=["Ιανουαρίου","Φεβρουαρίου","Μαρτίου","Απριλίου","Μαΐου","Ιουνίου","Ιουλίου","Αυγούστου","Σεπτεμβρίου","Οκτωβρίου","Νοεμβρίου","Δεκεμβρίου"],MGN=["Ιανουάριος","Φεβρουάριος","Μάρτιος","Απρίλιος","Μάιος","Ιούνιος","Ιούλιος","Αύγουστος","Σεπτέμβριος","Οκτώβριος","Νοέμβριος","Δεκέμβριος"];
+var DGS=["Δευ","Τρί","Τετ","Πέμ","Παρ","Σάβ","Κυρ"],DGF=["Δευτέρα","Τρίτη","Τετάρτη","Πέμπτη","Παρασκευή","Σάββατο","Κυριακή"];
+function dtEl(s){var MFR="(January|February|March|April|May|June|July|August|September|October|November|December)";
+var r=s.replace(new RegExp("\\b(\\d{1,2}) "+MFR+"\\b","g"),function(_,d,m){return d+" "+MGG[MF.indexOf(m)]});
+r=r.replace(new RegExp("\\b"+MFR+"\\b","g"),function(m){return MGN[MF.indexOf(m)]});
+r=r.replace(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/g,function(m){return DGF[DF.indexOf(m)]});
+r=r.replace(/\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\b/g,function(m){return DGS[DS.indexOf(m)]});
+r=r.replace(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b/g,function(m){return MGS[MS.indexOf(m)]});
+r=r.replace(/\bat (\d{1,2}:\d\d)/,"στις $1");
+r=r.replace(/^(Today|Tomorrow|Yesterday|today|tomorrow)\b/,function(m){return {Today:"Σήμερα",Tomorrow:"Αύριο",Yesterday:"Χθες",today:"σήμερα",tomorrow:"αύριο"}[m]});
+return r}
+function accEl(s){return s.replace(/(Ιανουάρι|Φεβρουάρι|Μάρτι|Απρίλι|Μάι|Ιούνι|Ιούλι|Αύγουστ|Σεπτέμβρι|Οκτώβρι|Νοέμβρι|Δεκέμβρι)ος/g,"$1ο")}
+function artEl(x){return /^\d/.test(x)?"τις ":/^(January|February|March|April|May|June|July|August|September|October|November|December)\b/.test(x)?"τον ":""}
+function lc1(s){return s.replace(/^Σήμερα/,"σήμερα").replace(/^Αύριο/,"αύριο")}
+var PE=[
+[/^(\d+) (?:chairs?|seats?) free$/,function(m){return m[1]+pl(m[1]," ελεύθερη καρέκλα"," ελεύθερες καρέκλες")}],
+[/^(\d+) of (\d+) (?:chairs|seats) free$/,function(m){return m[1]+" από "+m[2]+" καρέκλες ελεύθερες"}],
+[/^(\d+) of (\d+) (?:chairs|seats)$/,function(m){return m[1]+" από "+m[2]+" καρέκλες"}],
+[/^(\d+) of (\d+) free$/,function(m){return m[1]+" από "+m[2]+" ελεύθερες"}],
+[/^(\d+) free$/,function(m){return m[1]+pl(m[1]," ελεύθερη"," ελεύθερες")}],
+[/^(\d+) invited$/,function(m){return m[1]+pl(m[1]," προσκεκλημένος"," προσκεκλημένοι")}],
+[/^(\d+) (people|persons?)$/,function(m){return m[1]+pl(m[1]," άτομο"," άτομα")}],
+[/^(\d+) tables?$/,function(m){return m[1]+pl(m[1]," τραπέζι"," τραπέζια")}],
+[/^(\d+) open tables?$/,function(m){return m[1]+pl(m[1]," ανοιχτό τραπέζι"," ανοιχτά τραπέζια")}],
+[/^(\d+) guests?$/,function(m){return m[1]+pl(m[1]," καλεσμένος"," καλεσμένοι")}],
+[/^(\d+) coming$/,function(m){return m[1]+pl(m[1]," έρχεται"," έρχονται")}],
+[/^(\d+) at the table$/,function(m){return m[1]+" στο τραπέζι"}],
+[/^(\d+) (books|themes|notes?)$/,function(m){return m[1]+" "+{books:"βιβλία",themes:"θέματα",note:"σημείωση",notes:"σημειώσεις"}[m[2]]}],
+[/^(\d+) min in$/,function(m){return "εδώ και "+m[1]+" λεπ."}],
+[/^(In|in) (\d+) min$/,function(m){return (m[1]==="In"?"Σε ":"σε ")+m[2]+" λεπ."}],
+[/^(In|in) (\d+) ?h(?: (\d+) ?m(?:in)?)?$/,function(m){return (m[1]==="In"?"Σε ":"σε ")+m[2]+" ώρ."+(m[3]?" "+m[3]+" λεπ.":"")}],
+[/^(Today|Tomorrow), in (\d+) (h|min)$/,function(m){return (m[1]==="Today"?"Σήμερα":"Αύριο")+", σε "+m[2]+(m[3]==="h"?" ώρ.":" λεπ.")}],
+[/^Starting in (\d+) min$/,function(m){return "Ξεκινά σε "+m[1]+" λεπ."}],
+[/^Starts in (\d+) min$/,function(m){return "Ξεκινά σε "+m[1]+" λεπ."}],
+[/^Step (\d+) of (\d+)$/,function(m){return "Βήμα "+m[1]+" από "+m[2]}],
+[/^You tipped (\d+)$/,function(m){return "Έδωσες "+m[1]}],
+[/^\+(\d+) this week$/,function(m){return "+"+m[1]+" αυτή την εβδομάδα"}],
+[/^Show (.+) only, (\d+)$/,function(m){return null}],
+[/^(?:M|m)ember since (.+)$/,function(m){return "Μέλος από "+artEl(m[1])+accEl(dtEl(m[1]))}],
+[/^Following since (.+)$/,function(m){return "Ακολουθείς από "+artEl(m[1])+accEl(dtEl(m[1]))}],
+[/^Blocked (\d.+)$/,function(m){return "Αποκλείστηκε στις "+dtEl(m[1])}],
+[/^Met at “(.+)”$/,function(m){return "Στο τραπέζι «"+m[1]+"»"}],
+[/^Hosts (.+)$/,function(m){return ISDATE.test(m[1])?"Φιλοξενεί "+lc1(dtEl(m[1])):null}],
+[/^Active (\d+)(h|m|d) ago$/,function(m){return "Ενεργός πριν από "+m[1]+" "+{h:"ώρ.",m:"λεπ.",d:"ημ."}[m[2]]}],
+[/^Welcome, (.+)\. Your universe has begun\.$/,function(m){return "Καλώς ήρθες, "+m[1]+". Το σύμπαν σου ξεκίνησε."}],
+[/^Add “(.+)”$/,function(m){return "Προσθήκη «"+m[1]+"»"}],
+[/^Loved by people who talk about (.+)$/,function(m){return "Αγαπημένο όσων μιλούν για "+m[1]}],
+[/^Exported (\d+) kept notes?$/,function(m){return "Εξήχθησαν "+m[1]+pl(m[1]," σημείωση"," σημειώσεις")}],
+[/^Sent to (\d+) guests$/,function(m){return "Στάλθηκε σε "+m[1]+" καλεσμένους"}],
+[/^Saved\. (\d+) guests will be told\.$/,function(m){return "Αποθηκεύτηκε. Θα ενημερωθούν "+m[1]+" καλεσμένοι."}],
+[/^Saved (.+\..+)$/,function(m){return "Αποθηκεύτηκε: "+m[1]}],
+[/^Sent to (.+)$/,function(m){return "Στάλθηκε σε: "+m[1]}],
+[new RegExp("^"+NM+" tipped you (\\d+) TimeCoins?$"),function(m){return m[1]+" σου έδωσε "+m[2]+" TimeCoins"}],
+[new RegExp("^"+NM+" was removed from the table$"),function(m){return m[1]+": αφαιρέθηκε από το τραπέζι"}],
+[new RegExp("^Open "+NM+"['’]s profile$"),function(m){return "Άνοιξε το προφίλ: "+m[1]}],
+[new RegExp("^"+NM+"['’]s camera$"),function(m){return "Κάμερα: "+m[1]}],
+[new RegExp("^"+NM+" only$"),function(m){return "Μόνο "+m[1]}],
+[new RegExp("^Remove "+NM+" from the table$"),function(m){return "Αφαίρεση από το τραπέζι: "+m[1]}],
+[new RegExp("^(Mute|Unmute|Message|Remove|Unfollow|Ask|Block|Report|Chat with|Follow) "+NM+"(\\??)$"),function(m){var v={Mute:"Σίγαση: ",Unmute:"Άρση σίγασης: ",Message:"Μήνυμα: ",Remove:"Αφαίρεση: ",Unfollow:"Διακοπή ακολούθησης: ",Ask:"Ερώτηση: ",Block:"Αποκλεισμός: ",Report:"Αναφορά: ","Chat with":"Συζήτηση με ",Follow:"Ακολούθησε: "}[m[1]];return v+m[2]+(m[3]?";":"")}],
+[new RegExp("^One TimeCoin (more|less) for "+NM+"$"),function(m){return "Ένα TimeCoin "+(m[1]==="more"?"παραπάνω":"λιγότερο")+" για "+m[2]}],
+[/^You muted (.+)$/,function(m){return "Σίγαση από εσένα: "+m[1]}],
+[/^(.+) can speak again$/,function(m){return m[1]+": μπορεί να μιλήσει ξανά"}],
+[/^(.+) was muted by the host$/,function(m){return "Ο οικοδεσπότης έβαλε σε σίγαση: "+m[1]}],
+[/^Asked the table at (.+)\.$/,function(m){return "Ρώτησες το τραπέζι στις "+m[1]+"."}],
+[/^Only (.+) sees it\.$/,function(m){return "Τη βλέπει μόνο: "+m[1]+"."}],
+[/^(.+) put it to the table\.$/,function(m){return m[1]+": την έθεσε στο τραπέζι."}],
+[/^Question from (you|.+)$/,function(m){return m[1]==="you"?"Δική σου ερώτηση":"Ερώτηση από "+m[1]}],
+[/^asked by (you|.+)$/,function(m){return m[1]==="you"?"από εσένα":"από "+m[1]}],
+[/^Added to the transcript, under (.+)'s line$/,function(m){return "Προστέθηκε στην απομαγνητοφώνηση, κάτω από τη φράση: "+m[1]}],
+[/^You asked a question from (.+)$/,function(m){return "Έθεσες μια ερώτηση από "+m[1]}],
+[/^hosted by (.+)$/,function(m){return "οικοδεσπότης: "+m[1]}],
+[/^Hosted by (.+)$/,function(m){return "Οικοδεσπότης: "+m[1]}],
+[/^Nothing matches "(.+)"$/,function(m){return "Κανένα αποτέλεσμα για \""+m[1]+"\""}],
+[/^Goes to the (\d+) people coming to "(.+)"\.$/,function(m){return "Πηγαίνει στα "+m[1]+" άτομα που έρχονται στο \""+m[2]+"\"."}],
+[/^On the waitlist, (\d+)(?:nd|th|rd|st) in line$/,function(m){return "Στη λίστα αναμονής, "+m[1]+"ος στη σειρά"}],
+[/^You joined$/,function(m){return "Μπήκες"}],
+[/^Your chair is saved$/,function(m){return "Η καρέκλα σου κρατήθηκε"}],
+[/^Hosts tables on TimeCapsule from (.+)\.$/,function(m){return "Φιλοξενεί τραπέζια στο TimeCapsule από "+m[1]+"."}],
+[/^You stopped following (.+)$/,function(m){return "Δεν ακολουθείς πια: "+m[1]}],
+[/^We'll tell you when (.+) hosts next$/,function(m){return "Θα σου πούμε όταν φιλοξενήσει ξανά: "+m[1]}],
+[/^Showing the (\d+) (.+) feedbacks$/,function(m){var a=D[m[2]]||D[m[2].charAt(0).toUpperCase()+m[2].slice(1)];var w=a&&a[2]?a[2].toLowerCase():m[2];return "Εμφανίζονται τα "+m[1]+" σχόλια «"+w+"»"}],
+[/^We sent a link to (.+)\. Your email changes once you open it\.$/,function(m){return "Στείλαμε έναν σύνδεσμο στο "+m[1]+". Το email σου αλλάζει μόλις τον ανοίξεις."}],
+[/^For "(.+)"$/,function(m){return "Για \""+m[1]+"\""}],
+[/^(.+) at (\d{1,2}:\d\d)$/,function(m){if(!ISDATE.test(m[1]))return null;return dtEl(m[1])+" στις "+m[2]}],
+[/^with (.+)$/,function(m){return "με "+m[1]}],
+[/^More for (.+)$/,function(m){return "Περισσότερα για "+m[1]}],
+[/^Open (.+)$/,function(m){return "Άνοιξε "+m[1]}],
+[/^Thanks for joining, (.+)$/,function(m){return "Ευχαριστούμε που ήρθες, "+m[1]}],
+[/^Now viewing as (.+), (?:the host|a guest)$/,function(m,s){return null}]
+];
+function pre(s,l){var m=s.match(/^(.+?) \(?(\d+)\)?$/);if(m&&D[m[1]]){var x=D[m[1]][I[l]];if(x==null)return null;return x+s.slice(m[1].length)}return null}
+function one(s,l){var t=D[s];if(t&&t[I[l]]!=null)return t[I[l]];if(l==="el"){for(var i=0;i<PE.length;i++){var m=s.match(PE[i][0]);if(m){var r=PE[i][1](m);if(r!=null)return r}}}else for(var i=0;i<P.length;i++){var m=s.match(P[i][0]);if(m){var r=P[i][1](m);if(r)return r[I[l]]}}
 var x=pre(s,l);if(x)return x;if(ISDATE.test(s)&&/[A-Za-z]/.test(s)){var d=dt(s,l);if(d!==s)return d}
-var sm=s.match(/^Show (.+) only, (\d+)$/);if(sm){var a=D[sm[1]];if(a)return(l==="it"?"Mostra solo ":"Mostrar solo ")+a[I[l]]+", "+sm[2]}
+var sm=s.match(/^Show (.+) only, (\d+)$/);if(sm){var a=D[sm[1]];if(a)return({it:"Mostra solo ",es:"Mostrar solo ",el:"Μόνο "}[l])+a[I[l]]+", "+sm[2]}
 return null}
 var C={};
 function tr(s,l){if(l==="en")return null;var k=l+"\u0001"+s;if(k in C)return C[k];var r=one(s,l);
@@ -123,7 +213,7 @@ function walk(root){if(root.nodeType===3){doText(root);return}if(root.nodeType!=
 var w=document.createTreeWalker(root,5,null),n=root.nodeType===1?root:w.nextNode();
 for(;n;n=w.nextNode()){if(n.nodeType===3){var p=n.parentNode;if(p&&SKIP[p.nodeName])continue;doText(n)}else{if(SKIP[n.nodeName])continue;for(var i=0;i<ATTRS.length;i++)if(n.hasAttribute(ATTRS[i]))doAttr(n,ATTRS[i])}}}
 function src(el){if(!el)return"";if(el.nodeType===3){var r=TN.get(el);return r&&el.nodeValue===r.t?r.o:el.nodeValue}var s="",w=document.createTreeWalker(el,4,null),n;while(n=w.nextNode())s+=src(n);return s}
-function u(url){if(!url||!/claude\.ai\/(code\/)?artifact\//.test(url))return url;url=url.replace(/([#&])lang=(en|it|es)\b/,"$1").replace(/[#&]$/,"").replace("#&","#");return url+(url.indexOf("#")>=0?"&":"#")+"lang="+L}
+function u(url){if(!url||!/claude\.ai\/(code\/)?artifact\//.test(url))return url;url=url.replace(/([#&])lang=(en|it|es|el)\b/,"$1").replace(/[#&]$/,"").replace("#&","#");return url+(url.indexOf("#")>=0?"&":"#")+"lang="+L}
 var mo=new MutationObserver(function(rs){if(busy)return;busy=true;try{for(var i=0;i<rs.length;i++){var r=rs[i];if(r.type==="childList"){for(var j=0;j<r.addedNodes.length;j++)walk(r.addedNodes[j])}else if(r.type==="characterData"){doText(r.target)}else if(r.type==="attributes"){doAttr(r.target,r.attributeName)}}}finally{mo.takeRecords();busy=false}});
 function start(){mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS})}
 function all(){busy=true;try{walk(document.body||document.documentElement)}finally{mo.takeRecords();busy=false}}
@@ -136,13 +226,13 @@ W.TCI18N={get lang(){return L},set:setLang,t:function(s){return L==="en"?s:(tr(s
 document.documentElement.lang=L;start();
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",all);else all();
 /* language picker: avatar menu, or the page header when there is no menu */
-var LBL={en:"Language",it:"Lingua",es:"Idioma"};
+var LBL={en:"Language",it:"Lingua",es:"Idioma",el:"Γλώσσα"};
 function syncLP(){var bs=document.querySelectorAll(".tc-lp button");for(var i=0;i<bs.length;i++)bs[i].setAttribute("aria-pressed",bs[i].getAttribute("data-l")===L);var ls2=document.querySelectorAll(".tc-lp .tc-lpl");for(var j=0;j<ls2.length;j++)ls2[j].textContent=LBL[L];var s=document.getElementById("applang");if(s)s.value=L}
 function mkLP(cls){var d=document.createElement("div");d.className="tc-lp "+cls;d.setAttribute("data-noi18n","");d.setAttribute("role","group");d.setAttribute("aria-label","Language");
-d.innerHTML=(cls==="m"?'<span class="tc-lpl"></span>':'')+'<span class="tc-seg"><button type="button" data-l="en" title="English">EN</button><button type="button" data-l="it" title="Italiano">IT</button><button type="button" data-l="es" title="Español">ES</button></span>';
+d.innerHTML=(cls==="m"?'<span class="tc-lpl"></span>':'')+'<span class="tc-seg"><button type="button" data-l="en" title="English">EN</button><button type="button" data-l="it" title="Italiano">IT</button><button type="button" data-l="es" title="Español">ES</button><button type="button" data-l="el" title="Ελληνικά">EL</button></span>';
 d.addEventListener("click",function(e){var b=e.target.closest("button[data-l]");if(!b)return;e.preventDefault();e.stopPropagation();setLang(b.getAttribute("data-l"))});return d}
 function addLP(){if(document.querySelector(".tc-lp")||/^about:/.test(location.href))return;
-var st=document.createElement("style");st.textContent='.tc-lp{display:flex;align-items:center;gap:10px;font-family:inherit}.tc-lp.m{justify-content:space-between;min-height:40px;padding:0 6px 0 10px;font-size:14px;color:#EEF1FF}.tc-lp.h{margin-left:auto;flex:none}.tc-seg{display:inline-flex;padding:2px;border-radius:9px;border:1px solid #3A4175;background:rgba(255,255,255,.03)}.tc-seg button{border:0;background:none;color:#A9B0D6!important;font:inherit;font-size:12px!important;font-weight:600!important;letter-spacing:.04em;height:26px;min-width:32px;padding:0 6px;border-radius:7px;cursor:pointer}.tc-seg button:hover{color:#EEF1FF!important}.tc-seg button[aria-pressed=true]{background:#EEF1FF!important;color:#1B2144!important}';
+var st=document.createElement("style");st.textContent="@font-face{font-family:'Sora';font-style:normal;font-weight:100 800;font-display:swap;src:url(https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggSxSuXd.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Newsreader';font-style:normal;font-weight:200 800;font-display:swap;src:url(https://fonts.gstatic.com/s/literata/v40/or3PQ6P12-iJxAIgLa78DkTtAoDhk0oVpaK3YLanFLHpPf2TbLi4J_LWTFCW.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Newsreader';font-style:italic;font-weight:200 800;font-display:swap;src:url(https://fonts.gstatic.com/s/literata/v40/or3yQ6P12-iJxAIgLYT1PLs1a-t7PU0AbeE9KK5X5ClqOw.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}"+'.tc-lp{display:flex;align-items:center;gap:10px;font-family:inherit}.tc-lp.m{justify-content:space-between;min-height:40px;padding:0 6px 0 10px;font-size:14px;color:#EEF1FF}.tc-lp.h{margin-left:auto;flex:none}.tc-seg{display:inline-flex;padding:2px;border-radius:9px;border:1px solid #3A4175;background:rgba(255,255,255,.03)}.tc-seg button{border:0;background:none;color:#A9B0D6!important;font:inherit;font-size:12px!important;font-weight:600!important;letter-spacing:.04em;height:26px;min-width:32px;padding:0 6px;border-radius:7px;cursor:pointer}.tc-seg button:hover{color:#EEF1FF!important}.tc-seg button[aria-pressed=true]{background:#EEF1FF!important;color:#1B2144!important}';
 document.head.appendChild(st);
 var menu=document.querySelector(".tch-menu");
 if(menu){var hr=menu.querySelector("hr");menu.insertBefore(mkLP("m"),hr||null)}
