@@ -160,7 +160,7 @@ W.addEventListener("tc-lang",syncLP);
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",addLP);else addLP();
 })();
 </script>
-<script>(function(){var D=window.TCI18N_DICT||{},X={"Listen in": ["Ascolta", "Escuchar"], "Stop listening": ["Smetti di ascoltare", "Dejar de escuchar"], "Sign in to listen": ["Accedi per ascoltare", "Inicia sesión para escuchar"], "Sign in to join": ["Accedi per entrare", "Inicia sesión para unirte"], "Open to listeners": ["Aperto a chi ascolta", "Abierta a oyentes"], "about 30 seconds behind live": ["circa 30 secondi dopo la diretta", "unos 30 segundos tras el directo"], "5 minutes free": ["5 minuti gratis", "5 minutos gratis"], "Only the people at the table can hear it": ["Lo sentono solo le persone al tavolo", "Solo la oye la gente de la mesa"], "is speaking": ["sta parlando", "está hablando"], "Paused": ["In pausa", "En pausa"], "Free listen": ["Ascolto gratuito", "Escucha gratis"], "Pause": ["Pausa", "Pausa"], "Play": ["Riprendi", "Reanudar"], "Enjoying the table?": ["Ti piace questo tavolo?", "¿Te gusta esta mesa?"], "Your 5 free minutes are up. Sign in to keep listening. It's free, and next time you can pull up a chair yourself.": ["I tuoi 5 minuti gratuiti sono finiti. Accedi per continuare ad ascoltare. È gratis, e la prossima volta puoi prendere una sedia anche tu.", "Tus 5 minutos gratis han terminado. Inicia sesión para seguir escuchando. Es gratis, y la próxima vez puedes acercar una silla tú también."], "Join TimeCapsule": ["Iscriviti a TimeCapsule", "Únete a TimeCapsule"], "Not now": ["Non ora", "Ahora no"], "Signed in": ["Con accesso", "Con sesión"], "Signed out": ["Senza accesso", "Sin sesión"], "End free listen": ["Fine ascolto gratuito", "Fin de la escucha gratis"], "Host turns listeners off": ["L'host chiude l'ascolto", "El anfitrión cierra la escucha"], "The table closed to listeners": ["Il tavolo ha chiuso l'ascolto", "La mesa ha cerrado la escucha"], "Listening to a live table": ["In ascolto di un tavolo live", "Escuchando una mesa en directo"], "In the real app this opens the table": ["Nell'app vera qui si apre il tavolo", "En la app real aquí se abre la mesa"], "Show this table": ["Mostra questo tavolo", "Mostrar esta mesa"], "Listening": ["In ascolto", "Escuchando"], "Pull up a chair": ["Prendi una sedia", "Acerca una silla"], "Join table": ["Entra al tavolo", "Unirse a la mesa"]};for(var k in X)if(!D[k])D[k]=X[k]})();</script>
+<script>(function(){var D=window.TCI18N_DICT||{},X={"Listen in": ["Ascolta", "Escuchar"], "Stop listening": ["Smetti di ascoltare", "Dejar de escuchar"], "Sign in to listen": ["Accedi per ascoltare", "Inicia sesión para escuchar"], "Sign in to join": ["Accedi per entrare", "Inicia sesión para unirte"], "Open to listeners": ["Aperto a chi ascolta", "Abierta a oyentes"], "about 30 seconds behind live": ["circa 30 secondi dopo la diretta", "unos 30 segundos tras el directo"], "5 minutes free": ["5 minuti gratis", "5 minutos gratis"], "Only the people at the table can hear it": ["Lo sentono solo le persone al tavolo", "Solo la oye la gente de la mesa"], "is speaking": ["sta parlando", "está hablando"], "Paused": ["In pausa", "En pausa"], "Free listen": ["Ascolto gratuito", "Escucha gratis"], "Pause": ["Pausa", "Pausa"], "Play": ["Riprendi", "Reanudar"], "Enjoying the table?": ["Ti piace questo tavolo?", "¿Te gusta esta mesa?"], "Your 5 free minutes are up. Sign in to keep listening. It's free, and next time you can pull up a chair yourself.": ["I tuoi 5 minuti gratuiti sono finiti. Accedi per continuare ad ascoltare. È gratis, e la prossima volta puoi prendere una sedia anche tu.", "Tus 5 minutos gratis han terminado. Inicia sesión para seguir escuchando. Es gratis, y la próxima vez puedes acercar una silla tú también."], "Join TimeCapsule": ["Iscriviti a TimeCapsule", "Únete a TimeCapsule"], "Not now": ["Non ora", "Ahora no"], "Signed in": ["Con accesso", "Con sesión"], "Signed out": ["Senza accesso", "Sin sesión"], "End free listen": ["Fine ascolto gratuito", "Fin de la escucha gratis"], "Host turns listeners off": ["L'host chiude l'ascolto", "El anfitrión cierra la escucha"], "The table closed to listeners": ["Il tavolo ha chiuso l'ascolto", "La mesa ha cerrado la escucha"], "Listening to a live table": ["In ascolto di un tavolo live", "Escuchando una mesa en directo"], "In the real app this opens the table": ["Nell'app vera qui si apre il tavolo", "En la app real aquí se abre la mesa"], "Show this table": ["Mostra questo tavolo", "Mostrar esta mesa"], "Listening": ["In ascolto", "Escuchando"], "Pull up a chair": ["Prendi una sedia", "Acerca una silla"], "Join table": ["Entra al tavolo", "Unirse a la mesa"], "Click a teal dot to listen in": ["Clicca un punto turchese per ascoltare", "Haz clic en un punto turquesa para escuchar"], "Tap a teal dot to listen in": ["Tocca un punto turchese per ascoltare", "Toca un punto turquesa para escuchar"], "Not open to listeners": ["Non aperto a chi ascolta", "No abierta a oyentes"], "Click to listen in": ["Clicca per ascoltare", "Haz clic para escuchar"], "Click to see the table": ["Clicca per vedere il tavolo", "Haz clic para ver la mesa"]};for(var k in X)if(!D[k])D[k]=X[k]})();</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -868,35 +868,56 @@ function draw(now){
     const k=(now-T.spT)/3000,r=16+18*Math.sin(Math.min(1,k*2)*Math.PI/2),a=Math.sin(Math.min(1,k*4)*Math.PI/2)*(1-k)*.4*cutF(T,now);
     const gl=ctx.createRadialGradient(x,y,0,x,y,r);gl.addColorStop(0,`rgba(255,236,200,${a})`);gl.addColorStop(.3,`rgba(255,190,100,${a*.45})`);gl.addColorStop(1,"rgba(255,160,80,0)");ctx.fillStyle=gl;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill()}
   ctx.globalCompositeOperation="source-over";ctx.lineCap="butt";
+  // the table you are looking at (or pointing at): all its links, softly
+  const FOC=SEL||LT(), HI=new Set([FOC,HOV].filter(Boolean)), DIM=FOC?.4:1;
+  for(const T of HI){ctx.beginPath();for(const A of T.arcs)if(A.i===0)trace(A);
+    ctx.strokeStyle=T.lis!==false?"rgba(23,195,200,.38)":"rgba(169,176,214,.3)";ctx.lineWidth=1;ctx.stroke()}
   // people
   if(W<760){
   // one identical marker per city: a solid yellow dot; while linked it gains a green ring that pulses
   const marks=new Map();
   for(const T of TABLES){const age=T.spT?now-T.spT:1e9, lk=age>7500||!captioned.has(T)?0:Math.max(0,Math.min(1,age/600)*Math.min(1,(7500-age)/1500)*cutF(T,now));
-    T.p.forEach(([n,city])=>marks.set(city,Math.max(marks.get(city)||0,lk)))}
+    T.p.forEach(([n,city])=>{const m=marks.get(city)||{lk:0,open:false,hi:false};m.lk=Math.max(m.lk,lk);m.open=m.open||T.lis!==false;m.hi=m.hi||HI.has(T);marks.set(city,m)})}
   // markers may touch but never overlap: nudge close ones apart on screen until their rings just meet
-  const pts=[];for(const [city,lk] of marks){const [l,p]=CITY[city], [x,y,z]=proj(l,p); if(z>0)pts.push({x,y,lk})}
+  const pts=[];for(const [city,m] of marks){const [l,p]=CITY[city], [x,y,z]=proj(l,p); if(z>0)pts.push({x,y,lk:m.lk,open:m.open,hi:m.hi})}
   const MIN=15.5;
   for(let it=0;it<6;it++)for(let a=0;a<pts.length;a++)for(let b=a+1;b<pts.length;b++){const A=pts[a],B=pts[b];let dx=B.x-A.x,dy=B.y-A.y,d=Math.hypot(dx,dy);
     if(d>=MIN)continue;if(d<.01){dx=1;dy=0;d=1}const m=(MIN-d)/2/d;A.x-=dx*m;A.y-=dy*m;B.x+=dx*m;B.y+=dy*m}
-  for(const {x,y,lk} of pts){
+  for(const {x,y,lk,open,hi} of pts){
     const on=lk>.15, pu=on?(.5+.5*Math.sin(now/170))*lk:0;
-    ctx.fillStyle="#F2C14E";ctx.beginPath();ctx.arc(x,y,on?2:3,0,7);ctx.fill();
+    ctx.globalAlpha=hi?1:DIM;
+    ctx.fillStyle=open?"#17C3C8":"#6F78A8";ctx.beginPath();ctx.arc(x,y,on?2:open?3.2:2.2,0,7);ctx.fill();
     if(on){ctx.strokeStyle="#3DDC84";ctx.lineWidth=2.4;ctx.beginPath();ctx.arc(x,y,6+pu*1.5,0,7);ctx.stroke()}
+    if(hi){ctx.strokeStyle="#FFFFFF";ctx.lineWidth=1.6;ctx.beginPath();ctx.arc(x,y,7,0,7);ctx.stroke()}
   }
+  ctx.globalAlpha=1;
   }else{
-  for(const T of TABLES){
+  // closed tables first (quiet grey), then open ones (teal), then the table in focus on top
+  const order=[...TABLES.filter(T=>T.lis===false&&!HI.has(T)),...TABLES.filter(T=>T.lis!==false&&!HI.has(T)),...HI];
+  for(const T of order){
+    const open=T.lis!==false, hi=HI.has(T);
+    if(T.ph==null)T.ph=Math.random();
+    ctx.globalAlpha=hi?1:DIM;
     T.p.forEach(([n,city],i)=>{
       const [l,p]=CITY[city], [x,y,z]=proj(l,p); if(z<=0)return;
       const mod=i===0, sp=T.speaking===n&&now-T.spT<2600;
-      const col=sp?"#ffffff":mod?"#F2C14E":"#17C3C8";
-      const r=(mod?3:2)*(.6+z*.4);
+      if(!open){
+        const r=(mod?2.4:1.7)*(.6+z*.4)*(hi?1.3:1);
+        ctx.fillStyle=sp?"#ffffff":hi?"#A9B0D6":"#7C84B0";ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();
+        if(hi&&mod){ctx.strokeStyle="rgba(201,207,240,.75)";ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(x,y,r+6,0,7);ctx.stroke()}
+        return;
+      }
+      const col=sp?"#ffffff":"#17C3C8";
+      const r=(mod?3.2:2.2)*(.6+z*.4)*(hi?1.3:1);
       const gl=ctx.createRadialGradient(x,y,0,x,y,r*(sp?6:3.5));gl.addColorStop(0,col+(sp?"ee":"66"));gl.addColorStop(1,col+"00");
       ctx.fillStyle=gl;ctx.beginPath();ctx.arc(x,y,r*(sp?6:3.5),0,7);ctx.fill();
       ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();
-      if(mod){ctx.strokeStyle="rgba(242,193,78,.5)";ctx.lineWidth=.8;ctx.beginPath();ctx.arc(x,y,r+3.5,0,7);ctx.stroke()}
+      // the host of an open table breathes: a slow ring that grows and fades
+      if(mod){const k=(now/2800+T.ph)%1;ctx.strokeStyle=`rgba(127,240,242,${(1-k)*.6})`;ctx.lineWidth=1;ctx.beginPath();ctx.arc(x,y,r+2+k*10,0,7);ctx.stroke()}
+      if(hi&&mod){ctx.strokeStyle="#FFFFFF";ctx.lineWidth=1.6;ctx.beginPath();ctx.arc(x,y,r+6,0,7);ctx.stroke()}
     });
   }
+  ctx.globalAlpha=1;
   }
   // ripples: one slow, faint ring
   for(let i=ripples.length-1;i>=0;i--){const r=ripples[i],k=(now-r.t0)/3200;if(k>1){ripples.splice(i,1);continue}
@@ -906,7 +927,8 @@ function draw(now){
   for(let i=bubbles.length-1;i>=0;i--)if(now-bubbles[i].t0>7500)bubbles.splice(i,1);
   // speech captions sit on a solid card so they stay readable over the map and the markers
   const shownNow=new Set();
-  const taken=[], maxQ=Math.min(300,W-60), QF='400 14px Sora, system-ui, sans-serif', HF='500 11px "JetBrains Mono", ui-monospace, monospace';
+  const taken=[];if(!card.hidden){const r=card.getBoundingClientRect();taken.push([r.left,r.top,r.right,r.bottom])}
+  const maxQ=Math.min(300,W-60), QF='400 14px Sora, system-ui, sans-serif', HF='500 11px "JetBrains Mono", ui-monospace, monospace';
   for(const b of bubbles){const k=(now-b.t0)/7500;
     const [x,y,z]=proj(b.l,b.p);if(z<=.2)continue;
     // cards are fully solid: a quick fade in and out, and an older card vanishes as soon as a new voice starts
@@ -935,32 +957,76 @@ function draw(now){
     ctx.textBaseline="alphabetic";ctx.globalAlpha=1}
   captioned=shownNow;
 }
-let last=performance.now();
+let last=performance.now(), spin=1, FLY=null, SEL=null, HOV=null;
+const LT=()=>typeof LIS!=="undefined"?LIS.T:null;
 function loop(now){
   const dt=Math.min(50,now-last);last=now;
-  if(!dragging)rot.lon+=vel*dt/16;
+  // the planet slows to a stop while you look at a table, listen to one, or point at a dot
+  const still=SEL||HOV||LT();
+  spin+=((still?0:1)-spin)*Math.min(1,dt/(still?220:1200));
+  if(FLY){const k=Math.min(1,(now-FLY.t0)/FLY.d),e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+    rot.lon=FLY.l0+(FLY.l1-FLY.l0)*e;rot.lat=FLY.p0+(FLY.p1-FLY.p0)*e;if(k>=1)FLY=null}
+  else if(!dragging)rot.lon+=vel*dt/16*spin;
   try{draw(now)}catch(e){console.error(e)}
+  try{follow()}catch(e){console.error(e)}
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
-setTimeout(()=>speak(),300);let skipN=0;setInterval(()=>{if(LIS.on&&(++skipN%2))return;speak()},4200);
+setTimeout(()=>speak(),300);let skipN=0;setInterval(()=>{if(LIS.on&&(++skipN%2))return;speak(SEL&&!LIS.T?SEL:undefined)},4200);
 
 /* ---------- drag to turn ---------- */
 let sx,sy,sl,sp,moved;
-cv.addEventListener("pointerdown",e=>{dragging=true;moved=false;sx=e.clientX;sy=e.clientY;sl=rot.lon;sp=rot.lat;cv.setPointerCapture(e.pointerId);cv.classList.add("drag")});
+cv.addEventListener("pointerdown",e=>{FLY=null;dragging=true;moved=false;sx=e.clientX;sy=e.clientY;sl=rot.lon;sp=rot.lat;cv.setPointerCapture(e.pointerId);cv.classList.add("drag")});
 cv.addEventListener("pointermove",e=>{if(!dragging)return;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)+Math.abs(dy)>4)moved=true;rot.lon=sl+dx*90/R;rot.lat=Math.max(-60,Math.min(60,sp+dy*90/R))});
-cv.addEventListener("pointerup",e=>{dragging=false;cv.classList.remove("drag");if(!moved)pick(e.clientX,e.clientY)});
+cv.addEventListener("pointerup",e=>{dragging=false;cv.classList.remove("drag");if(!moved)pick(e.clientX,e.clientY,e.pointerType!=="mouse")});
+/* hover: the dot under the pointer lights up its table and the planet holds still */
+const tip=document.createElement("div");tip.id="gtip";tip.hidden=true;document.body.appendChild(tip);
+cv.addEventListener("pointermove",e=>{if(dragging||e.pointerType!=="mouse")return;const T=nearest(e.clientX,e.clientY,20);
+  if(T!==HOV){HOV=T;cv.classList.toggle("on",!!T);if(T)tipShow(T)}if(!T)tip.hidden=true});
+cv.addEventListener("pointerleave",()=>{HOV=null;tip.hidden=true;cv.classList.remove("on")});
+function tipShow(T){
+  tip.style.setProperty("--c",T.c);tip.classList.toggle("open",T.lis!==false);
+  tip.innerHTML=`<b><i></i><span>${T.t}</span></b>`+(T.lis!==false?`<small>${HP}<span>Click to listen in</span></small>`:`<small><span>Not open to listeners</span> · <span>Click to see the table</span></small>`);
+  tip.hidden=false;
+}
 
 /* ---------- tap a table ---------- */
 const card=document.getElementById("card");
-function pick(x,y){
-  let best=null,bd=26*26;
-  for(const T of TABLES){T.p.forEach(([n,city],i)=>{const [l,p]=CITY[city];const [px,py,z]=proj(l,p);if(z<=0)return;const d=(px-x)**2+(py-y)**2;if(d<bd){bd=d;best=T}})}
+/* the table whose dot is nearest the pointer, within rad pixels (bigger for fingers) */
+function nearest(x,y,rad){
+  let best=null,bd=rad*rad;
+  for(const T of TABLES){T.p.forEach(([n,city],i)=>{const [l,p]=CITY[city];const [px,py,z]=proj(l,p);if(z<=.05)return;const d=(px-x)**2+(py-y)**2-(T.lis!==false?60:0);if(d<bd){bd=d;best=T}})}
+  return best;
+}
+function pick(x,y,touch){
+  const best=nearest(x,y,touch?34:24);
   if(!best){card.hidden=true;return}
   showCard(best,x,y);
 }
+/* turn the planet until the table's host faces you, beside the card */
+function flyTo(T){
+  const [l,p]=CITY[T.p[0][1]], mob=W<760;
+  const ch=mob?(card.offsetHeight||300):0, ty=mob?Math.max(H*.36+40,Math.min(H*.52,H-ch-60)):H*.56;
+  const yn=Math.max(-.95,Math.min(.95,(CY-ty)/R));
+  const p1=Math.max(-60,Math.min(60,p-Math.asin(yn)/rad));
+  const dx=mob?0:-170, off=Math.asin(Math.max(-.9,Math.min(.9,dx/(R*Math.cos(p*rad)||1))))/rad;
+  const d=((-l+off-rot.lon)%360+540)%360-180;
+  FLY={t0:performance.now(),d:Math.min(1300,500+Math.abs(d)*8+Math.abs(p1-rot.lat)*8),l0:rot.lon,l1:rot.lon+d,p0:rot.lat,p1};
+}
+/* every frame: the card stays beside its table's host, the hover label beside its dot */
+function follow(){
+  if(card.hidden&&SEL)SEL=null;
+  if(SEL&&!card.hidden&&W>=760){const [l,p]=CITY[SEL.p[0][1]],[x,y,z]=proj(l,p);
+    if(z>0){const cw=card.offsetWidth,ch=card.offsetHeight;let cx=x+26;if(cx+cw>W-12)cx=x-26-cw;
+      card.style.left=Math.max(12,cx)+"px";card.style.top=Math.min(Math.max(y-ch/2,76),H-ch-12)+"px"}}
+  if(HOV&&!tip.hidden){let bx=0,by=0,bd=1e9;const m=tip.dataset.x?[+tip.dataset.x,+tip.dataset.y]:null;
+    HOV.p.forEach(([n,c])=>{const [l,p]=CITY[c],[x,y,z]=proj(l,p);if(z<=0)return;const d=m?(x-m[0])**2+(y-m[1])**2:-z;if(d<bd){bd=d;bx=x;by=y}});
+    const tw=tip.offsetWidth,th=tip.offsetHeight;tip.style.left=Math.max(8,Math.min(W-tw-8,bx-tw/2))+"px";tip.style.top=(by-th-16<70?by+16:by-th-16)+"px"}
+}
+cv.addEventListener("pointermove",e=>{tip.dataset.x=e.clientX;tip.dataset.y=e.clientY});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!card.hidden&&(typeof gate==="undefined"||gate.hidden))card.hidden=true});
 function showCard(T,x,y){
-  GT=T; const cs=[...new Set(T.p.map(([,c])=>CITY[c][2]))];
+  GT=T; SEL=T; HOV=null; tip.hidden=true; const cs=[...new Set(T.p.map(([,c])=>CITY[c][2]))];
   card.style.setProperty("--c",T.c);
   card.innerHTML=`<div class="r1"><span class="lpill"><i></i>Live</span><span class="topic" style="--c:${T.c}"><i></i>${T.th}</span><button class="x" aria-label="Close">×</button></div>
     <h3>${T.t}</h3><div class="m">with <b>${T.p[0][0]}</b> · ${T.p[0][1]}</div>
@@ -971,6 +1037,7 @@ function showCard(T,x,y){
   card.hidden=false;
   const cw=300, ch=card.offsetHeight;
   card.style.left=Math.min(Math.max(x+16,12),W-cw-12)+"px"; card.style.top=Math.min(Math.max(y-ch/2,12),H-ch-12)+"px";
+  flyTo(T);
 }
 /* Shared person pop-up: tcpHTML(u) -> inner markup. u = {name, avatar, trusted, role, place, since, bio, topics:[[name,colour]], tables, feedbacks, coins, profile} */
 const TCP_FOLLOW=new Set();
@@ -1021,7 +1088,37 @@ card.addEventListener("click",e=>{if(e.target.closest(".x"))card.hidden=true;con
 .card .btns a.join{color:var(--lamp-ink)}
 .card .btns .listen{display:inline-flex;align-items:center;justify-content:center;gap:7px}
 .card .btns .listen svg,#lbar svg,.lnote svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.card .btns .listen.on{background:rgba(23,195,200,.12);border-color:rgba(23,195,200,.45);color:#7FF0F2}
+.card .btns .listen{background:var(--lamp);color:var(--lamp-ink);border:0}
+.card .btns .listen ~ .join{background:rgba(255,255,255,.07);color:var(--fg);border:1px solid rgba(255,255,255,.12)}
+.card .btns .listen.on{background:rgba(23,195,200,.12);border:1px solid rgba(23,195,200,.45);color:#7FF0F2}
+.card .btns a.listen{color:var(--lamp-ink)}
+
+/* ---------- globe: legend and hover label ---------- */
+canvas.on{cursor:pointer}
+#glg{position:fixed;z-index:5;right:40px;bottom:30px;display:grid;justify-items:end;gap:10px;pointer-events:none;font:400 10.5px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#C9CFF0}
+#glg .glg-h{display:flex;align-items:center;gap:8px;margin:0;color:#7FF0F2;font-size:11px}
+#glg .glg-h svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#glg .glg-k{display:flex;gap:18px}
+#glg .glg-k>span{display:inline-flex;align-items:center;gap:8px}
+#glg i{width:8px;height:8px;border-radius:50%;background:#6F78A8}
+#glg i.o{background:#17C3C8;box-shadow:0 0 0 3px rgba(23,195,200,.22),0 0 8px rgba(23,195,200,.6)}
+#glg .mb{display:none}
+body.lis #glg{display:none}
+#gtip{position:fixed;z-index:8;max-width:300px;padding:9px 12px;border-radius:10px;background:rgba(14,20,48,.92);border:1px solid rgba(127,160,255,.3);box-shadow:0 12px 34px rgba(0,0,0,.5);pointer-events:none;display:grid;gap:4px}
+#gtip[hidden]{display:none}
+#gtip b{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--fg)}
+#gtip b span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#gtip b i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--c)}
+#gtip small{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mute)}
+#gtip.open small{color:#7FF0F2}
+#gtip small svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:760px){
+  #glg{left:20px;right:20px;bottom:76px;justify-items:start;gap:6px;font-size:10px}
+  #glg .glg-h{font-size:10.5px}
+  #glg .glg-k{gap:14px}
+  #glg .dk{display:none}#glg .mb{display:inline}
+  body:not(.lis) #lproto{bottom:128px}
+}
 .lnote{margin-top:10px;font-size:12px;line-height:1.55;color:var(--mute)}
 .card .lnote svg{display:inline-block;width:13px;height:13px;margin-right:5px;vertical-align:-2px;color:var(--soft)}
 
@@ -1073,7 +1170,7 @@ card.addEventListener("click",e=>{if(e.target.closest(".x"))card.hidden=true;con
 body.out #tch .tch-auth{display:flex}
 body.out #tch .tch-create,body.out #tch .tch-ic,body.out #tch .tch-me{display:none!important}
 
-@media (max-width:900px){#lproto{bottom:96px}}
+@media (max-width:900px) and (min-width:761px){#lproto{bottom:96px}}
 @media (max-width:760px){
   #lbar{left:12px;right:12px;bottom:12px;width:auto;gap:10px;padding-left:14px}
   body.lis .count{display:none}
@@ -1109,6 +1206,11 @@ body.out #tch .tch-create,body.out #tch .tch-ic,body.out #tch .tch-me{display:no
   </div>
 </div>
 
+<div id="glg">
+  <p class="glg-h"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg><span class="dk">Click a teal dot to listen in</span><span class="mb">Tap a teal dot to listen in</span></p>
+  <div class="glg-k"><span><i class="o"></i><span>Open to listeners</span></span><span><i></i><span>Not open to listeners</span></span></div>
+</div>
+
 <div id="lproto" role="group" aria-label="Prototype">
   <b>Prototype</b>
   <span class="pg"><button type="button" data-so="0" aria-pressed="true">Signed in</button><button type="button" data-so="1" aria-pressed="false">Signed out</button></span>
@@ -1126,7 +1228,7 @@ const I_PLAY='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 
 let SO=false, freeUsed=false;
 const LIS={T:null,on:false,left:FREE,timer:null,next:null,last:-1,sid:0};
 // hosts choose "Open to listeners"; here most tables are, a few are not
-TABLES.forEach((T,k)=>T.lis=k%5!==2);
+TABLES.forEach((T,k)=>T.lis=k%2===0);
 const bar=document.getElementById("lbar"), gate=document.getElementById("lgate"), proto=document.getElementById("lproto");
 
 function cardBtns(T){
@@ -1178,7 +1280,7 @@ function lisStart(T){
   if(LIS.T)lisStop(true);
   LIS.sid++;LIS.T=T;LIS.on=true;LIS.last=-1;
   if(SO&&!freeUsed){freeUsed=true;LIS.left=FREE}
-  card.hidden=true;gpHide();
+  card.hidden=true;gpHide();flyTo(T);
   renderBar();setWho(null);bar.hidden=false;document.body.classList.add("lis");
   clearInterval(LIS.timer);LIS.timer=setInterval(tick,1000);
   say();
