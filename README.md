@@ -60,3 +60,7 @@ node i18n/build.js
 Some scripts still use absolute paths from the original workspace (`/mnt/project-files/...`); run them from a copy at that path, or change the path at the top of the script.
 
 The pages run inside a claude.ai frame: cross-page links are plain `<a target="_top">` and `window.open` is not used.
+
+## Online preview
+
+The site is deployed with Cloudflare Pages from `main` (https://timecapsule-9hb.pages.dev). It is protected by one shared password, set in `functions/_middleware.js` or by the `SITE_PASSWORD` variable in Cloudflare Pages settings.
