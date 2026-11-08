@@ -129,7 +129,7 @@ function walk(root){if(root.nodeType===3){doText(root);return}if(root.nodeType!=
 var w=document.createTreeWalker(root,5,null),n=root.nodeType===1?root:w.nextNode();
 for(;n;n=w.nextNode()){if(n.nodeType===3){var p=n.parentNode;if(p&&SKIP[p.nodeName])continue;doText(n)}else{if(SKIP[n.nodeName])continue;for(var i=0;i<ATTRS.length;i++)if(n.hasAttribute(ATTRS[i]))doAttr(n,ATTRS[i])}}}
 function src(el){if(!el)return"";if(el.nodeType===3){var r=TN.get(el);return r&&el.nodeValue===r.t?r.o:el.nodeValue}var s="",w=document.createTreeWalker(el,4,null),n;while(n=w.nextNode())s+=src(n);return s}
-function u(url){if(!url||!/claude\.ai\/(code\/)?artifact\//.test(url))return url;url=url.replace(/([#&])lang=(en|it|es)\b/,"$1").replace(/[#&]$/,"").replace("#&","#");return url+(url.indexOf("#")>=0?"&":"#")+"lang="+L}
+function u(url){if(!url||!/claude\.ai\/(code\/)?artifact\/|\.html(#|$)/.test(url))return url;url=url.replace(/([#&])lang=(en|it|es)\b/,"$1").replace(/[#&]$/,"").replace("#&","#");return url+(url.indexOf("#")>=0?"&":"#")+"lang="+L}
 var mo=new MutationObserver(function(rs){if(busy)return;busy=true;try{for(var i=0;i<rs.length;i++){var r=rs[i];if(r.type==="childList"){for(var j=0;j<r.addedNodes.length;j++)walk(r.addedNodes[j])}else if(r.type==="characterData"){doText(r.target)}else if(r.type==="attributes"){doAttr(r.target,r.attributeName)}}}finally{mo.takeRecords();busy=false}});
 function start(){mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS})}
 function all(){busy=true;try{walk(document.body||document.documentElement)}finally{mo.takeRecords();busy=false}}
@@ -313,7 +313,7 @@ form{display:grid;gap:16px;margin:0}
 <body>
 <div class="app">
 <header>
- <a class="logo" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-label="TimeCapsule">
+ <a class="logo" href="../help/live-pages/agenda.html" target="_top" aria-label="TimeCapsule">
   <svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tcL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tcL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg>
   <span data-noi18n><b>time</b><i>capsule</i></span>
  </a>
@@ -362,8 +362,8 @@ form{display:grid;gap:16px;margin:0}
 </div>
 
 <script>
-const AGENDA="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5";
-const ONBOARD="https://claude.ai/artifact/Q7o5JaMGP7bHLXzJ6aw6TH";
+const AGENDA="../help/live-pages/agenda.html";
+const ONBOARD="../onboarding/timecapsule-onboarding.html";
 const ICON={
  back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>',
  apple:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.5 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1.1-2.9-4.3zM13.9 5.1c.7-.9 1.2-2 1.1-3.1-1 0-2.3.7-3 1.6-.7.8-1.2 1.9-1.1 3 1.1.1 2.3-.6 3-1.5z"/></svg>',

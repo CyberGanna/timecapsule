@@ -347,7 +347,7 @@ table.dt{width:100%;border-collapse:collapse;font-size:13.5px}
   <span class="tag-admin">Admin</span>
   <span class="sp"></span>
   <label class="gsearch"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input id="gq" type="search" placeholder="Find a person or table" aria-label="Find a person or table" autocomplete="off"></label>
-  <a class="back" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">Back to TimeCapsule</a>
+  <a class="back" href="../help/live-pages/agenda.html" target="_top">Back to TimeCapsule</a>
   <div class="me"><span class="ph" id="meph"></span><span class="nm"><b>Karim</b><small>Owner</small></span></div>
 </header>
 <nav class="mnav" id="mnav" aria-label="Admin sections"></nav>
@@ -650,7 +650,7 @@ function openUser(id){
    </div></div>
    <div class="sec"><h4>Tables they host</h4><div class="list">${hostedT.length?hostedT.map(t=>`<div class="li"><div class="tx">${esc(t.title)}<span>${tpTag(t.topic)} · ${t.when}</span></div>${tStatus(t)}</div>`).join(''):'<div class="m" style="color:var(--mute)">None right now.</div>'}</div></div>
    <div class="sec"><h4>Admin access</h4><div class="li" style="border:0;padding:0"><div class="tx">${u.role==='member'?'No admin access.':u.role==='admin'?'Admin: full access, including delete and export.':'Support: can view and edit, can\'t delete or export.'}</div>${u.role==='member'?`<button class="btn sm" data-a="grant">Make admin</button>`:`<button class="btn sm redo" data-a="revoke">Remove access</button>`}</div></div>
-   <div class="sec" style="display:flex;gap:18px;flex-wrap:wrap"><a class="lnk" href="https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy" target="_top">View public profile</a><button class="lnk" data-a="chats">Read their direct chats</button></div>`,
+   <div class="sec" style="display:flex;gap:18px;flex-wrap:wrap"><a class="lnk" href="../profile/timecapsule-profile.html" target="_top">View public profile</a><button class="lnk" data-a="chats">Read their direct chats</button></div>`,
    `<button class="btn pri" data-a="save">Save changes</button><span class="sp"></span>${u.status==='suspended'?'<button class="btn" data-a="restore">Lift suspension</button>':'<button class="btn" data-a="suspend">Suspend</button>'}<button class="btn redo" data-a="delete">Delete user</button>`);
   $('#ef-tp').onclick=e=>{const b=e.target.closest('[data-t]');if(b)b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')};
   $('#drawer').onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
