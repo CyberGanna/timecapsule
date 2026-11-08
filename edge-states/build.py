@@ -23,3 +23,6 @@ body=open('body.html',encoding='utf8').read().replace('/*AVATARS*/',m.group(1))
 out=head+body+foot
 open('timecapsule-edge.html','w',encoding='utf8').write(out)
 print(len(D),len(out))
+
+import subprocess
+subprocess.run(["python3","/mnt/project-files/i18n/add-greek.py","timecapsule-edge.html"],check=True)
