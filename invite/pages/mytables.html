@@ -870,6 +870,7 @@ function copyLink(t){
   const done=()=>toast("Link copied");
   try{navigator.clipboard.writeText(link).then(done,()=>{toast(link)})}catch(e){toast(link)}
 }
+/*tc-again-fn*/function againURL(t){const p=new URLSearchParams({again:"1",th:t.theme||"",q:t.title||"",seats:String(t.seats||8),tl:t.lang||"English",vis:(t.vis==="private"||t.private)?"private":"open",tr:t.transcript===false?"0":"1"});if(t.at){p.set("tm",hhmm(t.at));p.set("wd",String(t.at.getDay()))}return URLS.create+"#"+p.toString()}
 function go(u){const a=document.createElement("a");a.href=u;a.target="_top";document.body.appendChild(a);a.click();a.remove()}
 function messageHost(t){
   if(t.chat&&window.tchOpenChat){window.tchOpenChat(t.chat);scrollTo({top:0,behavior:"smooth"})}
@@ -890,7 +891,7 @@ function act(k,t,el){
     case "notes":return exportFile(t,"notes");
     case "transcript":return exportFile(t,"transcript");
     case "rate":return openRate(t);
-    case "again":go(URLS.create);return;
+    case "again":go(againURL(t));return; /*tc-again*/
     case "cancel-yes":t.cancelled=true;closeSheet();render();toast("Table cancelled. Your guests were told.",()=>{t.cancelled=false;render()});return;
     case "leave-yes":{const was=t.you==="wait";t.cancelled=true;closeSheet();render();toast(was?"You left the waitlist.":"Your chair is free for someone else.",()=>{t.cancelled=false;render()});return}
     case "msgall-send":{const m=$("#ma-m");if(!m.value.trim()){m.focus();return}closeSheet();toast(`Sent to ${t.people.length-1} guests`);return}
