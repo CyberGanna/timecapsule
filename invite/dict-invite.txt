@@ -206,3 +206,4 @@ Conversations are better with people you know. Invite someone, and when they sig
 Invite up to 10 friends a week to join TimeCapsule. They'll gain 2 TimeCoins, and you, too!|Invita fino a 10 amici a settimana a entrare in TimeCapsule. Loro guadagnano 2 TimeCoins, e anche tu!|Invita hasta a 10 amigos a la semana a unirse a TimeCapsule. Ellos ganan 2 TimeCoins, ¡y tú también!
 Invite up to 10 friends a week to sit at your tables. They'll gain 5 TimeCoins, and you, too!|Invita fino a 10 amici a settimana a sedersi ai tuoi tavoli. Loro guadagnano 5 TimeCoins, e anche tu!|Invita hasta a 10 amigos a la semana a sentarse en tus mesas. Ellos ganan 5 TimeCoins, ¡y tú también!
 Your invitations this week|I tuoi inviti questa settimana|Tus invitaciones esta semana
+Invite a friend to join TimeCapsule|Invita un amico a entrare in TimeCapsule|Invita a un amigo a unirse a TimeCapsule
