@@ -1728,3 +1728,26 @@ Not open to listeners|Δεν είναι ανοιχτό σε ακροατές
 Click to listen in|Κάνε κλικ για να ακούσεις
 Click to see the table|Κάνε κλικ για να δεις το τραπέζι
 They show on each person's profile as reputation, which can never be bought.|Εμφανίζονται στο προφίλ του καθενός ως φήμη, που δεν αγοράζεται ποτέ.
+Listen in|Άκου
+Stop listening|Σταμάτα να ακούς
+Sign in to listen|Συνδέσου για να ακούσεις
+Sign in to join|Συνδέσου για να μπεις
+Open to listeners|Ανοιχτό σε ακροατές
+about 30 seconds behind live|περίπου 30 δευτερόλεπτα πίσω από το live
+5 minutes free|5 λεπτά δωρεάν
+Only the people at the table can hear it|Το ακούνε μόνο όσοι είναι στο τραπέζι
+is speaking|μιλά
+Paused|Σε παύση
+Free listen|Δωρεάν ακρόαση
+Pause|Παύση
+Play|Συνέχεια
+Enjoying the table?|Σου αρέσει το τραπέζι;
+Your 5 free minutes are up. Sign in to keep listening. It's free, and next time you can pull up a chair yourself.|Τα 5 δωρεάν λεπτά σου τελείωσαν. Συνδέσου για να συνεχίσεις να ακούς. Είναι δωρεάν, και την επόμενη φορά μπορείς να πάρεις κι εσύ μια καρέκλα.
+Not now|Όχι τώρα
+Signed out|Αποσυνδεδεμένος
+End free listen|Τέλος δωρεάν ακρόασης
+Host turns listeners off|Ο οικοδεσπότης κλείνει τους ακροατές
+The table closed to listeners|Το τραπέζι έκλεισε για τους ακροατές
+Listening to a live table|Ακούς ένα live τραπέζι
+In the real app this opens the table|Στην πραγματική εφαρμογή αυτό ανοίγει το τραπέζι
+Show this table|Δείξε αυτό το τραπέζι
