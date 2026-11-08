@@ -1,0 +1,305 @@
+<style>
+/* Guides page */
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+@media (max-width:640px){.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+main{padding-bottom:8px}
+.ey{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin:0 0 10px}
+h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spacing:-.04em;margin:0;text-wrap:balance}
+.lede{margin:14px 0 0;color:var(--soft);font-size:16.5px;max-width:600px}
+/* hub */
+.hero{padding:48px 0 0;max-width:680px}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:34px}
+.tile{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:start;padding:22px;border-radius:18px;background:var(--surface);border:1px solid var(--line);color:var(--fg);text-decoration:none;transition:border-color .15s,background .15s}
+.tile:hover{border-color:var(--mute);background:var(--raise)}
+.tile .ic{grid-row:span 3}
+.tile b{font-weight:500;font-size:18px;letter-spacing:-.01em}
+.tile span{color:var(--mute);font-size:14px}
+.tile small{color:var(--mute);font-size:12px;letter-spacing:.04em;margin-top:6px}
+.ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;flex:none}
+.ic svg{width:22px;height:22px}
+.ic.t{background:rgba(23,195,200,.14);color:var(--lamp)}
+.ic.v{background:rgba(124,92,255,.18);color:#A995FF}
+.ic.g{background:rgba(242,193,78,.14);color:var(--gold)}
+.ic.s{background:rgba(201,207,240,.10);color:var(--soft)}
+.ic.r{background:rgba(255,120,120,.14);color:#FF9A9A}
+.faqcta{display:flex;align-items:center;gap:16px;margin-top:16px;padding:18px 22px;border-radius:18px;border:1px dashed var(--line);color:var(--fg);text-decoration:none}
+.faqcta:hover{border-color:var(--mute)}
+.faqcta div{flex:1;min-width:0;display:grid;gap:2px}
+.faqcta b{font-weight:500}
+.faqcta span{color:var(--mute);font-size:14px}
+.faqcta svg{width:18px;height:18px;color:var(--mute);flex:none}
+/* guide */
+.gl{display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;padding-top:40px}
+.side{position:sticky;top:calc(88px + env(safe-area-inset-top,0px));align-self:start;display:grid;gap:2px}
+.side .ey{margin:0 0 8px 10px}
+.side a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;color:var(--mute);text-decoration:none;font-size:14px}
+.side a:hover{color:var(--fg);background:var(--surface)}
+.side a[aria-current=true]{color:var(--fg);background:var(--surface)}
+.side a i{width:8px;height:8px;border-radius:50%;flex:none;background:var(--line)}
+.side a[aria-current=true] i{background:var(--lamp)}
+.side hr{border:0;border-top:1px solid var(--line);margin:10px 0}
+.back{display:inline-flex;gap:6px;align-items:center;color:var(--mute);font-size:13.5px;text-decoration:none;margin-bottom:18px}
+.back:hover{color:var(--fg)}
+.back svg{width:15px;height:15px}
+.art{max-width:640px;min-width:0}
+.art .head{display:flex;gap:16px;align-items:center;margin-bottom:6px}
+.art .head .ic{width:52px;height:52px;border-radius:15px}
+.art .head .ic svg{width:26px;height:26px}
+.steps{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:0;counter-reset:s}
+.steps>li{position:relative;display:grid;grid-template-columns:36px minmax(0,1fr);gap:0 18px;padding-bottom:30px}
+.steps.num>li::before{counter-increment:s;content:counter(s);width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:13.5px;color:var(--soft);background:var(--bg);position:relative;z-index:1}
+.steps.num>li:not(:last-child)::after{content:"";position:absolute;left:16px;top:34px;bottom:2px;width:1px;background:var(--line)}
+.steps:not(.num)>li{grid-template-columns:minmax(0,1fr);padding-bottom:30px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.steps:not(.num)>li:last-child{border-bottom:0;margin-bottom:0}
+.steps h2{margin:4px 0 6px;font-size:18px;font-weight:500;letter-spacing:-.01em}
+.steps p{margin:0;color:var(--soft);font-size:15px;max-width:58ch}
+.steps .body{min-width:0}
+.mini{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tip{margin-top:6px;display:flex;gap:14px;padding:16px 18px;border-radius:14px;background:rgba(23,195,200,.07);border:1px solid rgba(23,195,200,.28)}
+.tip svg{width:20px;height:20px;color:var(--lamp);flex:none;margin-top:2px}
+.tip p{margin:0;color:var(--soft);font-size:14.5px}
+.next{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.next a{display:grid;gap:2px;padding:16px 18px;border-radius:14px;border:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.next a:hover{border-color:var(--mute);background:var(--surface)}
+.next small{color:var(--mute);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.next b{font-weight:500}
+.next .r{text-align:right}
+/* mock ui bits */
+.ub{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:9px;font-weight:600;font-size:13.5px;white-space:nowrap;user-select:none}
+.ub.teal{background:var(--lamp);color:var(--lamp-ink)}
+.ub.vio{background:var(--violet);color:#fff}
+.ub.gh{border:1px solid var(--line);color:var(--fg);font-weight:500}
+.pill{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:999px;border:1px solid var(--line);font-size:13px;color:var(--soft);white-space:nowrap}
+.pill.on{border-color:var(--soft);color:var(--fg)}
+.tabs{display:inline-flex;gap:2px;padding:3px;border-radius:10px;border:1px solid var(--line);background:var(--surface);flex-wrap:wrap}
+.tabs span{padding:5px 11px;border-radius:7px;font-size:13px;color:var(--mute)}
+.tabs span.on{background:var(--raise);color:var(--fg)}
+.row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line);width:100%;max-width:440px;min-width:0}
+.row .dot{width:8px;height:8px;border-radius:50%;background:#A995FF;flex:none}
+.row .tx{flex:1;min-width:0;display:grid}
+.row .tx b{font-weight:500;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .tx span{font-size:12.5px;color:var(--mute)}
+.chairs{display:flex;gap:3px;flex:none}
+.chairs i{width:8px;height:8px;border-radius:50%;background:var(--lamp)}
+.chairs i.e{background:none;box-shadow:inset 0 0 0 1.5px var(--line)}
+.flag{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 11px;border-radius:8px;font-size:12.5px;font-weight:600}
+.flag.k{background:rgba(124,92,255,.18);color:#B9A8FF}
+.flag.a{background:rgba(242,193,78,.16);color:var(--gold)}
+.flag.tr{background:rgba(23,195,200,.15);color:var(--lamp)}
+.flag svg{width:14px;height:14px}
+.fl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 16px;align-items:start;margin-top:16px}
+.fl>.flag{justify-self:start;margin-top:1px}
+.fl p{font-size:14.5px}
+.aw{display:grid;gap:8px;width:100%;max-width:360px}
+.aw div{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;background:var(--surface);border:1px solid var(--line);font-size:13.5px}
+.aw div>span{flex:1}
+.aw .st{display:inline-flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums}
+.aw .st em{font-style:normal;width:22px;height:22px;border-radius:6px;border:1px solid var(--line);display:grid;place-items:center;color:var(--mute);font-size:13px}
+.aw .left{justify-content:flex-end;background:none;border:0;padding:0 4px;color:var(--mute);font-size:12.5px}
+.coin{width:1em;height:1em;flex:none;display:inline-block;vertical-align:-.12em}
+.sw{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;color:var(--soft)}
+.sw i{width:34px;height:20px;border-radius:999px;background:var(--lamp);position:relative;flex:none}
+.sw i::after{content:"";position:absolute;right:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff}
+.ctr{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:9px;height:34px;padding:0 12px;font-size:13.5px;color:var(--soft)}
+.ctr b{font-weight:500;color:var(--fg);font-variant-numeric:tabular-nums}
+.note{width:100%;max-width:440px;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:grid;gap:8px;min-width:0}
+.note q{display:block;font-size:12.5px;color:var(--mute);border-left:2px solid var(--line);padding-left:10px;quotes:none}
+.note span{font-size:14px}
+.note div{display:flex;gap:6px;flex-wrap:wrap}
+.lk{color:var(--lamp);text-decoration:none;font-weight:500}
+.lk:hover{text-decoration:underline;text-underline-offset:3px}
+.view[hidden]{display:none}
+@media (max-width:860px){
+ .gl{grid-template-columns:minmax(0,1fr);gap:0;padding-top:20px}
+ .side{position:static;display:flex;overflow-x:auto;gap:6px;margin:0 -16px 22px;padding:0 16px 4px;scrollbar-width:none}
+ .side::-webkit-scrollbar{display:none}
+ .side .ey,.side hr{display:none}
+ .side a{flex:none;border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:13px}
+ .side a i{display:none}
+ .side a[aria-current=true]{border-color:var(--soft)}
+}
+@media (max-width:640px){
+ .tiles{grid-template-columns:minmax(0,1fr)}
+ .hero{padding-top:32px}
+ .next{grid-template-columns:minmax(0,1fr)}
+ .next .r{text-align:left}
+ .steps>li{grid-template-columns:32px minmax(0,1fr);gap:0 14px}
+}
+@media (prefers-reduced-motion:reduce){.tile{transition:none}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<radialGradient id="cg" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#FFE08A"/><stop offset="1" stop-color="#E3A93A"/></radialGradient>
+<symbol id="coin" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19.2" fill="#E2AC3C" stroke="#B07A1C" stroke-width="1.4"/><circle cx="20" cy="20" r="17.6" fill="none" stroke="#FFE38A" stroke-width="1.6" stroke-dasharray="1 1.4"/><circle cx="20" cy="20" r="15.2" fill="url(#cg)" stroke="#B07A1C" stroke-width="1.1"/><circle cx="20" cy="20" r="12.4" fill="none" stroke="#C98F22" stroke-opacity=".6" stroke-width=".9"/><path d="M20 12V20L25.5 23.2" fill="none" stroke="#9A6614" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="1.8" fill="#9A6614"/></symbol>
+<symbol id="i-topic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c4.7 0 8.5 3 8.5 6.8S16.7 17.5 12 17.5c-.9 0-1.8-.1-2.6-.3L5 20l1-3.6C4.5 15.2 3.5 13.2 3.5 10.8 3.5 7 7.3 4 12 4z"/></g><circle cx="12" cy="10.8" r="1.9" fill="currentColor"/></symbol>
+<symbol id="i-chair" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v9h10V3"/><path d="M5 12h14"/><path d="M7 12v9M17 12v9M7 16h10"/></g></symbol>
+<symbol id="i-host" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="3.5" r="1.5"/><circle cx="20.5" cy="12" r="1.5"/><circle cx="12" cy="20.5" r="1.5"/><circle cx="3.5" cy="12" r="1.5"/></g></symbol>
+<symbol id="i-coin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></g></symbol>
+<symbol id="i-note" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v4h4M8.5 12h7M8.5 16h5"/></g></symbol>
+<symbol id="i-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></g></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H6M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-q" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14"/><path d="M12 17.5h.01"/></g></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M12 8.5v4M12 15.5h.01"/></g></symbol>
+<symbol id="i-lines" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</defs></svg>
+
+<main>
+<!-- HUB -->
+<section class="view wrap" id="v-hub">
+ <div class="hero">
+  <p class="ey">Help</p>
+  <h1>Guides</h1>
+  <p class="lede">Five short reads to find your way around. Each one takes about two minutes.</p>
+ </div>
+ <div class="tiles">
+  <a class="tile" href="#first"><span class="ic t"><svg><use href="#i-topic"/></svg></span><b>Your first table</b><span>Find a table, take a chair and join the conversation.</span><small>2 min read</small></a>
+  <a class="tile" href="#host"><span class="ic v"><svg><use href="#i-host"/></svg></span><b>Hosting a table</b><span>Bring a question and keep the conversation kind and moving.</span><small>3 min read</small></a>
+  <a class="tile" href="#coins"><span class="ic g"><svg><use href="#i-coin"/></svg></span><b>TimeCoins</b><span>How people say thank you after a table, and what coins are for.</span><small>2 min read</small></a>
+  <a class="tile" href="#notes"><span class="ic s"><svg><use href="#i-note"/></svg></span><b>Notes</b><span>Private notes on the side, and the three ways to use them.</span><small>2 min read</small></a>
+  <a class="tile" href="#report"><span class="ic r"><svg><use href="#i-shield"/></svg></span><b>Report abuse</b><span>What to do when someone makes a table unsafe or unkind.</span><small>2 min read</small></a>
+ </div>
+ <a class="faqcta" href="FAQ_URL" target="_top"><span class="ic s"><svg><use href="#i-q"/></svg></span><div><b>Looking for a quick answer?</b><span>The FAQ covers privacy, TimeCoins, hosting and your account.</span></div><svg><use href="#i-arrow"/></svg></a>
+</section>
+
+<!-- GUIDE LAYOUT -->
+<div class="view wrap" id="v-guide" hidden>
+ <div class="gl">
+  <nav class="side" aria-label="Guides">
+   <p class="ey">Guides</p>
+   <a href="#first" data-g="first"><i></i>Your first table</a>
+   <a href="#host" data-g="host"><i></i>Hosting a table</a>
+   <a href="#coins" data-g="coins"><i></i>TimeCoins</a>
+   <a href="#notes" data-g="notes"><i></i>Notes</a>
+   <a href="#report" data-g="report"><i></i>Report abuse</a>
+   <hr>
+   <a href="FAQ_URL" target="_top"><i></i>FAQ</a>
+  </nav>
+  <div>
+
+<!-- 1 FIRST TABLE -->
+<article class="art" id="g-first" hidden>
+ <a class="back" href="#"><svg><use href="#i-left"/></svg>All guides</a>
+ <div class="head"><span class="ic t"><svg><use href="#i-topic"/></svg></span><p class="ey" style="margin:0">Guide 1 of 5</p></div>
+ <h1>Your first table</h1>
+ <p class="lede">A table is a small live conversation about one question. Here is how to sit at your first one.</p>
+ <ol class="steps num">
+  <li><div class="body"><h2>Find a table</h2><p>Open Tables to see what is happening now, what starts soon and what comes later. Tap a card to read the question and see who is hosting and who is coming.</p>
+   <div class="mini"><div class="row"><i class="dot"></i><div class="tx"><b>Is free will an illusion?</b><span>Gregory · Starts in 12 min</span></div><div class="chairs"><i></i><i></i><i></i><i></i><i></i><i class="e"></i><i class="e"></i><i class="e"></i></div></div></div></div></li>
+  <li><div class="body"><h2>Save a chair</h2><p>If the table starts later, choose Save a chair. You can sit as your first name or an alias, and we remind you before it starts. If plans change, give up your chair in My tables so someone else can sit.</p>
+   <div class="mini"><span class="ub gh">Save a chair</span></div></div></li>
+  <li><div class="body"><h2>Join when it starts</h2><p>When the table is live, choose Join table. A quick camera and microphone check comes first, then you sit down with the others.</p>
+   <div class="mini"><span class="ub teal">Join table</span></div></div></li>
+  <li><div class="body"><h2>Talk and listen</h2><p>It is an open discussion: no turns to wait for. On the side you can follow the live transcript, write private notes and send a private message to anyone at the table.</p>
+   <div class="mini"><div class="tabs"><span class="on">Transcript</span><span>Messages</span><span>People</span><span>Notes</span></div></div></div></li>
+  <li><div class="body"><h2>Rate and award</h2><p>When the table ends, say how the discussion was and award your 8 TimeCoins to the people who inspired you. If you leave in a hurry, the bell reminds you the next day.</p>
+   <div class="mini"><span class="pill on">Mind-blowing</span><span class="pill">Pleasant</span><span class="pill">Not so inspiring</span></div></div></li>
+ </ol>
+ <div class="tip"><svg><use href="#i-bulb"/></svg><p>Nobody needs your full name. Listening counts too: you can stay quiet for a while and speak when you are ready.</p></div>
+ <div class="next"><span></span><a class="r" href="#host"><small>Next guide</small><b>Hosting a table</b></a></div>
+</article>
+
+<!-- 2 HOSTING -->
+<article class="art" id="g-host" hidden>
+ <a class="back" href="#"><svg><use href="#i-left"/></svg>All guides</a>
+ <div class="head"><span class="ic v"><svg><use href="#i-host"/></svg></span><p class="ey" style="margin:0">Guide 2 of 5</p></div>
+ <h1>Hosting a table</h1>
+ <p class="lede">Hosting means bringing a question and keeping the conversation kind and moving. You don't need to be an expert, only curious.</p>
+ <ol class="steps num">
+  <li><div class="body"><h2>Pick a question</h2><p>Choose Create a table, pick a topic and write what you want to discuss. Open, short questions work best, because nobody can answer them alone.</p>
+   <div class="mini"><span class="ub vio">+ Create a table</span></div></div></li>
+  <li><div class="body"><h2>Choose when and who</h2><p>Start now, later today or on a date you pick. Open tables appear on the Agenda for anyone to join. Private tables stay off the Agenda, and only people with your invite link can join.</p>
+   <div class="mini"><div class="tabs"><span class="on">Open</span><span>Private</span></div></div></div></li>
+  <li><div class="body"><h2>Set the table</h2><p>Choose up to eight chairs and the language you will speak. Decide whether to keep a transcript of the discussion. A transcript goes to the public library only if everyone at the table agrees.</p>
+   <div class="mini"><span class="ctr">Seats <b>8</b></span><span class="sw"><i></i>Keep a transcript of the discussion</span></div></div></li>
+  <li><div class="body"><h2>Invite people</h2><p>Share the table link, or use Invite friends to save a chair for someone next to yours: when you sit together you both gain 5 TimeCoins. Before the table, My tables shows who is coming and lets you message your guests.</p></div></li>
+  <li><div class="body"><h2>Lead the conversation</h2><p>Open with the question and a short welcome, and bring in the quieter voices. Your one control is the notes: questions guests send with Ask come to you, and you decide when to put them to the table. Private messages between guests are theirs, and you can't see or stop them.</p>
+   <div class="mini"><span class="ub teal">Ask the table</span><span class="ub gh">Later</span></div></div></li>
+  <li><div class="body"><h2>Close well</h2><p>A few minutes before the end, ask each chair for one last thought. Then choose End table. Your guests rate the table and can award you TimeCoins.</p>
+   <div class="mini"><span class="ub gh">End table</span></div></div></li>
+ </ol>
+ <div class="tip"><svg><use href="#i-bulb"/></svg><p>Hosting good tables again and again is the surest way to become Trusted.</p></div>
+ <div class="next"><a href="#first"><small>Previous</small><b>Your first table</b></a><a class="r" href="#coins"><small>Next guide</small><b>TimeCoins</b></a></div>
+</article>
+
+<!-- 3 TIMECOINS -->
+<article class="art" id="g-coins" hidden>
+ <a class="back" href="#"><svg><use href="#i-left"/></svg>All guides</a>
+ <div class="head"><span class="ic g"><svg><use href="#i-coin"/></svg></span><p class="ey" style="margin:0">Guide 3 of 5</p></div>
+ <h1>TimeCoins</h1>
+ <p class="lede">TimeCoins are how people say thank you after a table. You earn them only from other people, never with money.</p>
+ <ol class="steps">
+  <li><div class="body"><h2>8 coins after every table</h2><p>After each table you finish, you get 8 TimeCoins to award. Split them between the host and the guests who inspired you. Coins you don't award expire after a few days.</p>
+   <div class="mini"><div class="aw"><div><span>Gregory</span><span class="st"><em>−</em>4<em>+</em></span></div><div><span>Lena</span><span class="st"><em>−</em>2<em>+</em></span></div><div class="left"><svg class="coin"><use href="#coin"/></svg>2 left to award</div></div></div></div></li>
+  <li><div class="body"><h2>Coins you receive</h2><p>Every coin someone awards you adds to your Received total on your profile. It only goes up. It shows that people valued your voice, and it counts toward becoming Trusted.</p></div></li>
+  <li><div class="body"><h2>Coins you can use</h2><p>The coins you receive also go into a balance you can spend on extras, such as two more chairs at a table you host or a recap of a past table. Spending never lowers your Received total. Sitting, hosting and your own transcript stay free.</p>
+   <div class="mini"><a class="lk" href="https://claude.ai/artifact/VRtXrcZBGsWhfQkPMZuKpK" target="_top">See your TimeCoins</a></div></div></li>
+  <li><div class="body"><h2>Inviting friends</h2><p>Invite up to 10 friends a week to join TimeCapsule. They'll gain 2 TimeCoins, and you, too! Invite up to 10 friends a week to sit at your tables. They'll gain 5 TimeCoins, and you, too!</p></div></li>
+  <li><div class="body"><h2>What coins never do</h2><p>Reputation can't be bought: coins you might buy for extras in the future never count toward it. Coins can't be passed on outside an award, and there are no leaderboards.</p></div></li>
+ </ol>
+ <div class="next"><a href="#host"><small>Previous</small><b>Hosting a table</b></a><a class="r" href="#notes"><small>Next guide</small><b>Notes</b></a></div>
+</article>
+
+<!-- 4 NOTES -->
+<article class="art" id="g-notes" hidden>
+ <a class="back" href="#"><svg><use href="#i-left"/></svg>All guides</a>
+ <div class="head"><span class="ic s"><svg><use href="#i-note"/></svg></span><p class="ey" style="margin:0">Guide 4 of 5</p></div>
+ <h1>Notes</h1>
+ <p class="lede">During a table you can write notes on the side. They are private: only you can see them.</p>
+ <ol class="steps">
+  <li><div class="body"><h2>Write a note</h2><p>Open the Notes tab and start typing. To catch a moment, tap the note icon next to a line in the transcript, and your note quotes it.</p>
+   <div class="mini"><div class="note"><q>Gregory: Maybe choosing is just noticing what we already are.</q><span>Ask about habits. Are they choices we stopped seeing?</span><div><span class="flag k"><svg><use href="#i-pin"/></svg>Keep</span><span class="flag a"><svg><use href="#i-q"/></svg>Ask</span><span class="flag tr"><svg><use href="#i-lines"/></svg>Transcript</span></div></div></div></div></li>
+  <li><div class="body"><h2>Three ways to use a note</h2>
+   <div class="fl">
+    <span class="flag k"><svg><use href="#i-pin"/></svg>Keep</span><p>Save the note for later. Kept notes wait for you in My tables, where you can export them as a text file.</p>
+    <span class="flag a"><svg><use href="#i-q"/></svg>Ask</span><p>Send the note as a question to the host, who decides when to put it to the table.</p>
+    <span class="flag tr"><svg><use href="#i-lines"/></svg>Transcript</span><p>Add the note to the transcript, under the line it quotes. You can take it out until the table ends.</p>
+   </div></div></li>
+  <li><div class="body"><h2>Nothing leaves without you</h2><p>A note stays private until you choose Ask or Transcript, and you confirm before a question is sent.</p></div></li>
+ </ol>
+ <div class="next"><a href="#coins"><small>Previous</small><b>TimeCoins</b></a><a class="r" href="#report"><small>Next guide</small><b>Report abuse</b></a></div>
+</article>
+
+<!-- 5 REPORT ABUSE -->
+<article class="art" id="g-report" hidden>
+ <a class="back" href="#"><svg><use href="#i-left"/></svg>All guides</a>
+ <div class="head"><span class="ic r"><svg><use href="#i-shield"/></svg></span><p class="ey" style="margin:0">Guide 5 of 5</p></div>
+ <h1>Report abuse</h1>
+ <p class="lede">Most tables are kind. When one isn't, here is what you can do, and what we do.</p>
+ <ol class="steps">
+  <li><div class="body"><h2>Leave if you need to</h2><p>If a table stops feeling safe, choose Leave table. You never have to explain, and you can report afterwards.</p></div></li>
+  <li><div class="body"><h2>Report the person</h2><p>Open their profile, tap the three dots next to the Follow button and choose Report. Pick a reason and, if you want, add a few words. Only our team reads it.</p><div class="mini"><span class="ub gh">Making me feel unsafe or followed</span><span class="ub gh">Harassment or hate</span><span class="ub gh">Spam or scam</span><span class="ub gh">Something else</span></div></div></li>
+  <li><div class="body"><h2>Block them too</h2><p>Also block is on by default when you report. A blocked person can't see your profile or tables, sit at yours, chat or follow you. They aren't told. You can unblock in Settings.</p></div></li>
+  <li><div class="body"><h2>What happens next</h2><p>Reports are private and the person is never told who sent one. Our team reviews every report. Someone who keeps crossing the line can lose their Trusted badge or be removed from TimeCapsule.</p></div></li>
+ </ol>
+ <div class="tip"><svg><use href="#i-bulb"/></svg><p>Hosts have no control over private messages, so report an unkind message yourself. The host can't do it for you.</p></div>
+ <div class="next"><a href="#notes"><small>Previous</small><b>Notes</b></a><a class="r" href="FAQ_URL" target="_top"><small>Still curious?</small><b>Read the FAQ</b></a></div>
+</article>
+
+  </div>
+ </div>
+</div>
+</main>
+<!--FOOTER-->
+<script>
+(function(){
+ var G=['first','host','coins','notes','report'];
+ function show(){
+  var h=(location.hash||'').replace('#','').split('&')[0];
+  var g=G.indexOf(h)>=0?h:null;
+  document.getElementById('v-hub').hidden=!!g;
+  document.getElementById('v-guide').hidden=!g;
+  G.forEach(function(k){document.getElementById('g-'+k).hidden=(k!==g)});
+  document.querySelectorAll('.side a[data-g]').forEach(function(a){a.setAttribute('aria-current',a.getAttribute('data-g')===g?'true':'false')});
+  window.scrollTo(0,0);
+ }
+ document.addEventListener('click',function(e){
+  var a=e.target.closest('a[href^="#"]');if(!a)return;
+  var h=a.getAttribute('href');
+  if(h==='#'){e.preventDefault();try{history.pushState(null,'',location.pathname+location.search)}catch(x){location.hash=''}show();}
+ });
+ window.addEventListener('hashchange',show);
+ show();
+})();
+</script>
+</body></html>

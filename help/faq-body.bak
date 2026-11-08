@@ -1,0 +1,147 @@
+<style>
+/* FAQ page */
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+@media (max-width:640px){.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+.ey{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin:0 0 10px}
+h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spacing:-.04em;margin:0;text-wrap:balance}
+.lede{margin:14px 0 0;color:var(--soft);font-size:16.5px;max-width:600px}
+.hero{padding:48px 0 0;max-width:680px}
+.fs{position:relative;display:block;margin-top:26px;max-width:520px}
+.fs svg{position:absolute;left:14px;top:13px;width:18px;height:18px;color:var(--mute)}
+.fs input{width:100%;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 14px 0 42px;font-size:15px;outline:none;color:var(--fg)}
+.fs input::placeholder{color:var(--mute)}
+.fs input:focus{border-color:var(--mute)}
+.fl{display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;margin-top:40px}
+.side{position:sticky;top:calc(88px + env(safe-area-inset-top,0px));align-self:start;display:grid;gap:2px}
+.side a{display:block;padding:8px 10px;border-radius:10px;color:var(--mute);text-decoration:none;font-size:14px}
+.side a:hover{color:var(--fg);background:var(--surface)}
+.side hr{border:0;border-top:1px solid var(--line);margin:10px 0}
+.qs{max-width:680px;min-width:0}
+.grp{scroll-margin-top:calc(90px + env(safe-area-inset-top,0px))}
+.grp+.grp{margin-top:40px}
+.grp>h2{margin:0 0 4px;padding-bottom:8px;border-bottom:1px solid var(--line);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:16px 2px;font-size:16px;font-weight:500;letter-spacing:-.005em}
+summary::-webkit-details-marker{display:none}
+summary span{flex:1;min-width:0}
+summary svg{width:18px;height:18px;color:var(--mute);flex:none;transition:transform .2s}
+details[open] summary svg{transform:rotate(45deg);color:var(--fg)}
+summary:hover span{color:#fff}
+details p{margin:-4px 0 18px;padding-right:34px;color:var(--soft);font-size:15px;max-width:60ch}
+details a{color:var(--lamp);text-decoration:none}
+details a:hover{text-decoration:underline;text-underline-offset:3px}
+.none{display:none;padding:22px 0;color:var(--mute)}
+.none.on{display:block}
+.more{margin-top:44px;display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:18px;border:1px dashed var(--line);color:var(--fg);text-decoration:none}
+.more:hover{border-color:var(--mute)}
+.more div{flex:1;min-width:0;display:grid;gap:2px}
+.more b{font-weight:500}.more span{color:var(--mute);font-size:14px}
+.more>svg{width:18px;height:18px;color:var(--mute);flex:none}
+@media (max-width:860px){
+ .fl{grid-template-columns:minmax(0,1fr);gap:0;margin-top:26px}
+ .side{position:static;display:flex;overflow-x:auto;gap:6px;margin:0 -16px 18px;padding:0 16px 4px;scrollbar-width:none}
+ .side::-webkit-scrollbar{display:none}
+ .side hr{display:none}
+ .side a{flex:none;border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:13px}
+ .hero{padding-top:32px}
+}
+@media (prefers-reduced-motion:reduce){summary svg{transition:none}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></g></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
+<main class="wrap">
+ <div class="hero">
+  <p class="ey">Help</p>
+  <h1>Questions and answers</h1>
+  <p class="lede">Short answers about tables, TimeCoins, privacy and your account.</p>
+  <label class="fs"><svg><use href="#i-search"/></svg><input id="fq" type="search" placeholder="Search the questions" aria-label="Search the questions" autocomplete="off"></label>
+ </div>
+ <div class="fl">
+  <nav class="side" aria-label="Topics">
+   <a href="#start">Getting started</a>
+   <a href="#table">At the table</a>
+   <a href="#hosting">Hosting</a>
+   <a href="#coins">TimeCoins and Trusted</a>
+   <a href="#privacy">Privacy and safety</a>
+   <a href="#account">Your account</a>
+   <hr>
+   <a href="GUIDES_URL" target="_top">All guides</a>
+  </nav>
+  <div class="qs">
+
+<section class="grp" id="start"><h2>Getting started</h2>
+ <details><summary><span>What is TimeCapsule?</span><svg><use href="#i-plus"/></svg></summary><p>Small live video tables where real people talk about one question at a time. Each table has up to eight chairs, a host and an hour or so of real conversation.</p></details>
+ <details><summary><span>Does it cost anything?</span><svg><use href="#i-plus"/></svg></summary><p>No. Sitting at tables and hosting them are free.</p></details>
+ <details><summary><span>Do I have to use my real name?</span><svg><use href="#i-plus"/></svg></summary><p>No. Use your first name or an alias. You can choose how you appear each time you save a chair.</p></details>
+ <details><summary><span>Which languages can I use?</span><svg><use href="#i-plus"/></svg></summary><p>Each table shows its language before you sit down. The app itself is in English, Italian and Spanish: switch it in the menu under your photo or in Settings.</p></details>
+ <details><summary><span>Where do I start?</span><svg><use href="#i-plus"/></svg></summary><p>Read Your first table in the Guides, then open Tables and save a chair at something that makes you curious.</p></details>
+</section>
+
+<section class="grp" id="table"><h2>At the table</h2>
+ <details><summary><span>How many people sit at a table?</span><svg><use href="#i-plus"/></svg></summary><p>Up to eight, including the host. Small tables give everyone time to speak.</p></details>
+ <details><summary><span>What is the difference between Moderated and Open circle?</span><svg><use href="#i-plus"/></svg></summary><p>At a Moderated table the host gives the word and receives questions from guests. At an Open circle people take turns on their own and questions go to everyone.</p></details>
+ <details><summary><span>What if I can't make it?</span><svg><use href="#i-plus"/></svg></summary><p>Give up your chair in My tables so someone else can sit. At a live table you can leave at any time with Leave table.</p></details>
+ <details><summary><span>Is there a transcript?</span><svg><use href="#i-plus"/></svg></summary><p>Only when the host turns it on, and the table page tells you before you sit down. A transcript becomes public only if everyone at the table agrees.</p></details>
+ <details><summary><span>Who can see my notes?</span><svg><use href="#i-plus"/></svg></summary><p>Only you. A note leaves your Notes tab only when you choose Ask or Transcript on it.</p></details>
+</section>
+
+<section class="grp" id="hosting"><h2>Hosting</h2>
+ <details><summary><span>How do I host a table?</span><svg><use href="#i-plus"/></svg></summary><p>Choose Create a table at the top of the page, write your question, pick a time and open it. The guide Hosting a table walks you through it.</p></details>
+ <details><summary><span>Can I host a private table?</span><svg><use href="#i-plus"/></svg></summary><p>Yes. Choose Private under Who can join. The table stays off the Agenda and only people with your link can join.</p></details>
+ <details><summary><span>How do I change or cancel my table?</span><svg><use href="#i-plus"/></svg></summary><p>Open My tables, find the table and use its menu to edit it, message your guests or cancel it. Your guests are told if you cancel.</p></details>
+ <details><summary><span>What if someone is unkind at my table?</span><svg><use href="#i-plus"/></svg></summary><p>Remind the table of the question and give the word to someone else. If it goes on, report the person from their profile. Reports are read by our moderators.</p></details>
+</section>
+
+<section class="grp" id="coins"><h2>TimeCoins and Trusted</h2>
+ <details><summary><span>Can I buy TimeCoins?</span><svg><use href="#i-plus"/></svg></summary><p>No. TimeCoins come only from people at your tables and from inviting friends. They can't be bought with money or cashed out.</p></details>
+ <details><summary><span>Why did some of my coins disappear?</span><svg><use href="#i-plus"/></svg></summary><p>The 8 coins you get to award after a table expire after a few days if you don't award them. Coins you have received never expire.</p></details>
+ <details><summary><span>What does Trusted mean?</span><svg><use href="#i-plus"/></svg></summary><p>The Trusted badge shows that someone has taken part well over time: finished many tables, hosted with good ratings and received TimeCoins from many different people. Logins, messages and followers don't count.</p></details>
+ <details><summary><span>How do I see my progress toward Trusted?</span><svg><use href="#i-plus"/></svg></summary><p>On your profile, tap the badge next to your name. Only you can see your progress.</p></details>
+</section>
+
+<section class="grp" id="privacy"><h2>Privacy and safety</h2>
+ <details><summary><span>Who can see which tables I join?</span><svg><use href="#i-plus"/></svg></summary><p>Visitors to your profile see only the open tables you host. Tables you join as a guest, private tables and when you were last online are never shown.</p></details>
+ <details><summary><span>Is my data sold?</span><svg><use href="#i-plus"/></svg></summary><p>Never. Your data isn't sold, and it isn't mined for advertising.</p></details>
+ <details><summary><span>How do I block or report someone?</span><svg><use href="#i-plus"/></svg></summary><p>Open their profile, tap the three dots and choose Block or Report. Blocking is silent: they aren't told. You can see and undo blocks in Settings.</p></details>
+ <details><summary><span>Who can chat with me?</span><svg><use href="#i-plus"/></svg></summary><p>You decide in Settings: everyone, only people you have sat with, or nobody.</p></details>
+</section>
+
+<section class="grp" id="account"><h2>Your account</h2>
+ <details><summary><span>I forgot my password.</span><svg><use href="#i-plus"/></svg></summary><p>On the sign-in page choose Forgot password. We email you a link to set a new one.</p></details>
+ <details><summary><span>How do I change my notifications?</span><svg><use href="#i-plus"/></svg></summary><p>In Settings, under Notifications. Reminders for tables you are about to join always ring the bell.</p></details>
+ <details><summary><span>How do I download or delete my data?</span><svg><use href="#i-plus"/></svg></summary><p>In Settings, under Your data. You can download a copy of everything before you delete your account.</p></details>
+</section>
+
+<p class="none" id="none">No question matches yet. Try another word, or read the guides.</p>
+<a class="more" href="GUIDES_URL" target="_top"><div><b>Prefer a short walkthrough?</b><span>Four guides: your first table, hosting, TimeCoins and notes.</span></div><svg><use href="#i-arrow"/></svg></a>
+
+  </div>
+ </div>
+</main>
+<!--FOOTER-->
+<script>
+(function(){
+ var q=document.getElementById('fq'),none=document.getElementById('none');
+ function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+ function filter(){
+  var v=norm(q.value.trim()),any=false;
+  document.querySelectorAll('.grp').forEach(function(g){
+   var n=0;
+   g.querySelectorAll('details').forEach(function(d){
+    var hit=!v||norm(d.textContent).indexOf(v)>=0;
+    d.hidden=!hit; if(hit)n++;
+    if(v&&hit)d.open=true;
+   });
+   g.hidden=n===0; if(n)any=true;
+  });
+  none.classList.toggle('on',!any);
+ }
+ q.addEventListener('input',filter);
+ function openHash(){var h=(location.hash||'').slice(1).split('&')[0];if(!h)return;var el=document.getElementById(h);if(el&&el.classList.contains('grp')){var d=el.querySelector('details');if(d)d.open=true}}
+ window.addEventListener('hashchange',openHash);openHash();
+})();
+</script>
+</body></html>

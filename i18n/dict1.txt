@@ -1,0 +1,179 @@
+Tables|Tavoli|Mesas
+People|Persone|Personas
+World|Mondo|Mundo
+Search|Cerca|Buscar
+Create a table|Crea un tavolo|Crear una mesa
+Create a Table|Crea un tavolo|Crear una mesa
++ Create a table|+ Crea un tavolo|+ Crear una mesa
+Chats|Chat|Chats
+Chats, 2 unread|Chat, 2 non lette|Chats, 2 sin leer
+See all chats|Vedi tutte le chat|Ver todos los chats
+Mark all read|Segna tutto come letto|Marcar todo como leído
+Notifications|Notifiche|Notificaciones
+Notifications, new|Notifiche, nuove|Notificaciones, nuevas
+See all notifications|Vedi tutte le notifiche|Ver todas las notificaciones
+My profile|Il mio profilo|Mi perfil
+My tables|I miei tavoli|Mis mesas
+Settings|Impostazioni|Ajustes
+Sign out|Esci|Cerrar sesión
+Your menu|Il tuo menu|Tu menú
+Profile|Profilo|Perfil
+Home|Casa|Hogar
+TimeCapsule home|Home di TimeCapsule|Inicio de TimeCapsule
+Close|Chiudi|Cerrar
+Close chat|Chiudi la chat|Cerrar el chat
+Back to chats|Torna alle chat|Volver a los chats
+Back to conversations|Torna alle conversazioni|Volver a las conversaciones
+Back to tables|Torna ai tavoli|Volver a las mesas
+← Back to tables|← Torna ai tavoli|← Volver a las mesas
+← Back|← Indietro|← Atrás
+← Profile|← Profilo|← Perfil
+Write a message|Scrivi un messaggio|Escribe un mensaje
+Write a message…|Scrivi un messaggio…|Escribe un mensaje…
+Send|Invia|Enviar
+Chat|Chat|Chat
+Conversation|Conversazione|Conversación
+Conversations|Conversazioni|Conversaciones
+Unread|Non lette|Sin leer
+Online now|Online ora|En línea ahora
+Search people and tables|Cerca persone e tavoli|Buscar personas y mesas
+Search tables, people, topics|Cerca tavoli, persone, temi|Buscar mesas, personas, temas
+Search a topic, a question, a moderator|Cerca un tema, una domanda, un moderatore|Busca un tema, una pregunta, un moderador
+Search people|Cerca persone|Buscar personas
+Search people, topics, cities|Cerca persone, temi, città|Buscar personas, temas, ciudades
+Search tables|Cerca tavoli|Buscar mesas
+Search my tables|Cerca nei miei tavoli|Buscar en mis mesas
+Pull up a chair|Prendi una sedia|Acerca una silla
+Pull up a chair.|Prendi una sedia.|Acerca una silla.
+Join|Entra|Unirse
+Join now|Entra ora|Unirse ahora
+Join table|Entra al tavolo|Unirse a la mesa
+Join a table|Siediti a un tavolo|Únete a una mesa
+Join waitlist|Mettiti in lista d'attesa|Apuntarse a la lista de espera
+Joined|Ci sei|Dentro
+Save|Salva|Guardar
+Save a chair|Tieni un posto|Reservar sitio
+Chair saved|Posto tenuto|Sitio reservado
+A chair opens up|Si libera un posto|Se libera un sitio
+A seat opened|Si è liberato un posto|Se ha liberado un sitio
+Seat released.|Posto liberato.|Sitio liberado.
+a chair|un posto|un sitio
+Happening now|In corso ora|Ahora mismo
+Starting soon|Tra poco|Empieza pronto
+Later today|Più tardi oggi|Más tarde hoy
+Today|Oggi|Hoy
+Tomorrow|Domani|Mañana
+Yesterday|Ieri|Ayer
+This week|Questa settimana|Esta semana
+within the next hour|entro la prossima ora|en la próxima hora
+Now|Ora|Ahora
+now|ora|ahora
+Live|Live|Live
+Live now|Live ora|Live ahora
+LIVE|LIVE|LIVE
+Scheduled|In programma|Programada
+Upcoming|In arrivo|Próximas
+Past|Passati|Pasadas
+Past tables|Tavoli passati|Mesas pasadas
+Current tables|Tavoli attuali|Mesas actuales
+Past table|Tavolo passato|Mesa pasada
+Table ended|Tavolo concluso|Mesa terminada
+Full · waitlist open|Pieno · lista d'attesa aperta|Completa · lista de espera abierta
+Smaller cards|Schede più piccole|Tarjetas más pequeñas
+☰ List|☰ Elenco|☰ Lista
+All topics|Tutti i temi|Todos los temas
+All|Tutti|Todo
+Any language|Qualsiasi lingua|Cualquier idioma
+Sort|Ordina|Ordenar
+Best rated|Più votati|Mejor valoradas
+Most tipped|Più premiati|Más propinas
+Hosting soonest|Chi ospita prima|Anfitriones más próximos
+Have a question worth an hour?|Hai una domanda che vale un'ora?|¿Tienes una pregunta que valga una hora?
+Open your own table, pick a time and invite people who care.|Apri il tuo tavolo, scegli un orario e invita chi ci tiene.|Abre tu propia mesa, elige una hora e invita a quien le importe.
+Open a table|Apri un tavolo|Abrir una mesa
+Open the table|Apri il tavolo|Abrir la mesa
+Talk, discuss, brainstorm and engage in real conversations.|Parla, discuti, fai brainstorming e vivi conversazioni vere.|Habla, debate, genera ideas y vive conversaciones reales.
+No feeds, no algorithms. Just people, live.|Niente feed, niente algoritmi. Solo persone, dal vivo.|Sin feeds, sin algoritmos. Solo personas, en directo.
+Small tables, real people, every corner of the world.|Piccoli tavoli, persone vere, in ogni angolo del mondo.|Mesas pequeñas, gente real, en cada rincón del mundo.
+Small tables, real people,|Piccoli tavoli, persone vere,|Mesas pequeñas, gente real,
+everywhere in the world.|in tutto il mondo.|en todo el mundo.
+Be part of the conversation.|Fai parte della conversazione.|Forma parte de la conversación.
+The world, talking|Il mondo che parla|El mundo, conversando
+people talking|persone parlano|personas hablando
+tables live|tavoli live|mesas live
+topics|temi|temas
+tables|tavoli|mesas
+with|con|con
+· with|· con|· con
+or|o|o
+optional|facoltativo|opcional
+Moderated|Moderato|Moderada
+Moderated by|Moderato da|Moderada por
+Moderated by Gregory|Moderato da Gregory|Moderada por Gregory
+Open circle|Cerchio aperto|Círculo abierto
+Open|Aperto|Abierta
+Private|Privato|Privada
+Moderator|Moderatore|Moderador
+Participant|Partecipante|Participante
+Participants|Partecipanti|Participantes
+Guest|Ospite|Invitado
+Host|Host|Anfitrión
+Hosting|Ospita|Anfitrión
+Hosting today|Ospitano oggi|Anfitriones hoy
+You host|Ospiti tu|Eres anfitrión
+You're hosting|Stai ospitando|Eres el anfitrión
+Your table|Il tuo tavolo|Tu mesa
+You're up next|Tocca a te|Te toca a ti
+Who's coming|Chi viene|Quién viene
+Invite|Invita|Invitar
+Invite to a table|Invita a un tavolo|Invitar a una mesa
+Invited you to a table|Ti ha invitato a un tavolo|Te ha invitado a una mesa
+Philosophy|Filosofia|Filosofía
+Religion|Religione|Religión
+Science|Scienza|Ciencia
+History|Storia|Historia
+Travel|Viaggi|Viajes
+Slow travel|Viaggio lento|Viaje lento
+Craft|Artigianato|Artesanía
+Energy|Energia|Energía
+Climate|Clima|Clima
+Design|Design|Diseño
+Repair|Riparazione|Reparación
+Memoir|Memorie|Memorias
+Topic|Tema|Tema
+Trusted|Fidato|De confianza
+Trusted moderator|Moderatore fidato|Moderador de confianza
+TRUSTED MODERATOR|MODERATORE FIDATO|MODERADOR DE CONFIANZA
+Follow|Segui|Seguir
+Following|Seguiti|Siguiendo
+Following@btn|Segui già|Siguiendo
+Followers|Follower|Seguidores
+Find people|Trova persone|Encontrar personas
+View profile|Vedi profilo|Ver perfil
+Open profile|Apri profilo|Abrir perfil
+Learn more →|Scopri di più →|Más información →
+Cancel|Annulla|Cancelar
+Undo|Annulla|Deshacer
+Edit|Modifica|Editar
+Remove|Rimuovi|Quitar
+Block|Blocca|Bloquear
+Unblock|Sblocca|Desbloquear
+Report|Segnala|Denunciar
+More|Altro|Más
+Show more|Mostra di più|Mostrar más
+Show less|Mostra di meno|Mostrar menos
+Show all|Mostra tutto|Mostrar todo
+Preview|Anteprima|Vista previa
+Download|Scarica|Descargar
+Continue|Continua|Continuar
+Restart|Ricomincia|Reiniciar
+Skip|Salta|Omitir
+Skip anyway|Salta comunque|Omitir de todos modos
+Done|Fatto|Hecho
+Prototype|Prototipo|Prototipo
+View as|Vedi come|Ver como
+Visitor|Visitatore|Visitante
+Gregory (owner)|Gregory (proprietario)|Gregory (propietario)
+You|Tu|Tú
+Yes|Sì|Sí
+No|No|No

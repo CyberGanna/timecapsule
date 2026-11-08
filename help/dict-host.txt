@@ -1,0 +1,19 @@
+Search a topic, a question, a host|Cerca un tema, una domanda, un host|Busca un tema, una pregunta, un anfitrión
+Hosted by|Ospitato da|Organizada por
+Hosted by Gregory|Ospitato da Gregory|Organizada por Gregory
+Trusted host|Host fidato|Anfitrión de confianza
+TRUSTED HOST|HOST FIDATO|ANFITRIÓN DE CONFIANZA
+Hosts and regulars|Host e habitué|Anfitriones y habituales
+Host tools|Strumenti dell'host|Herramientas del anfitrión
+Host as|Ospita come|Organizar como
+The host unmuted everyone|L'host ha riattivato l'audio a tutti|El anfitrión ha activado el audio a todos
+The host muted everyone|L'host ha silenziato tutti|El anfitrión ha silenciado a todos
+Now viewing as Gregory, the host|Ora vedi come Gregory, l'host|Ahora ves como Gregory, el anfitrión
+Split your TimeCoins between the host and the participants who made it worth it.|Dividi i tuoi TimeCoins tra l'host e i partecipanti che l'hanno resa preziosa.|Reparte tus TimeCoins entre el anfitrión y los participantes que hicieron que valiera la pena.
+You're the host|Ospiti tu|Eres el anfitrión
+Only the host can see it's you. Your alias is kept for your next tables, and you can change it anytime.|Solo l'host sa che sei tu. Il tuo alias resta per i prossimi tavoli e puoi cambiarlo quando vuoi.|Solo el anfitrión sabe que eres tú. Tu alias se mantiene para tus próximas mesas y puedes cambiarlo cuando quieras.
+The hosts and regulars behind the tables. Follow someone and we'll tell you when they host next.|Gli host e gli habitué dietro i tavoli. Segui qualcuno e ti diremo quando ospita di nuovo.|Los anfitriones y habituales detrás de las mesas. Sigue a alguien y te avisaremos cuando organice otra mesa.
+★ You're hosting|★ Stai ospitando|★ Eres el anfitrión
+Hosted by Ruth|Ospitato da Ruth|Organizada por Ruth
+They sit next to you, and the host sees a small "First table" tag to welcome them.|Si siede accanto a te e l'host vede una piccola etichetta "Primo tavolo" per dargli il benvenuto.|Se sienta a tu lado y el anfitrión ve una pequeña etiqueta "Primera mesa" para darle la bienvenida.
+The host sees a small "First table" tag to welcome them.|L'host vede una piccola etichetta "Primo tavolo" per dargli il benvenuto.|El anfitrión ve una pequeña etiqueta "Primera mesa" para darle la bienvenida.

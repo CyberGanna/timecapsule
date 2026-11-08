@@ -1,0 +1,353 @@
+<title>TimeCapsule Aliases</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: a calm navy board of five mock-up screens, each with a one-line caption saying what it fixes */
+:root{
+  --bg:#1B2144; --surface:#20264A; --raise:#252B52; --line:#3A4175; --line2:#2D3463;
+  --fg:#EEF1FF; --mute:#A9B0D6; --soft:#C9CFF0;
+  --teal:#17C3C8; --violet:#7C5CFF; --gold:#F2C14E; --good:#3DDC84; --bad:#FF6B7A; --ink:#0E1430;
+  --font:"Sora",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:14px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:1180px;margin:0 auto}
+header{display:flex;align-items:center;gap:14px;padding-block:22px;border-bottom:1px solid var(--line2)}
+.logo{display:flex;align-items:center;gap:8px;font-size:18px}
+.logo svg{width:38px;height:28px}.logo b{font-weight:600}.logo i{font-style:normal;font-weight:300}
+.tag{margin-left:auto;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.hero{padding-block:36px 8px;max-width:720px}
+h1{font-weight:500;font-size:30px;line-height:1.2;margin:0 0 10px;text-wrap:balance}
+.hero p{color:var(--soft);margin:0}
+.rules{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.rules span{font-size:12.5px;color:var(--soft);background:var(--surface);border:1px solid var(--line2);border-radius:8px;padding:6px 10px}
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px;margin-top:34px}
+.shot{display:flex;flex-direction:column;gap:12px;min-width:0}
+.shot h2{font-size:15px;font-weight:600;margin:0}
+.shot .cap{color:var(--mute);font-size:13px;margin:0}
+.stage{background:#141936;border:1px solid var(--line2);border-radius:14px;padding:22px;display:flex;justify-content:center;align-items:flex-start;gap:16px;flex-wrap:wrap;min-height:280px}
+.wide{grid-column:1/-1}
+
+/* alias avatar */
+.av{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:600;color:#fff;font-size:15px}
+.av.alias{background:repeating-linear-gradient(135deg,#3B2A9E 0 6px,#7C5CFF 6px 12px);box-shadow:0 0 0 2px var(--bg),0 0 0 3px var(--line)}
+.av.alias span{background:#141936;border-radius:50%;width:26px;height:26px;display:grid;place-items:center;font-size:13px}
+.av.real{background:linear-gradient(140deg,#c98a5e,#6b3f2a)}
+.av.big{width:64px;height:64px;font-size:22px}.av.big span{width:40px;height:40px;font-size:18px}
+.alabel{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:2px 7px;font-weight:500}
+.alabel svg{width:12px;height:12px}
+
+/* pop-ups */
+.pop{width:290px;max-width:100%;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.pop .bd{height:62px;border-radius:13px 13px 0 0;background:radial-gradient(circle at 30% 40%,#3a3f8f 0,transparent 40%),radial-gradient(circle at 75% 20%,#2a7f9a 0,transparent 35%),#0e1330;position:relative}
+.pop .bd::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,var(--surface))}
+.pop .bd.plain{background:var(--raise)}
+.pop .in{padding:0 16px 16px;margin-top:-30px;position:relative;display:flex;flex-direction:column;gap:8px}
+.pop .nm{font-weight:600;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pop .meta{font-size:12px;color:var(--mute)}
+.pop .bio{font-size:12.5px;color:var(--soft)}
+.dots{display:flex;gap:12px;font-size:12px;color:var(--soft)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px}
+.stats{display:flex;gap:16px;font-size:12px;color:var(--mute);border-top:1px solid var(--line2);padding-top:8px}
+.stats b{color:var(--fg);font-weight:600}.stats .g{color:var(--gold)}
+.acts{display:flex;align-items:center;gap:8px;font-size:12.5px}
+.acts a{color:var(--teal);text-decoration:none}
+.ib{border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:8px;padding:5px 9px;font:inherit;font-size:12px}
+.trusted{font-size:10px;color:#9fe7ff;border:1px solid #2f6f8f;background:#163049;border-radius:999px;padding:2px 7px;font-weight:600}
+.leak{position:relative}
+.leak::before{content:"Today";position:absolute;top:-10px;left:12px;font-size:10.5px;background:var(--bad);color:var(--ink);font-weight:600;border-radius:999px;padding:1px 8px;z-index:2}
+.fix::before{content:"Proposed";position:absolute;top:-10px;left:12px;font-size:10.5px;background:var(--teal);color:var(--ink);font-weight:600;border-radius:999px;padding:1px 8px;z-index:2}
+.fix{position:relative}
+.strike{text-decoration:line-through;text-decoration-color:var(--bad);color:var(--mute)}
+.report{font-size:12px;color:var(--mute);text-decoration:underline;text-underline-offset:3px}
+
+/* sheet */
+.sheet{width:360px;max-width:100%;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.sheet h3{margin:0;font-size:16px;font-weight:600}
+.sheet .sub{font-size:12.5px;color:var(--mute);margin:-6px 0 0}
+.opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;background:transparent;text-align:left;color:var(--fg);font:inherit;width:100%}
+.opt:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opt.on{border-color:var(--teal);background:rgba(23,195,200,.08)}
+.radio{width:16px;height:16px;border-radius:50%;border:2px solid var(--line);flex:none;margin-top:2px}
+.opt.on .radio{border-color:var(--teal);box-shadow:inset 0 0 0 3px var(--surface);background:var(--teal)}
+.opt .t{font-weight:500;font-size:13.5px}
+.opt .d{font-size:12px;color:var(--mute)}
+.namefield{display:flex;gap:8px;margin-top:8px;align-items:center}
+.namefield input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--fg);font:inherit;padding:7px 10px;font-size:13px}
+.shuffle{border:1px solid var(--line);background:transparent;color:var(--soft);border-radius:8px;padding:6px 9px;font:inherit;font-size:12px;cursor:pointer}
+.saved{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chip{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:4px 9px;color:var(--soft);background:transparent;font:inherit;cursor:pointer}
+.chip.on{border-color:#fff;color:#fff;background:rgba(255,255,255,.06)}
+.warnline{font-size:11.5px;color:var(--gold);margin-top:6px}
+.camnote{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--soft);background:var(--raise);border-radius:10px;padding:9px 11px}
+.camnote svg{width:16px;height:16px;flex:none}
+.cta{background:var(--teal);color:var(--ink);border:0;border-radius:10px;padding:10px;font:inherit;font-weight:600;cursor:pointer}
+.sens{font-size:11px;color:var(--soft);display:flex;align-items:center;gap:6px}
+
+/* my tables */
+.list{width:100%;max-width:520px;display:flex;flex-direction:column;gap:10px}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters span{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:5px 10px;color:var(--soft)}
+.filters span.on{background:var(--fg);color:var(--ink);border-color:var(--fg);font-weight:500}
+.row{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:12px}
+.row .when{font-size:11.5px;color:var(--mute);width:62px;flex:none;line-height:1.3}
+.row .m{flex:1;min-width:0}
+.row .ti{font-weight:500;font-size:13.5px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.astag{font-size:11px;color:var(--soft);background:rgba(124,92,255,.18);border-radius:6px;padding:1px 7px;font-weight:400}
+.row .tp{font-size:12px;color:var(--mute);margin-top:2px}
+.btn{border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:10px;padding:6px 12px;font:inherit;font-size:12.5px;flex:none}
+.only{font-size:11.5px;color:var(--mute);display:flex;align-items:center;gap:6px}
+
+/* settings */
+.set{width:100%;max-width:520px;background:var(--surface);border:1px solid var(--line2);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.set h3{margin:0;font-size:17px;font-weight:500}
+.set .sub{font-size:12.5px;color:var(--mute);margin:-8px 0 0}
+.al{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line2);padding-top:12px}
+.al .m{flex:1;min-width:0}
+.al .n{font-weight:500}
+.al .s{font-size:12px;color:var(--mute)}
+.al .s .g{color:var(--gold)}
+.lnk{font-size:12.5px;color:var(--teal);background:none;border:0;font:inherit;cursor:pointer;padding:0}
+.lnk.red{color:var(--bad)}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line2);padding-top:12px;font-size:13px}
+.toggle{width:38px;height:22px;border-radius:999px;background:var(--teal);position:relative;flex:none}
+.toggle::after{content:"";position:absolute;top:3px;right:3px;width:16px;height:16px;border-radius:50%;background:#fff}
+
+/* admin */
+.adm{width:100%;max-width:560px;display:grid;grid-template-columns:1fr;gap:12px}
+.admbar{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mute)}
+.admin-tag{font-size:10px;font-weight:600;color:var(--ink);background:var(--gold);border-radius:4px;padding:1px 6px;letter-spacing:.06em}
+.repcard{background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.repcard .top{display:flex;align-items:center;gap:10px}
+.repcard .q{font-size:12.5px;color:var(--soft);border-left:2px solid var(--line);padding-left:10px}
+.dlg{background:var(--raise);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.dlg h4{margin:0;font-size:15px;font-weight:600}
+.dlg p{margin:0;font-size:12.5px;color:var(--soft)}
+.dlg select,.dlg textarea{background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;font:inherit;font-size:12.5px;padding:8px;width:100%}
+.dlg textarea{min-height:56px;resize:vertical}
+.dlg .bt{display:flex;gap:8px;justify-content:flex-end}
+.dangerbtn{background:var(--bad);color:var(--ink);border:0;border-radius:10px;padding:8px 12px;font:inherit;font-weight:600;font-size:12.5px}
+.log{font-size:11.5px;color:var(--mute);display:flex;gap:6px;align-items:center}
+.who{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:12px}
+.who dt{color:var(--mute)}.who dd{margin:0}
+.ok{color:var(--good)}
+
+@media (max-width:420px){ .stage{padding:16px} h1{font-size:25px} .board{grid-template-columns:1fr} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mask" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3 7c3-1.5 6-1.5 9 0 3-1.5 6-1.5 9 0v3c0 4-3 7-5.5 7S12 14.5 12 14.5 10 17 7.5 17 3 14 3 10z"/><circle cx="8" cy="10.5" r="1.4" fill="currentColor"/><circle cx="16" cy="10.5" r="1.4" fill="currentColor"/></symbol>
+  <symbol id="cam" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M3 7h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H3zM15 11l6-3v8l-6-3M2 3l20 18"/></symbol>
+  <symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+</svg>
+
+<div class="wrap">
+<header>
+  <div class="logo"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tcL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tcL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span><b>time</b><i>capsule</i></span></div>
+  <span class="tag">Proposal · Aliases</span>
+</header>
+
+<section class="hero">
+  <h1>An alias is a separate identity, with no way back to you.</h1>
+  <p>Six screens show how sitting under an alias works end to end. Nothing a visitor can click, count or compare connects the alias to the real account.</p>
+  <div class="rules">
+    <span>No profile page behind an alias</span>
+    <span>Never on your real profile</span>
+    <span>Earnings stay with the alias</span>
+    <span>Hosts never see who it is</span>
+    <span>Admins can reveal, only from a report, logged</span>
+  </div>
+</section>
+
+<div class="board">
+
+  <!-- 1. Pop-up -->
+  <section class="shot wide">
+    <h2>1 · Tapping someone at the table</h2>
+    <p class="cap">Today the alias opens the real person pop-up and "View profile". Proposed: a small alias card with no profile, chat or follow. Only Report.</p>
+    <div class="stage">
+      <div class="pop leak">
+        <div class="bd"></div>
+        <div class="in">
+          <div class="av big real">K</div>
+          <div class="nm">Karim <span style="font-weight:400;font-size:12px;color:var(--bad)">sat as "Quiet Heron"</span></div>
+          <div class="meta">Lausanne · Member since 2026</div>
+          <div class="bio">Curious about how people make meaning together.</div>
+          <div class="dots"><span><i class="dot" style="background:#E86FB0"></i>Philosophy</span><span><i class="dot" style="background:#8E6CFF"></i>Religion</span></div>
+          <div class="stats"><span><b>23</b> tables</span><span><b>4.8</b> ★</span><span class="g"><b class="g">212</b> TimeCoins</span></div>
+          <div class="acts"><a href="#">View profile</a><span style="margin-left:auto"></span><button class="ib" type="button">Chat</button><button class="ib" type="button">Follow</button></div>
+        </div>
+      </div>
+      <div class="pop fix">
+        <div class="bd plain"></div>
+        <div class="in">
+          <div class="av big alias"><span>Q</span></div>
+          <div class="nm">Quiet Heron <span class="alabel"><svg><use href="#mask"/></svg>Alias</span></div>
+          <div class="bio">Sitting under an alias at <b style="font-weight:500">Grief and the holidays</b>.</div>
+          <div class="stats"><span><b>1</b> table</span><span>No profile</span></div>
+          <div class="acts"><span class="report">Report</span></div>
+        </div>
+      </div>
+      <div class="pop fix">
+        <div class="bd plain"></div>
+        <div class="in">
+          <div class="av big alias"><span>S</span></div>
+          <div class="nm">Saltwater <span class="alabel"><svg><use href="#mask"/></svg>Alias</span></div>
+          <div class="bio">A saved alias. Sits at <b style="font-weight:500">Sober Sundays</b> most weeks.</div>
+          <div class="stats"><span><b>9</b> tables</span><span><b>4.9</b> ★</span><span><b class="g">41</b> TimeCoins</span></div>
+          <div class="acts"><span class="report">Report</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Join -->
+  <section class="shot">
+    <h2>2 · Choosing how to sit</h2>
+    <p class="cap">Shown when you take a chair. A sensitive table preselects a new alias. Tap the options to try it.</p>
+    <div class="stage">
+      <div class="sheet" id="joinSheet">
+        <h3>How do you want to sit at this table?</h3>
+        <p class="sub">Grief and the holidays · Tonight 20:00</p>
+        <div class="sens"><svg width="14" height="14"><use href="#lock"/></svg>The host marked this table as sensitive</div>
+        <button class="opt" type="button" data-o="me" id="opt-me">
+          <span class="radio"></span>
+          <span><span class="t">As myself</span><br><span class="d">Karim, with your photo and profile</span></span>
+        </button>
+        <button class="opt on" type="button" data-o="new" id="opt-new">
+          <span class="radio"></span>
+          <span style="flex:1;min-width:0"><span class="t">New alias for this table</span><br><span class="d">Used once, then retired. Leaves no trail.</span>
+            <span class="namefield" data-for="new"><input id="aliasName" value="Quiet Heron" aria-label="Alias name"><span class="shuffle" role="button" tabindex="0" id="shuffle">Shuffle</span></span>
+          </span>
+        </button>
+        <button class="opt" type="button" data-o="saved" id="opt-saved">
+          <span class="radio"></span>
+          <span style="flex:1;min-width:0"><span class="t">A saved alias</span><br><span class="d">For circles where people should know you each week</span>
+            <span class="saved" data-for="saved" hidden><span class="chip on">Saltwater</span><span class="chip">North Light</span></span>
+            <span class="warnline" data-for="saved" hidden>Using the same alias links those tables together, but never to you.</span>
+          </span>
+        </button>
+        <div class="camnote" id="camnote"><svg><use href="#cam"/></svg>Your camera starts off. Your face and voice can still be recognised.</div>
+        <button class="cta" type="button" id="takeChair">Take my chair as Quiet Heron</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. My tables -->
+  <section class="shot">
+    <h2>3 · My tables (only you)</h2>
+    <p class="cap">Alias tables live here and nowhere else, tagged with the name you used. They never appear on your profile, not even in your own view.</p>
+    <div class="stage">
+      <div class="list">
+        <div class="filters"><span>All</span><span>Hosting</span><span>Joined</span><span class="on">Aliases</span></div>
+        <div class="row"><div class="when">Tonight<br>20:00</div><div class="m"><div class="ti">Grief and the holidays <span class="astag">as Quiet Heron</span></div><div class="tp"><i class="dot" style="background:#4FB3A0"></i>Wellbeing</div></div><button class="btn" type="button">Join</button></div>
+        <div class="row"><div class="when">Sun 1 Nov</div><div class="m"><div class="ti">Sober Sundays <span class="astag">as Saltwater</span></div><div class="tp"><i class="dot" style="background:#4FB3A0"></i>Wellbeing</div></div><button class="btn" type="button">Rate and tip</button></div>
+        <div class="row"><div class="when">Thu 29 Oct</div><div class="m"><div class="ti">Leaving my faith <span class="astag">as North Light</span></div><div class="tp"><i class="dot" style="background:#8E6CFF"></i>Religion</div></div><button class="btn" type="button">Kept notes</button></div>
+        <div class="only"><svg width="13" height="13"><use href="#lock"/></svg>Only you can see which tables you joined under an alias.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Settings -->
+  <section class="shot">
+    <h2>4 · Settings › Aliases</h2>
+    <p class="cap">A new section between Privacy and Who follows you. Saved aliases keep their own TimeCoins, apart from your real profile.</p>
+    <div class="stage">
+      <div class="set">
+        <h3>Aliases</h3>
+        <p class="sub">Up to 3 saved aliases. Nobody can see that they are yours.</p>
+        <div class="al"><div class="av alias"><span>S</span></div><div class="m"><div class="n">Saltwater</div><div class="s">9 tables · <span class="g">41 TimeCoins</span></div></div><button class="lnk" type="button">Rename</button><button class="lnk red" type="button">Retire</button></div>
+        <div class="al"><div class="av alias"><span>N</span></div><div class="m"><div class="n">North Light</div><div class="s">2 tables · <span class="g">8 TimeCoins</span></div></div><button class="lnk" type="button">Rename</button><button class="lnk red" type="button">Retire</button></div>
+        <div class="sw"><span>Suggest a new alias at sensitive tables</span><span class="toggle" role="img" aria-label="On"></span></div>
+        <div class="only">Retired aliases stay on old transcripts but can't sit at new tables.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3b. Claim -->
+  <section class="shot">
+    <h2>5 · Show under my name</h2>
+    <p class="cap">From the table's ⋯ menu in My tables, once it has ended. One-way: the people at that table will see the change.</p>
+    <div class="stage">
+      <div class="dlg" style="width:100%;max-width:420px">
+        <h4>Show "Grief and the holidays" under your name?</h4>
+        <p>Quiet Heron becomes Karim at this table. You can't switch back.</p>
+        <ul style="margin:0;padding-left:18px;font-size:12.5px;color:var(--soft);display:flex;flex-direction:column;gap:4px">
+          <li>The transcript, Messages and guest list show your name.</li>
+          <li>3 feedbacks, 4.7 ★ and <span style="color:var(--gold)">6 TimeCoins</span> move to your profile.</li>
+          <li>Visitors to your profile still won't see this table.</li>
+          <li>Table-mates aren't notified, but can see the change.</li>
+        </ul>
+        <label style="display:flex;gap:8px;font-size:12.5px;color:var(--soft);align-items:flex-start"><input type="checkbox" id="pubT" style="margin-top:3px">Also update the public transcript (it may already be read outside the table)</label>
+        <div class="bt"><button class="ib" type="button">Keep as alias</button><button class="cta" type="button" style="padding:8px 12px;font-size:12.5px">Show under my name</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Admin -->
+  <section class="shot">
+    <h2>6 · Admin panel: revealing an alias</h2>
+    <p class="cap">Hosts and Support never see the real account. Owner and Admin can reveal it from a report, with a reason, and it goes in the activity log.</p>
+    <div class="stage">
+      <div class="adm">
+        <div class="admbar"><span class="admin-tag">ADMIN</span>Reports › Quiet Heron</div>
+        <div class="repcard">
+          <div class="top"><div class="av alias"><span>Q</span></div><div><div style="font-weight:500">Quiet Heron <span class="alabel"><svg><use href="#mask"/></svg>Alias</span></div><div style="font-size:12px;color:var(--mute)">Reported by the host · Grief and the holidays</div></div></div>
+          <div class="q">"Made me feel unsafe or followed." Asked another guest which city they live in, twice.</div>
+          <dl class="who"><dt>Account</dt><dd>Hidden</dd><dt>Standing</dt><dd class="ok">Member in good standing</dd><dt>Blocks</dt><dd>Applied silently to all aliases</dd></dl>
+        </div>
+        <div class="dlg">
+          <h4>Reveal the account behind Quiet Heron?</h4>
+          <p>Only do this to handle a report. The reveal is recorded with your name and reason.</p>
+          <select aria-label="Reason" id="reason"><option>Safety report needs action</option><option>Suspected ban evasion</option><option>Legal request</option></select>
+          <textarea aria-label="Note" id="note">Host report, repeated personal questions. Checking for earlier reports on the real account.</textarea>
+          <div class="bt"><button class="ib" type="button">Cancel</button><button class="dangerbtn" type="button">Reveal account</button></div>
+        </div>
+        <div class="log"><svg width="13" height="13"><use href="#lock"/></svg>Activity log: "Karim · Owner revealed an alias · Safety report" will be added.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<script>
+(function(){
+  const names=["Quiet Heron","Paper Moon","Slow River","Blue Lantern","Still Pine","Night Swallow"];
+  let i=0, sel="new";
+  const sheet=document.getElementById("joinSheet");
+  const input=document.getElementById("aliasName");
+  const cta=document.getElementById("takeChair");
+  const cam=document.getElementById("camnote");
+  function chosenName(){
+    if(sel==="me") return "Karim";
+    if(sel==="saved"){const c=sheet.querySelector('.saved .chip.on');return c?c.textContent:"Saltwater";}
+    return input.value.trim()||"your alias";
+  }
+  function render(){
+    sheet.querySelectorAll(".opt").forEach(o=>o.classList.toggle("on",o.dataset.o===sel));
+    sheet.querySelectorAll("[data-for]").forEach(el=>{el.hidden = el.dataset.for!==sel;});
+    cam.hidden = sel==="me";
+    cta.textContent = sel==="me" ? "Take my chair" : "Take my chair as "+chosenName();
+  }
+  sheet.querySelectorAll(".opt").forEach(o=>o.addEventListener("click",e=>{
+    if(e.target.closest("input,.shuffle,.chip")) return;
+    sel=o.dataset.o; render();
+  }));
+  const sh=document.getElementById("shuffle");
+  function shuffle(e){e.stopPropagation();i=(i+1)%names.length;input.value=names[i];render();}
+  sh.addEventListener("click",shuffle);
+  sh.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();shuffle(e);}});
+  input.addEventListener("input",render);
+  input.addEventListener("click",e=>e.stopPropagation());
+  sheet.querySelectorAll(".saved .chip").forEach(c=>c.addEventListener("click",e=>{
+    e.stopPropagation();
+    sheet.querySelectorAll(".saved .chip").forEach(x=>x.classList.remove("on"));
+    c.classList.add("on"); render();
+  }));
+  render();
+})();
+</script>

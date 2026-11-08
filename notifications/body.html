@@ -1,0 +1,206 @@
+<style>
+/* Notifications page */
+.wrap{max-width:760px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.hero{padding:36px 0 0;display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.hero .ht{flex:1;min-width:240px}
+h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.05;letter-spacing:-.04em;margin:0}
+.hero p{margin:10px 0 0;color:var(--mute);font-size:16px}
+.tools{display:flex;align-items:center;gap:18px;padding-bottom:4px}
+.lnk{flex:none;background:none;border:0;padding:6px 0;color:var(--lamp);font-size:14px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.lnk:hover{text-decoration:underline;text-underline-offset:3px}
+.lnk:disabled{color:var(--mute);cursor:default;text-decoration:none}
+.lnk svg{width:16px;height:16px}
+.filters{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:26px 0 8px;padding-bottom:2px}
+.filters::-webkit-scrollbar{display:none}
+.fl{flex:none;display:flex;align-items:center;gap:7px;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:none;font-size:14px;font-weight:500;white-space:nowrap;color:var(--fg)}
+.fl:hover{border-color:var(--mute)}
+.fl[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.fl .c{font-size:12px;font-weight:600;color:var(--violet)}
+.fl[aria-pressed=true] .c{color:#5B3FE0}
+.grp{margin-top:22px}
+.grp h2{font-size:13px;font-weight:500;letter-spacing:.02em;color:var(--mute);margin:0 0 4px;text-transform:none}
+.list{list-style:none;margin:0;padding:0}
+.it{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:14px;padding:16px 12px;margin:0 -12px;border-radius:14px;cursor:pointer}
+.it+.it::before{content:"";position:absolute;left:12px;right:12px;top:0;border-top:1px solid color-mix(in srgb,var(--line) 55%,transparent)}
+.it:hover{background:var(--surface)}
+.it:hover::before,.it:hover+.it::before{border-color:transparent}
+.ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;overflow:hidden;flex:none;background:var(--raise)}
+.ic svg{width:20px;height:20px}
+.ic.p svg{width:100%;height:100%;display:block}
+.ic.t{background:rgba(23,195,200,.14);color:var(--lamp)}
+.ic.k{background:rgba(242,193,78,.15);color:var(--gold)}
+.ic.v{background:rgba(124,92,255,.16);color:#A996FF}
+.ic.r{background:rgba(255,107,122,.13);color:#FF8E9A}
+.bd{min-width:0}
+.bd b{display:block;font-weight:400;font-size:15px;color:var(--soft);line-height:1.4}
+.it.un .bd b{font-weight:500;color:var(--fg)}
+.bd .d{color:var(--mute);font-size:14px;line-height:1.45;margin-top:2px}
+.bd .q{color:var(--soft)}
+.bd .say{display:block;margin-top:6px;padding-left:10px;border-left:2px solid var(--line);color:var(--soft);font-size:14px}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 0;margin-top:6px;font-size:12.5px;color:var(--mute)}
+.meta>span+span::before{content:"·";margin:0 7px;color:var(--line)}
+.tag{display:inline-flex;align-items:center;gap:6px;color:var(--soft)}
+.tag i{width:7px;height:7px;border-radius:50%;flex:none}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.btn{flex:none;height:34px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:none;font-size:13.5px;font-weight:500;color:var(--fg);white-space:nowrap;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.btn:hover{border-color:var(--mute)}
+.btn.pri{background:var(--lamp);color:var(--lamp-ink);border-color:var(--lamp);font-weight:600}
+.btn.gold{background:var(--gold);color:#1B2144;border-color:var(--gold);font-weight:600}
+.btn.done{border-color:transparent;color:var(--live);padding-left:2px;cursor:default}
+.btn.done svg{width:15px;height:15px}
+.end{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:6px}
+.end time{font-size:12.5px;color:var(--mute);white-space:nowrap;display:flex;align-items:center;gap:7px}
+.it.un .end time{color:var(--fg)}
+.it.un .end time::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--violet)}
+.more{width:32px;height:32px;border:0;border-radius:8px;background:none;color:var(--mute);display:grid;place-items:center;padding:0;opacity:0}
+.it:hover .more,.more:focus-visible,.more[aria-expanded=true]{opacity:1}
+@media (hover:none){.more{opacity:1}}
+.more:hover,.more[aria-expanded=true]{background:var(--raise);color:var(--fg)}
+.more svg{width:18px;height:18px}
+.menu{position:absolute;right:8px;top:calc(100% - 18px);z-index:30;width:248px;padding:6px;border-radius:14px;background:var(--surface);border:1px solid var(--line);box-shadow:0 18px 44px rgba(0,0,0,.5);cursor:default}
+.menu button,.menu a{display:flex;align-items:center;width:100%;min-height:40px;padding:0 10px;border:0;border-radius:8px;background:none;text-align:left;font-size:14px;color:var(--fg);text-decoration:none}
+.menu button:hover,.menu a:hover{background:var(--raise)}
+.empty{padding:40px 0 10px;text-align:center;color:var(--mute);font-size:14.5px}
+.empty b{display:block;color:var(--fg);font-weight:500;font-size:17px;margin-bottom:4px}
+.foot{margin:34px 0 80px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--mute);display:flex;gap:10px;line-height:1.5}
+.foot svg{flex:none;width:18px;height:18px;color:var(--lamp);margin-top:1px}
+.foot a{color:var(--lamp);text-decoration:none}
+.foot a:hover{text-decoration:underline;text-underline-offset:3px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--fg);color:var(--bg);padding:12px 18px;border-radius:12px;font-size:14px;font-weight:500;transition:.25s;z-index:80;max-width:calc(100vw - 32px);display:flex;gap:14px;align-items:center}
+.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{background:none;border:0;color:var(--violet);font-weight:600;padding:0}
+/* the bell is this page */
+#tch .tch-ic.here{background:var(--tch-field);color:var(--tch-fg)}
+@media (max-width:640px){
+  .hero{padding-top:22px}
+  .tools{width:100%;justify-content:space-between}
+  .filters{margin-top:18px}
+  .it{grid-template-columns:36px minmax(0,1fr) auto;gap:12px;padding:14px 8px;margin:0 -8px}
+  .ic{width:36px;height:36px}
+  .menu{right:4px}
+}
+</style>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="ht">
+      <h1>Notifications</h1>
+      <p>What happened at your tables while you were away.</p>
+    </div>
+    <div class="tools">
+      <button class="lnk" id="allread" type="button">Mark all read</button>
+      <a class="lnk" href="https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy#notifications" target="_top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Choose what rings the bell</a>
+    </div>
+  </section>
+
+  <nav class="filters" id="filters" aria-label="Filter notifications"></nav>
+  <main id="feed" aria-live="polite"></main>
+
+  <p class="foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg><span><span>Tables starting soon, changes to a table you're in, and invites always ring the bell. Everything else is up to you in</span> <a href="https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy#notifications" target="_top">Settings</a>. <span>We keep notifications for 30 days.</span></span></p>
+</div>
+
+<div class="toast" id="toast" role="status"><span id="tt"></span><button id="tu" type="button" hidden>Undo</button></div>
+
+<script>
+/*AVATARS*/
+P.Amara=["#FFE9C7","#7C5CFF","#7A4E33","#1B1B1B","bun"];P.Yuki=["#D9F8FA","#F2C14E","#F1C9A5","#1B1B1B","short"];
+const $=s=>document.querySelector(s);
+const URL_={agenda:"https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5",live:"https://claude.ai/artifact/2CoEp7SXhBT2oP5hu3zNkk",rate:"https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB#rate",mytables:"https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB",profile:"https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy",chats:"https://claude.ai/artifact/PYd4f8xrcNkPc2TyPkE4ib",people:"https://claude.ai/artifact/MTbRjvLFV7pPhBjpvAzXaq",settings:"https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy#notifications"};
+const TOP={Philosophy:"#F29BD0",Travel:"#D9E35F",Energy:"#6CB8FF",Science:"#8BE38B",Home:"#5FE0DE"};
+const ICON={
+ clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>',
+ star:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>',
+ coin:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="currentColor"/><circle cx="12" cy="12" r="5" fill="none" stroke="#20264A" stroke-width="1.5"/></svg>',
+ chair:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4v9h10V4M5 13h14M7 13v7M17 13v7M7 9h10"/></svg>',
+ off:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14" rx="2.5"/><path d="M4 10h16M8 3.5v4M16 3.5v4M10 13.5l4 4M14 13.5l-4 4"/></svg>',
+ quote:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 17.5c0-4.5 1.8-8 5.5-10l.9 1.4C9.2 10.4 8.3 12 8.2 13.5H10.5V18H5zm8.5 0c0-4.5 1.8-8 5.5-10l.9 1.4c-2.2 1.5-3.1 3.1-3.2 4.6H19V18h-5.5z"/></svg>'
+};
+const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+/* f: 'tables' | 'tips' | 'people' | 'chats' */
+const N=[
+ {id:1,g:'today',f:'tables',un:1,ic:['t','clock'],t:'Starting in 10 min',d:[{q:'Is free will an illusion?'},' ','Hosted by Gregory'],meta:[{tag:'Philosophy'},'Your chair is saved'],time:'18:50',go:'live',acts:[{l:'Join now',c:'pri',go:'live'}]},
+ {id:2,g:'today',f:'tips',un:1,ic:['k','star'],t:"Rate and tip yesterday's table",d:[{q:'Phenomenology vs. God'},' ','with Gregory'],say2:'Your 8 TimeCoins expire in 2 days.',time:'09:00',go:'rate',acts:[{l:'Rate and tip',c:'gold',go:'rate'}]},
+ {id:3,g:'today',f:'chats',un:1,ic:['p','Amara'],t:'Amara sent you a message',say:'Here is the book I mentioned, The Overstory.',time:'17:40',chat:'a',acts:[{l:'Reply',c:'',chat:'a'}]},
+ {id:4,g:'today',f:'people',un:1,ic:['p','Priya'],t:'Priya is hosting a new table',d:[{q:'Slow travel and the art of staying'}],meta:[{tag:'Travel'},'Thu at 19:00','3 chairs free'],time:'15:05',go:'agenda',acts:[{l:'Save a chair',c:'',save:1}]},
+ {id:5,g:'today',f:'tables',un:1,ic:['p','Lena'],t:'Lena invited you to a private table',d:[{q:'Kitchen-table energy: home batteries'}],meta:[{tag:'Energy'},'Sat at 18:00','Private','5 invited'],time:'12:30',go:'agenda',acts:[{l:'Take a chair',c:'',inv:'yes'},{l:'Not this time',c:'',inv:'no'}]},
+ {id:6,g:'today',f:'tips',un:0,ic:['k','coin'],t:'Gregory tipped you 2 TimeCoins',d:['For',' ',{q:'What do we owe strangers?'}],time:'10:15',go:'profile'},
+ {id:7,g:'earlier',f:'tables',un:1,ic:['r','off'],t:'Table cancelled',d:[{q:'Where is home?'}],meta:['Fri at 20:00','Hosted by Yuki'],say:"Sorry, I'm travelling that week. I'll open it again soon.",time:'Yesterday',go:'agenda',acts:[{l:'Find another table',c:'',go:'agenda'}]},
+ {id:8,g:'earlier',f:'tables',un:0,ic:['t','chair'],t:'A chair opened up',d:[{q:'Green technology versus nuclear'}],meta:[{tag:'Energy'},'Thu at 19:00','You were on the waitlist'],time:'Yesterday',go:'agenda',acts:[{l:'Take the chair',c:'',save:1}]},
+ {id:9,g:'earlier',f:'people',un:0,ic:['p','Omar'],t:'Omar is hosting a new table',d:[{q:'Do cities make us lonely?'}],meta:[{tag:'Philosophy'},'Sun at 17:00','6 chairs free'],time:'Wed',go:'agenda',acts:[{l:'Save a chair',c:'',save:1}]},
+ {id:10,g:'earlier',f:'tips',un:0,ic:['v','quote'],t:'New feedback on your table',d:['Mia on',' ',{q:'Is free will an illusion?'}],say:'Kind, curious, well paced.',time:'Tue',go:'profile'},
+ {id:11,g:'earlier',f:'people',un:0,ic:['p','Kofi'],t:'Kofi started following you',d:['You met at',' ',{q:'Phenomenology vs. God'}],time:'Mon',go:'profile'}
+];
+const FILTERS=[['all','All'],['un','Unread'],['tables','Tables'],['tips','Tips and feedback'],['people','People'],['chats','Chats']];
+const KIND={tables:'Tables',tips:'Tips and feedback',people:'People you follow',chats:'Chats'};
+let F='all',openMenu=null;
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function frag(p){return typeof p==='string'?(p===' '?' ':`<span>${esc(p)}</span>`):`<span class="q" data-noi18n>“${esc(p.q)}”</span>`}
+function metaHtml(m){return m.map(x=>typeof x==='string'?`<span>${esc(x)}</span>`:`<span class="tag"><i style="background:${TOP[x.tag]}"></i><span>${esc(x.tag)}</span></span>`).join('')}
+function actHtml(n){if(n.state==='saved')return `<span class="btn done">${CHECK}<span>Chair saved</span></span>`;
+ if(n.state==='yes')return `<span class="btn done">${CHECK}<span>You're in. Lena knows.</span></span>`;
+ if(n.state==='no')return `<span class="btn done" style="color:var(--mute)"><span>We let Lena know you can't come.</span></span>`;
+ if(n.state==='rated')return `<span class="btn done">${CHECK}<span>Rated</span></span>`;
+ return (n.acts||[]).map((a,i)=>a.go?`<a class="btn ${a.c}" href="${URL_[a.go]}" target="_top" data-a="${i}">${esc(a.l)}</a>`:`<button type="button" class="btn ${a.c}" data-a="${i}">${esc(a.l)}</button>`).join('')}
+function row(n){
+ const ic=n.ic[0]==='p'?`<span class="ic p">${av(n.ic[1])}</span>`:`<span class="ic ${n.ic[0]}">${ICON[n.ic[1]]}</span>`;
+ const acts=actHtml(n);
+ return `<li class="it${n.un?' un':''}" data-id="${n.id}" tabindex="0">${ic}<div class="bd"><b>${esc(n.t)}</b>${n.d?`<div class="d">${n.d.map(frag).join('')}</div>`:''}${n.say2?`<div class="d"><span>${esc(n.say2)}</span></div>`:''}${n.meta?`<div class="meta">${metaHtml(n.meta)}</div>`:''}${n.say?`<span class="say" data-noi18n>“${esc(n.say)}”</span>`:''}${acts?`<div class="acts">${acts}</div>`:''}</div><div class="end"><time>${esc(n.time)}</time><button type="button" class="more" aria-label="More" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18" cy="12" r="1.6"/></svg></button></div></li>`}
+function vis(){return N.filter(n=>F==='all'||(F==='un'?n.un:n.f===F))}
+function render(){
+ const unread=N.filter(n=>n.un).length;
+ $('#filters').innerHTML=FILTERS.map(([k,l])=>`<button type="button" class="fl" data-f="${k}" aria-pressed="${F===k}"><span>${l}</span>${k==='un'&&unread?`<span class="c" data-noi18n>${unread}</span>`:''}</button>`).join('');
+ const v=vis();let h='';
+ [['today','Today'],['earlier','Earlier']].forEach(([g,l])=>{const xs=v.filter(n=>n.g===g);if(xs.length)h+=`<section class="grp"><h2>${l}</h2><ul class="list">${xs.map(row).join('')}</ul></section>`});
+ if(!v.length)h=F==='un'?`<div class="empty"><b>You're all caught up</b><span>New notifications will show up here.</span></div>`:`<div class="empty"><b>Nothing here</b><span>Nothing in the last 30 days.</span></div>`;
+ $('#feed').innerHTML=h;
+ $('#allread').disabled=!unread;
+ const bell=document.querySelector('#tch [data-tch="ntfhere"]');if(bell){const d=bell.querySelector('.tch-d');if(unread&&!d)bell.insertAdjacentHTML('beforeend','<i class="tch-d"></i>');if(!unread&&d)d.remove();bell.setAttribute('aria-label',unread?'Notifications, new':'Notifications')}
+}
+render();
+
+/* toast */
+let tt,undoFn=null;
+function toast(msg,undo){$('#tt').textContent=msg;undoFn=undo||null;$('#tu').hidden=!undo;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>{$('#toast').classList.remove('on');undoFn=null},undo?5000:2600)}
+$('#tu').onclick=()=>{if(undoFn)undoFn();undoFn=null;$('#toast').classList.remove('on')};
+
+function closeMenu(){if(openMenu){openMenu.remove();openMenu=null;document.querySelectorAll('.more[aria-expanded=true]').forEach(b=>b.setAttribute('aria-expanded','false'))}}
+const byId=id=>N.find(n=>n.id===+id);
+$('#allread').onclick=()=>{const was=N.filter(n=>n.un).map(n=>n.id);if(!was.length)return;N.forEach(n=>n.un=0);render();toast('All caught up',()=>{was.forEach(id=>byId(id).un=1);render()})};
+
+document.addEventListener('click',e=>{
+ const fb=e.target.closest('.fl');if(fb){F=fb.dataset.f;closeMenu();render();return}
+ if(openMenu&&!e.target.closest('.menu')&&!e.target.closest('.more'))closeMenu();
+ const li=e.target.closest('.it');if(!li)return;const n=byId(li.dataset.id);
+ const mb=e.target.closest('.menu [data-m]');
+ if(mb){const m=mb.dataset.m;closeMenu();
+  if(m==='read'){n.un=n.un?0:1;render();return}
+  if(m==='rm'){const i=N.indexOf(n);N.splice(i,1);render();toast('Notification removed',()=>{N.splice(i,0,n);render()});return}
+  return}
+ if(e.target.closest('.menu'))return;
+ const more=e.target.closest('.more');
+ if(more){const was=more.getAttribute('aria-expanded')==='true';closeMenu();if(was)return;more.setAttribute('aria-expanded','true');
+  const m=document.createElement('div');m.className='menu';m.setAttribute('role','menu');
+  m.innerHTML=`<button type="button" data-m="read" role="menuitem">${n.un?'Mark as read':'Mark as unread'}</button><button type="button" data-m="rm" role="menuitem">Remove this notification</button><a href="${URL_.settings}" target="_top" role="menuitem">${n.f==='tables'?'Notification settings':'Turn off: '+KIND[n.f]}</a>`;
+  li.appendChild(m);openMenu=m;return}
+ const a=e.target.closest('[data-a]');
+ if(a){const act=n.acts[+a.dataset.a];n.un=0;
+  if(act.save){e.preventDefault();n.state='saved';render();toast('Your chair is saved',()=>{delete n.state;render()});return}
+  if(act.inv){e.preventDefault();n.state=act.inv;render();toast(act.inv==='yes'?'Your chair is saved':'Invite declined',()=>{delete n.state;render()});return}
+  if(act.chat){e.preventDefault();render();if(window.tchOpenChat)window.tchOpenChat(act.chat);return}
+  render();return}
+ if(e.target.closest('a,button,.say'))return;
+ /* tapping the row itself: mark read, then open where it points */
+ n.un=0;render();
+ if(n.chat){window.tchOpenChat&&window.tchOpenChat(n.chat);return}
+ if(n.go)top.location.href=TCI18N.u(URL_[n.go]);
+});
+document.addEventListener('keydown',e=>{
+ if(e.key==='Escape'){closeMenu();return}
+ const li=e.target.closest&&e.target.closest('.it');
+ if(li&&e.target===li&&(e.key==='Enter'||e.key===' ')){e.preventDefault();li.querySelector('.bd b').click()}
+});
+/* the bell on this page just brings you back to the top */
+const bell=document.querySelector('#tch [data-tch="ntfhere"]');
+if(bell)bell.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body></html>

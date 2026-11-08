@@ -1,0 +1,252 @@
+<style>
+/* Shared TimeCapsule header */
+#tch{--tch-bg:#1B2144;--tch-panel:#20264A;--tch-field:#252B52;--tch-line:#3A4175;--tch-fg:#EEF1FF;--tch-mute:#A9B0D6;--tch-soft:#C9CFF0;--tch-teal:#17C3C8;--tch-violet:#7C5CFF;--tch-gold:#F2C14E;
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:45;display:block;margin:0;padding:0;border:0;background:none;box-shadow:none;height:auto;
+  font-family:"Sora",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--tch-fg);-webkit-font-smoothing:antialiased;line-height:1.4}
+#tch *{box-sizing:border-box}
+#tch span,#tch b,#tch i,#tch small{font-size:inherit;letter-spacing:inherit}
+#tch .tch-ph b{font-size:15px}#tch .tch-who b{font-size:14.5px}#tch .tch-who small{font-size:12.5px}#tch .tch-ic .tch-n{font-size:10.5px}
+#tch button,#tch input{font:inherit;color:inherit;margin:0}
+#tch button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+#tch :focus-visible{outline:2px solid var(--tch-teal);outline-offset:2px}
+#tch .tch-bar{display:flex;align-items:center;gap:8px;height:64px;padding:0 max(24px,env(safe-area-inset-right,0px)) 0 max(24px,env(safe-area-inset-left,0px));background:var(--tch-bg);border-bottom:1px solid var(--tch-line)}
+#tch.over{position:fixed;left:0;right:0;top:0}
+#tch.over .tch-bar{background:transparent;border-color:transparent;padding-top:env(safe-area-inset-top,0px);height:calc(64px + env(safe-area-inset-top,0px))}
+#tch .tch-logo{display:flex;align-items:center;gap:10px;font-size:21px;letter-spacing:-.5px;white-space:nowrap;text-decoration:none;color:var(--tch-fg);margin-right:20px;flex:none}
+#tch .tch-logo svg{width:38px;height:28px;flex:none;display:block}
+#tch .tch-logo b{font-weight:600}#tch .tch-logo i{font-style:normal;font-weight:300}
+#tch .tch-nav{display:flex;gap:22px;align-self:stretch}
+#tch .tch-nav a{display:flex;align-items:center;font-size:14.5px;color:var(--tch-mute);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px;padding-top:2px}
+#tch .tch-nav a:hover{color:var(--tch-fg)}
+#tch .tch-nav a[aria-current=page]{color:var(--tch-fg);border-bottom-color:var(--tch-teal)}
+#tch .tch-sp{flex:1}
+#tch .tch-search{position:relative;display:block;width:clamp(180px,26vw,340px);margin:0;max-width:none;flex:0 1 auto}
+#tch .tch-search input{display:block;width:100%;height:38px;min-height:0;border-radius:10px;border:1px solid var(--tch-line);background:var(--tch-panel);padding:0 12px 0 36px;font-size:14px;outline:none;color:var(--tch-fg)}
+#tch .tch-search input::placeholder{color:var(--tch-mute)}
+#tch .tch-search input:focus{border-color:var(--tch-mute)}
+#tch .tch-search svg{position:absolute;left:12px;top:11px;width:16px;height:16px;color:var(--tch-mute);transform:none}
+#tch.over .tch-search input{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+#tch .tch-ib,#tch .tch-ic{position:relative;width:40px;height:40px;display:grid;place-items:center;border:0;border-radius:10px;background:none;color:var(--tch-soft);flex:none;padding:0}
+#tch .tch-ib{display:none;color:var(--tch-fg)}
+#tch .tch-ib svg{width:20px;height:20px}
+#tch .tch-ic svg{width:21px;height:21px}
+#tch .tch-ib:hover,#tch .tch-ic:hover,#tch .tch-ic[aria-expanded=true]{background:var(--tch-field);color:var(--tch-fg)}
+#tch .tch-create{height:38px;padding:0 16px;border:0;border-radius:10px;background:var(--tch-violet);color:#fff;font-weight:600;font-size:14px;white-space:nowrap;display:flex;align-items:center;gap:6px;margin-left:6px;flex:none;box-shadow:none}
+#tch .tch-create:hover{filter:brightness(1.07)}
+#tch .tch-create .tch-pl{font-size:18px;font-weight:400;line-height:1}
+#tch .tch-create+.tch-ic{margin-left:6px}
+#tch .tch-ic .tch-n{position:absolute;top:3px;right:2px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--tch-violet);color:#fff;font-size:10.5px;font-weight:600;display:grid;place-items:center;box-shadow:0 0 0 2px var(--tch-bg);font-style:normal}
+#tch .tch-ic .tch-d{position:absolute;top:8px;right:9px;width:9px;height:9px;border-radius:50%;background:#FF6B7A;box-shadow:0 0 0 2px var(--tch-bg)}
+#tch .tch-me{width:38px;height:38px;border-radius:50%;padding:0;border:2px solid var(--tch-line);background:linear-gradient(135deg,var(--tch-teal),var(--tch-violet));margin-left:6px;flex:none;overflow:hidden;line-height:0}
+#tch .tch-me>span{display:block;width:100%;height:100%}
+#tch .tch-me svg{width:100%;height:100%;display:block;border-radius:50%}
+#tch .tch-me:hover,#tch .tch-me[aria-expanded=true]{border-color:var(--tch-fg)}
+#tch .tch-sbar{display:none}
+#tch.sopen .tch-bar>*:not(.tch-sbar){display:none}
+#tch.sopen .tch-sbar{display:flex;flex:1;align-items:center;gap:8px}
+#tch .tch-sbar input{flex:1;min-width:0;height:38px;border-radius:10px;border:1px solid var(--tch-line);background:var(--tch-panel);padding:0 12px;font-size:16px;outline:none;color:var(--tch-fg)}
+#tch .tch-sbar button{border:0;background:none;color:var(--tch-teal);font-size:14px;padding:8px 4px}
+#tch .tch-pop,#tch .tch-menu{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:calc(100% + 6px);z-index:50;border-radius:14px;background:var(--tch-panel);border:1px solid var(--tch-line);box-shadow:0 18px 44px rgba(0,0,0,.5)}
+#tch [hidden]{display:none!important}
+#tch .tch-pop{width:340px;overflow:hidden}
+#tch .tch-ph{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--tch-line)}
+#tch .tch-ph b{font-weight:500;font-size:15px}
+#tch .tch-ph button{border:0;background:none;color:var(--tch-teal);font-size:12.5px;padding:4px}
+#tch .tch-pop ul{list-style:none;margin:0;padding:4px}
+#tch .tch-pop li{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:10px;align-items:start;padding:10px;border-radius:10px;cursor:pointer;margin:0}
+#tch .tch-pop li:hover{background:var(--tch-field)}
+#tch .tch-av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-style:normal;background:var(--tch-field);border:1px solid var(--tch-line)}
+#tch .tch-av.g{background:linear-gradient(135deg,var(--tch-teal),var(--tch-violet));border:0}
+#tch .tch-av.k{background:rgba(242,193,78,.16);border:0;color:var(--tch-gold)}
+#tch .tch-av.t{background:rgba(23,195,200,.15);border:0;color:var(--tch-teal)}
+#tch .tch-av svg{width:18px;height:18px}
+#tch .tch-tx{min-width:0;display:grid;gap:1px;font-size:13.5px;line-height:1.4}
+#tch .tch-tx b{font-weight:500}
+#tch .tch-tx span{color:var(--tch-mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#tch .tch-tx .w{white-space:normal;color:var(--tch-soft)}
+#tch .tch-pop time{font-size:11.5px;color:var(--tch-mute);white-space:nowrap}
+#tch .tch-pop li.un time{color:var(--tch-violet)}
+#tch .tch-pop li.un .tch-tx b::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--tch-violet);margin-left:7px;vertical-align:1px}
+#tch .tch-pf{display:block;text-align:center;padding:11px;border-top:1px solid var(--tch-line);font-size:13.5px;color:var(--tch-teal);text-decoration:none}
+#tch .tch-pop li .tch-tx{pointer-events:none}
+#tch .tch-ph .tch-new{display:inline-flex;align-items:center;gap:5px}
+#tch .tch-chat{display:flex;flex-direction:column;height:min(440px,calc(100dvh - 90px))}
+#tch .tch-ch{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--tch-line)}
+#tch .tch-bk{flex:none;width:32px;height:32px;border:0;border-radius:8px;background:none;color:var(--tch-fg);display:grid;place-items:center;font-size:18px;padding:0}
+#tch .tch-bk:hover{background:var(--tch-field)}
+#tch .tch-x{display:none;margin-left:auto;flex:none;width:32px;height:32px;border:0;border-radius:8px;background:none;color:var(--tch-mute);place-items:center;font-size:16px;padding:0}
+#tch .tch-x:hover{background:var(--tch-field);color:var(--tch-fg)}
+#tch .tch-chat.direct .tch-x{display:grid}
+#tch .tch-chat.direct .tch-bk{display:none}
+#tch .tch-chat.direct .tch-pl2{padding-left:4px}
+#tch .tch-ch .tch-av{width:32px;height:32px}
+#tch .tch-ch .tch-tx{font-size:13px}
+#tch .tch-ch .tch-tx b{font-size:14px}
+#tch .tch-ch .tch-tx span{font-size:12px}
+#tch .tch-ch .tch-pl2{flex:1;min-width:0;display:flex;align-items:center;gap:10px;color:var(--tch-fg);text-decoration:none;border-radius:8px;padding:2px 4px 2px 2px}
+#tch .tch-ch .tch-pl2:hover b{text-decoration:underline;text-underline-offset:3px}
+#tch .tch-log{flex:1;min-height:0;overflow-y:auto;padding:12px 12px 6px;display:flex;flex-direction:column;gap:6px;scrollbar-width:thin;scrollbar-color:var(--tch-line) transparent}
+#tch .tch-day{align-self:center;font-size:11px;color:var(--tch-mute);padding:2px 0 6px}
+#tch .tch-b{max-width:82%;align-self:flex-start;padding:8px 11px;border-radius:14px 14px 14px 4px;background:var(--tch-field);font-size:13.5px;line-height:1.42;color:var(--tch-fg);overflow-wrap:anywhere;animation:tchIn .2s ease-out}
+#tch .tch-b.mine{align-self:flex-end;background:var(--tch-violet);color:#fff;border-radius:14px 14px 4px 14px}
+#tch .tch-seen{align-self:flex-end;font-size:11px;color:var(--tch-mute);margin-top:-2px}
+#tch .tch-typing{align-self:flex-start;display:flex;gap:4px;padding:11px 12px;border-radius:14px 14px 14px 4px;background:var(--tch-field)}
+#tch .tch-typing i{width:6px;height:6px;border-radius:50%;background:var(--tch-mute);animation:tchDot 1s infinite}
+#tch .tch-typing i:nth-child(2){animation-delay:.15s}#tch .tch-typing i:nth-child(3){animation-delay:.3s}
+@keyframes tchDot{0%,60%,100%{opacity:.35;transform:none}30%{opacity:1;transform:translateY(-2px)}}
+@keyframes tchIn{from{opacity:0;transform:translateY(4px)}}
+#tch .tch-quick{display:flex;gap:6px;padding:4px 12px 8px;overflow-x:auto;scrollbar-width:none}
+#tch .tch-quick::-webkit-scrollbar{display:none}
+#tch .tch-quick button{flex:none;border:1px solid var(--tch-line);background:none;border-radius:999px;padding:5px 10px;font-size:12px;color:var(--tch-soft)}
+#tch .tch-quick button:hover{border-color:var(--tch-mute);color:var(--tch-fg)}
+#tch .tch-cf{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--tch-line)}
+#tch .tch-cf input{flex:1;min-width:0;height:38px;border-radius:10px;border:1px solid var(--tch-line);background:var(--tch-field);color:var(--tch-fg);padding:0 12px;font:inherit;font-size:14px;outline:none}
+#tch .tch-cf input:focus{border-color:var(--tch-teal)}
+#tch .tch-cf button{flex:none;width:38px;height:38px;border:0;border-radius:10px;background:var(--tch-teal);color:#0E1430;display:grid;place-items:center;padding:0}
+#tch .tch-cf button:disabled{opacity:.4}
+#tch .tch-cf svg{width:17px;height:17px}
+@media (max-width:640px){#tch .tch-cf input{font-size:16px}}
+#tch .tch-pop li[data-href]{cursor:pointer}
+#tch .tch-cta{justify-self:start;margin-top:6px;font-style:normal;font-size:12.5px;font-weight:500;color:#1B2144;background:var(--tch-gold);padding:4px 10px;border-radius:8px}
+#tch .tch-menu{width:236px;padding:6px}
+#tch .tch-who{display:flex;gap:10px;align-items:center;padding:10px 10px 12px;border-bottom:1px solid var(--tch-line);margin-bottom:4px}
+#tch .tch-who i{width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;display:block}
+#tch .tch-who i svg{width:100%;height:100%;display:block}
+#tch .tch-who b{display:block;font-weight:500;font-size:14.5px;line-height:1.25}
+#tch .tch-who small{color:var(--tch-gold);font-size:12.5px}
+#tch .tch-menu a{display:flex;align-items:center;min-height:40px;padding:0 10px;border-radius:8px;text-decoration:none;font-size:14px;color:var(--tch-fg)}
+#tch .tch-menu a:hover{background:var(--tch-field)}
+#tch .tch-menu .ph{display:none}
+#tch .tch-menu hr{border:0;border-top:1px solid var(--tch-line);margin:4px 0}
+@media (max-width:980px){#tch .tch-search{display:none}#tch .tch-ib{display:grid}}
+@media (max-width:640px){
+  #tch .tch-bar{height:56px;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));gap:4px}
+  #tch.over .tch-bar{height:calc(56px + env(safe-area-inset-top,0px))}
+  #tch .tch-logo{margin-right:0}
+  #tch .tch-logo .tch-wm{display:none}
+  #tch .tch-nav{display:none}
+  #tch .tch-create{width:38px;padding:0;justify-content:center;margin-left:2px}
+  #tch .tch-create .tch-tx2{display:none}
+  #tch .tch-create .tch-pl{font-size:22px}
+  #tch .tch-create+.tch-ic{margin-left:2px}
+  #tch .tch-ic{width:36px;height:38px}
+  #tch .tch-me{width:34px;height:34px}
+  #tch .tch-menu .ph{display:flex}
+  #tch .tch-pop{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));width:auto}
+}
+</style>
+<header id="tch" class="" role="banner">
+<div class="tch-bar">
+  <a class="tch-logo" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-label="TimeCapsule home"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tchL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tchL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span class="tch-wm"><b>time</b><i>capsule</i></span></a>
+  <nav class="tch-nav" aria-label="Main"><a href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-current="page">Tables</a><a href="https://claude.ai/artifact/MTbRjvLFV7pPhBjpvAzXaq" target="_top">People</a><a href="https://claude.ai/artifact/WXKBrXY78yuhpghQCpK3RU" target="_top">World</a></nav>
+  <span class="tch-sp"></span>
+  <label class="tch-search"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input id="q" type="search" placeholder="Search a topic, a question, a host" aria-label="Search tables" autocomplete="off"></label>
+  <button class="tch-ib" type="button" data-tch="search" aria-label="Search"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  <a class="tch-create" href="https://claude.ai/artifact/MFBQwEDcUA8ctJbo2BWShj" target="_top" aria-label="Create a table"><span class="tch-pl" aria-hidden="true">+</span><span class="tch-tx2">Create a table</span></a><span class="tch-auth"><a class="s" href="https://claude.ai/artifact/BFBabdFxq8LxqDChfvRn61" target="_top">Sign in</a><a class="j" href="https://claude.ai/artifact/Q7o5JaMGP7bHLXzJ6aw6TH" target="_top">Join TimeCapsule</a></span>
+  <button class="tch-ic" type="button" data-tch="msg" aria-haspopup="true" aria-expanded="false" aria-label="Chats, 2 unread"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.5V16H4z"/></svg><i class="tch-n">2</i></button>
+  <button class="tch-ic" type="button" data-tch="ntf" aria-haspopup="true" aria-expanded="false" aria-label="Notifications, new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><i class="tch-d"></i></button>
+  <button class="tch-me" type="button" data-tch="menu" aria-haspopup="true" aria-expanded="false" aria-label="Your menu"><span id="me"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="#E6E0FF"/><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#7C5CFF"/><rect x="27" y="34" width="10" height="11" fill="#E8B994"/><circle cx="32" cy="26" r="12" fill="#E8B994"/><path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="#3A2A20"/><circle cx="28" cy="27" r="1.5" fill="#090B16"/><circle cx="36" cy="27" r="1.5" fill="#090B16"/><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span></button>
+  <div class="tch-sbar"><input type="search" placeholder="Search a topic, a question, a host" aria-label="Search tables" autocomplete="off"><button type="button" data-tch="sclose">Cancel</button></div>
+</div>
+<div class="tch-pop" data-tchp="msg" hidden>
+ <div class="tch-list">
+  <div class="tch-ph"><b>Chats</b><button type="button" data-tch="read">Mark all read</button></div>
+  <ul>
+    <li class="un" data-chat="g" tabindex="0"><i class="tch-av g">G</i><div class="tch-tx"><b>Gregory</b><span>Loved your point about silence. Same table next week?</span></div><time>4m</time></li>
+    <li class="un" data-chat="a" tabindex="0"><i class="tch-av">A</i><div class="tch-tx"><b>Amara · Lagos</b><span>Here is the book I mentioned, The Overstory.</span></div><time>1h</time></li>
+    <li data-chat="y" tabindex="0"><i class="tch-av">Y</i><div class="tch-tx"><b>Yuki · Kyoto</b><span>You: Thank you, that made my evening.</span></div><time>Mon</time></li>
+  </ul>
+  <a class="tch-pf" href="https://claude.ai/artifact/PYd4f8xrcNkPc2TyPkE4ib" target="_top">See all chats</a>
+ </div>
+ <div class="tch-chat" hidden>
+  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
+  <div class="tch-log" aria-live="polite"></div>
+  <div class="tch-quick"></div>
+  <form class="tch-cf"><input type="text" placeholder="Write a message…" aria-label="Write a message" autocomplete="off"><button type="submit" aria-label="Send" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></form>
+ </div>
+</div>
+<div class="tch-pop" data-tchp="ntf" hidden>
+  <div class="tch-ph"><b>Notifications</b><button type="button" data-tch="read">Mark all read</button></div>
+  <ul>
+    <li class="un tch-rate" data-href="https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB#rate" tabindex="0"><i class="tch-av k"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><div class="tch-tx"><b>Rate and tip yesterday's table</b><span class="w">"Phenomenology vs. God" with Gregory ended yesterday. Your 8 TimeCoins expire in 2 days.</span><em class="tch-cta">Rate and tip</em></div><time>now</time></li>
+    <li class="un"><i class="tch-av t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></i><div class="tch-tx"><b>Starting in 10 min</b><span class="w">"Is free will an illusion?" with Gregory</span></div><time>now</time></li>
+    <li class="un"><i class="tch-av k"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="currentColor"/><circle cx="12" cy="12" r="5" fill="none" stroke="#20264A" stroke-width="1.5"/></svg></i><div class="tch-tx"><b>Gregory tipped you 2 TimeCoins</b><span class="w">For "What do we owe strangers?"</span></div><time>2h</time></li>
+    <li><i class="tch-av">S</i><div class="tch-tx"><b>A seat opened</b><span class="w">At a table you saved for Thursday, 19:00</span></div><time>5h</time></li>
+    <li><i class="tch-av">★</i><div class="tch-tx"><b>New feedback on your table</b><span class="w">"Kind, curious, well paced."</span></div><time>Sun</time></li>
+  </ul>
+  <a class="tch-pf" href="#" data-tch="noop">See all notifications</a>
+</div>
+<div class="tch-menu" data-tchp="menu" hidden>
+  <div class="tch-who"><i class="tch-mav"></i><div><b>You</b><small>● 42 TimeCoins</small></div></div>
+  <a class="ph" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">Tables</a><a class="ph" href="https://claude.ai/artifact/MTbRjvLFV7pPhBjpvAzXaq" target="_top">People</a><a class="ph" href="https://claude.ai/artifact/WXKBrXY78yuhpghQCpK3RU" target="_top">World</a>
+  <a href="https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy" target="_top">My profile</a><a href="https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB" target="_top">My tables</a><a href="https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy" target="_top">Settings</a><hr><a href="#" data-tch="noop">Sign out</a>
+</div>
+</header>
+<script>
+(function(){
+  var H=document.getElementById('tch'); if(!H) return;
+  var sync=function(){var me=H.querySelector('.tch-me>span'),mav=H.querySelector('.tch-mav');if(me&&mav&&me.innerHTML&&!mav.innerHTML)mav.innerHTML=me.innerHTML;};
+  function closeAll(){if(typeof showList==='function')showList();H.querySelectorAll('[data-tchp]').forEach(function(p){p.hidden=true});H.querySelectorAll('[aria-expanded]').forEach(function(b){b.setAttribute('aria-expanded','false')});}
+  H.addEventListener('click',function(e){
+    var b=e.target.closest('[data-tch]'); if(!b) return;
+    var k=b.getAttribute('data-tch');
+    if(k==='noop'){e.preventDefault();return}
+    if(k==='back'){showList();return}
+    if(k==='close'){closeAll();return}
+    if(k==='search'){H.classList.add('sopen');var i=H.querySelector('.tch-sbar input');var q=H.querySelector('.tch-search input');if(q)i.value=q.value;i.focus();return}
+    if(k==='sclose'){H.classList.remove('sopen');return}
+    if(k==='read'){var p=b.closest('[data-tchp]');p.querySelectorAll('li.un').forEach(function(l){l.classList.remove('un')});return}
+    var panel=H.querySelector('[data-tchp="'+k+'"]'); if(!panel) return;
+    var open=panel.hidden; closeAll(); sync();
+    if(open){panel.hidden=false;b.setAttribute('aria-expanded','true');var x=b.querySelector('.tch-n,.tch-d');if(x)x.remove();}
+  });
+  var C={
+    g:{n:'Gregory',av:'G',cls:'g',met:'Met at "Is free will an illusion?"',log:[['d','Yesterday'],[0,'That was a good table. You asked the question nobody dared to.'],[0,'Loved your point about silence. Same table next week?']],quick:['Count me in','Which day?','Thank you, Gregory'],reply:'Wonderful. I will save you a chair for Tuesday at 19:00.'},
+    a:{n:'Amara · Lagos',av:'A',cls:'',met:'Met at "What do we owe strangers?"',log:[['d','Today'],[1,'What was the book about trees you mentioned?'],[0,'Here is the book I mentioned, The Overstory.']],quick:['Thank you!','Ordering it now','Shall we talk about it?'],reply:'Read the chapter about the chestnut first. Tell me what you think!'},
+    y:{n:'Yuki · Kyoto',av:'Y',cls:'',met:'Met at "Where is home?"',log:[['d','Monday'],[0,'Your question about home stayed with me all day.'],[1,'Thank you, that made my evening.']],quick:['How are you?','Join my next table?','See you soon'],reply:'If you are ever in Kyoto, tea is on me.'}
+  };
+  var esc=function(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var pop=H.querySelector('[data-tchp="msg"]'), list=pop&&pop.querySelector('.tch-list'), chat=pop&&pop.querySelector('.tch-chat'), cur=null, tmr=null;
+  function bub(m){return m[0]==='d'?'<span class="tch-day">'+esc(m[1])+'</span>':'<div class="tch-b'+(m[0]?' mine':'')+'">'+esc(m[1])+'</div>'}
+  function down(){var l=chat.querySelector('.tch-log');l.scrollTop=l.scrollHeight}
+  function openChat(k){
+    var c=C[k]; if(!c) return; cur=k;
+    var li=list.querySelector('[data-chat="'+k+'"]'); if(li) li.classList.remove('un');
+    var a=chat.querySelector('.tch-ch .tch-av'); a.className='tch-av '+c.cls; a.textContent=c.av;
+    chat.querySelector('.tch-ch b').textContent=c.n; chat.querySelector('.tch-ch span').textContent=c.met;
+    chat.querySelector('.tch-log').innerHTML=c.log.map(bub).join('');
+    chat.querySelector('.tch-quick').innerHTML=c.quick.map(function(q){return '<button type="button" data-q>'+esc(q)+'</button>'}).join('');
+    chat.querySelector('.tch-quick').hidden=!!c.sent;
+    list.hidden=true; chat.hidden=false; down();
+    var i=chat.querySelector('.tch-cf input'); i.value=''; chat.querySelector('.tch-cf button').disabled=true;
+    if(matchMedia('(hover:hover)').matches) i.focus();
+  }
+  function showList(){if(!list)return;clearTimeout(tmr);cur=null;chat.classList.remove('direct');chat.hidden=true;list.hidden=false}
+  function send(t){
+    t=t.trim(); if(!t||!cur) return; var c=C[cur], k=cur;
+    c.log.push([1,t]); c.sent=true;
+    var li=list.querySelector('[data-chat="'+k+'"] .tch-tx span'); if(li) li.textContent='You: '+t;
+    var tm=list.querySelector('[data-chat="'+k+'"] time'); if(tm) tm.textContent='now';
+    var L=chat.querySelector('.tch-log'); L.querySelectorAll('.tch-seen').forEach(function(x){x.remove()});
+    L.insertAdjacentHTML('beforeend',bub([1,t])+'<span class="tch-seen">Sent</span>');
+    chat.querySelector('.tch-quick').hidden=true; down();
+    if(c.replied) return; c.replied=true; clearTimeout(tmr);
+    tmr=setTimeout(function(){if(cur!==k)return;var s=L.querySelector('.tch-seen');if(s)s.textContent='Seen';L.insertAdjacentHTML('beforeend','<div class="tch-typing"><i></i><i></i><i></i></div>');down();
+      tmr=setTimeout(function(){if(cur!==k)return;var ty=L.querySelector('.tch-typing');if(ty)ty.remove();c.log.push([0,c.reply]);L.insertAdjacentHTML('beforeend',bub([0,c.reply]));var sp=list.querySelector('[data-chat="'+k+'"] .tch-tx span');if(sp)sp.textContent=c.reply;down()},1800)},900);
+  }
+  if(pop){
+    list.addEventListener('click',function(e){var li=e.target.closest('[data-chat]');if(li)openChat(li.getAttribute('data-chat'))});
+    list.addEventListener('keydown',function(e){var li=e.target.closest('[data-chat]');if(li&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openChat(li.getAttribute('data-chat'))}});
+    var f=chat.querySelector('.tch-cf'), fi=f.querySelector('input'), fb=f.querySelector('button');
+    fi.addEventListener('input',function(){fb.disabled=!fi.value.trim()});
+    f.addEventListener('submit',function(e){e.preventDefault();send(fi.value);fi.value='';fb.disabled=true;fi.focus()});
+    chat.querySelector('.tch-quick').addEventListener('click',function(e){var b=e.target.closest('[data-q]');if(b)send(b.textContent)});
+  }
+  window.tchOpenChat=function(k){if(!pop)return;setTimeout(function(){closeAll();sync();var b=H.querySelector('[data-tch="msg"]');pop.hidden=false;b.setAttribute('aria-expanded','true');var x=b.querySelector('.tch-n');if(x)x.remove();openChat(k);chat.classList.add('direct');var i=chat.querySelector('.tch-cf input');if(i)i.focus({preventScroll:true})},0)};
+  H.querySelectorAll('[data-tchp="ntf"] li[data-href]').forEach(function(li){var go=function(){top.location.href=li.getAttribute('data-href')};li.addEventListener('click',go);li.addEventListener('keydown',function(e){if(e.key==='Enter')go()})});
+  document.addEventListener('click',function(e){if(!H.contains(e.target)&&e.target.isConnected)closeAll()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();H.classList.remove('sopen')}});
+  var si=H.querySelector('.tch-sbar input'),q=H.querySelector('.tch-search input');
+  if(si&&q)si.addEventListener('input',function(){q.value=si.value;q.dispatchEvent(new Event('input',{bubbles:true}))});
+})();
+</script>

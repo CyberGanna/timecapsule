@@ -1,0 +1,206 @@
+Transcript|Trascrizione|Transcripción
+Messages|Messaggi|Mensajes
+Notes|Note|Notas
+Live transcript|Trascrizione in diretta|Transcripción en directo
+Transcript started at 0:00|Trascrizione iniziata alle 0:00|Transcripción iniciada a las 0:00
+Mute|Silenzia|Silenciar
+Unmute|Riattiva audio|Activar audio
+Mute everyone|Silenzia tutti|Silenciar a todos
+Unmute everyone|Riattiva tutti|Activar audio a todos
+Muted by you|Silenziato da te|Silenciado por ti
+Raise hand|Alza la mano|Levantar la mano
+Lower hand|Abbassa la mano|Bajar la mano
+Stop video|Ferma video|Detener vídeo
+Start video|Avvia video|Iniciar vídeo
+Leave table|Lascia il tavolo|Salir de la mesa
+End table|Chiudi il tavolo|Terminar la mesa
+Moderator tools|Strumenti del moderatore|Herramientas del moderador
+Moderate as|Modera come|Moderar como
+Listening|In ascolto|Escuchando
+Let's give others a chance to speak|Diamo spazio anche agli altri|Demos a los demás la oportunidad de hablar
+Please keep it respectful|Manteniamo il rispetto, per favore|Mantengamos el respeto, por favor
+10 minutes left|Mancano 10 minuti|Quedan 10 minutos
+To|A|Para
+To everyone|A tutti|A todos
+Only to|Solo a|Solo a
+Everyone at the table|Tutti al tavolo|Todos en la mesa
+Sent to everyone|Inviato a tutti|Enviado a todos
+Send a note to the whole table or to one person. It appears on their screen without interrupting the call.|Invia una nota a tutto il tavolo o a una persona. Compare sul suo schermo senza interrompere la chiamata.|Envía una nota a toda la mesa o a una persona. Aparece en su pantalla sin interrumpir la llamada.
+The moderator unmuted everyone|Il moderatore ha riattivato l'audio a tutti|El moderador ha activado el audio a todos
+The moderator muted everyone|Il moderatore ha silenziato tutti|El moderador ha silenciado a todos
+Everyone can speak again|Tutti possono parlare di nuovo|Todos pueden volver a hablar
+Everyone is muted. Tap the same button to unmute them all.|Tutti sono silenziati. Tocca lo stesso pulsante per riattivarli.|Todos están silenciados. Toca el mismo botón para activarles el audio.
+Your hand is up|Hai alzato la mano|Has levantado la mano
+Hand lowered|Mano abbassata|Mano bajada
+In the real app this would end the table for everyone, after a confirmation.|Nell'app vera questo chiuderebbe il tavolo per tutti, dopo una conferma.|En la app real esto terminaría la mesa para todos, tras una confirmación.
+Ask the table|Chiedi al tavolo|Preguntar a la mesa
+Question sent|Domanda inviata|Pregunta enviada
+Asked the table|Chiesto al tavolo|Preguntado a la mesa
+Ask Gregory|Chiedi a Gregory|Preguntar a Gregory
+Ask|Chiedi|Preguntar
+Keep|Tieni|Guardar
+Kept|Tenute|Guardadas
+Questions|Domande|Preguntas
+Take out of the transcript|Togli dalla trascrizione|Quitar de la transcripción
+Show this question to everyone at the table?|Mostrare questa domanda a tutti al tavolo?|¿Mostrar esta pregunta a todos en la mesa?
+Remove quote|Rimuovi citazione|Quitar cita
+Kept. It stays in your profile after the table.|Tenuta. Resta nel tuo profilo dopo il tavolo.|Guardada. Se queda en tu perfil después de la mesa.
+No longer kept|Non più tenuta|Ya no está guardada
+Everyone at the table can see your question|Tutti al tavolo vedono la tua domanda|Todos en la mesa ven tu pregunta
+Added to the transcript|Aggiunta alla trascrizione|Añadida a la transcripción
+Taken out of the transcript|Tolta dalla trascrizione|Quitada de la transcripción
+In transcript|Nella trascrizione|En la transcripción
+Note deleted|Nota eliminata|Nota eliminada
+Delete note|Elimina nota|Eliminar nota
+Save note|Salva nota|Guardar nota
+Export isn't available here|L'esportazione non è disponibile qui|La exportación no está disponible aquí
+Kept notes copied to your clipboard|Note tenute copiate negli appunti|Notas guardadas copiadas al portapapeles
+Only you can see your notes|Solo tu vedi le tue note|Solo tú ves tus notas
+Write a private note|Scrivi una nota privata|Escribe una nota privada
+Write a private note…|Scrivi una nota privata…|Escribe una nota privada…
+Add this line to my notes|Aggiungi questa frase alle mie note|Añadir esta frase a mis notas
+Add to my notes|Aggiungi alle mie note|Añadir a mis notas
+Add to the transcript|Aggiungi alla trascrizione|Añadir a la transcripción
+Kept for you|Tenute per te|Guardadas para ti
+Kept · everyone agreed|Conservata · tutti d'accordo|Guardada · todos de acuerdo
+Now viewing as Gregory, the moderator|Ora vedi come Gregory, il moderatore|Ahora ves como Gregory, el moderador
+Now viewing as Lena, a guest|Ora vedi come Lena, un'ospite|Ahora ves como Lena, una invitada
+Open circle: questions go to everyone|Cerchio aperto: le domande vanno a tutti|Círculo abierto: las preguntas van a todos
+Moderated: guests' questions go to the moderator|Moderato: le domande degli ospiti vanno al moderatore|Moderada: las preguntas de los invitados van al moderador
+Guest (Lena)|Ospite (Lena)|Invitada (Lena)
+Thanks for joining, Lena|Grazie di esserti unita, Lena|Gracias por unirte, Lena
+Remove from the table|Rimuovi dal tavolo|Quitar de la mesa
+They'll leave the call right away and can't rejoin this table.|Lasceranno subito la chiamata e non potranno rientrare a questo tavolo.|Saldrán de la llamada al instante y no podrán volver a esta mesa.
+Rate and tip|Vota e lascia una mancia|Valorar y dar propina
+Rate and tip this table|Vota e lascia una mancia a questo tavolo|Valora y da propina a esta mesa
+Rate and tip yesterday's table|Vota il tavolo di ieri e lascia una mancia|Valora la mesa de ayer y da propina
+Rate the table and award TimeCoins|Vota il tavolo e assegna TimeCoins|Valora la mesa y da TimeCoins
+How was the discussion?|Com'è stata la discussione?|¿Qué tal la conversación?
+Pick an answer to continue|Scegli una risposta per continuare|Elige una respuesta para continuar
+Add a note (optional)|Aggiungi una nota (facoltativa)|Añade una nota (opcional)
+Note about the discussion|Nota sulla discussione|Nota sobre la conversación
+Next: award TimeCoins|Avanti: assegna TimeCoins|Siguiente: dar TimeCoins
+Award TimeCoins|Assegna TimeCoins|Dar TimeCoins
+Award your favorite panelists|Premia i partecipanti preferiti|Premia a tus participantes favoritos
+Award anyone at the table after the talk|Premia chiunque al tavolo dopo la discussione|Premia a cualquiera de la mesa después de la charla
+Split your TimeCoins between the moderator and the participants who made it worth it.|Dividi i tuoi TimeCoins tra il moderatore e i partecipanti che l'hanno resa preziosa.|Reparte tus TimeCoins entre el moderador y los participantes que hicieron que valiera la pena.
+You have 8 TimeCoins. Tip whoever inspired you today.|Hai 8 TimeCoins. Premia chi ti ha ispirato oggi.|Tienes 8 TimeCoins. Da propina a quien te inspiró hoy.
+They're yours to give away, not to keep. Any you don't award within 3 days expire.|Sono da regalare, non da tenere. Quelli non assegnati entro 3 giorni scadono.|Son para regalar, no para guardar. Los que no des en 3 días caducan.
+TimeCoins become reputation|I TimeCoins diventano reputazione|Los TimeCoins se convierten en reputación
+They show on each person's profile and can't be spent or passed on.|Compaiono sul profilo di ciascuno e non si possono spendere né cedere.|Aparecen en el perfil de cada persona y no se pueden gastar ni pasar.
+TimeCoins are how people build their reputation on TimeCapsule. Even one coin tells Gregory and the panelists their voice mattered today.|Con i TimeCoins le persone costruiscono la loro reputazione su TimeCapsule. Anche una sola moneta dice a Gregory e ai partecipanti che la loro voce oggi contava.|Con los TimeCoins la gente construye su reputación en TimeCapsule. Incluso una moneda le dice a Gregory y a los participantes que su voz importó hoy.
+Skip without tip|Salta senza mancia|Omitir sin propina
+Leave without a tip?|Andare via senza mancia?|¿Salir sin dar propina?
+Leave anyway|Esci comunque|Salir de todos modos
+Stay and rate|Resta e vota|Quedarse y valorar
+Your TimeCoins are on their way|I tuoi TimeCoins sono in arrivo|Tus TimeCoins van de camino
+Your rating was sent|La tua valutazione è stata inviata|Tu valoración se ha enviado
+Thanks! Your rating was sent.|Grazie! La tua valutazione è stata inviata.|¡Gracias! Tu valoración se ha enviado.
+Thanks for your feedback|Grazie per il tuo feedback|Gracias por tu opinión
+None this time|Nessuno questa volta|Ninguno esta vez
+Send TimeCoins|Invia TimeCoins|Enviar TimeCoins
+Done|Fatto|Hecho
+The tables you host and the chairs you saved, with everything you need to run them.|I tavoli che ospiti e i posti che hai tenuto, con tutto quello che serve per gestirli.|Las mesas que organizas y los sitios que reservaste, con todo lo necesario para gestionarlas.
+Manage this table|Gestisci questo tavolo|Gestionar esta mesa
+Manage table|Gestisci tavolo|Gestionar mesa
+Who was there|Chi c'era|Quién estuvo
+Export transcript|Esporta trascrizione|Exportar transcripción
+Host it again|Ospitalo di nuovo|Organizarla de nuevo
+Edit table|Modifica tavolo|Editar mesa
+Invite people|Invita persone|Invitar a personas
+Copy link|Copia link|Copiar enlace
+Link copied|Link copiato|Enlace copiado
+Message guests|Scrivi agli ospiti|Escribir a los invitados
+Cancel table|Annulla tavolo|Cancelar mesa
+Cancel this table?|Annullare questo tavolo?|¿Cancelar esta mesa?
+Table cancelled. Your guests were told.|Tavolo annullato. Gli ospiti sono stati avvisati.|Mesa cancelada. Se ha avisado a los invitados.
+Guests will get a note about what changed.|Gli ospiti riceveranno una nota sulle modifiche.|Los invitados recibirán una nota sobre los cambios.
+Invite a friend|Invita un amico|Invitar a un amigo
+Send invites|Invia inviti|Enviar invitaciones
+Leave the waitlist|Lascia la lista d'attesa|Salir de la lista de espera
+Leave the waitlist?|Lasciare la lista d'attesa?|¿Salir de la lista de espera?
+Leave waitlist|Lascia la lista d'attesa|Salir de la lista
+You left the waitlist.|Hai lasciato la lista d'attesa.|Has salido de la lista de espera.
+Give up my chair|Cedi il mio posto|Ceder mi sitio
+Give up your chair?|Cedere il tuo posto?|¿Ceder tu sitio?
+Give up chair|Cedi il posto|Ceder sitio
+Your chair is free for someone else.|Il tuo posto è libero per qualcun altro.|Tu sitio queda libre para otra persona.
+You hosted this table|Hai ospitato questo tavolo|Organizaste esta mesa
+You're the moderator|Sei il moderatore|Eres el moderador
+Your kept notes|Le tue note tenute|Tus notas guardadas
+Downloads aren't available in this view.|I download non sono disponibili in questa vista.|Las descargas no están disponibles en esta vista.
+Couldn't save the file here.|Impossibile salvare il file qui.|No se ha podido guardar el archivo aquí.
+Waitlist · 2nd|Lista d'attesa · 2°|Lista de espera · 2.º
+Role|Ruolo|Rol
+When|Quando|Cuándo
+Date|Data|Fecha
+Time|Ora|Hora
+Title|Titolo|Título
+Seats|Posti|Plazas
+Starts|Inizia|Empieza
+Fewer seats|Meno posti|Menos plazas
+More seats|Più posti|Más plazas
+Pick a date|Scegli una data|Elige una fecha
+What do you want to discuss?|Di cosa vuoi parlare?|¿De qué quieres hablar?
+What you want to discuss|Di cosa vuoi parlare|De qué quieres hablar
+Add what you want to discuss to open the table.|Scrivi di cosa vuoi parlare per aprire il tavolo.|Añade de qué quieres hablar para abrir la mesa.
+e.g. Free will, slow travel, home batteries…|es. libero arbitrio, viaggio lento, batterie di casa…|p. ej. libre albedrío, viaje lento, baterías domésticas…
+Table format|Formato del tavolo|Formato de la mesa
+Who can join|Chi può partecipare|Quién puede unirse
+Anyone can find it on the Agenda and take a free chair.|Chiunque può trovarlo nell'Agenda e prendere un posto libero.|Cualquiera puede encontrarla en la Agenda y ocupar un sitio libre.
+Only people invited with the link. It stays off the Agenda.|Solo chi è invitato con il link. Non compare nell'Agenda.|Solo quien tenga el enlace de invitación. No aparece en la Agenda.
+Keep a transcript of the discussion|Conserva una trascrizione della discussione|Guardar una transcripción de la conversación
+Anything we should know? (optional)|C'è qualcosa che dovremmo sapere? (facoltativo)|¿Algo que debamos saber? (opcional)
+Start table|Apri il tavolo|Empezar la mesa
+Opening your table… (coming soon in this prototype)|Apertura del tavolo… (presto in questo prototipo)|Abriendo tu mesa… (pronto en este prototipo)
+Add a picture|Aggiungi un'immagine|Añadir una imagen
+Colour|Colore|Color
+Alias|Alias|Alias
+An alias|Un alias|Un alias
+Type an alias|Scrivi un alias|Escribe un alias
+Suggest an alias|Suggerisci un alias|Sugerir un alias
+Suggest one|Suggeriscine uno|Sugerir uno
+Others will see you as|Gli altri ti vedranno come|Los demás te verán como
+Only the moderator can see it's you. Your alias is kept for your next tables, and you can change it anytime.|Solo il moderatore sa che sei tu. Il tuo alias resta per i prossimi tavoli e puoi cambiarlo quando vuoi.|Solo el moderador sabe que eres tú. Tu alias se mantiene para tus próximas mesas y puedes cambiarlo cuando quieras.
+Keep for myself|Tienilo per me|Guardar para mí
+Pick one of your upcoming tables. They'll get a card with a button to save a chair.|Scegli uno dei tuoi prossimi tavoli. Riceveranno una scheda con un pulsante per tenere un posto.|Elige una de tus próximas mesas. Recibirán una tarjeta con un botón para reservar sitio.
+Find your people|Trova le tue persone|Encuentra a tu gente
+The moderators and regulars behind the tables. Follow someone and we'll tell you when they host next.|I moderatori e gli habitué dietro i tavoli. Segui qualcuno e ti diremo quando ospita di nuovo.|Los moderadores y habituales detrás de las mesas. Sigue a alguien y te avisaremos cuando organice otra mesa.
+Only people who host tables, or who choose to be found, appear here.|Qui compaiono solo le persone che ospitano tavoli o che scelgono di farsi trovare.|Aquí solo aparecen quienes organizan mesas o eligen que les encuentren.
+Filter people|Filtra persone|Filtrar personas
+You're not listed.|Non sei in elenco.|No apareces en la lista.
+You're hidden from People|Sei nascosto in Persone|Estás oculto en Personas
+Joins tables. Not hosting right now.|Partecipa ai tavoli. Ora non ospita.|Se une a mesas. Ahora no organiza.
+We'll tell you when they host a new table.|Ti avviseremo quando ospiteranno un nuovo tavolo.|Te avisaremos cuando organicen una nueva mesa.
+Say hello, or sit with them again|Saluta, o siediti di nuovo con loro|Saluda, o siéntate de nuevo con ellos
+You've sat with|Ti sei seduto con|Te has sentado con
+You met at|Vi siete incontrati a|Os conocisteis en
+Sign in|Accedi|Iniciar sesión
+Continue with Apple|Continua con Apple|Continuar con Apple
+Continue with Google|Continua con Google|Continuar con Google
+Continue with email|Continua con email|Continuar con correo
+Already have an account?|Hai già un account?|¿Ya tienes cuenta?
+We never sell or mine your data. You can join with a first name or an alias.|Non vendiamo né sfruttiamo mai i tuoi dati. Puoi entrare con un nome o un alias.|Nunca vendemos ni explotamos tus datos. Puedes unirte con tu nombre o un alias.
+Small tables, real people, every corner of the world. Setting up takes about a minute.|Piccoli tavoli, persone vere, in ogni angolo del mondo. Configurare richiede circa un minuto.|Mesas pequeñas, gente real, en cada rincón del mundo. Configurarlo lleva un minuto.
+Join the conversation|Unisciti alla conversazione|Únete a la conversación
+This is you|Questo sei tu|Este eres tú
+Your name sits at the centre of your universe.|Il tuo nome sta al centro del tuo universo.|Tu nombre está en el centro de tu universo.
+Your nebulae|Le tue nebulose|Tus nebulosas
+Topics become the coloured clouds of your universe.|I temi diventano le nuvole colorate del tuo universo.|Los temas se convierten en las nubes de colores de tu universo.
+Your first star|La tua prima stella|Tu primera estrella
+Your first star goes here|Qui va la tua prima stella|Aquí va tu primera estrella
+Your book now orbits you. Add more later in My readings.|Il tuo libro ora ti orbita intorno. Aggiungine altri in Le mie letture.|Tu libro ya orbita a tu alrededor. Añade más luego en Mis lecturas.
+Pick a book and it becomes the first star.|Scegli un libro e diventerà la prima stella.|Elige un libro y será la primera estrella.
+Add a film|Aggiungi un film|Añadir una película
+Books and films together tell us what moves you.|Libri e film insieme ci dicono cosa ti emoziona.|Libros y películas juntos nos dicen qué te mueve.
+Your favourite film joins the orbit.|Il tuo film preferito entra in orbita.|Tu película favorita entra en la órbita.
+It grows with every book you add and every table you join.|Cresce con ogni libro che aggiungi e ogni tavolo a cui partecipi.|Crece con cada libro que añades y cada mesa a la que te unes.
+Looking good|Ottimo|Tiene buena pinta
+Add a photo|Aggiungi una foto|Añadir una foto
+Search title or author|Cerca titolo o autore|Buscar título o autor
+Search title or director|Cerca titolo o regista|Buscar título o director
+Loved at TimeCapsule tables|Amati ai tavoli di TimeCapsule|Favoritos en las mesas de TimeCapsule
+Often mentioned at tables|Spesso citati ai tavoli|Mencionados a menudo en las mesas
+Added by you|Aggiunto da te|Añadido por ti
+Added to your universe|Aggiunto al tuo universo|Añadido a tu universo
+you're here|sei qui|estás aquí

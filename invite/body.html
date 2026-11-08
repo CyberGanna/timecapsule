@@ -1,0 +1,545 @@
+<style>
+/* Invite friends page */
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.proto{border-bottom:1px solid var(--line);background:#171C3B;font-size:12.5px;color:var(--mute)}
+.proto .wrap{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;padding-block:8px}
+.proto b{font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:10.5px;opacity:.8}
+.pg{display:inline-flex;gap:2px;padding:3px;border-radius:9px;background:var(--surface);border:1px solid var(--line)}
+.pg button{border:0;background:none;color:var(--mute);font-size:12.5px;padding:5px 10px;border-radius:6px;white-space:nowrap}
+.pg button[aria-pressed=true]{background:var(--fg);color:#121633;font-weight:500}
+.view[hidden]{display:none}
+h1{font-weight:400;font-size:clamp(32px,4.6vw,48px);line-height:1.05;letter-spacing:-.04em;margin:0}
+.hero{padding:40px 0 6px;max-width:640px}
+.hero p{margin:12px 0 0;color:var(--mute);font-size:16px;max-width:560px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px;margin-top:28px;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h2{font-size:17px;font-weight:500;margin:0 0 4px;letter-spacing:-.01em}
+.card .sub{color:var(--mute);font-size:13.5px;margin:0}
+.seg{display:inline-flex;padding:3px;border-radius:11px;background:var(--bg);border:1px solid var(--line);margin:16px 0 4px}
+.seg button{border:0;background:none;color:var(--mute);padding:7px 14px;border-radius:8px;font-size:14px;font-weight:500}
+.seg button[aria-pressed=true]{background:var(--raise);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
+.seg button:disabled{opacity:.55;cursor:default}.seg em{font-style:normal;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-left:4px}
+.soon{margin:4px 0 0;font-size:12.5px;color:var(--mute)}
+.tbls{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.tbls label{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;cursor:pointer}
+.tbls label:hover{border-color:var(--mute)}
+.tbls input{accent-color:var(--lamp);width:17px;height:17px;flex:none;margin:0}
+.tbls .tt{flex:1;min-width:0}
+.tbls b{display:block;font-weight:500;font-size:14.5px}
+.tbls small{color:var(--mute);font-size:12.5px}
+.tbls .left{font-size:12px;color:var(--lamp);white-space:nowrap}
+.tbls label:has(input:checked){border-color:var(--lamp);background:rgba(23,195,200,.06)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.hold{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:13.5px;color:var(--soft)}
+.hold input{accent-color:var(--lamp);margin-top:3px}
+.fld{display:block;margin-top:18px}
+.fld>span{display:block;font-size:13px;color:var(--mute);margin-bottom:6px}
+.fld input,.fld textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-size:15px;outline:none;resize:vertical;font-family:inherit;color:var(--fg)}
+.fld input:focus,.fld textarea:focus{border-color:var(--lamp)}
+.two{display:grid;grid-template-columns:1fr 1.6fr;gap:12px}
+.two .fld{margin-top:18px}
+/* preview card */
+.pv{margin-top:20px;border-radius:16px;padding:20px;background:radial-gradient(120% 90% at 0% 0%,rgba(124,92,255,.28),transparent 60%),radial-gradient(90% 80% at 100% 100%,rgba(23,195,200,.18),transparent 60%),#151A38;border:1px solid var(--line);position:relative;overflow:hidden}
+.pv .lbl{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.pv .who{display:flex;gap:12px;align-items:center;margin-top:12px}
+.pv .who .a{width:44px;height:44px;border-radius:50%;overflow:hidden;flex:none;box-shadow:0 0 0 2px var(--bg),0 0 0 3px var(--violet)}
+.pv .who .a svg{width:100%;height:100%;display:block}
+.pv .hl{font-size:20px;letter-spacing:-.02em;line-height:1.2}
+.pv .hl b{font-weight:600}
+.pv q{display:block;margin:12px 0 0;color:var(--soft);font-size:14.5px;quotes:none;border-left:2px solid var(--violet);padding-left:12px}
+.pv q:empty{display:none}
+.pv .tb{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-size:14px}
+.pv .tb small{display:block;color:var(--mute);font-size:12.5px}
+.pv .gift{margin-top:14px;display:flex;gap:8px;align-items:center;font-size:13px;color:var(--gold)}
+.coin{width:16px;height:16px;flex:none}
+.link{display:flex;gap:8px;margin-top:18px}
+.link code{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font:inherit;font-size:14px;color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:11px;border:1px solid var(--line);background:none;font-size:14.5px;font-weight:500;text-decoration:none;color:var(--fg);white-space:nowrap}
+.btn:hover{border-color:var(--mute)}
+.btn.p{background:var(--lamp);border-color:var(--lamp);color:var(--lamp-ink)}
+.btn.p:hover{filter:brightness(1.08)}
+.btn.v{background:var(--violet);border-color:var(--violet);color:#fff}
+.btn svg{width:18px;height:18px}
+.share{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.share .btn{height:auto;padding:12px 6px;flex-direction:column;gap:6px;font-size:13px;border-radius:12px}
+.share .btn svg{width:22px;height:22px}
+/* circle */
+.side{display:grid;gap:16px}
+.ring{position:relative;width:250px;height:250px;margin:18px auto 6px}
+.ring .tbl{position:absolute;inset:58px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;text-align:center}
+.ring .tbl b{display:block;font-size:34px;font-weight:500;letter-spacing:-.03em;line-height:1;color:var(--gold)}
+.ring .tbl small{display:block;font-size:11.5px;color:var(--mute);margin-top:6px;line-height:1.3;max-width:100px}
+.ring.flat{width:auto;height:auto;display:grid;grid-template-columns:repeat(5,40px);gap:16px 14px;justify-content:center;margin:18px auto 4px}
+.ring.flat .ch{position:static;margin:0}
+.ring.flat .tbl{position:static;inset:auto;grid-column:1/-1;order:1;border-radius:14px;padding:10px 16px;display:flex;align-items:baseline;justify-content:center;gap:8px;margin-top:4px}
+.ring.flat .tbl > div{display:flex;align-items:baseline;gap:8px}
+.ring.flat .tbl b{font-size:26px}
+.ring.flat .tbl small{margin-top:0;max-width:none}
+.ch{position:absolute;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;display:grid;place-items:center;transition:transform .4s}
+.ch svg{width:100%;height:100%;border-radius:50%;display:block}
+.ch.e{border:1.5px dashed #4A5288}
+.ch.s{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--violet)}
+.ch.s svg{opacity:.55}
+.ch.j{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--lamp)}
+.ch.tj{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--violet)}
+.ch.f{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--lamp)}
+.ch.k{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--gold)}
+.ch .q{font-size:15px;color:var(--violet);font-weight:600}
+.ch.pop{animation:pop .6s ease}
+@keyframes pop{0%{transform:scale(.3)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+.lg{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;font-size:12px;color:var(--mute);margin-top:10px}
+.lg i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:0}
+.cap{font-size:13px;color:var(--mute);text-align:center;margin:12px 0 0}
+.steps{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:14px}
+.steps li{display:flex;gap:12px}
+.steps .n{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;background:var(--raise);border:1px solid var(--line)}
+.steps b{display:block;font-weight:500;font-size:14.5px}
+.steps span{color:var(--mute);font-size:13px}
+.steps .c5{color:var(--gold);font-weight:500}
+.steps li.nx{opacity:.55}
+.fair{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mute)}
+.fair a{color:var(--lamp)}
+/* invites list */
+.list{margin:36px 0 60px}
+.list h2{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:0 0 10px}
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.rows li{display:grid;grid-template-columns:44px minmax(0,1fr) auto auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.rows .a{width:44px;height:44px;border-radius:50%;overflow:hidden;background:var(--raise);display:grid;place-items:center;color:var(--mute)}
+.rows .a svg{width:100%;height:100%}
+.rows b{font-weight:500}
+.rows .st{display:block;color:var(--mute);font-size:13px}
+.prog{display:flex;gap:4px;margin-top:7px}
+.prog i{width:28px;height:4px;border-radius:2px;background:var(--line)}
+.prog i.on{background:var(--lamp)}
+.prog i.g{background:var(--gold)}
+.earn{font-size:14px;font-weight:500;color:var(--gold);display:flex;gap:6px;align-items:center;white-space:nowrap}
+.earn.z{color:var(--mute);font-weight:400}
+.act{display:flex;gap:4px}
+.lnk{background:none;border:0;padding:6px 8px;color:var(--lamp);font-size:13.5px;font-weight:500;border-radius:8px;text-decoration:none}
+.lnk:hover{background:rgba(23,195,200,.08)}
+.lnk.m{color:var(--mute)}
+.lnk:disabled{color:var(--mute);opacity:.6;cursor:default;background:none}
+/* friend view */
+.fhead{display:flex;align-items:center;gap:12px;height:64px;border-bottom:1px solid var(--line)}
+.fhead .wm{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--fg)}
+.fhead svg{height:26px;width:auto}
+.fhead .wm span{font-size:18px;letter-spacing:-.02em}
+.fhead .wm b{font-weight:600}.fhead .wm i{font-style:normal;font-weight:300}
+.fhead .sp{flex:1}
+.fw{max-width:560px;margin:0 auto;padding:44px 0 70px}
+.fw .who{display:flex;flex-direction:column;align-items:center;text-align:center}
+.fw .who .a{width:76px;height:76px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--violet)}
+.fw .who .a svg{width:100%;height:100%;display:block}
+.fw h1{margin-top:20px;text-align:center}
+.fw h1 b{font-weight:500}
+.fw q{display:block;margin:18px auto 0;max-width:440px;text-align:center;color:var(--soft);font-size:16px;quotes:none}
+.fw q:empty{display:none}
+.ftbl{margin-top:28px;display:flex;gap:18px;align-items:center}
+.mini{position:relative;width:120px;height:120px;flex:none}
+.mini .tb2{position:absolute;inset:30px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
+.mini i{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:rgba(238,241,255,.14)}
+.mini i.you{background:var(--lamp);box-shadow:0 0 0 3px rgba(23,195,200,.25);animation:breathe 2.4s ease-in-out infinite}
+.mini i.k{background:var(--violet)}
+.mini i.free{background:none;border:1.5px dashed #4A5288}
+@keyframes breathe{50%{box-shadow:0 0 0 7px rgba(23,195,200,.08)}}
+.ftbl .t b{display:block;font-size:18px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+.ftbl .t small{display:block;color:var(--mute);font-size:13.5px;margin-top:4px}
+.ftbl .t .yc{font-size:13px;color:var(--lamp);margin-top:8px;display:block}
+.ftbl .t a{color:var(--lamp);font-size:13.5px}
+.pitch{margin-top:28px;text-align:center}.pitch p{color:var(--soft);font-size:16px;margin:0 auto;max-width:460px}.pitch ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;font-size:13.5px;color:var(--mute)}.pitch li{display:flex;align-items:center;gap:7px}.pitch i{width:7px;height:7px;border-radius:50%;background:var(--lamp)}
+.fany{margin-top:28px}
+.fany p{color:var(--mute);text-align:center;margin:0 0 12px}
+.fany ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.fany li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;justify-content:space-between;font-size:14.5px}
+.fany li small{color:var(--mute);font-size:13px;white-space:nowrap}
+.fbtn{display:grid;gap:10px;margin-top:30px}
+.fbtn .btn{height:50px;font-size:15.5px}
+.fgift{margin-top:22px;display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:rgba(242,193,78,.07);border:1px solid rgba(242,193,78,.25);font-size:13.5px;color:var(--soft)}
+.fgift .coin{margin-top:2px}
+.what{margin-top:26px;color:var(--mute);font-size:13.5px;text-align:center}
+.what b{color:var(--fg);font-weight:500}
+.no{display:block;margin:18px auto 0;background:none;border:0;color:var(--mute);font-size:13.5px;text-decoration:underline;text-underline-offset:3px}
+.bye{text-align:center;padding:80px 0}
+.bye p{color:var(--mute)}
+/* where it appears */
+.wh{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:28px 0 60px}
+.wc{display:flex;flex-direction:column}
+.wc .mk{flex:1;border-radius:16px;background:#151A38;border:1px solid var(--line);padding:16px;min-height:220px;display:flex;flex-direction:column;justify-content:center}
+.wc h3{font-size:14.5px;font-weight:500;margin:12px 0 2px}
+.wc p{margin:0;color:var(--mute);font-size:13px}
+.wc a.go{color:var(--lamp);font-size:13px;margin-top:6px;text-decoration:none}
+.wc a.go:hover{text-decoration:underline}
+.mm{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:6px;font-size:14px;max-width:230px;margin:0 auto;width:100%}
+.mm .r{padding:8px 10px;border-radius:8px;color:var(--soft)}
+.mm .r.h{background:rgba(23,195,200,.12);color:var(--fg);display:flex;justify-content:space-between;align-items:center}
+.mm .r.h em{font-style:normal;font-size:11px;color:var(--gold)}
+.mm .me{display:flex;gap:10px;align-items:center;padding:8px 10px 10px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.mm .me i{width:30px;height:30px;border-radius:50%;background:#E6E0FF;flex:none}
+.mm .me small{display:block;color:var(--gold);font-size:12px}
+.ob{text-align:center}
+.ob .big{font-size:22px;letter-spacing:-.02em}
+.ob .bt{margin:14px auto 0;display:inline-flex;height:38px;padding:0 16px;border-radius:10px;background:var(--lamp);color:var(--lamp-ink);font-weight:500;font-size:13.5px;align-items:center}
+.ob .ln{margin-top:14px;font-size:13px;color:var(--soft)}
+.ob .ln u{color:var(--lamp);text-decoration:none;font-weight:500}
+.hl2{outline:1.5px dashed var(--gold);outline-offset:5px;border-radius:6px}
+.rt .ok{font-size:15px;text-align:center}
+.rt .ok small{display:block;color:var(--mute);font-size:12.5px;margin-top:2px}
+.rt .nx{margin-top:16px;padding:12px;border-radius:12px;background:var(--raise);border:1px solid var(--line);display:flex;gap:10px;align-items:center;font-size:13px}
+.rt .nx .tx{flex:1;min-width:0}
+.rt .nx small{display:block;color:var(--mute);font-size:12px}
+.rt .nx span.b{flex:none;height:32px;padding:0 12px;border-radius:9px;background:var(--violet);color:#fff;display:inline-flex;align-items:center;font-size:12.5px;font-weight:500}
+.sh .o{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;font-size:13.5px;color:var(--soft)}
+.sh .o i{width:30px;height:30px;border-radius:9px;background:var(--raise);display:grid;place-items:center;flex:none;font-style:normal}
+.sh .o.h{background:rgba(124,92,255,.14);color:var(--fg)}
+.sh .o small{display:block;color:var(--mute);font-size:11.5px}
+.nt .n{display:flex;gap:10px;padding:10px;border-radius:10px;font-size:13px;color:var(--soft);align-items:flex-start}
+.nt .n+.n{border-top:1px solid var(--line)}
+.nt .n .a{width:30px;height:30px;border-radius:50%;overflow:hidden;flex:none}
+.nt .n .a svg{width:100%;height:100%}
+.nt .n small{display:block;color:var(--mute);font-size:11.5px;margin-top:2px}
+.nt .n em{font-style:normal;color:var(--gold)}
+.lv{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.lv .tile{aspect-ratio:4/3;border-radius:10px;background:#0F1330;position:relative;overflow:hidden;display:grid;place-items:center}
+.lv .tile svg{width:46%;border-radius:50%}
+.lv .tile span{position:absolute;left:6px;bottom:5px;font-size:11px;background:rgba(9,11,22,.6);padding:1px 6px;border-radius:5px}
+.lv .tile .ft{position:absolute;right:6px;top:6px;font-size:10.5px;padding:2px 7px;border-radius:6px;background:#E8F7D9;color:#1F3B12;font-weight:500}
+.lv .tile.y{box-shadow:inset 0 0 0 2px var(--lamp)}
+/* the rule */
+.rule{max-width:760px;margin:0 0 70px}
+.rule h2{font-size:20px;font-weight:500;letter-spacing:-.01em;margin:36px 0 10px}
+.rule p,.rule li{color:var(--soft);font-size:15px}
+.rule ul{padding-left:20px;margin:8px 0}
+.rule li{margin:6px 0}
+.rule li b,.rule p b{color:var(--fg);font-weight:500}
+.lad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.lad div{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--surface)}
+.lad b{display:block;font-size:24px;font-weight:500;color:var(--gold);letter-spacing:-.02em}
+.lad span{display:block;font-size:13.5px;color:var(--soft);margin-top:4px}
+.lad small{display:block;color:var(--mute);font-size:12.5px;margin-top:6px}
+.risk{display:grid;gap:10px;margin-top:12px}
+.risk div{border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.risk b{display:block;font-weight:500;font-size:15px}
+.risk span{display:block;color:var(--mute);font-size:14px;margin-top:4px}
+.risk em{font-style:normal;color:var(--lamp)}
+/* sheet + toast */
+.scrim{position:fixed;inset:0;background:rgba(9,11,22,.6);display:grid;place-items:center;z-index:80;padding:16px}
+.sheet{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.sheet h3{margin:0 0 12px;font-size:17px;font-weight:500}
+.sheet ul{list-style:none;margin:0;padding:0}
+.sheet li button{width:100%;display:flex;gap:12px;align-items:center;padding:10px;border:0;background:none;border-radius:10px;text-align:left}
+.sheet li button:hover{background:var(--raise)}
+.sheet li .a{width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none}
+.sheet li .a svg{width:100%;height:100%}
+.sheet li small{display:block;color:var(--mute);font-size:12.5px}
+.sheet .x{margin-top:10px;width:100%}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--fg);color:#121633;padding:11px 16px;border-radius:12px;font-size:14px;font-weight:500;opacity:0;pointer-events:none;transition:.25s;z-index:90;max-width:calc(100% - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+body.friend #tch{display:none}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.wh{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){
+ .proto .wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+ .hero{padding-top:28px}
+ .card{padding:18px}
+ .two{grid-template-columns:1fr;gap:0}
+ .share{grid-template-columns:repeat(2,1fr)}
+ .rows li{grid-template-columns:40px minmax(0,1fr) auto;gap:12px}
+ .rows .a{width:40px;height:40px}
+ .rows .act{grid-column:2/4;justify-content:flex-start;margin:-6px 0 0 -8px}
+ .wh{grid-template-columns:1fr}
+ .lad{grid-template-columns:1fr}
+ .ftbl{flex-direction:column;text-align:center}
+ .fw{padding-top:30px}
+}
+</style>
+
+<div class="proto"><div class="wrap">
+<b>Prototype</b>
+<span class="pg" role="group" aria-label="View"><button data-v="me">Invite page</button><button data-v="friend">Your friend's link</button><button data-v="where">Where it appears</button><button data-v="rule">The rule</button></span>
+</div></div>
+
+<!-- ============ INVITE PAGE ============ -->
+<div class="view" id="v-me">
+<div class="wrap">
+ <section class="hero">
+  <h1>Invite a friend</h1>
+  <p>Conversations are better with people you know. Invite someone, and when they sign in you both receive free TimeCoins.</p>
+ </section>
+
+ <div class="grid">
+  <section class="card" aria-labelledby="c-t">
+   <h2 id="c-t">Invite someone to:</h2>
+   <div class="seg" role="group" aria-label="Invite to"><button data-to="any" aria-pressed="true">Join TimeCapsule</button><button data-to="table" aria-pressed="false">Join a table</button></div>
+   <div id="pick" hidden>
+    <ul class="tbls" id="tbls"></ul>
+    <label class="hold"><input type="checkbox" id="hold" checked><span>Keep a chair next to mine until two hours before it starts</span></label>
+    <div class="two">
+     <label class="fld"><span>Their first name</span><input id="fname" type="text" placeholder="Optional" autocomplete="off" maxlength="24"></label>
+     <label class="fld"><span>A few words from you</span><input id="note" type="text" placeholder="Optional, like why you thought of them" autocomplete="off" maxlength="140"></label>
+    </div>
+   </div>
+
+   <div class="pv" aria-label="What your friend sees">
+    <div class="lbl">What they'll see</div>
+    <div class="who"><span class="a" id="pv-a"></span><div class="hl"><b>Karim</b> <span id="pv-h">thinks you'd love it here.</span></div></div>
+    <q id="pv-q" data-noi18n></q>
+    <div class="tb" id="pv-tb"></div>
+    <div class="gift"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#F2C14E"/><circle cx="8" cy="8" r="4.2" fill="none" stroke="#B8862A" stroke-width="1.3"/></svg><span id="pv-g">You both receive 2 free TimeCoins when you sign in.</span></div>
+   </div>
+
+   <div class="link"><code id="url" data-noi18n>timecapsule.app/i/karim-7k2</code><button class="btn" type="button" data-sh="copy">Copy</button></div>
+   <div class="share">
+    <button class="btn" type="button" data-sh="wa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z" stroke-width="1.3"/></svg>WhatsApp</button>
+    <button class="btn" type="button" data-sh="mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></svg>Email</button>
+    <button class="btn" type="button" data-sh="chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.5V16H4z"/></svg>In a chat</button>
+    <button class="btn" type="button" data-sh="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 12v7h14v-7"/></svg>More</button>
+   </div>
+  </section>
+
+  <aside class="side">
+   <section class="card" aria-labelledby="r-t">
+    <h2 id="r-t">Your invitations this week</h2>
+    <p class="sub" id="r-sub">Invite up to 10 friends a week to join TimeCapsule. They'll gain 2 TimeCoins, and you, too!</p>
+    <div class="ring" id="ring"><div class="tbl"><div><b id="earned">15</b><small id="r-lbl">TimeCoins from friends</small></div></div></div>
+    <div class="lg"><span><i style="background:var(--violet)"></i><span id="r-l1">Invited</span></span><span><i style="background:var(--lamp)"></i><span id="r-l2">Signed in</span></span></div>
+   </section>
+   <section class="card" aria-labelledby="h-t">
+    <h2 id="h-t">How it works</h2>
+    <ol class="steps" id="h-any">
+     <li><span class="n">1</span><div><b>Send your link</b><span>To one friend, by chat, email or WhatsApp.</span></div></li>
+     <li><span class="n">2</span><div><b>They sign in</b><span>Once their email is confirmed, you both receive 2 TimeCoins.</span></div></li>
+     <li><span class="n">3</span><div><b>Or invite them to a table</b><span>When you sit at the same table, you both receive 5 instead.</span></div></li>
+    </ol>
+    <ol class="steps" id="h-table" hidden>
+     <li><span class="n">1</span><div><b>Send your link</b><span>To one friend. The chair next to yours is kept for them.</span></div></li>
+     <li><span class="n">2</span><div><b>They sign in and take the chair</b><span>They get a reminder before the table starts.</span></div></li>
+     <li><span class="n">3</span><div><b>You sit together</b><span>When the table ends, you both receive 5 TimeCoins.</span></div></li>
+    </ol>
+    <p class="fair">Up to ten friends a week count. You see only whether they signed in, never what they do at their tables.</p>
+   </section>
+  </aside>
+ </div>
+
+ <section class="list" aria-labelledby="l-t">
+  <h2 id="l-t">Your invites</h2>
+  <ul class="rows" id="rows"></ul>
+ </section>
+</div>
+</div>
+
+<!-- ============ FRIEND'S LINK ============ -->
+<div class="view" id="v-friend" hidden>
+ <div class="wrap fhead">
+  <a class="wm" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-label="TimeCapsule"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="fL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#fL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span data-noi18n><b>time</b><i>capsule</i></span></a>
+  <span class="sp"></span>
+  <a class="btn" href="https://claude.ai/artifact/BFBabdFxq8LxqDChfvRn61" target="_top" style="height:38px">Sign in</a>
+ </div>
+ <div class="wrap"><div class="fw" id="fw"></div></div>
+</div>
+
+<!-- ============ WHERE IT APPEARS ============ -->
+<div class="view" id="v-where" hidden>
+<div class="wrap">
+ <section class="hero">
+  <h1>Where invites appear</h1>
+  <p>Never as a pop-up. A quiet line at the moments when you'd naturally think of someone.</p>
+ </section>
+ <div class="wh" id="wh"></div>
+</div>
+</div>
+
+<!-- ============ THE RULE ============ -->
+<div class="view" id="v-rule" hidden>
+<div class="wrap">
+ <section class="hero">
+  <h1>The reward rule</h1>
+  <p>Two ways to invite. A plain "join us" pays 2 TimeCoins when they sign in. A chair at a table pays 5 when you sit together.</p>
+ </section>
+ <div class="rule">
+  <div class="lad">
+   <div><b>+2</b><span>Your friend signs in</span><small>Now. Counted once their email is confirmed. Your friend gets 2 as well.</small></div>
+   <div><b>+5</b><span>You invite them to a table and sit together</span><small>Replaces the 2, not on top of it. Your friend gets 5 too.</small></div>
+   <div><b>50</b><span>Most you can receive in a week</span><small>Ten friends a week, 5 each at most.</small></div>
+  </div>
+  <h2>Why this shape</h2>
+  <ul>
+   <li><b>Easy to understand.</b> One link, one number. A sign-in is clear to everyone, a "finished table" would need explaining.</li>
+   <li><b>Sitting together is worth more.</b> The table invite pays 5, because a friend who talks with you is the point.</li>
+   <li><b>It stays small next to tips.</b> One table gives each person 8 TimeCoins to award, so inviting never outweighs being good company.</li>
+   <li><b>Nobody is ranked.</b> No leaderboard, no invite count on profiles. The circle of ten chairs is only on your own page.</li>
+  </ul>
+  <h2>Risks and how the rule answers them</h2>
+  <div class="risk">
+   <div><b>Fake accounts to collect coins</b><span>This is the main risk of paying for sign-ins. One account per Apple, Google or confirmed email, coins only after the email is confirmed, and ten friends a week caps the gain. <em>If it is abused, coins can wait until the friend's first table instead.</em></span></div>
+   <div><b>Reputation bought by recruiting</b><span>Coins from friends are marked "Welcome" in your history and never count toward the Trusted badge. <em>Alternative: give them as extra coins to award at your next table instead.</em></span></div>
+   <div><b>Pressure and spam on friends</b><span>No contact import, no automatic reminders. You can remind once, by hand. "Not for me" is silent, the inviter isn't told.</span></div>
+   <div><b>Privacy</b><span>You see only that they signed in. Never what your friend said, how they rated, or which tables they joined.</span></div>
+  </div>
+  <h2>Open questions for you</h2>
+  <ul>
+   <li>Is 2 TimeCoins right for a sign-in, and 5 for sitting together?</li>
+   <li>Should coins from friends add to reputation, or be extra coins to award?</li>
+  </ul>
+ </div>
+</div>
+</div>
+
+<div class="scrim" id="scrim" hidden><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-t"><h3 id="sh-t">Send in a chat</h3><ul id="chats"></ul><button class="btn x" type="button" data-close>Cancel</button></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/*AVATARS*/
+P.Karim=["#E6E0FF","#7C5CFF","#E8B994","#3A2A20","short"];
+P.Sara=["#FFE9C7","#7C5CFF","#F1C9A5","#5A3A22","long"];
+const U={agenda:'https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5',table:'https://claude.ai/artifact/AQKmmAgq8JPDsrRACWEy6i',signin:'https://claude.ai/artifact/BFBabdFxq8LxqDChfvRn61',onb:'https://claude.ai/artifact/Q7o5JaMGP7bHLXzJ6aw6TH',rate:'https://claude.ai/artifact/4jA3RGXJko9RmWkEKk3kCu',ntf:'https://claude.ai/artifact/SggBcVnWacDjzBsZeke1D1',live:'https://claude.ai/artifact/2CoEp7SXhBT2oP5hu3zNkk',chats:'https://claude.ai/artifact/PYd4f8xrcNkPc2TyPkE4ib'};
+const T=[
+ {id:'fw',t:'Is free will an illusion?',top:'Philosophy',c:'#F29BD0',when:'Today · 19:00',by:'Hosted by Gregory',left:'3 chairs left'},
+ {id:'sc',t:'Slow cities, small homes',top:'Cities',c:'#17C3C8',when:'Tomorrow · 18:30',by:'Hosted by Lena',left:'5 chairs left'},
+ {id:'em',t:'The ethics of remembering',top:'History',c:'#F2C14E',when:'Thu · 20:00',by:'Hosted by Ruth',left:'2 chairs left'}];
+/* invite states: s=sent, j=joined, f=first table done, k=came back */
+let INV=[
+ {n:'Lena',s:'j',d:'Since 12 Oct'},
+ {n:'Omar',s:'j',d:'Since 2 Nov'},
+ {n:'Priya',s:'j',d:'Signed in today'},
+ {n:'Noah',s:'s',d:'Sent 3 days ago',rem:0}];
+const ST={s:'Invite sent',j:'Signed in'};
+let TINV=[
+ {n:'Mia',s:'f',d:'Is free will an illusion? · 2 Nov'},
+ {n:'Kofi',s:'j',d:'The ethics of remembering · Thu 20:00'},
+ {n:'Ruth',s:'s',d:'Slow cities, small homes · Tomorrow',rem:0}];
+const TST={s:'Chair kept',j:'Chair taken',f:'Sat together'};
+const cur=()=>st.to==='table'?TINV:INV;
+const st={view:'me',to:'any',tb:'fw'};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const coinSvg='<svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#F2C14E"/><circle cx="8" cy="8" r="4.2" fill="none" stroke="#B8862A" stroke-width="1.3"/></svg>';
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),2400)}
+const earnOf=s=>st.to==='table'?(s==='f'?5:0):(s==='j'?2:0);
+
+/* ---------- invite page ---------- */
+function renderTables(){
+ $('#tbls').innerHTML=T.map(x=>`<li><label><input type="radio" name="tb" value="${x.id}" ${st.tb===x.id?'checked':''}><span class="tt"><b data-noi18n>${esc(x.t)}</b><small><span class="dot" style="background:${x.c}"></span><span>${x.when}</span></small></span><span class="left">${x.left}</span></label></li>`).join('');
+}
+function preview(){
+ const name=st.to==='table'?$('#fname').value.trim():'',note=st.to==='table'?$('#note').value.trim():'';
+ $('#pv-a').innerHTML=av('Karim');
+ $('#pv-q').textContent=note;
+ const tb=$('#pv-tb');
+ if(st.to==='table'){const x=T.find(t=>t.id===st.tb);tb.innerHTML=`<span data-noi18n>${esc(x.t)}</span><small><span class="dot" style="background:${x.c}"></span><span>${x.when}</span> · <span>${x.by}</span></small>`}
+ else tb.innerHTML=`<span>Small tables where real people talk about what matters.</span><small>No feed, no ads. Just a chair and a conversation.</small>`;
+ $('#pv-h').textContent=st.to==='table'?'saved you a chair.':"thinks you'd love it here.";
+ $('#pv-g').textContent=st.to==='table'?'You both receive 5 free TimeCoins when you sit at this table together.':'You both receive 2 free TimeCoins when you sign in.';
+ $('#h-any').hidden=st.to==='table';$('#h-table').hidden=st.to!=='table';
+ const slug=(name?name.toLowerCase().normalize('NFD').replace(/[^a-z]/g,'').slice(0,12)+'-':'')+'7k2';
+ $('#url').textContent='timecapsule.app/i/karim-'+slug+(st.to==='table'?'/'+st.tb:'');
+}
+function ring(pop){
+ const r=$('#ring');r.querySelectorAll('.ch').forEach(e=>e.remove());r.classList.toggle('flat',st.to!=='table');
+ const R=105,c=125;
+ for(let i=0;i<10;i++){const a=-Math.PI/2+i*2*Math.PI/10;const x=c+R*Math.cos(a),y=c+R*Math.sin(a);
+  const v=cur()[i];const d=document.createElement('span');d.style.left=x+'px';d.style.top=y+'px';
+  if(v){d.className='ch '+(st.to==='table'&&v.s==='j'?'tj':v.s)+(pop&&i===0?' pop':'');d.innerHTML=P[v.n]?av(v.n):'<span class="q">?</span>';d.title=v.n}
+  else d.className='ch e';
+  r.appendChild(d)}
+ $('#earned').textContent=cur().reduce((s,v)=>s+earnOf(v.s),0);
+ const tb=st.to==='table';
+ $('#r-t').textContent='Your invitations this week';
+ $('#r-sub').textContent=tb?"Invite up to 10 friends a week to sit at your tables. They'll gain 5 TimeCoins, and you, too!":"Invite up to 10 friends a week to join TimeCapsule. They'll gain 2 TimeCoins, and you, too!";
+ $('#r-lbl').textContent=tb?'TimeCoins from table guests':'TimeCoins from friends';
+ $('#r-l1').textContent=tb?'Chair kept':'Invited';
+ $('#r-l2').textContent=tb?'Sat together':'Signed in';
+}
+function rows(){
+ const tb=st.to==='table',L=tb?TST:ST;
+ $('#rows').innerHTML=cur().map((v,i)=>{
+  const n=v.s==='s'?1:v.s==='j'?2:3;
+  const prog=(tb?[0,1,2]:[0,1]).map(k=>`<i class="${k<n?'on':''}"></i>`).join('');
+  const e=earnOf(v.s);
+  const acts=v.s==='s'?`<button class="lnk" data-rem="${i}" ${v.rem?'disabled':''}>${v.rem?'Reminded':'Remind once'}</button><button class="lnk m" data-wd="${i}">Withdraw</button>`:`<button class="lnk" data-msg="${i}">Say hello</button>`;
+  return `<li><span class="a">${P[v.n]?av(v.n):'?'}</span><div><b data-noi18n>${esc(v.n)}</b><span class="st"><span>${L[v.s]}</span> · <span>${v.d}</span></span><div class="prog" aria-hidden="true">${prog}</div></div><span class="earn ${e?'':'z'}">${e?coinSvg+'+'+e:'No coins yet'}</span><span class="act">${acts}</span></li>`}).join('');
+}
+function sent(how){
+ const name=(st.to==='table'?$('#fname').value.trim():'')||'Someone with your link';
+ const x=T.find(t=>t.id===st.tb);
+ const d=st.to==='table'?(x.when.startsWith('Today')?'Chair kept for today':'Invited to '+x.when.split(' · ')[0]):'Sent just now';
+ const A=cur();A.unshift({n:name,s:'s',d,rem:0});if(A.length>10)A.length=10;
+ ring(true);rows();
+ $('#fname').value='';$('#note').value='';preview();
+ toast(how);
+}
+document.addEventListener('click',e=>{
+ const to=e.target.closest('[data-to]');
+ if(to){st.to=to.dataset.to;document.querySelectorAll('[data-to]').forEach(b=>b.setAttribute('aria-pressed',b===to));$('#pick').hidden=st.to!=='table';preview();ring();rows();return}
+ const sh=e.target.closest('[data-sh]');
+ if(sh){const k=sh.dataset.sh;
+  if(k==='copy'){try{navigator.clipboard.writeText('https://'+$('#url').textContent)}catch(_){}sent('Link copied. Paste it wherever you talk.');return}
+  if(k==='wa'){sent('Opening WhatsApp with your invite');return}
+  if(k==='mail'){sent('Opening your email with your invite');return}
+  if(k==='more'){if(navigator.share){navigator.share({title:'TimeCapsule',url:'https://'+$('#url').textContent}).then(()=>sent('Invite shared')).catch(()=>{})}else sent('Invite shared');return}
+  if(k==='chat'){openChats();return}}
+ const rm=e.target.closest('[data-rem]');if(rm){cur()[+rm.dataset.rem].rem=1;rows();toast('Reminder sent. You can only remind once.');return}
+ const wd=e.target.closest('[data-wd]');if(wd){cur().splice(+wd.dataset.wd,1);ring();rows();toast('Invite withdrawn. The link no longer works.');return}
+ const mg=e.target.closest('[data-msg]');if(mg){if(window.tchOpenChat)window.tchOpenChat('a');else toast('Opening chat');return}
+ const cp=e.target.closest('[data-chat]');if(cp&&cp.closest('#chats')){closeChats();sent('Sent to '+cp.dataset.chat);return}
+ if(e.target.closest('[data-close]')||e.target.id==='scrim'){closeChats();return}
+ const pv=e.target.closest('.proto [data-v]');if(pv){go(pv.dataset.v);return}
+ const fb=e.target.closest('[data-f]');if(fb){friendAct(fb.dataset.f);return}
+});
+document.addEventListener('change',e=>{if(e.target.name==='tb'){st.tb=e.target.value;preview()}});
+document.addEventListener('input',e=>{if(e.target.id==='fname'||e.target.id==='note')preview()});
+function openChats(){
+ $('#chats').innerHTML=[['Gregory','Met at Is free will an illusion?'],['Amara','Lagos'],['Yuki','Kyoto'],['Mia','Small homes']].map(([n,s])=>`<li><button type="button" data-chat="${n}"><span class="a">${P[n]?av(n):av('Lena')}</span><span><b data-noi18n>${n}</b><small>${s}</small></span></button></li>`).join('');
+ $('#scrim').hidden=false;
+}
+function closeChats(){$('#scrim').hidden=true}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeChats()});
+
+/* ---------- friend's link ---------- */
+let fstate='open';
+function friend(){
+ const fw=$('#fw');
+ if(fstate==='no'){fw.innerHTML=`<div class="bye"><h1>No problem.</h1><p>Karim won't be told. The link stays open for 30 days if you change your mind.</p><button class="btn" data-f="back" type="button">Go back</button></div>`;return}
+ const note=(st.to==='table'?$('#note').value.trim():'')||(st.to==='table'?'I keep thinking about our talk on free will. Come argue with me properly.':'You are the best conversation I know. This place was made for you.');
+ const x=T.find(t=>t.id===st.tb);
+ let mid;
+ if(st.to==='table'){
+  const seats=[];const n=8;for(let i=0;i<n;i++){const a=-Math.PI/2+i*2*Math.PI/n;const cls=i===0?'k':i===1?'you':i<5?'':'free';seats.push(`<i class="${cls}" style="left:${60+48*Math.cos(a)}px;top:${60+48*Math.sin(a)}px"></i>`)}
+  mid=`<div class="ftbl"><div class="mini" aria-hidden="true"><div class="tb2"></div>${seats.join('')}</div><div class="t"><b data-noi18n>${esc(x.t)}</b><small><span class="dot" style="background:${x.c}"></span><span>${x.when}</span> · <span>${x.by}</span></small><span class="yc">Your chair is next to Karim's until 17:00.</span><a href="${U.table}" target="_top">See the table</a></div></div>`;
+ }else{
+  mid=`<div class="pitch"><p>A place to talk, listen and think out loud. Small tables, a handful of real people, one question worth an hour.</p><ul><li><i></i><span>No feed, no followers, no ads.</span></li><li><i></i><span>First name or alias is enough.</span></li><li><i></i><span>Your data is never sold.</span></li></ul></div>`;
+ }
+ fw.innerHTML=`<div class="who"><span class="a">${av('Karim')}</span></div>
+ <h1><b>Karim</b> <span>${st.to==='table'?'saved you a chair.':"thinks you'd love it here."}</span></h1>
+ <q data-noi18n>“${esc(note)}”</q>
+ ${mid}
+ <div class="fbtn"><a class="btn p" href="${U.onb}" target="_top">Accept and join TimeCapsule</a><a class="btn" href="${U.signin}" target="_top">I already have an account</a></div>
+ <div class="fgift">${coinSvg}<span>${st.to==='table'?'You both receive 5 free TimeCoins when you sit at this table together, the small thank-you people give each other here.':'You both receive 2 free TimeCoins when you sign in, the small thank-you people give each other here.'}</span></div>
+ ${st.to==='table'?`<p class="what"><b>What is TimeCapsule?</b> <span>Small tables where real people talk about things that matter. Free, no ads, and your data is never sold.</span></p>`:''}
+ <button class="no" type="button" data-f="no">Not for me</button>`;
+}
+function friendAct(k){if(k==='no')fstate='no';if(k==='back')fstate='open';friend()}
+
+/* ---------- where it appears ---------- */
+function where(){
+ const W=[
+  {h:'Avatar menu',p:'Always one tap away, under My tables.',go:null,mk:`<div class="mm"><div class="me"><i></i><div><b>You</b><small>● 42 TimeCoins</small></div></div><div class="r">My profile</div><div class="r">My tables</div><div class="r h hl2"><span>Invite friends</span><em>+2</em></div><div class="r">Settings</div></div>`},
+  {h:'Onboarding, last screen',p:'A quiet line under the one button.',go:U.onb,mk:`<div class="ob"><div class="big">You're in.</div><span class="bt">Join the conversation</span><div class="ln hl2"><span>Know someone who'd love this?</span> <u>Save them a chair</u></div></div>`},
+  {h:'Rate and Tip, after awarding',p:'Right after a good table, invite someone to the next one.',go:U.rate,mk:`<div class="rt"><div class="ok">Thanks, your TimeCoins are on their way.<small>Gregory hosts again on Thursday.</small></div><div class="nx hl2"><div class="tx"><span>Bring a friend to the next one</span><small data-noi18n>Is free will an illusion?</small></div><span class="b">Invite</span></div></div>`},
+  {h:'Table page, Share',p:'Saving a chair for a friend sits next to Copy link.',go:U.table,mk:`<div class="sh"><div class="o"><i>⧉</i><span>Copy link</span></div><div class="o h hl2"><i>+</i><span>Save a chair for a friend<small>Kept next to yours until two hours before</small></span></div><div class="o"><i>✉</i><span>Email</span></div></div>`},
+  {h:'Bell',p:'You hear about each step, never about what they said.',go:U.ntf,mk:`<div class="nt"><div class="n"><span class="a">${av('Priya')}</span><div><span><b data-noi18n>Priya</b> <span>signed in with your link.</span></span> <em>+2</em><small>2h</small></div></div><div class="n"><span class="a">${av('Omar')}</span><div><span><b data-noi18n>Omar</b> <span>is at a table right now. Want to sit with them?</span></span><small>Yesterday</small></div></div></div>`},
+  {h:'Their first table',p:'The host sees a small "First table" tag to welcome them.',go:U.live,mk:`<div class="lv"><div class="tile y">${av('Karim')}<span>You</span></div><div class="tile">${av('Priya')}<span data-noi18n>Priya</span><em class="ft">First table</em></div><div class="tile">${av('Gregory')}<span data-noi18n>Gregory</span></div><div class="tile">${av('Ruth')}<span data-noi18n>Ruth</span></div></div>`}];
+ $('#wh').innerHTML=W.map(w=>`<article class="wc"><div class="mk">${w.mk}</div><h3>${w.h}</h3><p>${w.p}</p>${w.go?`<a class="go" href="${w.go}" target="_top">Open this page</a>`:''}</article>`).join('');
+}
+
+/* ---------- view switch ---------- */
+function go(v){
+ st.view=v;['me','friend','where','rule'].forEach(k=>$('#v-'+k).hidden=k!==v);
+ document.body.classList.toggle('friend',v==='friend');
+ document.querySelectorAll('.proto [data-v]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v));
+ if(v==='friend')friend();if(v==='where')where();
+ try{history.replaceState(null,'',v==='me'?location.pathname:'#'+v)}catch(_){}
+ scrollTo(0,0);
+}
+renderTables();preview();ring();rows();
+const h0=(location.hash||'').replace('#','');go(['friend','where','rule'].includes(h0)?h0:'me');
+</script>
+</body></html>

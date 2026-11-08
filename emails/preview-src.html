@@ -1,0 +1,111 @@
+<title>TimeCapsule Emails</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: brand-book navy desk; email list on the left, the email itself on a paper "inbox" stage on the right. Single dark look by choice, like the brand book. */
+:root{
+  --navy:#1B2144;--panel:#20264A;--field:#252B52;--line:#3A4175;--text:#EEF1FF;--mute:#A9B0D6;
+  --violet:#7C5CFF;--teal:#17C3C8;--lav:#A99BFF;--gold:#E2AC3C;--paper:#F4F5FC;
+  --display:"Sora",ui-sans-serif,system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+body{background:var(--navy);color:var(--text);font-family:var(--display);font-weight:300;font-size:15px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 48px}
+header{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+h1{font-weight:400;font-size:clamp(26px,4vw,34px);letter-spacing:-.02em;margin:6px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--mute);max-width:60ch}
+.ctls{display:flex;flex-wrap:wrap;gap:12px}
+.seg{display:inline-flex;background:var(--field);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg button{all:unset;cursor:pointer;padding:7px 14px;border-radius:7px;font-size:13px;color:var(--mute);font-weight:400}
+.seg button[aria-pressed="true"]{background:var(--violet);color:#fff}
+.seg button:focus-visible,.list button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.grid{display:grid;grid-template-columns:280px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.list{display:grid;gap:8px;position:sticky;top:16px}
+@media (max-width:860px){.list{position:static;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
+.list button{all:unset;cursor:pointer;display:grid;gap:2px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel)}
+.list button b{font-weight:500;font-size:14px}
+.list button span{font-size:12.5px;color:var(--mute)}
+.list button[aria-current="true"]{border-color:var(--violet);background:#2A2560}
+.main{display:grid;gap:16px;min-width:0}
+.meta{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:6px;font-size:14px}
+.meta div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px}
+.meta dt{font-family:var(--mono);font-size:12px;color:var(--mute);padding-top:2px}
+.meta dd{margin:0;overflow-wrap:anywhere}
+.meta .subj{font-weight:500}
+.stage{background:#E9EBF5;border-radius:16px;padding:24px 0;overflow-x:auto;display:flex;justify-content:center}
+.frame{background:var(--paper);transition:width .25s ease;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,.25);overflow:hidden;flex:none}
+.frame.mobile{border:10px solid #0E1230;border-radius:34px}
+iframe{display:block;border:0;width:100%;height:600px;background:var(--paper)}
+.notes{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:10px;font-size:14px}
+.notes h2{font-size:15px;font-weight:500;margin:0}
+.notes p{margin:0;color:var(--mute)}
+.vars{display:flex;flex-wrap:wrap;gap:6px}
+.vars code{font-family:var(--mono);font-size:12px;background:var(--field);border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:var(--lav)}
+@media (prefers-reduced-motion:reduce){.frame{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div><span class="eyebrow">Transactional emails · v1</span><h1>Five emails, one calm voice</h1>
+      <p>Welcome, table reminder, rate and tip reminder, and the two invites. Sample content is shown; the sources use placeholders.</p></div>
+    <div class="ctls">
+      <div class="seg" role="group" aria-label="Language" id="lang"><button data-v="en" aria-pressed="true">English</button><button data-v="it" aria-pressed="false">Italiano</button><button data-v="es" aria-pressed="false">Español</button></div>
+      <div class="seg" role="group" aria-label="Width" id="width"><button data-v="desktop" aria-pressed="true">Desktop</button><button data-v="mobile" aria-pressed="false">Mobile</button></div>
+    </div>
+  </header>
+  <div class="grid">
+    <nav class="list" id="list" aria-label="Emails"></nav>
+    <div class="main">
+      <dl class="meta" id="meta"></dl>
+      <div class="stage"><div class="frame" id="frame"><iframe id="ifr" title="Email preview"></iframe></div></div>
+      <section class="notes" id="notes"></section>
+    </div>
+  </div>
+</div>
+
+<script>
+var DATA=/*DATA*/null, LOGO="/*LOGO*/", COIN="/*COIN*/";
+var EMAILS=[
+ {k:"welcome",n:"Welcome",w:"Right after sign-up",from:"TimeCapsule",
+  note:"Sent once, after the account is created (and the email confirmed, for email sign-ups). The button opens Agenda with the person's onboarding topics first.",
+  v:["first_name","url_agenda"]},
+ {k:"reminder",n:"Table reminder",w:"1 hour before a table",from:"TimeCapsule",
+  note:"Sent 1 hour before a table to everyone with a chair (host included). The 10-minute nudge stays in-app and on the bell. Not sent if the chair was taken less than 1 hour before. 'Free my chair' gives the seat to the next person on the waitlist.",
+  v:["topic_name","table_title","host_name","table_when","chairs_taken","chairs_total","table_length","other_guests","url_table","url_calendar","url_free_chair"]},
+ {k:"rate",n:"Rate and tip reminder",w:"24 hours after a table",from:"TimeCapsule",
+  note:"Sent 24 hours after a finished table, only if the person hasn't rated it yet. Shows the coins left to give and when they expire. Matches the bell reminder.",
+  v:["table_title","table_people","coins_left","coins_expiry_date","url_rate"]},
+ {k:"invite_join",n:"Invite: join TimeCapsule",w:"When a friend invites you",from:"Mia via TimeCapsule",
+  note:"Sent from Invite friends, tab 'Join TimeCapsule'. No personal message on this kind (as on the Invite page). Both earn 2 TimeCoins when the friend signs in. Up to 10 invites a week.",
+  v:["inviter_first_name","url_join"]},
+ {k:"invite_table",n:"Invite: join a table",w:"When a friend invites you to a table",from:"Mia via TimeCapsule",
+  note:"Sent from Invite friends, tab 'Join a table', with the inviter's personal message. Both earn 5 TimeCoins when they sit at the table together. 'Take a chair' opens the private invite view of the Table page.",
+  v:["inviter_first_name","personal_message","topic_name","table_title","host_name","table_when","chairs_taken","chairs_total","table_length","url_accept","url_decline"]}
+];
+var LBL={en:{from:"From",subj:"Subject",pre:"Preview",to:"To",when:"Sent",vars:"Placeholders in the source"},it:{from:"Da",subj:"Oggetto",pre:"Anteprima",to:"A",when:"Inviata",vars:"Segnaposto nel sorgente"},es:{from:"De",subj:"Asunto",pre:"Vista previa",to:"Para",when:"Se envía",vars:"Marcadores en el código"}};
+var st={k:"welcome",lang:"en",width:"desktop"};
+try{var s=JSON.parse(localStorage.getItem("tc-email-prev")||"{}");if(s.lang)st.lang=s.lang;if(s.width)st.width=s.width}catch(e){}
+var h=(location.hash||"").slice(1).replace(/-/g,"_");if(EMAILS.some(function(e){return e.k===h}))st.k=h;
+var list=document.getElementById("list");
+EMAILS.forEach(function(e){var b=document.createElement("button");b.type="button";b.dataset.k=e.k;b.innerHTML="<b>"+e.n+"</b><span>"+e.w+"</span>";b.onclick=function(){st.k=e.k;location.hash=e.k.replace(/_/g,"-");render()};list.appendChild(b)});
+function seg(id,key){var g=document.getElementById(id);g.addEventListener("click",function(ev){var b=ev.target.closest("button");if(!b)return;st[key]=b.dataset.v;try{localStorage.setItem("tc-email-prev",JSON.stringify({lang:st.lang,width:st.width}))}catch(e){}render()})}
+seg("lang","lang");seg("width","width");
+window.addEventListener("hashchange",function(){var h=location.hash.slice(1).replace(/-/g,"_");if(EMAILS.some(function(e){return e.k===h})){st.k=h;render()}});
+var ifr=document.getElementById("ifr"),frame=document.getElementById("frame");
+function fit(){try{var d=ifr.contentDocument;if(d&&d.body){ifr.style.height="100px";ifr.style.height=d.documentElement.scrollHeight+"px"}}catch(e){}}
+ifr.addEventListener("load",function(){fit();setTimeout(fit,400);setTimeout(fit,1200)});
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function render(){
+  var e=EMAILS.filter(function(x){return x.k===st.k})[0],d=DATA[st.k+"."+st.lang],L=LBL[st.lang];
+  [].forEach.call(list.children,function(b){b.setAttribute("aria-current",b.dataset.k===st.k)});
+  ["lang","width"].forEach(function(id){[].forEach.call(document.getElementById(id).children,function(b){b.setAttribute("aria-pressed",b.dataset.v===st[id==="lang"?"lang":"width"])})});
+  var tmp=document.createElement("div");tmp.innerHTML=d.pre;
+  document.getElementById("meta").innerHTML='<div><dt>'+L.from+'</dt><dd>'+e.from+' &lt;hello@timecapsule.app&gt;</dd></div><div><dt>'+L.to+'</dt><dd>gregory@example.com</dd></div><div><dt>'+L.subj+'</dt><dd class="subj">'+esc(d.subject)+'</dd></div><div><dt>'+L.pre+'</dt><dd>'+esc(tmp.textContent)+'</dd></div>';
+  frame.className="frame"+(st.width==="mobile"?" mobile":"");frame.style.width=st.width==="mobile"?"395px":"680px";
+  ifr.srcdoc=d.html.split("__LOGO__").join(LOGO).split("__COIN__").join(COIN);
+  document.getElementById("notes").innerHTML='<h2>'+L.when+': '+e.w+'</h2><p>'+e.note+'</p><p style="font-size:13px">'+L.vars+'</p><div class="vars">'+e.v.map(function(x){return"<code>{{"+x+"}}</code>"}).join("")+'</div>';
+}
+render();
+</script>

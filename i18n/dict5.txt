@@ -1,0 +1,39 @@
+Wants to speak|Vuole parlare|Quiere hablar
+Removed by you|Rimosso da te|Quitado por ti
+In the transcript.|Nella trascrizione.|En la transcripción.
+You can take it out until the table ends.|Puoi toglierla finché il tavolo non finisce.|Puedes quitarla hasta que termine la mesa.
+★ You're moderating|★ Stai moderando|★ Estás moderando
+Host again|Ospita di nuovo|Organizar de nuevo
+Last two weeks|Ultime due settimane|Últimas dos semanas
+No tables coming up|Nessun tavolo in arrivo|No hay mesas próximas
+Save a chair at a table, or open one of your own.|Tieni un posto a un tavolo o aprine uno tuo.|Reserva sitio en una mesa o abre una tuya.
+No past tables yet|Ancora nessun tavolo passato|Aún no hay mesas pasadas
+Tables you've been to will show here, with your notes and transcripts.|Qui compariranno i tavoli a cui hai partecipato, con note e trascrizioni.|Aquí aparecerán las mesas a las que has ido, con tus notas y transcripciones.
+No transcript kept|Nessuna trascrizione conservata|No se guardó transcripción
+Share the link|Condividi il link|Compartir el enlace
+People you've met at tables|Persone conosciute ai tavoli|Personas que conociste en las mesas
+Fewer chairs|Meno posti|Menos sitios
+More chairs|Più posti|Más sitios
+Chairs|Posti|Sitios
+Message to guests|Messaggio agli ospiti|Mensaje a los invitados
+Sorry, I have to cancel this one. I'll open it again soon and invite you first.|Scusate, devo annullare questo tavolo. Lo riaprirò presto e vi inviterò per primi.|Lo siento, tengo que cancelar esta. La abriré pronto de nuevo y os invitaré primero.
+Keep table|Mantieni il tavolo|Mantener la mesa
+Keep it|Tienilo|Mantenerla
+Your note|La tua nota|Tu nota
+Try another word, or clear the search.|Prova un'altra parola o cancella la ricerca.|Prueba otra palabra o borra la búsqueda.
+You're listed.|Sei in elenco.|Apareces en la lista.
+People can find you by your name, city and topics. You can turn this off any time.|Le persone possono trovarti per nome, città e temi. Puoi disattivarlo quando vuoi.|La gente puede encontrarte por nombre, ciudad y temas. Puedes desactivarlo cuando quieras.
+You now appear on People|Ora compari in Persone|Ahora apareces en Personas
+Saved. You'll get a reminder 10 minutes before|Salvato. Riceverai un promemoria 10 minuti prima|Guardado. Recibirás un recordatorio 10 minutos antes
+Close full screen|Chiudi schermo intero|Cerrar pantalla completa
+All books|Tutti i libri|Todos los libros
+Unknown author|Autore sconosciuto|Autor desconocido
+Not in the list, pick its theme after|Non è nell'elenco, scegli il tema dopo|No está en la lista, elige su tema después
+No recent feedbacks with this answer|Nessun feedback recente con questa risposta|No hay opiniones recientes con esta respuesta
+Gregory is blocked|Gregory è bloccato|Gregory está bloqueado
+Report sent. Gregory is blocked|Segnalazione inviata. Gregory è bloccato|Denuncia enviada. Gregory está bloqueado
+Report sent. Thank you|Segnalazione inviata. Grazie|Denuncia enviada. Gracias
+Nobody follows you yet. People can follow you from your profile or the People page.|Ancora nessuno ti segue. Le persone possono seguirti dal tuo profilo o dalla pagina Persone.|Aún no te sigue nadie. La gente puede seguirte desde tu perfil o la página Personas.
+You can sign back in with your email any time.|Puoi rientrare con la tua email quando vuoi.|Puedes volver a entrar con tu correo cuando quieras.
+Invite sent|Invito inviato|Invitación enviada
+Edit details|Modifica dettagli|Editar detalles

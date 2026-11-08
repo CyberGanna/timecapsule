@@ -1,0 +1,25 @@
+Clear search|Cancella la ricerca|Borrar búsqueda
+Filter results|Filtra i risultati|Filtrar resultados
+Topics|Temi|Temas
+See all|Vedi tutti|Ver todo
+result|risultato|resultado
+results|risultati|resultados
+for|per|para
+Any time|Quando vuoi|Cuando sea
+Recent searches|Ricerche recenti|Búsquedas recientes
+Clear|Cancella|Borrar
+Topics to explore|Temi da esplorare|Temas para explorar
+Nothing matches|Nessun risultato per|Nada coincide con
+No table, person or topic yet. Check the spelling, or try a broader word.|Ancora nessun tavolo, persona o tema. Controlla come l'hai scritto o prova una parola più ampia.|Aún no hay mesas, personas ni temas. Revisa cómo lo escribiste o prueba una palabra más amplia.
+Nothing here with these filters.|Niente con questi filtri.|Nada con estos filtros.
+Clear filters|Togli i filtri|Quitar filtros
+Nobody is talking about this yet.|Nessuno ne sta ancora parlando.|Nadie está hablando de esto todavía.
+Open a table about it and be the first.|Apri un tavolo su questo e sii il primo.|Abre una mesa sobre esto y sé el primero.
+From the transcript|Dalla trascrizione|De la transcripción
+Hide|Nascondi|Ocultar
+No transcript|Nessuna trascrizione|Sin transcripción
+On the waitlist|In lista d'attesa|En la lista de espera
+You're on the waitlist. We'll tell you if a chair opens up.|Sei in lista d'attesa. Ti avviseremo se si libera un posto.|Estás en la lista de espera. Te avisaremos si se libera un sitio.
+Search covers open tables, topics, and people who host or chose to be found. Never private tables, chats or notes.|La ricerca include i tavoli aperti, i temi e le persone che ospitano o hanno scelto di farsi trovare. Mai i tavoli privati, le chat o le note.|La búsqueda incluye las mesas abiertas, los temas y las personas que organizan o eligieron que las encuentren. Nunca las mesas privadas, los chats ni las notas.
+Italiano|Italiano|Italiano
+English|Inglese|Inglés

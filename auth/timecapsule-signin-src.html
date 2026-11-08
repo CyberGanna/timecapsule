@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TimeCapsule Sign in</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap">
+<style>
+/* Sign in and account recovery: one calm task per screen on the left; on desktop a quiet "right now" panel on the right. Single dark brand theme, same as Onboarding. */
+:root{color-scheme:dark;
+ --bg:#1B2144;--panel:#20264A;--field:#252B52;--line:#3A4175;--line2:#525A94;
+ --text:#EEF1FF;--mute:#A9B0D6;--soft:#C9CEEA;--teal:#17C3C8;--violet:#7C5CFF;--gold:#F0C858;--space:#0B0E1E;
+ --err:#FF8A98;--errbg:rgba(255,138,152,.08);--errline:rgba(255,138,152,.45);
+ --font:'Sora',Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;-webkit-font-smoothing:antialiased}
+button,input,select{font-family:inherit}
+a{color:var(--teal)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.app{min-height:100%;display:grid;grid-template-rows:auto 1fr}
+
+header{display:flex;align-items:center;gap:12px;padding-block:14px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-size:20px;letter-spacing:-.4px}
+.logo svg{width:38px;height:28px}
+.logo b{font-weight:600}.logo i{font-style:normal;font-weight:300}
+
+.stage{width:100%;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:72px;padding-block:56px 120px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));align-items:start}
+.flow{min-width:0;max-width:440px;width:100%}
+.step{display:grid;gap:22px;animation:in .35s ease both}
+@keyframes in{from{opacity:.001}to{opacity:1}}
+h1{margin:0;font-size:34px;line-height:1.15;font-weight:500;letter-spacing:-1px;text-wrap:balance}
+.lead{margin:-8px 0 0;font-size:16px;font-weight:300;line-height:1.55;color:var(--soft);max-width:42ch}
+.lead b{font-weight:500;color:var(--text);word-break:break-all}
+.fine{margin:0;font-size:13px;font-weight:300;color:var(--mute);line-height:1.55}
+.fine a,.lk{color:var(--teal);text-decoration:none;font-weight:400}
+.fine a:hover,.lk:hover{text-decoration:underline}
+.lk{background:none;border:0;padding:0;font-size:inherit;cursor:pointer}
+
+.icon{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--panel);border:1px solid var(--line);color:var(--teal)}
+.icon svg{width:26px;height:26px}
+.icon.ok{color:var(--teal);background:rgba(23,195,200,.1);border-color:rgba(23,195,200,.35)}
+.icon.warn{color:var(--gold);background:rgba(240,200,88,.08);border-color:rgba(240,200,88,.35)}
+
+/* social */
+.auth{display:grid;gap:10px}
+.auth button,.auth a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:50px;border-radius:12px;font-size:15px;cursor:pointer;text-decoration:none}
+.auth .a1{border:0;background:var(--text);color:#141836;font-weight:500}
+.auth .a2{border:1px solid var(--line2);background:var(--panel);color:var(--text)}
+.auth svg{width:18px;height:18px}
+.or{display:flex;align-items:center;gap:10px;color:var(--mute);font-size:12px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* fields */
+form{display:grid;gap:16px;margin:0}
+.field{display:grid;gap:8px}
+.lrow{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.field label{font-size:13px;color:var(--mute)}
+.lrow .lk{font-size:13px}
+.inp{width:100%;min-height:52px;padding:0 16px;border-radius:12px;border:1px solid var(--line2);background:var(--field);color:var(--text);font-size:17px}
+.inp::placeholder{color:#7C83B3}
+.inp:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(23,195,200,.18)}
+.inp[aria-invalid=true]{border-color:var(--errline)}
+.inp[aria-invalid=true]:focus{box-shadow:0 0 0 3px rgba(255,138,152,.16);border-color:var(--err)}
+.pw{position:relative}
+.pw .inp{padding-right:56px}
+.eye{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:10px;background:none;color:var(--mute);cursor:pointer}
+.eye:hover{color:var(--text)}
+.eye svg{width:20px;height:20px}
+.ferr{display:flex;gap:6px;align-items:flex-start;margin:0;font-size:13px;line-height:1.45;color:var(--err)}
+.ferr svg{width:15px;height:15px;flex:none;margin-top:1px}
+.hint{display:flex;gap:6px;align-items:center;margin:0;font-size:13px;color:var(--mute);transition:color .2s}
+.hint svg{width:15px;height:15px;flex:none}
+.hint.met{color:var(--teal)}
+.hint.bad{color:var(--err)}
+
+/* banners */
+.note{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:12px;font-size:14px;line-height:1.5;font-weight:300}
+.note svg{width:18px;height:18px;flex:none;margin-top:1px}
+.note b{font-weight:500}
+.note.err{background:var(--errbg);border:1px solid var(--errline);color:var(--text)}
+.note.err svg{color:var(--err)}
+.note.info{background:var(--panel);border:1px solid var(--line);color:var(--soft)}
+.note.info svg{color:var(--teal)}
+.note .lk{font-weight:500}
+
+/* buttons */
+.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;border:0;border-radius:12px;background:var(--violet);color:#fff;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:opacity .2s,transform .1s}
+.primary:active{transform:scale(.98)}
+.primary:disabled{opacity:.6;cursor:default}
+.primary.full{width:100%}
+.ghost{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 18px;border:1px solid var(--line2);border-radius:12px;background:none;color:var(--text);font-size:15px;cursor:pointer;text-decoration:none}
+.ghost:disabled{color:var(--mute);border-color:var(--line);cursor:default}
+.back{width:44px;height:44px;flex:none;display:grid;place-items:center;border:1px solid var(--line);border-radius:12px;background:none;color:var(--mute);cursor:pointer}
+.back svg{width:18px;height:18px}
+.spin{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* welcome back */
+.me{display:flex;align-items:center;gap:16px}
+.av{width:64px;height:64px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:22px;font-weight:500;color:#fff;background:linear-gradient(135deg,var(--teal),var(--violet))}
+.me small{display:block;font-size:13px;color:var(--mute);font-weight:300;margin-top:4px}
+.me b{font-weight:500;font-size:17px}
+.soon{display:grid;gap:0;border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
+.soon .row{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.soon .row+.row{border-top:1px solid var(--line)}
+.soon .when{font-size:12px;color:var(--teal);white-space:nowrap;min-width:84px}
+.soon .tt{font-size:14px;line-height:1.4}
+.soon .cap{padding:12px 16px 0;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+
+/* email preview (prototype) */
+.mailp{border:1px dashed var(--line2);border-radius:14px;padding:14px;display:grid;gap:12px;background:rgba(11,14,30,.25)}
+.mailp .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.mail{background:#F6F7FC;color:#1B2144;border-radius:10px;padding:18px 18px 16px;display:grid;gap:10px}
+.mail .from{display:flex;align-items:center;gap:8px;font-size:12px;color:#5A6190}
+.mail .from svg{width:26px;height:19px}
+.mail h3{margin:0;font-size:17px;font-weight:600;letter-spacing:-.3px}
+.mail p{margin:0;font-size:13px;line-height:1.5;color:#3A4175}
+.mail .mb{justify-self:start;display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border:0;border-radius:10px;background:var(--violet);color:#fff;font-size:14px;font-weight:500;cursor:pointer}
+.mail small{font-size:11px;color:#7C83B3;line-height:1.5}
+.mailp .alt{font-size:12px;color:var(--mute)}
+
+/* right panel */
+.side{position:sticky;top:32px;display:grid;gap:16px}
+.card{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:22px;display:grid;gap:16px}
+.livehd{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--soft)}
+.pill{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px;border-radius:99px;background:rgba(23,195,200,.12);color:var(--teal);font-size:11px;font-weight:600;letter-spacing:.08em}
+.pill i{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.tbl{display:grid;gap:0}
+.tbl .t{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.dots{display:flex}
+.dots span{width:28px;height:28px;border-radius:50%;border:2px solid var(--panel);display:grid;place-items:center;font-size:11px;font-weight:600;color:#fff}
+.dots span+span{margin-left:-9px}
+.tbl b{display:block;font-size:14px;font-weight:500;line-height:1.35}
+.tbl small{display:block;font-size:12px;color:var(--mute);font-weight:300;margin-top:2px}
+.card .fine{text-align:left}
+
+/* prototype bar */
+.proto{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;align-items:center;gap:8px;padding:6px 6px 6px 14px;border-radius:99px;background:var(--space);border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:12px;color:var(--mute);white-space:nowrap;max-width:calc(100vw - 32px)}
+.proto select{min-height:32px;max-width:220px;padding:0 28px 0 10px;border-radius:99px;border:1px solid var(--line2);background:var(--field) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A9B0D6' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 8px center/14px;color:var(--text);font-size:12px;appearance:none;-webkit-appearance:none;cursor:pointer}
+
+.toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);max-width:calc(100vw - 32px);z-index:30;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:99px;background:var(--space);border:1px solid rgba(23,195,200,.5);color:var(--text);font-size:13px;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.4);animation:in .3s ease both}
+.toast svg{width:14px;height:14px;color:var(--teal)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media(max-width:900px){
+ .stage{grid-template-columns:minmax(0,1fr);padding-block:32px 110px;justify-items:center}
+ .side{display:none}
+ h1{font-size:28px;letter-spacing:-.6px}
+ .proto .pl{display:none}
+}
+@media(prefers-reduced-motion:reduce){.step,.toast{animation:none}.pill i,.spin{animation:none}}
+</style>
+<style>/* Avatar stacks: leftmost circle on top, each next one tucked under the previous */.dots>span{position:relative}.dots>span:nth-child(1){z-index:12}.dots>span:nth-child(2){z-index:11}.dots>span:nth-child(3){z-index:10}.dots>span:nth-child(4){z-index:9}.dots>span:nth-child(5){z-index:8}.dots>span:nth-child(6){z-index:7}.dots>span:nth-child(7){z-index:6}.dots>span:nth-child(8){z-index:5}.dots>span:nth-child(9){z-index:4}.dots>span:nth-child(10){z-index:3}.dots>span:nth-child(11){z-index:2}.dots>span:nth-child(12){z-index:1}</style></head>
+<body>
+<div class="app">
+<header>
+ <a class="logo" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-label="TimeCapsule">
+  <svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tcL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tcL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg>
+  <span data-noi18n><b>time</b><i>capsule</i></span>
+ </a>
+</header>
+
+<main class="stage">
+ <div class="flow" id="flow" aria-live="polite"></div>
+ <aside class="side" aria-label="Right now on TimeCapsule">
+  <div class="card">
+   <div class="livehd"><span class="pill" data-noi18n><i></i>LIVE</span><span>277 people · 89 tables</span></div>
+   <div class="tbl">
+    <div class="t"><div class="dots"><span style="background:#7C5CFF">M</span><span style="background:#17C3C8">J</span><span style="background:#C86FD8">A</span></div><div><b data-noi18n>What do we owe the people who come after us?</b><small><span data-noi18n>Lisbon</span> · 2 chairs free</small></div></div>
+    <div class="t"><div class="dots"><span style="background:#E58A5A">K</span><span style="background:#7C5CFF">S</span></div><div><b data-noi18n>Is boredom good for us?</b><small><span data-noi18n>Nairobi</span> · 3 chairs free</small></div></div>
+    <div class="t"><div class="dots"><span style="background:#17C3C8">L</span><span style="background:#5A8BE5">D</span><span style="background:#F0C858;color:#1B2144">R</span></div><div><b data-noi18n>Cities that remember: streets, names, ghosts</b><small><span data-noi18n>Kyoto</span> · 1 chair free</small></div></div>
+   </div>
+   <p class="fine">Small tables, real people, every corner of the world.</p>
+  </div>
+ </aside>
+</main>
+</div>
+
+<div class="proto" role="group" aria-label="Prototype">
+ <span class="pl">Prototype</span>
+ <select id="jump" aria-label="Show a screen">
+  <optgroup label="Sign in">
+   <option value="signin">Sign in</option>
+   <option value="e-wrong">Wrong password</option>
+   <option value="e-none">No account for this email</option>
+   <option value="e-google">Account uses Google</option>
+   <option value="locked">Too many tries</option>
+   <option value="back">Signed in</option>
+  </optgroup>
+  <optgroup label="Forgot password">
+   <option value="forgot">Forgot password</option>
+   <option value="sent">Check your email</option>
+   <option value="reset">Set a new password</option>
+   <option value="expired">Link expired</option>
+   <option value="updated">Password updated</option>
+  </optgroup>
+  <optgroup label="New account">
+   <option value="create">Create an account with email</option>
+   <option value="verify">Confirm your email</option>
+   <option value="verified">Email confirmed</option>
+  </optgroup>
+ </select>
+</div>
+
+<script>
+const AGENDA="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5";
+const ONBOARD="https://claude.ai/artifact/Q7o5JaMGP7bHLXzJ6aw6TH";
+const ICON={
+ back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>',
+ apple:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.5 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1.1-2.9-4.3zM13.9 5.1c.7-.9 1.2-2 1.1-3.1-1 0-2.3.7-3 1.6-.7.8-1.2 1.9-1.1 3 1.1.1 2.3-.6 3-1.5z"/></svg>',
+ google:'<svg viewBox="0 0 24 24"><path fill="#EA4335" d="M12 10.2v3.9h5.4c-.2 1.3-1.6 3.8-5.4 3.8-3.2 0-5.9-2.7-5.9-6s2.7-6 5.9-6c1.9 0 3.1.8 3.8 1.5l2.6-2.5C16.7 3.3 14.6 2.4 12 2.4 6.7 2.4 2.4 6.7 2.4 12s4.3 9.6 9.6 9.6c5.5 0 9.2-3.9 9.2-9.4 0-.6-.1-1.1-.2-1.6H12z"/></svg>',
+ mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+ eye:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+ eyeoff:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 5.1A10.4 10.4 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6A17.4 17.4 0 0 0 2 12s3.6 7 10 7a9.8 9.8 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>',
+ alert:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.1"/></svg>',
+ info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.5v.1"/></svg>',
+ check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+ dot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/></svg>',
+ pause:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg>',
+ clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+ key:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></svg>',
+ logo:'<svg viewBox="0 -6 110 82" aria-hidden="true"><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg>'
+};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const T=s=>window.TCI18N?TCI18N.t(s):s;
+const U=u=>window.TCI18N?TCI18N.u(u):u;
+
+/* state: screen, the email typed so far, per-field errors, a form-level banner */
+const SHORT="Use at least 10 characters.";
+const S={v:"signin",email:"",pw:"",err:{},banner:null,tries:0,from:"signin",busy:false,cool:0,newUser:false};
+let coolT=null;
+
+function errP(id,msg){return msg?`<p class="ferr" id="${id}-e">${ICON.alert}<span>${msg}</span></p>`:""}
+function inv(k){return S.err[k]?` aria-invalid="true" aria-describedby="${k}-e"`:""}
+function emailField(label="Email"){return `<div class="field"><label for="em">${label}</label>
+ <input class="inp" id="em" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" value="${esc(S.email)}"${inv("em")}>${errP("em",S.err.em)}</div>`}
+function pwField(id,label,ac,extra=""){return `<div class="field"><div class="lrow"><label for="${id}">${label}</label>${extra}</div>
+ <div class="pw"><input class="inp" id="${id}" type="password" autocomplete="${ac}"${inv(id)}><button class="eye" type="button" data-eye="${id}" aria-label="Show password" aria-pressed="false">${ICON.eye}</button></div>${S.err[id]===SHORT?"":errP(id,S.err[id])}</div>`}
+function banner(){const b=S.banner;if(!b)return"";return `<div class="note ${b.kind}" role="alert">${b.kind==="err"?ICON.alert:ICON.info}<div>${b.html}</div></div>`}
+function backBtn(to){return `<div><button class="back" type="button" data-go="${to}" aria-label="Back">${ICON.back}</button></div>`}
+function sendBtn(){return S.cool>0?`<button class="ghost" type="button" disabled>Send again in <span data-noi18n>&nbsp;0:${String(S.cool).padStart(2,"0")}</span></button>`:`<button class="ghost" type="button" data-act="resend">Send again</button>`}
+function mailPreview(kind){const r=kind==="reset";return `<div class="mailp"><span class="tag">Prototype: the email</span>
+ <div class="mail"><div class="from">${ICON.logo}<span>TimeCapsule</span></div>
+  <h3>${r?"Set a new password":"Confirm your email"}</h3>
+  <p>${r?"Someone asked to reset the password for this account. If it was you, use the button below. The link works for 30 minutes, once.":"Tap the button to confirm this is your email. Then you can join your first table."}</p>
+  <button class="mb" type="button" data-go="${r?"reset":"verified"}">${r?"Set a new password":"Confirm my email"}</button>
+  <small>${r?"If you didn't ask for this, you can ignore this email. Your password stays the same.":"If you didn't sign up for TimeCapsule, you can ignore this email."}</small></div>
+ ${r?`<button class="lk alt" type="button" data-go="expired">Open an old link instead</button>`:""}</div>`}
+
+const V={
+signin:()=>`<section class="step">
+ <h1>Welcome back.</h1>
+ <p class="lead">Sign in to find your tables and the people you sat with.</p>
+ ${banner()}
+ <div class="auth">
+  <button class="a1" type="button" data-act="social" data-p="Apple">${ICON.apple}Continue with Apple</button>
+  <button class="a2" type="button" data-act="social" data-p="Google">${ICON.google}Continue with Google</button>
+ </div>
+ <div class="or">or</div>
+ <form id="f-signin" novalidate>
+  ${emailField()}
+  ${pwField("pw","Password","current-password",`<button class="lk" type="button" data-go="forgot">Forgot password?</button>`)}
+  <button class="primary full" type="submit"${S.busy?" disabled":""}>${S.busy?`<span class="spin" aria-hidden="true"></span>Signing in…`:"Sign in"}</button>
+ </form>
+ <p class="fine">New to TimeCapsule? <a href="${ONBOARD}" target="_top">Create an account</a></p>
+</section>`,
+
+locked:()=>`<section class="step">
+ <div class="icon warn">${ICON.pause}</div>
+ <h1>Let's take a short pause.</h1>
+ <p class="lead">That's five tries in a row, so sign in is paused for 15 minutes to keep your account safe.</p>
+ <p class="fine">If you've forgotten your password, you can set a new one right now.</p>
+ <div class="actions"><button class="primary" type="button" data-go="forgot">Reset my password</button><button class="ghost" type="button" data-act="unlock">Back to sign in</button></div>
+</section>`,
+
+back:()=>`<section class="step">
+ <div class="me"><div class="av" aria-hidden="true">G</div><div><b>Welcome back, <span data-noi18n>Gregory</span>.</b><small>Signed in</small></div></div>
+ <div class="soon"><div class="cap">Your next tables</div>
+  <div class="row"><span class="when">Today, 19:00</span><span class="tt" data-noi18n>Is boredom good for us?</span></div>
+  <div class="row"><span class="when">Tue, 18:30</span><span class="tt" data-noi18n>The books we reread</span></div>
+ </div>
+ <div class="actions"><a class="primary" href="${AGENDA}" target="_top">Go to the tables</a></div>
+</section>`,
+
+forgot:()=>`<section class="step">
+ ${backBtn(S.from==="locked"?"locked":"signin")}
+ <h1>Forgot your password?</h1>
+ <p class="lead">It happens. Tell us your email and we'll send you a link to set a new one.</p>
+ <form id="f-forgot" novalidate>
+  ${emailField()}
+  <button class="primary full" type="submit"${S.busy?" disabled":""}>${S.busy?`<span class="spin" aria-hidden="true"></span>Sending…`:"Send the link"}</button>
+ </form>
+ <p class="fine">Signed up with Apple or Google? You don't have a password here. Use that button on the sign in screen.</p>
+</section>`,
+
+sent:()=>`<section class="step">
+ <div class="icon">${ICON.mail}</div>
+ <h1>Check your email</h1>
+ <p class="lead">If there's an account for <b data-noi18n>${esc(S.email||"gregory@example.com")}</b>, a link to set a new password is on its way. It works for 30 minutes.</p>
+ <p class="fine">Nothing after a few minutes? Look in your spam folder, or send it again.</p>
+ <div class="actions">${sendBtn()}<button class="lk" type="button" data-go="forgot" style="font-size:14px;padding:0 8px">Use a different email</button></div>
+ ${mailPreview("reset")}
+ <p class="fine"><button class="lk" type="button" data-go="signin">Back to sign in</button></p>
+</section>`,
+
+reset:()=>`<section class="step">
+ <div class="icon">${ICON.key}</div>
+ <h1>Set a new password</h1>
+ <p class="lead">For <b data-noi18n>${esc(S.email||"gregory@example.com")}</b>. Pick something you don't use anywhere else.</p>
+ <form id="f-reset" novalidate>
+  ${pwField("np","New password","new-password")}
+  <p class="hint${S.err.np===SHORT?" bad":""}" id="len">${ICON.dot}<span>At least 10 characters</span></p>
+  <button class="primary full" type="submit"${S.busy?" disabled":""}>${S.busy?`<span class="spin" aria-hidden="true"></span>Saving…`:"Save and sign in"}</button>
+ </form>
+</section>`,
+
+expired:()=>`<section class="step">
+ <div class="icon warn">${ICON.clock}</div>
+ <h1>This link has expired</h1>
+ <p class="lead">For your safety, reset links work for 30 minutes and only once. Ask for a new one and use the latest email.</p>
+ <div class="actions"><button class="primary" type="button" data-act="newlink">Send a new link</button><button class="ghost" type="button" data-go="signin">Back to sign in</button></div>
+</section>`,
+
+updated:()=>`<section class="step">
+ <div class="icon ok">${ICON.check}</div>
+ <h1>Your password is updated</h1>
+ <p class="lead">You're signed in on this device. To be safe, we signed you out everywhere else.</p>
+ <div class="actions"><a class="primary" href="${AGENDA}" target="_top">Go to the tables</a></div>
+</section>`,
+
+create:()=>`<section class="step">
+ <div><a class="back" href="${ONBOARD}" target="_top" aria-label="Back">${ICON.back}</a></div>
+ <h1>Create your account</h1>
+ <p class="lead">Just an email and a password. Your name and photo come next.</p>
+ ${banner()}
+ <form id="f-create" novalidate>
+  ${emailField()}
+  ${pwField("np","Password","new-password")}
+  <p class="hint${S.err.np===SHORT?" bad":""}" id="len">${ICON.dot}<span>At least 10 characters</span></p>
+  <button class="primary full" type="submit"${S.busy?" disabled":""}>${S.busy?`<span class="spin" aria-hidden="true"></span>Creating…`:"Continue"}</button>
+ </form>
+ <p class="fine">Already have an account? <button class="lk" type="button" data-go="signin">Sign in</button></p>
+</section>`,
+
+verify:()=>`<section class="step">
+ <div class="icon">${ICON.mail}</div>
+ <h1>Confirm your email</h1>
+ <p class="lead">We sent a link to <b data-noi18n>${esc(S.email||"dana@example.com")}</b>. Open it to confirm it's really you.</p>
+ <div class="note info">${ICON.info}<div>You can keep setting up while you wait. You'll need a confirmed email before you join your first table.</div></div>
+ <div class="actions"><a class="primary" href="${S.newUser?ONBOARD:AGENDA}" target="_top">Continue for now</a>${sendBtn()}</div>
+ <p class="fine">Wrong address? <button class="lk" type="button" data-act="change">Change email</button></p>
+ ${mailPreview("verify")}
+</section>`,
+
+verified:()=>`<section class="step">
+ <div class="icon ok">${ICON.check}</div>
+ <h1>Your email is confirmed</h1>
+ <p class="lead">Thank you. Every chair is open to you now.</p>
+ <div class="actions"><a class="primary" href="${S.newUser?ONBOARD:AGENDA}" target="_top">${S.newUser?"Continue setting up":"Go to the tables"}</a></div>
+</section>`
+};
+
+function render(focusFirst=true){
+ $("#flow").innerHTML=V[S.v]();
+ const j=$("#jump");if(j&&[...j.options].some(o=>o.value===S.v))j.value=S.v;
+ if(S.v==="signin"&&S.pw){const p=$("#pw");if(p)p.value=S.pw}
+ if(focusFirst){const bad=document.querySelector('[aria-invalid="true"]');if(bad)bad.focus();}
+ window.scrollTo({top:0});
+}
+function go(v){if(v==="forgot")S.from=S.v==="locked"?"locked":"signin";S.v=v;S.err={};S.banner=null;S.busy=false;render(false);
+ const h=document.querySelector("#flow h1");if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true})}}
+function toast(msg){document.querySelectorAll(".toast").forEach(t=>t.remove());const t=document.createElement("div");t.className="toast";t.setAttribute("role","status");t.innerHTML=ICON.check+`<span>${esc(T(msg))}</span>`;document.body.appendChild(t);setTimeout(()=>t.remove(),2400)}
+function startCool(){S.cool=30;clearInterval(coolT);coolT=setInterval(()=>{S.cool--;const a=document.querySelector(".actions");if(S.v==="sent"||S.v==="verify"){const b=a&&a.querySelector('.ghost');if(b)b.outerHTML=sendBtn()}if(S.cool<=0)clearInterval(coolT)},1000)}
+const okEmail=e=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
+
+function submitSignin(){
+ const e=$("#em").value.trim(),p=$("#pw").value;S.email=e;S.pw=p;S.err={};S.banner=null;
+ if(!e)S.err.em="Enter your email.";else if(!okEmail(e))S.err.em="That doesn't look like an email address.";
+ if(!p)S.err.pw="Enter your password.";
+ if(S.err.em||S.err.pw){render();return}
+ S.busy=true;render(false);
+ setTimeout(()=>{S.busy=false;const lc=e.toLowerCase();
+  if(lc.includes("new")){S.pw="";S.banner={kind:"err",html:`We couldn't find an account for this email. <a class="lk" href="${ONBOARD}" target="_top">Create one</a> or check the spelling.`};render(false);return}
+  if(lc.includes("google")){S.pw="";S.banner={kind:"info",html:`This email signed up with Google, so there's no password to type. Use <b>Continue with Google</b> above.`};render(false);return}
+  if(p.toLowerCase()==="wrong"||p.length<4){S.tries++;S.pw="";
+   if(S.tries>=5){S.tries=0;go("locked");return}
+   S.err.pw=S.tries>=3?"That's still not it. After two more tries we'll pause sign in for a while.":"That password isn't right. Try again, or reset it.";render();return}
+  if(lc.includes("verify")){S.newUser=false;go("verify");return}
+  S.tries=0;go("back")},700)}
+
+function bindLen(){const i=$("#np");if(!i)return;const h=$("#len");const up=()=>{const m=i.value.length>=10;h.classList.toggle("met",m);if(m)h.classList.remove("bad");h.querySelector("svg").outerHTML=m?ICON.check:ICON.dot};i.addEventListener("input",()=>{up();if(S.err.np&&i.value.length>=10){S.err.np=null;i.removeAttribute("aria-invalid");const er=$("#np-e");if(er)er.remove()}});up()}
+new MutationObserver(()=>bindLen()).observe($("#flow"),{childList:true});
+
+document.addEventListener("submit",ev=>{ev.preventDefault();const id=ev.target.id;
+ if(id==="f-signin")submitSignin();
+ if(id==="f-forgot"){const e=$("#em").value.trim();S.email=e;S.err={};
+  if(!e)S.err.em="Enter the email you signed up with.";else if(!okEmail(e))S.err.em="That doesn't look like an email address.";
+  if(S.err.em){render();return}
+  S.busy=true;render(false);setTimeout(()=>{go("sent");startCool();render(false)},700)}
+ if(id==="f-reset"){const v=$("#np").value;S.err={};
+  if(v.length<10){S.err.np=v?"Use at least 10 characters.":"Choose a new password.";render();$("#np").value=v;bindLen();return}
+  S.busy=true;render(false);setTimeout(()=>go("updated"),700)}
+ if(id==="f-create"){const e=$("#em").value.trim(),v=$("#np").value;S.email=e;S.err={};S.banner=null;
+  if(!e)S.err.em="Enter your email.";else if(!okEmail(e))S.err.em="That doesn't look like an email address.";
+  if(v.length<10)S.err.np=v?"Use at least 10 characters.":"Choose a password.";
+  if(S.err.em||S.err.np){render();if(!S.err.np)$("#np").value=v;return}
+  if(e.toLowerCase().startsWith("gregory")){S.banner={kind:"info",html:`There's already an account for this email. <button class="lk" type="button" data-go="signin">Sign in</button> instead, or <button class="lk" type="button" data-go="forgot">reset your password</button>.`};render(false);return}
+  S.busy=true;render(false);setTimeout(()=>{S.newUser=true;go("verify");startCool();render(false)},700)}
+});
+
+document.addEventListener("click",ev=>{const t=ev.target.closest("[data-go],[data-act],[data-eye]");if(!t)return;
+ if(t.dataset.eye){const i=document.getElementById(t.dataset.eye);const show=i.type==="password";i.type=show?"text":"password";t.setAttribute("aria-pressed",show);t.setAttribute("aria-label",show?"Hide password":"Show password");t.innerHTML=show?ICON.eyeoff:ICON.eye;i.focus();return}
+ if(t.dataset.go){const em=$("#em");if(em)S.email=em.value.trim();go(t.dataset.go);return}
+ const a=t.dataset.act;
+ if(a==="social"){S.busy=false;go("back")}
+ if(a==="resend"){toast("Sent again");startCool();const b=t;b.outerHTML=sendBtn()}
+ if(a==="newlink"){go("sent");startCool();render(false);toast("New link sent")}
+ if(a==="unlock"){go("signin")}
+ if(a==="change"){S.newUser?go("create"):go("signin")}
+});
+
+/* prototype jump menu: each choice sets up a believable state */
+$("#jump").addEventListener("change",e=>{const v=e.target.value;S.tries=0;S.banner=null;S.err={};S.pw="";clearInterval(coolT);S.cool=0;
+ if(v==="e-wrong"){S.v="signin";S.email="gregory@example.com";S.tries=1;S.err.pw="That password isn't right. Try again, or reset it.";render(false);e.target.value="e-wrong";return}
+ if(v==="e-none"){S.v="signin";S.email="new.person@example.com";S.banner={kind:"err",html:`We couldn't find an account for this email. <a class="lk" href="${ONBOARD}" target="_top">Create one</a> or check the spelling.`};render(false);e.target.value="e-none";return}
+ if(v==="e-google"){S.v="signin";S.email="gregory.google@example.com";S.banner={kind:"info",html:`This email signed up with Google, so there's no password to type. Use <b>Continue with Google</b> above.`};render(false);e.target.value="e-google";return}
+ if(v==="verify"||v==="verified"){S.newUser=true;if(!S.email)S.email="dana@example.com"}
+ if(v==="sent"||v==="verify")startCool();
+ S.v=v;render(false)});
+
+/* optgroup labels are attributes the shared script doesn't cover */
+function ogl(){document.querySelectorAll("#jump optgroup").forEach(g=>{if(!g.dataset.en)g.dataset.en=g.label;g.label=T(g.dataset.en)})}
+window.addEventListener("tc-lang",ogl);ogl();
+
+/* deep links: #forgot #sent #reset #expired #create #verify */
+(function(){const h=(location.hash||"").replace(/^#/,"").split("&")[0];if(V[h]){S.v=h;if(h==="create"||h==="verify"||h==="verified")S.newUser=true}render(false)})();
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+Your account, what we tell you, and who can find you.|Il tuo account, cosa ti comunichiamo e chi può trovarti.|Tu cuenta, lo que te contamos y quién puede encontrarte.
+Settings sections|Sezioni delle impostazioni|Secciones de ajustes
+Account|Account|Cuenta
+Name|Nome|Nombre
+Email|Email|Correo
+Password|Password|Contraseña
+Change|Modifica|Cambiar
+Edit profile|Modifica profilo|Editar perfil
+Last changed 3 months ago.|Ultima modifica 3 mesi fa.|Último cambio hace 3 meses.
+Shown at tables and on your profile.|Visibile ai tavoli e sul tuo profilo.|Se muestra en las mesas y en tu perfil.
+Only for sign-in and the notifications you choose. Never shown.|Solo per l'accesso e le notifiche che scegli. Mai visibile.|Solo para iniciar sesión y las notificaciones que elijas. Nunca se muestra.
+Send confirmation|Invia conferma|Enviar confirmación
+New email|Nuova email|Nuevo correo
+Current password|Password attuale|Contraseña actual
+New password|Nuova password|Nueva contraseña
+At least 10 characters|Almeno 10 caratteri|Al menos 10 caracteres
+Save password|Salva password|Guardar contraseña
+Save changes|Salva modifiche|Guardar cambios
+Name saved|Nome salvato|Nombre guardado
+We sent a link to|Abbiamo inviato un link a|Hemos enviado un enlace a
+New password needs at least 10 characters|La nuova password deve avere almeno 10 caratteri|La nueva contraseña necesita al menos 10 caracteres
+Enter your current password|Inserisci la password attuale|Introduce tu contraseña actual
+What rings the bell. Tables starting soon, changes to a table you're in, and invites always do.|Cosa fa suonare la campanella. I tavoli che stanno per iniziare, le modifiche a un tavolo a cui partecipi e gli inviti la fanno sempre suonare.|Lo que hace sonar la campana. Las mesas que empiezan pronto, los cambios en una mesa en la que estás y las invitaciones siempre la hacen sonar.
+Rate and tip reminder|Promemoria per votare e lasciare una mancia|Recordatorio para valorar y dar propina
+24 hours after a table ends, if you haven't rated it yet, with when your TimeCoins expire.|24 ore dopo la fine di un tavolo, se non l'hai ancora votato, con la scadenza dei tuoi TimeCoins.|24 horas después de que termine una mesa, si aún no la has valorado, con cuándo caducan tus TimeCoins.
+People you follow|Persone che segui|Personas que sigues
+When someone you follow opens a new table.|Quando qualcuno che segui apre un nuovo tavolo.|Cuando alguien a quien sigues abre una nueva mesa.
+At a full table you saved.|A un tavolo pieno che hai salvato.|En una mesa completa que guardaste.
+Tips and feedback|Mance e feedback|Propinas y opiniones
+When someone tips you or leaves feedback.|Quando qualcuno ti lascia una mancia o un feedback.|Cuando alguien te da propina o deja una opinión.
+New chat messages.|Nuovi messaggi in chat.|Nuevos mensajes de chat.
+Also by email|Anche via email|También por correo
+A copy of the above in your inbox.|Una copia di quanto sopra nella tua casella di posta.|Una copia de lo anterior en tu bandeja de entrada.
+Never|Mai|Nunca
+Daily summary|Riepilogo giornaliero|Resumen diario
+Each one|Ognuna|Cada una
+Privacy|Privacy|Privacidad
+Let people find me|Fatti trovare|Que me encuentren
+List me on the People page. Hosts are always listed while they have an open table.|Mostrami nella pagina Persone. Chi ospita è sempre in elenco finché ha un tavolo aperto.|Mostrarme en la página Personas. Los anfitriones siempre aparecen mientras tengan una mesa abierta.
+Show when I'm live|Mostra quando sono in diretta|Mostrar cuando estoy en directo
+Visitors to your profile see the open table you're hosting right now, with Join. Off: they only see it on the Agenda.|Chi visita il tuo profilo vede il tavolo aperto che stai ospitando ora, con Entra. Se disattivato, lo vede solo nell'Agenda.|Quien visita tu perfil ve la mesa abierta que organizas ahora, con Unirse. Si está desactivado, solo la ve en la Agenda.
+Who can chat with me|Chi può scrivermi in chat|Quién puede chatear conmigo
+Who can start a new chat. Existing chats stay.|Chi può iniziare una nuova chat. Le chat esistenti restano.|Quién puede iniciar un chat nuevo. Los chats existentes se mantienen.
+Everyone|Tutti|Todos
+People I've sat with|Persone con cui mi sono seduto|Personas con las que me he sentado
+Nobody|Nessuno|Nadie
+Never shown to anyone: tables you only joined, private tables, and when you were last seen.|Mai mostrato a nessuno: i tavoli a cui hai solo partecipato, i tavoli privati e quando sei stato visto l'ultima volta.|Nunca se muestra a nadie: las mesas a las que solo te uniste, las mesas privadas y cuándo te vieron por última vez.
+You're listed on the People page|Sei nella pagina Persone|Apareces en la página Personas
+You're no longer listed on the People page|Non sei più nella pagina Persone|Ya no apareces en la página Personas
+Visitors can see when you host live|I visitatori vedono quando ospiti in diretta|Los visitantes ven cuándo organizas en directo
+Your live tables are hidden on your profile|I tuoi tavoli in diretta sono nascosti sul profilo|Tus mesas en directo están ocultas en tu perfil
+Who follows you|Chi ti segue|Quién te sigue
+Only you can see this list. There's no public count. Removing someone doesn't tell them.|Solo tu vedi questo elenco. Non c'è un conteggio pubblico. Chi rimuovi non viene avvisato.|Solo tú ves esta lista. No hay un recuento público. Quitar a alguien no se le notifica.
+Blocked people|Persone bloccate|Personas bloqueadas
+They can't see your profile or tables, take a chair at yours, chat or follow you. They aren't told.|Non possono vedere il tuo profilo o i tuoi tavoli, sedersi ai tuoi tavoli, scriverti o seguirti. Non vengono avvisati.|No pueden ver tu perfil ni tus mesas, sentarse en las tuyas, chatear contigo ni seguirte. No se les avisa.
+Blocked just now|Bloccato ora|Bloqueado ahora
+Language and time|Lingua e ora|Idioma y hora
+App language|Lingua dell'app|Idioma de la app
+Language|Lingua|Idioma
+Time zone|Fuso orario|Zona horaria
+Table times are shown in this zone.|Gli orari dei tavoli sono mostrati in questo fuso.|Las horas de las mesas se muestran en esta zona.
+Clock|Orologio|Reloj
+24-hour|24 ore|24 horas
+12-hour|12 ore|12 horas
+Your data|I tuoi dati|Tus datos
+Download your data|Scarica i tuoi dati|Descargar tus datos
+Your profile, tables, kept notes, transcripts and chats, as a .zip.|Profilo, tavoli, note salvate, trascrizioni e chat, in un file .zip.|Tu perfil, mesas, notas guardadas, transcripciones y chats, en un .zip.
+On this device.|Su questo dispositivo.|En este dispositivo.
+Delete account|Elimina account|Eliminar cuenta
+Removes your profile, tables, notes and chats for good.|Elimina per sempre profilo, tavoli, note e chat.|Elimina para siempre tu perfil, mesas, notas y chats.
+Your TimeCoins and the Trusted tag are earned at tables, so they live on your profile, not here.|I TimeCoins e il badge Fidato si guadagnano ai tavoli, quindi stanno sul tuo profilo, non qui.|Tus TimeCoins y la etiqueta De confianza se ganan en las mesas, así que están en tu perfil, no aquí.
+We're preparing your file. You'll get an email when it's ready.|Stiamo preparando il file. Riceverai un'email quando sarà pronto.|Estamos preparando tu archivo. Recibirás un correo cuando esté listo.
+Sign out?|Vuoi uscire?|¿Cerrar sesión?
+Signed out (prototype)|Disconnesso (prototipo)|Sesión cerrada (prototipo)
+Delete your account?|Eliminare il tuo account?|¿Eliminar tu cuenta?
+Account deleted (prototype, nothing was removed)|Account eliminato (prototipo, non è stato rimosso nulla)|Cuenta eliminada (prototipo, no se ha borrado nada)
+Language changed|Lingua cambiata|Idioma cambiado
+Applies to every TimeCapsule page you open from here.|Vale per tutte le pagine di TimeCapsule che apri da qui.|Se aplica a todas las páginas de TimeCapsule que abras desde aquí.
+Talks about|Parla di|Habla de
+Ratings|Valutazioni|Valoraciones
+My readings|Le mie letture|Mis lecturas
+Feedbacks|Feedback|Opiniones
+Received|Ricevuti|Recibidas
+Given|Lasciati|Dadas
+Only you can see this|Solo tu puoi vederlo|Solo tú puedes verlo
+Only you can see who you follow|Solo tu vedi chi segui|Solo tú ves a quién sigues
+No table planned yet|Nessun tavolo in programma|Aún no hay mesa prevista
+Profile sections|Sezioni del profilo|Secciones del perfil
+Mind-blowing|Illuminante|Alucinante
+Pleasant|Piacevole|Agradable
+Not so inspiring|Poco stimolante|Poco inspiradora
+Tap a rating to see those feedbacks.|Tocca una valutazione per vedere quei feedback.|Toca una valoración para ver esas opiniones.
+Filter feedbacks by rating|Filtra i feedback per valutazione|Filtrar opiniones por valoración
+Filter feedbacks by answer|Filtra i feedback per risposta|Filtrar opiniones por respuesta
+Show feedbacks|Mostra feedback|Mostrar opiniones
+These are the ratings and tips you gave. The people you rated see them as received feedback.|Queste sono le valutazioni e le mance che hai dato. Le persone che hai valutato le vedono come feedback ricevuto.|Estas son las valoraciones y propinas que diste. Las personas que valoraste las ven como opiniones recibidas.
+No tip|Nessuna mancia|Sin propina
+Get told when Gregory hosts next|Fatti avvisare quando Gregory ospita di nuovo|Recibe un aviso cuando Gregory organice otra mesa
+Chat with Gregory|Chatta con Gregory|Chatear con Gregory
+Block Gregory|Blocca Gregory|Bloquear a Gregory
+Block Gregory?|Bloccare Gregory?|¿Bloquear a Gregory?
+Report Gregory|Segnala Gregory|Denunciar a Gregory
+Gregory won't see your profile or your tables, or be able to take a chair at them.|Gregory non vedrà il tuo profilo né i tuoi tavoli e non potrà sedersi ai tuoi tavoli.|Gregory no verá tu perfil ni tus mesas, ni podrá sentarse en ellas.
+No chats and no follows from Gregory.|Niente chat e niente follow da Gregory.|Ni chats ni seguimientos de Gregory.
+You won't see each other on People or the Agenda.|Non vi vedrete in Persone o nell'Agenda.|No os veréis en Personas ni en la Agenda.
+Gregory isn't told. You can unblock any time in Settings.|Gregory non viene avvisato. Puoi sbloccarlo quando vuoi nelle Impostazioni.|A Gregory no se le avisa. Puedes desbloquearlo cuando quieras en Ajustes.
+You blocked Gregory. Your profile and tables are hidden from Gregory, who isn’t told.|Hai bloccato Gregory. Il tuo profilo e i tuoi tavoli sono nascosti a Gregory, che non viene avvisato.|Has bloqueado a Gregory. Tu perfil y tus mesas están ocultos para Gregory, a quien no se le avisa.
+Gregory is unblocked|Gregory è sbloccato|Gregory está desbloqueado
+Making me feel unsafe or followed|Mi fa sentire in pericolo o seguito|Me hace sentir inseguro o vigilado
+Harassment or hate|Molestie o odio|Acoso u odio
+Spam or scam|Spam o truffa|Spam o estafa
+Something else|Altro|Otra cosa
+Reason (optional, only TimeCapsule sees it)|Motivo (facoltativo, lo vede solo TimeCapsule)|Motivo (opcional, solo lo ve TimeCapsule)
+Also block Gregory|Blocca anche Gregory|Bloquear también a Gregory
+Send report|Invia segnalazione|Enviar denuncia
+Reports are private. Our team reviews them, and Gregory isn't told who sent one.|Le segnalazioni sono private. Il nostro team le esamina e Gregory non sa chi le ha inviate.|Las denuncias son privadas. Nuestro equipo las revisa y Gregory no sabe quién la envió.
+Close without saving|Chiudi senza salvare|Cerrar sin guardar
+Change photo|Cambia foto|Cambiar foto
+Backdrop|Sfondo|Fondo
+Upload your own image|Carica una tua immagine|Sube tu propia imagen
+Change backdrop|Cambia sfondo|Cambiar fondo
+No backdrop|Nessuno sfondo|Sin fondo
+Bio|Bio|Biografía
+Deep field|Campo profondo|Campo profundo
+Nebula|Nebulosa|Nebulosa
+Milky Way|Via Lattea|Vía Láctea
+Eclipse|Eclissi|Eclipse
+Ringed planet|Pianeta con anelli|Planeta con anillos
+Black hole|Buco nero|Agujero negro
+Alps|Alpi|Alpes
+Alpenglow|Enrosadira|Alpenglow
+Sea sunset|Tramonto sul mare|Atardecer en el mar
+None|Nessuno|Ninguno
+Edit About me|Modifica Su di me|Editar Sobre mí
+About k-universe|Cos'è k-universe|Sobre k-universe
+What is k-universe?|Cos'è k-universe?|¿Qué es k-universe?
+How it works|Come funziona|Cómo funciona
+Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.|Trasforma le tue letture in una mappa viva. Ogni libro trova la sua orbita in un tema, così vedi a colpo d'occhio cosa plasma il tuo pensiero.|Convierte tus lecturas en un mapa vivo. Cada libro encuentra su órbita en un tema, para que veas de un vistazo qué da forma a tu pensamiento.
+Every person here has a small universe|Ogni persona qui ha un piccolo universo|Cada persona aquí tiene un pequeño universo
+Books, films and ideas that shaped them. Yours starts in a minute.|Libri, film e idee che l'hanno formata. Il tuo inizia tra un minuto.|Libros, películas e ideas que les dieron forma. El tuyo empieza en un minuto.
+In your universe|Nel tuo universo|En tu universo
+Your universe|Il tuo universo|Tu universo
+Ideas from your|Idee dal tuo|Ideas de tu
+From your|Dal tuo|De tu
+powered by k▪universe|con k▪universe|con k▪universe
+← Whole universe|← Tutto l'universo|← Todo el universo
+Open map full screen|Apri la mappa a schermo intero|Abrir el mapa a pantalla completa
+Add books to My readings|Aggiungi libri a Le mie letture|Añadir libros a Mis lecturas
+Add this book|Aggiungi questo libro|Añadir este libro
+New books|Nuovi libri|Libros nuevos
+Type a book title|Scrivi il titolo di un libro|Escribe el título de un libro
+Book title|Titolo del libro|Título del libro
+Author|Autore|Autor
+Title from cover|Titolo dalla copertina|Título de la portada
+Author from cover|Autore dalla copertina|Autor de la portada
+Snap or upload a cover|Scatta o carica una copertina|Haz una foto o sube una portada
+Reading the cover…|Lettura della copertina…|Leyendo la portada…
+Found on the cover. Check and fix if needed.|Trovato sulla copertina. Controlla e correggi se serve.|Encontrado en la portada. Revísalo y corrígelo si hace falta.
+6 themes|6 temi|6 temas
+36 books|36 libri|36 libros
+Current|Attuali|Actuales
+Moderators and regulars|Moderatori e habitué|Moderadores y habituales

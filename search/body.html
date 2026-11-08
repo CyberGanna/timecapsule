@@ -1,0 +1,416 @@
+<style>/* Avatar stacks: leftmost circle on top, each next one tucked under the previous */.fc>span{position:relative}.fc>span:nth-child(1){z-index:12}.fc>span:nth-child(2){z-index:11}.fc>span:nth-child(3){z-index:10}.fc>span:nth-child(4){z-index:9}.fc>span:nth-child(5){z-index:8}.fc>span:nth-child(6){z-index:7}.fc>span:nth-child(7){z-index:6}.fc>span:nth-child(8){z-index:5}.fc>span:nth-child(9){z-index:4}.fc>span:nth-child(10){z-index:3}.fc>span:nth-child(11){z-index:2}.fc>span:nth-child(12){z-index:1}</style>
+<style>
+/* Search results */
+:root{--lamp-text:#F2C14E;--live-soft:rgba(61,220,132,.12)}
+#tch .tch-search,#tch .tch-ib[data-tch=search]{display:none!important}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.top{padding-top:34px}
+.sq{position:relative;display:block;max-width:720px}
+.sq svg.mg{position:absolute;left:18px;top:50%;width:20px;height:20px;margin-top:-10px;color:var(--mute);pointer-events:none}
+.sq input{display:block;width:100%;height:58px;border-radius:16px;border:1px solid var(--line);background:var(--surface);padding:0 52px 0 50px;font-size:19px;font-weight:300;letter-spacing:-.01em;color:var(--fg);outline:none;-webkit-appearance:none;appearance:none}
+.sq input::-webkit-search-cancel-button{display:none}
+.sq input::placeholder{color:var(--mute)}
+.sq input:focus{border-color:var(--mute)}
+.sq .clr{position:absolute;right:10px;top:50%;margin-top:-18px;width:36px;height:36px;border-radius:10px;border:0;background:none;color:var(--mute);display:grid;place-items:center}
+.sq .clr:hover{background:var(--raise);color:var(--fg)}
+.sq .clr svg{width:16px;height:16px}
+.sum{margin:16px 0 0;color:var(--mute);font-size:14.5px;min-height:22px}.sum:empty{display:none}
+.sum q{color:var(--fg);quotes:"“" "”"}
+.sum b{color:var(--fg);font-weight:500}
+
+/* filters, same buttons as Agenda and People */
+.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px);z-index:15;background:var(--bg);padding:12px 0;margin-top:14px;border-bottom:1px solid var(--line)}
+.frow{display:flex;align-items:center;gap:10px}
+.pills{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.pills::-webkit-scrollbar{display:none}
+.day{flex:none;display:flex;align-items:center;gap:7px;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:none;font-size:14px;color:var(--fg)}
+.day:hover{border-color:var(--mute)}
+.day[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.day .cnt{font-size:12.5px;color:var(--mute);font-variant-numeric:tabular-nums}
+.day[aria-pressed=true] .cnt{color:#4A5180}
+.day:disabled{opacity:.4;cursor:default}
+.sels{display:flex;gap:8px;flex:none}
+.lang{height:36px;border-radius:10px;border:1px solid var(--line);background:var(--raise);padding:0 12px;font-size:14px;color:var(--fg)}
+
+/* sections */
+.sec{margin-top:30px}
+.sh{display:flex;align-items:baseline;gap:12px;margin:0 0 12px}
+.sh h2{font-weight:400;font-size:22px;letter-spacing:-.02em;margin:0}
+.sh .n{color:var(--mute);font-size:14px}
+.sh .more{margin-left:auto;background:none;border:0;padding:0;color:var(--lamp-text);font-size:13.5px;font-weight:600;display:flex;gap:5px;white-space:nowrap}
+.sh .more:hover{text-decoration:underline}
+.sub{margin:18px 0 0;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.sub:first-child{margin-top:0}
+mark{background:none;color:var(--fg);font-weight:inherit;box-shadow:inset 0 -2px 0 rgba(242,193,78,.75)}
+
+/* topics: tappable, so pills */
+.tps{display:flex;flex-wrap:wrap;gap:8px}
+.tpc{display:flex;align-items:center;gap:8px;height:40px;padding:0 16px 0 14px;border-radius:20px;border:1px solid var(--line);background:none;color:var(--fg);font-size:14px}
+.tpc:hover{border-color:var(--mute);background:var(--surface)}
+.tpc i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.tpc small{color:var(--mute);font-size:12.5px}
+
+/* table rows, from the Agenda list */
+.agenda{border-top:1px solid var(--line)}
+.ev{display:grid;grid-template-columns:96px minmax(0,1fr) 190px minmax(130px,auto);gap:20px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line)}
+.tm b{display:block;font-weight:600;font-size:20px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.15}
+.tm span{display:block;font-size:12.5px;color:var(--lamp-text);font-variant-numeric:tabular-nums}
+.tm.lv b{color:var(--live);display:flex;align-items:center;gap:8px;font-size:18px}
+.tm.lv b i{width:8px;height:8px;border-radius:50%;background:var(--live);animation:bl 1.2s ease-in-out infinite}
+.tm.lv span,.tm.ps span{color:var(--mute)}
+.tm.ps b{font-size:16px;color:var(--soft);font-weight:500}
+.ei{min-width:0;display:flex;gap:14px;align-items:center}
+.th{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center}
+.th svg{width:50%;height:50%;fill:none;stroke:#0E1430;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:.8}
+.et{min-width:0}
+.et h3{font-weight:600;font-size:16.5px;line-height:1.3;margin:0 0 3px;text-wrap:balance}
+.meta{font-size:13px;color:var(--mute)}
+.meta b{color:var(--soft);font-weight:600}
+.topic{display:inline-flex;align-items:center;gap:6px;color:var(--soft);font-size:12px;font-weight:500;white-space:nowrap}
+.topic i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+.chairs{display:flex;flex-direction:column;gap:6px}
+.chairs>span{font-size:12.5px;color:var(--mute)}
+.full{color:var(--live)}
+.fc{display:flex}
+.fc span{width:26px;height:26px;border-radius:50%;overflow:hidden;border:2px solid var(--bg);margin-left:-8px;position:relative}
+.fc span:first-child{margin-left:0;box-shadow:0 0 0 1.5px #F2C14E}
+.fc svg{width:100%;height:100%;display:block}
+.jbtn{justify-self:end;height:38px;padding:0 18px;border-radius:10px;border:0;background:var(--lamp);color:var(--lamp-ink);font-weight:600;font-size:14px;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+.jbtn:hover{filter:brightness(1.06)}
+.jbtn.ghost{background:none;border:1px solid var(--line);color:var(--fg)}
+.jbtn.ghost:hover{border-color:var(--fg);filter:none}
+.jbtn.on{background:none;border:1px solid var(--lamp);color:var(--lamp-text)}
+.kept{grid-column:2/-1;margin:-4px 0 4px;padding:14px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.kept small{display:block;font-size:12px;color:var(--mute);margin-bottom:8px}
+.kept p{margin:0 0 8px;font-size:14px;color:var(--soft);line-height:1.5}
+.kept p:last-child{margin:0}
+.kept p b{color:var(--lamp-text);font-weight:600;margin-right:6px}
+
+/* people rows */
+.plist{border-top:1px solid var(--line)}
+.pr{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr) minmax(0,260px) auto;gap:16px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line)}
+.pr>a.cover{position:absolute;inset:0;z-index:1}
+.pr:hover{background:linear-gradient(90deg,transparent,rgba(255,255,255,.02),transparent)}
+.pav{width:52px;height:52px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--ring,var(--line))}
+.pav svg{width:100%;height:100%;display:block}
+.pn{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pn b{font-weight:500;font-size:16px}
+.trust{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 7px 0 5px;border-radius:5px;background:#7FF0F2;color:#12304A;font-size:10.5px;font-weight:600}
+.trust svg{width:11px;height:12px}
+.pm{font-size:13px;color:var(--mute);display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:2px}
+.pnx{font-size:13px;min-width:0}
+.pnx small{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--lamp-text)}
+.pnx small.lv{color:var(--live)}
+.pnx small.lv i{width:6px;height:6px;border-radius:50%;background:var(--live);animation:bl 1.2s ease-in-out infinite}
+.pnx span{display:block;color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pnx.idle span{color:var(--mute)}
+.fol{position:relative;z-index:2;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:none;color:var(--fg);font-size:13.5px;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.fol:hover{border-color:var(--mute)}
+.fol svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fol[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+@keyframes bl{50%{opacity:.3}}
+
+/* empty query: suggestions */
+.recent{display:flex;flex-wrap:wrap;gap:8px}
+.rc{display:flex;align-items:center;height:36px;border-radius:10px;border:1px solid var(--line);overflow:hidden}
+.rc button{height:100%;border:0;background:none;color:var(--fg);font-size:14px;padding:0 6px 0 12px;display:flex;align-items:center;gap:8px}
+.rc button svg{width:14px;height:14px;color:var(--mute)}
+.rc button.x{padding:0 10px 0 6px;color:var(--mute)}
+.rc button.x:hover{color:var(--fg)}
+.rc:hover{border-color:var(--mute)}
+.sh .clear{margin-left:auto;background:none;border:0;padding:0;color:var(--mute);font-size:13px}
+.sh .clear:hover{color:var(--fg)}
+
+/* nothing found */
+.none{padding:40px 0 8px;max-width:560px}
+.none h2{font-weight:400;font-size:24px;letter-spacing:-.02em;margin:0}
+.none h2 q{quotes:"“" "”"}
+.none p{color:var(--mute);margin:8px 0 0}
+.none .x{margin-top:14px;background:none;border:0;padding:0;color:var(--lamp-text);font-weight:600}
+.host{margin-top:26px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 24px;border-radius:20px;border:1px dashed var(--line)}
+.host h3{font-weight:600;font-size:18px;margin:0}
+.host p{margin:3px 0 0;color:var(--mute);font-size:14px}
+.host a{height:40px;padding:0 18px;border-radius:10px;background:var(--violet);color:#fff;font-weight:600;font-size:14px;display:inline-flex;align-items:center;text-decoration:none;white-space:nowrap}
+.foot{margin:44px 0 80px;font-size:12.5px;color:var(--mute);text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--fg);color:var(--bg);padding:12px 18px;border-radius:12px;font-size:14px;font-weight:500;transition:.25s;z-index:60;max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:900px){
+  .ev{grid-template-columns:80px minmax(0,1fr) auto;grid-template-areas:"t i b" "t c b"}
+  .ev .tm{grid-area:t;align-self:start}.ev .ei{grid-area:i}.ev .chairs{grid-area:c;flex-direction:row;align-items:center;gap:10px}.ev .jbtn{grid-area:b}
+  .kept{grid-column:2/-1}
+  .pr{grid-template-columns:52px minmax(0,1fr) auto;grid-template-areas:"a n f" "a x f"}
+  .pr .pav{grid-area:a;align-self:start}.pr .pi{grid-area:n}.pr .pnx{grid-area:x}.pr .fol{grid-area:f}
+}
+@media (max-width:640px){
+  .top{padding-top:20px}
+  .sq input{height:52px;font-size:17px;border-radius:14px}
+  .filters{top:calc(env(safe-area-inset-top,0px) + 56px)}
+  .frow{display:grid;grid-template-columns:minmax(0,1fr)}
+  .sels{display:grid;grid-template-columns:1fr 1fr}.sels .lang{min-width:0;width:100%}
+  .sh h2{font-size:20px}
+  .ev{grid-template-columns:66px minmax(0,1fr);grid-template-areas:"t i" "t c" "t b";gap:8px 12px}
+  .ev .jbtn{justify-self:start;margin-top:2px}
+  .th{width:42px;height:42px;border-radius:11px}
+  .tm b{font-size:17px}.tm.lv b{font-size:15px}.tm.ps b{font-size:14px}
+  .kept{grid-column:1/-1}
+  .pr{grid-template-columns:44px minmax(0,1fr);grid-template-areas:"a n" "a x" "a f";gap:6px 12px}
+  .pav{width:44px;height:44px}
+  .pr .fol{justify-self:start;margin-top:4px}
+  .host{padding:18px}
+}
+@media (prefers-reduced-motion:reduce){.tm.lv b i,.pnx small.lv i{animation:none}}
+</style>
+
+<main>
+<div class="wrap top">
+  <label class="sq"><svg class="mg" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><input id="q" type="search" placeholder="Search tables, people, topics" aria-label="Search" autocomplete="off" enterkeyhint="search"><button class="clr" id="clr" type="button" aria-label="Clear search" hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button></label>
+  <p class="sum" id="sum" aria-live="polite"></p>
+</div>
+<div class="filters" id="filters" hidden><div class="wrap frow">
+  <div class="pills" id="pills" role="group" aria-label="Filter results"></div>
+  <div class="sels"><select class="lang" id="when" aria-label="When"><option value="">Any time</option><option value="live">Live now</option><option value="today">Today</option><option value="week">This week</option><option value="past">Past tables</option></select>
+  <select class="lang" id="lng" aria-label="Language"><option value="">Any language</option><option value="English">English</option><option value="Italiano">Italiano</option></select></div>
+</div></div>
+<div class="wrap" id="out"></div>
+<div class="wrap"><p class="foot">Search covers open tables, topics, and people who host or chose to be found. Never private tables, chats or notes.</p></div>
+</main>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+__AVATARS__
+const C={Philosophy:"#F29BD0",Religion:"#B99BFF",Home:"#5FE0DE",Craft:"#FF9478",Energy:"#6CB8FF",Travel:"#D9E35F",Science:"#8BE38B",History:"#E8B577"};
+const TICON={
+ Philosophy:'<path d="M4 20h16M5 17h14M6 17V9m4 8V9m4 8V9m4 8V9M4 9h16L12 4z"/>',
+ Religion:'<path d="M12 8.5v12M12 8.5C10 7.3 7 7 3.5 7.5v11.5c3.5-.5 6.5-.2 8.5 1M12 8.5c2-1.2 5-1.5 8.5-1v11.5c-3.5-.5-6.5-.2-8.5 1M12 2.5v2.5M8 3.5l1 1.8M16 3.5l-1 1.8"/>',
+ Home:'<path d="M4 11l8-7 8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/>',
+ Craft:'<path d="M14 6l4 4M4 20l9.5-9.5M12 4.5l3-1.5 6 6-1.5 3-2-2-3 3-4.5-4.5 3-3z"/>',
+ Energy:'<path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z"/>',
+ Travel:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5z"/>',
+ Science:'<path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3M7 15h10"/>',
+ History:'<path d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9"/>'};
+const LIVE_TABLE="https://claude.ai/artifact/2CoEp7SXhBT2oP5hu3zNkk", PROFILE="https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy", CREATE="https://claude.ai/artifact/MFBQwEDcUA8ctJbo2BWShj";
+const NOW=new Date();
+const mins=m=>new Date(Math.ceil((NOW.getTime()+m*60000)/3e5)*3e5);
+const at=(d,h,m)=>{const x=new Date(NOW);x.setDate(x.getDate()+d);x.setHours(h,m,0,0);return x};
+/* same tables as the Agenda, plus a few that already happened */
+const T=[
+ {id:1,title:"Is free will an illusion?",theme:"Philosophy",host:"Gregory",city:"Zurich",lang:"English",live:41,seats:8,people:["Gregory","Mia","Omar","Priya","Lena","Tom"]},
+ {id:2,title:"Green technology versus nuclear: what should power our future?",theme:"Energy",host:"Lena",city:"Berlin",lang:"English",live:24,seats:8,people:["Lena","Kofi","David","Ana","Yuki"]},
+ {id:3,title:"Home batteries: are they worth it yet?",theme:"Energy",host:"Jonas",city:"Boston",lang:"English",live:8,seats:6,people:["Jonas","Elif","Marco"]},
+ {id:16,title:"Who owns the past? Museums and stolen objects",theme:"History",host:"Omar",city:"Rabat",lang:"English",live:33,seats:8,people:["Omar","Sofia","David","Mia","Kofi"]},
+ {id:17,title:"Do we still need to own a home?",theme:"Home",host:"Yuki",city:"Kyoto",lang:"English",live:17,seats:6,people:["Yuki","Tom","Ana","Jonas","Sofia","Marco"]},
+ {id:18,title:"What makes a good question?",theme:"Science",host:"Sofia",city:"Florence",lang:"English",live:5,seats:8,people:["Sofia","Priya","Marco"]},
+ {id:19,title:"Learning a craft as an adult",theme:"Craft",host:"Ana",city:"Lisbon",lang:"English",at:mins(10),seats:6,people:["Ana","Jonas","Lena"]},
+ {id:14,title:"Does travel still change us?",theme:"Travel",host:"Priya",city:"Pune",lang:"English",at:mins(20),seats:8,people:["Priya","Lena","Jonas","Mia"]},
+ {id:20,title:"Is happiness a skill?",theme:"Philosophy",host:"Mia",city:"Vienna",lang:"English",at:mins(30),seats:8,people:["Mia","Kofi","Elif","Omar","Yuki"]},
+ {id:21,title:"Will we ever stop flying?",theme:"Energy",host:"Kofi",city:"Accra",lang:"English",at:mins(35),seats:8,people:["Kofi","Lena"]},
+ {id:15,title:"Can we be good without God? A conversation for believers, doubters and everyone in between",theme:"Religion",host:"Elif",city:"Istanbul",lang:"English",at:mins(45),seats:6,people:["Elif","Omar","Ana"]},
+ {id:4,title:"How do minds make decisions?",theme:"Science",host:"David",city:"London",lang:"English",at:mins(95),seats:8,people:["David","Sofia","Tom","Priya","Mia","Kofi","Ana","Noah"]},
+ {id:5,title:"What do rituals give us, even without belief?",theme:"Religion",host:"Elif",city:"Istanbul",lang:"English",at:mins(150),seats:8,people:["Elif","Yuki","Marco"]},
+ {id:6,title:"Slow travel: is it a privilege?",theme:"Travel",host:"Sofia",city:"Florence",lang:"English",at:mins(240),seats:6,people:["Sofia","Lena"]},
+ {id:7,title:"Repair cafés and the joy of fixing things",theme:"Craft",host:"Tom",city:"Cork",lang:"English",at:at(1,10,0),seats:8,people:["Tom","Kofi","Ana","Omar"]},
+ {id:8,title:"Stoicism for hard times",theme:"Philosophy",host:"Marco",city:"Bologna",lang:"English",at:at(1,18,30),seats:10,people:["Marco","Gregory","Mia","David","Yuki","Priya","Jonas","Elif","Lena","Tom"]},
+ {id:9,title:"Small homes, big lives",theme:"Home",host:"Yuki",city:"Kyoto",lang:"English",at:at(1,19,0),seats:8,people:["Yuki","Sofia"]},
+ {id:10,title:"Who writes history?",theme:"History",host:"Omar",city:"Rabat",lang:"English",at:at(2,17,0),seats:8,people:["Omar","Priya","Tom"]},
+ {id:13,title:"Il bello del fare a mano",theme:"Craft",host:"Ana",city:"Lisbon",lang:"Italiano",at:at(2,20,0),seats:6,people:["Ana","Marco"]},
+ {id:11,title:"Happiness at work, with Camus",theme:"Philosophy",host:"Priya",city:"Pune",lang:"English",at:at(3,19,0),seats:8,people:["Priya","Ana","Marco","Lena","Gregory"]},
+ {id:12,title:"Nuclear or renewables?",theme:"Energy",host:"Kofi",city:"Accra",lang:"English",at:at(4,18,0),seats:8,people:["Kofi","David"]},
+ {id:30,title:"Phenomenology vs. God",theme:"Philosophy",host:"Gregory",city:"Zurich",lang:"English",at:at(-1,20,0),seats:8,people:["Gregory","Priya","Elif","Omar","Mia","Noah"],kept:[["Gregory","Husserl wanted to go back to the things themselves. Maybe God is what's left when you do."],["Elif","For me faith isn't a conclusion. It's the way I pay attention."]]},
+ {id:31,title:"Is free will an illusion? (first table)",theme:"Philosophy",host:"Gregory",city:"Zurich",lang:"English",at:at(-7,19,0),seats:8,people:["Gregory","Omar","Mia","Amara","Lena"],kept:[["Omar","The brain decides before you notice. But noticing might be where you come in."],["Mia","If it's an illusion, it's the one I'd keep."]]},
+ {id:32,title:"Where is home?",theme:"Home",host:"Yuki",city:"Kyoto",lang:"English",at:at(-3,18,0),seats:6,people:["Yuki","Ana","Tom","Kofi"],kept:[["Yuki","Home is the place where you don't have to explain yourself."]]},
+ {id:33,title:"What do we owe strangers?",theme:"Philosophy",host:"Mia",city:"Vienna",lang:"English",at:at(-5,20,0),seats:8,people:["Mia","Amara","David","Priya","Elif"],kept:[["Amara","Trees share water with seedlings that aren't theirs. We could at least share a chair."]]},
+ {id:34,title:"Nuclear after Fukushima",theme:"Energy",host:"Lena",city:"Berlin",lang:"English",at:at(-6,17,30),seats:8,people:["Lena","Kofi","Yuki","Jonas"]}
+];
+/* same people as the People page; only hosts or people who chose to be found */
+const U=[
+ {n:"Gregory",city:"Zurich",t:1,bio:"Philosophy teacher. Hosts the free will table on Tuesdays.",tags:["Philosophy","Religion"],r:4.9,tb:48,nx:1},
+ {n:"Lena",city:"Berlin",t:1,bio:"Energy engineer. Asks the awkward cost question.",tags:["Energy","Religion"],r:4.8,tb:39,nx:2},
+ {n:"Omar",city:"Rabat",t:0,bio:"Neuroscience PhD, part-time skeptic.",tags:["History","Philosophy"],r:4.7,tb:22,nx:16},
+ {n:"Ana",city:"Lisbon",t:0,bio:"Anthropology student. Loves rituals and footnotes.",tags:["Craft","Religion","Home"],r:4.8,tb:17,nx:19},
+ {n:"Priya",city:"Pune",t:1,bio:"Product manager, slow traveller, Camus reader.",tags:["Travel","Philosophy"],r:4.9,tb:31,nx:14},
+ {n:"Mia",city:"Vienna",t:0,bio:"Minimalist in progress. Collects good questions.",tags:["Philosophy","Home","Travel"],r:4.6,tb:14,nx:20},
+ {n:"Kofi",city:"Accra",t:0,bio:"Battery storage installer. Thinks in kilowatts.",tags:["Energy","Travel"],r:4.7,tb:19,nx:21},
+ {n:"Elif",city:"Istanbul",t:1,bio:"Musician. Hosts tables for believers, doubters and everyone in between.",tags:["Religion"],r:5.0,tb:27,nx:15},
+ {n:"Marco",city:"Bologna",t:0,bio:"Fixes things, travels slowly, cooks loudly.",tags:["Craft","Travel","Philosophy"],r:4.6,tb:21,nx:8},
+ {n:"Yuki",city:"Kyoto",t:0,bio:"Writes short stories about choices.",tags:["Home","Travel"],r:4.8,tb:16,nx:17},
+ {n:"Amara",city:"Lagos",t:0,bio:"Reads everything about trees. Joins Philosophy and Science tables.",tags:["Science","Philosophy"],r:4.9,tb:23,nx:null},
+ {n:"Tom",city:"Cork",t:0,bio:"Retired electrician. Duct tape optimist.",tags:["Craft","Energy"],r:4.7,tb:12,nx:7},
+ {n:"Sofia",city:"Florence",t:0,bio:"Science writer. Asks what a good question looks like.",tags:["Science","Travel"],r:4.8,tb:20,nx:18},
+ {n:"David",city:"London",t:0,bio:"Cognitive scientist. Draws maps of decisions.",tags:["Science","History"],r:4.7,tb:15,nx:4},
+ {n:"Noah",city:"Montréal",t:0,bio:"History teacher on sabbatical. Mostly listens.",tags:["History","Science"],r:4.8,tb:9,nx:null}
+];
+const BYID=Object.fromEntries(T.map(t=>[t.id,t]));
+const S={q:"",type:"all",when:"",lang:"",saved:new Set(),wait:new Set(),follow:new Set(["Gregory"]),open:new Set()};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm=s=>String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const tr=s=>window.TCI18N?TCI18N.t(s):s;
+const SHIELD='<svg viewBox="0 0 11 12" aria-hidden="true"><path d="M5.5 .5l4.5 1.8v3.4c0 2.8-1.9 5.1-4.5 5.8C2.9 10.8 1 8.5 1 5.7V2.3z" fill="#12304A"/><path d="M3.4 5.9l1.5 1.5 2.8-2.9" fill="none" stroke="#7FF0F2" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ADD='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 20c0-3.9 3.1-6 7-6s7 2.1 7 6M19 8v6M16 11h6"/></svg>';
+const OK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+const CLOCK='<svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M8 4.8V8l2.2 1.5"/></svg>';
+const X='<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+const DAYN=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const dayKey=d=>{const a=new Date(d);a.setHours(0,0,0,0);const b=new Date(NOW);b.setHours(0,0,0,0);return Math.round((a-b)/864e5)};
+const dayName=k=>k===0?"Today":k===1?"Tomorrow":k===-1?"Yesterday":(()=>{const d=new Date(NOW);d.setDate(d.getDate()+k);return `${DAYN[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]}`})();
+const hhmm=d=>`${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
+const until=d=>{const m=Math.round((d-Date.now())/60000);if(m<=0)return"now";if(m<60)return`in ${m} min`;const h=Math.floor(m/60);return`in ${h} h`};
+const state=t=>t.live?"live":dayKey(t.at)<0||t.at<NOW?"past":"up";
+
+/* matching: every word must appear somewhere; topic names also match in Italian and Spanish */
+function words(){return norm(S.q).split(/\s+/).filter(Boolean)}
+function hay(parts){return norm(parts.join(" ")+" "+parts.map(tr).join(" "))}
+const hit=(h,W)=>W.every(w=>h.includes(w));
+function mk(s,W){ // highlight matched words in plain demo text
+  let out=esc(s);if(!W.length)return out;
+  const n=norm(s);const marks=[];
+  W.forEach(w=>{let i=n.indexOf(w);while(i>=0){marks.push([i,i+w.length]);i=n.indexOf(w,i+w.length)}});
+  if(!marks.length)return out;
+  marks.sort((a,b)=>a[0]-b[0]);const m=[];marks.forEach(x=>{const l=m[m.length-1];if(l&&x[0]<=l[1])l[1]=Math.max(l[1],x[1]);else m.push(x.slice())});
+  let r="",p=0;m.forEach(([a,b])=>{r+=esc(s.slice(p,a))+"<mark>"+esc(s.slice(a,b))+"</mark>";p=b});return r+esc(s.slice(p));
+}
+function tableOk(t){
+  if(S.lang&&t.lang!==S.lang)return false;
+  const st=state(t);
+  if(S.when==="live"&&st!=="live")return false;
+  if(S.when==="today"&&(st==="past"||(st==="up"&&dayKey(t.at)!==0)))return false;
+  if(S.when==="week"&&(st==="past"||(st==="up"&&dayKey(t.at)>6)))return false;
+  if(S.when==="past"&&st!=="past")return false;
+  return true;
+}
+function results(){
+  const W=words();
+  const tb=T.filter(t=>tableOk(t)&&hit(hay([t.title,t.theme,t.host,t.city,t.lang]),W));
+  const ord={live:0,up:1,past:2};
+  tb.sort((a,b)=>ord[state(a)]-ord[state(b)]||(state(a)==="live"?b.live-a.live:state(a)==="past"?b.at-a.at:a.at-b.at));
+  const pp=U.filter(u=>{
+    if(S.when==="live"&&!(u.nx&&BYID[u.nx].live))return false;
+    if(S.when==="today"&&!(u.nx&&(BYID[u.nx].live||dayKey(BYID[u.nx].at)===0)))return false;
+    if(S.when==="past")return false;
+    return hit(hay([u.n,u.city,u.bio,...u.tags]),W)});
+  pp.sort((a,b)=>(norm(b.n).startsWith(W[0]||"\u0001")?1:0)-(norm(a.n).startsWith(W[0]||"\u0001")?1:0)||b.t-a.t||b.r-a.r);
+  const tp=Object.keys(C).filter(k=>hit(hay([k]),W));
+  return {W,tb,pp,tp};
+}
+const tcount=k=>T.filter(t=>t.theme===k&&state(t)!=="past").length;
+const pcount=k=>U.filter(u=>u.tags.includes(k)).length;
+
+function topicPills(list){return `<div class="tps">${list.map(k=>`<button class="tpc" style="--c:${C[k]}" data-topic="${k}"><i></i><span>${k}</span><small>${tcount(k)} ${tcount(k)===1?"table":"tables"}</small></button>`).join("")}</div>`}
+function chairs(t){
+  const mine=S.saved.has(t.id), k=t.people.length+(mine?1:0), left=t.seats-k;
+  const fc=t.people.slice(0,5).map((p,i)=>`<span style="z-index:${9-i}">${av(p)}</span>`).join("");
+  return `<div class="chairs"><span class="fc">${fc}</span><span>${state(t)==="past"?`${t.people.length} ${t.people.length===1?"person":"people"}`:left>0?`${left} of ${t.seats} chairs free`:'<span class="full">Full · waitlist open</span>'}</span></div>`;
+}
+function row(t,W){
+  const c=C[t.theme], st=state(t), full=t.people.length>=t.seats;
+  const tm=st==="live"?`<div class="tm lv"><b><i></i>LIVE</b><span>${t.live} min in</span></div>`
+    :st==="past"?`<div class="tm ps"><b>${dayName(dayKey(t.at))}</b><span>${hhmm(t.at)}</span></div>`
+    :`<div class="tm"><b>${hhmm(t.at)}</b><span>${dayKey(t.at)===0?until(t.at):dayName(dayKey(t.at))}</span></div>`;
+  let btn;
+  if(st==="live")btn=full?`<button class="jbtn ghost" data-wait="${t.id}">Join waitlist</button>`:`<a class="jbtn" href="${LIVE_TABLE}" target="_top">Join</a>`;
+  else if(st==="past")btn=t.kept?`<button class="jbtn ghost" data-kept="${t.id}" aria-expanded="${S.open.has(t.id)}">${S.open.has(t.id)?"Hide":"Transcript"}</button>`:`<span class="meta" style="justify-self:end">No transcript</span>`;
+  else btn=S.wait.has(t.id)?`<button class="jbtn on" data-wait="${t.id}">On the waitlist</button>`:full?`<button class="jbtn ghost" data-wait="${t.id}">Join waitlist</button>`:S.saved.has(t.id)?`<button class="jbtn on" data-save="${t.id}">Chair saved</button>`:`<button class="jbtn ghost" data-save="${t.id}">Save a chair</button>`;
+  const kept=st==="past"&&t.kept&&S.open.has(t.id)?`<div class="kept"><small>From the transcript</small>${t.kept.map(([w,q])=>`<p><b>${w}</b><span data-noi18n>${mk(q,W)}</span></p>`).join("")}</div>`:"";
+  return `<article class="ev" style="--c:${c}">${tm}
+    <div class="ei"><div class="th" style="background:radial-gradient(circle at 35% 30%,${c},${c}66 75%,#252B52)"><svg viewBox="0 0 24 24" aria-hidden="true">${TICON[t.theme]}</svg></div><div class="et"><h3 data-noi18n>${mk(t.title,W)}</h3>
+      <div class="meta"><span class="topic"><i></i>${t.theme}</span> · <span>with</span> <b data-noi18n>${mk(t.host,W)}</b>${t.lang!=="English"?` · ${t.lang}`:""}</div></div></div>
+    ${chairs(t)}${btn}${kept}</article>`;
+}
+function tableList(list,W,limit){
+  const L=limit?list.slice(0,limit):list;let h="",last="";
+  L.forEach(t=>{const st=state(t);const g=st==="live"?"Happening now":st==="past"?"Past tables":"Upcoming";
+    if(g!==last){if(last)h+="</div>";h+=`<p class="sub">${g}</p><div class="agenda">`;last=g}h+=row(t,W)});
+  return h+(last?"</div>":"");
+}
+function nextLine(u){
+  if(!u.nx)return `<div class="pnx idle"><span>Joins tables. Not hosting right now.</span></div>`;
+  const t=BYID[u.nx];
+  const w=t.live?`<small class="lv"><i></i>Live now</small>`:`<small>${dayKey(t.at)===0?(Math.round((t.at-NOW)/60000)<60?`In ${Math.round((t.at-NOW)/60000)} min`:"Today · "+hhmm(t.at)):dayName(dayKey(t.at))+" · "+hhmm(t.at)}</small>`;
+  return `<div class="pnx">${w}<span data-noi18n>${esc(t.title)}</span></div>`;
+}
+function prow(u,W){
+  const f=S.follow.has(u.n);
+  return `<article class="pr"><a class="cover" href="${PROFILE}" target="_top" aria-label="Open ${u.n}'s profile"></a>
+   <div class="pav" style="--ring:${u.t?"#7FF0F2":"var(--line)"}">${av(u.n)}</div>
+   <div class="pi"><div class="pn"><b data-noi18n>${mk(u.n,W)}</b>${u.t?`<span class="trust">${SHIELD}Trusted</span>`:""}</div>
+    <div class="pm"><span data-noi18n>${mk(u.city,W)}</span>${u.tags.map(k=>`<span class="topic" style="--c:${C[k]}"><i></i>${k}</span>`).join("")}</div></div>
+   ${nextLine(u)}
+   <button class="fol" data-fol="${u.n}" aria-pressed="${f}">${f?OK+"Following":ADD+"Follow"}</button></article>`;
+}
+function sec(id,title,n,body,more){
+  return `<section class="sec" id="s-${id}"><div class="sh"><h2>${title}</h2><span class="n">${n}</span>${more?`<button class="more" data-type="${id}"><span>See all</span><span>${n}</span></button>`:""}</div>${body}</section>`;
+}
+
+/* recent searches: per browser, demo defaults */
+const RK="tc-search-recent";
+let RECENT=["stoicism","Elif","home batteries"];
+try{const v=JSON.parse(localStorage.getItem(RK)||"null");if(Array.isArray(v))RECENT=v}catch(e){}
+function saveRecent(){try{localStorage.setItem(RK,JSON.stringify(RECENT))}catch(e){}}
+function remember(q){q=q.trim();if(q.length<2)return;RECENT=[q,...RECENT.filter(x=>norm(x)!==norm(q))].slice(0,6);saveRecent()}
+
+function render(){
+  const q=S.q.trim(), out=document.getElementById("out"), sum=document.getElementById("sum"), fl=document.getElementById("filters");
+  document.getElementById("clr").hidden=!S.q;
+  if(!q){
+    fl.hidden=true; sum.textContent="";
+    const live=T.filter(t=>t.live).sort((a,b)=>b.people.length-a.people.length).slice(0,3);
+    out.innerHTML=(RECENT.length?`<section class="sec"><div class="sh"><h2>Recent searches</h2><button class="clear" data-clear-recent>Clear</button></div><div class="recent">${RECENT.map((r,i)=>`<span class="rc"><button data-q="${esc(r)}">${CLOCK}<span data-noi18n>${esc(r)}</span></button><button class="x" data-rm="${i}" aria-label="Remove">${X}</button></span>`).join("")}</div></section>`:"")
+      +`<section class="sec"><div class="sh"><h2>Topics to explore</h2></div>${topicPills(Object.keys(C))}</section>`
+      +`<section class="sec"><div class="sh"><h2>Happening now</h2><span class="n">${T.filter(t=>t.live).length} ${T.filter(t=>t.live).length===1?"table":"tables"}</span></div>${'<div class="agenda">'+live.map(t=>row(t,[])).join("")+"</div>"}</section>`;
+    return;
+  }
+  const R=results(), W=R.W, total=R.tb.length+R.pp.length+R.tp.length;
+  fl.hidden=false;
+  const P=[["all","All",total],["tables","Tables",R.tb.length],["people","People",R.pp.length],["topics","Topics",R.tp.length]];
+  document.getElementById("pills").innerHTML=P.map(([k,l,n])=>`<button class="day" data-type="${k}" aria-pressed="${S.type===k}"${k!=="all"&&!n&&S.type!==k?" disabled":""}><span>${l}</span><span class="cnt">${n}</span></button>`).join("");
+  sum.innerHTML=`<b>${total}</b> <span>${total===1?"result":"results"}</span> <span>for</span> <q data-noi18n>${esc(q)}</q>`;
+  if(!total){
+    const filt=S.when||S.lang;
+    if(!filt){fl.hidden=true;sum.textContent=""}
+    out.innerHTML=`<div class="none"><h2><span>Nothing matches</span> <q data-noi18n>${esc(q)}</q></h2><p>${filt?"Nothing here with these filters.":"No table, person or topic yet. Check the spelling, or try a broader word."}</p>${filt?`<button class="x" data-unfilter>Clear filters</button>`:""}</div>`
+      +`<div class="host"><div><h3>Nobody is talking about this yet.</h3><p>Open a table about it and be the first.</p></div><a href="${CREATE}" target="_top">Open a table</a></div>`
+      +`<section class="sec"><div class="sh"><h2>Topics to explore</h2></div>${topicPills(Object.keys(C))}</section>`;
+    return;
+  }
+  const one=S.type!=="all";
+  const blocks={
+    topics:()=>R.tp.length?sec("topics","Topics",R.tp.length,topicPills(R.tp),false):"",
+    people:()=>R.pp.length?sec("people","People",R.pp.length,`<div class="plist">${(one?R.pp:R.pp.slice(0,3)).map(u=>prow(u,W)).join("")}</div>`,!one&&R.pp.length>3):"",
+    tables:()=>R.tb.length?sec("tables","Tables",R.tb.length,tableList(R.tb,W,one?0:5),!one&&R.tb.length>5):""
+  };
+  let order=["tables","people","topics"];
+  if(R.tp.some(k=>W.length===1&&norm(k)===W[0]||norm(tr(k))===W.join(" ")))order=["topics","tables","people"];
+  else if(R.pp.some(u=>norm(u.n).startsWith(W[0])))order=["people","tables","topics"];
+  out.innerHTML=(one?blocks[S.type]():order.map(k=>blocks[k]()).join(""))||`<div class="none"><p>Nothing here with these filters.</p><button class="x" data-unfilter>Clear filters</button></div>`;
+}
+
+const qi=document.getElementById("q");
+function setQ(v,save){S.q=v;qi.value=v;S.type="all";S.open.clear();if(save)remember(v);sync();render();window.scrollTo({top:0})}
+function sync(){try{const h=S.q.trim()?"#q="+encodeURIComponent(S.q.trim()):"";history.replaceState(history.state,"",location.pathname+location.search+h)}catch(e){}}
+const toast=t=>{const e=document.getElementById("toast");e.textContent=t;e.classList.add("on");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("on"),2200)};
+let tq;
+qi.addEventListener("input",()=>{S.q=qi.value;S.type="all";S.open.clear();render();clearTimeout(tq);tq=setTimeout(sync,300)});
+qi.addEventListener("keydown",e=>{if(e.key==="Enter"){remember(qi.value);sync();qi.blur()}if(e.key==="Escape"&&qi.value){e.stopPropagation();setQ("")}});
+document.getElementById("clr").addEventListener("click",()=>{setQ("");qi.focus()});
+document.getElementById("when").addEventListener("change",e=>{S.when=e.target.value;render()});
+document.getElementById("lng").addEventListener("change",e=>{S.lang=e.target.value;render()});
+document.addEventListener("click",e=>{
+  const g=e.target.closest("[data-q]");if(g){setQ(g.dataset.q,true);return}
+  const rm=e.target.closest("[data-rm]");if(rm){RECENT.splice(+rm.dataset.rm,1);saveRecent();render();return}
+  if(e.target.closest("[data-clear-recent]")){RECENT=[];saveRecent();render();return}
+  const tp=e.target.closest("[data-topic]");if(tp){setQ(tr(tp.dataset.topic),true);return}
+  const ty=e.target.closest("[data-type]");if(ty){S.type=ty.dataset.type;render();document.getElementById("filters").scrollIntoView({block:"start"});return}
+  if(e.target.closest("[data-unfilter]")){S.when="";S.lang="";document.getElementById("when").value="";document.getElementById("lng").value="";render();return}
+  const kp=e.target.closest("[data-kept]");if(kp){const id=+kp.dataset.kept;S.open.has(id)?S.open.delete(id):S.open.add(id);render();return}
+  const sv=e.target.closest("[data-save]");if(sv){const id=+sv.dataset.save;if(S.saved.has(id))S.saved.delete(id);else{S.saved.add(id);toast("Saved. You'll get a reminder 10 minutes before")}render();return}
+  const wt=e.target.closest("[data-wait]");if(wt){const id=+wt.dataset.wait;if(S.wait.has(id)){S.wait.delete(id);toast("You left the waitlist.")}else{S.wait.add(id);toast("You're on the waitlist. We'll tell you if a chair opens up.")}render();return}
+  const fo=e.target.closest("[data-fol]");if(fo){e.preventDefault();const n=fo.dataset.fol;if(S.follow.has(n)){S.follow.delete(n);toast(`You stopped following ${n}`)}else{S.follow.add(n);toast(`We'll tell you when ${n} hosts next`)}render();return}
+  const res=e.target.closest("#out a,#out .jbtn");if(res&&S.q.trim())remember(S.q);
+});
+window.addEventListener("tc-lang",render);
+/* start from #q=… so other pages can link here; demo default otherwise */
+(function(){let v=null;try{const m=location.hash.match(/[#&]q=([^&]*)/);if(m)v=decodeURIComponent(m[1].replace(/\+/g," "))}catch(e){}
+  if(v===null&&!/[#&]empty\b/.test(location.hash))v="free will";
+  S.q=v||"";qi.value=S.q;render();sync();
+  if(matchMedia("(hover:hover)").matches&&!S.q)qi.focus();})();
+</script>

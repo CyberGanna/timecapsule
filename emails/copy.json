@@ -1,0 +1,236 @@
+{
+ "en": {
+  "common": {
+   "hosted_by": "Hosted by {host}",
+   "chairs": "{taken} of {chairs} chairs taken",
+   "why": "You're getting this email because you have a TimeCapsule account.",
+   "settings": "Email settings",
+   "help": "Help",
+   "about": "What is TimeCapsule?",
+   "tag": "Small tables, real people."
+  },
+  "welcome": {
+   "subject": "Welcome to TimeCapsule, {first}",
+   "pre": "Pull up a chair. Your first table is a few minutes away.",
+   "h": "Welcome, {first}.",
+   "p1": "TimeCapsule is a place for small tables of real people, talking about the things that matter. No feed and no rush: a topic, a few chairs and time to listen.",
+   "steps": [
+    [
+     "Pull up a chair",
+     "Pick an open table on a topic you care about, or start your own."
+    ],
+    [
+     "Talk, and take notes",
+     "Your notes stay private. You can also keep a transcript of the discussion."
+    ],
+    [
+     "Say thank you",
+     "After a table, rate it and tip the people who made you think, with TimeCoins."
+    ]
+   ],
+   "btn": "Find a table",
+   "after": "We've put tables on the topics you chose at the top.",
+   "sig": "See you at the table,<br>The TimeCapsule team",
+   "why": "You're getting this email because you just created a TimeCapsule account. If that wasn't you, you can ignore it."
+  },
+  "reminder": {
+   "subject": "Starts in 1 hour: {title}",
+   "pre": "{host} and {others} will be at the table.",
+   "eyebrow": "Table reminder",
+   "h": "Your table starts in 1 hour.",
+   "p1": "Find a quiet spot, and check your camera and microphone a minute before you join.",
+   "with": "With {others}",
+   "btn": "Open the table",
+   "cal": "Add to calendar",
+   "cant": "Can't make it? Free your chair so someone else can sit.",
+   "free": "Free my chair"
+  },
+  "rate": {
+   "subject": "How was the table yesterday?",
+   "pre": "You have {coins} TimeCoins to give. They expire on {expiry}.",
+   "eyebrow": "After the table",
+   "h": "How was the table?",
+   "p1": "Yesterday you sat at “{rtitle}” with {names}. A rating helps the host, and a tip is a way to say thank you.",
+   "coins1": "You have {coins} TimeCoins to give for this table.",
+   "coins2": "Coins you don't give expire on {expiry}.",
+   "btn": "Rate and tip",
+   "after": "It takes about a minute. You can also skip without a tip."
+  },
+  "invite_join": {
+   "subject": "{inviter} invited you to TimeCapsule",
+   "pre": "Conversations are better with people you know.",
+   "h": "{inviter} invited you to TimeCapsule.",
+   "p1": "Conversations are better with people you know.",
+   "p2": "TimeCapsule is a place for small tables of real people from all over the world, talking about the things that matter.",
+   "coins": "You both receive 2 free TimeCoins when you sign in, the small thank-you people give each other here.",
+   "btn": "Join TimeCapsule",
+   "why": "{inviter} entered your email address to invite you. We won't write to you again unless you join."
+  },
+  "invite_table": {
+   "subject": "{inviter} invited you to a table: {title}",
+   "pre": "{inviter}: “{note}”",
+   "h": "{inviter} invited you to a table.",
+   "coins": "You both receive 5 free TimeCoins when you sit at this table together, the small thank-you people give each other here.",
+   "btn": "Take a chair",
+   "notnow_pre": "Can't come?",
+   "notnow": "Not this time",
+   "why": "{inviter} entered your email address to invite you. We won't write to you again unless you join."
+  }
+ },
+ "it": {
+  "common": {
+   "hosted_by": "Ospitato da {host}",
+   "chairs": "{taken} sedie su {chairs} occupate",
+   "why": "Ricevi questa email perché hai un account TimeCapsule.",
+   "settings": "Impostazioni email",
+   "help": "Aiuto",
+   "about": "Che cos'è TimeCapsule?",
+   "tag": "Piccoli tavoli, persone vere."
+  },
+  "welcome": {
+   "subject": "Ti diamo il benvenuto su TimeCapsule, {first}",
+   "pre": "Prendi una sedia. Il tuo primo tavolo è a pochi minuti.",
+   "h": "Ti diamo il benvenuto, {first}.",
+   "p1": "TimeCapsule è un luogo di piccoli tavoli di persone vere, che parlano delle cose che contano. Nessun feed e nessuna fretta: un tema, qualche sedia e il tempo per ascoltare.",
+   "steps": [
+    [
+     "Prendi una sedia",
+     "Scegli un tavolo aperto su un tema che ti sta a cuore, o aprine uno tuo."
+    ],
+    [
+     "Parla e prendi appunti",
+     "I tuoi appunti restano privati. Puoi anche conservare una trascrizione della discussione."
+    ],
+    [
+     "Di' grazie",
+     "Dopo un tavolo, votalo e lascia una mancia in TimeCoins a chi ti ha fatto pensare."
+    ]
+   ],
+   "btn": "Trova un tavolo",
+   "after": "In cima trovi i tavoli sui temi che hai scelto.",
+   "sig": "Ci vediamo al tavolo,<br>Il team di TimeCapsule",
+   "why": "Ricevi questa email perché è appena stato creato un account TimeCapsule con questo indirizzo. Se non sei tu, puoi ignorarla."
+  },
+  "reminder": {
+   "subject": "Tra 1 ora: {title}",
+   "pre": "{host} e {others} saranno al tavolo.",
+   "eyebrow": "Promemoria del tavolo",
+   "h": "Il tuo tavolo inizia tra 1 ora.",
+   "p1": "Trova un posto tranquillo e controlla videocamera e microfono un minuto prima di entrare.",
+   "with": "Con {others}",
+   "btn": "Apri il tavolo",
+   "cal": "Aggiungi al calendario",
+   "cant": "Non riesci a esserci? Libera la tua sedia, così può sedersi qualcun altro.",
+   "free": "Libera la mia sedia"
+  },
+  "rate": {
+   "subject": "Com'è andato il tavolo di ieri?",
+   "pre": "Hai {coins} TimeCoins da dare. Scadono {expiry}.",
+   "eyebrow": "Dopo il tavolo",
+   "h": "Com'è andato il tavolo?",
+   "p1": "Ieri eri al tavolo “{rtitle}” con {names}. Un voto aiuta chi ospita, e una mancia è un modo per dire grazie.",
+   "coins1": "Hai {coins} TimeCoins da dare per questo tavolo.",
+   "coins2": "I coin che non dai scadono {expiry}.",
+   "btn": "Vota e lascia una mancia",
+   "after": "Ci vuole circa un minuto. Puoi anche saltare senza mancia."
+  },
+  "invite_join": {
+   "subject": "{inviter} ti ha invitato su TimeCapsule",
+   "pre": "Le conversazioni sono migliori con chi conosci.",
+   "h": "{inviter} ti ha invitato su TimeCapsule.",
+   "p1": "Le conversazioni sono migliori con chi conosci.",
+   "p2": "TimeCapsule è un luogo di piccoli tavoli di persone vere da tutto il mondo, che parlano delle cose che contano.",
+   "coins": "Ricevete entrambi 2 TimeCoins gratis quando accedi, il piccolo grazie che le persone si scambiano qui.",
+   "btn": "Entra in TimeCapsule",
+   "why": "{inviter} ha inserito il tuo indirizzo email per invitarti. Non ti scriveremo più, a meno che tu non ti iscriva."
+  },
+  "invite_table": {
+   "subject": "{inviter} ti ha invitato a un tavolo: {title}",
+   "pre": "{inviter}: “{note}”",
+   "h": "{inviter} ti ha invitato a un tavolo.",
+   "coins": "Ricevete entrambi 5 TimeCoins gratis quando vi sedete insieme a questo tavolo, il piccolo grazie che le persone si scambiano qui.",
+   "btn": "Prendi una sedia",
+   "notnow_pre": "Non puoi venire?",
+   "notnow": "Non questa volta",
+   "why": "{inviter} ha inserito il tuo indirizzo email per invitarti. Non ti scriveremo più, a meno che tu non ti iscriva."
+  }
+ },
+ "es": {
+  "common": {
+   "hosted_by": "Organiza {host}",
+   "chairs": "{taken} de {chairs} sillas ocupadas",
+   "why": "Recibes este correo porque tienes una cuenta de TimeCapsule.",
+   "settings": "Ajustes de correo",
+   "help": "Ayuda",
+   "about": "¿Qué es TimeCapsule?",
+   "tag": "Mesas pequeñas, personas reales."
+  },
+  "welcome": {
+   "subject": "Te damos la bienvenida a TimeCapsule, {first}",
+   "pre": "Acerca una silla. Tu primera mesa está a unos minutos.",
+   "h": "Te damos la bienvenida, {first}.",
+   "p1": "TimeCapsule es un lugar de mesas pequeñas con personas reales, que hablan de lo que importa. Sin feed y sin prisas: un tema, unas cuantas sillas y tiempo para escuchar.",
+   "steps": [
+    [
+     "Acerca una silla",
+     "Elige una mesa abierta sobre un tema que te importe, o abre la tuya."
+    ],
+    [
+     "Habla y toma notas",
+     "Tus notas son privadas. También puedes guardar una transcripción de la conversación."
+    ],
+    [
+     "Da las gracias",
+     "Después de una mesa, valórala y da propina en TimeCoins a quien te hizo pensar."
+    ]
+   ],
+   "btn": "Encuentra una mesa",
+   "after": "Arriba verás mesas sobre los temas que elegiste.",
+   "sig": "Nos vemos en la mesa,<br>El equipo de TimeCapsule",
+   "why": "Recibes este correo porque acabas de crear una cuenta de TimeCapsule. Si no fuiste tú, puedes ignorarlo."
+  },
+  "reminder": {
+   "subject": "Empieza en 1 hora: {title}",
+   "pre": "{host} y {others} estarán en la mesa.",
+   "eyebrow": "Recordatorio de mesa",
+   "h": "Tu mesa empieza en 1 hora.",
+   "p1": "Busca un sitio tranquilo y revisa la cámara y el micrófono un minuto antes de entrar.",
+   "with": "Con {others}",
+   "btn": "Abrir la mesa",
+   "cal": "Añadir al calendario",
+   "cant": "¿No puedes ir? Libera tu silla para que otra persona pueda sentarse.",
+   "free": "Liberar mi silla"
+  },
+  "rate": {
+   "subject": "¿Qué tal la mesa de ayer?",
+   "pre": "Tienes {coins} TimeCoins para dar. Caducan el {expiry}.",
+   "eyebrow": "Después de la mesa",
+   "h": "¿Qué tal la mesa?",
+   "p1": "Ayer estuviste en la mesa “{rtitle}” con {names}. Una valoración ayuda a quien organiza, y una propina es una forma de dar las gracias.",
+   "coins1": "Tienes {coins} TimeCoins para dar en esta mesa.",
+   "coins2": "Las monedas que no des caducan el {expiry}.",
+   "btn": "Valorar y dar propina",
+   "after": "Lleva un minuto. También puedes saltarlo sin dar propina."
+  },
+  "invite_join": {
+   "subject": "{inviter} te ha invitado a TimeCapsule",
+   "pre": "Las conversaciones son mejores con gente que conoces.",
+   "h": "{inviter} te ha invitado a TimeCapsule.",
+   "p1": "Las conversaciones son mejores con gente que conoces.",
+   "p2": "TimeCapsule es un lugar de mesas pequeñas con personas reales de todo el mundo, que hablan de lo que importa.",
+   "coins": "Los dos recibís 2 TimeCoins gratis cuando inicias sesión, el pequeño gracias que la gente se da aquí.",
+   "btn": "Entrar en TimeCapsule",
+   "why": "{inviter} escribió tu dirección de correo para invitarte. No volveremos a escribirte a menos que te unas."
+  },
+  "invite_table": {
+   "subject": "{inviter} te ha invitado a una mesa: {title}",
+   "pre": "{inviter}: “{note}”",
+   "h": "{inviter} te ha invitado a una mesa.",
+   "coins": "Los dos recibís 5 TimeCoins gratis cuando os sentáis juntos en esta mesa, el pequeño gracias que la gente se da aquí.",
+   "btn": "Tomar asiento",
+   "notnow_pre": "¿No puedes ir?",
+   "notnow": "Esta vez no",
+   "why": "{inviter} escribió tu dirección de correo para invitarte. No volveremos a escribirte a menos que te unas."
+  }
+ }
+}

@@ -1,0 +1,95 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>TimeCapsule</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0E1230;--ink:#1C1F33;--muted:#6B6F86;--violet:#7C5CFF;--teal:#17C3C8;--deep:#3B2A9E;--paper:#FBFAF7;--line:#E6E3DC}
+html,body{background:var(--paper)}
+body{font-family:'Newsreader',Georgia,serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;padding:30mm 26mm 26mm}
+.page:last-child{page-break-after:auto}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif}
+.logo svg{width:46px;height:34px}
+.wt{font-size:22px;letter-spacing:-.01em}
+.wt b{font-weight:600}.wt i{font-style:normal;font-weight:300}
+/* cover */
+.cover{background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:34mm 26mm}
+.cover .logo svg{width:92px;height:68px}
+.cover .wt{font-size:44px}
+.cover .big{margin-top:auto}
+.cover .words{font-family:'Sora',sans-serif;font-weight:300;font-size:15px;letter-spacing:.32em;color:#B9BCD6;margin-top:22px}
+.cover .words span{color:#fff;font-weight:400}
+.cover .dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--teal);vertical-align:middle;margin:0 14px 3px}
+.cover .rule{width:56px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--violet),var(--teal));margin-bottom:26px}
+.cover .foot{font-family:'Sora',sans-serif;font-size:10px;letter-spacing:.2em;color:#7F84A6;text-transform:uppercase}
+/* text pages */
+.head{display:flex;justify-content:space-between;align-items:center;position:absolute;top:14mm;left:26mm;right:26mm}
+.head .logo svg{width:26px;height:19px}.head .wt{font-size:13px;color:var(--navy)}
+.head .num{font-family:'Sora',sans-serif;font-size:9px;letter-spacing:.2em;color:var(--muted)}
+.eyebrow{font-family:'Sora',sans-serif;font-size:11px;letter-spacing:.28em;color:var(--violet);font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--violet),var(--teal));border-radius:2px}
+h1{font-family:'Sora',sans-serif;font-weight:300;font-size:34px;letter-spacing:-.02em;color:var(--navy);line-height:1.15;margin-bottom:9mm}
+h1 b{font-weight:600}
+p{font-size:12.5pt;line-height:1.58;margin-bottom:4mm;hyphens:none}
+p.lead{font-size:14pt;line-height:1.48;color:var(--navy)}
+ul{list-style:none;margin:2mm 0 5mm}
+li{position:relative;padding-left:9mm;font-size:12.5pt;line-height:1.58;margin-bottom:4mm}
+li::before{content:"";position:absolute;left:0;top:.42em;width:10px;height:10px;border-radius:50%;border:2px solid var(--teal);background:#fff}
+li b{font-family:'Sora',sans-serif;font-weight:600;font-size:11.5pt;color:var(--navy)}
+.pagefoot{position:absolute;bottom:13mm;left:26mm;right:26mm;border-top:1px solid var(--line);padding-top:4mm;font-family:'Sora',sans-serif;font-size:8.5px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between}
+</style></head><body>
+
+<section class="page cover">
+  <div class="logo"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="c0"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#c0)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg></div>
+  <div class="big">
+    <div class="rule"></div>
+    <div class="logo"><span class="wt"><b>time</b><i>capsule</i></span></div>
+    <div class="words"><span>WHAT</span><i class="dot"></i><span>HOW</span><i class="dot"></i><span>WHY</span></div>
+  </div>
+</section>
+
+<!--HEAD-->
+
+<section class="page">
+  <div class="head"><div class="logo"><svg viewBox="0 -6 110 82"><defs><clipPath id="c1"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#c1)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span class="wt"><b>time</b><i>capsule</i></span></div></div>
+  <div class="eyebrow"></div>
+  <h1>WHAT is <b>TIMECAPSULE</b></h1>
+  <p class="lead">Time Capsule is a digital place built around a different relationship with technology - one that uses its possibilities without letting its logic determine how we think, communicate and relate to the world.</p>
+  <p>Rather than prioritising speed, efficiency and endless content, it makes room for reflection, dialogue and sustained human participation. People can start discussions, share experiences and ideas, raise questions and challenge perspectives.</p>
+  <p>Through repeated participation, trust develops, relationships take shape and ideas evolve.</p>
+  <p>At its heart is the understanding that knowledge is more than information: it emerges through human experience, reflection and dialogue.</p>
+  <p>Encountering different perspectives deepens our understanding of ourselves, our societies and the world we inhabit.</p>
+  <p>Time Capsule preserves this experience as a lasting record of ideas, knowledge and discussions, together with the contexts they emerge from. Each contribution carries its history and authorship, and the possibility of meaningful exchange. Together, they form an evolving human imprint: an inheritance that future generations can encounter, question and build upon.</p>
+  <p class="lead" style="margin-top:6mm">Technology serves human expression rather than replacing it. Time Capsule is a shared human space where people meet, think, communicate and develop understanding together, preserving what each generation has to share for those who follow.</p>
+  <div class="pagefoot"><span>What is TimeCapsule</span><span>2</span></div>
+</section>
+
+<section class="page">
+  <div class="head"><div class="logo"><svg viewBox="0 -6 110 82"><defs><clipPath id="c2"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#c2)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span class="wt"><b>time</b><i>capsule</i></span></div></div>
+  <div class="eyebrow"></div>
+  <h1>HOW to use <b>TIMECAPSULE</b></h1>
+  <p class="lead">Time Capsule gives people the space and tools to develop ideas, connect around common interests and build communities through active participation. Shared interests and exchanged perspectives create, over time, a sense of belonging.</p>
+  <p>Its environment combines human interaction with AI capabilities. AI tools help people follow discussions, discover relevant contributions, overcome language barriers, organise shared knowledge and prepare activities.</p>
+  <p>This makes participation more accessible and collaboration easier, while judgement, creativity and initiative remain with people.</p>
+  <p>Within Time Capsule, people can:</p>
+  <ul>
+    <li><b>Host and participate:</b> Organise and take part in live discussions, talks, lectures and workshops to exchange knowledge, explore ideas and learn from one another.</li>
+    <li><b>Turn ideas into shared projects:</b> Connect with others, discover common ground, develop initiatives and put collective ideas into practice.</li>
+    <li><b>Preserve and pass on knowledge:</b> Build a lasting record of ideas, experiences and discussions, with authorship and original context intact, so that future generations can revisit it and build upon it.</li>
+  </ul>
+  <div class="pagefoot"><span>How to use TimeCapsule</span><span>3</span></div>
+</section>
+
+<section class="page">
+  <div class="head"><div class="logo"><svg viewBox="0 -6 110 82"><defs><clipPath id="c3"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#c3)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span class="wt"><b>time</b><i>capsule</i></span></div></div>
+  <div class="eyebrow"></div>
+  <h1>WHY to use <b>TIMECAPSULE</b></h1>
+  <p class="lead">Technology has changed not only how we communicate, but the conditions under which we think, learn, work and relate to one another. Artificial intelligence is accelerating this change, increasingly taking part in activities once shaped by human judgement, creativity and experience. The question is no longer what technology can do, but what place we want it to have in our lives, and what we risk losing when its capabilities begin to define our purposes.</p>
+  <p>Time Capsule is a place where humans meet through technology, not a place where technology simulates the presence of humans. What is disappearing is not connectivity, but the human presence that gives connectivity its meaning.</p>
+  <p>We can exchange more content without gaining understanding, communicate more often without building deeper relationships, and access vast information without acquiring knowledge. More communication does not automatically mean more meaningful participation.</p>
+  <p>AI can extend human capabilities by generating answers, processing information and performing cognitive tasks. But producing an answer is not the same as understanding why a question matters.</p>
+  <p class="lead" style="margin-top:6mm">Within Time Capsule, AI assists people and never impersonates them: members are real people, not bots, and human participation is never replaced by artificial activity. Human judgement, responsibility and experience remain central.</p>
+  <div class="pagefoot"><span>Why to use TimeCapsule</span><span>4</span></div>
+</section>
+</body></html>

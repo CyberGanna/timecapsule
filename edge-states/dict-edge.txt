@@ -1,0 +1,115 @@
+Prototype|Prototipo|Prototipo
+Table|Tavolo|Mesa
+Link|Link|Enlace
+New user|Nuovo utente|Usuario nuevo
+Table states|Stati del tavolo|Estados de la mesa
+Broken link|Link non valido|Enlace roto
+New user empty states|Stati vuoti per un nuovo utente|Estados vacíos de un usuario nuevo
+Table full|Tavolo pieno|Mesa llena
+Cancelled|Annullato|Cancelada
+Removed|Rimosso|Expulsado
+Page not found|Pagina non trovata|Página no encontrada
+Agenda|Agenda|Agenda
+Following|Seguiti|Siguiendo
+Tomorrow · 19:00|Domani · 19:00|Mañana · 19:00
+Is free will an illusion?|Il libero arbitrio è un'illusione?|¿Es el libre albedrío una ilusión?
+Host · Switzerland|Host · Svizzera|Anfitrión · Suiza
+Trusted|Affidabile|De confianza
+at the table · no free chairs|al tavolo · nessun posto libero|en la mesa · sin sitios libres
+This table is full|Questo tavolo è pieno|Esta mesa está llena
+All 8 chairs are taken. People sometimes give their chair back before it starts, so one may still open up.|Tutti gli 8 posti sono occupati. A volte qualcuno lascia il posto prima dell'inizio, quindi uno potrebbe ancora liberarsi.|Los 8 sitios están ocupados. A veces alguien deja su sitio antes de empezar, así que aún puede quedar uno libre.
+Join the waitlist|Mettiti in lista d'attesa|Apúntate a la lista de espera
+You're on the waitlist|Sei in lista d'attesa|Estás en la lista de espera
+You left the waitlist|Hai lasciato la lista d'attesa|Has salido de la lista de espera
+See other tables|Vedi altri tavoli|Ver otras mesas
+If a chair opens, we ring your bell. The first person to take it gets the chair.|Se si libera un posto, suoniamo la tua campanella. Il posto va al primo che lo prende.|Si queda un sitio libre, sonará tu campana. El sitio es para quien lo coja primero.
+Tables with free chairs|Tavoli con posti liberi|Mesas con sitios libres
+Close to this one, by topic and time.|Vicini a questo per tema e orario.|Parecidas a esta por tema y hora.
+What makes a life meaningful?|Che cosa dà senso a una vita?|¿Qué le da sentido a una vida?
+Can we disagree kindly?|Possiamo non essere d'accordo con gentilezza?|¿Podemos discrepar con amabilidad?
+Do we choose what we believe?|Scegliamo ciò in cui crediamo?|¿Elegimos lo que creemos?
+Philosophy|Filosofia|Filosofía
+Society|Società|Sociedad
+Books|Libri|Libros
+Psychology|Psicologia|Psicología
+Kofi hosts|Ospita Kofi|Anfitrión: Kofi
+Ruth hosts|Ospita Ruth|Anfitriona: Ruth
+Omar hosts|Ospita Omar|Anfitrión: Omar
+3 of 8 chairs free|3 posti liberi su 8|3 de 8 sitios libres
+2 of 6 chairs free|2 posti liberi su 6|2 de 6 sitios libres
+5 of 8 chairs free|5 posti liberi su 8|5 de 8 sitios libres
+Save a chair|Prenota un posto|Reserva un sitio
+Chair saved|Posto prenotato|Sitio reservado
+Chair saved. See you there.|Posto prenotato. Ci vediamo lì.|Sitio reservado. Nos vemos allí.
+Cancelled by the host|Annullato dall'host|Cancelada por el anfitrión
+Gregory cancelled this table|Gregory ha annullato questo tavolo|Gregory ha cancelado esta mesa
+Sorry everyone, I'm unwell tonight. Same question next Thursday, and I'll invite you first.|Scusate tutti, stasera non sto bene. Stessa domanda giovedì prossimo, e vi inviterò per primi.|Lo siento, esta noche no me encuentro bien. La misma pregunta el próximo jueves, y os invitaré primero.
+Gregory, 2 hours ago|Gregory, 2 ore fa|Gregory, hace 2 horas
+Your chair is free again. There's nothing you need to do.|Il tuo posto è di nuovo libero. Non devi fare nulla.|Tu sitio vuelve a estar libre. No tienes que hacer nada.
+Find another table|Trova un altro tavolo|Busca otra mesa
+Follow Gregory|Segui Gregory|Seguir a Gregory
+Following Gregory|Segui Gregory già|Sigues a Gregory
+We'll tell you when Gregory hosts next.|Ti avviseremo quando Gregory ospiterà di nuovo.|Te avisaremos cuando Gregory vuelva a ser anfitrión.
+You're no longer at this table|Non sei più a questo tavolo|Ya no estás en esta mesa
+The host removed you from “Is free will an illusion?”. You can’t rejoin this table.|L'host ti ha tolto da “Il libero arbitrio è un'illusione?”. Non puoi tornare a questo tavolo.|El anfitrión te ha sacado de “¿Es el libre albedrío una ilusión?”. No puedes volver a esta mesa.
+Everything else stays as it was: your profile, your TimeCoins and your other tables.|Tutto il resto rimane com'era: il tuo profilo, i tuoi TimeCoins e gli altri tuoi tavoli.|Todo lo demás sigue igual: tu perfil, tus TimeCoins y tus otras mesas.
+Your notes are safe|I tuoi appunti sono al sicuro|Tus notas están a salvo
+Anything you kept from this table is in My tables, and only you can see it.|Quello che hai salvato da questo tavolo è in I miei tavoli, e lo vedi solo tu.|Lo que guardaste de esta mesa está en Mis mesas, y solo tú puedes verlo.
+Think it was a mistake? Tell us|Pensi sia un errore? Diccelo|¿Crees que es un error? Cuéntanoslo
+Tell us what happened|Raccontaci cos'è successo|Cuéntanos qué pasó
+A person on our team will read it. The host won't see what you write.|Lo leggerà una persona del nostro team. L'host non vedrà quello che scrivi.|Lo leerá una persona de nuestro equipo. El anfitrión no verá lo que escribas.
+What happened at the table?|Cos'è successo al tavolo?|¿Qué pasó en la mesa?
+What happened|Cos'è successo|Qué pasó
+Send|Invia|Enviar
+Thanks. We’ll read it and get back to you by email.|Grazie. Lo leggeremo e ti risponderemo via email.|Gracias. Lo leeremos y te responderemos por email.
+We can't find this page|Non troviamo questa pagina|No encontramos esta página
+The link may be old or mistyped, or the table may now be private.|Il link potrebbe essere vecchio o sbagliato, oppure il tavolo ora è privato.|Puede que el enlace sea antiguo o esté mal escrito, o que la mesa ahora sea privada.
+Or search tables, people, topics|Oppure cerca tavoli, persone, temi|O busca mesas, personas, temas
+Error 404|Errore 404|Error 404
+Pull up a chair|Prendi una sedia|Acerca una silla
+Small tables, real conversations. Pick a day.|Tavoli piccoli, conversazioni vere. Scegli un giorno.|Mesas pequeñas, conversaciones reales. Elige un día.
+No tables on Sunday yet|Ancora nessun tavolo domenica|Aún no hay mesas el domingo
+Be the first. Open a table, and people looking for Sunday will find it here.|Sii il primo. Apri un tavolo e chi cerca qualcosa per domenica lo troverà qui.|Sé el primero. Abre una mesa y quien busque algo para el domingo la encontrará aquí.
+See today's tables|Vedi i tavoli di oggi|Ver las mesas de hoy
+In the real Agenda, today’s tables show here|Nell'Agenda vera qui compaiono i tavoli di oggi|En la Agenda real aquí aparecen las mesas de hoy
+The tables you host and the chairs you saved, with everything you need to run them.|I tavoli che ospiti e i posti che hai prenotato, con tutto quello che serve per gestirli.|Las mesas que organizas y los sitios que reservaste, con todo lo necesario para llevarlas.
+Upcoming|In arrivo|Próximas
+Past|Passati|Pasadas
+No tables yet|Ancora nessun tavolo|Aún no hay mesas
+Save a chair at any table on the Agenda, or host your own. They’ll wait for you here.|Prenota un posto a un tavolo dell'Agenda, oppure ospitane uno tuo. Ti aspetteranno qui.|Reserva un sitio en cualquier mesa de la Agenda, o crea la tuya. Te esperarán aquí.
+Find a table|Trova un tavolo|Busca una mesa
+Nothing here yet|Ancora niente qui|Aún no hay nada aquí
+After your first table, you’ll find it here with its transcript and the notes you kept.|Dopo il tuo primo tavolo lo troverai qui, con la trascrizione e gli appunti che hai salvato.|Después de tu primera mesa la encontrarás aquí, con la transcripción y las notas que guardaste.
+Find your people|Trova le tue persone|Encuentra a tu gente
+Hosts and guests worth sitting with.|Host e ospiti con cui vale la pena sedersi.|Anfitriones e invitados con quienes merece la pena sentarse.
+Discover|Scopri|Descubrir
+You're not following anyone yet|Non segui ancora nessuno|Aún no sigues a nadie
+Follow the people you enjoy talking with, and we’ll tell you when they host their next table.|Segui le persone con cui ti piace parlare e ti avviseremo quando ospiteranno il prossimo tavolo.|Sigue a las personas con las que te gusta hablar y te avisaremos cuando organicen su próxima mesa.
+Discover people|Scopri persone|Descubrir personas
+Invite a friend|Invita un amico|Invita a un amigo
+All quiet for now|Tutto tranquillo per ora|Todo tranquilo por ahora
+When a table you saved is about to start, someone tips you, or a person you follow hosts, you’ll see it here.|Quando un tavolo prenotato sta per iniziare, qualcuno ti lascia una mancia o una persona che segui ospita un tavolo, lo vedrai qui.|Cuando una mesa reservada esté por empezar, alguien te dé propina o una persona que sigues organice una mesa, lo verás aquí.
+Find your first table|Trova il tuo primo tavolo|Busca tu primera mesa
+Choose what rings the bell|Scegli cosa fa suonare la campanella|Elige qué hace sonar la campana
+No chats yet|Ancora nessuna chat|Aún no hay chats
+Conversations often carry on after a table. You can message the people you sat with, or anyone from their profile.|Spesso le conversazioni continuano dopo un tavolo. Puoi scrivere alle persone con cui eri seduto, o a chiunque dal suo profilo.|Las conversaciones suelen seguir después de una mesa. Puedes escribir a quienes se sentaron contigo, o a cualquiera desde su perfil.
+Change backdrop|Cambia sfondo|Cambiar fondo
+Edit profile|Modifica profilo|Editar perfil
+Edit profile opens here|Qui si apre Modifica profilo|Aquí se abre Editar perfil
+New member|Nuovo membro|Miembro nuevo
+Milan, Italy · Joined today|Milano, Italia · Iscritta oggi|Milán, Italia · Se unió hoy
+TimeCoins|TimeCoins|TimeCoins
+Your profile fills in as you talk|Il tuo profilo si riempie mentre parli|Tu perfil se llena mientras hablas
+Tables, feedback and TimeCoins appear here after your first table.|Tavoli, feedback e TimeCoins compaiono qui dopo il tuo primo tavolo.|Mesas, comentarios y TimeCoins aparecen aquí después de tu primera mesa.
+Talks about|Parla di|Habla de
+My readings|Le mie letture|Mis lecturas
+Ratings|Valutazioni|Valoraciones
+No ratings yet. They come from the people you sit with.|Ancora nessuna valutazione. Arrivano dalle persone con cui ti siedi.|Aún no hay valoraciones. Llegan de las personas con quienes te sientas.
+No tables yet.|Ancora nessun tavolo.|Aún no hay mesas.
+Save your first chair|Prenota il tuo primo posto|Reserva tu primer sitio
+or|oppure|o
+host one|ospitane uno|organiza una
+Feedbacks|Feedback|Comentarios
+Kind words people leave after a table will show here.|Qui compariranno le parole gentili che le persone lasciano dopo un tavolo.|Aquí aparecerán las palabras amables que la gente deja después de una mesa.
+Nobody yet.|Ancora nessuno.|Aún nadie.
+Follows|Seguiti|Seguidos

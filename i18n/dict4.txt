@@ -1,0 +1,73 @@
+Export kept notes|Esporta le note tenute|Exportar notas guardadas
+At a table you saved for Thursday, 19:00|A un tavolo che hai salvato per giovedì alle 19:00|En una mesa que guardaste para el jueves a las 19:00
+New feedback on your table|Nuovo feedback sul tuo tavolo|Nueva opinión sobre tu mesa
+Coins stacking up|Le monete si accumulano|Las monedas se acumulan
+Join a table, get 8 TimeCoins|Siediti a un tavolo, ricevi 8 TimeCoins|Únete a una mesa y recibe 8 TimeCoins
+Nice, it's free.|Bene, è libero.|Genial, está libre.
+table full|tavolo pieno|mesa completa
+full, waitlist open|pieno, lista d'attesa aperta|completa, lista de espera abierta
+hosts|ospita|organiza
+Hover/tap to learn more.|Passa sopra o tocca per saperne di più.|Pasa el cursor o toca para saber más.
+. Hover/tap to learn more.|. Passa sopra o tocca per saperne di più.|. Pasa el cursor o toca para saber más.
+Only the people you choose see these|Le vedono solo le persone che scegli|Solo las ven las personas que elijas
+People see your name, city, topics, ratings and the tables you host. Never your messages, notes or the tables you only joined.|Le persone vedono il tuo nome, la città, i temi, le valutazioni e i tavoli che ospiti. Mai i tuoi messaggi, le note o i tavoli a cui hai solo partecipato.|La gente ve tu nombre, ciudad, temas, valoraciones y las mesas que organizas. Nunca tus mensajes, notas ni las mesas a las que solo te uniste.
+Main|Principale|Principal
+Gregory only|Solo Gregory|Solo Gregory
+First name or alias|Nome o alias|Nombre o alias
+This is the only name people see. No surname needed.|È l'unico nome che le persone vedono. Il cognome non serve.|Es el único nombre que ve la gente. No hace falta apellido.
+What should we call you at the table?|Come ti chiamiamo al tavolo?|¿Cómo te llamamos en la mesa?
+What do you love to talk about?|Di cosa ami parlare?|¿De qué te encanta hablar?
+Pick up to five. We use them to suggest tables, and they show on your profile.|Scegline fino a cinque. Li usiamo per suggerirti tavoli e compaiono sul tuo profilo.|Elige hasta cinco. Los usamos para sugerirte mesas y aparecen en tu perfil.
+One book that stayed with you?|Un libro che ti è rimasto dentro?|¿Un libro que se te quedó dentro?
+It becomes the first star in your universe and helps us find tables and people on your wavelength.|Diventa la prima stella del tuo universo e ci aiuta a trovare tavoli e persone sulla tua lunghezza d'onda.|Se convierte en la primera estrella de tu universo y nos ayuda a encontrar mesas y personas en tu misma onda.
+And a film you could watch again and again?|E un film che rivedresti all'infinito?|¿Y una película que verías una y otra vez?
+Together with your book, it tells us a little about what moves you.|Insieme al tuo libro, ci dice un po' di cosa ti emoziona.|Junto con tu libro, nos dice un poco de lo que te mueve.
+Your answers help us suggest tables and people with a similar taste. Only TimeCapsule uses them, and never for ads. You can change them anytime in Settings.|Le tue risposte ci aiutano a suggerirti tavoli e persone con gusti simili. Le usa solo TimeCapsule, mai per la pubblicità. Puoi cambiarle quando vuoi nelle Impostazioni.|Tus respuestas nos ayudan a sugerirte mesas y personas con gustos parecidos. Solo las usa TimeCapsule, nunca para anuncios. Puedes cambiarlas cuando quieras en Ajustes.
+Optional. A friendly face helps people say hello.|Facoltativo. Un volto amico aiuta le persone a salutarti.|Opcional. Una cara amable ayuda a que la gente te salude.
+Can’t find it? Add it yourself|Non lo trovi? Aggiungilo tu|¿No lo encuentras? Añádelo tú
+Choose another|Scegline un altro|Elegir otro
+A second star|Una seconda stella|Una segunda estrella
+Back|Indietro|Atrás
+Art|Arte|Arte
+Music|Musica|Música
+Book|Libro|Libro
+Film|Film|Película
+Egypt|Egitto|Egipto
+France|Francia|Francia
+Germany|Germania|Alemania
+Ghana|Ghana|Ghana
+India|India|India
+Italy|Italia|Italia
+Japan|Giappone|Japón
+Spain|Spagna|España
+Switzerland|Svizzera|Suiza
+Turkey|Turchia|Turquía
+United Kingdom|Regno Unito|Reino Unido
+United States|Stati Uniti|Estados Unidos
+Mute Gregory|Silenzia Gregory|Silenciar a Gregory
+Ana only|Solo Ana|Solo Ana
+Notes tab|Scheda Note|Pestaña Notas
+Kept notes|Note tenute|Notas guardadas
+Raise your hand|Alza la mano|Levanta la mano
+Camera|Videocamera|Cámara
+Microphone|Microfono|Micrófono
+Leave|Esci|Salir
+Stay|Resta|Quedarse
+Confirm|Conferma|Confirmar
+Delete|Elimina|Eliminar
+Copy|Copia|Copiar
+Share|Condividi|Compartir
+Reply|Rispondi|Responder
+Today · 58 min|Oggi · 58 min|Hoy · 58 min
+Active yesterday|Attivo ieri|Activo ayer
+Active Monday|Attivo lunedì|Activo el lunes
+Group chat for everyone who sat at this table. It stays open for 7 days.|Chat di gruppo per chi si è seduto a questo tavolo. Resta aperta 7 giorni.|Chat de grupo para quienes se sentaron en esta mesa. Sigue abierta 7 días.
+Chat for people with a chair at this table. Opens before the table starts.|Chat per chi ha un posto a questo tavolo. Si apre prima dell'inizio.|Chat para quienes tienen sitio en esta mesa. Se abre antes de que empiece.
+Count me in|Ci sono|Cuenta conmigo
+Which day?|Che giorno?|¿Qué día?
+Thank you!|Grazie!|¡Gracias!
+See you soon|A presto|Hasta pronto
+Sounds good!|Perfetto!|¡Me parece bien!
+How are you?|Come stai?|¿Qué tal?
+Join my next table?|Vieni al mio prossimo tavolo?|¿Vienes a mi próxima mesa?
+Saved|Salvato|Guardado

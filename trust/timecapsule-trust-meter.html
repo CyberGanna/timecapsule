@@ -1,0 +1,255 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Trust Meter</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: one calm column, the owner's private card as it would sit in the Profile owner view. Single dark TimeCapsule look. */
+:root{
+  --bg:#1B2144;--surface:#20264A;--raise:#252B52;--line:#3A4175;
+  --fg:#EEF1FF;--mute:#A9B0D6;--soft:#C9CFF0;
+  --teal:#17C3C8;--violet:#7C5CFF;--gold:#F2C14E;--trust:#9FD8FF;--trust-bg:rgba(120,190,255,.13);
+  --warm:#F2C14E;--warm-bg:rgba(242,193,78,.10);
+  --font:"Sora",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:14px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:6px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:640px;margin:0 auto;padding-block:16px}
+.logo{display:flex;align-items:center;gap:10px;font-size:20px;letter-spacing:-.5px;color:var(--fg);text-decoration:none}
+.logo svg{width:36px;height:27px}.logo b{font-weight:600}.logo i{font-style:normal;font-weight:300}
+.lang{display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:10px}
+.lang button{border:0;background:none;padding:4px 9px;border-radius:7px;font-size:12px;color:var(--mute);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--raise);color:var(--fg)}
+.proto{max-width:640px;margin:0 auto 18px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;border:1px dashed var(--line);border-radius:12px;font-size:12px;color:var(--mute)}
+.proto .seg{display:flex;flex-wrap:wrap;gap:6px}
+.proto .seg button{border:1px solid var(--line);background:none;border-radius:999px;padding:4px 11px;font-size:12px;color:var(--soft);cursor:pointer}
+.proto .seg button[aria-pressed="true"]{background:var(--soft);color:var(--bg);border-color:var(--soft)}
+main{max-width:640px;margin:0 auto;display:grid;gap:14px}
+.who{display:flex;align-items:center;gap:12px}
+.av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--violet),var(--teal));font-weight:600;font-size:17px;flex:none}
+.who h1{margin:0;font-size:18px;font-weight:500;letter-spacing:-.3px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.who p{margin:0;color:var(--mute);font-size:12.5px}
+.chip{display:inline-flex;align-items:center;gap:3px;padding:2px 6px 2px 4px;border-radius:5px;background:#7FF0F2;color:#12304A;font-size:10.5px;font-weight:600;line-height:1.5;letter-spacing:0;text-transform:none;vertical-align:middle;font-family:Sora,sans-serif}
+.chip svg{flex:none;width:12px;height:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:18px}
+.cardhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.cardhead h2{margin:0;font-size:17px;font-weight:500;letter-spacing:-.3px;text-wrap:balance}
+.private{display:inline-flex;align-items:center;gap:6px;color:var(--mute);font-size:11.5px}
+.private svg{width:12px;height:12px}
+.ladder{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.ladder::before{content:"";position:absolute;left:12.5%;right:12.5%;top:7px;height:2px;background:var(--line)}
+.ladder .fill{position:absolute;left:12.5%;top:7px;height:2px;background:var(--teal);transition:width .5s ease}
+.ladder li{position:relative;display:grid;justify-items:center;gap:8px;text-align:center;font-size:11.5px;color:var(--mute);padding-inline:2px}
+.ladder .dot{width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--line);z-index:1}
+.ladder li.done .dot{background:var(--teal);border-color:var(--teal)}
+.ladder li.here .dot{background:var(--bg);border-color:var(--teal);box-shadow:0 0 0 4px rgba(23,195,200,.18)}
+.ladder li.here{color:var(--fg);font-weight:500}
+.ladder li.paused .dot{border-color:var(--warm);box-shadow:0 0 0 4px rgba(242,193,78,.15)}
+.prog{display:grid;gap:8px}
+.prog .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px}
+.prog .row span:last-child{color:var(--soft)}
+.bar{height:6px;border-radius:999px;background:var(--raise);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:inherit;background:var(--teal);transition:width .5s ease}
+.gates{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.gates li{display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:10px;padding:9px 0;border-top:1px solid rgba(58,65,117,.6)}
+.gates li:first-child{border-top:0}
+.gates .ic{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line)}
+.gates li.ok .ic{background:rgba(23,195,200,.16);border-color:transparent;color:var(--teal)}
+.gates .ic svg{width:12px;height:12px}
+.gates .lbl{min-width:0;font-size:13.5px}
+.gates li.ok .lbl{color:var(--soft)}
+.gates .mini{width:64px;height:4px;border-radius:999px;background:var(--raise);overflow:hidden}
+.gates .mini i{display:block;height:100%;background:var(--violet)}
+.gates li.ok .mini i{background:var(--teal)}
+.next{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:14px 16px;border-radius:14px;background:var(--raise)}
+.next svg{width:20px;height:20px;color:var(--gold);margin-top:1px}
+.next b{display:block;font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.next p{margin:0}
+.pause{display:grid;gap:6px;padding:14px 16px;border-radius:14px;background:var(--warm-bg);border:1px solid rgba(242,193,78,.25)}
+.pause b{font-weight:500;color:var(--warm)}
+.pause p{margin:0;color:var(--soft)}
+details{border-top:1px solid var(--line);padding-top:14px}
+summary{cursor:pointer;color:var(--teal);font-size:13px;list-style:none;display:flex;align-items:center;gap:6px}
+summary::-webkit-details-marker{display:none}
+summary svg{width:14px;height:14px;transition:transform .2s}
+details[open] summary svg{transform:rotate(90deg)}
+.how{display:grid;gap:10px;margin-top:12px;color:var(--soft);font-size:13px}
+.how p{margin:0;max-width:62ch}
+.how ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.foot{color:var(--mute);font-size:12px;text-align:center;max-width:52ch;margin:4px auto 0;text-wrap:balance}
+@media (max-width:460px){.ladder li{font-size:10.5px}.gates .mini{width:40px}.card{padding:16px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="top">
+  <a class="logo" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-label="TimeCapsule home">
+    <svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tcL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tcL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg>
+    <span><b>time</b><i>capsule</i></span>
+  </a>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" id="l-en" data-l="en">EN</button><button type="button" id="l-it" data-l="it">IT</button><button type="button" id="l-es" data-l="es">ES</button>
+  </div>
+</header>
+
+<div class="proto">
+  <span data-t="Prototype · view as">Prototype · view as</span>
+  <div class="seg" role="group" aria-label="State">
+    <button type="button" id="s-new" data-s="new" data-t="New member">New member</button>
+    <button type="button" id="s-member" data-s="member" data-t="On the way">On the way</button>
+    <button type="button" id="s-trusted" data-s="trusted" data-t="Trusted">Trusted</button>
+    <button type="button" id="s-paused" data-s="paused" data-t="Paused">Paused</button>
+  </div>
+</div>
+
+<main>
+  <div class="who">
+    <div class="av" id="av">L</div>
+    <div>
+      <h1><span id="who-name">Lena</span><span class="chip" id="who-chip" hidden></span></h1>
+      <p id="who-sub"></p>
+    </div>
+  </div>
+
+  <section class="card" aria-labelledby="ctitle">
+    <div class="cardhead">
+      <h2 id="ctitle"></h2>
+      <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span data-t="Only you can see this">Only you can see this</span></span>
+    </div>
+
+    <ol class="ladder" id="ladder"><span class="fill" id="lfill"></span></ol>
+
+    <div class="pause" id="pause" hidden></div>
+
+    <div class="prog" id="prog">
+      <div class="row"><span id="ptitle"></span><span id="pword"></span></div>
+      <div class="bar"><i id="pbar"></i></div>
+    </div>
+
+    <ul class="gates" id="gates"></ul>
+
+    <div class="next" id="next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3Z"/></svg>
+      <div><b data-t="What to do next">What to do next</b><p id="nexttext"></p></div>
+    </div>
+
+    <details>
+      <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg><span data-t="How Trusted works">How Trusted works</span></summary>
+      <div class="how">
+        <p data-t="how1">Trusted is earned at tables. It grows when you finish tables, host good discussions, and when many different people award you TimeCoins.</p>
+        <ul>
+          <li data-t="how2">Coins from many people count more than many coins from a few.</li>
+          <li data-t="how3">Older tables slowly count less, so trust reflects how you take part now.</li>
+          <li data-t="how4">Logins, messages, follows and followers never count.</li>
+          <li data-t="how5">Others only see the Trusted chip. Your progress stays here, and there is no ranking.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <p class="foot" data-t="foot">Sample figures for the prototype. On the real Profile this card sits in the owner view, under your TimeCoins.</p>
+</main>
+
+<script>
+(function(){
+var SHIELD='<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M8 1.5l5 2v4c0 3.2-2.1 5.7-5 7-2.9-1.3-5-3.8-5-7v-4z" fill="#12304A"/><path d="M5.6 8.1l1.7 1.7 3.2-3.4" fill="none" stroke="#7FF0F2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12 5 5 9-10"/></svg>';
+var D={
+"Prototype · view as":["Prototipo · vedi come","Prototipo · ver como"],
+"New member":["Nuovo membro","Miembro nuevo"],"On the way":["In cammino","En camino"],"Trusted":["Fidato","De confianza"],"Paused":["In pausa","En pausa"],
+"Only you can see this":["Solo tu puoi vederlo","Solo tú puedes verlo"],
+"What to do next":["Cosa fare ora","Qué hacer ahora"],"How Trusted works":["Come funziona Fidato","Cómo funciona De confianza"],
+"New":["Nuovo","Nuevo"],"Member":["Membro","Miembro"],"Trusted host":["Host fidato","Anfitrión de confianza"],
+"Your path to Member":["Il tuo percorso verso Membro","Tu camino a Miembro"],"Your path to Trusted":["Il tuo percorso verso Fidato","Tu camino a De confianza"],"Your path to Trusted host":["Il tuo percorso verso Host fidato","Tu camino a Anfitrión de confianza"],"Your Trusted chip":["Il tuo badge Fidato","Tu etiqueta De confianza"],
+"Toward Member":["Verso Membro","Hacia Miembro"],"Toward Trusted":["Verso Fidato","Hacia De confianza"],"Toward Trusted host":["Verso Host fidato","Hacia Anfitrión de confianza"],
+"Just starting":["Appena iniziato","Recién empiezas"],"About a third of the way":["Circa a un terzo","Más o menos un tercio"],"About halfway":["Circa a metà","Más o menos a la mitad"],"Most of the way":["Buona parte del cammino","Gran parte del camino"],"Nearly there":["Quasi arrivato","Casi lo tienes"],
+"Lisbon · joined 3 days ago":["Lisbona · iscritta da 3 giorni","Lisboa · se unió hace 3 días"],"Lisbon · member since July":["Lisbona · membro da luglio","Lisboa · miembro desde julio"],"Lisbon · member since March":["Lisbona · membro da marzo","Lisboa · miembro desde marzo"],
+"Email confirmed":["Email confermata","Correo confirmado"],
+"{a} of {b} tables finished":["{a} tavoli conclusi su {b}","{a} de {b} mesas terminadas"],
+"{a} of {b} different hosts":["{a} host diversi su {b}","{a} de {b} anfitriones distintos"],
+"Account {a} of {b} days old":["Account attivo da {a} giorni su {b}","Cuenta con {a} de {b} días"],
+"Tables over {a} of {b} different weeks":["Tavoli in {a} settimane diverse su {b}","Mesas en {a} de {b} semanas distintas"],
+"TimeCoins from {a} of {b} different people":["TimeCoins da {a} persone diverse su {b}","TimeCoins de {a} de {b} personas distintas"],
+"No upheld reports in the last 90 days":["Nessuna segnalazione confermata negli ultimi 90 giorni","Ninguna denuncia confirmada en los últimos 90 días"],
+"{a} of {b} tables hosted with 3+ guests":["{a} tavoli ospitati con 3+ ospiti su {b}","{a} de {b} mesas organizadas con 3+ invitados"],
+"{a} of {b} different guests":["{a} ospiti diversi su {b}","{a} de {b} invitados distintos"],
+"{a}% of guests came back (25% needed)":["Il {a}% degli ospiti è tornato (serve il 25%)","Volvió el {a}% de los invitados (hace falta el 25%)"],
+"A short check by our team":["Un breve controllo del nostro team","Una breve revisión de nuestro equipo"],
+"next-new":["Join two more tables with two hosts you haven't sat with yet. After that you can host open tables on the Agenda.","Partecipa ad altri due tavoli con due host con cui non ti sei ancora seduta. Poi potrai ospitare tavoli aperti nell'Agenda.","Únete a dos mesas más con dos anfitriones con los que aún no te has sentado. Después podrás organizar mesas abiertas en la Agenda."],
+"next-member":["Sit at a few tables with people you haven't met yet. TimeCoins from 4 more people, and 3 more tables, will get you there.","Siediti a qualche tavolo con persone che non conosci ancora. TimeCoins da altre 4 persone e altri 3 tavoli ti porteranno lì.","Siéntate en algunas mesas con gente que aún no conoces. TimeCoins de 4 personas más y 3 mesas más te llevarán allí."],
+"next-trusted":["Host 5 more tables with three or more guests. You already welcome people well: 29% of your guests came back.","Ospita altri 5 tavoli con tre o più ospiti. Accogli già bene le persone: il 29% dei tuoi ospiti è tornato.","Organiza 5 mesas más con tres o más invitados. Ya recibes bien a la gente: volvió el 29% de tus invitados."],
+"next-paused":["Keep joining and hosting tables as usual. Nothing else changes while the chip is paused.","Continua a partecipare e a ospitare tavoli come sempre. Nient'altro cambia mentre il badge è in pausa.","Sigue uniéndote y organizando mesas como siempre. Nada más cambia mientras la etiqueta está en pausa."],
+"pause-title":["Your Trusted chip is paused until 8 December.","Il tuo badge Fidato è in pausa fino all'8 dicembre.","Tu etiqueta De confianza está en pausa hasta el 8 de diciembre."],
+"pause-body":["Our team upheld a report from a table on 6 November. Others simply don't see the chip for now and aren't told why. It comes back on its own on 8 December if there are no further reports.","Il nostro team ha confermato una segnalazione da un tavolo del 6 novembre. Per ora gli altri non vedono il badge e non sanno perché. Torna da solo l'8 dicembre se non arrivano altre segnalazioni.","Nuestro equipo confirmó una denuncia de una mesa del 6 de noviembre. Por ahora los demás no ven la etiqueta y no saben por qué. Vuelve sola el 8 de diciembre si no hay más denuncias."],
+"Trusted is paused":["Fidato è in pausa","De confianza está en pausa"],"Back on 8 December":["Torna l'8 dicembre","Vuelve el 8 de diciembre"],
+"keep-trusted":["You keep Trusted while you keep coming to tables.","Resti Fidato finché continui a venire ai tavoli.","Sigues siendo De confianza mientras sigas viniendo a las mesas."],
+"how1":["Fidato si guadagna ai tavoli. Cresce quando concludi tavoli, ospiti buone discussioni e quando tante persone diverse ti assegnano TimeCoins.","De confianza se gana en las mesas. Crece cuando terminas mesas, organizas buenas conversaciones y cuando muchas personas distintas te dan TimeCoins."],
+"how2":["I TimeCoins di tante persone contano più di tanti TimeCoins di poche.","Las TimeCoins de muchas personas cuentan más que muchas TimeCoins de pocas."],
+"how3":["I tavoli più vecchi contano a poco a poco meno, così la fiducia riflette come partecipi oggi.","Las mesas antiguas cuentan cada vez menos, así la confianza refleja cómo participas ahora."],
+"how4":["Accessi, messaggi, follow e follower non contano mai.","Los inicios de sesión, mensajes, seguimientos y seguidores nunca cuentan."],
+"how5":["Gli altri vedono solo il badge Fidato. I tuoi progressi restano qui e non c'è nessuna classifica.","Los demás solo ven la etiqueta De confianza. Tu progreso se queda aquí y no hay ninguna clasificación."],
+"foot":["Dati di esempio per il prototipo. Nel Profilo vero questa scheda sta nella vista del proprietario, sotto i tuoi TimeCoins.","Datos de ejemplo para el prototipo. En el Perfil real esta tarjeta está en la vista del propietario, bajo tus TimeCoins."]
+};
+var EN={"next-new":D["next-new"][0],"next-member":D["next-member"][0],"next-trusted":D["next-trusted"][0],"next-paused":D["next-paused"][0],"pause-title":D["pause-title"][0],"pause-body":D["pause-body"][0],"keep-trusted":D["keep-trusted"][0]};
+// keys with three entries carry EN first
+["next-new","next-member","next-trusted","next-paused","pause-title","pause-body","keep-trusted"].forEach(function(k){D[k]=D[k].slice(1)});
+var L="en";
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+var m=(location.hash||"").match(/lang=(en|it|es)/);if(m)L=m[1];else{var s=ls("tc-lang");if(s==="it"||s==="es")L=s}
+function t(k,a,b){var s;if(L==="en")s=EN[k]!==undefined?EN[k]:(ORIG[k]!==undefined?ORIG[k]:k);else s=D[k]?D[k][L==="it"?0:1]:k;
+  return s.replace("{a}",a).replace("{b}",b)}
+var ORIG={};document.querySelectorAll("[data-t]").forEach(function(el){ORIG[el.dataset.t]=el.textContent});
+
+var LEVELS=["New","Member","Trusted","Trusted host"];
+var S={
+ new:{lvl:0,title:"Your path to Member",ptitle:"Toward Member",sub:"Lisbon · joined 3 days ago",next:"next-new",
+   gates:[["Email confirmed",1,1,1],["{a} of {b} tables finished",1,3],["{a} of {b} different hosts",1,3],["Account {a} of {b} days old",3,7]]},
+ member:{lvl:1,title:"Your path to Trusted",ptitle:"Toward Trusted",sub:"Lisbon · member since July",next:"next-member",
+   gates:[["{a} of {b} tables finished",9,12],["TimeCoins from {a} of {b} different people",11,15],["Tables over {a} of {b} different weeks",6,6],["{a} of {b} different hosts",4,4],["Account {a} of {b} days old",122,60],["No upheld reports in the last 90 days",1,1,1]]},
+ trusted:{lvl:2,chip:1,title:"Your path to Trusted host",ptitle:"Toward Trusted host",sub:"Lisbon · member since March",next:"next-trusted",keep:1,
+   gates:[["{a} of {b} tables hosted with 3+ guests",3,8],["{a} of {b} different guests",14,30],["{a}% of guests came back (25% needed)",29,25],["Account {a} of {b} days old",245,90],["A short check by our team",0,1,1]]},
+ paused:{lvl:2,paused:1,title:"Your Trusted chip",sub:"Lisbon · member since March",next:"next-paused"}
+};
+var cur="member";
+function word(p){return p<.2?"Just starting":p<.4?"About a third of the way":p<.62?"About halfway":p<.85?"Most of the way":"Nearly there"}
+function render(){
+  var st=S[cur];
+  document.documentElement.lang=L;
+  document.querySelectorAll("[data-t]").forEach(function(el){el.textContent=t(el.dataset.t)});
+  document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===L)});
+  document.querySelectorAll(".seg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.s===cur)});
+  document.getElementById("who-sub").textContent=t(st.sub);
+  var chip=document.getElementById("who-chip");chip.hidden=!st.chip;chip.innerHTML=SHIELD+t("Trusted");
+  document.getElementById("ctitle").textContent=t(st.title);
+  var lad=document.getElementById("ladder");lad.querySelectorAll("li").forEach(function(n){n.remove()});
+  LEVELS.forEach(function(n,i){var li=document.createElement("li");
+    li.className=i<st.lvl?"done":i===st.lvl?(st.paused?"here paused":"here"):"";
+    li.innerHTML='<span class="dot"></span><span></span>';li.lastChild.textContent=t(n);
+    if(i===st.lvl)li.setAttribute("aria-current","step");lad.appendChild(li)});
+  document.getElementById("lfill").style.width=(st.lvl/3*75)+"%";
+  var pause=document.getElementById("pause"),prog=document.getElementById("prog"),gl=document.getElementById("gates");
+  pause.hidden=!st.paused;prog.hidden=!!st.paused;gl.hidden=!!st.paused;
+  if(st.paused){pause.innerHTML="<b></b><p></p>";pause.firstChild.textContent=t("pause-title");pause.lastChild.textContent=t("pause-body")}
+  else{
+    gl.innerHTML="";var low=1;
+    st.gates.forEach(function(g){var p=g[3]?g[1]/g[2]:Math.min(1,g[1]/g[2]);if(!g[3])low=Math.min(low,p);
+      var li=document.createElement("li");li.className=p>=1?"ok":"";
+      li.innerHTML='<span class="ic">'+(p>=1?CHECK:"")+'</span><span class="lbl"></span>'+(g[3]?'<span></span>':'<span class="mini"><i style="width:'+Math.round(p*100)+'%"></i></span>');
+      li.querySelector(".lbl").textContent=t(g[0],g[0].indexOf("%")<0?Math.min(g[1],g[2]):g[1],g[2]);gl.appendChild(li)});
+    document.getElementById("ptitle").textContent=t(st.ptitle);
+    document.getElementById("pword").textContent=t(word(low));
+    document.getElementById("pbar").style.width=Math.max(4,Math.round(low*100))+"%";
+  }
+  var nt=t(st.next);if(st.keep)nt=t("keep-trusted")+" "+nt;
+  document.getElementById("nexttext").textContent=nt;
+}
+document.querySelectorAll(".lang button").forEach(function(b){b.onclick=function(){L=b.dataset.l;ls("tc-lang",L);render()}});
+document.querySelectorAll(".seg button").forEach(function(b){b.onclick=function(){cur=b.dataset.s;render()}});
+render();
+})();
+</script>
+
+</body></html>

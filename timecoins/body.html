@@ -1,0 +1,388 @@
+<style>
+/* TimeCoins page */
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.proto{border-bottom:1px dashed var(--line);background:#171C3B;font-size:12.5px;color:var(--mute)}
+.proto .wrap{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;padding-block:8px}
+.proto b{font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:10.5px;opacity:.8}
+.pg{display:inline-flex;gap:2px;padding:3px;border-radius:9px;background:var(--surface);border:1px solid var(--line)}
+.pg button{border:0;background:none;color:var(--mute);font-size:12.5px;padding:5px 10px;border-radius:6px;white-space:nowrap}
+.pg button[aria-pressed=true]{background:var(--fg);color:#121633;font-weight:500}
+main{padding-bottom:80px}
+.view[hidden]{display:none}
+.coin{width:1em;height:1em;flex:none;display:inline-block;vertical-align:-.12em}
+h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.05;letter-spacing:-.04em;margin:0}
+.hero{padding:40px 0 0;max-width:640px}
+.hero p{margin:12px 0 0;color:var(--mute);font-size:16px}
+.back{display:inline-flex;gap:6px;align-items:center;color:var(--mute);font-size:13.5px;text-decoration:none;margin-bottom:18px}
+.back:hover{color:var(--fg)}
+/* two pockets */
+.pockets{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.pk{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px;display:grid;gap:6px;align-content:start}
+.pk .lb{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.pk .num{display:flex;align-items:center;gap:10px;font-size:44px;font-weight:400;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.pk .num .coin{font-size:30px}
+.pk.rec .num{color:#F2C558}
+.pk p{margin:4px 0 0;color:var(--soft);font-size:14px;max-width:420px}
+.pk small{color:var(--mute);font-size:12.5px}
+.award{display:flex;align-items:center;gap:14px;margin-top:16px;padding:14px 16px;border-radius:14px;border:1px solid rgba(242,193,78,.35);background:rgba(242,193,78,.06)}
+.award .coin{font-size:22px}
+.award .tx{flex:1;min-width:0;display:grid;gap:1px}
+.award b{font-weight:500;font-size:14.5px}
+.award span{color:var(--mute);font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:38px;padding:0 16px;border-radius:10px;border:0;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+.btn.gold{background:var(--gold);color:#1B2144}
+.btn.teal{background:var(--lamp);color:var(--lamp-ink)}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line);font-weight:500}
+.btn.ghost:hover{border-color:var(--mute)}
+.btn:disabled{opacity:.4;cursor:default}
+/* sections */
+.sec{margin-top:52px}
+.sec>h2{margin:0;padding-bottom:8px;border-bottom:1px solid var(--line);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.sec>h2 a{letter-spacing:0;text-transform:none;font-size:13px;color:var(--lamp);text-decoration:none}
+.sec>h2 a:hover{text-decoration:underline}
+.grp{margin-top:24px}
+.grp h3{margin:0 0 12px;font-size:15px;font-weight:500}
+.items{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.it{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.it .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex:none;background:var(--raise);color:var(--soft)}
+.it .ic svg{width:20px;height:20px}
+.it .tx{flex:1;min-width:0;display:grid;gap:3px}
+.it b{font-weight:500;font-size:15px}
+.it .tx span{color:var(--mute);font-size:13.5px;line-height:1.45}
+.it .go{display:grid;justify-items:end;gap:8px;flex:none}
+.price{display:inline-flex;align-items:center;gap:5px;font-size:14px;font-variant-numeric:tabular-nums;color:var(--fg);white-space:nowrap}
+.price .coin{font-size:15px}
+.it .go .btn{height:32px;padding:0 14px;font-size:13px}
+/* always free */
+.free{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 24px}
+.free li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--soft)}
+.free li svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--lamp)}
+.freenote{margin:14px 0 0;color:var(--mute);font-size:13.5px;max-width:640px}
+/* history */
+.seg{display:inline-flex;padding:3px;border-radius:11px;background:var(--bg);border:1px solid var(--line);margin-top:16px}
+.seg button{border:0;background:none;color:var(--mute);padding:6px 13px;border-radius:8px;font-size:13.5px;font-weight:500}
+.seg button[aria-pressed=true]{background:var(--raise);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
+.hist{list-style:none;margin:10px 0 0;padding:0}
+.hist li{display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:13px 2px;border-bottom:1px solid rgba(58,65,117,.6)}
+.hist time{font-size:12.5px;color:var(--mute);white-space:nowrap}
+.hist .tx{display:grid;gap:2px;min-width:0}
+.hist .tx b{font-weight:400;font-size:14.5px}
+.hist .tx small{color:var(--mute);font-size:12.5px}
+.hist .amt{font-variant-numeric:tabular-nums;font-size:14.5px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.hist .amt.in{color:#F2C558}
+.hist .amt.out{color:var(--mute)}
+.hist .amt .coin{font-size:14px}
+.hist li.new{animation:flash 1.6s ease-out}
+@keyframes flash{from{background:rgba(23,195,200,.12)}to{background:none}}
+.empty{padding:22px 0;color:var(--mute);font-size:14px}
+/* sheet */
+.scrim{position:fixed;inset:0;background:rgba(8,10,28,.62);z-index:80;display:grid;place-items:center;padding:20px}
+.sheet{width:min(460px,100%);max-height:calc(100dvh - 40px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.sheet .top{display:flex;gap:12px;align-items:flex-start}
+.sheet .top .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--raise);color:var(--soft);flex:none}
+.sheet .top .ic svg{width:21px;height:21px}
+.sheet h2{margin:0;font-size:19px;font-weight:500;letter-spacing:-.01em}
+.sheet .top p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.sheet .x{margin-left:auto;border:0;background:none;color:var(--mute);width:32px;height:32px;border-radius:8px;font-size:16px;flex:none}
+.sheet .x:hover{background:var(--raise);color:var(--fg)}
+.pick{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.pick label{display:flex;gap:12px;align-items:center;padding:11px 13px;border:1px solid var(--line);border-radius:12px;cursor:pointer}
+.pick label:hover{border-color:var(--mute)}
+.pick input{accent-color:var(--lamp);width:17px;height:17px;margin:0;flex:none}
+.pick .tt{flex:1;min-width:0;display:grid}
+.pick b{font-weight:500;font-size:14px}
+.pick small{color:var(--mute);font-size:12.5px}
+.pick label:has(input:checked){border-color:var(--lamp);background:rgba(23,195,200,.06)}
+.fld{display:block;margin-top:16px}
+.fld>span{display:block;font-size:13px;color:var(--mute);margin-bottom:6px}
+.fld input{width:100%;height:42px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:0 12px;color:var(--fg);font:inherit;font-size:15px;outline:none}
+.fld input:focus{border-color:var(--lamp)}
+.amtrow{display:flex;gap:8px;margin-top:16px}
+.amtrow button{flex:1;height:40px;border-radius:10px;border:1px solid var(--line);background:none;color:var(--fg);font-size:14px;display:inline-flex;align-items:center;justify-content:center;gap:5px}
+.amtrow button[aria-pressed=true]{border-color:var(--lamp);background:rgba(23,195,200,.08)}
+.amtrow .coin{font-size:14px}
+.sum{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);display:grid;gap:6px;font-size:14px}
+.sum div{display:flex;justify-content:space-between;gap:12px}
+.sum span{color:var(--mute)}
+.sum b{font-weight:500;display:inline-flex;align-items:center;gap:5px;font-variant-numeric:tabular-nums}
+.sum .coin{font-size:14px}
+.sheet .note{margin:12px 0 0;color:var(--mute);font-size:12.5px}
+.sheet .acts{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--fg);color:#121633;padding:11px 16px;border-radius:12px;font-size:14px;font-weight:500;opacity:0;pointer-events:none;transition:.25s;z-index:90;max-width:calc(100% - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+/* new member */
+body.newbie .only-old{display:none!important}
+body:not(.newbie) .only-new{display:none!important}
+.start{margin-top:16px;padding:18px;border:1px dashed var(--line);border-radius:14px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.start p{margin:0;flex:1;min-width:220px;color:var(--soft);font-size:14.5px}
+/* the rule */
+.rule{max-width:760px}
+.rule .lead{font-size:17px;color:var(--soft);margin:14px 0 0;line-height:1.6}
+.rule h2{margin:44px 0 6px;font-size:21px;font-weight:500;letter-spacing:-.01em}
+.rule h2+p,.rule p{color:var(--soft);font-size:15px;line-height:1.65;margin:8px 0 0}
+.rule ul.pl{margin:10px 0 0;padding-left:20px;color:var(--soft);line-height:1.65}
+.rule ul.pl li{margin:4px 0}
+.rule ul.pl b,.rule p b{font-weight:500;color:var(--fg)}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:10px;margin-top:20px}
+.flow .bx{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--surface);display:grid;gap:4px;align-content:start}
+.flow .bx b{font-weight:500;font-size:14.5px;display:flex;align-items:center;gap:7px}
+.flow .bx span{color:var(--mute);font-size:13px;line-height:1.45}
+.flow .bx .coin{font-size:16px}
+.flow .bx.g{border-color:rgba(242,193,78,.45)}
+.flow .bx.t{border-color:rgba(23,195,200,.45)}
+.flow .ar{display:grid;place-items:center;color:var(--mute);font-size:18px}
+.tbl{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+.tbl th{text-align:left;font-weight:500;color:var(--mute);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px 8px 0;border-bottom:1px solid var(--line)}
+.tbl td{padding:10px 10px 10px 0;border-bottom:1px solid rgba(58,65,117,.6);color:var(--soft);vertical-align:top}
+.tbl td:last-child,.tbl th:last-child{text-align:right;padding-right:0;white-space:nowrap}
+.tbl td b{font-weight:500;color:var(--fg)}
+.callout{margin-top:16px;padding:16px 18px;border-radius:14px;background:var(--surface);border-left:3px solid var(--violet);color:var(--soft);font-size:14.5px;line-height:1.6}
+.callout b{color:var(--fg);font-weight:500}
+.open{margin-top:12px;display:grid;gap:8px;padding:0;list-style:none}
+.open li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;color:var(--soft);font-size:14px}
+.open li b{color:var(--fg);font-weight:500}
+@media (max-width:820px){
+  .items{grid-template-columns:1fr}
+  .free{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr}
+  .flow .ar{transform:rotate(90deg);height:18px}
+}
+@media (max-width:600px){
+  .pockets{grid-template-columns:1fr}
+  .pk .num{font-size:38px}
+  .free{grid-template-columns:1fr}
+  .award{flex-wrap:wrap}
+  .award .btn{width:100%}
+  .hist li{grid-template-columns:minmax(0,1fr) auto;gap:2px 12px}
+  .hist time{grid-column:1 / -1}
+  .scrim{place-items:end center;padding:0}
+  .sheet{width:100%;border-radius:20px 20px 0 0;max-height:92dvh;padding-bottom:max(22px,env(safe-area-inset-bottom,0px))}
+  .tbl{font-size:13px}
+}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F9DA74"/><stop offset="1" stop-color="#F0C858"/></linearGradient><symbol id="coin" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19.2" fill="#E2AC3C" stroke="#B07A1C" stroke-width="1.4"/><circle cx="20" cy="20" r="17.6" fill="none" stroke="#FFE38A" stroke-width="1.6" stroke-dasharray="1 1.4"/><circle cx="20" cy="20" r="15.2" fill="url(#cg)" stroke="#B07A1C" stroke-width="1.1"/><circle cx="20" cy="20" r="12.4" fill="none" stroke="#C98F22" stroke-opacity=".6" stroke-width=".9"/><path d="M20 12V20L25.5 23.2" fill="none" stroke="#9A6614" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="1.8" fill="#9A6614"/></symbol></defs></svg>
+
+<div class="proto"><div class="wrap"><b>Prototype</b>
+  <span class="pg" role="group" aria-label="View"><button type="button" data-v="page" aria-pressed="true">Coins page</button><button type="button" data-v="rule" aria-pressed="false">How the economy works</button></span>
+  <span class="pg" role="group" aria-label="Who"><button type="button" data-who="old" aria-pressed="true">Gregory</button><button type="button" data-who="new" aria-pressed="false">New member</button></span>
+</div></div>
+
+<main>
+<section class="view wrap" id="v-page">
+  <div class="hero">
+    <a class="back" href="https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy" target="_top"><span aria-hidden="true">←</span><span>Back to profile</span></a>
+    <h1>Your TimeCoins</h1>
+    <p>People award TimeCoins after a good discussion. What you received stays on your profile. What you use goes back into tables.</p>
+  </div>
+
+  <div class="pockets">
+    <div class="pk rec">
+      <span class="lb">Received</span>
+      <div class="num"><svg class="coin" aria-hidden="true"><use href="#coin"/></svg><span id="recN">4,820</span></div>
+      <p>This is your reputation. It shows on your profile, and using coins never lowers it.</p>
+      <small class="only-old">From 312 people at 96 tables</small>
+      <small class="only-new">Your first coins come after your first table.</small>
+    </div>
+    <div class="pk use">
+      <span class="lb">To use</span>
+      <div class="num"><svg class="coin" aria-hidden="true"><use href="#coin"/></svg><span id="useN">640</span></div>
+      <p>Spend them on extras for your tables. They never expire.</p>
+      <small>Later you may also buy coins for extras. Bought coins never count as reputation.</small>
+    </div>
+  </div>
+
+  <div class="award only-old">
+    <svg class="coin" aria-hidden="true"><use href="#coin"/></svg>
+    <div class="tx"><b>8 TimeCoins to award</b><span>From “Road trips that changed us” · They expire on Tue 10 Nov</span></div>
+    <a class="btn gold" href="https://claude.ai/artifact/4jA3RGXJko9RmWkEKk3kCu" target="_top">Award them</a>
+  </div>
+  <div class="start only-new">
+    <p>Sit at a table, and when it ends you get 8 TimeCoins to award to the people who made it worth it. They award you too.</p>
+    <a class="btn teal" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">Find a table</a>
+  </div>
+
+  <div class="sec">
+    <h2><span>Use your coins</span><a href="#" data-go="rule">How it works</a></h2>
+    <div class="grp"><h3>For the tables you host</h3><ul class="items" data-g="host"></ul></div>
+    <div class="grp"><h3>For you</h3><ul class="items" data-g="you"></ul></div>
+    <div class="grp"><h3>Pass it on</h3><ul class="items" data-g="give"></ul></div>
+  </div>
+
+  <div class="sec">
+    <h2><span>Always free</span></h2>
+    <ul class="free" id="free"></ul>
+    <p class="freenote">Taking part never costs coins. Coins only pay for extras that cost us something to run, like longer video, translation or AI help.</p>
+  </div>
+
+  <div class="sec">
+    <h2><span>History</span></h2>
+    <span class="seg" role="group" aria-label="Show"><button type="button" data-h="all" aria-pressed="true">All</button><button type="button" data-h="in" aria-pressed="false">Received</button><button type="button" data-h="out" aria-pressed="false">Used</button></span>
+    <ul class="hist" id="hist"></ul>
+  </div>
+</section>
+
+<section class="view wrap" id="v-rule" hidden>
+ <div class="rule">
+  <div class="hero" style="max-width:none">
+    <h1>How TimeCoins work</h1>
+    <p class="lead">A proposal for the coin economy. Prices and numbers are placeholders to try in the pilot.</p>
+  </div>
+
+  <h2>Two numbers, not one</h2>
+  <p>If coins are reputation and also money, every purchase would make you look less trusted, and people would hold back from using them. So each person has two numbers that grow together but move apart once you spend.</p>
+  <div class="flow">
+    <div class="bx"><b><svg class="coin" aria-hidden="true"><use href="#coin"/></svg>To award</b><span>8 after every table you finish. You can only give them away. Unawarded coins expire after 3 days.</span></div>
+    <div class="ar" aria-hidden="true">→</div>
+    <div class="bx g"><b>Received</b><span>Every coin someone awards you. It only goes up. It is the number on your profile and part of the Trusted score.</span></div>
+    <div class="ar" aria-hidden="true">+</div>
+    <div class="bx t"><b>To use</b><span>The same coins, as a balance you can spend on extras. Using them lowers this number only.</span></div>
+  </div>
+  <div class="callout">Like air miles: the miles that give you status are counted apart from the miles you spend on a flight. <b>Spending never lowers what you received.</b></div>
+
+  <h2>Where coins come from</h2>
+  <ul class="pl">
+    <li><b>Awards after a table.</b> The only source of reputation. Counted in Received and in To use.</li>
+    <li><b>Inviting friends.</b> 2 when a friend signs in, 5 when you sit at a table together. These go to To use only, marked Welcome, and never count as reputation.</li>
+    <li><b>Backed table ideas.</b> When you host a topic people pledged coins to, you receive the pledges. To use only.</li>
+    <li>No daily gifts and no login streaks. In the future you may be able to buy coins for extras: they go to To use only and never count as reputation.</li>
+  </ul>
+
+  <h2>What coins can buy</h2>
+  <p>A guest receives about 4 coins per table and a host about 30, so guest extras cost about one table and host extras cost less than one hosted table.</p>
+  <table class="tbl"><thead><tr><th>Extra</th><th>Who</th><th>Price</th></tr></thead><tbody id="ptbl"></tbody></table>
+
+  <h2>What stays free, and why</h2>
+  <p>You asked about paying for Notes or the transcript. My advice is to keep the basics free and charge for what sits on top. The transcript is the lasting record of the discussion, and it only works if everyone keeps one. If notes cost coins, newcomers, who have none, would take part less.</p>
+  <ul class="pl">
+    <li><b>Free:</b> sitting at any table, hosting with up to 8 chairs, the live transcript and your copy of it, private notes with Keep and Ask, rating and awarding, reading the public library, block and report, exporting or deleting your data.</li>
+    <li><b>Paid with coins:</b> what costs us something to run, such as more chairs, longer video, live translation, AI recaps and polished library editions.</li>
+  </ul>
+
+  <h2>What coins never do</h2>
+  <ul class="pl">
+    <li>They never turn bought coins into reputation. Received counts only awards from people at your tables, so reputation can never be bought.</li>
+    <li>They can't be sent to a person outside awards, or used to award more than 8 per table.</li>
+    <li>They can't buy a place in line, a better spot on the Agenda, or the Trusted badge.</li>
+    <li>No leaderboards and no ranking by coins.</li>
+  </ul>
+
+  <h2>Keeping it balanced</h2>
+  <ul class="pl">
+    <li>Prices are set by us, and there is no market, so hoarding can't push prices up. That is why To use coins can safely never expire.</li>
+    <li>Each table finished creates 8 coins per person, and extras take coins back out. If balances pile up during the pilot, add extras rather than raise prices.</li>
+    <li>Caps keep tables small: at most 12 chairs and one extra half hour per table.</li>
+    <li>Coins people pledge to a topic go back to them if nobody hosts it within 30 days.</li>
+  </ul>
+
+  <h2>Open questions</h2>
+  <ul class="open">
+    <li><b>Prices.</b> Are 10 coins for two more chairs and 20 for live captions right for the pilot?</li>
+    <li><b>TimeRepublik credits.</b> Can old TimeRepublik credits turn into To use coins, but never into Received?</li>
+    <li><b>School tables.</b> Which partner would receive coins people give to cover school tables?</li>
+  </ul>
+ </div>
+</section>
+</main>
+
+<div class="scrim" id="scrim" hidden><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="shT">
+  <div class="top"><span class="ic" id="shI"></span><div><h2 id="shT"></h2><p id="shD"></p></div><button class="x" type="button" data-close aria-label="Close">✕</button></div>
+  <div id="shBody"></div>
+  <div class="sum">
+    <div><span>Cost</span><b><svg class="coin" aria-hidden="true"><use href="#coin"/></svg><i id="shC" style="font-style:normal"></i></b></div>
+    <div><span>Left to use</span><b><svg class="coin" aria-hidden="true"><use href="#coin"/></svg><i id="shL" style="font-style:normal"></i></b></div>
+    <div><span>Received</span><b><span>Stays the same</span></b></div>
+  </div>
+  <p class="note" id="shN"></p>
+  <div class="acts"><button class="btn ghost" type="button" data-close>Cancel</button><button class="btn teal" type="button" id="shOk">Confirm</button></div>
+</div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const T=s=>(window.TCI18N&&TCI18N.t)?TCI18N.t(s):s;
+const coin='<svg class="coin" aria-hidden="true"><use href="#coin"/></svg>';
+const I={
+ chairs:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v9H8zM6 12h12v3H6zM7.5 15v6M16.5 15v6"/></svg>',
+ time:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>',
+ cap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7 11h4M7 15h7M14 11h3"/></svg>',
+ book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 5.5C7 4.5 9.5 4.8 12 6.5c2.5-1.7 5-2 8-1v13c-3-1-5.5-.7-8 1-2.5-1.7-5-2-8-1z"/><path d="M12 6.5v13"/></svg>',
+ recap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h5"/><path d="M15 3v4h4"/></svg>',
+ notes:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v12l-4 4H5z"/><path d="M15 20v-4h4M8 9h8M8 13h5"/></svg>',
+ lang:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 3.5 5.4 3.5 8.5s-1 5.9-3.5 8.5c-2.5-2.6-3.5-5.4-3.5-8.5s1-5.9 3.5-8.5z"/></svg>',
+ idea:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>',
+ school:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11.5V16c1.5 1.5 3 2 5 2s3.5-.5 5-2v-4.5"/></svg>'
+};
+const UP=[["Is free will an illusion?","Tue 10 Nov at 19:00","6 of 8 chairs taken"],["What do we owe strangers?","Thu 12 Nov at 19:00","8 of 8 chairs taken"],["Phenomenology vs. God","Sun 15 Nov at 18:00","3 of 8 chairs taken"]];
+const PAST=[["Road trips that changed us","Sat 7 Nov"],["Phenomenology vs. God","Tue 3 Nov"],["Can a city be kind?","Thu 29 Oct"]];
+const X=[
+ {id:'chairs',g:'host',n:'Two more chairs',d:'Open 2 extra chairs at one of your tables, up to 12.',p:10,pick:'up',ok:'Two more chairs at'},
+ {id:'time',g:'host',n:'Thirty more minutes',d:'Let a good discussion run longer, once per table.',p:8,pick:'up',ok:'Thirty more minutes at'},
+ {id:'cap',g:'host',n:'Live translated captions',d:'Everyone reads the discussion in their own language while it happens.',p:20,pick:'up',ok:'Live captions at'},
+ {id:'book',g:'host',n:'Library edition',d:'A clean transcript with chapters and highlights, once everyone agrees to share it.',p:15,pick:'past',ok:'Library edition of'},
+ {id:'recap',g:'you',n:'Table recap',d:'One page with the main ideas of a table you sat at, and who brought them.',p:3,pick:'past',ok:'Recap of'},
+ {id:'notes',g:'you',n:'Notes digest',d:'Your notes and the lines you quoted, turned into a tidy page to keep.',p:2,pick:'past',ok:'Notes digest of'},
+ {id:'lang',g:'you',n:'Translate a transcript',d:'Read the transcript of any table you sat at in another language.',p:5,pick:'past',ok:'Translation of'},
+ {id:'idea',g:'give',n:'Back a table idea',d:'Pledge coins to a topic you want to talk about. Whoever hosts it receives them.',p:0,pick:'idea',ok:'You backed'},
+ {id:'school',g:'give',n:'Cover a school table',d:'Pay the extras for a class or a first-time host who has no coins yet.',p:0,pick:'give',ok:'Thank you. Your coins cover a school table.'}
+];
+const FREE=["Sitting at any table","Hosting a table with up to 8 chairs","The live transcript and your copy of it","Private notes, Keep and Ask","Rating and awarding coins","Reading the public library","Block and report","Exporting or deleting your data","Becoming Trusted: earned, never bought"];
+const check='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>';
+let H=[
+ ['in','Today','Awards after “Road trips that changed us”','From 6 people',31],
+ ['out','Sat 7 Nov','Two more chairs','“What do we owe strangers?”',10],
+ ['in','Thu 5 Nov','Welcome: Lena signed in','Not counted as reputation',2],
+ ['in','Tue 3 Nov','Awards after “Phenomenology vs. God”','From 7 people',38],
+ ['out','Mon 2 Nov','Library edition','“Can a city be kind?”',15],
+ ['in','Fri 30 Oct','Pledges for “Wind and the future of energy”','From 4 people who asked for this table · Not counted as reputation',12],
+ ['out','Thu 29 Oct','Table recap','“Where is home?”',3]
+];
+let use=640,rec=4820,newbie=false,hf='all',cur=null;
+const fmt=n=>n.toLocaleString('en-US');
+function paint(){
+ $('#useN').textContent=fmt(newbie?0:use);$('#recN').textContent=fmt(newbie?0:rec);
+ ['host','you','give'].forEach(g=>{$(`[data-g="${g}"]`).innerHTML=X.filter(x=>x.g===g).map(x=>{const bal=newbie?0:use;const dis=x.p?bal<x.p:bal<1;return `<li class="it"><span class="ic">${I[x.id]}</span><div class="tx"><b>${x.n}</b><span>${x.d}</span></div><div class="go"><span class="price">${x.p?coin+'<span>'+x.p+'</span>':'<span>Any amount</span>'}</span><button class="btn ghost" type="button" data-use="${x.id}"${dis?' disabled':''}>Use</button></div></li>`}).join('')});
+ const rows=newbie?[]:H.filter(h=>hf==='all'||h[0]===hf);
+ $('#hist').innerHTML=rows.length?rows.map((h,i)=>`<li${h.n?' class="new"':''}><time>${h[1]}</time><div class="tx"><b>${h[2]}</b><small>${h[3]}</small></div><span class="amt ${h[0]}">${h[0]==='in'?'+':'−'}${h[4]}${coin}</span></li>`).join(''):'<li class="empty" style="display:block;border:0">Nothing here yet.</li>';
+ H.forEach(h=>delete h.n);
+}
+$('#free').innerHTML=FREE.map(f=>`<li>${check}<span>${f}</span></li>`).join('');
+$('#ptbl').innerHTML=X.map(x=>`<tr><td><b>${x.n}</b></td><td>${x.g==='host'?'Host':x.g==='you'?'Anyone who sat there':'Anyone'}</td><td>${x.p?x.p:'From 5'}</td></tr>`).join('');
+let amt=10;
+function cost(){return cur.p||amt}
+function upd(){const c=cost();$('#shC').textContent=c;$('#shL').textContent=fmt(use-c);$('#shOk').disabled=use<c||(cur.pick==='idea'&&!$('#idea').value.trim())}
+function open(id){
+ cur=X.find(x=>x.id===id);amt=10;
+ $('#shI').innerHTML=I[id];$('#shT').textContent=cur.n;$('#shD').textContent=cur.d;
+ let b='';
+ if(cur.pick==='up'||cur.pick==='past'){const L=cur.pick==='up'?UP:PAST;b='<ul class="pick">'+L.map((t,i)=>`<li><label><input type="radio" name="tb" value="${i}"${i===0?' checked':''}><span class="tt"><b>${t[0]}</b><small>${t[1]}${t[2]?' · '+t[2]:''}</small></span></label></li>`).join('')+'</ul>'}
+ if(cur.pick==='idea')b='<label class="fld"><span>Topic</span><input id="idea" type="text" placeholder="What should a table talk about?" autocomplete="off"></label>';
+ if(cur.pick==='idea'||cur.pick==='give')b+='<div class="amtrow" role="group" aria-label="Amount">'+[5,10,20].map(a=>`<button type="button" data-amt="${a}" aria-pressed="${a===10}">${coin}<span>${a}</span></button>`).join('')+'</div>';
+ $('#shBody').innerHTML=b;
+ $('#shN').textContent=cur.pick==='idea'?T('If nobody hosts it within 30 days, your coins come back.'):cur.id==='cap'?T('Captions use the transcript, so they only run if the table keeps one.'):cur.id==='book'?T('Every guest is asked first. If anyone says no, nothing is charged.'):'';
+ $('#scrim').hidden=false;upd();
+ const f=$('#idea');if(f){f.addEventListener('input',upd);if(matchMedia('(hover:hover)').matches)f.focus()}
+}
+function close(){$('#scrim').hidden=true;cur=null}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),2600)}
+document.addEventListener('click',e=>{
+ const u=e.target.closest('[data-use]');if(u){open(u.dataset.use);return}
+ if(e.target.closest('[data-close]')||e.target.id==='scrim'){close();return}
+ const a=e.target.closest('[data-amt]');if(a){amt=+a.dataset.amt;$$('[data-amt]').forEach(b=>b.setAttribute('aria-pressed',b===a));upd();return}
+ if(e.target.closest('#shOk')){
+  const c=cost();let what='',msg='';
+  if(cur.pick==='up'||cur.pick==='past'){const i=+(document.querySelector('input[name=tb]:checked')||{value:0}).value;what='“'+(cur.pick==='up'?UP:PAST)[i][0]+'”';msg=T(cur.ok)+' '+what}
+  else if(cur.pick==='idea'){what='“'+$('#idea').value.trim()+'”';msg=T(cur.ok)+' '+what}
+  else{what=T('For a class or a first-time host');msg=T(cur.ok)}
+  use-=c;const r=['out','Today',cur.n,what,c];r.n=1;H.unshift(r);close();paint();toast(msg);return}
+ const v=e.target.closest('[data-v],[data-go]');if(v){e.preventDefault();show(v.dataset.v||v.dataset.go);return}
+ const w=e.target.closest('[data-who]');if(w){newbie=w.dataset.who==='new';$$('[data-who]').forEach(b=>b.setAttribute('aria-pressed',b===w));document.body.classList.toggle('newbie',newbie);paint();return}
+ const h=e.target.closest('[data-h]');if(h){hf=h.dataset.h;$$('[data-h]').forEach(b=>b.setAttribute('aria-pressed',b===h));paint();return}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#scrim').hidden)close()});
+function show(v){$('#v-page').hidden=v!=='page';$('#v-rule').hidden=v!=='rule';$$('[data-v]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v));scrollTo(0,0);try{history.replaceState(null,'',v==='rule'?'#rule':location.pathname+location.search)}catch(e){}}
+paint();
+if(/#rule\b/.test(location.hash))show('rule');
+})();
+</script>
+</body></html>
