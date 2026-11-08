@@ -113,3 +113,8 @@ Feedbacks|Feedback|Comentarios
 Kind words people leave after a table will show here.|Qui compariranno le parole gentili che le persone lasciano dopo un tavolo.|Aquí aparecerán las palabras amables que la gente deja después de una mesa.
 Nobody yet.|Ancora nessuno.|Aún nadie.
 Follows|Seguiti|Seguidos
+Regular|Normale|Normal
+State|Stato|Estado
+Full|Pieno|Llena
+Established|Esperto|Veterano
+Open table|Tavolo aperto|Mesa abierta
