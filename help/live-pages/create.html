@@ -126,7 +126,7 @@ function walk(root){if(root.nodeType===3){doText(root);return}if(root.nodeType!=
 var w=document.createTreeWalker(root,5,null),n=root.nodeType===1?root:w.nextNode();
 for(;n;n=w.nextNode()){if(n.nodeType===3){var p=n.parentNode;if(p&&SKIP[p.nodeName])continue;doText(n)}else{if(SKIP[n.nodeName])continue;for(var i=0;i<ATTRS.length;i++)if(n.hasAttribute(ATTRS[i]))doAttr(n,ATTRS[i])}}}
 function src(el){if(!el)return"";if(el.nodeType===3){var r=TN.get(el);return r&&el.nodeValue===r.t?r.o:el.nodeValue}var s="",w=document.createTreeWalker(el,4,null),n;while(n=w.nextNode())s+=src(n);return s}
-function u(url){if(!url||!/claude\.ai\/(code\/)?artifact\//.test(url))return url;url=url.replace(/([#&])lang=(en|it|es)\b/,"$1").replace(/[#&]$/,"").replace("#&","#");return url+(url.indexOf("#")>=0?"&":"#")+"lang="+L}
+function u(url){if(!url||!/claude\.ai\/(code\/)?artifact\/|\.html(#|$)/.test(url))return url;url=url.replace(/([#&])lang=(en|it|es)\b/,"$1").replace(/[#&]$/,"").replace("#&","#");return url+(url.indexOf("#")>=0?"&":"#")+"lang="+L}
 var mo=new MutationObserver(function(rs){if(busy)return;busy=true;try{for(var i=0;i<rs.length;i++){var r=rs[i];if(r.type==="childList"){for(var j=0;j<r.addedNodes.length;j++)walk(r.addedNodes[j])}else if(r.type==="characterData"){doText(r.target)}else if(r.type==="attributes"){doAttr(r.target,r.attributeName)}}}finally{mo.takeRecords();busy=false}});
 function start(){mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS})}
 function all(){busy=true;try{walk(document.body||document.documentElement)}finally{mo.takeRecords();busy=false}}
@@ -815,8 +815,8 @@ main.land .tf .jbtn{padding-inline:14px;height:36px;margin-left:auto}
 </style>
 <header id="tch" class="" role="banner">
 <div class="tch-bar">
-  <a class="tch-logo" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-label="TimeCapsule home"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tchL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tchL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span class="tch-wm"><b>time</b><i>capsule</i></span></a>
-  <nav class="tch-nav" aria-label="Main"><a href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-current="page">Tables</a><a href="https://claude.ai/artifact/MTbRjvLFV7pPhBjpvAzXaq" target="_top">People</a><a href="https://claude.ai/artifact/WXKBrXY78yuhpghQCpK3RU" target="_top">World</a></nav>
+  <a class="tch-logo" href="agenda.html" target="_top" aria-label="TimeCapsule home"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tchL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tchL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span class="tch-wm"><b>time</b><i>capsule</i></span></a>
+  <nav class="tch-nav" aria-label="Main"><a href="agenda.html" target="_top" aria-current="page">Tables</a><a href="people.html" target="_top">People</a><a href="../../world/timecapsule-world.html" target="_top">World</a></nav>
   <span class="tch-sp"></span>
   <label class="tch-search"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input id="q" type="search" placeholder="Search a topic, a question, a host" aria-label="Search tables" autocomplete="off"></label>
   <button class="tch-ib" type="button" data-tch="search" aria-label="Search"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
@@ -834,10 +834,10 @@ main.land .tf .jbtn{padding-inline:14px;height:36px;margin-left:auto}
     <li class="un" data-chat="a" tabindex="0"><i class="tch-av">A</i><div class="tch-tx"><b>Amara · Lagos</b><span>Here is the book I mentioned, The Overstory.</span></div><time>1h</time></li>
     <li data-chat="y" tabindex="0"><i class="tch-av">Y</i><div class="tch-tx"><b>Yuki · Kyoto</b><span>You: Thank you, that made my evening.</span></div><time>Mon</time></li>
   </ul>
-  <a class="tch-pf" href="https://claude.ai/artifact/PYd4f8xrcNkPc2TyPkE4ib" target="_top">See all chats</a>
+  <a class="tch-pf" href="chats.html" target="_top">See all chats</a>
  </div>
  <div class="tch-chat" hidden>
-  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
+  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../../profile/timecapsule-profile.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
   <div class="tch-log" aria-live="polite"></div>
   <div class="tch-quick"></div>
   <form class="tch-cf"><input type="text" placeholder="Write a message…" aria-label="Write a message" autocomplete="off"><button type="submit" aria-label="Send" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></form>
@@ -846,18 +846,18 @@ main.land .tf .jbtn{padding-inline:14px;height:36px;margin-left:auto}
 <div class="tch-pop" data-tchp="ntf" hidden>
   <div class="tch-ph"><b>Notifications</b><button type="button" data-tch="read">Mark all read</button></div>
   <ul>
-    <li class="un tch-rate" data-href="https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB#rate" tabindex="0"><i class="tch-av k"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><div class="tch-tx"><b>Rate and tip yesterday's table</b><span class="w">"Phenomenology vs. God" with Gregory ended yesterday. Your 8 TimeCoins expire in 2 days.</span><em class="tch-cta">Rate and tip</em></div><time>now</time></li>
+    <li class="un tch-rate" data-href="mytables.html#rate" tabindex="0"><i class="tch-av k"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><div class="tch-tx"><b>Rate and tip yesterday's table</b><span class="w">"Phenomenology vs. God" with Gregory ended yesterday. Your 8 TimeCoins expire in 2 days.</span><em class="tch-cta">Rate and tip</em></div><time>now</time></li>
     <li class="un"><i class="tch-av t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></i><div class="tch-tx"><b>Starting in 10 min</b><span class="w">"Is free will an illusion?" with Gregory</span></div><time>now</time></li>
     <li class="un"><i class="tch-av k"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="currentColor"/><circle cx="12" cy="12" r="5" fill="none" stroke="#20264A" stroke-width="1.5"/></svg></i><div class="tch-tx"><b>Gregory tipped you 2 TimeCoins</b><span class="w">For "What do we owe strangers?"</span></div><time>2h</time></li>
     <li><i class="tch-av">S</i><div class="tch-tx"><b>A seat opened</b><span class="w">At a table you saved for Thursday, 19:00</span></div><time>5h</time></li>
     <li><i class="tch-av">★</i><div class="tch-tx"><b>New feedback on your table</b><span class="w">"Kind, curious, well paced."</span></div><time>Sun</time></li>
   </ul>
-  <a class="tch-pf" href="https://claude.ai/artifact/SggBcVnWacDjzBsZeke1D1" target="_top">See all notifications</a>
+  <a class="tch-pf" href="../../notifications/notifications.html" target="_top">See all notifications</a>
 </div>
 <div class="tch-menu" data-tchp="menu" hidden>
   <div class="tch-who"><i class="tch-mav"></i><div><b>You</b><small>● 42 TimeCoins</small></div></div>
-  <a class="ph" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">Tables</a><a class="ph" href="https://claude.ai/artifact/MTbRjvLFV7pPhBjpvAzXaq" target="_top">People</a><a class="ph" href="https://claude.ai/artifact/WXKBrXY78yuhpghQCpK3RU" target="_top">World</a>
-  <a href="https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy" target="_top">My profile</a><a href="https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB" target="_top">My tables</a><a href="https://claude.ai/artifact/3erX1TAL2xoYjAmfvqkWtp" target="_top">Invite friends</a><a href="https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy" target="_top">Settings</a><a href="https://claude.ai/artifact/WHk7qYCmXBgugxJW1kqevd" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
+  <a class="ph" href="agenda.html" target="_top">Tables</a><a class="ph" href="people.html" target="_top">People</a><a class="ph" href="../../world/timecapsule-world.html" target="_top">World</a>
+  <a href="../../profile/timecapsule-profile.html" target="_top">My profile</a><a href="mytables.html" target="_top">My tables</a><a href="../../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="settings.html" target="_top">Settings</a><a href="../timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
 </div>
 </header>
 <script>
@@ -924,7 +924,7 @@ main.land .tf .jbtn{padding-inline:14px;height:36px;margin-left:auto}
   H.querySelectorAll('[data-tchp="ntf"] li[data-href]').forEach(function(li){var go=function(){top.location.href=li.getAttribute('data-href')};li.addEventListener('click',go);li.addEventListener('keydown',function(e){if(e.key==='Enter')go()})});
   document.addEventListener('click',function(e){if(!H.contains(e.target)&&e.target.isConnected)closeAll()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();H.classList.remove('sopen')}});
-  var si=H.querySelector('.tch-sbar input'),q=H.querySelector('.tch-search input');[si,q].forEach(function(x){if(x)x.addEventListener('keydown',function(e){if(e.key!=='Enter')return;var v=x.value.trim();if(!v)return;e.preventDefault();var u='https://claude.ai/artifact/NdgohZznzHtQ8p2PmohNhE#q='+encodeURIComponent(v);if(window.TCI18N&&TCI18N.u)u=TCI18N.u(u);var a=document.createElement('a');a.href=u;a.target='_top';document.body.appendChild(a);a.click();a.remove();});});
+  var si=H.querySelector('.tch-sbar input'),q=H.querySelector('.tch-search input');[si,q].forEach(function(x){if(x)x.addEventListener('keydown',function(e){if(e.key!=='Enter')return;var v=x.value.trim();if(!v)return;e.preventDefault();var u='../../search/timecapsule-search.html#q='+encodeURIComponent(v);if(window.TCI18N&&TCI18N.u)u=TCI18N.u(u);var a=document.createElement('a');a.href=u;a.target='_top';document.body.appendChild(a);a.click();a.remove();});});
   if(si&&q)si.addEventListener('input',function(){q.value=si.value;q.dispatchEvent(new Event('input',{bubbles:true}))});
 })();
 </script>
@@ -1218,7 +1218,7 @@ function tcpHTML(u){
   ${u.bio?`<p class="tcpb">${u.bio}</p>`:""}
   ${u.topics&&u.topics.length?`<div class="tcptg">${u.topics.map(([t,c])=>`<span style="--c:${c||"#A9B0D6"}"><i></i>${t}</span>`).join("")}</div>`:""}
   <dl><div><dd>${fmt(u.tables)}</dd><dt>Tables</dt></div><div><dd>${fmt(u.feedbacks)}</dd><dt>Feedbacks</dt></div><div><dd class="gold">${fmt(u.coins)}</dd><dt>TimeCoins</dt></div></dl>
-  <div class="tcpa">${u.profile?`<a class="pf" href="${u.profile}" target="_top">View profile</a>`:`<span style="margin-right:auto"></span>`}<a class="ic" href="https://claude.ai/artifact/PYd4f8xrcNkPc2TyPkE4ib" target="_top" aria-label="Chat with ${u.name}" title="Chat">${TCP_CHAT}</a>${tcpFollowBtn(u.name)}</div>`;
+  <div class="tcpa">${u.profile?`<a class="pf" href="${u.profile}" target="_top">View profile</a>`:`<span style="margin-right:auto"></span>`}<a class="ic" href="chats.html" target="_top" aria-label="Chat with ${u.name}" title="Chat">${TCP_CHAT}</a>${tcpFollowBtn(u.name)}</div>`;
 }
 document.addEventListener("click",e=>{const b=e.target.closest(".tcpf");if(!b)return;e.preventDefault();e.stopPropagation();const n=b.dataset.f;TCP_FOLLOW.has(n)?TCP_FOLLOW.delete(n):TCP_FOLLOW.add(n);b.outerHTML=tcpFollowBtn(n)},true);
 
@@ -1233,7 +1233,7 @@ function showU(el){
   const n=el.dataset.u, u=uinfo(n); ucFor=el;
   UC.innerHTML=tcpHTML({name:n,avatar:av(n),trusted:u.hosted>0,role:u.hosted?"Host":"",place:u.country,since:u.since,bio:u.bio,
     topics:u.topics.map(x=>[x,THEMES[x]]),tables:u.tables,feedbacks:Math.round(u.tables*.6)+(u.coins%7),coins:u.coins,
-    profile:n==="Gregory"?"https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy":u.prof});
+    profile:n==="Gregory"?"../../profile/timecapsule-profile.html":u.prof});
   UC.hidden=false;
   const r=el.getBoundingClientRect(), w=UC.offsetWidth, hh=UC.offsetHeight;
   let x=r.left+r.width/2-w/2; x=Math.max(12,Math.min(x,innerWidth-w-12));
@@ -1617,7 +1617,7 @@ render();
 setInterval(()=>document.querySelectorAll(".cdn[data-at]").forEach(el=>{el.textContent=until(+el.dataset.at)}),30000);
 if(location.hash==="#new")openCreate();
 /* standalone create page: opens straight on the form; Cancel / Back return to the Agenda */
-document.addEventListener("click",e=>{if(e.target.closest("[data-close]")){e.preventDefault();e.stopImmediatePropagation();top.location.href=TCI18N.u("https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5")}},true);
+document.addEventListener("click",e=>{if(e.target.closest("[data-close]")){e.preventDefault();e.stopImmediatePropagation();top.location.href=TCI18N.u("agenda.html")}},true);
 openCreate();
 </script>
 
@@ -1638,8 +1638,8 @@ openCreate();
 @media (max-width:640px){.tcf-in{flex-direction:column;align-items:flex-start;gap:14px}.tcf nav{flex:none}}
 </style>
 <footer class="tcf" id="tcf"><div class="tcf-in">
-<a class="tcf-logo" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-label="TimeCapsule home"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tcfL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tcfL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span><b>time</b><i>capsule</i></span></a>
-<nav aria-label="Help and more"><a href="https://claude.ai/artifact/WHk7qYCmXBgugxJW1kqevd" target="_top">Guides</a><a href="https://claude.ai/artifact/LTQdD5XzBLaDbCRrhHttMK" target="_top">FAQ</a><a href="https://claude.ai/artifact/WHk7qYCmXBgugxJW1kqevd#report" target="_top">Report abuse</a><a href="https://claude.ai/artifact/3erX1TAL2xoYjAmfvqkWtp" target="_top">Invite friends</a><a href="https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy" target="_top">Settings</a></nav>
+<a class="tcf-logo" href="agenda.html" target="_top" aria-label="TimeCapsule home"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tcfL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tcfL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span><b>time</b><i>capsule</i></span></a>
+<nav aria-label="Help and more"><a href="../timecapsule-guides.html" target="_top">Guides</a><a href="../timecapsule-faq.html" target="_top">FAQ</a><a href="../timecapsule-guides.html#report" target="_top">Report abuse</a><a href="../../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="settings.html" target="_top">Settings</a></nav>
 <p>Small tables, real people. Your data is never sold.</p>
 </div></footer>
 

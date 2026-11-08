@@ -125,7 +125,7 @@ function walk(root){if(root.nodeType===3){doText(root);return}if(root.nodeType!=
 var w=document.createTreeWalker(root,5,null),n=root.nodeType===1?root:w.nextNode();
 for(;n;n=w.nextNode()){if(n.nodeType===3){var p=n.parentNode;if(p&&SKIP[p.nodeName])continue;doText(n)}else{if(SKIP[n.nodeName])continue;for(var i=0;i<ATTRS.length;i++)if(n.hasAttribute(ATTRS[i]))doAttr(n,ATTRS[i])}}}
 function src(el){if(!el)return"";if(el.nodeType===3){var r=TN.get(el);return r&&el.nodeValue===r.t?r.o:el.nodeValue}var s="",w=document.createTreeWalker(el,4,null),n;while(n=w.nextNode())s+=src(n);return s}
-function u(url){if(!url||!/claude\.ai\/(code\/)?artifact\//.test(url))return url;url=url.replace(/([#&])lang=(en|it|es)\b/,"$1").replace(/[#&]$/,"").replace("#&","#");return url+(url.indexOf("#")>=0?"&":"#")+"lang="+L}
+function u(url){if(!url||!/claude\.ai\/(code\/)?artifact\/|\.html(#|$)/.test(url))return url;url=url.replace(/([#&])lang=(en|it|es)\b/,"$1").replace(/[#&]$/,"").replace("#&","#");return url+(url.indexOf("#")>=0?"&":"#")+"lang="+L}
 var mo=new MutationObserver(function(rs){if(busy)return;busy=true;try{for(var i=0;i<rs.length;i++){var r=rs[i];if(r.type==="childList"){for(var j=0;j<r.addedNodes.length;j++)walk(r.addedNodes[j])}else if(r.type==="characterData"){doText(r.target)}else if(r.type==="attributes"){doAttr(r.target,r.attributeName)}}}finally{mo.takeRecords();busy=false}});
 function start(){mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS})}
 function all(){busy=true;try{walk(document.body||document.documentElement)}finally{mo.takeRecords();busy=false}}
@@ -305,14 +305,14 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
 </style>
 <header id="tch" class="" role="banner">
 <div class="tch-bar">
-  <a class="tch-logo" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-label="TimeCapsule home"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tchL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tchL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span class="tch-wm"><b>time</b><i>capsule</i></span></a>
-  <nav class="tch-nav" aria-label="Main"><a href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">Tables</a><a href="https://claude.ai/artifact/MTbRjvLFV7pPhBjpvAzXaq" target="_top">People</a><a href="https://claude.ai/artifact/WXKBrXY78yuhpghQCpK3RU" target="_top">World</a></nav>
+  <a class="tch-logo" href="live-pages/agenda.html" target="_top" aria-label="TimeCapsule home"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tchL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tchL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span class="tch-wm"><b>time</b><i>capsule</i></span></a>
+  <nav class="tch-nav" aria-label="Main"><a href="live-pages/agenda.html" target="_top">Tables</a><a href="live-pages/people.html" target="_top">People</a><a href="../world/timecapsule-world.html" target="_top">World</a></nav>
   <span class="tch-sp"></span>
   <label class="tch-search"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input id="q" type="search" placeholder="Search tables, people, topics" aria-label="Search" autocomplete="off"></label>
   <button class="tch-ib" type="button" data-tch="search" aria-label="Search"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-  <button class="tch-create" type="button" id="newt" onclick="top.location.href=TCI18N.u('https://claude.ai/artifact/MFBQwEDcUA8ctJbo2BWShj')"><span class="tch-pl" aria-hidden="true">+</span><span class="tch-tx2">Create a table</span></button>
+  <button class="tch-create" type="button" id="newt" onclick="top.location.href=TCI18N.u('live-pages/create.html')"><span class="tch-pl" aria-hidden="true">+</span><span class="tch-tx2">Create a table</span></button>
   <button class="tch-ic" type="button" data-tch="msg" aria-haspopup="true" aria-expanded="false" aria-label="Chats, 2 unread"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.5V16H4z"/></svg><i class="tch-n">2</i></button>
-  <a class="tch-ic" href="https://claude.ai/artifact/SggBcVnWacDjzBsZeke1D1" target="_top" aria-label="Notifications, new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><i class="tch-d"></i></a>
+  <a class="tch-ic" href="../notifications/notifications.html" target="_top" aria-label="Notifications, new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><i class="tch-d"></i></a>
   <button class="tch-me" type="button" data-tch="menu" aria-haspopup="true" aria-expanded="false" aria-label="Your menu"><span id="me"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="#E6E0FF"/><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#7C5CFF"/><rect x="27" y="34" width="10" height="11" fill="#E8B994"/><circle cx="32" cy="26" r="12" fill="#E8B994"/><path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="#3A2A20"/><circle cx="28" cy="27" r="1.5" fill="#090B16"/><circle cx="36" cy="27" r="1.5" fill="#090B16"/><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span></button>
   <div class="tch-sbar"><input type="search" placeholder="Search tables, people, topics" aria-label="Search" autocomplete="off"><button type="button" data-tch="sclose">Cancel</button></div>
 </div>
@@ -324,10 +324,10 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
     <li class="un" data-chat="a" tabindex="0"><i class="tch-av">A</i><div class="tch-tx"><b>Amara · Lagos</b><span>Here is the book I mentioned, The Overstory.</span></div><time>1h</time></li>
     <li data-chat="y" tabindex="0"><i class="tch-av">Y</i><div class="tch-tx"><b>Yuki · Kyoto</b><span>You: Thank you, that made my evening.</span></div><time>Mon</time></li>
   </ul>
-  <a class="tch-pf" href="https://claude.ai/artifact/PYd4f8xrcNkPc2TyPkE4ib" target="_top">See all chats</a>
+  <a class="tch-pf" href="live-pages/chats.html" target="_top">See all chats</a>
  </div>
  <div class="tch-chat" hidden>
-  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
+  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../profile/timecapsule-profile.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
   <div class="tch-log" aria-live="polite"></div>
   <div class="tch-quick"></div>
   <form class="tch-cf"><input type="text" placeholder="Write a message…" aria-label="Write a message" autocomplete="off"><button type="submit" aria-label="Send" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></form>
@@ -335,8 +335,8 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
 </div>
 <div class="tch-menu" data-tchp="menu" hidden>
   <div class="tch-who"><i class="tch-mav"></i><div><b>You</b><small>● 42 TimeCoins</small></div></div>
-  <a class="ph" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">Tables</a><a class="ph" href="https://claude.ai/artifact/MTbRjvLFV7pPhBjpvAzXaq" target="_top">People</a><a class="ph" href="https://claude.ai/artifact/WXKBrXY78yuhpghQCpK3RU" target="_top">World</a>
-  <a href="https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy" target="_top">My profile</a><a href="https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB" target="_top">My tables</a><a href="https://claude.ai/artifact/3erX1TAL2xoYjAmfvqkWtp" target="_top">Invite friends</a><a href="https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy" target="_top">Settings</a><a href="https://claude.ai/artifact/WHk7qYCmXBgugxJW1kqevd" target="_top" aria-current="page">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
+  <a class="ph" href="live-pages/agenda.html" target="_top">Tables</a><a class="ph" href="live-pages/people.html" target="_top">People</a><a class="ph" href="../world/timecapsule-world.html" target="_top">World</a>
+  <a href="../profile/timecapsule-profile.html" target="_top">My profile</a><a href="live-pages/mytables.html" target="_top">My tables</a><a href="../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="live-pages/settings.html" target="_top">Settings</a><a href="timecapsule-guides.html" target="_top" aria-current="page">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
 </div>
 </header>
 <script>
@@ -568,7 +568,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
   <a class="tile" href="#notes"><span class="ic s"><svg><use href="#i-note"/></svg></span><b>Notes</b><span>Private notes on the side, and the three ways to use them.</span><small>2 min read</small></a>
   <a class="tile" href="#report"><span class="ic r"><svg><use href="#i-shield"/></svg></span><b>Report abuse</b><span>What to do when someone makes a table unsafe or unkind.</span><small>2 min read</small></a>
  </div>
- <a class="faqcta" href="https://claude.ai/artifact/LTQdD5XzBLaDbCRrhHttMK" target="_top"><span class="ic s"><svg><use href="#i-q"/></svg></span><div><b>Looking for a quick answer?</b><span>The FAQ covers privacy, TimeCoins, hosting and your account.</span></div><svg><use href="#i-arrow"/></svg></a>
+ <a class="faqcta" href="timecapsule-faq.html" target="_top"><span class="ic s"><svg><use href="#i-q"/></svg></span><div><b>Looking for a quick answer?</b><span>The FAQ covers privacy, TimeCoins, hosting and your account.</span></div><svg><use href="#i-arrow"/></svg></a>
 </section>
 
 <!-- GUIDE LAYOUT -->
@@ -582,7 +582,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
    <a href="#notes" data-g="notes"><i></i>Notes</a>
    <a href="#report" data-g="report"><i></i>Report abuse</a>
    <hr>
-   <a href="https://claude.ai/artifact/LTQdD5XzBLaDbCRrhHttMK" target="_top"><i></i>FAQ</a>
+   <a href="timecapsule-faq.html" target="_top"><i></i>FAQ</a>
   </nav>
   <div>
 
@@ -642,7 +642,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
    <div class="mini"><div class="aw"><div><span>Gregory</span><span class="st"><em>−</em>4<em>+</em></span></div><div><span>Lena</span><span class="st"><em>−</em>2<em>+</em></span></div><div class="left"><svg class="coin"><use href="#coin"/></svg>2 left to award</div></div></div></div></li>
   <li><div class="body"><h2>Coins you receive</h2><p>Every coin someone awards you adds to your Received total on your profile. It only goes up. It shows that people valued your voice, and it counts toward becoming Trusted.</p></div></li>
   <li><div class="body"><h2>Coins you can use</h2><p>The coins you receive also go into a balance you can spend on extras, such as two more chairs at a table you host or a recap of a past table. Spending never lowers your Received total. Sitting, hosting and your own transcript stay free.</p>
-   <div class="mini"><a class="lk" href="https://claude.ai/artifact/VRtXrcZBGsWhfQkPMZuKpK" target="_top">See your TimeCoins</a></div></div></li>
+   <div class="mini"><a class="lk" href="../timecoins/timecapsule-timecoins.html" target="_top">See your TimeCoins</a></div></div></li>
   <li><div class="body"><h2>Inviting friends</h2><p>Invite up to 10 friends a week to join TimeCapsule. They'll gain 2 TimeCoins, and you, too! Invite up to 10 friends a week to sit at your tables. They'll gain 5 TimeCoins, and you, too!</p></div></li>
   <li><div class="body"><h2>What coins never do</h2><p>You can't buy coins, cash them out or pass them on outside an award. There are no leaderboards.</p></div></li>
  </ol>
@@ -682,7 +682,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
   <li><div class="body"><h2>What happens next</h2><p>Reports are private and the person is never told who sent one. Our team reviews every report. Someone who keeps crossing the line can lose their Trusted badge or be removed from TimeCapsule.</p></div></li>
  </ol>
  <div class="tip"><svg><use href="#i-bulb"/></svg><p>Hosts have no control over private messages, so report an unkind message yourself. The host can't do it for you.</p></div>
- <div class="next"><a href="#notes"><small>Previous</small><b>Notes</b></a><a class="r" href="https://claude.ai/artifact/LTQdD5XzBLaDbCRrhHttMK" target="_top"><small>Still curious?</small><b>Read the FAQ</b></a></div>
+ <div class="next"><a href="#notes"><small>Previous</small><b>Notes</b></a><a class="r" href="timecapsule-faq.html" target="_top"><small>Still curious?</small><b>Read the FAQ</b></a></div>
 </article>
 
   </div>
@@ -706,8 +706,8 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
 @media (max-width:640px){.tcf-in{flex-direction:column;align-items:flex-start;gap:14px}.tcf nav{flex:none}}
 </style>
 <footer class="tcf" id="tcf"><div class="tcf-in">
-<a class="tcf-logo" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-label="TimeCapsule home"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tcfL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tcfL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span><b>time</b><i>capsule</i></span></a>
-<nav aria-label="Help and more"><a href="https://claude.ai/artifact/WHk7qYCmXBgugxJW1kqevd" target="_top" aria-current="page">Guides</a><a href="https://claude.ai/artifact/LTQdD5XzBLaDbCRrhHttMK" target="_top">FAQ</a><a href="https://claude.ai/artifact/WHk7qYCmXBgugxJW1kqevd#report" target="_top">Report abuse</a><a href="https://claude.ai/artifact/3erX1TAL2xoYjAmfvqkWtp" target="_top">Invite friends</a><a href="https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy" target="_top">Settings</a></nav>
+<a class="tcf-logo" href="live-pages/agenda.html" target="_top" aria-label="TimeCapsule home"><svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="tcfL"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#tcfL)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg><span><b>time</b><i>capsule</i></span></a>
+<nav aria-label="Help and more"><a href="timecapsule-guides.html" target="_top" aria-current="page">Guides</a><a href="timecapsule-faq.html" target="_top">FAQ</a><a href="timecapsule-guides.html#report" target="_top">Report abuse</a><a href="../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="live-pages/settings.html" target="_top">Settings</a></nav>
 <p>Small tables, real people. Your data is never sold.</p>
 </div></footer>
 
