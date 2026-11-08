@@ -27,7 +27,7 @@ s = s.replace(nav, '<nav class="tch-nav" aria-label="Main"><a href="#about">Abou
 # hero copy
 hud = re.search(r'<div class="hud">.*?</div>', s, re.S).group(0)
 s = s.replace(hud, '''<div class="hud">
-  <h1 class="lp-h"><span>The table is digital.</span><span>The people are real.</span></h1>
+  <h1 class="lp-h">The world, talking</h1>
   <p>Small tables, real people, every corner of the world. Talk, listen and think together.</p>
   <div class="lp-acts"><a class="cta" href="''' + ONB + '''" target="_top">Join TimeCapsule <span aria-hidden="true">→</span></a><a class="ghost" href="#read=believe" data-go="believe">Read the manifesto</a></div>
 </div>''', 1)
