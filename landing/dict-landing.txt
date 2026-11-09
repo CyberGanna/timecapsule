@@ -190,3 +190,14 @@ Terms & Privacy|Termini e privacy|Términos y privacidad
 Transcript|Trascrizione|Transcripción
 Host|Host|Anfitrión
 Open tables are on the Agenda, and anyone can take a free chair. Private tables reach only the people the host invites, with a link. Or host your own: you choose the question, the time and how many chairs.|I tavoli aperti sono nell'Agenda e chiunque può prendere una sedia libera. I tavoli privati arrivano solo a chi l'host invita, con un link. Oppure ospitane uno tuo: scegli tu la domanda, l'orario e quante sedie.|Las mesas abiertas están en la Agenda y cualquiera puede ocupar una silla libre. Las mesas privadas llegan solo a quien invita el anfitrión, con un enlace. O abre la tuya: tú eliges la pregunta, la hora y cuántas sillas.
+Join or host a table|Partecipa o ospita un tavolo|Únete a una mesa o crea la tuya
+Get the conversation started. Talk, listen, brainstorm live!|Fai partire la conversazione. Parla, ascolta, scambia idee dal vivo!|Pon en marcha la conversación. ¡Habla, escucha y comparte ideas en directo!
+Useful tools|Strumenti utili|Herramientas útiles
+TimeCapsule also offers unique tools to transcribe, take notes or summarize the conversation.|TimeCapsule offre anche strumenti unici per trascrivere, prendere appunti o riassumere la conversazione.|TimeCapsule también ofrece herramientas únicas para transcribir, tomar notas o resumir la conversación.
+Mute|Disattiva audio|Silenciar
+Stop video|Ferma video|Detener vídeo
+Raise hand|Alza la mano|Levantar la mano
+Messages|Messaggi|Mensajes
+Notes|Note|Notas
+Live transcript|Trascrizione live|Transcripción en directo
+Trusted|Affidabile|De confianza
