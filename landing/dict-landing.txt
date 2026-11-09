@@ -18,7 +18,6 @@ Every contribution keeps its author and its context, a record that future genera
 Read what TimeCapsule is|Leggi che cos'è TimeCapsule|Lee qué es TimeCapsule
 A small table, a real conversation|Un piccolo tavolo, una conversazione vera|Una mesa pequeña, una conversación real
 Find a table|Trova un tavolo|Encuentra una mesa
-Open tables are on the Agenda, and anyone can take a free chair. Private tables reach only the people the host invites, with a link.|I tavoli aperti sono nell'Agenda e chiunque può prendere un posto libero. I tavoli privati arrivano solo alle persone che l'host invita, con un link.|Las mesas abiertas están en la Agenda y cualquiera puede ocupar un sitio libre. Las mesas privadas solo llegan a quienes invita el anfitrión, con un enlace.
 Or host your own|Oppure ospitane uno tuo|O organiza la tuya
 Whoever opens a table hosts it: they choose the question, the time and how many chairs.|Chi apre un tavolo lo ospita: sceglie la domanda, l'orario e quanti posti.|Quien abre una mesa la organiza: elige la pregunta, la hora y cuántos sitios.
 Talk, face to face|Parla, faccia a faccia|Habla, cara a cara
@@ -189,7 +188,6 @@ Where your orbits cross someone else's, it's an opportunity for an exchange.|Dov
 Terms & Privacy|Termini e privacy|Términos y privacidad
 Transcript|Trascrizione|Transcripción
 Host|Host|Anfitrión
-Open tables are on the Agenda, and anyone can take a free chair. Private tables reach only the people the host invites, with a link. Or host your own: you choose the question, the time and how many chairs.|I tavoli aperti sono nell'Agenda e chiunque può prendere una sedia libera. I tavoli privati arrivano solo a chi l'host invita, con un link. Oppure ospitane uno tuo: scegli tu la domanda, l'orario e quante sedie.|Las mesas abiertas están en la Agenda y cualquiera puede ocupar una silla libre. Las mesas privadas llegan solo a quien invita el anfitrión, con un enlace. O abre la tuya: tú eliges la pregunta, la hora y cuántas sillas.
 Join or host a table|Partecipa o ospita un tavolo|Únete a una mesa o crea la tuya
 Get the conversation started. Talk, listen, brainstorm live!|Fai partire la conversazione. Parla, ascolta, scambia idee dal vivo!|Pon en marcha la conversación. ¡Habla, escucha y comparte ideas en directo!
 Useful tools|Strumenti utili|Herramientas útiles
@@ -201,3 +199,9 @@ Messages|Messaggi|Mensajes
 Notes|Note|Notas
 Live transcript|Trascrizione live|Transcripción en directo
 Trusted|Affidabile|De confianza
+People|Persone|Personas
+Back to tables|Torna ai tavoli|Volver a las mesas
+Leave table|Lascia il tavolo|Salir de la mesa
+Hosted by|Ospitato da|Organizada por
+Wants to speak|Vuole parlare|Quiere hablar
+Kept · everyone agreed|Conservata · tutti d'accordo|Guardada · todos de acuerdo
