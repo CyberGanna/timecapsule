@@ -29,10 +29,15 @@ hud = re.search(r'<div class="hud">.*?</div>', s, re.S).group(0)
 s = s.replace(hud, '''<div class="hud">
   <h1 class="lp-h">The world, talking</h1>
   <p>Small tables, real people, every corner of the world. Talk, listen and think together.</p>
-  <div class="lp-acts"><a class="cta" href="''' + ONB + '''" target="_top">Join TimeCapsule <span aria-hidden="true">→</span></a><a class="ghost" href="#read=believe" data-go="believe">Read the manifesto</a></div>
+  <div class="lp-acts"><a class="cta" href="''' + ONB + '''" target="_top">Join TimeCapsule <span aria-hidden="true">→</span></a></div>
 </div>''', 1)
 # pause drawing while the globe is scrolled away or the long read is open
 s = rep(s, 'try{draw(now)}catch(e){console.error(e)}', 'if(!window.__lpPause)try{draw(now)}catch(e){console.error(e)}')
+# every table on the globe is open to listeners (Karim: no grey dots), simple hint
+s = re.sub(r'TABLES\.forEach\(\(T,k\)=>T\.lis=[^;]*\);', 'TABLES.forEach(T=>T.lis=true);', s, count=1)
+s = rep(s, '<span class="dk">Click a teal dot to listen in</span><span class="mb">Tap a teal dot to listen in</span>', '<span class="dk">Click a dot to listen in</span><span class="mb">Tap a dot to listen in</span>')
+# table card: no coordinates / live-since block (Karim: too many modals)
+s = re.sub(r'\n\s*<div class="coord">Host at .*?</div>', '', s, count=1)
 # always signed out
 s = rep(s, 'if(/[#&]out\\b/.test(location.hash))proto.querySelector(\'[data-so="1"]\').click();', 'proto.querySelector(\'[data-so="1"]\').click();')
 # footer
