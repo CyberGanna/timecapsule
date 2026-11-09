@@ -57,13 +57,11 @@ html.lp-has-lang{scroll-padding-top:108px}
 
 /* sections */
 .lp{
-  --pg:#FBFAF7;--pg2:#F3F1EC;--ink:#1C1F33;--head:#0E1230;--mut:#5F6380;--ln:#E3E0D8;--card:#FFFFFF;
-  --vio:#5B3FE0;--tea:#0E8E92;--tint-v:rgba(124,92,255,.12);--tint-t:rgba(23,195,200,.14);--tint-g:rgba(242,193,78,.2);
+  --pg:#141936;--pg2:#1B2144;--ink:#DDE1F7;--head:#EEF1FF;--mut:#A9B0D6;--ln:#3A4175;--card:#20264A;
+  --vio:#A995FF;--tea:#17C3C8;--tint-v:rgba(124,92,255,.2);--tint-t:rgba(23,195,200,.16);--tint-g:rgba(242,193,78,.16);
   position:relative;z-index:7;background:var(--pg);color:var(--ink);font-family:Sora,system-ui,sans-serif
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lp{
-  --pg:#141936;--pg2:#1B2144;--ink:#DDE1F7;--head:#EEF1FF;--mut:#A9B0D6;--ln:#3A4175;--card:#20264A;
-  --vio:#A995FF;--tea:#17C3C8;--tint-v:rgba(124,92,255,.2);--tint-t:rgba(23,195,200,.16);--tint-g:rgba(242,193,78,.16)}}
+/* always dark, like the app (Karim 2026-11-09): no light variant */
 :root[data-theme="dark"] .lp{--pg:#141936;--pg2:#1B2144;--ink:#DDE1F7;--head:#EEF1FF;--mut:#A9B0D6;--ln:#3A4175;--card:#20264A;--vio:#A995FF;--tea:#17C3C8}
 .lp *{box-sizing:border-box}
 .lp-w{max-width:1120px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
