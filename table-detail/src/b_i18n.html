@@ -203,12 +203,12 @@ var TN=new WeakMap(),AT=new WeakMap(),ATTRS=["placeholder","aria-label","title",
 var SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,NOSCRIPT:1,CODE:1,PRE:1};
 function skipEl(e){for(;e&&e.nodeType===1;e=e.parentNode){if(SKIP[e.nodeName])return true;if(e.hasAttribute&&e.hasAttribute("data-noi18n"))return true;if(e.isContentEditable)return true}return false}
 var busy=false;
-function doText(n){var v=n.nodeValue;if(!v||!/[A-Za-z]/.test(v))return;var rec=TN.get(n),base=v;if(rec&&v===rec.t)base=rec.o;
+function doText(n){var v=n.nodeValue,rec=TN.get(n);if(!v||!(/[A-Za-z]/.test(v)||(rec&&v===rec.t)))return;var base=v;if(rec&&v===rec.t)base=rec.o;
 var tm=base.trim();if(!tm)return;var out;
 if(L==="en"){out=base}else{var t=null,pb=n.parentNode&&n.parentNode.closest&&n.parentNode.closest("[aria-pressed]");if(pb&&D[tm+"@btn"])t=D[tm+"@btn"][I[L]];if(t===null)t=tr(tm,L);if(t===null){out=base}else{var i=base.indexOf(tm);out=base.slice(0,i)+t+base.slice(i+tm.length)}}
 if(out!==v){if(skipEl(n.parentNode))return;n.nodeValue=out}
 if(out!==base)TN.set(n,{o:base,t:out});else if(rec)TN.delete(n)}
-function doAttr(e,a){var v=e.getAttribute(a);if(v==null||!/[A-Za-z]/.test(v))return;var m=AT.get(e);if(!m){m={};AT.set(e,m)}var rec=m[a],base=v;if(rec&&v===rec.t)base=rec.o;
+function doAttr(e,a){var v=e.getAttribute(a);if(v==null)return;var m=AT.get(e);if(!/[A-Za-z]/.test(v)&&!(m&&m[a]&&m[a].t===v))return;if(!m){m={};AT.set(e,m)}var rec=m[a],base=v;if(rec&&v===rec.t)base=rec.o;
 var out=L==="en"?base:(tr(base.trim(),L)||base);if(out!==v)e.setAttribute(a,out);if(out!==base)m[a]={o:base,t:out};else delete m[a]}
 function walk(root){if(root.nodeType===3){doText(root);return}if(root.nodeType!==1&&root.nodeType!==9&&root.nodeType!==11)return;if(root.nodeType===1&&SKIP[root.nodeName])return;
 var w=document.createTreeWalker(root,5,null),n=root.nodeType===1?root:w.nextNode();
