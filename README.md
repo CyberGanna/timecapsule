@@ -31,7 +31,7 @@ This repository holds the design prototypes of the product: self-contained HTML 
 | Admin panel | `admin/` | [open](https://claude.ai/artifact/GcdFnhR5eggq6hB7fm1Njw) |
 | Aliases proposal | `aliases/` | |
 | Legal and community guidelines (draft) | `legal/` | not published yet |
-| Edge and empty states (draft) | `edge-states/` | not published yet |
+| Edge and empty states (draft) | `edge-states/` | [link](https://claude.ai/artifact/Nj26pZ3NsU9GTBs9Mu3XLJ) |
 | Transactional emails (draft) | `emails/` | not published yet |
 | Brand book | `logo/` (snippets) | [open](https://claude.ai/artifact/E9nwURawSJTDeaZNA96Rrq) |
 | Manifesto (What, How, Why) | `manifesto/` | PDF in folder |
