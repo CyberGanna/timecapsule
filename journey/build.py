@@ -1,5 +1,7 @@
 # Builds journey.html (Ted's user journey) from the manifesto PDF's fonts and style.
-# Run: python3 build.py  ->  journey.html ; then print to PDF with print.js
+# Run: python3 build.py [ted|fedor]  ->  journey.html / journey-fedor.html ; then node print.js [ted|fedor]
+import sys
+WHO = sys.argv[1] if len(sys.argv) > 1 else 'ted'
 import re, base64, os
 D = os.path.dirname(os.path.abspath(__file__))
 src = open(os.path.join(D, '../manifesto/out.html')).read()
@@ -9,7 +11,7 @@ def mark(i):
     return logo.replace('id="c0"', 'id="m%d"' % i).replace('url(#c0)', 'url(#m%d)' % i)
 
 def img(n):
-    b = base64.b64encode(open(os.path.join(D, 'shots', n + '.jpg'), 'rb').read()).decode()
+    b = base64.b64encode(open(os.path.join(D, 'shots' if WHO == 'ted' else 'shots-fedor', n + '.jpg'), 'rb').read()).decode()
     return 'data:image/jpeg;base64,' + b
 
 # (eyebrow, title, lead, [paragraphs], [(shot, caption)], footer)
@@ -122,16 +124,29 @@ figcaption{font-family:'Sora',sans-serif;font-size:8.5pt;color:var(--muted);marg
 .pagefoot{position:absolute;bottom:12mm;left:24mm;right:24mm;border-top:1px solid var(--line);padding-top:4mm;font-family:'Sora',sans-serif;font-size:8.5px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between}
 .toc{list-style:none;margin-top:4mm;columns:2;column-gap:10mm}
 .toc li{break-inside:avoid;padding:3mm 0;border-top:1px solid var(--line);font-size:12pt;line-height:1.35}
+.gaps{list-style:none;margin-top:2mm}.gaps li{position:relative;padding:0 0 0 9mm;margin-bottom:3.2mm;font-size:11pt;line-height:1.48}.gaps li::before{content:"";position:absolute;left:0;top:.45em;width:9px;height:9px;border-radius:50%;border:2px solid var(--teal)}.gaps li.no::before{border-color:var(--violet);background:var(--violet)}.gaps b{font-family:'Sora',sans-serif;font-weight:600;font-size:10pt;color:var(--navy)}.key{font-family:'Sora',sans-serif;font-size:8.5pt;color:var(--muted);margin:2mm 0 5mm;display:flex;gap:8mm}.key i{display:inline-block;width:8px;height:8px;border-radius:50%;border:2px solid var(--teal);margin-right:2mm}.key i.no{border-color:var(--violet);background:var(--violet)}
 .toc li span{display:block;font-family:'Sora',sans-serif;font-size:8.5pt;letter-spacing:.2em;color:var(--violet);font-weight:600;margin-bottom:1mm;text-transform:uppercase}
 """
 
 def head(i):
     m = mark(i).replace(' aria-hidden="true"', '')
-    return '<div class="head"><div class="logo">%s<span class="wt"><b>time</b><i>capsule</i></span></div><span class="num">Ted’s journey</span></div>' % m
+    return '<div class="head"><div class="logo">%s<span class="wt"><b>time</b><i>capsule</i></span></div><span class="num">%s</span></div>' % (m, NAME)
 
 def figs(shots):
     f = ''.join('<figure><img src="%s" alt=""><figcaption>%s</figcaption></figure>' % (img(n), c) for n, c in shots)
     return '<div class="two">%s</div>' % f if len(shots) > 1 else f
+
+
+if WHO == 'fedor':
+    from fedor import STEPS, META, EXTRA
+else:
+    META = dict(name='Ted’s journey', file='journey.html',
+        cover_q='Ted wants to talk about the big questions with real people. This is what happens when he goes to TimeCapsule.',
+        meet='Meet Ted', meet_h1='One person, <b>fourteen steps</b>',
+        meet_lead='Ted is 34 and lives in Lisbon. He reads a lot, argues with podcasts in his head, and misses the long conversations he used to have at university.',
+        meet_p='This is his first months on TimeCapsule, told as a story, from the first time he listens in to the day he becomes a Trusted host. Every screen in it is a real page of the current prototype.')
+    EXTRA = []
+NAME = META['name']
 
 pages = []
 pages.append('''<section class="page cover">
@@ -139,29 +154,33 @@ pages.append('''<section class="page cover">
   <div class="big">
     <div class="rule"></div>
     <div class="logo"><span class="wt"><b>time</b><i>capsule</i></span></div>
-    <h1>Ted’s journey</h1>
+    <h1>%s</h1>
     <div class="sub">The TimeCapsule experience, step by step</div>
-    <p class="q">Ted wants to talk about the big questions with real people. This is what happens when he goes to TimeCapsule.</p>
+    <p class="q">%s</p>
   </div>
-</section>''' % logo)
+</section>''' % (logo, NAME, META['cover_q']))
 
 toc = ''.join('<li><span>%02d · %s</span>%s</li>' % (i + 1, s[0], re.sub('<[^>]+>', '', s[1])) for i, s in enumerate(STEPS))
+toc += ''.join('<li><span>%s</span>%s</li>' % (e[0], re.sub('<[^>]+>', '', e[1])) for e in EXTRA)
 pages.append('''<section class="page">%s
-  <div class="eyebrow">Meet Ted</div>
-  <h1>One person, <b>fourteen steps</b></h1>
-  <p class="lead">Ted is 34 and lives in Lisbon. He reads a lot, argues with podcasts in his head, and misses the long conversations he used to have at university.</p>
-  <p>This is his first months on TimeCapsule, told as a story, from the first time he listens in to the day he becomes a Trusted host. Every screen in it is a real page of the current prototype.</p>
+  <div class="eyebrow">%s</div>
+  <h1>%s</h1>
+  <p class="lead">%s</p>
+  <p>%s</p>
   <ul class="toc">%s</ul>
-  <div class="pagefoot"><span>Meet Ted</span><span>2</span></div>
-</section>''' % (head(1), toc))
+  <div class="pagefoot"><span>%s</span><span>2</span></div>
+</section>''' % (head(1), META['meet'], META['meet_h1'], META['meet_lead'], META['meet_p'], toc, META['meet']))
 
 for i, (eb, h, lead, ps, shots, foot) in enumerate(STEPS):
     n = i + 3
     body = '<p class="lead">%s</p>%s%s' % (lead, ''.join('<p>%s</p>' % p for p in ps), figs(shots))
     pages.append('<section class="page">%s\n<div class="eyebrow">Step %02d · %s</div>\n<h1>%s</h1>\n%s\n<div class="pagefoot"><span>%s</span><span>%d</span></div>\n</section>' % (head(n), i + 1, eb, h, body, foot, n))
+for j, (eb, h, body, foot) in enumerate(EXTRA):
+    n = len(STEPS) + 3 + j
+    pages.append('<section class="page">%s\n<div class="eyebrow">%s</div>\n<h1>%s</h1>\n%s\n<div class="pagefoot"><span>%s</span><span>%d</span></div>\n</section>' % (head(n), eb, h, body, foot, n))
 
-html = '<!doctype html>\n<html><head><meta charset="utf-8"><title>TimeCapsule · Ted’s journey</title>\n%s\n<style>%s</style></head><body>\n%s\n</body></html>' % (fonts, CSS, '\n'.join(pages))
+html = '<!doctype html>\n<html><head><meta charset="utf-8"><title>TimeCapsule · %s</title>\n%s\n<style>%s</style></head><body>\n%s\n</body></html>' % (NAME, fonts, CSS, '\n'.join(pages))
 html = html.replace('Time Capsule', 'TimeCapsule')
 assert 'Agenda' not in html
-open(os.path.join(D, 'journey.html'), 'w').write(html)
+open(os.path.join(D, META['file']), 'w').write(html)
 print(len(pages), 'pages')
