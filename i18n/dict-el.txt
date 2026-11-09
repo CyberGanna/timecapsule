@@ -1815,3 +1815,5 @@ Add a few favourites|Πρόσθεσε μερικά αγαπημένα
 The books and films that moved you become stars around your name.|Τα βιβλία και οι ταινίες που σε συγκίνησαν γίνονται αστέρια γύρω από το όνομά σου.
 Meet your wavelength|Βρες όσους είναι στο ίδιο μήκος κύματος
 Where your orbits cross someone else's, we suggest people and tables to sit with.|Όπου οι τροχιές σου συναντούν κάποιου άλλου, σου προτείνουμε ανθρώπους και τραπέζια για να καθίσεις.
++3 TimeCoins|+3 TimeCoins
+from|από

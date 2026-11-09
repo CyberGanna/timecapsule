@@ -175,3 +175,5 @@ Add a few favourites|Aggiungi qualche preferito|Añade algunos favoritos
 The books and films that moved you become stars around your name.|I libri e i film che ti hanno toccato diventano stelle attorno al tuo nome.|Los libros y películas que te conmovieron se convierten en estrellas alrededor de tu nombre.
 Meet your wavelength|Trova chi è sulla tua lunghezza d'onda|Encuentra tu misma onda
 Where your orbits cross someone else's, we suggest people and tables to sit with.|Dove le tue orbite incrociano quelle di qualcun altro, ti suggeriamo persone e tavoli a cui sederti.|Donde tus órbitas se cruzan con las de otra persona, te sugerimos personas y mesas con las que sentarte.
++3 TimeCoins|+3 TimeCoins|+3 TimeCoins
+from|da|de
