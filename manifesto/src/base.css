@@ -1,0 +1,37 @@
+@font-face{font-family:'Sora';font-weight:300;font-style:normal;src:url(fonts/sora300.woff) format('woff')}@font-face{font-family:'Sora';font-weight:400;font-style:normal;src:url(fonts/sora400.woff) format('woff')}@font-face{font-family:'Sora';font-weight:600;font-style:normal;src:url(fonts/sora600.woff) format('woff')}@font-face{font-family:'Newsreader';font-weight:400;font-style:normal;src:url(fonts/nr400.woff) format('woff')}@font-face{font-family:'Newsreader';font-weight:500;font-style:normal;src:url(fonts/nr500.woff) format('woff')}@font-face{font-family:'Newsreader';font-weight:400;font-style:italic;src:url(fonts/nr400i.woff) format('woff')}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0E1230;--ink:#1C1F33;--muted:#6B6F86;--violet:#7C5CFF;--teal:#17C3C8;--deep:#3B2A9E;--paper:#FBFAF7;--line:#E6E3DC}
+html,body{background:var(--paper)}
+body{font-family:'Newsreader',Georgia,serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;padding:30mm 26mm 26mm}
+.page:last-child{page-break-after:auto}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif}
+.logo svg{width:46px;height:34px}
+.wt{font-size:22px;letter-spacing:-.01em}
+.wt b{font-weight:600}.wt i{font-style:normal;font-weight:300}
+/* cover */
+.cover{background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:34mm 26mm}
+.cover .logo svg{width:92px;height:68px}
+.cover .wt{font-size:44px}
+.cover .big{margin-top:auto}
+.cover .words{font-family:'Sora',sans-serif;font-weight:300;font-size:15px;letter-spacing:.32em;color:#B9BCD6;margin-top:22px}
+.cover .words span{color:#fff;font-weight:400}
+.cover .dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--teal);vertical-align:middle;margin:0 14px 3px}
+.cover .rule{width:56px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--violet),var(--teal));margin-bottom:26px}
+.cover .foot{font-family:'Sora',sans-serif;font-size:10px;letter-spacing:.2em;color:#7F84A6;text-transform:uppercase}
+/* text pages */
+.head{display:flex;justify-content:space-between;align-items:center;position:absolute;top:14mm;left:26mm;right:26mm}
+.head .logo svg{width:26px;height:19px}.head .wt{font-size:13px;color:var(--navy)}
+.head .num{font-family:'Sora',sans-serif;font-size:9px;letter-spacing:.2em;color:var(--muted)}
+.eyebrow{font-family:'Sora',sans-serif;font-size:11px;letter-spacing:.28em;color:var(--violet);font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--violet),var(--teal));border-radius:2px}
+h1{font-family:'Sora',sans-serif;font-weight:300;font-size:34px;letter-spacing:-.02em;color:var(--navy);line-height:1.15;margin-bottom:9mm}
+h1 b{font-weight:600}
+p{font-size:12.5pt;line-height:1.58;margin-bottom:4mm;hyphens:none}
+p.lead{font-size:14pt;line-height:1.48;color:var(--navy)}
+ul{list-style:none;margin:2mm 0 5mm}
+li{position:relative;padding-left:9mm;font-size:12.5pt;line-height:1.58;margin-bottom:4mm}
+li::before{content:"";position:absolute;left:0;top:.42em;width:10px;height:10px;border-radius:50%;border:2px solid var(--teal);background:#fff}
+li b{font-family:'Sora',sans-serif;font-weight:600;font-size:11.5pt;color:var(--navy)}
+.pagefoot{position:absolute;bottom:13mm;left:26mm;right:26mm;border-top:1px solid var(--line);padding-top:4mm;font-family:'Sora',sans-serif;font-size:8.5px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between}
