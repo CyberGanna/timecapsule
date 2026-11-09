@@ -1019,7 +1019,8 @@ function draw(now){
   const shownNow=new Set();
   const taken=[];if(!card.hidden){const r=card.getBoundingClientRect();taken.push([r.left,r.top,r.right,r.bottom])}
   const maxQ=Math.min(300,W-60), QF='400 14px Sora, system-ui, sans-serif', HF='500 11px "JetBrains Mono", ui-monospace, monospace';
-  for(const b of bubbles){const k=(now-b.t0)/7500;
+  const FOCT=LIS.T||(!card.hidden&&GT);
+  for(const b of bubbles){if(FOCT&&b.T!==FOCT)continue;const k=(now-b.t0)/7500;
     const [x,y,z]=proj(b.l,b.p);if(z<=.2)continue;
     // cards are fully solid: a quick fade in and out, and an older card vanishes as soon as a new voice starts
     if(b.cut)continue;const age=now-b.t0,a=Math.min(1,age/250,(7500-age)/400);if(a<=0)continue;
@@ -1062,7 +1063,7 @@ function loop(now){
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
-setTimeout(()=>speak(),300);let skipN=0;setInterval(()=>{if(LIS.on&&(++skipN%2))return;speak(SEL&&!LIS.T?SEL:undefined)},4200);
+setTimeout(()=>speak(),300);let skipN=0;setInterval(()=>{if(LIS.T)return;speak(SEL&&!card.hidden?SEL:undefined)},4200);
 
 /* ---------- drag to turn ---------- */
 let sx,sy,sl,sp,moved;
