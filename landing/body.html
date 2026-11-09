@@ -9,13 +9,18 @@ html.rd-open,body.rd-open{overflow:hidden!important}
 #tch .tch-search,#tch [data-tch="search"]{display:none!important}
 #tch{transition:background .25s}
 #tch.lp-solid .tch-bar{background:rgba(20,25,54,.94)!important;border-bottom:1px solid #3A4175!important;backdrop-filter:blur(10px)}
-/* prototype only: language toggle in a strip above the header */
-#lpLang{position:fixed;top:0;left:0;right:0;height:32px;z-index:200;display:flex;align-items:center;justify-content:center;gap:12px;background:#0B0F24;border-bottom:1px solid rgba(255,255,255,.08);font:500 10.5px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#A9B0D6}
+/* prototype only: language toggle in a strip above the header (same look as the Live Table prototype bar) */
+#lpLang{position:fixed;top:0;left:0;right:0;height:36px;z-index:200;box-sizing:border-box;display:flex;align-items:center;gap:14px;padding:0 24px;font:400 12px/1 Sora,system-ui,sans-serif;color:#A9B0D6;background:#151A38;border-bottom:1px dashed #3A4175}
+#lpLang>b{font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:10.5px;color:#C9CFF0}
+#lpLang label{display:inline-flex;align-items:center;gap:6px}
 #lpLang .tc-lp.h{margin:0}
-#lpLang .tc-seg button{height:22px}
-html.lp-has-lang #tch{top:32px!important}
-html.lp-has-lang .hud,html.lp-has-lang .count{margin-top:32px}
-html.lp-has-lang{scroll-padding-top:104px}
+#lpLang .tc-seg{display:inline-flex;padding:2px;border-radius:8px;background:#20264A;border:1px solid #3A4175;gap:0}
+#lpLang .tc-seg button{border:0;background:none;color:#A9B0D6;font:400 12px/1 Sora,system-ui,sans-serif;padding:3px 9px;height:auto;min-width:0;border-radius:6px;letter-spacing:0}
+#lpLang .tc-seg button[aria-pressed="true"]{background:#252B52!important;color:#EEF1FF!important;box-shadow:none!important}
+@media (max-width:640px){#lpLang{padding:0 14px}}
+html.lp-has-lang #tch{top:36px!important}
+html.lp-has-lang .hud,html.lp-has-lang .count{margin-top:36px}
+html.lp-has-lang{scroll-padding-top:108px}
 #tch .tc-lp.h{margin-left:6px}
 @media (max-width:760px){
   canvas{touch-action:pan-y!important}
@@ -478,7 +483,7 @@ html.lp-has-lang{scroll-padding-top:104px}
   if(H){
     H.querySelectorAll('a.tch-logo').forEach(function(a){a.setAttribute('href','#');a.removeAttribute('target');a.addEventListener('click',function(e){e.preventDefault();scrollTo({top:0,behavior:'smooth'})})});
     var onS=function(){H.classList.toggle('lp-solid',scrollY>innerHeight*.6)};addEventListener('scroll',onS,{passive:true});onS();
-    var moveLP=function(){var lp=document.querySelector('.tch-menu .tc-lp'),auth=H.querySelector('.tch-auth');if(!lp||!auth)return false;lp.className='tc-lp h';var l=lp.querySelector('.tc-lpl');if(l)l.remove();var bar=document.getElementById('lpLang');if(!bar){bar=document.createElement('div');bar.id='lpLang';bar.setAttribute('data-noi18n','');bar.innerHTML='<span>Prototype · Language</span>';document.body.insertBefore(bar,document.body.firstChild)}bar.appendChild(lp);document.documentElement.classList.add('lp-has-lang');return true};
+    var moveLP=function(){var lp=document.querySelector('.tch-menu .tc-lp'),auth=H.querySelector('.tch-auth');if(!lp||!auth)return false;lp.className='tc-lp h';var l=lp.querySelector('.tc-lpl');if(l)l.remove();var bar=document.getElementById('lpLang');if(!bar){bar=document.createElement('div');bar.id='lpLang';bar.setAttribute('data-noi18n','');bar.innerHTML='<b>Prototype</b><label>Language </label>';document.body.insertBefore(bar,document.body.firstChild)}bar.querySelector('label').appendChild(lp);document.documentElement.classList.add('lp-has-lang');return true};
     if(!moveLP()){var n=0,t=setInterval(function(){if(moveLP()||++n>40)clearInterval(t)},100)}
   }
   /* pause the globe when it is scrolled away */
