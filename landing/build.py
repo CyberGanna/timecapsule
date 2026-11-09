@@ -76,7 +76,7 @@ for k, v in SITE.items():
 t = rep(t, 'if(!url||!/claude\\.ai\\/(code\\/)?artifact\\//.test(url))return url;', 'if(!url||!/claude\\.ai\\/(code\\/)?artifact\\/|\\.html(#|$)/.test(url))return url;')
 # legal pages exist in the site: add them to the footer
 t = rep(t, '<a href="../auth/timecapsule-signin.html" target="_top">Sign in</a></nav>',
-        '<a href="../auth/timecapsule-signin.html" target="_top">Sign in</a><a href="../legal/timecapsule-legal.html#guidelines" target="_top">Community guidelines</a><a href="../legal/timecapsule-legal.html#terms" target="_top">Terms</a><a href="../legal/timecapsule-legal.html#privacy" target="_top">Privacy</a></nav>')
+        '<a href="../auth/timecapsule-signin.html" target="_top">Sign in</a><a href="../legal/timecapsule-legal.html#terms" target="_top">Terms</a><a href="../legal/timecapsule-legal.html#privacy" target="_top">Privacy</a></nav>')
 open('timecapsule-landing.html', 'w', encoding='utf8').write(t)
 left = sorted(set(re.findall(r'claude\.ai/artifact/[A-Za-z0-9]+', t)))
 print(len(s), 'bytes,', n, 'landing strings; claude.ai links left in site version:', left)

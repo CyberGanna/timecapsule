@@ -1761,3 +1761,23 @@ Live · 41 min|Live · 41 λεπτά
 2 seats free|2 ελεύθερες θέσεις
 Starts in 30 min|Ξεκινά σε 30 λεπτά
 3 chairs free|3 ελεύθερες καρέκλες
+Find a table|Βρες ένα τραπέζι
+Whatever you're curious about, there's a table|Ό,τι κι αν σου κινεί την περιέργεια, υπάρχει ένα τραπέζι
+Search a topic, a question or a host. See who is talking right now, or save a chair for later.|Ψάξε ένα θέμα, μια ερώτηση ή έναν οικοδεσπότη. Δες ποιος μιλά τώρα ή κράτα μια καρέκλα για αργότερα.
+Try|Δοκίμασε
+Filters|Φίλτρα
+Results for|Αποτελέσματα για
+No table matches these filters yet.|Κανένα τραπέζι δεν ταιριάζει ακόμα με αυτά τα φίλτρα.
+This preview knows three searches. Try one of the suggestions above.|Αυτή η προεπισκόπηση ξέρει τρεις αναζητήσεις. Δοκίμασε μία από τις προτάσεις παραπάνω.
+chemistry|χημεία
+philosophy|φιλοσοφία
+climate|κλίμα
+Live · 24 min|Live · 24 λεπτά
+4 chairs free|4 ελεύθερες καρέκλες
+5 chairs free|5 ελεύθερες καρέκλες
+2 chairs free|2 ελεύθερες καρέκλες
+Brazil|Βραζιλία
+Nigeria|Νιγηρία
+Denmark|Δανία
+Chile|Χιλή
+3 seats free|3 ελεύθερες θέσεις

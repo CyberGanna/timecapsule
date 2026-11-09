@@ -123,3 +123,24 @@ Join table|Entra al tavolo|Unirse a la mesa
 Starts in 30 min|Inizia tra 30 min|Empieza en 30 min
 3 chairs free|3 posti liberi|3 sitios libres
 Save a chair|Tieni un posto|Reservar sitio
+Find a table|Trova un tavolo|Encuentra una mesa
+Whatever you're curious about, there's a table|Qualunque cosa ti incuriosisca, c'è un tavolo|Te interese lo que te interese, hay una mesa
+Search a topic, a question or a host. See who is talking right now, or save a chair for later.|Cerca un tema, una domanda o un host. Guarda chi sta parlando ora, o tieni un posto per dopo.|Busca un tema, una pregunta o un anfitrión. Mira quién está hablando ahora o reserva un sitio para más tarde.
+Try|Prova|Prueba
+Filters|Filtri|Filtros
+English|Inglese|Inglés
+Results for|Risultati per|Resultados para
+No table matches these filters yet.|Nessun tavolo corrisponde ancora a questi filtri.|Todavía ninguna mesa coincide con estos filtros.
+This preview knows three searches. Try one of the suggestions above.|Questa anteprima conosce tre ricerche. Prova uno dei suggerimenti qui sopra.|Esta vista previa conoce tres búsquedas. Prueba una de las sugerencias de arriba.
+chemistry|chimica|química
+philosophy|filosofia|filosofía
+climate|clima|clima
+Live · 24 min|Live · 24 min|Live · 24 min
+3 seats free|3 posti liberi|3 plazas libres
+2 chairs free|2 posti liberi|2 sitios libres
+4 chairs free|4 posti liberi|4 sitios libres
+5 chairs free|5 posti liberi|5 sitios libres
+Brazil|Brasile|Brasil
+Nigeria|Nigeria|Nigeria
+Denmark|Danimarca|Dinamarca
+Chile|Cile|Chile
