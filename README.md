@@ -11,8 +11,8 @@ This repository holds the design prototypes of the product: self-contained HTML 
 | Agenda ("Pull up a chair") | `help/live-pages/agenda.html` | [open](https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5) |
 | World globe | `world/` | [open](https://claude.ai/artifact/WXKBrXY78yuhpghQCpK3RU) |
 | Table page and private invite | `table-detail/` | [open](https://claude.ai/artifact/AQKmmAgq8JPDsrRACWEy6i) |
-| Live Table | `live-table/` | [open](https://claude.ai/artifact/2CoEp7SXhBT2oP5hu3zNkk) |
-| Rate and Tip | | [open](https://claude.ai/artifact/4jA3RGXJko9RmWkEKk3kCu) |
+| Live Table | `live-table/timecapsule-live-table.html` | [open](https://claude.ai/artifact/2CoEp7SXhBT2oP5hu3zNkk) |
+| Rate and Tip | `rate-tip/timecapsule-rate-tip.html` | [open](https://claude.ai/artifact/4jA3RGXJko9RmWkEKk3kCu) |
 | Create a table | `help/live-pages/create.html` | [open](https://claude.ai/artifact/MFBQwEDcUA8ctJbo2BWShj) |
 | My tables | `help/live-pages/mytables.html` | [open](https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB) |
 | Profile | `profile/` | [open](https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy) |

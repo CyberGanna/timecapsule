@@ -1515,7 +1515,7 @@ function openJoin(t){
     <div class="who" style="margin-top:16px"><span class="ppl">${t.people.slice(1,7).map(p=>`<span>${av(p)}</span>`).join("")}</span><span>${t.people.length-1} people talking with ${t.host}</span></div>
     ${aliasHTML()}
     <p class="anote" style="margin-top:16px">Listen first and speak in turns. The host can mute anyone to keep the table calm.</p>
-    <div class="acts"><button class="cta" data-close>Not now</button><a class="cta go" id="enter" href="https://claude.ai/artifact/2CoEp7SXhBT2oP5hu3zNkk" target="_top">Join the table</a></div></div></div>`;
+    <div class="acts"><button class="cta" data-close>Not now</button><a class="cta go" id="enter" href="../../live-table/timecapsule-live-table.html" target="_top">Join the table</a></div></div></div>`;
   wireAlias();
   const sc=document.getElementById("scrim"); sc.hidden=false; requestAnimationFrame(()=>sc.classList.add("on"));
   paintCam(); startCam();
@@ -1555,7 +1555,7 @@ document.getElementById("scrim").addEventListener("click",e=>{
   if(b.id==="confirm"){confirmSeat();return}
   if(b.dataset.cam){cam[b.dataset.cam]=!cam[b.dataset.cam];paintCam();return}
   if(b.id==="enter"){if(b.disabled)return;const t=cur;b.textContent="Joining…";b.disabled=true;
-    {const LT="https://claude.ai/artifact/2CoEp7SXhBT2oP5hu3zNkk";let w=null;try{w=window.open(LT,"_blank");if(w)w.opener=null}catch(e){}if(!w){const a=document.createElement("a");a.href=LT;a.target="_top";document.body.appendChild(a);a.click();a.remove()}}
+    {const LT="../../live-table/timecapsule-live-table.html";let w=null;try{w=window.open(LT,"_blank");if(w)w.opener=null}catch(e){}if(!w){const a=document.createElement("a");a.href=LT;a.target="_top";document.body.appendChild(a);a.click();a.remove()}}
     setTimeout(()=>{state.joined.add(t.id);t._new=1;closeSheet();render();toast(`You're in as ${me.mode==="alias"?me.alias:"Karim"}. Say hello!`)},700);return}
   if(b.dataset.as){me.mode=b.dataset.as;b.parentNode.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));document.getElementById("alias").hidden=me.mode!=="alias";updAlias();if(me.mode==="alias")document.getElementById("ain").focus();return}
   if(b.id==="adice"){document.getElementById("ain").value=rndAlias();fillSugg();updAlias();return}
