@@ -43,9 +43,9 @@ s = rep(s, 'if(/[#&]out\\b/.test(location.hash))proto.querySelector(\'[data-so="
 # footer
 foot = open('../help/footer.html', encoding='utf8').read()
 foot = foot.replace('GUIDES_URL', GUIDES).replace('FAQ_URL', FAQ)
-# footer links (Karim 2026-11-09): only Help (to Guides), Terms and Privacy
+# footer links (Karim 2026-11-09): only Help (to Guides) and one Terms & Privacy link
 LEGAL = 'https://claude.ai/artifact/5dZ8VXcg7f29xHcecFWd72'
-foot = re.sub(r'<nav aria-label="Help and more">.*?</nav>', '<nav aria-label="Help and more"><a href="' + GUIDES + '" target="_top">Help</a><a href="' + LEGAL + '#terms" target="_top">Terms</a><a href="' + LEGAL + '#privacy" target="_top">Privacy</a></nav>', foot, count=1, flags=re.S)
+foot = re.sub(r'<nav aria-label="Help and more">.*?</nav>', '<nav aria-label="Help and more"><a href="' + GUIDES + '" target="_top">Help</a><a href="' + LEGAL + '" target="_top">Terms &amp; Privacy</a></nav>', foot, count=1, flags=re.S)
 foot = rep(foot, 'href="' + AGENDA + '" target="_top" aria-label="TimeCapsule home"', 'href="#" aria-label="TimeCapsule home"')
 body = open('body.html', encoding='utf8').read().replace('<!--FOOTER-->', foot)
 s = rep(s, '<div id="lbar" hidden', body + '\n<div id="lbar" hidden')
