@@ -150,6 +150,19 @@ def font_css(html):
                   "src:url(%s) format('woff2');unicode-range:%s}" % (key[0], key[1], w, src, GR_RANGE))
     return r
 
+
+# Greek text has no Latin letters: the core used to skip such nodes, so they could never be restored to English.
+RESTORE_FIX = [
+    ('function doText(n){var v=n.nodeValue;if(!v||!/[A-Za-z]/.test(v))return;var rec=TN.get(n),base=v;',
+     'function doText(n){var v=n.nodeValue,rec=TN.get(n);if(!v||!(/[A-Za-z]/.test(v)||(rec&&v===rec.t)))return;var base=v;'),
+    ('function doAttr(e,a){var v=e.getAttribute(a);if(v==null||!/[A-Za-z]/.test(v))return;var m=AT.get(e);if(!m){m={};AT.set(e,m)}',
+     'function doAttr(e,a){var v=e.getAttribute(a);if(v==null)return;var m=AT.get(e);if(!/[A-Za-z]/.test(v)&&!(m&&m[a]&&m[a].t===v))return;if(!m){m={};AT.set(e,m)}'),
+]
+def fix_restore(t):
+    for a, b in RESTORE_FIX:
+        t = t.replace(a, b)
+    return t
+
 FONT_MARK = "/*tc-el-fonts*/"
 
 def patch_core(c):
@@ -213,6 +226,7 @@ def run(path):
         return m.group(1) + json.dumps(X, ensure_ascii=False) + m.group(3)
     s = re.sub(r'(var D=window\.TCI18N_DICT\|\|\{\},X=)(\{.*?\})(;for\(var k in X\))', fixx, s, flags=re.S)
     s, n = re.subn(r'<script id="tc-i18n">window\.TCI18N_DICT=(\{.*?\});\n(.*?)</script>', fix, s, flags=re.S)
+    s = fix_restore(s)
     # Greek font faces, matched to this page's Google Fonts weights (replaces older versions)
     fc = FONT_MARK + font_css(s)
     s = re.sub(r'st\.textContent="(?:/\*tc-el-fonts\*/)?(?:@font-face\{[^}]*\})*"\+\'\.tc-lp\{', lambda m: 'st.textContent="' + fc + '"+\'.tc-lp{', s)
