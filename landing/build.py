@@ -43,8 +43,9 @@ s = rep(s, 'if(/[#&]out\\b/.test(location.hash))proto.querySelector(\'[data-so="
 # footer
 foot = open('../help/footer.html', encoding='utf8').read()
 foot = foot.replace('GUIDES_URL', GUIDES).replace('FAQ_URL', FAQ)
-foot = rep(foot, '<a href="https://claude.ai/artifact/3erX1TAL2xoYjAmfvqkWtp" target="_top">Invite friends</a><a href="https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy" target="_top">Settings</a>',
-           '<a href="' + SIGNIN + '" target="_top">Sign in</a>')
+# footer links (Karim 2026-11-09): only Help (to Guides), Terms and Privacy
+LEGAL = 'https://claude.ai/artifact/5dZ8VXcg7f29xHcecFWd72'
+foot = re.sub(r'<nav aria-label="Help and more">.*?</nav>', '<nav aria-label="Help and more"><a href="' + GUIDES + '" target="_top">Help</a><a href="' + LEGAL + '#terms" target="_top">Terms</a><a href="' + LEGAL + '#privacy" target="_top">Privacy</a></nav>', foot, count=1, flags=re.S)
 foot = rep(foot, 'href="' + AGENDA + '" target="_top" aria-label="TimeCapsule home"', 'href="#" aria-label="TimeCapsule home"')
 body = open('body.html', encoding='utf8').read().replace('<!--FOOTER-->', foot)
 s = rep(s, '<div id="lbar" hidden', body + '\n<div id="lbar" hidden')
@@ -74,9 +75,7 @@ t = s
 for k, v in SITE.items():
     t = t.replace('https://claude.ai/artifact/' + k, '../' + v)
 t = rep(t, 'if(!url||!/claude\\.ai\\/(code\\/)?artifact\\//.test(url))return url;', 'if(!url||!/claude\\.ai\\/(code\\/)?artifact\\/|\\.html(#|$)/.test(url))return url;')
-# legal pages exist in the site: add them to the footer
-t = rep(t, '<a href="../auth/timecapsule-signin.html" target="_top">Sign in</a></nav>',
-        '<a href="../auth/timecapsule-signin.html" target="_top">Sign in</a><a href="../legal/timecapsule-legal.html#terms" target="_top">Terms</a><a href="../legal/timecapsule-legal.html#privacy" target="_top">Privacy</a></nav>')
+t = t.replace(LEGAL, '../legal/timecapsule-legal.html')
 open('timecapsule-landing.html', 'w', encoding='utf8').write(t)
 left = sorted(set(re.findall(r'claude\.ai/artifact/[A-Za-z0-9]+', t)))
 print(len(s), 'bytes,', n, 'landing strings; claude.ai links left in site version:', left)
