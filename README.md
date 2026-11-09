@@ -30,7 +30,7 @@ This repository holds the design prototypes of the product: self-contained HTML 
 | FAQ | `help/timecapsule-faq.html` | [open](https://claude.ai/artifact/LTQdD5XzBLaDbCRrhHttMK) |
 | Admin panel | `admin/` | [open](https://claude.ai/artifact/GcdFnhR5eggq6hB7fm1Njw) |
 | Aliases proposal | `aliases/` | |
-| Legal and community guidelines (draft) | `legal/` | not published yet |
+| Terms, Privacy, Community guidelines (draft) | `legal/` | [open](https://claude.ai/artifact/5dZ8VXcg7f29xHcecFWd72) |
 | Edge and empty states (draft) | `edge-states/` | [link](https://claude.ai/artifact/Nj26pZ3NsU9GTBs9Mu3XLJ) |
 | Transactional emails (draft) | `emails/` | not published yet |
 | Brand book | `logo/` (snippets) | [open](https://claude.ai/artifact/E9nwURawSJTDeaZNA96Rrq) |
