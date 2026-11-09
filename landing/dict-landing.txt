@@ -155,3 +155,18 @@ Try a search|Prova una ricerca|Prueba una búsqueda
 3 of 6 chairs free|3 di 6 posti liberi|3 de 6 sitios libres
 4 of 8 chairs free|4 di 8 posti liberi|4 de 8 sitios libres
 4 of 6 chairs free|4 di 6 posti liberi|4 de 6 sitios libres
+Pick a topic. See who is talking right now, or save a chair for later.|Scegli un tema. Guarda chi sta parlando ora, o tieni un posto per dopo.|Elige un tema. Mira quién está hablando ahora, o reserva un sitio para luego.
+9 min in|da 9 min|desde hace 9 min
+12 min in|da 12 min|desde hace 12 min
+15 min in|da 15 min|desde hace 15 min
+33 min in|da 33 min|desde hace 33 min
+Topics|Temi|Temas
+Technology|Tecnologia|Tecnología
+Food|Cibo|Comida
+Psychology|Psicologia|Psicología
+Design|Design|Diseño
+Sport|Sport|Deporte
+More topics|Altri temi|Más temas
+18 min in|da 18 min|desde hace 18 min
+27 min in|da 27 min|desde hace 27 min
+6 min in|da 6 min|desde hace 6 min

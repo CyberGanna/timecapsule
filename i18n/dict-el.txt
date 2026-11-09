@@ -1795,3 +1795,18 @@ Try a search|Δοκίμασε μια αναζήτηση
 3 of 6 chairs free|3 από 6 καρέκλες ελεύθερες
 4 of 8 chairs free|4 από 8 καρέκλες ελεύθερες
 4 of 6 chairs free|4 από 6 καρέκλες ελεύθερες
+Pick a topic. See who is talking right now, or save a chair for later.|Διάλεξε ένα θέμα. Δες ποιος μιλάει τώρα, ή κράτα μια καρέκλα για αργότερα.
+9 min in|εδώ και 9 λεπτά
+12 min in|εδώ και 12 λεπτά
+15 min in|εδώ και 15 λεπτά
+33 min in|εδώ και 33 λεπτά
+Topics|Θέματα
+Technology|Τεχνολογία
+Food|Φαγητό
+Psychology|Ψυχολογία
+Design|Σχεδιασμός
+Sport|Αθλητισμός
+More topics|Περισσότερα θέματα
+18 min in|εδώ και 18 λεπτά
+27 min in|εδώ και 27 λεπτά
+6 min in|εδώ και 6 λεπτά
