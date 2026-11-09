@@ -8,7 +8,7 @@ This repository holds the design prototypes of the product: self-contained HTML 
 
 | Page | Folder | Live prototype |
 |---|---|---|
-| Agenda ("Pull up a chair") | `help/live-pages/agenda.html` | [open](https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5) |
+| Tables ("Pull up a chair") | `help/live-pages/agenda.html` | [open](https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5) |
 | World globe | `world/` | [open](https://claude.ai/artifact/WXKBrXY78yuhpghQCpK3RU) |
 | Table page and private invite | `table-detail/` | [open](https://claude.ai/artifact/AQKmmAgq8JPDsrRACWEy6i) |
 | Live Table | `live-table/timecapsule-live-table.html` | [open](https://claude.ai/artifact/2CoEp7SXhBT2oP5hu3zNkk) |

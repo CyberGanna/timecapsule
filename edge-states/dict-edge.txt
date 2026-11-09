@@ -9,7 +9,7 @@ Table full|Tavolo pieno|Mesa llena
 Cancelled|Annullato|Cancelada
 Removed|Rimosso|Expulsado
 Page not found|Pagina non trovata|Página no encontrada
-Agenda|Agenda|Agenda
+Tables|Tavoli|Mesas
 Following|Seguiti|Siguiendo
 Tomorrow · 19:00|Domani · 19:00|Mañana · 19:00
 Is free will an illusion?|Il libero arbitrio è un'illusione?|¿Es el libre albedrío una ilusión?
@@ -71,12 +71,12 @@ Small tables, real conversations. Pick a day.|Tavoli piccoli, conversazioni vere
 No tables on Sunday yet|Ancora nessun tavolo domenica|Aún no hay mesas el domingo
 Be the first. Open a table, and people looking for Sunday will find it here.|Sii il primo. Apri un tavolo e chi cerca qualcosa per domenica lo troverà qui.|Sé el primero. Abre una mesa y quien busque algo para el domingo la encontrará aquí.
 See today's tables|Vedi i tavoli di oggi|Ver las mesas de hoy
-In the real Agenda, today’s tables show here|Nell'Agenda vera qui compaiono i tavoli di oggi|En la Agenda real aquí aparecen las mesas de hoy
+On the real Tables page, today’s tables show here|Nella vera pagina Tavoli qui compaiono i tavoli di oggi|En la verdadera página Mesas aquí aparecen las mesas de hoy
 The tables you host and the chairs you saved, with everything you need to run them.|I tavoli che ospiti e i posti che hai prenotato, con tutto quello che serve per gestirli.|Las mesas que organizas y los sitios que reservaste, con todo lo necesario para llevarlas.
 Upcoming|In arrivo|Próximas
 Past|Passati|Pasadas
 No tables yet|Ancora nessun tavolo|Aún no hay mesas
-Save a chair at any table on the Agenda, or host your own. They’ll wait for you here.|Prenota un posto a un tavolo dell'Agenda, oppure ospitane uno tuo. Ti aspetteranno qui.|Reserva un sitio en cualquier mesa de la Agenda, o crea la tuya. Te esperarán aquí.
+Save a chair at any table on the Tables page, or host your own. They’ll wait for you here.|Prenota un posto a un tavolo della pagina Tavoli, oppure ospitane uno tuo. Ti aspetteranno qui.|Reserva un sitio en cualquier mesa de la página Mesas, o crea la tuya. Te esperarán aquí.
 Find a table|Trova un tavolo|Busca una mesa
 Nothing here yet|Ancora niente qui|Aún no hay nada aquí
 After your first table, you’ll find it here with its transcript and the notes you kept.|Dopo il tuo primo tavolo lo troverai qui, con la trascrizione e gli appunti che hai salvato.|Después de tu primera mesa la encontrarás aquí, con la transcripción y las notas que guardaste.

@@ -111,7 +111,7 @@ function factsHTML(){
    <div>${I.seat}<div><dt>Chairs</dt><dd>${free===0?"Table full":free+" of "+t.seats+" chairs free"}<span>${"Small on purpose, so everyone is heard."}</span></dd></div></div>
    <div>${I.lang}<div><dt>Language</dt><dd>${t.lang}<span>${"60 minutes"}</span></dd></div></div>
    <div>${I.doc}<div><dt>Transcript</dt><dd>${t.transcript?"Kept":"Not kept"}<span>${t.transcript?"It goes public only if everyone at the table agrees.":"Nothing is recorded or written down."}</span></dd></div></div>
-   ${st.kind==="inv"?`<div>${I.lock.replace('currentColor','#A9B0D6')}<div><dt>Who can join</dt><dd>Private<span>Only people with the invite link. It isn't on the Agenda.</span></dd></div></div>`
+   ${st.kind==="inv"?`<div>${I.lock.replace('currentColor','#A9B0D6')}<div><dt>Who can join</dt><dd>Private<span>Only people with the invite link. It isn't on the Tables page.</span></dd></div></div>`
      :`<div>${I.coin}<div><dt>TimeCoins</dt><dd>8 to give<span>After the table, tip the people who inspired you.</span></dd></div></div>`}
   </dl>`;
 }
@@ -162,7 +162,7 @@ function inviteHTML(){
   else{head=`${t.host} invited you to a table`;body=`<p class="note">${t.note}</p>`}
   return `<section class="inv${st.accepted?" done":""}${st.declined?" no":""}"><span class="iav" data-u="${t.host}" tabindex="0">${av(t.host)}</span><div class="it">
     <h2>${head}</h2>${body}
-    <p class="priv">${I.lock}<span>${"Private table. It isn't on the Agenda, and only people with this link can see it."} ${"Please don't forward it: ask "+t.host+" if you'd like to bring someone."}</span></p></div></section>`;
+    <p class="priv">${I.lock}<span>${"Private table. It isn't on the Tables page, and only people with this link can see it."} ${"Please don't forward it: ask "+t.host+" if you'd like to bring someone."}</span></p></div></section>`;
 }
 function whoHTML(){
   const t=T(),ppl=people(),free=t.seats-ppl.length;
@@ -244,7 +244,7 @@ document.addEventListener("click",e=>{const el=e.target.closest("[data-u]");if(e
 document.addEventListener("keydown",e=>{if(e.key==="Escape")hideU();if((e.key==="Enter"||e.key===" ")&&e.target.dataset&&e.target.dataset.u){e.preventDefault();showU(e.target)}});
 addEventListener("scroll",()=>{if(!UC.hidden)hideU()},{passive:true});
 
-/* ---------- alias (same as Agenda) ---------- */
+/* ---------- alias (same as Tables) ---------- */
 const ACOL=["#7C5CFF","#17C3C8","#F4A6D7","#FF9E8A","#7CC8FF","#E9F27A"];
 const TAKEN=new Set(Object.keys(P).map(x=>x.toLowerCase()).concat(["blue comet","admin","host"]));
 const me={mode:"name",alias:"",col:ACOL[0]};
@@ -390,7 +390,7 @@ document.querySelector(".proto").addEventListener("click",e=>{
   if(b.dataset.k==="kind"){st.saved=false;st.accepted=false;st.declined=false}
   setTimes();render();
 });
-/* header search: go to the Agenda */
+/* header search: go to the Tables page */
 (function(){const ins=document.querySelectorAll("#tch input[type=search]");ins.forEach(i=>i.addEventListener("keydown",e=>{if(e.key==="Enter"){top.location.href=TCI18N.u(URL_AGENDA)}}))})();
 render();
 addEventListener("tc-lang",()=>render());

@@ -38,7 +38,7 @@ Privacy|Privacy|Privacidad
 Let people find me|Fatti trovare|Que me encuentren
 List me on the People page. Hosts are always listed while they have an open table.|Mostrami nella pagina Persone. Chi ospita è sempre in elenco finché ha un tavolo aperto.|Mostrarme en la página Personas. Los anfitriones siempre aparecen mientras tengan una mesa abierta.
 Show when I'm live|Mostra quando sono in diretta|Mostrar cuando estoy en directo
-Visitors to your profile see the open table you're hosting right now, with Join. Off: they only see it on the Agenda.|Chi visita il tuo profilo vede il tavolo aperto che stai ospitando ora, con Entra. Se disattivato, lo vede solo nell'Agenda.|Quien visita tu perfil ve la mesa abierta que organizas ahora, con Unirse. Si está desactivado, solo la ve en la Agenda.
+Visitors to your profile see the open table you're hosting right now, with Join. Off: they only see it on the Tables page.|Chi visita il tuo profilo vede il tavolo aperto che stai ospitando ora, con Entra. Se disattivato, lo vede solo nella pagina Tavoli.|Quien visita tu perfil ve la mesa abierta que organizas ahora, con Unirse. Si está desactivado, solo la ve en la página Mesas.
 Who can chat with me|Chi può scrivermi in chat|Quién puede chatear conmigo
 Who can start a new chat. Existing chats stay.|Chi può iniziare una nuova chat. Le chat esistenti restano.|Quién puede iniciar un chat nuevo. Los chats existentes se mantienen.
 Everyone|Tutti|Todos
@@ -102,7 +102,7 @@ Block Gregory?|Bloccare Gregory?|¿Bloquear a Gregory?
 Report Gregory|Segnala Gregory|Denunciar a Gregory
 Gregory won't see your profile or your tables, or be able to take a chair at them.|Gregory non vedrà il tuo profilo né i tuoi tavoli e non potrà sedersi ai tuoi tavoli.|Gregory no verá tu perfil ni tus mesas, ni podrá sentarse en ellas.
 No chats and no follows from Gregory.|Niente chat e niente follow da Gregory.|Ni chats ni seguimientos de Gregory.
-You won't see each other on People or the Agenda.|Non vi vedrete in Persone o nell'Agenda.|No os veréis en Personas ni en la Agenda.
+You won't see each other on People or the Tables page.|Non vi vedrete in Persone o nella pagina Tavoli.|No os veréis en Personas ni en la página Mesas.
 Gregory isn't told. You can unblock any time in Settings.|Gregory non viene avvisato. Puoi sbloccarlo quando vuoi nelle Impostazioni.|A Gregory no se le avisa. Puedes desbloquearlo cuando quieras en Ajustes.
 You blocked Gregory. Your profile and tables are hidden from Gregory, who isn’t told.|Hai bloccato Gregory. Il tuo profilo e i tuoi tavoli sono nascosti a Gregory, che non viene avvisato.|Has bloqueado a Gregory. Tu perfil y tus mesas están ocultos para Gregory, a quien no se le avisa.
 Gregory is unblocked|Gregory è sbloccato|Gregory está desbloqueado

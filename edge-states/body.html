@@ -179,7 +179,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.05;letter-spac
 <b>Prototype</b>
 <span class="gl"><span>Table</span><span class="pg" role="group" aria-label="Table states"><button data-s="full">Table full</button><button data-s="cancelled">Cancelled</button><button data-s="removed">Removed</button></span></span>
 <span class="gl"><span>Link</span><span class="pg" role="group" aria-label="Broken link"><button data-s="404">Page not found</button></span></span>
-<span class="gl"><span>New user</span><span class="pg" role="group" aria-label="New user empty states"><button data-s="new-agenda">Agenda</button><button data-s="new-mytables">My tables</button><button data-s="new-following">Follows</button><button data-s="new-notifications">Notifications</button><button data-s="new-chats">Chats</button><button data-s="new-profile">Profile</button></span></span>
+<span class="gl"><span>New user</span><span class="pg" role="group" aria-label="New user empty states"><button data-s="new-agenda">Tables</button><button data-s="new-mytables">My tables</button><button data-s="new-following">Follows</button><button data-s="new-notifications">Notifications</button><button data-s="new-chats">Chats</button><button data-s="new-profile">Profile</button></span></span>
 </div></div>
 <main id="page"></main>
 <div class="toast" id="toast" role="status"></div>
@@ -264,7 +264,7 @@ const S={
  <div class="pcols"><div><div class="ps"><h3>Talks about</h3><div class="chips"><span><i style="background:${T.Philosophy}"></i>Philosophy</span><span><i style="background:${T.Books}"></i>Books</span><span><i style="background:${T.Psychology}"></i>Psychology</span></div></div><div class="ps"><h3>My readings</h3><p class="em">The Overstory, Richard Powers</p></div><div class="ps"><h3>Ratings</h3><p class="em">No ratings yet. They come from the people you sit with.</p></div></div>
  <div><div class="ps"><h3>Tables</h3><p class="em">No tables yet. <a href="${U.agenda}" target="_top">Save your first chair</a> or <a href="${U.create}" target="_top">host one</a>.</p></div><div class="ps"><h3>Feedbacks</h3><p class="em">Kind words people leave after a table will show here.</p></div><div class="ps"><h3>Following</h3><p class="em">Nobody yet. <a href="${U.people}" target="_top">Find your people</a>.</p></div></div></div></section></div>`}
 };
-const MT={up:{art:ART.chair,h:'No tables yet',p:['Save a chair at any table on the Agenda, or host your own. They’ll wait for you here.'],acts:A(U.agenda,'Find a table')+A(U.create,'Create a table','lnk')},
+const MT={up:{art:ART.chair,h:'No tables yet',p:['Save a chair at any table on the Tables page, or host your own. They’ll wait for you here.'],acts:A(U.agenda,'Find a table')+A(U.create,'Create a table','lnk')},
  past:{art:tbl({n:6}),h:'Nothing here yet',p:['After your first table, you’ll find it here with its transcript and the notes you kept.'],acts:A(U.agenda,'Find a table')}};
 const NAV={full:0,cancelled:0,removed:0,'new-agenda':0,'new-following':1};
 let cur='full';
@@ -289,7 +289,7 @@ $('#page').addEventListener('click',e=>{
  if(sv){const on=!sv.classList.contains('ok');sv.classList.toggle('ok',on);sv.innerHTML=on?I.check+'Chair saved':'Save a chair';if(on)toast('Chair saved. See you there.');return}
  if(e.target.closest('[data-tell]')){$('#scrim').hidden=false;setTimeout(()=>$('#sh-x').focus(),30);return}
  const d=e.target.closest('[data-day]');
- if(d){document.querySelectorAll('#days .tb').forEach(b=>b.setAttribute('aria-pressed',TCI18N.src(b).trim()===d.dataset.day));toast('In the real Agenda, today’s tables show here');return}
+ if(d){document.querySelectorAll('#days .tb').forEach(b=>b.setAttribute('aria-pressed',TCI18N.src(b).trim()===d.dataset.day));toast('On the real Tables page, today’s tables show here');return}
  const dd=e.target.closest('#days .tb');
  if(dd){document.querySelectorAll('#days .tb').forEach(b=>b.setAttribute('aria-pressed',b===dd));return}
  const m=e.target.closest('[data-mt]');if(m){mt(m.dataset.mt);return}
