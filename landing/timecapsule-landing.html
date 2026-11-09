@@ -1849,7 +1849,7 @@ function cardBtns(T){
     else lb=`<button class="listen${on?" on":""}" type="button" aria-pressed="${on}">${HP}<span>${on?"Stop listening":"Listen in"}</span></button>`;
   }
   const jb=SO?`<a class="join" href="${SIGNIN}" target="_top">Sign in to join</a>`:`<button class="join" type="button">Join table</button>`;
-  const note=T.lis?`<div class="lnote">${HP}<span>Open to listeners</span> · <span>about 30 seconds behind live</span>${SO&&!freeUsed?` · <span>5 minutes free</span>`:""}</div>`
+  const note=T.lis?(SO&&!freeUsed?`<div class="lnote"><span>5 minutes free</span></div>`:"")
                   :`<div class="lnote"><span>Only the people at the table can hear it</span></div>`;
   return `<div class="btns">${lb}${jb}</div>${note}`;
 }
