@@ -1751,3 +1751,9 @@ The table closed to listeners|Το τραπέζι έκλεισε για τους
 Listening to a live table|Ακούς ένα live τραπέζι
 In the real app this opens the table|Στην πραγματική εφαρμογή αυτό ανοίγει το τραπέζι
 Show this table|Δείξε αυτό το τραπέζι
+Invite friends to join TimeCapsule|Κάλεσε φίλους να μπουν στο TimeCapsule
+Filled in from your last table. Check the date and time.|Συμπληρώθηκε από το τελευταίο σου τραπέζι. Έλεγξε την ημερομηνία και την ώρα.
+Click a dot to listen in|Κάνε κλικ σε μια κουκκίδα για να ακούσεις
+Tap a dot to listen in|Πάτησε μια κουκκίδα για να ακούσεις
+Click a dot to listen in|Κάνε κλικ σε μια κουκκίδα για να ακούσεις
+Tap a dot to listen in|Πάτησε μια κουκκίδα για να ακούσεις

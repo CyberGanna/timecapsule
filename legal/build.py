@@ -1,7 +1,7 @@
 # Builds the Terms and privacy page (Community guidelines, Terms of service, Privacy policy).
 # Usage: python3 build.py <LEGAL_URL>   Header/footer/i18n come from guides-live.html (a fresh read of the live Guides artifact).
 import re,json,sys,html
-U=sys.argv[1] if len(sys.argv)>1 else 'LEGAL_URL'
+U=sys.argv[1] if len(sys.argv)>1 else "https://claude.ai/artifact/5dZ8VXcg7f29xHcecFWd72"
 G='https://claude.ai/artifact/WHk7qYCmXBgugxJW1kqevd'
 src=open('guides-live.html',encoding='utf8').read()
 src=src[src.find('<!doctype html><html lang="en">'):]

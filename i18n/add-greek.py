@@ -111,9 +111,46 @@ var PE=[
 ];
 '''.strip('\n')
 
-FONT_CSS = ("@font-face{font-family:'Sora';font-style:normal;font-weight:100 800;font-display:swap;src:url(https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggSxSuXd.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}"
-            "@font-face{font-family:'Newsreader';font-style:normal;font-weight:200 800;font-display:swap;src:url(https://fonts.gstatic.com/s/literata/v40/or3PQ6P12-iJxAIgLa78DkTtAoDhk0oVpaK3YLanFLHpPf2TbLi4J_LWTFCW.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}"
-            "@font-face{font-family:'Newsreader';font-style:italic;font-weight:200 800;font-display:swap;src:url(https://fonts.gstatic.com/s/literata/v40/or3yQ6P12-iJxAIgLYT1PLs1a-t7PU0AbeE9KK5X5ClqOw.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}")
+GR_RANGE = "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF,U+1F00-1FFF"
+GR_SRC = {
+    ('Sora', 'normal'): "https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggSxSuXd.woff2",
+    ('Newsreader', 'normal'): "https://fonts.gstatic.com/s/literata/v40/or3PQ6P12-iJxAIgLa78DkTtAoDhk0oVpaK3YLanFLHpPf2TbLi4J_LWTFCW.woff2",
+    ('Newsreader', 'italic'): "https://fonts.gstatic.com/s/literata/v40/or3yQ6P12-iJxAIgLYT1PLs1a-t7PU0AbeE9KK5X5ClqOw.woff2",
+}
+DEFAULT_W = {('Sora', 'normal'): ['100 800'], ('Newsreader', 'normal'): ['200 800'], ('Newsreader', 'italic'): ['200 800']}
+
+def page_weights(html):
+    """Greek faces must use the SAME weight descriptors the page loads from Google Fonts.
+    A wider range (100 800) wins font matching at weights the Latin face lacks and
+    knocks Latin text off Sora/Newsreader."""
+    out = {}
+    for url in re.findall(r'fonts\.googleapis\.com/css2\?([^"\')\s]*)', html):
+        for fam in re.findall(r'family=([^&]*)', url):
+            name, _, spec = fam.partition(':')
+            name = name.replace('+', ' ')
+            if name not in ('Sora', 'Newsreader') or '@' not in spec:
+                continue
+            axes, vals = spec.split('@', 1)
+            axes = axes.split(',')
+            for tup in vals.split(';'):
+                v = dict(zip(axes, tup.split(',')))
+                st = 'italic' if v.get('ital') == '1' else 'normal'
+                w = v.get('wght', '400').replace('..', ' ')
+                out.setdefault((name, st), [])
+                if w not in out[(name, st)]:
+                    out[(name, st)].append(w)
+    return out
+
+def font_css(html):
+    pw = page_weights(html)
+    r = ''
+    for key, src in GR_SRC.items():
+        for w in pw.get(key) or (DEFAULT_W[key] if key[0] not in {k[0] for k in pw} else []):
+            r += ("@font-face{font-family:'%s';font-style:%s;font-weight:%s;font-display:swap;"
+                  "src:url(%s) format('woff2');unicode-range:%s}" % (key[0], key[1], w, src, GR_RANGE))
+    return r
+
+FONT_MARK = "/*tc-el-fonts*/"
 
 def patch_core(c):
     if 'el:2' in c:
@@ -140,7 +177,7 @@ def patch_core(c):
     rep('LBL={en:"Language",it:"Lingua",es:"Idioma"}', 'LBL={en:"Language",it:"Lingua",es:"Idioma",el:"Γλώσσα"}')
     rep('<button type="button" data-l="es" title="Español">ES</button>',
         '<button type="button" data-l="es" title="Español">ES</button><button type="button" data-l="el" title="Ελληνικά">EL</button>')
-    rep("st.textContent='.tc-lp{", "st.textContent=\"" + FONT_CSS.replace('"', '\\"') + "\"+'.tc-lp{")
+    rep("st.textContent='.tc-lp{", "st.textContent=\"" + FONT_MARK + "\"+'.tc-lp{")
     return c
 
 def add_dict(dj, miss):
@@ -176,6 +213,9 @@ def run(path):
         return m.group(1) + json.dumps(X, ensure_ascii=False) + m.group(3)
     s = re.sub(r'(var D=window\.TCI18N_DICT\|\|\{\},X=)(\{.*?\})(;for\(var k in X\))', fixx, s, flags=re.S)
     s, n = re.subn(r'<script id="tc-i18n">window\.TCI18N_DICT=(\{.*?\});\n(.*?)</script>', fix, s, flags=re.S)
+    # Greek font faces, matched to this page's Google Fonts weights (replaces older versions)
+    fc = FONT_MARK + font_css(s)
+    s = re.sub(r'st\.textContent="(?:/\*tc-el-fonts\*/)?(?:@font-face\{[^}]*\})*"\+\'\.tc-lp\{', lambda m: 'st.textContent="' + fc + '"+\'.tc-lp{', s)
     # Settings language select
     s = s.replace('<option value="es">Español</option></select>', '<option value="es">Español</option><option value="el">Ελληνικά</option></select>')
     if s != s0:
