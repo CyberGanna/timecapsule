@@ -144,3 +144,14 @@ Brazil|Brasile|Brasil
 Nigeria|Nigeria|Nigeria
 Denmark|Danimarca|Dinamarca
 Chile|Cile|Chile
+Coming up|In arrivo|Próximamente
+24 min in|da 24 min|desde hace 24 min
+41 min in|da 41 min|desde hace 41 min
+results for|risultati per|resultados para
+Any time|Qualsiasi momento|Cualquier momento
+Try a search|Prova una ricerca|Prueba una búsqueda
+2 of 8 chairs free|2 di 8 posti liberi|2 de 8 sitios libres
+3 of 8 chairs free|3 di 8 posti liberi|3 de 8 sitios libres
+3 of 6 chairs free|3 di 6 posti liberi|3 de 6 sitios libres
+4 of 8 chairs free|4 di 8 posti liberi|4 de 8 sitios libres
+4 of 6 chairs free|4 di 6 posti liberi|4 de 6 sitios libres

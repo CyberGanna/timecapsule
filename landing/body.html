@@ -76,56 +76,80 @@ html.lp-has-lang{scroll-padding-top:108px}
 .lp h3{margin:0;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--head)}
 .lp .sub{margin:16px 0 0;font-size:17px;line-height:1.6;color:var(--mut);max-width:560px}
 
-/* find a table (search demo, based on the search mockup) */
-.lp-find{background:var(--pg)}
-.lf-app{margin-top:48px;border-radius:22px;background:#1B2144;border:1px solid #3A4175;padding:24px;color:#EEF1FF;box-shadow:0 30px 70px rgba(14,18,48,.18);--lf-mute:#A9B0D6;--lf-line:#3A4175;--lf-panel:#20264A;--lf-raise:#252B52}
-.lf-bar{display:flex;gap:10px}
-.lf-q{flex:1;position:relative;display:block}
-.lf-q svg{position:absolute;left:16px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--lf-mute);stroke-width:1.6;stroke-linecap:round}
-.lf-q input{width:100%;height:48px;border-radius:12px;border:1px solid var(--lf-line);background:var(--lf-panel);color:#EEF1FF;font:400 15px Sora,system-ui,sans-serif;padding:0 16px 0 42px;outline:none}
-.lf-q input:focus{border-color:#7C5CFF}
-.lf-go{height:48px;padding:0 22px;border:0;border-radius:12px;background:#7C5CFF;color:#fff;font:600 15px Sora,system-ui,sans-serif;cursor:pointer}
-.lf-try{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:14px 0 22px;font-size:13px;color:var(--lf-mute)}
-.lf-try button{height:30px;padding:0 12px;border-radius:15px;border:1px solid var(--lf-line);background:transparent;color:#C9CFF0;font:500 13px Sora,system-ui,sans-serif;cursor:pointer}
-.lf-try button[aria-pressed="true"]{background:rgba(23,195,200,.14);border-color:rgba(23,195,200,.5);color:#7FF0F2}
-.lf-body{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start}
-.lf-side{border-radius:16px;background:var(--lf-panel);border:1px solid var(--lf-line);padding:18px}
-.lf-h{margin:0 0 6px;font-weight:600;font-size:15px}
-.lf-side fieldset{border:0;margin:14px 0 0;padding:0}
-.lf-side legend{padding:0;margin-bottom:8px;font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--lf-mute)}
-.lf-side label{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13.5px;color:#DDE1F7;cursor:pointer}
-.lf-side input{position:absolute;opacity:0;pointer-events:none}
-.lf-side label i{flex:none;width:16px;height:16px;border-radius:5px;border:1.5px solid #5A6196;display:grid;place-items:center}
-.lf-side input:checked+i{background:#7C5CFF;border-color:#7C5CFF}
-.lf-side input:checked+i::after{content:"";width:8px;height:4px;border:2px solid #fff;border-top:0;border-right:0;transform:translateY(-1px) rotate(-45deg)}
-.lf-side input:disabled~span{opacity:.55}.lf-side input:disabled+i{opacity:.55}.lf-side label:has(input:disabled){cursor:default}
-.lf-side input:focus-visible+i{outline:2px solid #17C3C8;outline-offset:2px}
-.lf-cnt{margin:2px 0 14px;font-size:20px;font-weight:400;letter-spacing:-.01em}
-.lf-cnt q{color:#7FF0F2}
-.lf-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.lf-row{display:grid;grid-template-columns:76px minmax(0,1fr) 150px auto;gap:18px;align-items:center;padding:14px 16px;border-radius:16px;background:var(--lf-panel);border:1px solid var(--lf-line)}
-.lf-row.live{border-color:rgba(61,220,132,.55)}
-.lf-ic{position:relative;width:76px;height:64px;border-radius:12px;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,color-mix(in srgb,var(--c) 75%,#fff),var(--c) 70%)}
-.lf-ic svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.lf-ic .av{position:absolute;left:-6px;bottom:-8px;width:28px;height:28px;border-radius:50%;border:2px solid var(--lf-panel);display:grid;place-items:center;font-size:12px;font-weight:600;color:#0E1430;background:var(--a)}
-.lf-t{min-width:0}
-.lf-t h3{margin:0 0 4px;font-size:16.5px;font-weight:600;line-height:1.3;color:#EEF1FF;letter-spacing:-.01em}
-.lf-m{font-size:13px;color:var(--lf-mute)}
-.lf-m b{color:#C9CFF0;font-weight:600}
-.lf-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.lf-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#C9CFF0}
-.lf-tag i{width:7px;height:7px;border-radius:50%;background:var(--c)}
-.lf-tr{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 8px;border-radius:11px;background:#CFE6FF;color:#123A7A;font-size:11.5px;font-weight:600}
-.lf-tr svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.lf-when{font-size:13px;color:#EEF1FF;font-weight:600}
-.lf-when small{display:block;margin-top:3px;font-size:12px;font-weight:400;color:var(--lf-mute)}
-.lf-live{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:6px;background:#1FA463;color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em}
-.lf-live i{width:6px;height:6px;border-radius:50%;background:#fff}
-.lf-btn{height:38px;padding:0 16px;border-radius:10px;border:1px solid var(--lf-line);background:rgba(255,255,255,.06);color:#EEF1FF;font:600 14px Sora,system-ui,sans-serif;white-space:nowrap;display:inline-flex;align-items:center;text-decoration:none}
-.lf-row.live .lf-btn{background:#17C3C8;border-color:#17C3C8;color:#0E1430}
-.lf-none{margin:8px 0 0;font-size:14px;color:var(--lf-mute)}
-@media (max-width:900px){.lf-body{grid-template-columns:1fr}.lf-side{display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;padding:12px 14px}.lf-h,.lf-more-f{display:none}.lf-side fieldset{margin:0;display:flex;flex-wrap:wrap;gap:4px 16px}.lf-side legend{display:none}}
-@media (max-width:640px){.lf-app{padding:16px;border-radius:18px}.lf-go{padding:0 16px}.lf-row{grid-template-columns:56px minmax(0,1fr);gap:12px}.lf-ic{width:56px;height:52px}.lf-ic svg{width:24px;height:24px}.lf-when{grid-column:2}.lf-row .lf-btn{grid-column:1/-1;justify-content:center}.lf-cnt{font-size:17px}}
+/* find a table: same look as the Search page inside the app, laid flat on an app-coloured band */
+.lp-find{background:#1B2144!important;color:#EEF1FF;border-top:1px solid #2A3060!important}
+.lp-find .ey{color:#A995FF}.lp-find h2{color:#EEF1FF}.lp-find .sub{color:#C9CFF0}
+.lf{--bg:#1B2144;--surface:#20264A;--raise:#252B52;--line:#3A4175;--fg:#EEF1FF;--mute:#A9B0D6;--soft:#C9CFF0;--lamp:#17C3C8;--lamp-ink:#0E1430;--live:#3DDC84;--gold:#F2C14E;margin-top:36px;color:var(--fg)}
+.lf-sq{position:relative;display:block;max-width:720px;margin:0}
+.lf-sq svg.mg{position:absolute;left:18px;top:50%;width:20px;height:20px;margin-top:-10px;color:var(--mute);pointer-events:none}
+.lf-sq input{display:block;width:100%;box-sizing:border-box;height:58px;border-radius:16px;border:1px solid var(--line);background:var(--surface);padding:0 20px 0 50px;font:inherit;font-size:19px;font-weight:300;letter-spacing:-.01em;color:var(--fg);outline:none;-webkit-appearance:none;appearance:none}
+.lf-sq input::-webkit-search-cancel-button{display:none}
+.lf-sq input::placeholder{color:var(--mute)}
+.lf-sq input:focus{border-color:var(--mute)}
+.lf-cnt{margin:14px 0 0;font-size:14px;color:var(--mute)}
+.lf-cnt b{color:var(--fg);font-weight:600}
+.lf-cnt q{color:var(--fg);quotes:"\201C" "\201D"}
+.lf-row{display:flex;align-items:center;gap:10px;margin-top:24px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.lf-pills{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.lf-pills::-webkit-scrollbar{display:none}
+.lf-day{flex:none;display:flex;align-items:center;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:none;font:inherit;font-size:14px;color:var(--fg);cursor:pointer}
+.lf-day:hover{border-color:var(--mute)}
+.lf-day[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.lf-sels{display:flex;gap:8px;flex:none}
+.lf-sel{height:36px;border-radius:10px;border:1px solid var(--line);background:var(--raise);padding:0 12px;font:inherit;font-size:14px;color:var(--fg)}
+.lf-res{margin-top:34px}
+.lf-sh{display:flex;align-items:baseline;gap:12px;margin:0 0 12px}
+.lf-sh h3{font-weight:400;font-size:22px;letter-spacing:-.02em;margin:0;color:var(--fg)}
+.lf-sh .n{color:var(--mute);font-size:14px}
+.lf-grp{margin:18px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.lf-grp:first-child{margin-top:0}
+.lf-ev{display:grid;grid-template-columns:96px minmax(0,1fr) 190px minmax(130px,auto);gap:20px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line)}
+.lf-tm b{display:block;font-weight:600;font-size:20px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.15;color:var(--fg)}
+.lf-tm span{display:block;font-size:12.5px;color:var(--gold)}
+.lf-tm.lv b{color:var(--live);display:flex;align-items:center;gap:8px;font-size:18px}
+.lf-tm.lv b i{width:8px;height:8px;border-radius:50%;background:var(--live);animation:lfbl 1.2s ease-in-out infinite}
+.lf-tm.lv span{color:var(--mute)}
+@keyframes lfbl{50%{opacity:.3}}
+.lf-ei{min-width:0;display:flex;gap:14px;align-items:center}
+.lf-th{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center}
+.lf-th svg{width:50%;height:50%;fill:none;stroke:#0E1430;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:.8}
+.lf-et{min-width:0}
+.lf-et h4{font-weight:600;font-size:16.5px;line-height:1.3;margin:0 0 3px;color:var(--fg);text-wrap:balance}
+.lf-et h4 mark{background:none;color:var(--fg);font-weight:inherit;box-shadow:inset 0 -2px 0 rgba(242,193,78,.75)}
+.lf-meta{font-size:13px;color:var(--mute)}
+.lf-meta b{color:var(--soft);font-weight:600}
+.lf-topic{display:inline-flex;align-items:center;gap:6px;color:var(--soft);font-size:12px;font-weight:500;white-space:nowrap}
+.lf-topic i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+.lf-chairs{display:flex;flex-direction:column;gap:6px}
+.lf-chairs>span{font-size:12.5px;color:var(--mute)}
+.lf-fc{display:flex}
+.lf-fc span{width:26px;height:26px;border-radius:50%;overflow:hidden;border:2px solid var(--bg);margin-left:-8px;position:relative}
+.lf-fc span:first-child{margin-left:0;box-shadow:0 0 0 1.5px var(--gold)}
+.lf-fc svg{width:100%;height:100%;display:block}
+.lf-btn{justify-self:end;height:38px;padding:0 18px;border-radius:10px;border:0;background:var(--lamp);color:var(--lamp-ink)!important;font-weight:600;font-size:14px;white-space:nowrap;text-decoration:none!important;display:inline-flex;align-items:center}
+.lf-btn:hover{filter:brightness(1.06)}
+.lf-btn.ghost{background:none;border:1px solid var(--line);color:var(--fg)!important}
+.lf-btn.ghost:hover{border-color:var(--fg);filter:none}
+.lf-none{padding:28px 4px;border-bottom:1px solid var(--line);color:var(--mute);font-size:14px}
+.lf-none p{margin:0}
+.lf-more{display:inline-flex;gap:6px;margin-top:26px;color:#A995FF!important}
+@media (max-width:900px){
+ .lf-ev{grid-template-columns:80px minmax(0,1fr) auto;grid-template-areas:"t i b" "t c b"}
+ .lf-ev .lf-tm{grid-area:t;align-self:start}.lf-ev .lf-ei{grid-area:i}
+ .lf-ev .lf-chairs{grid-area:c;flex-direction:row;align-items:center;gap:10px}
+ .lf-ev .lf-btn{grid-area:b}
+}
+@media (max-width:640px){
+ .lf-sq input{height:52px;font-size:17px;border-radius:14px}
+ .lf-row{display:grid;grid-template-columns:minmax(0,1fr)}
+ .lf-sels{display:grid;grid-template-columns:1fr 1fr}
+ .lf-sel{min-width:0;width:100%}
+ .lf-ev{grid-template-columns:66px minmax(0,1fr);grid-template-areas:"t i" "t c" "t b";gap:8px 12px}
+ .lf-ev .lf-btn{justify-self:start;margin-top:2px}
+ .lf-th{width:42px;height:42px;border-radius:11px}
+ .lf-tm b{font-size:17px}.lf-tm.lv b{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){.lf-tm.lv b i{animation:none}}
 /* what it is */
 .lp-about{background:var(--pg)}
 .lp-pil{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
@@ -418,38 +442,20 @@ html.lp-has-lang{scroll-padding-top:108px}
   <p class="ey">Find a table</p>
   <h2 id="h-find">Whatever you're curious about, there's a table</h2>
   <p class="sub">Search a topic, a question or a host. See who is talking right now, or save a chair for later.</p>
-  <div class="lf-app" id="lfApp">
-    <form class="lf-bar" role="search" onsubmit="return false">
-      <label class="lf-q"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg><input id="lfIn" type="search" value="chemistry" autocomplete="off" aria-label="Search a topic, a question, a host" placeholder="Search a topic, a question, a host"></label>
-      <button type="submit" class="lf-go" id="lfGo">Search</button>
-    </form>
-    <div class="lf-try"><span>Try</span><button type="button" data-q="chemistry" aria-pressed="true">chemistry</button><button type="button" data-q="philosophy" aria-pressed="false">philosophy</button><button type="button" data-q="climate" aria-pressed="false">climate</button></div>
-    <div class="lf-body">
-      <aside class="lf-side" aria-label="Filters">
-        <p class="lf-h">Filters</p>
-        <fieldset><legend>When</legend>
-          <label><input type="checkbox" data-w="live"><i></i><span>Live now</span></label>
-          <label><input type="checkbox" data-w="today"><i></i><span>Today</span></label>
-          <label><input type="checkbox" data-w="week"><i></i><span>This week</span></label>
-        </fieldset>
-        <fieldset class="lf-more-f"><legend>Host</legend>
-          <label><input type="checkbox" data-t="1"><i></i><span>Trusted host</span></label>
-        </fieldset>
-        <fieldset class="lf-more-f"><legend>Language</legend>
-          <label><input type="checkbox" checked disabled><i></i><span>English</span></label>
-          <label><input type="checkbox" disabled><i></i><span>Italiano</span></label>
-          <label><input type="checkbox" disabled><i></i><span>Español</span></label>
-          <label><input type="checkbox" disabled><i></i><span>Ελληνικά</span></label>
-        </fieldset>
-      </aside>
-      <div class="lf-res">
-        <p class="lf-cnt"><span>Results for</span> <q id="lfQ">chemistry</q></p>
-        <ul class="lf-list" id="lfList"></ul>
-        <p class="lf-none" id="lfNone" hidden><span id="lfNoneF">No table matches these filters yet.</span><span id="lfNoneT" hidden>This preview knows three searches. Try one of the suggestions above.</span></p>
-      </div>
+  <div class="lf" id="lfApp">
+    <form class="lf-sq" role="search" onsubmit="return false"><svg class="mg" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input id="lfIn" type="search" value="chemistry" autocomplete="off" enterkeyhint="search" aria-label="Search tables, people, topics" placeholder="Search tables, people, topics"></form>
+    <p class="lf-cnt"><b id="lfN">4</b> <span>results for</span> <q id="lfQ">chemistry</q></p>
+    <div class="lf-row">
+      <div class="lf-pills lf-try" role="group" aria-label="Try a search"><button type="button" class="lf-day" data-q="chemistry" aria-pressed="true">chemistry</button><button type="button" class="lf-day" data-q="philosophy" aria-pressed="false">philosophy</button><button type="button" class="lf-day" data-q="climate" aria-pressed="false">climate</button></div>
+      <div class="lf-sels"><select class="lf-sel" id="lfWhen" aria-label="When"><option value="">Any time</option><option value="live">Live now</option><option value="today">Today</option><option value="week">This week</option></select><select class="lf-sel" id="lfLang" aria-label="Language"><option value="">Any language</option><option value="en">English</option></select></div>
     </div>
+    <div class="lf-res">
+      <div class="lf-sh"><h3>Tables</h3><span class="n" id="lfN2">4</span></div>
+      <div id="lfList"></div>
+      <div class="lf-none" id="lfNone" hidden><p id="lfNoneF">No table matches these filters yet.</p><p id="lfNoneT" hidden>This preview knows three searches. Try one of the suggestions above.</p></div>
+    </div>
+    <a class="lp-more lf-more" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">See today's tables <span aria-hidden="true">→</span></a>
   </div>
-  <a class="lp-more" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">See today's tables<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
 </div>
 </section>
 
@@ -606,61 +612,65 @@ html.lp-has-lang{scroll-padding-top:108px}
 </script>
 <script>
 (function(){
-  /* find a table: a small working search demo (sample tables) */
+  /* find a table: small working search demo, drawn like the Search page (sample tables) */
   var app=document.getElementById('lfApp');if(!app)return;
   var AG='https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5';
-  var IC={flask:'<path d="M9.5 3.5h5M10.5 3.5v5.5L5 18.5a1.5 1.5 0 0 0 1.3 2.2h11.4a1.5 1.5 0 0 0 1.3-2.2L13.5 9V3.5"/><path d="M7.5 14.5h9"/>',
-    atom:'<circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/>',
-    bread:'<path d="M4 13.5C4 9 7.6 6 12 6s8 3 8 7.5V18H4z"/><path d="M9 9.5l1.5 2M12.5 9l1.5 2"/>',
-    leaf:'<path d="M5 19C5 10 10 5 19 5c0 9-5 14-14 14z"/><path d="M5 19L13 11"/>',
-    q:'<circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.7.3-1 .8-1 1.5v.6"/><circle cx="12" cy="16.8" r=".6" fill="#fff"/>',
-    scale:'<path d="M12 4v16M7 20h10M5 8h14"/><path d="M5 8l-2.5 6h5zM19 8l-2.5 6h5z"/>',
-    sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/>',
-    bolt:'<path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/>',
-    plane:'<path d="M3 13.5l18-7-5 14-3.5-5.5z"/><path d="M12.5 15L21 6.5"/>',
-    car:'<path d="M4 16v-3l2-5h12l2 5v3z"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/>'};
-  var T={Science:'#6CB4FF',Climate:'#3DDC84',Craft:'#F2C14E',Philosophy:'#C08BFF',Religion:'#F29BD0',Energy:'#17C3C8',Travel:'#FF9E6B'};
+  var P={Lena:["#E6E0FF","#17C3C8","#F3D2B8","#D9B26A","long"],David:["#D9F8FA","#7C5CFF","#D9A47C","#4A3426","short"],Marco:["#E6E0FF","#17C3C8","#C68E6B","#1B1B1B","short"],Ana:["#D9F8FA","#7C5CFF","#E8B994","#2B1B14","long"],Sofia:["#D9F8FA","#090B16","#F1C9A5","#8A4B2A","bun"],Jonas:["#E6E0FF","#7C5CFF","#F3D2B8","#C9A15A","short"],Gregory:["#FFE9C7","#2E3566","#E8B994","#6B4A33","beard"],Mia:["#FFE0EC","#F4A6D7","#F1C9A5","#1B1B1B","long"],Omar:["#E6E0FF","#17C3C8","#A86F4C","#1B1B1B","beard"],Yuki:["#D9F8FA","#C9A7FF","#F3D2B8","#121212","bun"],Tom:["#FFE9C7","#7C5CFF","#F1C9A5","#B0B6C9","bald"],Priya:["#FFE0EC","#17C3C8","#B9805A","#1B1B1B","long"],Elif:["#E6E0FF","#FF9E8A","#E8B994","#3A2A20","long"],Kofi:["#D9F8FA","#E9F27A","#7A4E33","#121212","short"],Amara:["#FFE9C7","#17C3C8","#6E4630","#121212","bun"],Noah:["#D9F8FA","#F4A6D7","#E8B994","#8A4B2A","short"]};
+  var HAIR={short:function(c){return '<path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="'+c+'"/>'},long:function(c){return '<path d="M19 30C16 9 48 9 45 30L45 44L40 44L40 27C36 20 28 20 24 27L24 44L19 44Z" fill="'+c+'"/>'},bun:function(c){return '<path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="'+c+'"/><circle cx="32" cy="9" r="6" fill="'+c+'"/>'},bald:function(c){return '<path d="M21 22C23 15 41 15 43 22C39 19 25 19 21 22Z" fill="'+c+'"/>'},beard:function(c){return '<path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="'+c+'"/><path d="M22 28C22 40 42 40 42 28C40 34 24 34 22 28Z" fill="'+c+'"/>'}};
+  function av(n){var p=P[n];return '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="'+p[0]+'"/><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="'+p[1]+'"/><rect x="27" y="34" width="10" height="11" fill="'+p[2]+'"/><circle cx="32" cy="26" r="12" fill="'+p[2]+'"/>'+HAIR[p[4]](p[3])+'<circle cx="28" cy="27" r="1.5" fill="#090B16"/><circle cx="36" cy="27" r="1.5" fill="#090B16"/><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>'}
+  var C={Philosophy:"#F29BD0",Religion:"#B99BFF",Home:"#5FE0DE",Craft:"#FF9478",Energy:"#6CB8FF",Travel:"#D9E35F",Science:"#8BE38B"};
+  var TI={Philosophy:'<path d="M4 20h16M5 17h14M6 17V9m4 8V9m4 8V9m4 8V9M4 9h16L12 4z"/>',
+   Religion:'<path d="M12 8.5v12M12 8.5C10 7.3 7 7 3.5 7.5v11.5c3.5-.5 6.5-.2 8.5 1M12 8.5c2-1.2 5-1.5 8.5-1v11.5c-3.5-.5-6.5-.2-8.5 1M12 2.5v2.5M8 3.5l1 1.8M16 3.5l-1 1.8"/>',
+   Home:'<path d="M4 11l8-7 8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/>',
+   Craft:'<path d="M14 6l4 4M4 20l9.5-9.5M12 4.5l3-1.5 6 6-1.5 3-2-2-3 3-4.5-4.5 3-3z"/>',
+   Energy:'<path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z"/>',
+   Travel:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5z"/>',
+   Science:'<path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3M7 15h10"/>'};
+  /* [when, big, small, topic, title, host, people, chairs line] */
   var D={
     chemistry:[
-      ['live','Live · 24 min','Science','flask','Organic chemistry: how reactions really work','Ana','Brazil',1,'3 seats free'],
-      ['today','18:30','Science','atom','Chemistry without tears: a friendly start','Marco','Italy',0,'4 chairs free'],
-      ['today','20:00','Craft','bread','Kitchen chemistry: why does bread rise?','Sofia','Spain',1,'5 chairs free'],
-      ['tomorrow','17:00','Climate','leaf','Green chemistry: can industry be clean?','Lena','Germany',0,'2 chairs free']],
+      ['live','LIVE','24 min in','Science','Organic chemistry: how reactions really work',['Ana','Marco','Elif','Kofi','Yuki'],'3 of 8 chairs free'],
+      ['today','18:30','Today','Science','Chemistry without tears: a friendly start',['Marco','Mia','Tom'],'3 of 6 chairs free'],
+      ['today','20:00','Today','Craft','Kitchen chemistry: why does bread rise?',['Sofia','Noah','Priya','David'],'4 of 8 chairs free'],
+      ['week','17:00','Tomorrow','Energy','Green chemistry: can industry be clean?',['Lena','Jonas'],'4 of 6 chairs free']],
     philosophy:[
-      ['live','Live · 41 min','Philosophy','scale','Is free will an illusion?','Gregory','Switzerland',1,'2 seats free'],
-      ['today','19:00','Philosophy','q','What makes a good question?','Amara','Nigeria',1,'3 chairs free'],
-      ['tomorrow','18:00','Religion','sun','Can we be good without God?','Omar','Egypt',0,'4 chairs free'],
-      ['tomorrow','21:00','Philosophy','q','Is it ever right to lie?','Yuki','Japan',0,'5 chairs free']],
+      ['live','LIVE','41 min in','Philosophy','Is free will an illusion?',['Gregory','Mia','Omar','Priya','Lena','Tom'],'2 of 8 chairs free'],
+      ['today','19:00','Today','Philosophy','What makes a good question?',['Amara','Elif','Noah'],'3 of 6 chairs free'],
+      ['week','18:00','Tomorrow','Religion','Can we be good without God?',['Omar','David','Ana','Kofi'],'4 of 8 chairs free'],
+      ['week','21:00','Tomorrow','Philosophy','Is it ever right to lie?',['Yuki','Sofia'],'4 of 6 chairs free']],
     climate:[
-      ['live','Live · 24 min','Energy','bolt','Green technology versus nuclear: what should power our future?','Lena','Germany',1,'3 seats free'],
-      ['today','17:30','Travel','plane','Will we ever stop flying?','Jonas','Denmark',0,'2 chairs free'],
-      ['tomorrow','19:00','Energy','bolt','Home batteries: are they worth it yet?','Priya','India',1,'4 chairs free'],
-      ['tomorrow','20:30','Climate','car','Cities without cars: dream or plan?','Mateo','Chile',0,'3 chairs free']]};
-  var AV=['#FFD9B8','#CFE6FF','#E6DAFF','#C8F5E0','#FFE0EC'];
-  var nP=document.getElementById('lfNoneF'),nT=document.getElementById('lfNoneT'),list=document.getElementById('lfList'),none=document.getElementById('lfNone'),qEl=document.getElementById('lfQ'),inp=document.getElementById('lfIn'),cur='chemistry';
-  var SH='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 3v5.5c0 4.3-3 7.6-7 8.5-4-.9-7-4.2-7-8.5V6.5z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>';
-  function render(){
-    var W=[].slice.call(app.querySelectorAll('input[data-w]:checked')).map(function(x){return x.getAttribute('data-w')});
-    var tr=app.querySelector('input[data-t]').checked;
-    var rows=D[cur].filter(function(r){return (!W.length||W.indexOf('week')>=0||W.indexOf(r[0])>=0)&&(!tr||r[7])});
-    list.innerHTML=rows.map(function(r,i){var c=T[r[2]]||'#7C5CFF',live=r[0]==='live';
-      var when=live?'<span class="lf-live"><i></i><span>'+r[1]+'</span></span>':'<span>'+(r[0]==='today'?'Today':'Tomorrow')+'</span><small data-noi18n>'+r[1]+'</small>';
-      return '<li class="lf-row'+(live?' live':'')+'" style="--c:'+c+'"><div class="lf-ic"><svg viewBox="0 0 24 24" aria-hidden="true">'+IC[r[3]]+'</svg><span class="av" style="--a:'+AV[i%5]+'" aria-hidden="true">'+r[5][0]+'</span></div>'+
-        '<div class="lf-t"><h3>'+r[4]+'</h3><div class="lf-m"><span>with</span> <b>'+r[5]+'</b> · <span>'+r[6]+'</span></div><div class="lf-tags"><span class="lf-tag"><i></i><span>'+r[2]+'</span></span>'+(r[7]?'<span class="lf-tr">'+SH+'<span>Trusted host</span></span>':'')+'</div></div>'+
-        '<div class="lf-when">'+when+'<small>'+r[8]+'</small></div>'+
-        '<a class="lf-btn" href="'+AG+'" target="_top">'+(live?'Join table':'Save a chair')+'</a></li>'}).join('');
-    none.hidden=rows.length>0;nP.hidden=false;nT.hidden=true;qEl.textContent=cur;
-    app.querySelectorAll('.lf-try button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-q')===cur)});
-  }
-  function go(q){q=(q||'').toLowerCase().trim();var k=Object.keys(D).filter(function(x){var l=lab(x).toLowerCase();return q&&(x.indexOf(q)===0||q.indexOf(x)>=0||l.indexOf(q)===0||q.indexOf(l)>=0)})[0];
-    if(!k){list.innerHTML='';qEl.textContent=q;none.hidden=false;nP.hidden=true;nT.hidden=false;app.querySelectorAll('.lf-try button').forEach(function(b){b.setAttribute('aria-pressed','false')});return}
-    cur=k;render();syncIn()}
+      ['live','LIVE','24 min in','Energy','Green technology versus nuclear: what should power our future?',['Lena','Kofi','David','Ana','Yuki'],'3 of 8 chairs free'],
+      ['today','17:30','Today','Travel','Will we ever stop flying?',['Jonas','Elif','Marco'],'3 of 6 chairs free'],
+      ['week','19:00','Tomorrow','Energy','Home batteries: are they worth it yet?',['Priya','Tom','Mia','Noah'],'4 of 8 chairs free'],
+      ['week','20:30','Tomorrow','Travel','Cities without cars: dream or plan?',['Noah','Sofia','Gregory'],'3 of 6 chairs free']]};
+  var list=document.getElementById('lfList'),none=document.getElementById('lfNone'),nF=document.getElementById('lfNoneF'),nT=document.getElementById('lfNoneT'),
+      qEl=document.getElementById('lfQ'),nEl=document.getElementById('lfN'),n2=document.getElementById('lfN2'),inp=document.getElementById('lfIn'),
+      wSel=document.getElementById('lfWhen'),cur='chemistry';
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  function hl(t){var w=cur.slice(0,6);return esc(t).replace(new RegExp('\\b('+w+'\\w*)','ig'),'<mark>$1</mark>')}
+  function row(r){var c=C[r[3]],live=r[0]==='live';
+    return '<article class="lf-ev" style="--c:'+c+'"><div class="lf-tm'+(live?' lv':'')+'">'+(live?'<b><i></i>LIVE</b><span>'+r[2]+'</span>':'<b data-noi18n>'+r[1]+'</b><span>'+r[2]+'</span>')+'</div>'+
+      '<div class="lf-ei"><div class="lf-th" style="background:radial-gradient(circle at 35% 30%,'+c+','+c+'66 75%,#252B52)"><svg viewBox="0 0 24 24" aria-hidden="true">'+TI[r[3]]+'</svg></div>'+
+      '<div class="lf-et"><h4 data-noi18n>'+hl(r[4])+'</h4><div class="lf-meta"><span class="lf-topic"><i></i><span>'+r[3]+'</span></span> · <span>with</span> <b data-noi18n>'+r[5][0]+'</b></div></div></div>'+
+      '<div class="lf-chairs"><span class="lf-fc">'+r[5].map(function(n){return '<span>'+av(n)+'</span>'}).join('')+'</span><span>'+r[6]+'</span></div>'+
+      '<a class="lf-btn'+(live?'':' ghost')+'" href="'+AG+'" target="_top">'+(live?'Join':'Save a chair')+'</a></article>'}
+  function setCount(n){nEl.textContent=n;n2.textContent=n}
+  function render(){var w=wSel.value;
+    var rows=D[cur].filter(function(r){return !w||w==='week'||r[0]==='live'||(w==='today'&&r[0]==='today')});
+    var lv=rows.filter(function(r){return r[0]==='live'}),up=rows.filter(function(r){return r[0]!=='live'});
+    list.innerHTML=(lv.length?'<p class="lf-grp">Happening now</p>'+lv.map(row).join(''):'')+(up.length?'<p class="lf-grp">Coming up</p>'+up.map(row).join(''):'');
+    setCount(rows.length);none.hidden=rows.length>0;nF.hidden=false;nT.hidden=true;qEl.textContent=lab(cur);
+    app.querySelectorAll('.lf-try button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-q')===cur)})}
   function lab(k){var b=app.querySelector('.lf-try button[data-q="'+k+'"]');return b?b.textContent.trim():k}
-  function syncIn(){if(document.activeElement!==inp)inp.value=lab(cur)}
+  function syncIn(){if(document.activeElement!==inp)inp.value=lab(cur);qEl.textContent=lab(cur)}
+  function go(q){q=(q||'').toLowerCase().trim();
+    var k=Object.keys(D).filter(function(x){var l=lab(x).toLowerCase();return q&&(x.indexOf(q)===0||q.indexOf(x)>=0||l.indexOf(q)===0||q.indexOf(l)>=0)})[0];
+    if(!k){list.innerHTML='';qEl.textContent=q;setCount(0);none.hidden=false;nF.hidden=true;nT.hidden=false;app.querySelectorAll('.lf-try button').forEach(function(b){b.setAttribute('aria-pressed','false')});return}
+    cur=k;render();syncIn()}
   new MutationObserver(function(){syncIn()}).observe(app.querySelector('.lf-try'),{subtree:true,childList:true,characterData:true});
-  app.querySelector('.lf-bar').addEventListener('submit',function(e){e.preventDefault();go(inp.value)});
+  app.querySelector('.lf-sq').addEventListener('submit',function(e){e.preventDefault();go(inp.value)});
   app.querySelectorAll('.lf-try button').forEach(function(b){b.addEventListener('click',function(){go(b.getAttribute('data-q'))})});
-  app.querySelectorAll('input[type=checkbox]').forEach(function(x){x.addEventListener('change',render)});
+  wSel.addEventListener('change',render);
   render();syncIn();
 })();
 </script>
