@@ -177,3 +177,8 @@ Meet your wavelength|Trova chi è sulla tua lunghezza d'onda|Encuentra tu misma 
 Where your orbits cross someone else's, we suggest people and tables to sit with.|Dove le tue orbite incrociano quelle di qualcun altro, ti suggeriamo persone e tavoli a cui sederti.|Donde tus órbitas se cruzan con las de otra persona, te sugerimos personas y mesas con las que sentarte.
 +3 TimeCoins|+3 TimeCoins|+3 TimeCoins
 from|da|de
+Next to the usual things in your profile, you can have fun adding the books and films you love. They orbit around your name and help you find people on your wavelength.|Accanto alle solite informazioni del tuo profilo, puoi divertirti ad aggiungere i libri e i film che ami. Orbitano attorno al tuo nome e ti aiutano a trovare persone sulla tua lunghezza d'onda.|Junto a lo habitual de tu perfil, puedes divertirte añadiendo los libros y películas que te encantan. Orbitan alrededor de tu nombre y te ayudan a encontrar gente en tu misma onda.
+Grouped by theme|Raggruppati per tema|Agrupados por tema
+Your topics become coloured clouds, so anyone can see at a glance what you love.|I tuoi temi diventano nuvole colorate, così chiunque vede a colpo d'occhio cosa ami.|Tus temas se convierten en nubes de colores, para que cualquiera vea de un vistazo lo que te gusta.
+It grows at the table|Cresce al tavolo|Crece en la mesa
+A book or film mentioned at a table can join your orbits with one tap.|Un libro o un film citato a un tavolo può entrare nelle tue orbite con un tocco.|Un libro o una película mencionados en una mesa pueden unirse a tus órbitas con un toque.

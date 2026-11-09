@@ -1817,3 +1817,8 @@ Meet your wavelength|Βρες όσους είναι στο ίδιο μήκος �
 Where your orbits cross someone else's, we suggest people and tables to sit with.|Όπου οι τροχιές σου συναντούν κάποιου άλλου, σου προτείνουμε ανθρώπους και τραπέζια για να καθίσεις.
 +3 TimeCoins|+3 TimeCoins
 from|από
+Next to the usual things in your profile, you can have fun adding the books and films you love. They orbit around your name and help you find people on your wavelength.|Δίπλα στα συνηθισμένα του προφίλ σου, μπορείς να διασκεδάσεις προσθέτοντας τα βιβλία και τις ταινίες που αγαπάς. Γυρίζουν σε τροχιά γύρω από το όνομά σου και σε βοηθούν να βρεις ανθρώπους στο ίδιο μήκος κύματος.
+Grouped by theme|Ομαδοποιημένα ανά θέμα
+Your topics become coloured clouds, so anyone can see at a glance what you love.|Τα θέματά σου γίνονται χρωματιστά σύννεφα, ώστε ο καθένας να βλέπει με μια ματιά τι αγαπάς.
+It grows at the table|Μεγαλώνει στο τραπέζι
+A book or film mentioned at a table can join your orbits with one tap.|Ένα βιβλίο ή μια ταινία που αναφέρθηκε σε ένα τραπέζι μπαίνει στις τροχιές σου με ένα πάτημα.
