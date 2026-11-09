@@ -1781,3 +1781,6 @@ Nigeria|Νιγηρία
 Denmark|Δανία
 Chile|Χιλή
 3 seats free|3 ελεύθερες θέσεις
+Five short reads to find your way around, plus quick answers in the FAQ.|Πέντε σύντομα κείμενα για να βρεις τον δρόμο σου, και γρήγορες απαντήσεις στις συχνές ερωτήσεις.
+Quick answers about privacy, TimeCoins, hosting and your account.|Γρήγορες απαντήσεις για απόρρητο, TimeCoins, φιλοξενία και τον λογαριασμό σου.
+6 topics|6 θέματα

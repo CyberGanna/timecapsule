@@ -21,13 +21,8 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
 .ic.v{background:rgba(124,92,255,.18);color:#A995FF}
 .ic.g{background:rgba(242,193,78,.14);color:var(--gold)}
 .ic.s{background:rgba(201,207,240,.10);color:var(--soft)}
+.ic.b{background:rgba(110,168,255,.15);color:#9CC4FF}
 .ic.r{background:rgba(255,120,120,.14);color:#FF9A9A}
-.faqcta{display:flex;align-items:center;gap:16px;margin-top:16px;padding:18px 22px;border-radius:18px;border:1px dashed var(--line);color:var(--fg);text-decoration:none}
-.faqcta:hover{border-color:var(--mute)}
-.faqcta div{flex:1;min-width:0;display:grid;gap:2px}
-.faqcta b{font-weight:500}
-.faqcta span{color:var(--mute);font-size:14px}
-.faqcta svg{width:18px;height:18px;color:var(--mute);flex:none}
 /* guide */
 .gl{display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;padding-top:40px}
 .side{position:sticky;top:calc(88px + env(safe-area-inset-top,0px));align-self:start;display:grid;gap:2px}
@@ -150,7 +145,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
  <div class="hero">
   <p class="ey">Help</p>
   <h1>Guides</h1>
-  <p class="lede">Five short reads to find your way around. Each one takes about two minutes.</p>
+  <p class="lede">Five short reads to find your way around, plus quick answers in the FAQ.</p>
  </div>
  <div class="tiles">
   <a class="tile" href="#first"><span class="ic t"><svg><use href="#i-topic"/></svg></span><b>Your first table</b><span>Find a table, take a chair and join the conversation.</span><small>2 min read</small></a>
@@ -158,8 +153,8 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
   <a class="tile" href="#coins"><span class="ic g"><svg><use href="#i-coin"/></svg></span><b>TimeCoins</b><span>How people say thank you after a table, and what coins are for.</span><small>2 min read</small></a>
   <a class="tile" href="#notes"><span class="ic s"><svg><use href="#i-note"/></svg></span><b>Notes</b><span>Private notes on the side, and the three ways to use them.</span><small>2 min read</small></a>
   <a class="tile" href="#report"><span class="ic r"><svg><use href="#i-shield"/></svg></span><b>Report abuse</b><span>What to do when someone makes a table unsafe or unkind.</span><small>2 min read</small></a>
+  <a class="tile" href="FAQ_URL" target="_top"><span class="ic b"><svg><use href="#i-q"/></svg></span><b>FAQ</b><span>Quick answers about privacy, TimeCoins, hosting and your account.</span><small>6 topics</small></a>
  </div>
- <a class="faqcta" href="FAQ_URL" target="_top"><span class="ic s"><svg><use href="#i-q"/></svg></span><div><b>Looking for a quick answer?</b><span>The FAQ covers privacy, TimeCoins, hosting and your account.</span></div><svg><use href="#i-arrow"/></svg></a>
 </section>
 
 <!-- GUIDE LAYOUT -->
