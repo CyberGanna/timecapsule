@@ -1,0 +1,500 @@
+<style id="lp-css">
+/* ---------- Public landing (signed out) ---------- */
+html,body{height:auto!important;overflow-x:hidden!important;overflow-y:auto!important}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+html.rd-open,body.rd-open{overflow:hidden!important}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.hud,.count,.feed,.legend,.hint,.status,.go{position:absolute!important}
+#lproto{display:none!important}
+#tch .tch-search,#tch [data-tch="search"]{display:none!important}
+#tch{transition:background .25s}
+#tch.lp-solid .tch-bar{background:rgba(20,25,54,.94)!important;border-bottom:1px solid #3A4175!important;backdrop-filter:blur(10px)}
+#tch .tc-lp.h{margin-left:6px}
+@media (max-width:760px){
+  canvas{touch-action:pan-y!important}
+  #tch .tch-auth a.j{display:none!important}
+  #tch .tch-auth a.s{display:inline-flex!important}
+  #tch .tc-lp.h .tc-seg button{min-width:28px;padding:0 4px}
+}
+/* Karim 2026-11-09: no listener legend, no person pop-ups on avatars */
+#glg .glg-k{display:none!important}
+.tcp{display:none!important}
+.faces span[data-gu]{cursor:default!important;pointer-events:none}
+/* hero */
+.hud h1.lp-h{font-size:clamp(34px,calc(3vw + 10px),54px);font-weight:300;letter-spacing:-.03em;line-height:1.08;margin:0 0 18px}
+.hud h1.lp-h span{display:block}
+.hud h1.lp-h span+span{font-weight:600}
+.hud .lp-acts{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:26px;pointer-events:auto}
+.hud .lp-acts .cta{margin-top:0}
+.hud .lp-acts .ghost{color:#EEF1FF;font-size:14.5px;text-decoration:none;border-bottom:1px solid rgba(238,241,255,.35);padding-bottom:2px}
+.hud .lp-acts .ghost:hover{border-color:#EEF1FF}
+.lp-down{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:6;display:grid;justify-items:center;gap:6px;color:#C9CFF0;text-decoration:none;font:400 10.5px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase}
+.lp-down svg{width:18px;height:18px;animation:lpb 2.4s ease-in-out infinite}
+@keyframes lpb{50%{transform:translateY(4px)}}
+@media (prefers-reduced-motion:reduce){.lp-down svg{animation:none}}
+@media (max-width:760px){
+  .hud h1.lp-h{font-size:36px}
+  .lp-down{display:none}
+  .count{bottom:auto!important;top:calc(100svh - 74px)!important}
+}
+.lp-hero-spacer{height:100vh;height:100svh;min-height:560px}
+
+/* sections */
+.lp{
+  --pg:#FBFAF7;--pg2:#F3F1EC;--ink:#1C1F33;--head:#0E1230;--mut:#5F6380;--ln:#E3E0D8;--card:#FFFFFF;
+  --vio:#5B3FE0;--tea:#0E8E92;--tint-v:rgba(124,92,255,.12);--tint-t:rgba(23,195,200,.14);--tint-g:rgba(242,193,78,.2);
+  position:relative;z-index:7;background:var(--pg);color:var(--ink);font-family:Sora,system-ui,sans-serif
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lp{
+  --pg:#141936;--pg2:#1B2144;--ink:#DDE1F7;--head:#EEF1FF;--mut:#A9B0D6;--ln:#3A4175;--card:#20264A;
+  --vio:#A995FF;--tea:#17C3C8;--tint-v:rgba(124,92,255,.2);--tint-t:rgba(23,195,200,.16);--tint-g:rgba(242,193,78,.16)}}
+:root[data-theme="dark"] .lp{--pg:#141936;--pg2:#1B2144;--ink:#DDE1F7;--head:#EEF1FF;--mut:#A9B0D6;--ln:#3A4175;--card:#20264A;--vio:#A995FF;--tea:#17C3C8}
+.lp *{box-sizing:border-box}
+.lp-w{max-width:1120px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+@media (max-width:640px){.lp-w{padding-left:16px;padding-right:16px}}
+.lp section{padding:104px 0}
+.lp section+section{border-top:1px solid var(--ln)}
+.lp .ey{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--vio)}
+.lp .ey::before{content:"";width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,#7C5CFF,#17C3C8)}
+.lp h2{margin:0;font-weight:300;font-size:clamp(30px,3.6vw,44px);line-height:1.12;letter-spacing:-.03em;color:var(--head);text-wrap:balance}
+.lp h3{margin:0;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--head)}
+.lp .sub{margin:16px 0 0;font-size:17px;line-height:1.6;color:var(--mut);max-width:560px}
+
+/* what it is */
+.lp-about{background:var(--pg)}
+.lp-pil{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
+.lp-pil li{display:grid;gap:8px;align-content:start;padding-top:22px;border-top:2px solid var(--ln)}
+.lp-pil li:nth-child(1){border-color:#7C5CFF}.lp-pil li:nth-child(2){border-color:#17C3C8}.lp-pil li:nth-child(3){border-color:#F2C14E}
+.lp-pil b{font-weight:600;font-size:18px;letter-spacing:-.01em;color:var(--head)}
+.lp-pil span{font-size:15.5px;line-height:1.6;color:var(--mut)}
+@media (max-width:760px){.lp-pil{grid-template-columns:1fr;gap:28px}}
+.lp-more{display:inline-flex;align-items:center;gap:10px;margin-top:40px;color:var(--vio);font-weight:600;font-size:15px;text-decoration:none}
+.lp-more svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.lp-more:hover svg{transform:translateX(4px)}
+/* go deeper */
+.lp-deep{background:var(--pg2)}
+.lp-chl{list-style:none;margin:44px 0 0;padding:0;border-top:1px solid var(--ln)}
+.lp-chl a{display:grid;grid-template-columns:56px minmax(0,300px) minmax(0,1fr) 24px;gap:6px 24px;align-items:baseline;padding:22px 4px;border-bottom:1px solid var(--ln);color:var(--ink);text-decoration:none;transition:background .15s,padding .2s}
+.lp-chl a::after{content:"→";color:var(--mut);transition:transform .2s,color .2s}
+.lp-chl a:hover{background:var(--card);padding-left:14px}
+.lp-chl a:hover::after{transform:translateX(4px);color:var(--vio)}
+.lp-chl i{font-style:normal;font-family:Newsreader,Georgia,serif;font-size:26px;color:var(--vio)}
+.lp-chl b{font-weight:600;font-size:17px;color:var(--head)}
+.lp-chl span{font-family:Newsreader,Georgia,serif;font-size:18px;line-height:1.45;color:var(--mut)}
+@media (max-width:760px){.lp-chl a{grid-template-columns:40px minmax(0,1fr) 18px}.lp-chl b{grid-column:2}.lp-chl span{grid-column:2;grid-row:2;font-size:16.5px}.lp-chl a::after{grid-column:3;grid-row:1}}
+/* the long read */
+.lp-rd{position:fixed!important;inset:0;z-index:95!important;overflow-y:auto;overscroll-behavior:contain;background:var(--pg)}
+.lp-rd[hidden]{display:none}
+.rd-bar{position:sticky;top:0;z-index:2;background:var(--pg);border-bottom:1px solid var(--ln);padding-top:env(safe-area-inset-top,0px)}
+.rd-bw{display:flex;align-items:center;gap:16px;height:60px}
+.rd-x{flex:none;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px 0 10px;border-radius:10px;border:1px solid var(--ln);background:var(--card);color:var(--head);font:inherit;font-size:14px;cursor:pointer}
+.rd-x svg,.rd-next svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rd-tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;min-width:0;margin-left:auto}
+.rd-tabs::-webkit-scrollbar{display:none}
+.rd-tabs button{flex:none;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 12px;border:0;border-radius:9px;background:none;color:var(--mut);font:inherit;font-size:13.5px;cursor:pointer;white-space:nowrap}
+.rd-tabs button i{font-style:normal;font-family:Newsreader,Georgia,serif;font-size:16px}
+.rd-tabs button:hover{color:var(--head)}
+.rd-tabs button[aria-current="true"]{background:var(--pg2);color:var(--head)}
+.rd-tabs button[aria-current="true"] i{color:var(--vio)}
+.rd-pg{position:absolute;left:0;right:0;bottom:-1px;height:2px}
+.rd-pg i{display:block;height:100%;width:0;background:linear-gradient(90deg,#7C5CFF,#17C3C8)}
+@media (max-width:860px){.rd-tabs button span{display:none}.rd-tabs button{min-width:38px;justify-content:center;padding:0 8px}.rd-tabs button[aria-current="true"] span{display:inline}}
+@media (max-width:640px){.rd-x span{display:none}.rd-x{padding:0 10px}}
+.rd-in{padding-top:72px;padding-bottom:120px}
+.lp-ch{max-width:680px;margin:0 auto}
+.lp-ch h2{margin-bottom:34px;font-size:clamp(32px,4.2vw,50px)}
+.lp-pr p{margin:0 0 20px;font-family:Newsreader,Georgia,serif;font-size:20px;line-height:1.62;color:var(--ink)}
+.lp-pr p.lead{font-size:24px;line-height:1.5;color:var(--head)}
+.lp-pr p.close{margin-top:32px;padding-left:22px;border-left:2px solid var(--tea);font-size:22px;line-height:1.55;color:var(--head)}
+.lp-pr dl{margin:6px 0 26px;display:grid;gap:22px}
+.lp-pr dl div{display:grid;grid-template-columns:14px 1fr;gap:4px 16px}
+.lp-pr dl div::before{content:"";grid-row:span 2;width:10px;height:10px;margin-top:7px;border-radius:50%;border:2px solid var(--tea)}
+.lp-pr dt{font-family:Sora,system-ui,sans-serif;font-weight:600;font-size:15.5px;color:var(--head)}
+.lp-pr dd{margin:0;font-family:Newsreader,Georgia,serif;font-size:19px;line-height:1.58}
+.lp-bel{list-style:none;margin:0;padding:0;counter-reset:b}
+.lp-bel li{counter-increment:b;display:grid;grid-template-columns:44px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--ln)}
+.lp-bel li:first-child{border-top:0;padding-top:0}
+.lp-bel li::before{content:counter(b,decimal-leading-zero);font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--vio);padding-top:7px}
+.lp-bel li p{margin:0}
+.lp-pr p.stand{margin-top:40px}
+.rd-next{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:center;margin-top:64px;padding:22px 24px;border-radius:16px;border:1px solid var(--ln);background:var(--card);color:var(--head);text-decoration:none;transition:border-color .2s}
+.rd-next small{grid-column:1;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.rd-next b{grid-column:1;font-weight:500;font-size:19px}
+.rd-next svg{grid-column:2;grid-row:1/span 2;color:var(--vio);width:22px;height:22px}
+.rd-next:hover{border-color:var(--vio)}
+.rd-fin{margin-top:64px;padding-top:40px;border-top:1px solid var(--ln);text-align:center}
+.rd-fin p{font-family:Newsreader,Georgia,serif;font-size:20px;color:var(--mut);margin:0 0 20px}
+.rd-fin .acts{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.rd-fin .acts a,.rd-fin .acts button{height:46px;display:inline-flex;align-items:center;padding:0 22px;border-radius:12px;font:inherit;font-weight:600;font-size:14.5px;text-decoration:none;cursor:pointer}
+.rd-fin .p{background:#17C3C8;color:#0E1430;border:0}
+.rd-fin .s{background:none;border:1px solid var(--ln);color:var(--head)}
+@media (max-width:640px){.rd-in{padding-top:44px}.lp-pr p{font-size:18.5px}.lp-pr p.lead{font-size:21px}.lp-pr p.close{font-size:20px}.lp-pr dd{font-size:18px}.lp-bel li{grid-template-columns:34px 1fr;gap:10px}}
+.lp-steps li.more{display:block;padding:4px 0 0 68px}
+.lp-steps li.more::after{display:none}
+.lp-steps li.more .lp-more{margin-top:0}
+.lp-steps li:nth-last-child(2)::after{display:none}
+@media (max-width:640px){.lp section{padding:72px 0}}
+
+/* knowledge orbits */
+.lp-orb{background:#0E1230!important;color:#EEF1FF;border-top:0!important;overflow:hidden}
+.lp-orb .ey{color:#A995FF}
+.lp-orb h2{color:#EEF1FF}
+.lp-orb .sub{color:#C9CFF0}
+.lp-og{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:64px;align-items:center}
+.lp-ol{list-style:none;margin:40px 0 0;padding:0;display:grid;gap:22px}
+.lp-ol li{display:grid;grid-template-columns:12px 1fr;gap:4px 16px}
+.lp-ol li::before{content:"";grid-row:span 2;width:10px;height:10px;margin-top:6px;border-radius:50%;background:var(--d,#17C3C8);box-shadow:0 0 12px var(--d,#17C3C8)}
+.lp-ol li:nth-child(1){--d:#F2C14E}.lp-ol li:nth-child(2){--d:#7C5CFF}.lp-ol li:nth-child(3){--d:#17C3C8}.lp-ol li:nth-child(4){--d:#3DDC84}
+.lp-ol b{font-weight:600;font-size:16px;color:#EEF1FF}
+.lp-ol span{font-size:15px;line-height:1.6;color:#A9B0D6}
+.lp-orb .lp-more{color:#A995FF}
+.lp-orb .pw{display:block;margin-top:14px;font-size:12px;color:#7F86B3}
+.lp-ov{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center}
+.lp-ov svg{width:100%;height:100%;display:block;overflow:visible}
+.lp-ov .r1{transform-origin:260px 260px;animation:lpo 90s linear infinite}
+.lp-ov .r2{transform-origin:260px 260px;animation:lpo 140s linear infinite reverse}
+.lp-ov .r3{transform-origin:260px 260px;animation:lpo 200s linear infinite}
+@keyframes lpo{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.lp-ov .r1,.lp-ov .r2,.lp-ov .r3{animation:none}}
+@media (max-width:900px){.lp-og{grid-template-columns:1fr;gap:40px}.lp-ov{max-width:400px}}
+
+/* how it works */
+.lp-how{background:var(--pg2)}
+.lp-hgrid{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:72px;align-items:start;margin-top:56px}
+.lp-steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.lp-steps li{position:relative;display:grid;grid-template-columns:48px 1fr;gap:6px 20px;padding:0 0 34px}
+.lp-steps li::after{content:"";position:absolute;left:23px;top:52px;bottom:6px;width:1px;background:var(--ln)}
+.lp-steps li:last-child{padding-bottom:0}
+.lp-steps li:last-child::after{display:none}
+.lp-steps .ic{grid-row:span 2;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--tint-v);color:var(--vio)}
+.lp-steps li:nth-child(2n) .ic{background:var(--tint-t);color:var(--tea)}
+.lp-steps li:nth-child(4) .ic{background:var(--tint-g);color:#B07D0A}
+.lp-steps .ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.lp-steps h3{padding-top:4px}
+.lp-steps p{margin:0;font-size:15.5px;line-height:1.6;color:var(--mut);max-width:520px}
+/* real Agenda cards in How it works */
+.lp-cards{position:sticky;top:112px;display:block;height:540px;text-decoration:none;color:var(--fg);font-family:Manrope,ui-sans-serif,system-ui,sans-serif}
+.lp-cards .lc{position:absolute;width:340px;transition:transform .35s ease}
+.lp-cards .lc1{left:0;top:70px;transform:rotate(-2.5deg);z-index:2;box-shadow:0 24px 60px rgba(8,10,30,.45);border-radius:22px}
+.lp-cards .lc2{right:0;top:0;transform:rotate(3deg);z-index:1;opacity:.9;border-radius:22px}
+.lp-cards:hover .lc1{transform:rotate(-1deg) translateY(-6px)}
+.lp-cards:hover .lc2{transform:rotate(4.5deg) translate(6px,-4px)}
+.lp-cards .tbl{background:var(--surface);border:1px solid var(--line);color:var(--fg);cursor:pointer}
+.lp-cards .tbl.soon{border-color:color-mix(in srgb,#F2C14E 55%,var(--line))}
+.lp-cards .tbl:not(.soon){border-color:var(--live)}
+.lp-cards .tbl .tb h3,.lp-cards .tbl h3{color:var(--fg)!important;margin:0}
+.lp-cards .jbtn{display:inline-flex;align-items:center;font-size:14px}
+@media (max-width:980px){.lp-hgrid{grid-template-columns:1fr;gap:48px}.lp-cards{position:relative;top:0;max-width:440px;width:100%}}
+@media (max-width:480px){.lp-cards{height:500px}.lp-cards .lc{width:290px}.lp-cards .lc1{top:60px}}
+.lp-cards{--surface:#20264A;--line:#3A4175;--bg:#1B2144;--lamp:#17C3C8;--mute:#A9B0D6;--live:#3DDC84;--display:"Sora",ui-sans-serif,system-ui,sans-serif;--soft:#C9CFF0;--lamp-ink:#0E1430;--raise:#252B52;--fg:#EEF1FF}
+.lp-cards .tbl{display: grid; grid-template-columns: 150px minmax(0px, 1fr); gap: 18px; align-items: center; padding: 18px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); position: relative; transition: border-color 0.15s, transform 0.15s;}
+.lp-cards .ring{position: relative; width: 150px; height: 150px;}
+.lp-cards .board{position: absolute; inset: 30px; border-radius: 50%; overflow: hidden; background: radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--c) 70%,#fff 0%),color-mix(in srgb,var(--c) 35%,var(--bg))); display: grid; place-items: center; box-shadow: inset 0 0 0 3px color-mix(in srgb,var(--c) 40%,transparent);}
+.lp-cards .ticon{width: 42%; height: 42%; fill: none; stroke: rgb(255, 255, 255); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 1px 4px);}
+.lp-cards .seat{position: absolute; width: 30px; height: 30px; margin: -15px 0px 0px -15px; border-radius: 50%; overflow: hidden; border: 2px solid var(--surface);}
+.lp-cards .seat svg{width: 100%; height: 100%; display: block;}
+.lp-cards .seat.host{box-shadow: 0 0 0 2px var(--lamp);}
+.lp-cards .seat.open{border: 1.5px dashed var(--mute); background: transparent;}
+.lp-cards .seat.talk{box-shadow: 0 0 0 2px var(--live),0 0 12px var(--live);}
+.lp-cards .tb{min-width: 0px; display: flex; flex-direction: column; gap: 6px;}
+.lp-cards .tb h3{font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; margin: 0px; text-wrap: balance;}
+.lp-cards .meta{font-size: 13.5px; color: var(--mute);}
+.lp-cards .meta b{color: var(--soft); font-weight: 600;}
+.lp-cards .topic{display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--soft);}
+.lp-cards .topic i{width: 8px; height: 8px; border-radius: 50%; background: var(--c);}
+.lp-cards .tbl .topic{font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;}
+.lp-cards .tf{display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px;}
+.lp-cards .left{font-size: 13px; color: var(--mute);}
+.lp-cards .jbtn{height: 38px; padding: 0px 18px; border-radius: 19px; border: 0px; background: var(--lamp); color: var(--lamp-ink); font-weight: 600; white-space: nowrap;}
+@media (max-width: 640px){.lp-cards .tbl{grid-template-columns: 118px minmax(0px, 1fr); gap: 14px; padding: 14px;}}
+@media (max-width: 640px){.lp-cards .ring{width: 118px; height: 118px;}}
+@media (max-width: 640px){.lp-cards .board{inset: 24px;}}
+@media (max-width: 640px){.lp-cards .seat{width: 24px; height: 24px; margin: -12px 0px 0px -12px;}}
+@media (max-width: 640px){.lp-cards .tb h3{font-size: 17px;}}
+@media (prefers-reduced-motion: reduce){.lp-cards .tbl{transition: none;}}
+.lp-cards .tbl{border-color: var(--live);}
+.lp-cards .jbtn{border-radius: 10px;}
+.lp-cards .seat.host{box-shadow: rgb(242, 193, 78) 0px 0px 0px 2px;}
+.lp-cards .tb h3{font-size: 17px; letter-spacing: -0.02em;}
+@media (max-width: 640px){.lp-cards .tb h3{font-size: 16px;}}
+.lp-cards .tbl{align-items: stretch;}
+.lp-cards .tbl .ring{align-self: center;}
+.lp-cards .tb{height: 100%;}
+.lp-cards .tf{margin-top: auto; padding-top: 6px;}
+.lp-cards .seat{transition: transform 0.12s;}
+.lp-cards .tf{flex-wrap: wrap;}
+.lp-cards .tf .left{white-space: nowrap;}
+.lp-cards .tbl{display: flex; flex-direction: column; gap: 0px; padding: 0px; overflow: hidden;}
+.lp-cards .ttop{position: relative; isolation: isolate; overflow: hidden; display: grid; place-items: center; padding: 24px 0px 22px; background: radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--c) 26%,transparent),transparent 70%),var(--raise);}
+.lp-cards .ttop{border-radius: 21px 21px 0px 0px; clip-path: inset(0px round 21px 21px 0px 0px);}
+.lp-cards .ttop .tbg{position: absolute; inset: -30px; z-index: -1; background: center center / cover no-repeat; filter: blur(22px) brightness(0.55) saturate(1.1);}
+.lp-cards .ttop .tbg.gen{inset: 0px; filter: none;}
+.lp-cards .ttop .ring{width: 184px; height: 184px;}
+.lp-cards .ttop .board{inset: 38px;}
+.lp-cards .ttop .seat{width: 34px; height: 34px; margin: -17px 0px 0px -17px;}
+.lp-cards .tbl .tb{padding: 16px 20px 18px; height: auto; flex: 1 1 0%; gap: 8px;}
+.lp-cards .trow{display: flex; align-items: center; gap: 10px; flex-wrap: wrap;}
+.lp-cards .lpill{display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 6px; background: rgb(31, 164, 99); color: rgb(255, 255, 255); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;}
+.lp-cards .lpill i{width: 6px; height: 6px; border-radius: 50%; background: rgb(255, 255, 255); animation: 1.2s ease-in-out 0s infinite normal none running lpbeat;}
+.lp-cards .tbl .tb h3{font-size: 20px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
+@media (max-width: 640px){.lp-cards .ttop .ring{width: 164px; height: 164px;}}
+@media (max-width: 640px){.lp-cards .ttop .board{inset: 34px;}}
+@media (max-width: 640px){.lp-cards .ttop .seat{width: 30px; height: 30px; margin: -15px 0px 0px -15px;}}
+@media (prefers-reduced-motion: reduce){.lp-cards .lpill i{animation: auto ease 0s 1 normal none running none;}}
+.lp-cards .tbl.soon .jbtn:not(.on){background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--fg);}
+.lp-cards .tbl.soon{border-color: color-mix(in srgb,#F2C14E 55%,var(--line));}
+.lp-cards .spill{display: inline-block; padding: 4px 9px; border-radius: 6px; background: rgba(242, 193, 78, 0.16); color: rgb(242, 193, 78); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;}
+@keyframes lpbeat {    50% { opacity: 0.3; } }
+.lp-cards a.tdl{color: inherit; text-decoration: none;}
+.lp-cards .topic, .lp-cards .tbl .topic{display: inline-flex; align-items: center; gap: 6px; padding: 0px; border-radius: 0px; background: none; border: 0px; color: var(--soft); font-size: 12px; font-weight: 500; letter-spacing: 0px; text-transform: none; line-height: 1.3; white-space: nowrap;}
+.lp-cards .topic i{width: 7px; height: 7px; flex: 0 0 auto;}
+.lp-cards *{box-sizing:border-box}
+
+/* promises */
+.lp-prom{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.lp-prom li{padding:24px 22px;border-radius:18px;background:var(--card);border:1px solid var(--ln);display:grid;gap:8px;align-content:start}
+.lp-prom svg{width:22px;height:22px;fill:none;stroke:var(--tea);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:6px}
+.lp-prom b{font-weight:600;font-size:15.5px;color:var(--head)}
+.lp-prom span{font-size:14.5px;line-height:1.55;color:var(--mut)}
+@media (max-width:980px){.lp-prom{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.lp-prom{grid-template-columns:1fr}}
+
+/* roots */
+.lp-roots{background:var(--pg)}
+.lp-rt{display:grid;grid-template-columns:auto minmax(0,1fr);gap:36px;align-items:center;max-width:860px}
+.lp-rt .mk{width:84px;height:84px;border-radius:24px;display:grid;place-items:center;background:var(--tint-t)}
+.lp-rt .mk svg{width:40px;height:40px;fill:none;stroke:var(--tea);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.lp-rt p{margin:0;font-family:Newsreader,Georgia,serif;font-size:23px;line-height:1.55;color:var(--head)}
+@media (max-width:640px){.lp-rt{grid-template-columns:1fr;gap:20px}.lp-rt p{font-size:20px}}
+
+/* final call */
+.lp-end{background:#141936!important;color:#EEF1FF;text-align:center;border-top:0!important}
+.lp-end h2{color:#EEF1FF}
+.lp-end .sub{color:#C9CFF0;margin-left:auto;margin-right:auto}
+.lp-end .acts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+.lp-end .acts a{height:46px;display:inline-flex;align-items:center;padding:0 22px;border-radius:12px;font-weight:600;font-size:14.5px;text-decoration:none}
+.lp-end .acts a.p{background:#17C3C8;color:#0E1430;box-shadow:0 8px 30px rgba(23,195,200,.25)}
+.lp-end .acts a.s{border:1px solid rgba(255,255,255,.2);color:#EEF1FF}
+.lp-end .acts a:hover{filter:brightness(1.08)}
+.lp a:focus-visible,.hud a:focus-visible,.lp-down:focus-visible{outline:2px solid #17C3C8;outline-offset:3px;border-radius:6px}
+.lp .tcf{margin-top:0;position:relative;z-index:7}
+</style>
+
+<a class="lp-down" href="#about"><span>What is TimeCapsule</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+<div class="lp-hero-spacer" aria-hidden="true"></div>
+
+<main class="lp" id="lp">
+
+<section class="lp-about" id="about" aria-labelledby="h-about">
+<div class="lp-w">
+  <p class="ey">What it is</p>
+  <h2 id="h-about">A place to think together, not to scroll</h2>
+  <p class="sub">TimeCapsule is a digital place with a different relationship with technology. It makes room for reflection, dialogue and people who keep coming back.</p>
+  <ul class="lp-pil">
+    <li><b>Talk, don't scroll</b><span>Live discussions with a handful of people, instead of speed and endless content.</span></li>
+    <li><b>Trust that grows</b><span>Sit with the same people again and again. Trust, relationships and ideas take shape over time.</span></li>
+    <li><b>Ideas that last</b><span>Every contribution keeps its author and its context, a record that future generations can question and build on.</span></li>
+  </ul>
+  <a class="lp-more" href="#read=what" data-go="what">Read what TimeCapsule is<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+</div>
+</section>
+
+<section class="lp-how" id="how" aria-labelledby="h-how">
+<div class="lp-w">
+  <p class="ey">How it works</p>
+  <h2 id="h-how">A small table, a real conversation</h2>
+  <p class="sub">No feeds, no algorithms. Just people, live.</p>
+  <div class="lp-hgrid">
+    <ol class="lp-steps">
+      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10.5H10l-4.5 3.5V16H4z"/><circle cx="12" cy="10.7" r="1.6" fill="currentColor" stroke="none"/></svg></span><h3>Find a table</h3><p>Open tables are on the Agenda, and anyone can take a free chair. Private tables reach only the people the host invites, with a link.</p></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span><h3>Or host your own</h3><p>Whoever opens a table hosts it: they choose the question, the time and how many chairs.</p></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2.5"/><path d="M16 10.5l5-3v9l-5-3"/></svg></span><h3>Talk, face to face</h3><p>Meet live, on camera, with a handful of people. Guests can message each other privately, and the notes you take are yours alone.</p></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.6"/></svg></span><h3>Rate and tip</h3><p>When the table ends, give TimeCoins to the people who made it worth it. The coins you receive become your reputation, and reputation can never be bought.</p></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5"/></svg></span><h3>Keep the record</h3><p>If everyone at the table agrees, the transcript is kept, every line with its author and its context, for whoever comes next.</p></li>
+      <li class="more"><a class="lp-more" href="#read=how-use" data-go="how-use">More on how to use TimeCapsule<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></li>
+    </ol>
+    <a class="lp-cards" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top" aria-label="See today's tables">
+      <div class="lc lc2" aria-hidden="true"><article class="tbl soon" style="--c:#F29BD0"><div class="ttop"><div class="tbg gen" style="background:radial-gradient(45% 65% at 18% 30%,#F29BD099,transparent 70%),radial-gradient(50% 70% at 85% 75%,#7C5CFF80,transparent 70%),radial-gradient(40% 55% at 70% 12%,#17C3C855,transparent 70%),radial-gradient(45% 65% at 25% 95%,#F29BD05c,transparent 70%),#252B52"></div><div class="ring"><div class="board"><svg class="ticon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M5 17h14M6 17V9m4 8V9m4 8V9m4 8V9M4 9h16L12 4z"></path></svg></div><span class="seat host" style="left:50%;top:6%"><svg viewBox="0 0 64 64" role="img" aria-label="Mia"><rect width="64" height="64" fill="#FFE0EC"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#F4A6D7"></path><rect x="27" y="34" width="10" height="11" fill="#F1C9A5"></rect><circle cx="32" cy="26" r="12" fill="#F1C9A5"></circle><path d="M19 30C16 9 48 9 45 30L45 44L40 44L40 27C36 20 28 20 24 27L24 44L19 44Z" fill="#1B1B1B"></path><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat" style="left:81.11269837220809%;top:18.887301627791913%"><svg viewBox="0 0 64 64" role="img" aria-label="Kofi"><rect width="64" height="64" fill="#D9F8FA"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#E9F27A"></path><rect x="27" y="34" width="10" height="11" fill="#7A4E33"></rect><circle cx="32" cy="26" r="12" fill="#7A4E33"></circle><path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="#121212"></path><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat" style="left:94%;top:50%"><svg viewBox="0 0 64 64" role="img" aria-label="Elif"><rect width="64" height="64" fill="#E6E0FF"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#FF9E8A"></path><rect x="27" y="34" width="10" height="11" fill="#E8B994"></rect><circle cx="32" cy="26" r="12" fill="#E8B994"></circle><path d="M19 30C16 9 48 9 45 30L45 44L40 44L40 27C36 20 28 20 24 27L24 44L19 44Z" fill="#3A2A20"></path><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat" style="left:81.11269837220809%;top:81.11269837220809%"><svg viewBox="0 0 64 64" role="img" aria-label="Omar"><rect width="64" height="64" fill="#E6E0FF"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#17C3C8"></path><rect x="27" y="34" width="10" height="11" fill="#A86F4C"></rect><circle cx="32" cy="26" r="12" fill="#A86F4C"></circle><path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="#1B1B1B"></path><path d="M22 28C22 40 42 40 42 28C40 34 24 34 22 28Z" fill="#1B1B1B"></path><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat" style="left:50%;top:94%"><svg viewBox="0 0 64 64" role="img" aria-label="Yuki"><rect width="64" height="64" fill="#D9F8FA"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#C9A7FF"></path><rect x="27" y="34" width="10" height="11" fill="#F3D2B8"></rect><circle cx="32" cy="26" r="12" fill="#F3D2B8"></circle><path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="#121212"></path><circle cx="32" cy="9" r="6" fill="#121212"></circle><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat open" style="left:18.887301627791913%;top:81.11269837220809%" aria-hidden="true"></span><span class="seat open" style="left:6%;top:50.00000000000001%" aria-hidden="true"></span><span class="seat open" style="left:18.887301627791903%;top:18.887301627791913%" aria-hidden="true"></span></div></div>
+    <div class="tb"><div class="trow"><span class="spill">Starts in 30 min</span><span class="topic"><i></i>Philosophy</span></div><h3>Is happiness a skill?</h3>
+      <div class="meta">with <b>Mia</b> · France</div>
+      <div class="tf"><span class="left">3 chairs free</span>
+      <span class="jbtn">Save a chair</span></div></div></article></div>
+      <div class="lc lc1" aria-hidden="true"><article class="tbl" style="--c:#F29BD0"><div class="ttop"><div class="tbg gen" style="background:radial-gradient(45% 65% at 18% 30%,#F29BD099,transparent 70%),radial-gradient(50% 70% at 85% 75%,#7C5CFF80,transparent 70%),radial-gradient(40% 55% at 70% 12%,#17C3C855,transparent 70%),radial-gradient(45% 65% at 25% 95%,#F29BD05c,transparent 70%),#252B52"></div><div class="ring"><div class="board"><svg class="ticon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M5 17h14M6 17V9m4 8V9m4 8V9m4 8V9M4 9h16L12 4z"></path></svg></div><span class="seat host" style="left:50%;top:6%"><svg viewBox="0 0 64 64" role="img" aria-label="Gregory"><rect width="64" height="64" fill="#FFE9C7"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#2E3566"></path><rect x="27" y="34" width="10" height="11" fill="#E8B994"></rect><circle cx="32" cy="26" r="12" fill="#E8B994"></circle><path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="#6B4A33"></path><path d="M22 28C22 40 42 40 42 28C40 34 24 34 22 28Z" fill="#6B4A33"></path><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat" style="left:81.11269837220809%;top:18.887301627791913%"><svg viewBox="0 0 64 64" role="img" aria-label="Mia"><rect width="64" height="64" fill="#FFE0EC"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#F4A6D7"></path><rect x="27" y="34" width="10" height="11" fill="#F1C9A5"></rect><circle cx="32" cy="26" r="12" fill="#F1C9A5"></circle><path d="M19 30C16 9 48 9 45 30L45 44L40 44L40 27C36 20 28 20 24 27L24 44L19 44Z" fill="#1B1B1B"></path><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat talk" style="left:94%;top:50%"><svg viewBox="0 0 64 64" role="img" aria-label="Omar"><rect width="64" height="64" fill="#E6E0FF"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#17C3C8"></path><rect x="27" y="34" width="10" height="11" fill="#A86F4C"></rect><circle cx="32" cy="26" r="12" fill="#A86F4C"></circle><path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="#1B1B1B"></path><path d="M22 28C22 40 42 40 42 28C40 34 24 34 22 28Z" fill="#1B1B1B"></path><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat" style="left:81.11269837220809%;top:81.11269837220809%"><svg viewBox="0 0 64 64" role="img" aria-label="Priya"><rect width="64" height="64" fill="#FFE0EC"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#17C3C8"></path><rect x="27" y="34" width="10" height="11" fill="#B9805A"></rect><circle cx="32" cy="26" r="12" fill="#B9805A"></circle><path d="M19 30C16 9 48 9 45 30L45 44L40 44L40 27C36 20 28 20 24 27L24 44L19 44Z" fill="#1B1B1B"></path><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat" style="left:50%;top:94%"><svg viewBox="0 0 64 64" role="img" aria-label="Lena"><rect width="64" height="64" fill="#E6E0FF"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#17C3C8"></path><rect x="27" y="34" width="10" height="11" fill="#F3D2B8"></rect><circle cx="32" cy="26" r="12" fill="#F3D2B8"></circle><path d="M19 30C16 9 48 9 45 30L45 44L40 44L40 27C36 20 28 20 24 27L24 44L19 44Z" fill="#D9B26A"></path><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat" style="left:18.887301627791913%;top:81.11269837220809%"><svg viewBox="0 0 64 64" role="img" aria-label="Tom"><rect width="64" height="64" fill="#FFE9C7"></rect><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#7C5CFF"></path><rect x="27" y="34" width="10" height="11" fill="#F1C9A5"></rect><circle cx="32" cy="26" r="12" fill="#F1C9A5"></circle><path d="M21 22C23 15 41 15 43 22C39 19 25 19 21 22Z" fill="#B0B6C9"></path><circle cx="28" cy="27" r="1.5" fill="#090B16"></circle><circle cx="36" cy="27" r="1.5" fill="#090B16"></circle><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span><span class="seat open" style="left:6%;top:50.00000000000001%" aria-hidden="true"></span><span class="seat open" style="left:18.887301627791903%;top:18.887301627791913%" aria-hidden="true"></span></div></div>
+    <div class="tb"><div class="trow"><span class="lpill"><i></i>Live · 41 min</span><span class="topic"><i></i>Philosophy</span></div><h3>Is free will an illusion?</h3>
+      <div class="meta">with <b>Gregory</b> · Switzerland</div>
+      <div class="tf"><span class="left">2 seats free</span>
+      <span class="jbtn">Join table</span></div></div></article></div>
+    </a>
+  </div>
+</div>
+</section>
+
+<section class="lp-orb" id="orbits" aria-labelledby="h-orb">
+<div class="lp-w lp-og">
+  <div>
+    <p class="ey">Knowledge orbits</p>
+    <h2 id="h-orb">Everyone here carries a small universe</h2>
+    <p class="sub">The books, films and ideas that shaped you orbit around your name, grouped by theme. It grows with every table you sit at, and it shows who thinks on your wavelength.</p>
+    <ul class="lp-ol">
+      <li><b>Your name at the centre</b><span>Topics become coloured clouds. Books and films become stars on their orbit, brighter when they moved you more.</span></li>
+      <li><b>It grows at the table</b><span>The books mentioned at a table and the lines you keep join your orbits, each with its author and context.</span></li>
+      <li><b>Orbits meet</b><span>Where your orbits cross someone else's, we suggest tables and people to sit with.</span></li>
+      <li><b>A map that lasts</b><span>Together, everyone's orbits become a living map of what people think about, part of the record we leave to those who follow.</span></li>
+    </ul>
+    <small class="pw">Knowledge orbits are powered by k▪universe.</small>
+  </div>
+  <div class="lp-ov"><svg viewBox="0 0 520 520" aria-hidden="true"><defs><radialGradient id="lpN1"><stop offset="0" stop-color="#7C5CFF" stop-opacity=".55"/><stop offset="1" stop-color="#7C5CFF" stop-opacity="0"/></radialGradient><radialGradient id="lpN2"><stop offset="0" stop-color="#17C3C8" stop-opacity=".45"/><stop offset="1" stop-color="#17C3C8" stop-opacity="0"/></radialGradient><radialGradient id="lpN3"><stop offset="0" stop-color="#F2C14E" stop-opacity=".4"/><stop offset="1" stop-color="#F2C14E" stop-opacity="0"/></radialGradient><radialGradient id="lpC"><stop offset="0" stop-color="#EEF1FF"/><stop offset=".5" stop-color="#C9CFF0" stop-opacity=".5"/><stop offset="1" stop-color="#C9CFF0" stop-opacity="0"/></radialGradient></defs><ellipse cx="150" cy="170" rx="120" ry="90" fill="url(#lpN1)"/><ellipse cx="390" cy="200" rx="110" ry="95" fill="url(#lpN2)"/><ellipse cx="270" cy="400" rx="130" ry="80" fill="url(#lpN3)"/><g class="r1"><circle cx="260" cy="260" r="95" fill="none" stroke="#3A4175" stroke-dasharray="2 6"/><circle cx="347.5" cy="297.0" r="3" fill="#F2C14E"/><circle cx="251.9" cy="354.7" r="4.5" fill="#F2C14E"/><circle cx="167.5" cy="281.5" r="6" fill="#F2C14E"/><circle cx="167.5" cy="281.5" r="15.600000000000001" fill="#F2C14E" opacity=".18"/><circle cx="211.0" cy="178.6" r="3.5" fill="#F2C14E"/><circle cx="322.2" cy="188.2" r="3" fill="#F2C14E"/></g><g class="r2"><circle cx="260" cy="260" r="160" fill="none" stroke="#3A4175" stroke-dasharray="2 6"/><circle cx="332.6" cy="402.6" r="3" fill="#A995FF"/><circle cx="210.5" cy="412.1" r="4.5" fill="#A995FF"/><circle cx="117.4" cy="332.6" r="6" fill="#A995FF"/><circle cx="117.4" cy="332.6" r="15.600000000000001" fill="#A995FF" opacity=".18"/><circle cx="107.9" cy="210.5" r="3.5" fill="#A995FF"/><circle cx="187.4" cy="117.4" r="3" fill="#A995FF"/><circle cx="309.5" cy="107.9" r="4.5" fill="#A995FF"/><circle cx="402.6" cy="187.4" r="6" fill="#A995FF"/><circle cx="402.6" cy="187.4" r="15.600000000000001" fill="#A995FF" opacity=".18"/><circle cx="412.1" cy="309.5" r="3.5" fill="#A995FF"/></g><g class="r3"><circle cx="260" cy="260" r="225" fill="none" stroke="#3A4175" stroke-dasharray="2 6"/><circle cx="166.4" cy="464.6" r="3" fill="#17C3C8"/><circle cx="70.6" cy="381.5" r="4.5" fill="#17C3C8"/><circle cx="35.0" cy="259.8" r="6" fill="#17C3C8"/><circle cx="35.0" cy="259.8" r="15.600000000000001" fill="#17C3C8" opacity=".18"/><circle cx="70.8" cy="138.2" r="3.5" fill="#17C3C8"/><circle cx="166.7" cy="55.3" r="3" fill="#17C3C8"/><circle cx="292.2" cy="37.3" r="4.5" fill="#17C3C8"/><circle cx="407.5" cy="90.1" r="6" fill="#17C3C8"/><circle cx="407.5" cy="90.1" r="15.600000000000001" fill="#17C3C8" opacity=".18"/><circle cx="475.9" cy="196.8" r="3.5" fill="#17C3C8"/><circle cx="475.8" cy="323.6" r="3" fill="#17C3C8"/><circle cx="407.2" cy="430.2" r="4.5" fill="#17C3C8"/><circle cx="291.8" cy="482.7" r="6" fill="#17C3C8"/><circle cx="291.8" cy="482.7" r="15.600000000000001" fill="#17C3C8" opacity=".18"/></g><circle cx="260" cy="260" r="42" fill="url(#lpC)"/><circle cx="260" cy="260" r="20" fill="#EEF1FF"/><text x="260" y="320" text-anchor="middle" fill="#EEF1FF" font-family="Sora,sans-serif" font-size="15" font-weight="600">You</text><g font-family="JetBrains Mono,monospace" font-size="10.5" letter-spacing="1.4" fill="#C9CFF0"><text x="88" y="92">PHILOSOPHY</text><text x="360" y="96">CLIMATE</text><text x="232" y="478">MEMOIR</text></g></svg></div>
+</div>
+</section>
+
+<section class="lp-how lp-prs" id="promises" aria-label="What we promise">
+<div class="lp-w">
+  <h2>What we promise</h2>
+  <ul class="lp-prom">
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.8 3.6-6 7-6s6.2 2.2 7 6"/></svg><b>Real people, never bots</b><span>AI helps you follow, translate and find. It never speaks for anyone.</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/></svg><b>A first name is enough</b><span>Join with your first name or an alias. No surname needed.</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 3v5.5c0 4.3-3 7.6-7 8.5-4-.9-7-4.2-7-8.5V6.5z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg><b>Your data is never sold</b><span>We never sell or mine what you share.</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 19c.6-3 2.6-4.6 5-4.6s4.4 1.6 5 4.6M11 19c.6-3 2.6-4.6 5-4.6s4.4 1.6 5 4.6"/></svg><b>Public only if all agree</b><span>A transcript goes public only when everyone at the table says yes.</span></li>
+  </ul>
+  <a class="lp-more" href="#read=exists" data-go="exists">Why safety and trust come first<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+</div>
+</section>
+
+<section class="lp-roots" id="roots" aria-labelledby="h-roots">
+<div class="lp-w">
+  <p class="ey" id="h-roots">Our roots</p>
+  <div class="lp-rt">
+    <span class="mk"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 36V20"/><path d="M20 20c0-6 4-10 10-10 0 6-4 10-10 10z"/><path d="M20 26c0-5-3.5-8.5-9-8.5 0 5 3.5 8.5 9 8.5z"/><circle cx="20" cy="20" r="17" stroke-dasharray="2 4"/></svg></span>
+    <p>TimeCapsule comes from the team behind TimeRepublik, the largest time bank in the world, founded in 2012. We carry the same belief here: everyone's time is worth the same, and the best of it is what we give each other.</p>
+  </div>
+</div>
+</section>
+
+<section class="lp-deep" id="deeper" aria-labelledby="h-deep">
+<div class="lp-w">
+  <p class="ey">The long read</p>
+  <h2 id="h-deep">Go deeper</h2>
+  <p class="sub">The thinking behind TimeCapsule, in five short chapters. Start anywhere.</p>
+  <ol class="lp-chl">
+    <li><a href="#read=what" data-go="what"><i>1</i><b>What is TimeCapsule</b><span>A digital place built around a different relationship with technology.</span></a></li>
+    <li><a href="#read=how-use" data-go="how-use"><i>2</i><b>How to use TimeCapsule</b><span>Host, take part, turn ideas into projects, pass knowledge on.</span></a></li>
+    <li><a href="#read=why" data-go="why"><i>3</i><b>Why TimeCapsule</b><span>Producing an answer is not the same as understanding why a question matters.</span></a></li>
+    <li><a href="#read=exists" data-go="exists"><i>4</i><b>Why it exists</b><span>Safety, trust and continuity for ideas.</span></a></li>
+    <li><a href="#read=believe" data-go="believe"><i>5</i><b>We believe</b><span>The manifesto, in ten statements.</span></a></li>
+  </ol>
+</div>
+</section>
+
+<section class="lp-end" aria-labelledby="h-end">
+<div class="lp-w">
+  <h2 id="h-end">Pull up a chair.</h2>
+  <p class="sub">The next table is about to start. Joining is free and takes a minute.</p>
+  <div class="acts"><a class="p" href="https://claude.ai/artifact/Q7o5JaMGP7bHLXzJ6aw6TH" target="_top">Join TimeCapsule</a><a class="s" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">See today's tables</a></div>
+</div>
+</section>
+
+<!--FOOTER-->
+</main>
+
+<div class="lp lp-rd" id="read" hidden role="dialog" aria-modal="true" aria-label="The long read">
+  <div class="rd-bar"><div class="lp-w rd-bw">
+    <button type="button" class="rd-x" data-rdx><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H6M11 6l-6 6 6 6"/></svg><span>Back</span></button>
+    <nav class="rd-tabs" aria-label="Chapters"><button type="button" data-go="what"><i>1</i><span>What is TimeCapsule</span></button><button type="button" data-go="how-use"><i>2</i><span>How to use TimeCapsule</span></button><button type="button" data-go="why"><i>3</i><span>Why TimeCapsule</span></button><button type="button" data-go="exists"><i>4</i><span>Why it exists</span></button><button type="button" data-go="believe"><i>5</i><span>We believe</span></button></nav>
+  </div><span class="rd-pg" aria-hidden="true"><i></i></span></div>
+  <div class="lp-w rd-in">
+    <article class="lp-ch" data-ch="what" hidden>
+      <p class="ey">What</p>
+      <h2>What is TimeCapsule</h2>
+      <div class="lp-pr">
+        <p class="lead">TimeCapsule is a digital place built around a different relationship with technology - one that uses its possibilities without letting its logic determine how we think, communicate and relate to the world.</p>
+        <p>Rather than prioritising speed, efficiency and endless content, it makes room for reflection, dialogue and sustained human participation. People can start discussions, share experiences and ideas, raise questions and challenge perspectives.</p>
+        <p>Through repeated participation, trust develops, relationships take shape and ideas evolve.</p>
+        <p>At its heart is the understanding that knowledge is more than information: it emerges through human experience, reflection and dialogue.</p>
+        <p>Encountering different perspectives deepens our understanding of ourselves, our societies and the world we inhabit.</p>
+        <p>TimeCapsule preserves this experience as a lasting record of ideas, knowledge and discussions, together with the contexts they emerge from. Each contribution carries its history and authorship, and the possibility of meaningful exchange. Together, they form an evolving human imprint: an inheritance that future generations can encounter, question and build upon.</p>
+        <p class="close">Technology serves human expression rather than replacing it. TimeCapsule is a shared human space where people meet, think, communicate and develop understanding together, preserving what each generation has to share for those who follow.</p>
+      </div>
+      <a class="rd-next" href="#read=how-use" data-go="how-use"><small>Next</small><b>How to use TimeCapsule</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </article>
+    <article class="lp-ch" data-ch="how-use" hidden>
+      <p class="ey">How</p>
+      <h2>How to use TimeCapsule</h2>
+      <div class="lp-pr">
+        <p class="lead">TimeCapsule gives people the space and tools to develop ideas, connect around common interests and build communities through active participation. Shared interests and exchanged perspectives create, over time, a sense of belonging.</p>
+        <p>Its environment combines human interaction with AI capabilities. AI tools help people follow discussions, discover relevant contributions, overcome language barriers, organise shared knowledge and prepare activities.</p>
+        <p>This makes participation more accessible and collaboration easier, while judgement, creativity and initiative remain with people.</p>
+        <p>Within TimeCapsule, people can:</p>
+        <dl>
+          <div><dt>Host and participate</dt><dd>Organise and take part in live discussions, talks, lectures and workshops to exchange knowledge, explore ideas and learn from one another.</dd></div>
+          <div><dt>Turn ideas into shared projects</dt><dd>Connect with others, discover common ground, develop initiatives and put collective ideas into practice.</dd></div>
+          <div><dt>Preserve and pass on knowledge</dt><dd>Build a lasting record of ideas, experiences and discussions, with authorship and original context intact, so that future generations can revisit it and build upon it.</dd></div>
+        </dl>
+      </div>
+      <a class="rd-next" href="#read=why" data-go="why"><small>Next</small><b>Why TimeCapsule</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </article>
+    <article class="lp-ch" data-ch="why" hidden>
+      <p class="ey">Why</p>
+      <h2>Why TimeCapsule</h2>
+      <div class="lp-pr">
+        <p class="lead">Technology has changed not only how we communicate, but the conditions under which we think, learn, work and relate to one another. Artificial intelligence is accelerating this change, increasingly taking part in activities once shaped by human judgement, creativity and experience. The question is no longer what technology can do, but what place we want it to have in our lives, and what we risk losing when its capabilities begin to define our purposes.</p>
+        <p>TimeCapsule is a place where humans meet through technology, not a place where technology simulates the presence of humans. What is disappearing is not connectivity, but the human presence that gives connectivity its meaning.</p>
+        <p>We can exchange more content without gaining understanding, communicate more often without building deeper relationships, and access vast information without acquiring knowledge. More communication does not automatically mean more meaningful participation.</p>
+        <p>AI can extend human capabilities by generating answers, processing information and performing cognitive tasks. But producing an answer is not the same as understanding why a question matters.</p>
+        <p class="close">Within TimeCapsule, AI assists people and never impersonates them: members are real people, not bots, and human participation is never replaced by artificial activity. Human judgement, responsibility and experience remain central.</p>
+      </div>
+      <a class="rd-next" href="#read=exists" data-go="exists"><small>Next</small><b>Why it exists</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </article>
+    <article class="lp-ch" data-ch="exists" hidden>
+      <p class="ey">Purpose</p>
+      <h2>Why it exists</h2>
+      <div class="lp-pr">
+        <p class="lead">TimeCapsule emerges from the need for a digital environment that is safe, respectful and built around genuine participation, where trust, privacy and mutual respect allow people to express themselves and engage with different perspectives. Safety is essential, because meaningful communication cannot develop without a sense of security. Within it, sustained conversations, shared learning, communities and collective creation can grow.</p>
+        <p>Ideas also deserve continuity. They should not disappear into the constant flow of digital content; their authorship, history and context should stay accessible for others to revisit, question and develop.</p>
+        <p class="close">The purpose is not simply to connect more people or produce more content. It is to create a digital environment where technology serves human connection, shared knowledge and collective creation, while preserving the freedom, dignity and safety of the people who give it meaning.</p>
+      </div>
+      <a class="rd-next" href="#read=believe" data-go="believe"><small>Next</small><b>We believe</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </article>
+    <article class="lp-ch" data-ch="believe" hidden>
+      <p class="ey">Manifesto</p>
+      <h2>We believe</h2>
+      <div class="lp-pr"><ol class="lp-bel"><li><p>We believe technology should serve human life, not define its purposes. It can remain a means, without becoming the horizon within which everything acquires its meaning.</p></li><li><p>We believe technological progress should expand human possibilities without reducing human existence to productivity, efficiency, calculation or measurable performance.</p></li><li><p>We believe intelligence is more than the capacity to process information or produce answers. Human thought requires experience, imagination, interpretation, independent judgement and the freedom to question.</p></li><li><p>We believe knowledge develops through observation, dialogue, disagreement, reflection and the encounter of different perspectives. Its value lies not only in what we know, but in how we come to understand.</p></li><li><p>We believe communication is more than the transmission of content. It requires attention, reciprocity, trust and a willingness to encounter others.</p></li><li><p>We believe participation must be active and meaningful. People should remain contributors to the knowledge, ideas and decisions that shape their shared world, rather than passive consumers of automated outputs.</p></li><li><p>We believe communities grow through the continued involvement of their members. Through shared experiences, conversations and collective initiatives, people develop relationships, mutual understanding and the capacity to create together.</p></li><li><p>We believe artificial intelligence should help people communicate, explore ideas, overcome barriers, organise knowledge and collaborate, extending human capabilities without replacing human judgement, initiative, authorship or responsibility.</p></li><li><p>We believe human knowledge and experience deserve to be preserved, with their authorship, history and context intact, so that future generations can question and build upon them.</p></li></ol><p class="close stand">We stand for a digital environment in which technology brings human possibilities closer to fulfilment: where people participate rather than merely consume, understand rather than simply process, create together rather than produce in isolation, and build relationships that give meaning to the world they share.</p></div>
+      <div class="rd-fin"><p>Thank you for reading this far.</p><div class="acts"><a class="p" href="https://claude.ai/artifact/Q7o5JaMGP7bHLXzJ6aw6TH" target="_top">Join TimeCapsule</a><button type="button" class="s" data-rdx>Back to the start</button></div></div>
+    </article>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  /* header: anchors, solid on scroll, language picker in the bar */
+  var H=document.getElementById('tch');
+  if(H){
+    H.querySelectorAll('a.tch-logo').forEach(function(a){a.setAttribute('href','#');a.removeAttribute('target');a.addEventListener('click',function(e){e.preventDefault();scrollTo({top:0,behavior:'smooth'})})});
+    var onS=function(){H.classList.toggle('lp-solid',scrollY>innerHeight*.6)};addEventListener('scroll',onS,{passive:true});onS();
+    var moveLP=function(){var lp=document.querySelector('.tch-menu .tc-lp'),auth=H.querySelector('.tch-auth');if(!lp||!auth)return false;lp.className='tc-lp h';var l=lp.querySelector('.tc-lpl');if(l)l.remove();auth.parentNode.insertBefore(lp,auth);return true};
+    if(!moveLP()){var n=0,t=setInterval(function(){if(moveLP()||++n>40)clearInterval(t)},100)}
+  }
+  /* pause the globe when it is scrolled away */
+  addEventListener('scroll',function(){window.__lpPause=scrollY>innerHeight*1.05},{passive:true});
+  /* the long read: one chapter at a time */
+  var rd=document.getElementById('read'),pg=rd&&rd.querySelector('.rd-pg i'),lastFocus=null;
+  function setHash(h){try{history.replaceState(null,'',location.pathname+location.search+(h?'#'+h:''))}catch(e){}}
+  function openCh(k){if(!rd)return;var art=rd.querySelector('[data-ch="'+k+'"]');if(!art)return;
+    if(rd.hidden){lastFocus=document.activeElement;rd.hidden=false;document.documentElement.classList.add('rd-open');document.body.classList.add('rd-open');window.__lpPause=true}
+    rd.querySelectorAll('[data-ch]').forEach(function(a){a.hidden=a!==art});
+    rd.querySelectorAll('.rd-tabs button').forEach(function(b){b.setAttribute('aria-current',b.getAttribute('data-go')===k)});
+    var cur=rd.querySelector('.rd-tabs button[aria-current="true"]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'nearest'});
+    rd.scrollTop=0;prog();setHash('read='+k);var x=rd.querySelector('.rd-x');if(x)x.focus({preventScroll:true})}
+  function closeRd(){if(!rd||rd.hidden)return;rd.hidden=true;document.documentElement.classList.remove('rd-open');document.body.classList.remove('rd-open');window.__lpPause=scrollY>innerHeight*1.05;setHash('');if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true})}
+  function prog(){if(!pg)return;var m=rd.scrollHeight-rd.clientHeight;pg.style.width=(m>0?Math.min(100,rd.scrollTop/m*100):100)+'%'}
+  if(rd){rd.addEventListener('scroll',prog,{passive:true});
+    rd.addEventListener('click',function(e){if(e.target.closest('[data-rdx]')){e.preventDefault();closeRd()}});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!rd.hidden)closeRd()})}
+  document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(!g)return;e.preventDefault();e.stopPropagation();openCh(g.getAttribute('data-go'))},true);
+  window.TCLP={open:openCh,close:closeRd};
+  /* in-page links scroll inside the frame */
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1);if(!id)return;var el=document.getElementById(id);if(!el)return;e.preventDefault();el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
+  /* open a section from the link, e.g. #manifesto or #how */
+  var h=(location.hash||'').replace(/^#/,'').split('&')[0],m=h.match(/^read=([a-z-]+)$/);if(m)setTimeout(function(){openCh(m[1])},60);else if(h&&/^(about|how|roots|deeper)$/.test(h)){setTimeout(function(){var el=document.getElementById(h);if(el)el.scrollIntoView()},250)}
+})();
+</script>
