@@ -203,7 +203,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
  <ol class="steps num">
   <li><div class="body"><h2>Pick a question</h2><p>Choose Create a table, pick a topic and write what you want to discuss. Open, short questions work best, because nobody can answer them alone.</p>
    <div class="mini"><span class="ub vio">+ Create a table</span></div></div></li>
-  <li><div class="body"><h2>Choose when and who</h2><p>Start now, later today or on a date you pick. Open tables appear on the Agenda for anyone to join. Private tables stay off the Agenda, and only people with your invite link can join.</p>
+  <li><div class="body"><h2>Choose when and who</h2><p>Start now, later today or on a date you pick. Open tables appear on the Tables page for anyone to join. Private tables stay off the Tables page, and only people with your invite link can join.</p>
    <div class="mini"><div class="tabs"><span class="on">Open</span><span>Private</span></div></div></div></li>
   <li><div class="body"><h2>Set the table</h2><p>Choose up to eight chairs and the language you will speak. Decide whether to keep a transcript of the discussion. A transcript goes to the public library only if everyone at the table agrees.</p>
    <div class="mini"><span class="ctr">Seats <b>8</b></span><span class="sw"><i></i>Keep a transcript of the discussion</span></div></div></li>

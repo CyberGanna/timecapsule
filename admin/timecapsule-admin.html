@@ -704,7 +704,7 @@ function openTable(id){
     <label class="fld">When<input id="tf-when" value="${esc(t.when)}"></label>
     <label class="fld">Chairs<input id="tf-seats" type="number" min="3" max="12" value="${t.seats}"></label>
     
-    <label class="fld full">Who can join<select id="tf-vis"><option value="open" ${t.vis==='open'?'selected':''}>Open: anyone can find it on the Agenda</option><option value="private" ${t.vis==='private'?'selected':''}>Private: only people with the link</option></select></label>
+    <label class="fld full">Who can join<select id="tf-vis"><option value="open" ${t.vis==='open'?'selected':''}>Open: anyone can find it on the Tables page</option><option value="private" ${t.vis==='private'?'selected':''}>Private: only people with the link</option></select></label>
    </div></div>
    <div class="sec"><h4>At the table</h4><div class="list">${[h].concat(guests).filter(p=>p.look).map((p,i)=>`<div class="li"><span class="who"><span class="ph">${av(p)}</span></span><div class="tx">${esc(p.name)}<span>${i===0?'Host':'Guest'} · ${esc(p.city)}</span></div><button class="lnk" data-user="${p.id}">Open</button></div>`).join('')}</div></div>
    <div class="sec"><h4>Conversation</h4>${hasConv?`<div class="li" style="border:0;padding:0"><div class="tx">${TRANSCRIPTS[t.id]?'Transcript kept':'No transcript'} · ${t.msgs} messages</div><a class="btn sm" href="#conversations-${t.id}">Read conversation</a></div>`:'<div style="color:var(--mute)">Nothing yet. It starts when the table does.</div>'}</div>`,
@@ -712,7 +712,7 @@ function openTable(id){
   $('#drawer').onclick=e=>{const u=e.target.closest('[data-user]');if(u){openUser(u.dataset.user);return}const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
    if(a==='save'){t.title=$('#tf-title').value.trim()||t.title;t.topic=$('#tf-topic').value;t.when=$('#tf-when').value;t.seats=Math.max(t.taken,+$('#tf-seats').value||t.seats);t.vis=$('#tf-vis').value;logAction(`edited the table "${t.title}"`);closeDrawer();refresh();toast('Table saved. Guests see the change.')}
    if(a==='cancel')confirmBox({title:'Cancel this table?',body:`<p>"${esc(t.title)}" stays in the records as cancelled. ${t.taken} guests get a notification and an email.</p>`,yes:'Cancel table',fn:()=>{const old=t.status;t.status='cancelled';logAction(`cancelled "${t.title}"`);closeDrawer();refresh();toast('Table cancelled',()=>{t.status=old;refresh()})}});
-   if(a==='delete')confirmBox({title:'Delete this table?',body:`<p>This can't be undone:</p><ul><li>"${esc(t.title)}" disappears from the Agenda, profiles and My tables.</li><li>Its transcript, messages, ratings and tips are deleted.</li>${t.status!=='ended'?`<li>${t.taken} guests are told it was cancelled.</li>`:''}</ul><p>To keep the records, cancel it instead.</p>`,yes:'Delete table',fn:()=>{TABLES.splice(TABLES.indexOf(t),1);logAction(`deleted the table "${t.title}"`);closeDrawer();refresh();toast('Table deleted')}});
+   if(a==='delete')confirmBox({title:'Delete this table?',body:`<p>This can't be undone:</p><ul><li>"${esc(t.title)}" disappears from the Tables page, profiles and My tables.</li><li>Its transcript, messages, ratings and tips are deleted.</li>${t.status!=='ended'?`<li>${t.taken} guests are told it was cancelled.</li>`:''}</ul><p>To keep the records, cancel it instead.</p>`,yes:'Delete table',fn:()=>{TABLES.splice(TABLES.indexOf(t),1);logAction(`deleted the table "${t.title}"`);closeDrawer();refresh();toast('Table deleted')}});
   };
 }
 

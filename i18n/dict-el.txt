@@ -214,7 +214,7 @@ Privacy|Απόρρητο
 Let people find me|Να με βρίσκουν
 List me on the People page. Hosts are always listed while they have an open table.|Εμφάνισέ με στη σελίδα Άνθρωποι. Οι οικοδεσπότες εμφανίζονται πάντα όσο έχουν ανοιχτό τραπέζι.
 Show when I'm live|Δείξε όταν είμαι live
-Visitors to your profile see the open table you're hosting right now, with Join. Off: they only see it on the Agenda.|Όσοι επισκέπτονται το προφίλ σου βλέπουν το ανοιχτό τραπέζι που φιλοξενείς τώρα, με το Μπες. Κλειστό: το βλέπουν μόνο στην Ατζέντα.
+Visitors to your profile see the open table you're hosting right now, with Join. Off: they only see it on the Tables page.|Όσοι επισκέπτονται το προφίλ σου βλέπουν το ανοιχτό τραπέζι που φιλοξενείς τώρα, με το Μπες. Κλειστό: το βλέπουν μόνο στη σελίδα Τραπέζια.
 Who can chat with me|Ποιος μπορεί να μου γράψει
 Who can start a new chat. Existing chats stay.|Ποιος μπορεί να ξεκινήσει νέα συζήτηση. Οι υπάρχουσες μένουν.
 Everyone|Όλοι
@@ -278,7 +278,7 @@ Block Gregory?|Να αποκλειστεί ο Gregory;
 Report Gregory|Αναφορά του Gregory
 Gregory won't see your profile or your tables, or be able to take a chair at them.|Ο Gregory δεν θα βλέπει το προφίλ ή τα τραπέζια σου και δεν θα μπορεί να πάρει καρέκλα σε αυτά.
 No chats and no follows from Gregory.|Ούτε συζητήσεις ούτε ακολουθήσεις από τον Gregory.
-You won't see each other on People or the Agenda.|Δεν θα βλέπετε ο ένας τον άλλον στους Ανθρώπους ή στην Ατζέντα.
+You won't see each other on People or the Tables page.|Δεν θα βλέπετε ο ένας τον άλλον στους Ανθρώπους ή στη σελίδα Τραπέζια.
 Gregory isn't told. You can unblock any time in Settings.|Ο Gregory δεν ενημερώνεται. Μπορείς να άρεις τον αποκλεισμό όποτε θέλεις στις Ρυθμίσεις.
 You blocked Gregory. Your profile and tables are hidden from Gregory, who isn’t told.|Απέκλεισες τον Gregory. Το προφίλ και τα τραπέζια σου είναι κρυφά για τον Gregory, που δεν ενημερώνεται.
 Gregory is unblocked|Ο αποκλεισμός του Gregory άρθηκε
@@ -482,8 +482,8 @@ Add what you want to discuss to open the table.|Γράψε τι θέλεις ν�
 e.g. Free will, slow travel, home batteries…|π.χ. Ελεύθερη βούληση, αργό ταξίδι, οικιακές μπαταρίες…
 Table format|Μορφή τραπεζιού
 Who can join|Ποιος μπορεί να μπει
-Anyone can find it on the Agenda and take a free chair.|Όλοι μπορούν να το βρουν στην Ατζέντα και να πάρουν μια ελεύθερη καρέκλα.
-Only people invited with the link. It stays off the Agenda.|Μόνο όσοι προσκλήθηκαν με τον σύνδεσμο. Δεν εμφανίζεται στην Ατζέντα.
+Anyone can find it on the Tables page and take a free chair.|Όλοι μπορούν να το βρουν στη σελίδα Τραπέζια και να πάρουν μια ελεύθερη καρέκλα.
+Only people invited with the link. It stays off the Tables page.|Μόνο όσοι προσκλήθηκαν με τον σύνδεσμο. Δεν εμφανίζεται στη σελίδα Τραπέζια.
 Keep a transcript of the discussion|Κράτα απομαγνητοφώνηση της συζήτησης
 Anything we should know? (optional)|Κάτι που πρέπει να ξέρουμε; (προαιρετικό)
 Start table|Ξεκίνα το τραπέζι
@@ -757,7 +757,7 @@ Table full|Γεμάτο τραπέζι
 Cancelled|Ακυρώθηκε
 Removed|Αφαιρέθηκε
 Page not found|Η σελίδα δεν βρέθηκε
-Agenda|Ατζέντα
+Tables|Τραπέζια
 Tomorrow · 19:00|Αύριο · 19:00
 Is free will an illusion?|Είναι η ελεύθερη βούληση μια ψευδαίσθηση;
 Host · Switzerland|Οικοδεσπότης · Ελβετία
@@ -812,9 +812,9 @@ Small tables, real conversations. Pick a day.|Μικρά τραπέζια, αλ�
 No tables on Sunday yet|Κανένα τραπέζι την Κυριακή ακόμα
 Be the first. Open a table, and people looking for Sunday will find it here.|Γίνε ο πρώτος. Άνοιξε ένα τραπέζι και όσοι ψάχνουν για Κυριακή θα το βρουν εδώ.
 See today's tables|Δες τα σημερινά τραπέζια
-In the real Agenda, today’s tables show here|Στην πραγματική Ατζέντα, εδώ εμφανίζονται τα σημερινά τραπέζια
+On the real Tables page, today’s tables show here|Στην πραγματική σελίδα Τραπέζια, εδώ εμφανίζονται τα σημερινά τραπέζια
 No tables yet|Κανένα τραπέζι ακόμα
-Save a chair at any table on the Agenda, or host your own. They’ll wait for you here.|Κράτα μια καρέκλα σε οποιοδήποτε τραπέζι της Ατζέντας ή φιλοξένησε το δικό σου. Θα σε περιμένουν εδώ.
+Save a chair at any table on the Tables page, or host your own. They’ll wait for you here.|Κράτα μια καρέκλα σε οποιοδήποτε τραπέζι της σελίδας Τραπέζια ή φιλοξένησε το δικό σου. Θα σε περιμένουν εδώ.
 Find a table|Βρες ένα τραπέζι
 Nothing here yet|Τίποτα εδώ ακόμα
 After your first table, you’ll find it here with its transcript and the notes you kept.|Μετά το πρώτο σου τραπέζι, θα το βρεις εδώ με την απομαγνητοφώνηση και τις σημειώσεις που κράτησες.
@@ -1206,7 +1206,7 @@ what costs us something to run, such as more chairs, longer video, live translat
 What coins never do|Τι δεν κάνουν ποτέ τα νομίσματα
 They can't be bought with money, sold, or cashed out. Otherwise reputation could be bought.|Δεν αγοράζονται με χρήματα, δεν πωλούνται και δεν εξαργυρώνονται. Αλλιώς η φήμη θα μπορούσε να αγοραστεί.
 They can't be sent to a person outside awards, or used to award more than 8 per table.|Δεν στέλνονται σε κάποιον εκτός απονομών και δεν χρησιμοποιούνται για απονομή πάνω από 8 ανά τραπέζι.
-They can't buy a place in line, a better spot on the Agenda, or the Trusted badge.|Δεν αγοράζουν θέση στη σειρά, καλύτερη θέση στην Ατζέντα ή το σήμα Αξιόπιστος.
+They can't buy a place in line, a better spot on the Tables page, or the Trusted badge.|Δεν αγοράζουν θέση στη σειρά, καλύτερη θέση στη σελίδα Τραπέζια ή το σήμα Αξιόπιστος.
 No leaderboards and no ranking by coins.|Χωρίς κατατάξεις και χωρίς ιεράρχηση με βάση τα νομίσματα.
 Keeping it balanced|Διατήρηση ισορροπίας
 Prices are set by us, and there is no market, so hoarding can't push prices up. That is why To use coins can safely never expire.|Τις τιμές τις ορίζουμε εμείς και δεν υπάρχει αγορά, οπότε η συσσώρευση δεν ανεβάζει τις τιμές. Γι' αυτό τα νομίσματα Προς χρήση μπορούν με ασφάλεια να μη λήγουν ποτέ.
@@ -1303,7 +1303,7 @@ Hosting means bringing a question and keeping the conversation kind and moving. 
 Pick a question|Διάλεξε μια ερώτηση
 Choose Create a table, pick a topic and write what you want to discuss. Open, short questions work best, because nobody can answer them alone.|Διάλεξε Δημιούργησε τραπέζι, επίλεξε ένα θέμα και γράψε τι θέλεις να συζητήσετε. Οι ανοιχτές, σύντομες ερωτήσεις δουλεύουν καλύτερα, γιατί κανείς δεν μπορεί να τις απαντήσει μόνος.
 Choose when and who|Διάλεξε πότε και ποιοι
-Start now, later today or on a date you pick. Open tables appear on the Agenda for anyone to join. Private tables stay off the Agenda, and only people with your invite link can join.|Ξεκίνα τώρα, αργότερα σήμερα ή σε μια ημερομηνία που διαλέγεις. Τα ανοιχτά τραπέζια εμφανίζονται στην Ατζέντα για όποιον θέλει να μπει. Τα ιδιωτικά τραπέζια δεν εμφανίζονται στην Ατζέντα και μπαίνουν μόνο όσοι έχουν τον σύνδεσμο πρόσκλησής σου.
+Start now, later today or on a date you pick. Open tables appear on the Tables page for anyone to join. Private tables stay off the Tables page, and only people with your invite link can join.|Ξεκίνα τώρα, αργότερα σήμερα ή σε μια ημερομηνία που διαλέγεις. Τα ανοιχτά τραπέζια εμφανίζονται στη σελίδα Τραπέζια για όποιον θέλει να μπει. Τα ιδιωτικά τραπέζια δεν εμφανίζονται στη σελίδα Τραπέζια και μπαίνουν μόνο όσοι έχουν τον σύνδεσμο πρόσκλησής σου.
 Set the table|Στρώσε το τραπέζι
 Choose up to eight chairs and the language you will speak. Decide whether to keep a transcript of the discussion. A transcript goes to the public library only if everyone at the table agrees.|Διάλεξε έως οκτώ καρέκλες και τη γλώσσα που θα μιλήσετε. Αποφάσισε αν θα κρατηθεί απομαγνητοφώνηση της συζήτησης. Μια απομαγνητοφώνηση πηγαίνει στη δημόσια βιβλιοθήκη μόνο αν συμφωνήσουν όλοι στο τραπέζι.
 Share the table link, or use Invite friends to save a chair for someone next to yours: when you sit together you both gain 5 TimeCoins. Before the table, My tables shows who is coming and lets you message your guests.|Μοιράσου τον σύνδεσμο του τραπεζιού ή χρησιμοποίησε το Κάλεσε φίλους για να κρατήσεις μια καρέκλα για κάποιον δίπλα στη δική σου: όταν κάθεστε μαζί κερδίζετε και οι δύο 5 TimeCoins. Πριν από το τραπέζι, τα Τραπέζια μου δείχνουν ποιοι έρχονται και σου επιτρέπουν να γράψεις στους καλεσμένους σου.
@@ -1355,7 +1355,7 @@ Read Your first table in the Guides, then open Tables and save a chair at someth
 How many people sit at a table?|Πόσοι άνθρωποι κάθονται σε ένα τραπέζι;
 Up to eight, including the host. Small tables give everyone time to speak.|Έως οκτώ, μαζί με τον οικοδεσπότη. Τα μικρά τραπέζια δίνουν σε όλους χρόνο να μιλήσουν.
 What kinds of table are there?|Τι είδη τραπεζιών υπάρχουν;
-Two: Open and Private. An Open table is on the Agenda and anyone can take a free chair. A Private table stays off the Agenda, and only people with the link can join. Either way, the person who creates the table hosts it.|Δύο: Ανοιχτό και Ιδιωτικό. Ένα Ανοιχτό τραπέζι είναι στην Ατζέντα και οποιοσδήποτε μπορεί να πάρει μια ελεύθερη καρέκλα. Ένα Ιδιωτικό τραπέζι δεν εμφανίζεται στην Ατζέντα και μπαίνουν μόνο όσοι έχουν τον σύνδεσμο. Σε κάθε περίπτωση, όποιος δημιουργεί το τραπέζι το φιλοξενεί.
+Two: Open and Private. An Open table is on the Tables page and anyone can take a free chair. A Private table stays off the Tables page, and only people with the link can join. Either way, the person who creates the table hosts it.|Δύο: Ανοιχτό και Ιδιωτικό. Ένα Ανοιχτό τραπέζι είναι στη σελίδα Τραπέζια και οποιοσδήποτε μπορεί να πάρει μια ελεύθερη καρέκλα. Ένα Ιδιωτικό τραπέζι δεν εμφανίζεται στη σελίδα Τραπέζια και μπαίνουν μόνο όσοι έχουν τον σύνδεσμο. Σε κάθε περίπτωση, όποιος δημιουργεί το τραπέζι το φιλοξενεί.
 What if I can't make it?|Κι αν δεν μπορώ να έρθω;
 Give up your chair in My tables so someone else can sit. At a live table you can leave at any time with Leave table.|Άφησε την καρέκλα σου στα Τραπέζια μου για να κάτσει κάποιος άλλος. Σε ένα live τραπέζι μπορείς να φύγεις όποτε θέλεις με το Φύγε από το τραπέζι.
 Is there a transcript?|Υπάρχει απομαγνητοφώνηση;
@@ -1365,7 +1365,7 @@ Only you. A note leaves your Notes tab only when you choose Ask, which sends it 
 How do I host a table?|Πώς φιλοξενώ ένα τραπέζι;
 Choose Create a table at the top of the page, write your question, pick a time and open it. The guide Hosting a table walks you through it.|Διάλεξε Δημιούργησε τραπέζι στο πάνω μέρος της σελίδας, γράψε την ερώτησή σου, διάλεξε ώρα και άνοιξέ το. Ο οδηγός Φιλοξενία τραπεζιού σε καθοδηγεί βήμα βήμα.
 Can I host a private table?|Μπορώ να φιλοξενήσω ιδιωτικό τραπέζι;
-Yes. Choose Private under Who can join. The table stays off the Agenda and only people with your link can join.|Ναι. Διάλεξε Ιδιωτικό στο Ποιος μπορεί να μπει. Το τραπέζι δεν εμφανίζεται στην Ατζέντα και μπαίνουν μόνο όσοι έχουν τον σύνδεσμό σου.
+Yes. Choose Private under Who can join. The table stays off the Tables page and only people with your link can join.|Ναι. Διάλεξε Ιδιωτικό στο Ποιος μπορεί να μπει. Το τραπέζι δεν εμφανίζεται στη σελίδα Τραπέζια και μπαίνουν μόνο όσοι έχουν τον σύνδεσμό σου.
 How do I change or cancel my table?|Πώς αλλάζω ή ακυρώνω το τραπέζι μου;
 Open My tables, find the table and use its menu to edit it, message your guests or cancel it. Your guests are told if you cancel.|Άνοιξε τα Τραπέζια μου, βρες το τραπέζι και χρησιμοποίησε το μενού του για να το επεξεργαστείς, να γράψεις στους καλεσμένους ή να το ακυρώσεις. Αν το ακυρώσεις, οι καλεσμένοι ενημερώνονται.
 What if someone is unkind at my table?|Κι αν κάποιος είναι αγενής στο τραπέζι μου;
@@ -1433,7 +1433,7 @@ Ideas that last|Ιδέες που μένουν
 Every contribution keeps its author and its context, a record that future generations can question and build on.|Κάθε συμβολή κρατά τον δημιουργό και το πλαίσιό της, μια καταγραφή που οι επόμενες γενιές μπορούν να αμφισβητήσουν και να χτίσουν πάνω της.
 Read what TimeCapsule is|Διάβασε τι είναι το TimeCapsule
 A small table, a real conversation|Ένα μικρό τραπέζι, μια αληθινή κουβέντα
-Open tables are on the Agenda, and anyone can take a free chair. Private tables reach only the people the host invites, with a link.|Τα ανοιχτά τραπέζια είναι στην Ατζέντα και οποιοσδήποτε μπορεί να πάρει μια ελεύθερη καρέκλα. Τα ιδιωτικά τραπέζια φτάνουν μόνο σε όσους καλεί ο οικοδεσπότης, με έναν σύνδεσμο.
+Open tables are on the Tables page, and anyone can take a free chair. Private tables reach only the people the host invites, with a link.|Τα ανοιχτά τραπέζια είναι στη σελίδα Τραπέζια και οποιοσδήποτε μπορεί να πάρει μια ελεύθερη καρέκλα. Τα ιδιωτικά τραπέζια φτάνουν μόνο σε όσους καλεί ο οικοδεσπότης, με έναν σύνδεσμο.
 Or host your own|Ή φιλοξένησε το δικό σου
 Whoever opens a table hosts it: they choose the question, the time and how many chairs.|Όποιος ανοίγει ένα τραπέζι το φιλοξενεί: διαλέγει την ερώτηση, την ώρα και πόσες καρέκλες.
 Talk, face to face|Μίλα πρόσωπο με πρόσωπο
@@ -1597,7 +1597,7 @@ You must be at least 16 years old.|Πρέπει να είσαι τουλάχισ
 One account per person. Accounts are for people, not companies or bots.|Ένας λογαριασμός ανά άτομο. Οι λογαριασμοί είναι για ανθρώπους, όχι για εταιρείες ή bots.
 Keep your sign-in safe and your email up to date. You are responsible for what happens on your account.|Κράτα τη σύνδεσή σου ασφαλή και το email σου ενημερωμένο. Είσαι υπεύθυνος για ό,τι συμβαίνει στον λογαριασμό σου.
 3. Tables|3. Τραπέζια
-A table is a live conversation hosted by the member who created it. Open tables appear on the Agenda; private tables can only be joined with the link.|Ένα τραπέζι είναι μια ζωντανή κουβέντα που φιλοξενεί το μέλος που το δημιούργησε. Τα ανοιχτά τραπέζια εμφανίζονται στην Ατζέντα· στα ιδιωτικά τραπέζια μπαίνεις μόνο με τον σύνδεσμο.
+A table is a live conversation hosted by the member who created it. Open tables appear on the Tables page; private tables can only be joined with the link.|Ένα τραπέζι είναι μια ζωντανή κουβέντα που φιλοξενεί το μέλος που το δημιούργησε. Τα ανοιχτά τραπέζια εμφανίζονται στη σελίδα Τραπέζια· στα ιδιωτικά τραπέζια μπαίνεις μόνο με τον σύνδεσμο.
 Hosts are members like you, not our staff. We don't check what is said in advance and we can't promise that every table takes place.|Οι οικοδεσπότες είναι μέλη σαν εσένα, όχι προσωπικό μας. Δεν ελέγχουμε εκ των προτέρων τι λέγεται και δεν μπορούμε να υποσχεθούμε ότι κάθε τραπέζι θα γίνει.
 Video and sound are streamed live and are not recorded by us.|Η εικόνα και ο ήχος μεταδίδονται ζωντανά και δεν καταγράφονται από εμάς.
 4. Your words and transcripts|4. Τα λόγια σου και οι απομαγνητοφωνήσεις
@@ -1827,7 +1827,7 @@ Next to the usual things in your profile, you can have fun adding the books and 
 On your profile you can have fun adding your favourite books or films and connect with people on your same wavelength.|Στο προφίλ σου μπορείς να διασκεδάσεις προσθέτοντας τα αγαπημένα σου βιβλία ή ταινίες και να βρεις ανθρώπους στο ίδιο μήκος κύματος με σένα.
 Where your orbits cross someone else's, it's an opportunity for an exchange.|Όπου οι τροχιές σου συναντούν κάποιου άλλου, γεννιέται η ευκαιρία για μια ανταλλαγή.
 Terms & Privacy|Όροι και απόρρητο
-Open tables are on the Agenda, and anyone can take a free chair. Private tables reach only the people the host invites, with a link. Or host your own: you choose the question, the time and how many chairs.|Τα ανοιχτά τραπέζια είναι στην Ατζέντα και ο καθένας μπορεί να πάρει μια ελεύθερη καρέκλα. Τα ιδιωτικά τραπέζια φτάνουν μόνο σε όσους προσκαλεί ο οικοδεσπότης, με έναν σύνδεσμο. Ή άνοιξε το δικό σου: εσύ διαλέγεις την ερώτηση, την ώρα και πόσες καρέκλες.
+Open tables are on the Tables page, and anyone can take a free chair. Private tables reach only the people the host invites, with a link. Or host your own: you choose the question, the time and how many chairs.|Τα ανοιχτά τραπέζια είναι στη σελίδα Τραπέζια και ο καθένας μπορεί να πάρει μια ελεύθερη καρέκλα. Τα ιδιωτικά τραπέζια φτάνουν μόνο σε όσους προσκαλεί ο οικοδεσπότης, με έναν σύνδεσμο. Ή άνοιξε το δικό σου: εσύ διαλέγεις την ερώτηση, την ώρα και πόσες καρέκλες.
 Join or host a table|Μπες ή φιλοξένησε ένα τραπέζι
 Get the conversation started. Talk, listen, brainstorm live!|Ξεκίνα τη συζήτηση. Μίλα, άκου, ανταλλάξτε ιδέες ζωντανά!
 Useful tools|Χρήσιμα εργαλεία

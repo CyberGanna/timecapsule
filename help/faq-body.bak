@@ -90,7 +90,7 @@ details a:hover{text-decoration:underline;text-underline-offset:3px}
 
 <section class="grp" id="hosting"><h2>Hosting</h2>
  <details><summary><span>How do I host a table?</span><svg><use href="#i-plus"/></svg></summary><p>Choose Create a table at the top of the page, write your question, pick a time and open it. The guide Hosting a table walks you through it.</p></details>
- <details><summary><span>Can I host a private table?</span><svg><use href="#i-plus"/></svg></summary><p>Yes. Choose Private under Who can join. The table stays off the Agenda and only people with your link can join.</p></details>
+ <details><summary><span>Can I host a private table?</span><svg><use href="#i-plus"/></svg></summary><p>Yes. Choose Private under Who can join. The table stays off the Tables page and only people with your link can join.</p></details>
  <details><summary><span>How do I change or cancel my table?</span><svg><use href="#i-plus"/></svg></summary><p>Open My tables, find the table and use its menu to edit it, message your guests or cancel it. Your guests are told if you cancel.</p></details>
  <details><summary><span>What if someone is unkind at my table?</span><svg><use href="#i-plus"/></svg></summary><p>Remind the table of the question and give the word to someone else. If it goes on, report the person from their profile. Reports are read by our moderators.</p></details>
 </section>

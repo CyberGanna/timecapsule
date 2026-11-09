@@ -73,7 +73,7 @@ const S={
  <div class="e-pcols"><div><div class="e-ps"><h3>Talks about</h3><div class="e-chips"><span><i style="background:${T.Philosophy}"></i>Philosophy</span><span><i style="background:${T.Books}"></i>Books</span><span><i style="background:${T.Psychology}"></i>Psychology</span></div></div><div class="e-ps"><h3>My readings</h3><p class="e-em">The Overstory, Richard Powers</p></div><div class="e-ps"><h3>Ratings</h3><p class="e-em">No ratings yet. They come from the people you sit with.</p></div></div>
  <div><div class="e-ps"><h3>Tables</h3><p class="e-em">No tables yet. <a href="${U.agenda}" target="_top">Save your first chair</a> or <a href="${U.create}" target="_top">host one</a>.</p></div><div class="e-ps"><h3>Feedbacks</h3><p class="e-em">Kind words people leave after a table will show here.</p></div><div class="e-ps"><h3>Following</h3><p class="e-em">Nobody yet. <a href="${U.people}" target="_top">Find your people</a>.</p></div></div></div></section></div>`}
 };
-const MT={up:{art:ART.chair,h:'No tables yet',p:['Save a chair at any table on the Agenda, or host your own. They’ll wait for you here.'],acts:A(U.agenda,'Find a table')+A(U.create,'Create a table','e-lnk')},
+const MT={up:{art:ART.chair,h:'No tables yet',p:['Save a chair at any table on the Tables page, or host your own. They’ll wait for you here.'],acts:A(U.agenda,'Find a table')+A(U.create,'Create a table','e-lnk')},
  past:{art:tbl({n:6}),h:'Nothing here yet',p:['After your first table, you’ll find it here with its transcript and the notes you kept.'],acts:A(U.agenda,'Find a table')}};
 
 function mt(k){$('#e-mtb').innerHTML=solo(MT[k]);document.querySelectorAll('[data-mt]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mt===k))}
@@ -87,7 +87,7 @@ function onClick(e){
  if(sv){const on=!sv.classList.contains('e-ok');sv.classList.toggle('e-ok',on);sv.innerHTML=on?I.check+'Chair saved':'Save a chair';if(on)toast('Chair saved. See you there.');return}
  if(e.target.closest('[data-tell]')){$('#e-scrim').hidden=false;setTimeout(()=>$('#e-sh-x').focus(),30);return}
  const d=e.target.closest('[data-day]');
- if(d){document.querySelectorAll('#e-days .e-tb').forEach(b=>b.setAttribute('aria-pressed',TCI18N.src(b).trim()===d.dataset.day));toast('In the real Agenda, today’s tables show here');return}
+ if(d){document.querySelectorAll('#e-days .e-tb').forEach(b=>b.setAttribute('aria-pressed',TCI18N.src(b).trim()===d.dataset.day));toast('On the real Tables page, today’s tables show here');return}
  const dd=e.target.closest('#e-days .e-tb');
  if(dd){document.querySelectorAll('#e-days .e-tb').forEach(b=>b.setAttribute('aria-pressed',b===dd));return}
  const m=e.target.closest('[data-mt]');if(m){mt(m.dataset.mt);return}

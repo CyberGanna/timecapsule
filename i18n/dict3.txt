@@ -147,8 +147,8 @@ Add what you want to discuss to open the table.|Scrivi di cosa vuoi parlare per 
 e.g. Free will, slow travel, home batteries…|es. libero arbitrio, viaggio lento, batterie di casa…|p. ej. libre albedrío, viaje lento, baterías domésticas…
 Table format|Formato del tavolo|Formato de la mesa
 Who can join|Chi può partecipare|Quién puede unirse
-Anyone can find it on the Agenda and take a free chair.|Chiunque può trovarlo nell'Agenda e prendere un posto libero.|Cualquiera puede encontrarla en la Agenda y ocupar un sitio libre.
-Only people invited with the link. It stays off the Agenda.|Solo chi è invitato con il link. Non compare nell'Agenda.|Solo quien tenga el enlace de invitación. No aparece en la Agenda.
+Anyone can find it on the Tables page and take a free chair.|Chiunque può trovarlo nella pagina Tavoli e prendere un posto libero.|Cualquiera puede encontrarla en la página Mesas y ocupar un sitio libre.
+Only people invited with the link. It stays off the Tables page.|Solo chi è invitato con il link. Non compare nella pagina Tavoli.|Solo quien tenga el enlace de invitación. No aparece en la página Mesas.
 Keep a transcript of the discussion|Conserva una trascrizione della discussione|Guardar una transcripción de la conversación
 Anything we should know? (optional)|C'è qualcosa che dovremmo sapere? (facoltativo)|¿Algo que debamos saber? (opcional)
 Start table|Apri il tavolo|Empezar la mesa
