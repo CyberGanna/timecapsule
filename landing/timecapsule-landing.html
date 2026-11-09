@@ -1019,7 +1019,7 @@ function draw(now){
   const taken=[];if(!card.hidden){const r=card.getBoundingClientRect();taken.push([r.left,r.top,r.right,r.bottom])}
   const maxQ=Math.min(300,W-60), QF='400 14px Sora, system-ui, sans-serif', HF='500 11px "JetBrains Mono", ui-monospace, monospace';
   const FOCT=LIS.T;
-  for(const b of bubbles){if(!card.hidden||(FOCT&&b.T!==FOCT))continue;const k=(now-b.t0)/7500;
+  for(const b of (W<760?[]:bubbles)){if(!card.hidden||(FOCT&&b.T!==FOCT))continue;const k=(now-b.t0)/7500;
     const [x,y,z]=proj(b.l,b.p);if(z<=.2)continue;
     // cards are fully solid: a quick fade in and out, and an older card vanishes as soon as a new voice starts
     if(b.cut)continue;const age=now-b.t0,a=Math.min(1,age/250,(7500-age)/400);if(a<=0)continue;
