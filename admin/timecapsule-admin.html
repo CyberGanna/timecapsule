@@ -349,7 +349,7 @@ table.dt{width:100%;border-collapse:collapse;font-size:13.5px}
   <span class="sp"></span>
   <label class="gsearch"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input id="gq" type="search" placeholder="Find a person or table" aria-label="Find a person or table" autocomplete="off"></label>
   <a class="back" href="../help/live-pages/agenda.html" target="_top">Back to TimeCapsule</a>
-  <div class="me"><span class="ph" id="meph"></span><span class="nm"><b>Karim</b><small>Owner</small></span></div>
+  <div class="me"><span class="ph" id="meph"></span><span class="nm"><b>Gabriele</b><small>Owner</small></span></div>
 </header>
 <nav class="mnav" id="mnav" aria-label="Admin sections"></nav>
 <div class="shell">
@@ -431,7 +431,7 @@ Object.assign(USERS[0],{look:["#FFE9C7","#2E3566","#E8B994","#6B4A33","beard"],t
 USERS[1].role='support';USERS[1].trusted=true;
 USERS[11].status='suspended';USERS[11].reports=3;
 USERS[21].reports=1;USERS[25].reports=2;
-const KARIM={id:'k',name:'Karim',city:'Lugano',look:["#D9F8FA","#7C5CFF","#D9A47C","#1B1B1B","short"],role:'owner'};
+const GABRIELE={id:'k',name:'Gabriele',city:'Lugano',look:["#D9F8FA","#7C5CFF","#D9A47C","#1B1B1B","short"],role:'owner'};
 const uById=id=>USERS.find(u=>u.id===id);
 
 const TITLES=[
@@ -479,16 +479,16 @@ let EMAILS=[];
  times.forEach((tm,i)=>{const k=pick(kinds),t=pick(TABLES),h=uById(t.host),u=pick(USERS);const r=rnd();
   EMAILS.push({kind:k[0],kindName:k[2],subject:k[1].replace('{t}',t.title).replace('{h}',h.name),to:u.id,time:tm,status:r<.07?'bounced':r<.12&&i<3?'queued':r<.55?'opened':'delivered',t:t.id,h:h.name});});})();
 let ADMINLOG=[
- ['Karim','granted Support access to Amara','Today 03:20'],
+ ['Gabriele','granted Support access to Amara','Today 03:20'],
  ['Gregory','opened the conversation "Is the universe a computer?"','Today 02:48'],
  ['Gregory','suspended Dmitri','Today 02:51'],
  ['Amara','edited the table "Travelling slowly"','Yesterday 17:05'],
- ['Karim','added the topic History','Mon 2 Nov 11:12'],
- ['Karim','exported Users as CSV','Mon 2 Nov 10:40']
+ ['Gabriele','added the topic History','Mon 2 Nov 11:12'],
+ ['Gabriele','exported Users as CSV','Mon 2 Nov 10:40']
 ];
 let EXPORTS=[
- {what:'Users',fmt:'CSV',range:'All time',by:'Karim',when:'Mon 2 Nov 10:40',size:'412 KB',state:'ready'},
- {what:'Tables, Ratings and tips',fmt:'XLSX',range:'Last 30 days',by:'Karim',when:'Sun 1 Nov 09:12',size:'1.1 MB',state:'ready'},
+ {what:'Users',fmt:'CSV',range:'All time',by:'Gabriele',when:'Mon 2 Nov 10:40',size:'412 KB',state:'ready'},
+ {what:'Tables, Ratings and tips',fmt:'XLSX',range:'Last 30 days',by:'Gabriele',when:'Sun 1 Nov 09:12',size:'1.1 MB',state:'ready'},
  {what:'Dashboard report',fmt:'PDF',range:'October 2026',by:'Gregory',when:'Sun 1 Nov 08:30',size:'640 KB',state:'ready'}
 ];
 
@@ -532,7 +532,7 @@ function openDrawer(title,body,foot){$('#dtitle').textContent=title;$('#dbody').
 function closeDrawer(){$('#drawer').hidden=true;$('#scrim').hidden=true}
 $('#dx').onclick=closeDrawer;$('#scrim').onclick=closeDrawer;
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('#ov').hidden)$('#ov').hidden=true;else closeDrawer()}});
-const logAction=(what)=>{ADMINLOG.unshift(['Karim',what,'Just now'])};
+const logAction=(what)=>{ADMINLOG.unshift(['Gabriele',what,'Just now'])};
 
 /* ---------- Dashboard ---------- */
 let range=30;
@@ -887,7 +887,7 @@ function openEmail(i){
 
 /* ---------- Admins ---------- */
 VIEWS.admins=function(){
-  const team=[KARIM].concat(USERS.filter(u=>u.role!=='member'));
+  const team=[GABRIELE].concat(USERS.filter(u=>u.role!=='member'));
   M().innerHTML=`<div class="page">${head('Admins','People who can open this panel.','<button class="btn vio" id="adda"><span style="font-size:17px;font-weight:400">+</span> Add admin</button>')}
   <div class="grid2" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)">
    <div><div class="tw"><table class="dt"><thead><tr><th>Person</th><th>Access</th><th class="hide-s">Since</th><th></th></tr></thead><tbody id="ab">${team.map(u=>`<tr data-id="${u.id}"><td><div class="who"><span class="ph">${av(u)}</span><div><b>${esc(u.name)}</b><span>${esc(u.city)}</span></div></div></td><td>${roleChip(u.role)}</td><td class="m hide-s">${u.role==='owner'?'Mar 2026':u.role==='admin'?'Apr 2026':'Today'}</td><td class="r">${u.role==='owner'?'<span class="m" style="font-size:12px">Can\'t be removed</span>':`<button class="btn sm redo" data-rv="${u.id}">Remove</button>`}</td></tr>`).join('')}</tbody></table></div>
@@ -929,7 +929,7 @@ VIEWS.export=function(){
   drawX();sum();
   $('#xb').onclick=e=>{const b=e.target.closest('[data-dl]');if(b)toast('Downloads are turned off in this prototype')};
   $('#go').onclick=()=>{const sel=[...document.querySelectorAll('[data-ds]:checked')].map(c=>c.closest('label').querySelector('.tx').firstChild.textContent);const anon=$('#anon').checked;
-    const run=()=>{const x={what:sel.join(', '),fmt:exFmt,range:$('#xr').value,by:'Karim',when:'Just now',state:'preparing',anon};EXPORTS.unshift(x);logAction(`exported ${x.what} as ${exFmt}`);drawX();toast('Preparing your export');setTimeout(()=>{x.state='ready';x.size=(0.2+Math.random()*2).toFixed(1)+' MB';if(cur==='export')drawX();toast('Your export is ready')},2400)};
+    const run=()=>{const x={what:sel.join(', '),fmt:exFmt,range:$('#xr').value,by:'Gabriele',when:'Just now',state:'preparing',anon};EXPORTS.unshift(x);logAction(`exported ${x.what} as ${exFmt}`);drawX();toast('Preparing your export');setTimeout(()=>{x.state='ready';x.size=(0.2+Math.random()*2).toFixed(1)+' MB';if(cur==='export')drawX();toast('Your export is ready')},2400)};
     if(!anon||sel.includes('Conversations'))confirmBox({title:'Export personal data?',body:`<p>This file will include ${!anon?'names, emails and other personal details':'what members said at tables'}. Members trust us not to share this.</p><ul><li>Keep the file on a secure device.</li><li>Delete it when you're done.</li><li>The export is recorded in the admin activity log.</li></ul>`,yes:'Export',cls:'pri',fn:run});else run()};
 };
 
@@ -1109,7 +1109,7 @@ $('#gq').addEventListener('keydown',e=>{if(e.key!=='Enter')return;const q=e.targ
   const u=USERS.find(x=>(x.name+' '+x.email).toLowerCase().includes(q));const t=TABLES.find(x=>x.title.toLowerCase().includes(q));
   if(u){uQuery=e.target.value;uFilter='all';location.hash='users';if(cur==='users')VIEWS.users()}else if(t){tQuery=e.target.value;tFilter='all';location.hash='tables';if(cur==='tables')VIEWS.tables()}else toast(`Nothing found for "${e.target.value}"`)});
 
-$('#meph').innerHTML=av(KARIM);
+$('#meph').innerHTML=av(GABRIELE);
 route();
 </script>
 

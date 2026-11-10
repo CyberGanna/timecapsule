@@ -19,7 +19,7 @@ Keep a chair next to mine until two hours before it starts|Tieni una sedia accan
 What they'll see|Cosa vedrà|Lo que verá
 saved you a chair.|ti ha tenuto una sedia.|te guardó una silla.
 Any table you like, this week or later.|Il tavolo che preferisci, questa settimana o più avanti.|La mesa que quieras, esta semana o más adelante.
-Karim will know when you sit down.|Karim saprà quando ti siedi.|Karim sabrá cuando te sientes.
+Gabriele will know when you sit down.|Gabriele saprà quando ti siedi.|Gabriele sabrá cuando te sientes.
 After your first table, you both receive 5 TimeCoins.|Dopo il tuo primo tavolo, ricevete entrambi 5 TimeCoins.|Tras tu primera mesa, los dos recibís 5 TimeCoins.
 Copy|Copia|Copiar
 In a chat|In una chat|En un chat
@@ -67,17 +67,17 @@ Send in a chat|Invia in una chat|Enviar en un chat
 Moderated by Gregory|Moderato da Gregory|Moderado por Gregory
 Moderated by Ruth|Moderato da Ruth|Moderado por Ruth
 Open circle|Cerchio aperto|Círculo abierto
-Pick any table you like. Karim will know when you sit down.|Scegli il tavolo che preferisci. Karim saprà quando ti siedi.|Elige la mesa que quieras. Karim sabrá cuando te sientes.
-Your chair is next to Karim's until 17:00.|La tua sedia è accanto a quella di Karim fino alle 17:00.|Tu silla está junto a la de Karim hasta las 17:00.
+Pick any table you like. Gabriele will know when you sit down.|Scegli il tavolo che preferisci. Gabriele saprà quando ti siedi.|Elige la mesa que quieras. Gabriele sabrá cuando te sientes.
+Your chair is next to Gabriele's until 17:00.|La tua sedia è accanto a quella di Gabriele fino alle 17:00.|Tu silla está junto a la de Gabriele hasta las 17:00.
 See the table|Vedi il tavolo|Ver la mesa
 Accept and join TimeCapsule|Accetta ed entra in TimeCapsule|Aceptar y unirme a TimeCapsule
 I already have an account|Ho già un account|Ya tengo una cuenta
-When you finish your first table, you and Karim each receive 5 TimeCoins, the thank-you people give each other here.|Quando finisci il tuo primo tavolo, tu e Karim ricevete 5 TimeCoins ciascuno, il grazie che le persone si scambiano qui.|Cuando termines tu primera mesa, tú y Karim recibís 5 TimeCoins cada uno, el gracias que la gente se da aquí.
+When you finish your first table, you and Gabriele each receive 5 TimeCoins, the thank-you people give each other here.|Quando finisci il tuo primo tavolo, tu e Gabriele ricevete 5 TimeCoins ciascuno, il grazie che le persone si scambiano qui.|Cuando termines tu primera mesa, tú y Gabriele recibís 5 TimeCoins cada uno, el gracias que la gente se da aquí.
 What is TimeCapsule?|Cos'è TimeCapsule?|¿Qué es TimeCapsule?
 Small tables where real people talk about things that matter. Free, no ads, and your data is never sold.|Piccoli tavoli dove persone vere parlano di ciò che conta. Gratis, senza pubblicità, e i tuoi dati non vengono mai venduti.|Pequeñas mesas donde gente real habla de lo que importa. Gratis, sin anuncios, y tus datos nunca se venden.
 Not for me|Non fa per me|No es para mí
 No problem.|Nessun problema.|No pasa nada.
-Karim won't be told. The link stays open for 30 days if you change your mind.|Karim non lo saprà. Il link resta valido 30 giorni se cambi idea.|Karim no lo sabrá. El enlace sigue abierto 30 días por si cambias de idea.
+Gabriele won't be told. The link stays open for 30 days if you change your mind.|Gabriele non lo saprà. Il link resta valido 30 giorni se cambi idea.|Gabriele no lo sabrá. El enlace sigue abierto 30 días por si cambias de idea.
 Go back|Torna indietro|Volver
 Where invites appear|Dove appaiono gli inviti|Dónde aparecen las invitaciones
 Never as a pop-up. A quiet line at the moments when you'd naturally think of someone.|Mai come pop-up. Una riga discreta nei momenti in cui penseresti naturalmente a qualcuno.|Nunca como ventana emergente. Una línea discreta en los momentos en que pensarías en alguien.
@@ -124,7 +124,7 @@ Conversations are better with people you know. Invite someone, and when they sig
 Soon|Presto|Pronto
 Coming next|In arrivo|Próximamente
 Next: invite someone to a specific table and sit together for 5 TimeCoins.|Prossimamente: invita qualcuno a un tavolo preciso e sedetevi insieme per 5 TimeCoins.|Próximamente: invita a alguien a una mesa concreta y sentaos juntos por 5 TimeCoins.
-Karim receives 2 TimeCoins when you sign in. Nothing is asked of you.|Karim riceve 2 TimeCoins quando accedi. A te non viene chiesto nulla.|Karim recibe 2 TimeCoins cuando inicias sesión. A ti no se te pide nada.
+Gabriele receives 2 TimeCoins when you sign in. Nothing is asked of you.|Gabriele riceve 2 TimeCoins quando accedi. A te non viene chiesto nulla.|Gabriele recibe 2 TimeCoins cuando inicias sesión. A ti no se te pide nada.
 Ten chairs a week for the friends you bring. Each one who signs in is 2 TimeCoins.|Dieci sedie a settimana per gli amici che porti. Ognuno che accede vale 2 TimeCoins.|Diez sillas a la semana para los amigos que traes. Cada uno que inicia sesión son 2 TimeCoins.
 Signed in|Ha effettuato l'accesso|Inició sesión
 They sign in|Accede|Inicia sesión
@@ -134,7 +134,7 @@ When you sit at the same table, you receive 5 instead.|Quando vi sedete allo ste
 Up to ten friends a week count. You see only whether they signed in, never what they do at their tables.|Contano fino a dieci amici alla settimana. Vedi solo se hanno effettuato l'accesso, mai cosa fanno ai loro tavoli.|Cuentan hasta diez amigos a la semana. Solo ves si iniciaron sesión, nunca lo que hacen en sus mesas.
 Since 2 Nov|Dal 2 nov|Desde el 2 nov
 Signed in today|Accesso oggi|Inició sesión hoy
-Karim receives 2 TimeCoins when you sign in, the small thank-you people give each other here. Nothing is asked of you.|Karim riceve 2 TimeCoins quando accedi, il piccolo grazie che le persone si scambiano qui. A te non viene chiesto nulla.|Karim recibe 2 TimeCoins cuando inicias sesión, el pequeño gracias que la gente se da aquí. A ti no se te pide nada.
+Gabriele receives 2 TimeCoins when you sign in, the small thank-you people give each other here. Nothing is asked of you.|Gabriele riceve 2 TimeCoins quando accedi, il piccolo grazie che le persone si scambiano qui. A te non viene chiesto nulla.|Gabriele recibe 2 TimeCoins cuando inicias sesión, el pequeño gracias que la gente se da aquí. A ti no se te pide nada.
 Rate and Tip, after awarding (next step)|Valuta e premia, dopo il premio (prossimo passo)|Valorar y premiar, después de premiar (siguiente paso)
 Right after a good table, invite someone to the next one. Part of the table invite, later.|Subito dopo un bel tavolo, invita qualcuno al prossimo. Fa parte dell'invito al tavolo, più avanti.|Justo después de una buena mesa, invita a alguien a la siguiente. Parte de la invitación a mesa, más adelante.
 Table page, Share (next step)|Pagina del tavolo, Condividi (prossimo passo)|Página de la mesa, Compartir (siguiente paso)
@@ -151,7 +151,7 @@ Most you can receive in a week, for now|Massimo in una settimana, per ora|Máxim
 Ten friends, 2 each. 50 once table invites exist.|Dieci amici, 2 ciascuno. 50 quando ci saranno gli inviti ai tavoli.|Diez amigos, 2 cada uno. 50 cuando existan las invitaciones a mesa.
 To one friend, by chat, email or WhatsApp.|A un amico, via chat, email o WhatsApp.|A un amigo, por chat, correo o WhatsApp.
 invited you to TimeCapsule.|ti ha invitato su TimeCapsule.|te invitó a TimeCapsule.
-Karim will know when you join.|Karim saprà quando entri.|Karim sabrá cuando entres.
+Gabriele will know when you join.|Gabriele saprà quando entri.|Gabriele sabrá cuando entres.
 Pick any table you like once you're in.|Una volta dentro, scegli il tavolo che preferisci.|Una vez dentro, elige la mesa que quieras.
 Join TimeCapsule|Entrare in TimeCapsule|Entrar en TimeCapsule
 To a table|A un tavolo|A una mesa
@@ -168,13 +168,13 @@ Replaces the 2, not on top of it.|Sostituisce i 2, non si somma.|Sustituye a los
 Ten friends a week, 5 each at most.|Dieci amici a settimana, al massimo 5 ciascuno.|Diez amigos a la semana, 5 cada uno como máximo.
 Invited to Tomorrow|Invitato per domani|Invitado para mañana
 Invited to Thu|Invitato per giovedì|Invitado para el jueves
-Karim receives 5 TimeCoins when you sit at this table together, the small thank-you people give each other here. Nothing is asked of you.|Karim riceve 5 TimeCoins quando vi sedete insieme a questo tavolo, il piccolo grazie che le persone si scambiano qui. A te non viene chiesto nulla.|Karim recibe 5 TimeCoins cuando os sentáis juntos en esta mesa, el pequeño gracias que la gente se da aquí. A ti no se te pide nada.
+Gabriele receives 5 TimeCoins when you sit at this table together, the small thank-you people give each other here. Nothing is asked of you.|Gabriele riceve 5 TimeCoins quando vi sedete insieme a questo tavolo, il piccolo grazie che le persone si scambiano qui. A te non viene chiesto nulla.|Gabriele recibe 5 TimeCoins cuando os sentáis juntos en esta mesa, el pequeño gracias que la gente se da aquí. A ti no se te pide nada.
 To one friend. The chair next to yours is kept for them.|A un amico. La sedia accanto alla tua resta per lui.|A un amigo. La silla junto a la tuya queda reservada.
 They sign in and take the chair|Accede e prende la sedia|Inicia sesión y ocupa la silla
 They get a reminder before the table starts.|Riceve un promemoria prima che il tavolo inizi.|Recibe un recordatorio antes de que empiece la mesa.
 You sit together|Vi sedete insieme|Os sentáis juntos
 When the table ends, you receive 5 TimeCoins.|Quando il tavolo finisce, ricevi 5 TimeCoins.|Cuando termina la mesa, recibes 5 TimeCoins.
-Karim receives 5 TimeCoins when you sit at this table together. Nothing is asked of you.|Karim riceve 5 TimeCoins quando vi sedete insieme a questo tavolo. A te non viene chiesto nulla.|Karim recibe 5 TimeCoins cuando os sentáis juntos en esta mesa. A ti no se te pide nada.
+Gabriele receives 5 TimeCoins when you sit at this table together. Nothing is asked of you.|Gabriele riceve 5 TimeCoins quando vi sedete insieme a questo tavolo. A te non viene chiesto nulla.|Gabriele recibe 5 TimeCoins cuando os sentáis juntos en esta mesa. A ti no se te pide nada.
 Your table guests this week|I tuoi ospiti al tavolo questa settimana|Tus invitados a la mesa esta semana
 Ten chairs a week for friends at your tables. Each one who sits with you is 5 TimeCoins.|Dieci sedie a settimana per gli amici ai tuoi tavoli. Ognuno che si siede con te vale 5 TimeCoins.|Diez sillas a la semana para los amigos en tus mesas. Cada uno que se sienta contigo son 5 TimeCoins.
 TimeCoins from table guests|TimeCoins dagli ospiti al tavolo|TimeCoins de los invitados a la mesa
@@ -184,10 +184,10 @@ Sat together|Seduti insieme|Sentados juntos
 Your invitation this week|Il tuo invito questa settimana|Tu invitación esta semana
 Invite up to 10 friends a week to join TimeCapsule. Each one who signs in gains 2 TimeCoins. You, too!|Invita fino a 10 amici a settimana a entrare in TimeCapsule. Ognuno che accede guadagna 2 TimeCoins. E anche tu!|Invita hasta a 10 amigos a la semana a unirse a TimeCapsule. Cada uno que inicia sesión gana 2 TimeCoins. ¡Y tú también!
 Ten chairs a week for friends at your tables. If they accept they gain 5 TimeCoins. You, too!|Dieci sedie a settimana per gli amici ai tuoi tavoli. Se accettano guadagnano 5 TimeCoins. E anche tu!|Diez sillas a la semana para los amigos en tus mesas. Si aceptan ganan 5 TimeCoins. ¡Y tú también!
-Karim receives 2 TimeCoins when you sign in, and so do you.|Karim riceve 2 TimeCoins quando accedi, e anche tu.|Karim recibe 2 TimeCoins cuando inicias sesión, y tú también.
-You and Karim each receive 5 TimeCoins when you sit at this table together.|Tu e Karim ricevete 5 TimeCoins ciascuno quando vi sedete insieme a questo tavolo.|Tú y Karim recibís 5 TimeCoins cada uno cuando os sentáis juntos en esta mesa.
-Karim receives 2 TimeCoins when you sign in, the small thank-you people give each other here. So do you.|Karim riceve 2 TimeCoins quando accedi, il piccolo grazie che le persone si scambiano qui. E anche tu.|Karim recibe 2 TimeCoins cuando inicias sesión, el pequeño gracias que la gente se da aquí. Y tú también.
-You and Karim each receive 5 TimeCoins when you sit at this table together, the small thank-you people give each other here.|Tu e Karim ricevete 5 TimeCoins ciascuno quando vi sedete insieme a questo tavolo, il piccolo grazie che le persone si scambiano qui.|Tú y Karim recibís 5 TimeCoins cada uno cuando os sentáis juntos en esta mesa, el pequeño gracias que la gente se da aquí.
+Gabriele receives 2 TimeCoins when you sign in, and so do you.|Gabriele riceve 2 TimeCoins quando accedi, e anche tu.|Gabriele recibe 2 TimeCoins cuando inicias sesión, y tú también.
+You and Gabriele each receive 5 TimeCoins when you sit at this table together.|Tu e Gabriele ricevete 5 TimeCoins ciascuno quando vi sedete insieme a questo tavolo.|Tú y Gabriele recibís 5 TimeCoins cada uno cuando os sentáis juntos en esta mesa.
+Gabriele receives 2 TimeCoins when you sign in, the small thank-you people give each other here. So do you.|Gabriele riceve 2 TimeCoins quando accedi, il piccolo grazie che le persone si scambiano qui. E anche tu.|Gabriele recibe 2 TimeCoins cuando inicias sesión, el pequeño gracias que la gente se da aquí. Y tú también.
+You and Gabriele each receive 5 TimeCoins when you sit at this table together, the small thank-you people give each other here.|Tu e Gabriele ricevete 5 TimeCoins ciascuno quando vi sedete insieme a questo tavolo, il piccolo grazie che le persone si scambiano qui.|Tú y Gabriele recibís 5 TimeCoins cada uno cuando os sentáis juntos en esta mesa, el pequeño gracias que la gente se da aquí.
 Once their email is confirmed, you both receive 2 TimeCoins.|Una volta confermata la sua email, ricevete entrambi 2 TimeCoins.|Cuando confirma su correo, los dos recibís 2 TimeCoins.
 When you sit at the same table, you both receive 5 instead.|Quando vi sedete allo stesso tavolo, ne ricevete 5 entrambi.|Cuando os sentáis en la misma mesa, los dos recibís 5.
 When the table ends, you both receive 5 TimeCoins.|Quando il tavolo finisce, ricevete entrambi 5 TimeCoins.|Cuando termina la mesa, los dos recibís 5 TimeCoins.

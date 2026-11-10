@@ -949,7 +949,7 @@ Optional, like why you thought of them|Προαιρετικό, π.χ. γιατί
 What they'll see|Τι θα δει
 saved you a chair.|σου κράτησε μια καρέκλα.
 Any table you like, this week or later.|Όποιο τραπέζι θέλεις, αυτή την εβδομάδα ή αργότερα.
-Karim will know when you sit down.|Ο Karim θα μάθει όταν κάτσεις.
+Gabriele will know when you sit down.|Ο Gabriele θα μάθει όταν κάτσεις.
 After your first table, you both receive 5 TimeCoins.|Μετά το πρώτο σου τραπέζι, παίρνετε και οι δύο 5 TimeCoins.
 In a chat|Σε μια συζήτηση
 Your circle this year|Ο κύκλος σου φέτος
@@ -990,17 +990,17 @@ Send in a chat|Στείλε σε συζήτηση
 5 chairs left|Μένουν 5 καρέκλες
 2 chairs left|Μένουν 2 καρέκλες
 Hosted by Ruth|Οικοδεσπότρια: Ruth
-Pick any table you like. Karim will know when you sit down.|Διάλεξε όποιο τραπέζι θέλεις. Ο Karim θα μάθει όταν κάτσεις.
-Your chair is next to Karim's until 17:00.|Η καρέκλα σου είναι δίπλα στου Karim μέχρι τις 17:00.
+Pick any table you like. Gabriele will know when you sit down.|Διάλεξε όποιο τραπέζι θέλεις. Ο Gabriele θα μάθει όταν κάτσεις.
+Your chair is next to Gabriele's until 17:00.|Η καρέκλα σου είναι δίπλα στου Gabriele μέχρι τις 17:00.
 See the table|Δες το τραπέζι
 Accept and join TimeCapsule|Αποδοχή και είσοδος στο TimeCapsule
 I already have an account|Έχω ήδη λογαριασμό
-When you finish your first table, you and Karim each receive 5 TimeCoins, the thank-you people give each other here.|Όταν ολοκληρώσεις το πρώτο σου τραπέζι, εσύ και ο Karim παίρνετε από 5 TimeCoins, το ευχαριστώ που δίνουν οι άνθρωποι ο ένας στον άλλον εδώ.
+When you finish your first table, you and Gabriele each receive 5 TimeCoins, the thank-you people give each other here.|Όταν ολοκληρώσεις το πρώτο σου τραπέζι, εσύ και ο Gabriele παίρνετε από 5 TimeCoins, το ευχαριστώ που δίνουν οι άνθρωποι ο ένας στον άλλον εδώ.
 What is TimeCapsule?|Τι είναι το TimeCapsule;
 Small video tables where real people talk about things that matter. Free, no ads, and your data is never sold.|Μικρά τραπέζια όπου αληθινοί άνθρωποι μιλούν για όσα μετράνε. Δωρεάν, χωρίς διαφημίσεις, και τα δεδομένα σου δεν πωλούνται ποτέ.
 Not for me|Όχι για μένα
 No problem.|Κανένα πρόβλημα.
-Karim won't be told. The link stays open for 30 days if you change your mind.|Ο Karim δεν θα ενημερωθεί. Ο σύνδεσμος μένει ανοιχτός για 30 ημέρες αν αλλάξεις γνώμη.
+Gabriele won't be told. The link stays open for 30 days if you change your mind.|Ο Gabriele δεν θα ενημερωθεί. Ο σύνδεσμος μένει ανοιχτός για 30 ημέρες αν αλλάξεις γνώμη.
 Go back|Πίσω
 Where invites appear|Πού εμφανίζονται οι προσκλήσεις
 Never as a pop-up. A quiet line at the moments when you'd naturally think of someone.|Ποτέ ως αναδυόμενο παράθυρο. Μια διακριτική γραμμή τις στιγμές που φυσικά θα σκεφτόσουν κάποιον.
@@ -1043,7 +1043,7 @@ Conversations are better with people you know. Invite someone, and when they sig
 Soon|Σύντομα
 Coming next|Έρχεται μετά
 Next: invite someone to a specific table and sit together for 5 TimeCoins.|Μετά: κάλεσε κάποιον σε ένα συγκεκριμένο τραπέζι και κάτσε μαζί του για 5 TimeCoins.
-Karim receives 2 TimeCoins when you sign in. Nothing is asked of you.|Ο Karim παίρνει 2 TimeCoins όταν συνδεθείς. Δεν σου ζητείται τίποτα.
+Gabriele receives 2 TimeCoins when you sign in. Nothing is asked of you.|Ο Gabriele παίρνει 2 TimeCoins όταν συνδεθείς. Δεν σου ζητείται τίποτα.
 Ten chairs for the friends you bring. Each one who signs in is 2 TimeCoins.|Δέκα καρέκλες για τους φίλους που φέρνεις. Καθένας που συνδέεται αξίζει 2 TimeCoins.
 They sign in|Συνδέονται
 Once their email is confirmed, you receive 2 TimeCoins.|Μόλις επιβεβαιωθεί το email τους, παίρνεις 2 TimeCoins.
@@ -1052,7 +1052,7 @@ When you sit at the same table, you receive 5 instead.|Όταν κάθεστε �
 Up to ten friends a year count. You see only whether they signed in, never what they do at their tables.|Μετράνε έως δέκα φίλοι τον χρόνο. Βλέπεις μόνο αν συνδέθηκαν, ποτέ τι κάνουν στα τραπέζια τους.
 Since 2 Nov|Από 2 Νοε
 Signed in today|Συνδέθηκε σήμερα
-Karim receives 2 TimeCoins when you sign in, the small thank-you people give each other here. Nothing is asked of you.|Ο Karim παίρνει 2 TimeCoins όταν συνδεθείς, το μικρό ευχαριστώ που δίνουν οι άνθρωποι ο ένας στον άλλον εδώ. Δεν σου ζητείται τίποτα.
+Gabriele receives 2 TimeCoins when you sign in, the small thank-you people give each other here. Nothing is asked of you.|Ο Gabriele παίρνει 2 TimeCoins όταν συνδεθείς, το μικρό ευχαριστώ που δίνουν οι άνθρωποι ο ένας στον άλλον εδώ. Δεν σου ζητείται τίποτα.
 Rate and Tip, after awarding (next step)|Βαθμολογία και φιλοδώρημα, μετά την επιβράβευση (επόμενο βήμα)
 Right after a good table, invite someone to the next one. Part of the table invite, later.|Αμέσως μετά από ένα καλό τραπέζι, κάλεσε κάποιον στο επόμενο. Μέρος της πρόσκλησης σε τραπέζι, αργότερα.
 Table page, Share (next step)|Σελίδα τραπεζιού, Κοινοποίηση (επόμενο βήμα)
@@ -1069,7 +1069,7 @@ Most you can receive in a year, for now|Το μέγιστο που μπορεί�
 Ten friends, 2 each. 50 once table invites exist.|Δέκα φίλοι, 2 ο καθένας. 50 όταν υπάρξουν προσκλήσεις σε τραπέζι.
 To one friend, by chat, email or WhatsApp.|Σε έναν φίλο, με chat, email ή WhatsApp.
 invited you to TimeCapsule.|σε κάλεσε στο TimeCapsule.
-Karim will know when you join.|Ο Karim θα μάθει όταν μπεις.
+Gabriele will know when you join.|Ο Gabriele θα μάθει όταν μπεις.
 Pick any table you like once you're in.|Διάλεξε όποιο τραπέζι θέλεις μόλις μπεις.
 Join TimeCapsule|Μπες στο TimeCapsule
 To a table|Σε τραπέζι
@@ -1088,7 +1088,7 @@ Replaces the 2, not on top of it.|Αντικαθιστά τα 2, δεν προσ
 Ten friends, 5 each at most.|Δέκα φίλοι, το πολύ 5 ο καθένας.
 Invited to Tomorrow|Προσκλήθηκε για αύριο
 Invited to Thu|Προσκλήθηκε για Πέμ
-Karim receives 5 TimeCoins when you sit at this table together, the small thank-you people give each other here. Nothing is asked of you.|Ο Karim παίρνει 5 TimeCoins όταν κάθεστε μαζί σε αυτό το τραπέζι, το μικρό ευχαριστώ που δίνουν οι άνθρωποι ο ένας στον άλλον εδώ. Δεν σου ζητείται τίποτα.
+Gabriele receives 5 TimeCoins when you sit at this table together, the small thank-you people give each other here. Nothing is asked of you.|Ο Gabriele παίρνει 5 TimeCoins όταν κάθεστε μαζί σε αυτό το τραπέζι, το μικρό ευχαριστώ που δίνουν οι άνθρωποι ο ένας στον άλλον εδώ. Δεν σου ζητείται τίποτα.
 Coins page|Σελίδα νομισμάτων
 How the economy works|Πώς λειτουργεί η οικονομία
 Gregory|Gregory
@@ -1239,7 +1239,7 @@ They sign in and take the chair|Συνδέεται και παίρνει την 
 They get a reminder before the table starts.|Λαμβάνει υπενθύμιση πριν ξεκινήσει το τραπέζι.
 You sit together|Κάθεστε μαζί
 When the table ends, you receive 5 TimeCoins.|Όταν τελειώσει το τραπέζι, παίρνεις 5 TimeCoins.
-Karim receives 5 TimeCoins when you sit at this table together. Nothing is asked of you.|Ο Karim παίρνει 5 TimeCoins όταν κάθεστε μαζί σε αυτό το τραπέζι. Δεν σου ζητείται τίποτα.
+Gabriele receives 5 TimeCoins when you sit at this table together. Nothing is asked of you.|Ο Gabriele παίρνει 5 TimeCoins όταν κάθεστε μαζί σε αυτό το τραπέζι. Δεν σου ζητείται τίποτα.
 Your table guests this week|Οι καλεσμένοι στα τραπέζια σου αυτή την εβδομάδα
 Ten chairs a week for friends at your tables. Each one who sits with you is 5 TimeCoins.|Δέκα καρέκλες την εβδομάδα για φίλους στα τραπέζια σου. Καθένας που κάθεται μαζί σου αξίζει 5 TimeCoins.
 TimeCoins from table guests|TimeCoins από καλεσμένους
@@ -1249,10 +1249,10 @@ Sat together|Κάθισαν μαζί
 Your invitation this week|Η πρόσκλησή σου αυτή την εβδομάδα
 Invite up to 10 friends a week to join TimeCapsule. Each one who signs in gains 2 TimeCoins. You, too!|Κάλεσε έως 10 φίλους την εβδομάδα στο TimeCapsule. Καθένας που συνδέεται κερδίζει 2 TimeCoins. Κι εσύ!
 Ten chairs a week for friends at your tables. If they accept they gain 5 TimeCoins. You, too!|Δέκα καρέκλες την εβδομάδα για φίλους στα τραπέζια σου. Αν δεχτούν, κερδίζουν 5 TimeCoins. Κι εσύ!
-Karim receives 2 TimeCoins when you sign in, and so do you.|Ο Karim παίρνει 2 TimeCoins όταν συνδεθείς, το ίδιο κι εσύ.
-You and Karim each receive 5 TimeCoins when you sit at this table together.|Εσύ και ο Karim παίρνετε από 5 TimeCoins όταν κάθεστε μαζί σε αυτό το τραπέζι.
-Karim receives 2 TimeCoins when you sign in, the small thank-you people give each other here. So do you.|Ο Karim παίρνει 2 TimeCoins όταν συνδεθείς, το μικρό ευχαριστώ που δίνουν οι άνθρωποι ο ένας στον άλλον εδώ. Το ίδιο κι εσύ.
-You and Karim each receive 5 TimeCoins when you sit at this table together, the small thank-you people give each other here.|Εσύ και ο Karim παίρνετε από 5 TimeCoins όταν κάθεστε μαζί σε αυτό το τραπέζι, το μικρό ευχαριστώ που δίνουν οι άνθρωποι ο ένας στον άλλον εδώ.
+Gabriele receives 2 TimeCoins when you sign in, and so do you.|Ο Gabriele παίρνει 2 TimeCoins όταν συνδεθείς, το ίδιο κι εσύ.
+You and Gabriele each receive 5 TimeCoins when you sit at this table together.|Εσύ και ο Gabriele παίρνετε από 5 TimeCoins όταν κάθεστε μαζί σε αυτό το τραπέζι.
+Gabriele receives 2 TimeCoins when you sign in, the small thank-you people give each other here. So do you.|Ο Gabriele παίρνει 2 TimeCoins όταν συνδεθείς, το μικρό ευχαριστώ που δίνουν οι άνθρωποι ο ένας στον άλλον εδώ. Το ίδιο κι εσύ.
+You and Gabriele each receive 5 TimeCoins when you sit at this table together, the small thank-you people give each other here.|Εσύ και ο Gabriele παίρνετε από 5 TimeCoins όταν κάθεστε μαζί σε αυτό το τραπέζι, το μικρό ευχαριστώ που δίνουν οι άνθρωποι ο ένας στον άλλον εδώ.
 Once their email is confirmed, you both receive 2 TimeCoins.|Μόλις επιβεβαιωθεί το email τους, παίρνετε και οι δύο 2 TimeCoins.
 When you sit at the same table, you both receive 5 instead.|Όταν κάθεστε στο ίδιο τραπέζι, παίρνετε και οι δύο 5 αντί γι' αυτά.
 When the table ends, you both receive 5 TimeCoins.|Όταν τελειώσει το τραπέζι, παίρνετε και οι δύο 5 TimeCoins.

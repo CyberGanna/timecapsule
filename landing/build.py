@@ -33,17 +33,17 @@ s = s.replace(hud, '''<div class="hud">
 </div>''', 1)
 # pause drawing while the globe is scrolled away or the long read is open
 s = rep(s, 'try{draw(now)}catch(e){console.error(e)}', 'if(!window.__lpPause)try{draw(now)}catch(e){console.error(e)}')
-# every table on the globe is open to listeners (Karim: no grey dots), simple hint
+# every table on the globe is open to listeners (Gabriele: no grey dots), simple hint
 s = re.sub(r'TABLES\.forEach\(\(T,k\)=>T\.lis=[^;]*\);', 'TABLES.forEach(T=>T.lis=true);', s, count=1)
 s = rep(s, '<span class="dk">Click a teal dot to listen in</span><span class="mb">Tap a teal dot to listen in</span>', '<span class="dk">Click a dot to listen in</span><span class="mb">Tap a dot to listen in</span>')
-# table card: no coordinates / live-since block (Karim: too many modals)
+# table card: no coordinates / live-since block (Gabriele: too many modals)
 s = re.sub(r'\n\s*<div class="coord">Host at .*?</div>', '', s, count=1)
 # always signed out
 s = rep(s, 'if(/[#&]out\\b/.test(location.hash))proto.querySelector(\'[data-so="1"]\').click();', 'proto.querySelector(\'[data-so="1"]\').click();')
 # footer
 foot = open('../help/footer.html', encoding='utf8').read()
 foot = foot.replace('GUIDES_URL', GUIDES).replace('FAQ_URL', FAQ)
-# footer links (Karim 2026-11-09): only Help (to Guides) and one Terms & Privacy link
+# footer links (Gabriele 2026-11-09): only Help (to Guides) and one Terms & Privacy link
 LEGAL = 'https://claude.ai/artifact/5dZ8VXcg7f29xHcecFWd72'
 foot = re.sub(r'<nav aria-label="Help and more">.*?</nav>', '<nav aria-label="Help and more"><a href="' + GUIDES + '" target="_top">Help</a><a href="' + LEGAL + '" target="_top">Terms &amp; Privacy</a></nav>', foot, count=1, flags=re.S)
 foot = rep(foot, 'href="' + AGENDA + '" target="_top" aria-label="TimeCapsule home"', 'href="#" aria-label="TimeCapsule home"')
