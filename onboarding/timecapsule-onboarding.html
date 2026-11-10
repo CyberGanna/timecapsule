@@ -364,7 +364,7 @@ function vName(){return `<section class="step">${prog(1)}
   <label class="ph" id="phBox" title="Add a photo">${S.photo?`<img src="${S.photo}" alt="">`:`<span id="phIni">${esc(initials())}</span>`}<span class="cam">${ICON.cam}</span><input type="file" id="photo" accept="image/*" aria-label="Add a photo"></label>
   <div class="phl"><b>${S.photo?"Looking good":"Add a photo"}</b><small>Optional. A friendly face helps people say hello.</small></div>
  </div>
- <div class="field"><label for="nm">First name or alias</label><input class="inp" id="nm" maxlength="30" autocomplete="given-name" placeholder="e.g. Karim" value="${esc(S.name)}"></div>
+ <div class="field"><label for="nm">First name or alias</label><input class="inp" id="nm" maxlength="30" autocomplete="given-name" placeholder="e.g. Gabriele" value="${esc(S.name)}"></div>
  <p class="fine">This is the only name people see. No surname needed.</p>
  ${bar(`${backBtn}<span class="spacer"></span><button class="primary" type="button" data-act="next" id="go" ${S.name.trim()?"":"disabled"}>Continue</button>`)}
 </section>`}
@@ -451,8 +451,8 @@ document.addEventListener("keydown",e=>{
  if(t.id==="q"){const f=document.querySelector("#results [data-pick],#results [data-custom]");if(f)f.click()}
 });
 $("#restart").onclick=()=>{Object.assign(S,{i:0,name:"",photo:"",book:null,film:null,topics:[],find:false,show:true,q:""});render()};
-function fromHash(){const h=location.hash.slice(1),i=STEPS.indexOf(h);if(i>=0&&i!==S.i){S.i=i;if(i>0&&!S.name)S.name="Karim";render()}}
+function fromHash(){const h=location.hash.slice(1),i=STEPS.indexOf(h);if(i>=0&&i!==S.i){S.i=i;if(i>0&&!S.name)S.name="Gabriele";render()}}
 window.addEventListener("hashchange",fromHash);
-const h0=STEPS.indexOf(location.hash.slice(1));if(h0>0){S.i=h0;S.name="Karim"}
+const h0=STEPS.indexOf(location.hash.slice(1));if(h0>0){S.i=h0;S.name="Gabriele"}
 render(false);
 </script>

@@ -1,4 +1,4 @@
-# Karim's texts, verbatim, with "Time Capsule" written as "TimeCapsule".
+# Gabriele's texts, verbatim, with "Time Capsule" written as "TimeCapsule".
 # Block types: lead, p, h2 (subheading), q (question), ul (items: [label, text]), bel (numbered beliefs)
 COVER = {"title": "Introduction to", "short": "Short edition"}
 

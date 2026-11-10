@@ -1,6 +1,6 @@
 # Content for "Fedor's journey": an A.A. member whose weekly Zoom meeting moves to TimeCapsule.
 # Built by: python3 build.py fedor ; node print.js fedor
-# Revised 2026-11-09 after Karim's corrections (order of steps, standing table, open the room, real details allowed, etc.)
+# Revised 2026-11-09 after Gabriele's corrections (order of steps, standing table, open the room, real details allowed, etc.)
 META = dict(name='Fedor’s journey', file='journey-fedor.html',
     cover_q='Fedor’s A.A. group has met on Zoom every Tuesday for years. Now it moves to TimeCapsule. This is how the meeting works there, and what the group needs from the place.',
     meet='Meet Fedor', meet_h1='A weekly meeting, <b>a new room</b>',

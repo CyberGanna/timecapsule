@@ -1288,7 +1288,7 @@ const TABLES={
  inv:{title:"What would you tell your twenty-year-old self?",topic:"Memoir",host:"Mia",seats:6,lang:"English",transcript:false,
    people:["Mia","Yuki","Elif","Ana"],talk:"Yuki",slug:"i/8kq2-mia",
    desc:"A small, unhurried circle. Each of us brings one thing we learned the hard way, and one thing we are still not sure about. No host, we take turns.",
-   note:"Karim, a small group, mostly people from the Camus table. I’d love to have your voice in it."}
+   note:"Gabriele, a small group, mostly people from the Camus table. I’d love to have your voice in it."}
 };
 
 /* ---------- state ---------- */
@@ -1427,7 +1427,7 @@ function whoHTML(){
     return `<h2>Who's coming <small>${ppl.length} / ${t.seats}</small></h2><div class="lock"><span class="dots">${ppl.slice(0,4).map(()=>"<i></i>").join("")}</span><span>${isOut()?"Sign in to see who's coming.":"You'll see who's coming once you accept."}</span></div>`;
   }
   const rows=ppl.map((p,i)=>{
-    if(p==="You") return `<li class="me"><span class="pa">${av("You")}</span><div><b style="cursor:default">You</b><small>Karim</small></div></li>`;
+    if(p==="You") return `<li class="me"><span class="pa">${av("You")}</span><div><b style="cursor:default">You</b><small>Gabriele</small></div></li>`;
     const pr=PROF[p]||["",""];const role=i===0?"Host":"";
     return `<li><span class="pa" data-u="${p}" tabindex="0">${av(p)}</span><div><b data-u="${p}">${p}</b><small>${role?`<i class="mt">${role}</i> · `:""}${pr[0]}</small></div></li>`}).join("");
   const frees=Array.from({length:Math.min(free,2)},()=>`<li class="free"><span class="pa"></span><div><b>Free chair</b></div></li>`).join("");
@@ -1513,7 +1513,7 @@ function mono(name,col,size){const ini=(name.trim().split(/\s+/).map(w=>w[0]||""
 function checkAlias(v){v=v.trim();if(v.length<2)return[false,"At least 2 characters."];if(v.length>20)return[false,"20 characters at most."];
   if(!/^[\p{L}\p{N} ._-]+$/u.test(v))return[false,"Letters, numbers, spaces, dots and dashes only."];if(TAKEN.has(v.toLowerCase()))return[false,`“${v}” is taken. Try another.`];return[true,"Nice, it's free."]}
 function aliasHTML(){return `<div class="opt"><label class="l">Show me at the table as</label>
-  <div class="seg" role="group"><button aria-pressed="${me.mode==="name"}" data-as="name">Karim</button><button aria-pressed="${me.mode==="alias"}" data-as="alias">An alias</button></div>
+  <div class="seg" role="group"><button aria-pressed="${me.mode==="name"}" data-as="name">Gabriele</button><button aria-pressed="${me.mode==="alias"}" data-as="alias">An alias</button></div>
   <div class="alias" id="alias" ${me.mode==="alias"?"":"hidden"}>
     <div class="prev"><span id="apv"></span><div><small>Others will see you as</small><b id="apn"></b></div></div>
     <div class="ain"><label for="ain" style="position:absolute;left:-9999px">Alias</label><input id="ain" maxlength="24" autocomplete="off" placeholder="Type an alias"><button id="adice" title="Suggest one" aria-label="Suggest an alias">⚄</button></div>
@@ -1562,7 +1562,7 @@ async function startCam(){try{if(!navigator.mediaDevices?.getUserMedia)throw 0;c
   const v=document.getElementById("vid");v.srcObject=cam.stream;document.getElementById("pv").classList.add("real")}catch(e){}}
 function stopCam(){if(cam.stream){cam.stream.getTracks().forEach(x=>x.stop());cam.stream=null}}
 function paintCam(){const pv=document.getElementById("pv");if(!pv)return;
-  const name=me.mode==="alias"?(me.alias||"Alias"):"Karim";const face=me.mode==="alias"?mono(name,me.col,96):av("You");
+  const name=me.mode==="alias"?(me.alias||"Alias"):"Gabriele";const face=me.mode==="alias"?mono(name,me.col,96):av("You");
   document.getElementById("fake").innerHTML=`<div class="room"></div><div class="selfie">${face}</div>`;
   document.getElementById("off").innerHTML=`<div class="offav">${me.mode==="alias"?mono(name,me.col,84):av("You")}</div><span>Camera is off</span>`;
   document.getElementById("tagme").innerHTML=`${cam.mic?"":'<b class="mut">🔇</b>'}${name}`;
@@ -1615,7 +1615,7 @@ document.getElementById("scrim").addEventListener("click",e=>{
   if(b.id==="enter"){/* plain link to the Live Table; let it navigate */return}
   if(b.tagName==="A")return;
   e.stopPropagation();
-  if(b.id==="confirm"){st.saved=true;const as=me.mode==="alias"?me.alias:"Karim";closeSheet();render();toast(tt("Your chair is saved"));return}
+  if(b.id==="confirm"){st.saved=true;const as=me.mode==="alias"?me.alias:"Gabriele";closeSheet();render();toast(tt("Your chair is saved"));return}
   if(b.id==="scopy"){copy();return}
   if(b.id==="snative"){if(navigator.share){navigator.share({title:T().title,url:shareURL()}).catch(()=>{})}else copy();return}
   if(b.id==="dodecline"){st.declined=true;closeSheet();render();toast(tt("We let "+T().host+" know"));return}
