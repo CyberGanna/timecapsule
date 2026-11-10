@@ -1,6 +1,8 @@
 import json, sys, importlib
 sys.path.insert(0, '.')
 SVG = '<svg viewBox="0 -6 110 82" aria-hidden="true"><defs><clipPath id="ID"><circle cx="35" cy="35" r="30"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z"/></clipPath></defs><circle cx="35" cy="35" r="30" fill="#7C5CFF"/><path d="M13.8 56.2 L4 74 L29.8 64.5 Z" fill="#7C5CFF"/><circle cx="75" cy="35" r="30" fill="#17C3C8"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#17C3C8"/><g clip-path="url(#ID)"><circle cx="75" cy="35" r="30" fill="#3B2A9E"/><path d="M96.2 13.8 L106 -4 L80.2 5.5 Z" fill="#3B2A9E"/></g><g fill="#fff"><circle cx="36" cy="35" r="4.6"/><circle cx="74" cy="35" r="4.6"/><rect x="36" y="33.4" width="38" height="3.2"/></g></svg>'
+from cutout import cut
+SVG = cut(SVG, 'IDm')  # PDFs and presentations use the cut-out logo (transparent link)
 WT = '<span class="wt"><b>time</b><i>capsule</i></span>'
 EXTRA = """
 .cover .intro{font-family:'Sora',sans-serif;font-weight:300;font-size:22px;color:#C9CCE4;margin-bottom:6px}
