@@ -61,9 +61,9 @@ I recommend option B: two experienced freelance developers, with you as product 
 | Option | Who | Time to public launch | Rough cost to launch | Fits if |
 | --- | --- | --- | --- | --- |
 | A. Agency | A small studio with project manager, developers and QA | 5 to 6 months | €150,000 to €250,000 | You want one contract and little day-to-day involvement |
-| **B. Two freelancers (recommended)** | One senior full-stack developer full time, one front-end developer part time | about 6 months | €80,000 to €120,000 | You can spend a few hours a week deciding and testing |
+| **B. Two freelancers** {hi:Claude's choice} | One senior full-stack developer full time, one front-end developer part time | about 6 months | €80,000 to €120,000 | You can spend a few hours a week deciding and testing |
 | C. One developer with AI help | One senior developer working closely with Claude | 8 to 10 months | €60,000 to €90,000 | Budget matters more than speed |
-| **D. Gabriele and Claude (Gabriele's choice)** | Claude writes the code, Gabriele decides and tests, a senior developer reviews a few days a month | 6 to 9 months | €10,000 to €25,000 | You can test several hours a week and want to keep control |
+| **D. Gabriele and Claude** {pick:Gabriele's choice} | Claude writes the code, Gabriele decides and tests, a senior developer reviews a few days a month | 6 to 9 months | €10,000 to €25,000 | You can test several hours a week and want to keep control |
 
 On top of the build, plan for about €10,000 to €20,000 of one-off costs: a lawyer for terms, privacy and the trademark clearance (€5,000 to €12,000), a security review before launch (€3,000 to €6,000), and a small budget for beta testers and founding hosts.
 
