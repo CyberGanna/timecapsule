@@ -8,7 +8,8 @@ src = open(os.path.join(D, '../manifesto/out.html')).read()
 fonts = re.search(r'<style>@font-face.*?</style>', src, re.S).group(0)
 logo = re.search(r'<svg viewBox="0 -6 110 82" aria-hidden="true">.*?</svg>', src, re.S).group(0)
 def mark(i):
-    return logo.replace('id="c0"', 'id="m%d"' % i).replace('url(#c0)', 'url(#m%d)' % i)
+    from cutout import cut  # PDFs use the cut-out logo (transparent link)
+    return cut(logo.replace('id="c0"', 'id="m%d"' % i).replace('url(#c0)', 'url(#m%d)' % i), 'k%d' % i)
 
 def img(n):
     b = base64.b64encode(open(os.path.join(D, 'shots' if WHO == 'ted' else 'shots-fedor', n + '.jpg'), 'rb').read()).decode()
@@ -158,7 +159,7 @@ pages.append('''<section class="page cover">
     <div class="sub">The TimeCapsule experience, step by step</div>
     <p class="q">%s</p>
   </div>
-</section>''' % (logo, NAME, META['cover_q']))
+</section>''' % (mark(999), NAME, META['cover_q']))
 
 toc = ''.join('<li><span>%02d · %s</span>%s</li>' % (i + 1, s[0], re.sub('<[^>]+>', '', s[1])) for i, s in enumerate(STEPS))
 toc += ''.join('<li><span>%s</span>%s</li>' % (e[0], re.sub('<[^>]+>', '', e[1])) for e in EXTRA)
