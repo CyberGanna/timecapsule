@@ -53,8 +53,15 @@ def md(src):
             head, body = rows[0], rows[2:]
             h = '<table><thead><tr>%s</tr></thead><tbody>' % ''.join('<th>%s</th>' % inline(c) for c in head)
             for r in body:
-                cls = ' class="pick"' if 'choice' in r[0] else (' class="hi"' if r[0].startswith('**') else '')
-                h += '<tr%s>%s</tr>' % (cls, ''.join('<td>%s</td>' % inline(c) for c in r))
+                cls, lab = '', ''
+                m = re.search(r'\s*\{(hi|pick):([^}]*)\}', r[0])
+                if m:
+                    r = [r[0].replace(m.group(0), '')] + r[1:]
+                    cls = ' class="%s"' % m.group(1)
+                    lab = '<span class="side">%s</span>' % html.escape(m.group(2))
+                cells = ['<td>%s%s</td>' % (lab if k == 0 else '', inline(c)) for k, c in enumerate(r)]
+                h += '<tr%s>%s</tr>' % (cls, ''.join(cells))
+            if 'class="side"' in h: h = h.replace('<table>', '<table class="labelled">', 1)
             out.append(h + '</tbody></table>')
         elif re.match(r'- \[ \] ', l):
             items = []
@@ -124,6 +131,12 @@ td:first-child{font-family:'Sora',sans-serif;font-size:8.2pt;font-weight:400;col
 tr.hi td{background:rgba(124,92,255,.07)}
 tr.pick td{background:rgba(23,195,200,.16);border-bottom-color:rgba(23,195,200,.5)}
 tr.pick td:first-child{box-shadow:inset 3px 0 0 #17C3C8}
+tr.hi td:first-child{box-shadow:inset 3px 0 0 #7C5CFF}
+tr.hi td,tr.pick td{height:24mm}
+td{position:relative}
+table.labelled{width:calc(100% - 7mm);margin-left:7mm}
+.side{position:absolute;right:calc(100% + 2mm);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;white-space:nowrap;font-family:'Sora',sans-serif;font-size:6.6pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+tr.hi .side{color:#7C5CFF}tr.pick .side{color:#0E9BA0}
 tbody tr:last-child.hi td{background:rgba(23,195,200,.10)}
 /* roadmap */
 .road{margin:4mm 0 7mm;font-family:'Sora',sans-serif;break-inside:avoid}
