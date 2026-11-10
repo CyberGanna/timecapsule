@@ -53,7 +53,7 @@ def md(src):
             head, body = rows[0], rows[2:]
             h = '<table><thead><tr>%s</tr></thead><tbody>' % ''.join('<th>%s</th>' % inline(c) for c in head)
             for r in body:
-                cls = ' class="hi"' if r[0].startswith('**') else ''
+                cls = ' class="pick"' if 'choice' in r[0] else (' class="hi"' if r[0].startswith('**') else '')
                 h += '<tr%s>%s</tr>' % (cls, ''.join('<td>%s</td>' % inline(c) for c in r))
             out.append(h + '</tbody></table>')
         elif re.match(r'- \[ \] ', l):
@@ -122,6 +122,8 @@ th:first-child{border-radius:6px 0 0 0}th:last-child{border-radius:0 6px 0 0}
 td{padding:2.2mm 2.6mm;border-bottom:1px solid var(--line);vertical-align:top}
 td:first-child{font-family:'Sora',sans-serif;font-size:8.2pt;font-weight:400;color:var(--navy)}
 tr.hi td{background:rgba(124,92,255,.07)}
+tr.pick td{background:rgba(23,195,200,.16);border-bottom-color:rgba(23,195,200,.5)}
+tr.pick td:first-child{box-shadow:inset 3px 0 0 #17C3C8}
 tbody tr:last-child.hi td{background:rgba(23,195,200,.10)}
 /* roadmap */
 .road{margin:4mm 0 7mm;font-family:'Sora',sans-serif;break-inside:avoid}
