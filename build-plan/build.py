@@ -135,7 +135,7 @@ tr.hi td:first-child{box-shadow:inset 3px 0 0 #7C5CFF}
 tr.hi td,tr.pick td{height:24mm}
 td{position:relative}
 table.labelled{width:calc(100% - 7mm);margin-left:7mm}
-.side{position:absolute;right:calc(100% + 2mm);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;white-space:nowrap;font-family:'Sora',sans-serif;font-size:6.6pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.side{position:absolute;right:calc(100% + 2mm);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;white-space:nowrap;font-family:'Sora',sans-serif;font-size:5pt;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
 tr.hi .side{color:#7C5CFF}tr.pick .side{color:#0E9BA0}
 tbody tr:last-child.hi td{background:rgba(23,195,200,.10)}
 /* roadmap */
