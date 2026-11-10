@@ -1832,3 +1832,12 @@ Join or host a table|Μπες ή φιλοξένησε ένα τραπέζι
 Get the conversation started. Talk, listen, brainstorm live!|Ξεκίνα τη συζήτηση. Μίλα, άκου, ανταλλάξτε ιδέες ζωντανά!
 Useful tools|Χρήσιμα εργαλεία
 TimeCapsule also offers unique tools to transcribe, take notes or summarize the conversation.|Το TimeCapsule προσφέρει επίσης μοναδικά εργαλεία για απομαγνητοφώνηση, σημειώσεις ή περίληψη της συζήτησης.
+Unblock {n}?|Άρση αποκλεισμού για {n};
+Remove {n}?|Αφαίρεση για {n};
+Block {n}?|Αποκλεισμός για {n};
+They'll see your profile and open tables again, and can take a chair at them. They won't be told.|Θα βλέπει ξανά το προφίλ και τα ανοιχτά τραπέζια σου και θα μπορεί να πάρει καρέκλα σε αυτά. Δεν θα ενημερωθεί.
+They stop getting a note when you host. They aren't told, and they can follow you again later.|Δεν θα λαμβάνει πια ειδοποίηση όταν φιλοξενείς. Δεν ενημερώνεται και μπορεί να σε ακολουθήσει ξανά αργότερα.
+They won't see your profile or tables, take a chair at yours, chat with you or follow you. They aren't told.|Δεν θα βλέπει το προφίλ ή τα τραπέζια σου, δεν θα παίρνει καρέκλα στα δικά σου, δεν θα σου γράφει ούτε θα σε ακολουθεί. Δεν ενημερώνεται.
+{n} removed|{n}: αφαιρέθηκε
+{n} blocked|{n}: αποκλείστηκε
+{n} unblocked|{n}: ο αποκλεισμός άρθηκε
