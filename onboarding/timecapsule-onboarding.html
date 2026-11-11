@@ -185,7 +185,7 @@ h1{margin:0;font-size:34px;line-height:1.15;font-weight:500;letter-spacing:-1px;
  .uni{position:relative;top:0;display:none;border-radius:16px}
  body.s-welcome .uni,body.s-done .uni{display:block}
  body.s-welcome .uni svg,body.s-done .uni svg{max-height:340px}
- .uni{order:-1}
+ body:not(.s-welcome) .uni{order:-1}
  h1{font-size:27px;letter-spacing:-.7px}
  .lead{font-size:15px}
  .actions.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:linear-gradient(to top,var(--bg) 75%,rgba(27,33,68,0))}
