@@ -183,9 +183,12 @@ h1{margin:0;font-size:34px;line-height:1.15;font-weight:500;letter-spacing:-1px;
 @media(max-width:900px){
  .stage{grid-template-columns:minmax(0,1fr);gap:22px;padding-block:20px 120px}
  .flow{max-width:none;gap:22px}
- .uni{position:relative;top:0;display:none;border-radius:16px}
- body.s-welcome .uni,body.s-done .uni{display:block}
+ .uni{position:relative;top:0;display:block;border-radius:16px}
  body.s-welcome .uni svg,body.s-done .uni svg{max-height:340px}
+ /* middle steps: a slim strip of the universe that grows as you answer */
+ body:not(.s-welcome):not(.s-done) .uni{height:150px}
+ body:not(.s-welcome):not(.s-done) .uni svg{width:100%;height:100%}
+ body:not(.s-welcome):not(.s-done) .ucap,body:not(.s-welcome):not(.s-done) .uni .wm{display:none}
  body:not(.s-welcome) .uni{order:-1}
  h1{font-size:27px;letter-spacing:-.7px}
  .lead{font-size:15px}
@@ -216,7 +219,7 @@ h1{margin:0;font-size:34px;line-height:1.15;font-weight:500;letter-spacing:-1px;
  <main class="flow" id="flow" aria-live="polite"></main>
  <aside class="uni" id="uniBox" aria-label="Your universe">
   <span class="wm">k▪universe</span>
-  <svg id="u" viewBox="0 0 400 400" role="img" aria-labelledby="ucapB"></svg>
+  <svg id="u" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="ucapB"></svg>
   <div class="ucap"><b id="ucapB">Your universe</b><span id="ucapS"></span></div>
  </aside>
 </div>
@@ -423,7 +426,7 @@ function render(focus=true){
  try{if(location.hash.slice(1)!==step)history.replaceState(null,"","#"+step)}catch(e){}
 }
 function go(d){S.i=Math.max(0,Math.min(STEPS.length-1,S.i+d));S.q="";render();window.scrollTo({top:0})}
-function toast(msg){if(matchMedia("(min-width:901px)").matches)return;document.querySelectorAll(".toast").forEach(t=>t.remove());const t=document.createElement("div");t.className="toast";t.setAttribute("role","status");t.innerHTML=ICON.star+esc(msg);document.body.appendChild(t);setTimeout(()=>t.remove(),2200)}
+function toast(msg){return;/* the universe strip now shows each pick on mobile, so no toast */document.querySelectorAll(".toast").forEach(t=>t.remove());const t=document.createElement("div");t.className="toast";t.setAttribute("role","status");t.innerHTML=ICON.star+esc(msg);document.body.appendChild(t);setTimeout(()=>t.remove(),2200)}
 
 document.addEventListener("click",e=>{
  const a=e.target.closest("[data-act],[data-pick],[data-custom],[data-topic]");if(!a)return;
