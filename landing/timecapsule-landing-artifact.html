@@ -935,7 +935,7 @@ function draw(now){
   // arcs: only the speaker's own links show, in green, fading in and out
   const trace=A=>{let pen=false;for(const [lo,la,al] of A.pts){const [x,y,z]=proj(lo,la,al);if(seen(x,y,z)){pen?ctx.lineTo(x,y):ctx.moveTo(x,y);pen=true}else pen=false}};
   for(const T of TABLES){
-    const age=T.spT?now-T.spT:1e9;if(age>7500)continue;if(W<760&&!captioned.has(T))continue;
+    const age=T.spT?now-T.spT:1e9;if(age>7500)continue;
     const fa=Math.max(0,Math.min(1,age/600)*Math.min(1,(7500-age)/1500)*cutF(T,now));if(fa<=0)continue;
     ctx.beginPath();for(const A of T.arcs)if(A.i===T.spI||A.j===T.spI)trace(A);
     ctx.strokeStyle=`rgba(61,220,132,${.85*fa})`;ctx.lineWidth=1.4;ctx.stroke();
@@ -965,7 +965,7 @@ function draw(now){
   if(W<760){
   // one identical marker per city: a solid yellow dot; while linked it gains a green ring that pulses
   const marks=new Map();
-  for(const T of TABLES){const age=T.spT?now-T.spT:1e9, lk=age>7500||!captioned.has(T)?0:Math.max(0,Math.min(1,age/600)*Math.min(1,(7500-age)/1500)*cutF(T,now));
+  for(const T of TABLES){const age=T.spT?now-T.spT:1e9, lk=age>7500?0:Math.max(0,Math.min(1,age/600)*Math.min(1,(7500-age)/1500)*cutF(T,now));
     T.p.forEach(([n,city])=>{const m=marks.get(city)||{lk:0,open:false,hi:false};m.lk=Math.max(m.lk,lk);m.open=m.open||T.lis!==false;m.hi=m.hi||HI.has(T);marks.set(city,m)})}
   // markers may touch but never overlap: nudge close ones apart on screen until their rings just meet
   const pts=[];for(const [city,m] of marks){const [l,p]=CITY[city], [x,y,z]=proj(l,p); if(z>0)pts.push({x,y,lk:m.lk,open:m.open,hi:m.hi})}
