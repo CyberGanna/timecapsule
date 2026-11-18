@@ -40,7 +40,15 @@ CSS = r'''<style id="lib-css">
 .sunav .avring{transition:stroke-width .15s}
 .sunav:hover .avring,.sunav:focus-visible .avring{stroke-width:2.6}
 .sunav:focus-visible .avring{stroke:#17C3C8}
-.unicap .caphint{display:block;margin-top:2px;color:var(--mute)}
+.uh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.unitog{display:flex;gap:2px;padding:3px;margin:0 0 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.unitog button{flex:1;min-height:34px;border:0;border-radius:9px;background:none;color:var(--mute);font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
+.unitog button span{opacity:.7;margin-left:3px;font-variant-numeric:tabular-nums}
+.unitog button:hover{color:var(--text,#EEF1FF)}
+.unitog button[aria-pressed=true]{background:var(--field,#252B52);color:var(--text,#EEF1FF);font-weight:500;box-shadow:inset 0 0 0 1px var(--line2,#4A528A)}
+.unitog button[data-m=read][aria-pressed=true]{box-shadow:inset 0 0 0 1px rgba(247,198,107,.55)}
+.unitog button[data-m=lib][aria-pressed=true]{box-shadow:inset 0 0 0 1px rgba(127,240,242,.55)}
+body.visitor .unitog .lbc-o,body:not(.visitor) .unitog .lbc-v{display:none}
 .ulay .pl li[data-r]{cursor:pointer}.ulay .pl li[data-r]:hover span{text-decoration:underline;text-underline-offset:3px}
 #uni-h .uh-lib{display:none}.libmode #uni-h .uh-read{display:none}.libmode #uni-h .uh-lib{display:inline}
 .lbintro{margin:4px 0 18px;color:var(--mute);font-size:13.5px;line-height:1.5}
@@ -76,7 +84,7 @@ def run(ROOT, recs, LIBD, add_dict):
             '<button type="button" role="tab" id="t-lb" aria-selected="false" aria-controls="p-lb"><b class="lbc-o">%d</b><b class="lbc-v">%d</b> Library</button>\n    <button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>' % (len(recs), npub))
     s = rep(s, '  <section class="panel" id="p-fw" role="tabpanel"', lib_tab(recs) + '\n\n  <section class="panel" id="p-fw" role="tabpanel"')
     s = rep(s, '<h2 id="uni-h">My readings <span>36</span></h2>',
-            '<h2 id="uni-h"><span class="uh-read">My readings <span>36</span></span><span class="uh-lib">My library <span>%d</span></span></h2>' % len(recs))
+            '<h2 id="uni-h" class="uh-sr"><span class="uh-read">My readings</span><span class="uh-lib">My library</span></h2><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">My readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">My library <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div>' % (len(recs), npub))
     # library data for the map: one orbit per topic, one star per discussion
     order = []; by = {}
     for r in recs.values():
@@ -96,7 +104,7 @@ def run(ROOT, recs, LIBD, add_dict):
     s = rep(s, "'<li style=\"--c:'+th.c+'\"><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i", "'<li style=\"--c:'+th.c+'\"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i")
     s = rep(s, '<b>All books</b>', "<b>'+(MODE==\"lib\"?\"All discussions\":\"All books\")+'</b>")
     s = rep(s, "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);return '<button type=\"button\" class=\"caplink\" data-act=\"all\">'+nb+' books</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\">'+T.length+' themes</button>. Hover/tap to learn more.'}",
-            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <span>Tap a star to open it.</span><span class=\"caphint\">Tap the photo to go back to the readings.</span>';return '<button type=\"button\" class=\"caplink\" data-act=\"all\">'+nb+' books</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\">'+T.length+' themes</button>. Hover/tap to learn more.<span class=\"caphint\">Tap the photo to open the library.</span>'}")
+            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <span>Tap a star to open it.</span>';return '<button type=\"button\" class=\"caplink\" data-act=\"all\">'+nb+' books</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\">'+T.length+' themes</button>. Hover/tap to learn more.'}")
     HELP = r'''function BY(){return MODE=="lib"?", ":" by "}
 function RA(b){return b&&b[2]?' data-r="'+b[2]+'" tabindex="0" role="link"':''}
 function goRec(id){var a=document.createElement("a");a.href="../library/timecapsule-library.html#r="+id+(document.body.classList.contains("visitor")?"&as=visitor":"");a.target="_top";document.body.appendChild(a);a.click();a.remove()}
@@ -117,10 +125,11 @@ function sunAv(sys,before,cx,cy){
  g.addEventListener("pointerenter",function(){var u=s.parentNode.getBoundingClientRect(),r=g.getBoundingClientRect();utip.innerHTML="<b>"+(MODE=="lib"?"Back to the readings":"Open the library")+"</b>";utip.style.setProperty("--c",MODE=="lib"?"#7FF0F2":"#F7C66B");utip.style.left="50%";utip.style.top=(r.top+r.height/2-u.top)+"px";utip.classList.remove("dn");utip.hidden=false});
  g.addEventListener("pointerleave",function(){utip.hidden=true});
  return g}
-function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");universe();var a=s.querySelector(".sunav");if(a&&document.activeElement&&document.activeElement.closest&&document.activeElement.closest(".uni"))a.focus()}
+document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListener("click",function(){if(b.dataset.m!=MODE)setMode(b.dataset.m)})});
+function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");universe();var a=s.querySelector(".sunav");if(a&&document.activeElement&&document.activeElement.closest&&document.activeElement.closest(".uni"))a.focus()}
 window.KUlib=function(){if(MODE!="lib")setMode("lib")};
 '''
-    s = rep(s, '\nuniverse();\nwindow.KU={T:T,render:universe};', '\n' + HELP + 'universe();\nwindow.KU={T:RT,render:function(){if(MODE!="read"){MODE="read";T=RT;var r=document.querySelector(".lbreads");if(r)r.classList.remove("libmode")}universe()}};')
+    s = rep(s, '\nuniverse();\nwindow.KU={T:T,render:universe};', '\n' + HELP + 'universe();\nwindow.KU={T:RT,render:function(){if(MODE!="read"){MODE="read";T=RT;var r=document.querySelector(".lbreads");if(r)r.classList.remove("libmode");document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m=="read")})}universe()}};')
     # deep link #lib opens the Library tab and the library map
     TAIL = CSS + '''<script>(function(){if(!/(^#|&)lib\\b/.test(location.hash))return;var t=document.getElementById("t-lb");if(t)t.click();if(window.KUlib)KUlib()})();</script>\n'''
     i = s.rindex('</body></html>')
