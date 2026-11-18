@@ -1966,3 +1966,4 @@ to the discussions on the profile. Choose how you appear in it.|στις συζ�
 Save my 3 kept notes to My discussions|Αποθήκευσε τις 3 σημειώσεις μου στις Συζητήσεις μου
 Saved to My discussions, in|Αποθηκεύτηκε στις Συζητήσεις μου, στο
 See My discussions|Δες τις Συζητήσεις μου
+Edit summary|Επεξεργασία περίληψης

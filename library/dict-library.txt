@@ -137,3 +137,4 @@ to the discussions on the profile. Choose how you appear in it.|tra le discussio
 Save my 3 kept notes to My discussions|Salva le mie 3 note tenute in Le mie discussioni|Guardar mis 3 notas en Mis conversaciones
 Saved to My discussions, in|Salvato in Le mie discussioni, in|Guardada en Mis conversaciones, en
 See My discussions|Vedi Le mie discussioni|Ver Mis conversaciones
+Edit summary|Modifica il riassunto|Editar el resumen
