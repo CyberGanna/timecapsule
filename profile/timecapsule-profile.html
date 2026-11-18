@@ -1315,7 +1315,7 @@ function page(i,sel){ulay.hidden=false;U.page=i;var th=T[i];s.classList.add("dim
 ulink.onclick=function(){utip.hidden=true;if(U.allPg&&!U.list){U.allPg=false;ulay.hidden=true;s.classList.remove("dim");ulink.hidden=true;cap.innerHTML=capU();return}U.allPg=false;U.uniPg=false;back.hidden=true;
  if(!U.list){U.list=true;ulink.hidden=false;ulink.textContent="‹ Back";morph(1,rows)}
  else{U.list=false;ulay.hidden=true;s.classList.remove("dim");s.parentNode.classList.remove("pgm");ulink.textContent="☰ List";ulink.hidden=true;morph(0,function(){var nb=T.reduce(function(s,x){return s+x.b.length},0);cap.innerHTML=capU()})}};
-function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE=="lib")return '<span class="cl"><button type="button" class="caplink" data-act="themes"><span>'+T.length+'</span> topics</button>. <button type="button" class="caplink" data-act="all"><span>'+nb+'</span> discussions</button>.</span><span class="cm">Tap to open.</span><span class="cr"></span>';return '<span class="cl"><button type="button" class="caplink" data-act="themes"><span>'+T.length+'</span> topics</button>. <button type="button" class="caplink" data-act="all"><span>'+nb+'</span> books</button>.</span><span class="cm">Tap to open.</span><span class="cr"></span>'}
+function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE=="lib")return '<span class="cl"><button type="button" class="caplink" data-act="themes"><span>'+T.length+'</span> topics</button>. <button type="button" class="caplink" data-act="all"><span>'+nb+'</span> discussions</button>.</span><span class="cm"></span><span class="cr"></span>';return '<span class="cl"><button type="button" class="caplink" data-act="themes"><span>'+T.length+'</span> topics</button>. <button type="button" class="caplink" data-act="all"><span>'+nb+'</span> books</button>.</span><span class="cm"></span><span class="cr"></span>'}
 var _ulb=ulink.onclick;ulink.onclick=function(){utip.hidden=true;if(U.list&&!U.uniPg&&(U.page>=0||U.allPg)){rows();return}_ulb()};
 function allBooks(){U.allPg=true;utip.hidden=true;ulink.hidden=false;ulink.textContent="‹ Back";ulay.hidden=false;s.classList.add("dim");ulay.className="ulay pg";
  ulay.innerHTML='<div class="ph"><span style="min-width:52px"></span><b>'+(MODE=="lib"?"All discussions":"All books")+'</b><span style="min-width:52px"></span></div><ul class="pl">'+T.map(function(th){return th.b.map(function(b){return '<li style="--c:'+th.c+'"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i style="font-style:normal;color:'+th.c+'">'+th.n+'</i></small></li>'}).join("")}).join("")+'</ul>';
@@ -1979,7 +1979,7 @@ w.querySelector(".tm-dlg").setAttribute("aria-labelledby",document.body.classLis
 #uniview:not(.fsw) .unicap{margin-top:4px;padding-bottom:6px}
 #uniview.fsw .uni.fs .ufs{width:44px;height:44px;top:2px;right:2px}
 #uniview.fsw .uni.fs .ufs svg{width:34px;height:34px;stroke-width:1.8}
-#uniview.fsw .unicap{font-size:13px;color:var(--mute);max-width:none;width:calc(min(100%, calc((100vh - 150px) * 1.36)) - 28px)}
+#uniview.fsw .unicap{font-size:16px;color:var(--mute);max-width:none;width:calc(min(100%, calc((100vh - 150px) * 1.36)) - 28px)}
 .lbreads .uni .ufs,.lbreads .uni .ufs:hover,.lbreads .uni .ufs:focus,.lbreads .uni .ufs:focus-visible{background:none!important;outline:none;box-shadow:none}
 .lbreads .uni .ufs:hover{opacity:.75}
 .unicap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:10px;text-align:left}
@@ -1990,6 +1990,7 @@ w.querySelector(".tm-dlg").setAttribute("aria-labelledby",document.body.classLis
 .unicap .cr{justify-self:end;display:flex}
 .unicap .wm{position:static;pointer-events:auto}
 .unicap .qhelp{width:18px;height:18px;font-size:11px}
+#uniview.fsw .unicap .qhelp{width:22px;height:22px;font-size:13px}
 .lbreads .uni:not(.fs) .unitog{left:0}
 .lbreads .uni:not(.fs) .ufs{right:0}
 .lbreads .uni:not(.fs) .ulink{left:-12px}

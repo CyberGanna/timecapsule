@@ -44,7 +44,7 @@ CSS = r'''<style id="lib-css">
 #uniview:not(.fsw) .unicap{margin-top:4px;padding-bottom:6px}
 #uniview.fsw .uni.fs .ufs{width:44px;height:44px;top:2px;right:2px}
 #uniview.fsw .uni.fs .ufs svg{width:34px;height:34px;stroke-width:1.8}
-#uniview.fsw .unicap{font-size:13px;color:var(--mute);max-width:none;width:calc(min(100%, calc((100vh - 150px) * 1.36)) - 28px)}
+#uniview.fsw .unicap{font-size:16px;color:var(--mute);max-width:none;width:calc(min(100%, calc((100vh - 150px) * 1.36)) - 28px)}
 .lbreads .uni .ufs,.lbreads .uni .ufs:hover,.lbreads .uni .ufs:focus,.lbreads .uni .ufs:focus-visible{background:none!important;outline:none;box-shadow:none}
 .lbreads .uni .ufs:hover{opacity:.75}
 .unicap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:10px;text-align:left}
@@ -55,6 +55,7 @@ CSS = r'''<style id="lib-css">
 .unicap .cr{justify-self:end;display:flex}
 .unicap .wm{position:static;pointer-events:auto}
 .unicap .qhelp{width:18px;height:18px;font-size:11px}
+#uniview.fsw .unicap .qhelp{width:22px;height:22px;font-size:13px}
 .lbreads .uni:not(.fs) .unitog{left:0}
 .lbreads .uni:not(.fs) .ufs{right:0}
 .lbreads .uni:not(.fs) .ulink{left:-12px}
@@ -165,7 +166,7 @@ def run(ROOT, recs, LIBD, add_dict):
     s = rep(s, "'<li style=\"--c:'+th.c+'\"><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i", "'<li style=\"--c:'+th.c+'\"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i")
     s = rep(s, '<b>All books</b>', "<b>'+(MODE==\"lib\"?\"All discussions\":\"All books\")+'</b>")
     s = rep(s, "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);return '<button type=\"button\" class=\"caplink\" data-act=\"all\">'+nb+' books</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\">'+T.length+' themes</button>. Hover/tap to learn more.'}",
-            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>.</span><span class=\"cm\">Tap to open.</span><span class=\"cr\"></span>';return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> books</button>.</span><span class=\"cm\">Tap to open.</span><span class=\"cr\"></span>'}")
+            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>.</span><span class=\"cm\"></span><span class=\"cr\"></span>';return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> books</button>.</span><span class=\"cm\"></span><span class=\"cr\"></span>'}")
     HELP = r'''function BY(){return MODE=="lib"?", ":" by "}
 function RA(b){return b&&b[2]?' data-r="'+b[2]+'" tabindex="0" role="link"':''}
 function goRec(id){var a=document.createElement("a");a.href="../library/timecapsule-library.html#r="+id+(document.body.classList.contains("visitor")?"&as=visitor":"");a.target="_top";document.body.appendChild(a);a.click();a.remove()}
