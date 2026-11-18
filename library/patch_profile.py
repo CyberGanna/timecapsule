@@ -95,8 +95,7 @@ CSS = r'''<style id="lib-css">
 .uni.fs .ua.uend{min-width:31px;height:28px;line-height:28px;padding:0 8px;font-size:17px}
 .uni:has(#ulink:not([hidden])) #pgb{visibility:hidden}
 #uni-h{margin-bottom:4px}
-.lbsec>h2,.lbsec .reads>h2,.lbreads h2{font-size:13px;color:var(--text)}
-@media(max-width:860px){.lbsec>h2,.lbsec .reads>h2,.lbreads h2{font-size:15px}}
+.lbsec>h2,.lbsec .reads>h2,.lbreads h2{color:var(--text)}
 body.visitor .unitog .lbc-o,body:not(.visitor) .unitog .lbc-v{display:none}
 .ulay .pl li[data-r]{cursor:pointer}.ulay .pl li[data-r]:hover span{text-decoration:underline;text-underline-offset:3px}
 .lbintro{margin:4px 0 18px;color:var(--mute);font-size:13.5px;line-height:1.5}
