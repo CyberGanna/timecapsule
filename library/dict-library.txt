@@ -163,3 +163,27 @@ Mutual reads|Letture in comune|Lecturas en común
 mutual reads|letture in comune|lecturas en común
 See all discussions|Vedi tutte le discussioni|Ver todas las conversaciones
 See all tables|Vedi tutti i tavoli|Ver todas las mesas
+Your words are in the transcript.|Le tue parole sono nella trascrizione.|Tus palabras están en la transcripción.
+Your words are left out of the transcript.|Le tue parole sono state tolte dalla trascrizione.|Tus palabras se retiraron de la transcripción.
+You're all done|Hai finito|Ya está todo
+Thank you for being at the table.|Grazie di esserti seduto al tavolo.|Gracias por sentarte a la mesa.
+Six people, one question, and an hour of real listening. Something you said will stay with someone, maybe longer than you think.|Sei persone, una domanda e un'ora di ascolto vero. Qualcosa che hai detto resterà a qualcuno, forse più a lungo di quanto pensi.|Seis personas, una pregunta y una hora de escucha de verdad. Algo que dijiste se quedará con alguien, quizá más de lo que crees.
+Thank you for hosting.|Grazie per aver ospitato il tavolo.|Gracias por ser anfitrión.
+You gave six people an hour to think out loud together. That is rarer than it sounds.|Hai dato a sei persone un'ora per pensare ad alta voce insieme. È più raro di quanto sembri.|Diste a seis personas una hora para pensar en voz alta juntas. Es más raro de lo que parece.
+Host round 4|Ospita il round 4|Organiza la ronda 4
+Same question, a new week. We fill in the details from this table.|Stessa domanda, nuova settimana. Compiliamo i dettagli da questo tavolo.|La misma pregunta, otra semana. Rellenamos los datos a partir de esta mesa.
+Keep the conversation going|Continua la conversazione|Sigue la conversación
+More on|Altro su|Más sobre
+Philosophy this week|Filosofia questa settimana|Filosofía esta semana
+Hosted by|Ospitato da|Organiza
+Thu|Gio|Jue
+Sat|Sab|Sáb
+Sun|Dom|Dom
+2 chairs left|2 sedie libere|Quedan 2 sillas
+4 chairs left|4 sedie libere|Quedan 4 sillas
+1 chair left|1 sedia libera|Queda 1 silla
+Save a chair|Prenota una sedia|Reserva una silla
+Chair saved|Sedia prenotata|Silla reservada
+See all tables|Vedi tutti i tavoli|Ver todas las mesas
+Same question, next week?|Stessa domanda, la prossima settimana?|¿La misma pregunta, la semana que viene?
+We fill in the details from this table, so it takes a minute.|Compiliamo i dettagli da questo tavolo: basta un minuto.|Rellenamos los datos a partir de esta mesa: es un minuto.

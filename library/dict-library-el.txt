@@ -152,3 +152,27 @@ Mutual reads|Κοινές αναγνώσεις
 mutual reads|κοινές αναγνώσεις
 See all discussions|Δες όλες τις συζητήσεις
 See all tables|Δες όλα τα τραπέζια
+Your words are in the transcript.|Τα λόγια σου είναι στην απομαγνητοφώνηση.
+Your words are left out of the transcript.|Τα λόγια σου αφαιρέθηκαν από την απομαγνητοφώνηση.
+You're all done|Τελείωσες
+Thank you for being at the table.|Ευχαριστούμε που κάθισες στο τραπέζι.
+Six people, one question, and an hour of real listening. Something you said will stay with someone, maybe longer than you think.|Έξι άνθρωποι, μία ερώτηση και μία ώρα αληθινής ακρόασης. Κάτι που είπες θα μείνει σε κάποιον, ίσως περισσότερο απ' όσο νομίζεις.
+Thank you for hosting.|Ευχαριστούμε που φιλοξένησες το τραπέζι.
+You gave six people an hour to think out loud together. That is rarer than it sounds.|Έδωσες σε έξι ανθρώπους μία ώρα να σκεφτούν φωναχτά μαζί. Είναι πιο σπάνιο απ' όσο ακούγεται.
+Host round 4|Φιλοξένησε τον γύρο 4
+Same question, a new week. We fill in the details from this table.|Ίδια ερώτηση, νέα εβδομάδα. Συμπληρώνουμε τα στοιχεία από αυτό το τραπέζι.
+Keep the conversation going|Συνέχισε τη συζήτηση
+More on|Περισσότερα για
+Philosophy this week|Φιλοσοφία αυτή την εβδομάδα
+Hosted by|Οικοδεσπότης
+Thu|Πέμ
+Sat|Σάβ
+Sun|Κυρ
+2 chairs left|Απομένουν 2 θέσεις
+4 chairs left|Απομένουν 4 θέσεις
+1 chair left|Απομένει 1 θέση
+Save a chair|Κράτησε μια θέση
+Chair saved|Η θέση κρατήθηκε
+See all tables|Όλα τα τραπέζια
+Same question, next week?|Ίδια ερώτηση, την επόμενη εβδομάδα;
+We fill in the details from this table, so it takes a minute.|Συμπληρώνουμε τα στοιχεία από αυτό το τραπέζι, οπότε θέλει ένα λεπτό.
