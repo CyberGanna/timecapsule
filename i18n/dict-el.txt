@@ -1440,7 +1440,7 @@ Talk, face to face|Μίλα πρόσωπο με πρόσωπο
 Meet live, on camera, with a handful of people. Guests can message each other privately, and the notes you take are yours alone.|Συναντηθείτε live, με κάμερα, λίγοι άνθρωποι μαζί. Οι καλεσμένοι μπορούν να γράφουν ιδιωτικά ο ένας στον άλλον και οι σημειώσεις που κρατάς είναι μόνο δικές σου.
 When the table ends, give TimeCoins to the people who made it worth it. The coins you receive become your reputation, and reputation can never be bought.|Όταν τελειώσει το τραπέζι, δώσε TimeCoins σε όσους το έκαναν να αξίζει. Τα νομίσματα που λαμβάνεις γίνονται η φήμη σου, και η φήμη δεν αγοράζεται ποτέ.
 Keep the record|Κράτα την καταγραφή
-If everyone at the table agrees, the transcript is kept, every line with its author and its context, for whoever comes next.|Αν συμφωνήσουν όλοι στο τραπέζι, η απομαγνητοφώνηση κρατιέται, κάθε φράση με τον δημιουργό και το πλαίσιό της, για όποιον έρθει μετά.
+The transcript is kept, every line with its author and its context, for whoever comes next. Anyone can leave their words out of it.|Η απομαγνητοφώνηση κρατιέται, κάθε φράση με τον δημιουργό και το πλαίσιό της, για όποιον έρθει μετά. Όποιος θέλει μπορεί να αφαιρέσει τα λόγια του.
 More on how to use TimeCapsule|Περισσότερα για το πώς χρησιμοποιείς το TimeCapsule
 Transcript · line 214|Απομαγνητοφώνηση · γραμμή 214
 What we promise|Τι υποσχόμαστε
