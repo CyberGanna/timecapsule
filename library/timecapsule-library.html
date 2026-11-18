@@ -534,8 +534,8 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
 #lib .sumh h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
 .aitag{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--mute)}
 .aitag svg{width:13px;height:13px;color:#B9A6FF}
-.sumdots{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;width:28px;height:22px;margin-left:6px;padding:0;border:0;border-radius:6px;background:none;color:var(--lamp);cursor:pointer}
-.sumdots svg{width:18px;height:7px;fill:currentColor}
+.sumdots{display:inline-flex;align-items:center;justify-content:center;vertical-align:baseline;gap:3px;margin-left:8px;padding:0 2px;border:0;border-radius:6px;background:none;color:var(--lamp);font-family:Sora,sans-serif;font-size:14px;font-weight:500;line-height:1;cursor:pointer}
+.sumdots svg{width:14px;height:6px;fill:currentColor;transform:translateY(2px)}
 .sumdots:hover{color:#5FE3E7}
 .sumdots:focus-visible{outline:2px solid var(--lamp);outline-offset:2px}
 .sumdots[hidden]{display:none}
@@ -661,7 +661,7 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
   <p class="meta" id="rMeta"></p>
   <section class="sum" aria-labelledby="sum-h">
     <div class="sumh"><h2 id="sum-h">Summary</h2><span class="aitag"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg><span id="sumTag">AI summary, written after the table</span></span></div>
-    <p id="sumTx"><span id="sumTxt" data-noi18n></span><button type="button" class="sumdots r-host" id="sumEdit" aria-label="Edit summary" title="Edit summary"><svg viewBox="0 0 20 8" aria-hidden="true"><circle cx="3" cy="4" r="1.7"/><circle cx="10" cy="4" r="1.7"/><circle cx="17" cy="4" r="1.7"/></svg></button></p>
+    <p id="sumTx"><span id="sumTxt" data-noi18n></span><button type="button" class="sumdots r-host" id="sumEdit" aria-label="Edit summary" title="Edit summary">Edit<svg viewBox="0 0 20 8" aria-hidden="true"><circle cx="3" cy="4" r="1.7"/><circle cx="10" cy="4" r="1.7"/><circle cx="17" cy="4" r="1.7"/></svg></button></p>
     <div id="sumForm" hidden>
       <label for="sumIn" class="uh-sr">Summary</label>
       <textarea id="sumIn" rows="7" maxlength="600"></textarea>
