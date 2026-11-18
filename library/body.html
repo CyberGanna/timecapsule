@@ -19,20 +19,21 @@
 .crumb i{width:8px;height:8px;border-radius:50%;background:var(--c);display:inline-block;margin-right:2px}
 .crumb .sep{opacity:.5}
 .meta{color:var(--mute);font-size:14px;margin:0}
-.sum{max-width:720px;margin:22px 0 6px}
+.sum{max-width:720px;margin:22px 0 34px}
 .sumh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px}
 #lib .sumh h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
 .aitag{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--mute)}
 .aitag svg{width:13px;height:13px;color:#B9A6FF}
-.sumedit{margin-left:auto;border:0;background:none;color:var(--lamp);font:inherit;font-size:13px;cursor:pointer;padding:4px 2px}
-.sumedit:hover{text-decoration:underline;text-underline-offset:3px}
+.sumedit{margin-left:auto;display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:0 13px;border-radius:10px;border:1px solid var(--lamp);background:none;color:var(--lamp);font:inherit;font-size:13px;cursor:pointer}
+.sumedit svg{width:14px;height:14px}
+.sumedit:hover{background:rgba(23,195,200,.1)}
 #sumTx{margin:0;font-family:'Newsreader',Georgia,serif;font-size:17px;line-height:1.55;color:#E2E6FA;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:7;overflow:hidden}
 #sumIn{width:100%;box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font-family:'Newsreader',Georgia,serif;font-size:16.5px;line-height:1.5;resize:vertical}
 #sumIn:focus{outline:2px solid var(--lamp);outline-offset:1px}
 .sumact{display:flex;align-items:center;gap:10px;margin-top:10px}.sumact .btn{min-height:36px;padding:0 14px;font-size:13.5px}
 .sumact small{margin-left:auto;color:var(--mute);font-size:12px}
 .uh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.rounds{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.rounds{display:flex;flex-wrap:wrap;gap:8px;margin:0}
 .rounds button{display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:0 13px;border-radius:99px;border:1px solid var(--line);background:none;color:var(--soft);font:inherit;font-size:13px;cursor:pointer}
 .rounds button small{color:var(--mute);font-size:12px}
 .rounds button[aria-pressed=true]{border-color:var(--lamp);background:rgba(23,195,200,.1);color:var(--fg)}
@@ -147,7 +148,7 @@
   <h1 id="rTitle" data-noi18n></h1>
   <p class="meta" id="rMeta"></p>
   <section class="sum" aria-labelledby="sum-h">
-    <div class="sumh"><h2 id="sum-h">Summary</h2><span class="aitag"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg><span id="sumTag">AI summary, written after the table</span></span><button type="button" class="sumedit r-host" id="sumEdit">Edit</button></div>
+    <div class="sumh"><h2 id="sum-h">Summary</h2><span class="aitag"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg><span id="sumTag">AI summary, written after the table</span></span><button type="button" class="sumedit r-host" id="sumEdit"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.8 2.2a1.6 1.6 0 0 1 2.3 0l.7.7a1.6 1.6 0 0 1 0 2.3L6 13l-3.4.8.8-3.4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>Edit</button></div>
     <p id="sumTx" data-noi18n></p>
     <div id="sumForm" hidden>
       <label for="sumIn" class="uh-sr">Summary</label>
