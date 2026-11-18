@@ -81,20 +81,32 @@
 .dp .keep h2{margin:0;font-size:18px;font-weight:600}
 .dp .keep p{margin:4px 0 0;color:var(--mute);font-size:14.5px;line-height:1.5}
 .dp .keep a{margin-left:auto;flex:none;display:inline-flex;align-items:center;height:40px;padding:0 18px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);font-weight:600;font-size:14.5px;text-decoration:none}
+.dp .skyh{position:absolute;left:14px;top:12px;display:flex;align-items:center;gap:10px;pointer-events:none}
+.dp .skyh button{all:unset;pointer-events:auto;cursor:pointer;font-size:13px;color:var(--soft);padding:4px 10px;border-radius:8px;background:rgba(11,18,38,.6);border:1px solid var(--line)}
+.dp .skyh button:hover{color:#fff}
+.dp .skyh b{font-weight:600;font-size:15px;color:#fff}
+.dp .pills .back{border-color:transparent;color:var(--soft);padding-left:4px}
+.dp .sh2{margin:30px 0 0;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.dp .morew{display:flex;flex-direction:column;align-items:center;gap:8px;margin:22px 0 0}
+.dp #more{all:unset;cursor:pointer;height:42px;padding:0 22px;border-radius:10px;border:1px solid var(--line2);color:var(--fg);font-size:14.5px;font-weight:500}
+.dp #more:hover{border-color:var(--teal)}
+.dp #more[hidden]{display:none}
+.dp .seen{margin:0;font-size:12.5px;color:var(--mute)}.dp .seen b{color:var(--soft);font-weight:500}
 @media (max-width:1000px){.dp .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){.dp .feat{grid-template-columns:1fr}.dp .feat .fq{padding:26px 22px 22px}.dp .feat blockquote{font-size:24px}.dp .feat .fm{padding:20px 22px 22px}}
-@media (max-width:640px){.dp .hero{padding-block:22px 0}.dp .grid{grid-template-columns:1fr}.dp .sky{border-radius:14px;margin-top:18px}.dp .skycap{display:none}.dp .tools{gap:10px;flex-wrap:wrap}.dp .pills{flex-basis:100%;margin:0 -20px;padding:2px 20px}.dp .keep{flex-direction:column;align-items:flex-start;padding:22px}.dp .keep a{margin-left:0}.dp .search input{height:46px}}
+@media (max-width:640px){.dp .sky .cl text{font-size:12px}.dp .hero{padding-block:22px 0}.dp .grid{grid-template-columns:1fr}.dp .sky{border-radius:14px;margin-top:18px}.dp .skycap{display:none}.dp .tools{gap:10px;flex-wrap:wrap}.dp .pills{flex-basis:100%;margin:0 -20px;padding:2px 20px}.dp .keep{flex-direction:column;align-items:flex-start;padding:22px}.dp .keep a{margin-left:0}.dp .search input{height:46px}}
 </style>
 
 <div class="wrap dp">
   <section class="hero">
     <h1>Discussions</h1>
     <p>Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.</p>
-    <div class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="dq" placeholder="Search discussions, topics or hosts" aria-label="Search discussions"></div>
+    <div class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="dq" placeholder="Search discussions" aria-label="Search discussions"></div>
     <div class="sky" id="sky">
       <svg id="skySvg" role="img" aria-label="Topics as constellations. Each star is a saved discussion."></svg>
+      <div class="skyh" ><button type="button" id="skyBack" hidden><span aria-hidden="true">‹</span> <span>All topics</span></button><b id="skyT"></b></div>
       <div class="tip" id="tip" role="status"></div>
-      <p class="skycap">Each star is a discussion. Tap a topic to see its discussions.</p>
+      <p class="skycap" id="skyCap"></p>
     </div>
   </section>
 
@@ -104,7 +116,10 @@
   </div>
   <p class="cnt" id="cnt"></p>
   <div id="featBox"></div>
+  <section id="topBox" hidden><h2 class="sh2">Most picked up this month</h2><div class="grid" id="topGrid"></div></section>
+  <h2 class="sh2" id="allH" hidden>All discussions</h2>
   <div class="grid" id="grid"></div>
+  <div class="morew"><button type="button" id="more" hidden><span>Show</span> <span id="moreN"></span> <span>more</span></button><p class="seen"><span>Showing</span> <b id="shown"></b> <span>of</span> <b id="ofN"></b></p></div>
   <div class="empty" id="empty" hidden><span>Nothing matches.</span> <span>Try another word or topic.</span><button type="button" id="clear">Show all</button></div>
 
   <section class="keep">
@@ -121,54 +136,83 @@ Object.assign(P,{Nikos:["#FFE9C7","#17C3C8","#D9A47C","#2B2B2B","beard","Thessal
 const $=id=>document.getElementById(id);
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c])}
 const LIB="../../library/timecapsule-library.html#r=";
-function href(d){return LIB+d.id+"&as=visitor"}
-const S={t:"",q:"",sort:"recent"};
+function href(d){return LIB+(d.gen?"free-will":d.id)+"&as=visitor"}
+const S={t:"",s:"",q:"",sort:"recent",n:12};
+function rnd(seed){let s=seed;return()=>((s=Math.imul(s^s>>>15,1|s)+0x6D2B79F5|0,(s>>>0)%10000)/10000)}
+// Prototype: the 21 written discussions plus generated ones, so busy topics show how the page scales
+const SUBS={Philosophy:["Free will","Ethics","Phenomenology","Mind","Meaning","Time"],Science:["Minds","Space","Brain","Evolution","Physics"],History:["Memory","Letters","Family","Empires","Cities"],Music:["Listening","Silence","Songwriting","Rhythm","Jazz"],Climate:["Cities","Forests","Oceans","Food","Policy"],Energy:["Wind","Nuclear","Solar","Grid"],Travel:["Road trips","Slow travel","Walking","Cities"],Art:["Museums","Painting","Photography","Street art"],Home:["Belonging","Neighbours","Rooms"],Design:["Objects","Typography","Spaces"],Religion:["Faith","Ritual","Sacred texts"],Craft:["Repair","Woodwork","Sewing"]};
+const SIZE={Philosophy:342,Science:214,History:168,Music:151,Climate:126,Energy:97,Travel:88,Art:74,Home:63,Design:41,Religion:38,Craft:23};
+const TPL=["What does %s mean to you?","Is %s overrated?","%S and the people we become","Why %s still matters","What we get wrong about %s","%S: where do we start?","A slow evening on %s","Can %s change a mind?","What %s taught me","%S, honestly","The future of %s","%S at the kitchen table","Small questions about %s","%S for the rest of us"];
+const QS=["I came for the topic and stayed for the people.","Nobody had the answer, and that was the point.","I've never said that out loud before.","Maybe the question is better than any answer.","We disagreed kindly, which is rare.","I'll think about this all week.","It's simpler than we make it, and harder.","My grandmother would have had something to say.","Let's keep this open for next time.","I changed my mind halfway through.","That's the first time I've heard it put that way.","We need more evenings like this."];
+const NM=["Lena","Marco","Ana","Sofia","Jonas","Mia","Omar","Yuki","Tom","Priya","Elif","Kofi","Amara","Nikos","Lea","Ines","Elena","Maya","David"];
+const MO=["Jun","Jul","Aug","Sep","Oct","Nov"],COL={};D.forEach(d=>COL[d.topic]=d.col);
+(function(){const R=rnd(4242);Object.keys(SIZE).forEach(t=>{const have=D.filter(d=>d.topic===t).length;for(let i=have;i<SIZE[t];i++){const sb=SUBS[t][Math.floor(R()*SUBS[t].length)],tp=TPL[Math.floor(R()*TPL.length)],lo=sb.toLowerCase(),mi=Math.floor(Math.pow(R(),.6)*6),dy=1+Math.floor(R()*(mi==5?18:28)),rd=R()<.72?1:R()<.7?2:R()<.7?3:4,hs=NM[Math.floor(R()*NM.length)],ns=[hs];while(ns.length<4){const x=NM[Math.floor(R()*NM.length)];if(ns.indexOf(x)<0)ns.push(x)}
+ D.push({id:"g-"+t.toLowerCase()+"-"+i,gen:1,host:hs,topic:t,sub:sb,title:tp.replace("%s",lo).replace("%S",sb),col:COL[t],rounds:rd,people:4+Math.floor(R()*4),names:ns,day:dy,mon:MO[mi],key:(mi+6)*100+dy,quote:[ns[1+Math.floor(R()*3)],QS[Math.floor(R()*QS.length)]],summary:""})}})})();
+D.forEach(d=>d.score=d.rounds*40+d.key/10);
 // topics in order of size
 const TOP=[];D.forEach(d=>{let t=TOP.find(x=>x.n===d.topic);if(!t){t={n:d.topic,c:d.col,d:[]};TOP.push(t)}t.d.push(d)});
 TOP.sort((a,b)=>b.d.length-a.d.length||a.n.localeCompare(b.n));
+function subsOf(t){const T=TOP.find(x=>x.n===t),o=[];T.d.forEach(d=>{let s=o.find(x=>x.n===d.sub);if(!s){s={n:d.sub,c:T.c,d:[]};o.push(s)}s.d.push(d)});return o.sort((a,b)=>b.d.length-a.d.length)}
+const fmt=n=>n>=1000?(n/1000).toFixed(1)+"k":String(n);
 function stack(d){const ns=d.names.slice(0,4);return '<span class="fc" aria-hidden="true">'+ns.map((n,i)=>'<span class="'+(i?"":"h")+'" style="z-index:'+(9-i)+'">'+av(n)+'</span>').join("")+'</span>'}
 function quote(d){return '<blockquote data-noi18n>“'+esc(d.quote[1])+'”</blockquote><cite><span>said</span> <span data-noi18n>'+esc(d.quote[0])+'</span></cite>'}
 function rounds(d){if(d.rounds<2)return "";let h='<span class="rds" aria-label="'+d.rounds+' rounds">';for(let i=0;i<d.rounds;i++)h+=(i?'<s></s>':'')+'<i class="'+(i==d.rounds-1?"f":"")+'"></i>';return h+' <span>'+d.rounds+'</span> <span>rounds</span></span>'}
 function card(d){return '<a class="card" href="'+href(d)+'" target="_top" style="--c:'+d.col+'"><div class="ct"><i></i><span>'+esc(d.topic)+'</span><span class="sub">· <span>'+esc(d.sub)+'</span></span><span class="rn">'+(d.rounds>1?'<span>Round</span> '+d.rounds:'')+'</span></div><h3 data-noi18n>'+esc(d.title)+'</h3>'+quote(d)+'<div class="cf">'+stack(d)+'<span class="who"><span>Hosted by</span> <b data-noi18n>'+esc(d.host)+'</b></span><span class="dt">'+d.day+' <span>'+d.mon+'</span></span></div></a>'}
 function feat(d){return '<a class="feat" href="'+href(d)+'" target="_top" style="--c:'+d.col+'"><div class="fq"><p class="eb"><i></i><span>Picked up again</span></p>'+quote(d)+'</div><div class="fm"><div class="ct"><i></i><span>'+esc(d.topic)+'</span><span class="sub">· <span>'+esc(d.sub)+'</span></span></div><h2 data-noi18n>'+esc(d.title)+'</h2><p class="sum" data-noi18n>'+esc(d.summary)+'</p>'+rounds(d)+'<div class="cf" style="border:0;padding:0">'+stack(d)+'<span class="who"><span>Hosted by</span> <b data-noi18n>'+esc(d.host)+'</b> · '+d.people+' <span>people</span></span></div><span class="go"><span>Read the discussion</span></span></div></a>'}
-function match(d){if(S.t&&d.topic!==S.t)return false;if(!S.q)return true;const q=S.q.toLowerCase();return [d.title,d.topic,d.sub,d.host,d.quote[1]].some(x=>x.toLowerCase().includes(q))}
+function match(d){if(S.t&&d.topic!==S.t)return false;if(S.s&&d.sub!==S.s)return false;if(!S.q)return true;const q=S.q.toLowerCase();return [d.title,d.topic,d.sub,d.host,d.quote[1]].some(x=>x.toLowerCase().includes(q))}
+function pillsHtml(){
+ if(!S.t)return '<button type="button" data-t="" aria-pressed="true">All</button>'+TOP.map(t=>'<button type="button" data-t="'+esc(t.n)+'" style="--c:'+t.c+'" aria-pressed="false"><i></i><span>'+esc(t.n)+'</span></button>').join("");
+ const T=TOP.find(x=>x.n===S.t);
+ return '<button type="button" class="back" data-back="1"><span aria-hidden="true">‹</span> <span>All topics</span></button><button type="button" data-s="" style="--c:'+T.c+'" aria-pressed="'+(!S.s)+'"><i></i><span>All in</span> <span>'+esc(S.t)+'</span></button>'+subsOf(S.t).map(x=>'<button type="button" data-s="'+esc(x.n)+'" style="--c:'+T.c+'" aria-pressed="'+(S.s===x.n)+'"><i></i><span>'+esc(x.n)+'</span></button>').join("");
+}
 function render(){
  let L=D.filter(match);
  L.sort(S.sort==="rounds"?(a,b)=>b.rounds-a.rounds||b.key-a.key:(a,b)=>b.key-a.key);
- let f=null;
- if(!S.q&&L.length>3){const i=L.findIndex(d=>d.rounds>1);if(i>-1){f=L[i];L=L.slice(0,i).concat(L.slice(i+1))}}
+ const total=L.length;
+ let f=null,top=[];
+ if(!S.q&&L.length>3){let i=L.findIndex(d=>d.rounds>1&&!d.gen);if(i<0)i=L.findIndex(d=>d.rounds>1);if(i>-1){f=L[i];L=L.slice(0,i).concat(L.slice(i+1))}}
+ // busy: lift the most picked-up of this month above the list
+ if(!S.q&&L.length>40){top=L.filter(d=>d.mon==="Nov"&&d.rounds>1).sort((a,b)=>b.rounds-a.rounds||b.key-a.key).slice(0,3);L=L.filter(d=>top.indexOf(d)<0)}
  $("featBox").innerHTML=f?feat(f):"";
- $("grid").innerHTML=L.map(card).join("");
- const n=L.length+(f?1:0);
- $("empty").hidden=n>0;
- $("cnt").innerHTML=n?'<b>'+n+'</b> <span>'+(n==1?"discussion":"discussions")+'</span>'+(S.t?' <span>in</span> <span>'+esc(S.t)+'</span>':' · <b>'+TOP.length+'</b> <span>topics</span>'):"";
- document.querySelectorAll("#pills button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.t===S.t));
- document.querySelectorAll("#skySvg .cl").forEach(g=>{g.classList.toggle("dim",!!S.t&&g.dataset.t!==S.t);g.classList.toggle("on",g.dataset.t===S.t)});
+ $("topBox").hidden=!top.length;$("topGrid").innerHTML=top.map(card).join("");
+ $("allH").hidden=!top.length;
+ $("grid").innerHTML=L.slice(0,S.n).map(card).join("");
+ const left=L.length-Math.min(S.n,L.length);
+ $("more").hidden=left<=0;$("moreN").textContent=Math.min(12,left);$("shown").textContent=Math.min(S.n,L.length)+(f?1:0)+top.length;$("ofN").textContent=total.toLocaleString("en-US");
+ $("empty").hidden=total>0;
+ const where=S.s?S.s:S.t;
+ $("cnt").innerHTML=total?'<b>'+total.toLocaleString("en-US")+'</b> <span>'+(total==1?"discussion":"discussions")+'</span>'+(where?' <span>in</span> <span>'+esc(where)+'</span>':' · <b>'+TOP.length+'</b> <span>topics</span>'):"";
+ $("pills").innerHTML=pillsHtml();
+ document.querySelectorAll("#skySvg .cl").forEach(g=>{const on=S.t?g.dataset.t===S.s:false;g.classList.toggle("dim",!!S.s&&!on);g.classList.toggle("on",on)});
 }
-$("pills").innerHTML='<button type="button" data-t="" aria-pressed="true">All</button>'+TOP.map(t=>'<button type="button" data-t="'+esc(t.n)+'" style="--c:'+t.c+'" aria-pressed="false"><i></i><span>'+esc(t.n)+'</span></button>').join("");
-$("pills").onclick=e=>{const b=e.target.closest("button");if(!b)return;S.t=S.t===b.dataset.t?"":b.dataset.t;render()};
+$("pills").onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.back){goTopic("")}else if(b.dataset.t!==undefined){goTopic(b.dataset.t)}else{S.s=S.s===b.dataset.s?"":b.dataset.s;S.n=12;render()}};
+$("more").onclick=()=>{S.n+=12;render()};
 document.querySelector(".dp .sort").onclick=e=>{const b=e.target.closest("button");if(!b)return;S.sort=b.dataset.s;document.querySelectorAll(".dp .sort button").forEach(x=>x.setAttribute("aria-pressed",x===b));render()};
-$("dq").oninput=e=>{S.q=e.target.value.trim();render()};
-$("clear").onclick=()=>{S.q="";S.t="";$("dq").value="";render()};
+$("dq").oninput=e=>{S.q=e.target.value.trim();S.n=12;render()};
+$("clear").onclick=()=>{S.q="";S.s="";$("dq").value="";goTopic("")};
 // header search filters too
 const hq=document.querySelector(".tch-sbar input,#q");if(hq)hq.addEventListener("input",e=>{$("dq").value=e.target.value;S.q=e.target.value.trim();render()});
 
-// the sky: one constellation per topic
-function rnd(seed){let s=seed;return()=>((s=Math.imul(s^s>>>15,1|s)+0x6D2B79F5|0,(s>>>0)%10000)/10000)}
+// the sky: one constellation per topic, or per subtopic inside a topic. At most 12 stars each: the most picked-up and recent.
+const MAXST=12;
 function sky(){
- const mob=matchMedia("(max-width:640px)").matches,cols=mob?3:6,W=mob?360:1040,rowH=mob?100:132,H=Math.ceil(TOP.length/cols)*rowH+(mob?14:46);
+ const G=S.t?subsOf(S.t):TOP,inT=!!S.t,big=Math.max.apply(null,G.map(x=>x.d.length));
+ const mob=matchMedia("(max-width:640px)").matches,cols=mob?3:(inT?Math.min(6,Math.max(3,G.length)):6),W=mob?360:1040,rowH=mob?100:132,H=Math.ceil(G.length/cols)*rowH+(mob?14:46)+(inT?(mob?44:20):0),top0=inT?(mob?44:20):0;
+ $("skyBack").hidden=!inT;$("skyT").textContent=S.t;
+ $("skyCap").innerHTML=inT?'<span>Each star is a discussion. Tap a subtopic to see its discussions.</span>':'<span>Each star is a discussion. Tap a topic to see its discussions.</span>';
  const svg=$("skySvg");svg.setAttribute("viewBox","0 0 "+W+" "+H);
- let defs='<defs>'+TOP.map((t,i)=>'<radialGradient id="ng'+i+'"><stop offset="0" stop-color="'+t.c+'" stop-opacity=".34"/><stop offset=".55" stop-color="'+t.c+'" stop-opacity=".09"/><stop offset="1" stop-color="'+t.c+'" stop-opacity="0"/></radialGradient>').join("")+'</defs>';
+ let defs='<defs>'+G.map((t,i)=>'<radialGradient id="ng'+i+'"><stop offset="0" stop-color="'+t.c+'" stop-opacity=".34"/><stop offset=".55" stop-color="'+t.c+'" stop-opacity=".09"/><stop offset="1" stop-color="'+t.c+'" stop-opacity="0"/></radialGradient>').join("")+'</defs>';
  let g="";
- TOP.forEach((t,i)=>{
-  const r=Math.floor(i/cols),c=i%cols,cw=W/cols,stag=(r%2?cw*.5:0)*(mob?0:1);
-  let cx=Math.max(mob?58:96,Math.min(W-(mob?58:96),cw*c+cw/2+(mob?0:(r%2?cw*.14:-cw*.14)))),cy=rowH*r+(mob?40:62)+((c%2)?(mob?8:14):0);
-  const R=rnd(i*97+13),k=t.d.length,rad=mob?26:36,pts=[];
-  for(let j=0;j<k;j++){const a=(j/k)*Math.PI*2+R()*1.2+i,rr=k==1?0:rad*(.55+R()*.45);pts.push([cx+Math.cos(a)*rr*1.35,cy+Math.sin(a)*rr*.8])}
-  const line=k>1?'<polyline class="ln" stroke="'+t.c+'" points="'+pts.map(p=>p.map(v=>v.toFixed(1)).join(",")).join(" ")+(k>2?" "+pts[0].map(v=>v.toFixed(1)).join(","):"")+'"/>':"";
-  g+='<g class="cl" data-t="'+esc(t.n)+'" tabindex="0" role="button" aria-label="'+esc(t.n)+', '+k+'"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+(mob?50:84)+'" ry="'+(mob?38:56)+'" fill="url(#ng'+i+')"/>'+line+
-   t.d.map((d,j)=>{const[x,y]=pts[j],sz=(mob?2.6:3.2)+d.rounds*(mob?.9:1.2);return '<circle class="st'+(j%2?" tw":"")+'" style="animation-delay:'+(j*.7+i*.3).toFixed(1)+'s" data-id="'+d.id+'" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+sz.toFixed(1)+'" fill="#fff" stroke="'+t.c+'" stroke-width="'+(mob?2:2.5)+'" stroke-opacity=".75"/>'}).join("")+
-   '<text x="'+cx+'" y="'+(cy+(mob?40:58))+'"><tspan>'+esc(t.n)+'</tspan><tspan class="n" dx="6">'+k+'</tspan></text></g>';
+ G.forEach((t,i)=>{
+  const r=Math.floor(i/cols),c=i%cols,cw=W/cols;
+  let cx=Math.max(mob?62:96,Math.min(W-(mob?62:96),cw*c+cw/2+(mob?0:(r%2?cw*.14:-cw*.14)))),cy=top0+rowH*r+(mob?40:62)+((c%2)?(mob?8:14):0);
+  const R=rnd(i*97+13+(inT?7:0)),shown=t.d.slice().sort((a,b)=>b.score-a.score).slice(0,MAXST),k=shown.length,size=t.d.length,gl=.62+.38*Math.sqrt(size/big),rad=(mob?24:34)*(k>6?1.25:1),pts=[];
+  for(let j=0;j<k;j++){const a=(j/k)*Math.PI*2+R()*1.2+i,rr=k==1?0:rad*(.45+R()*.55);pts.push([cx+Math.cos(a)*rr*1.35,cy+Math.sin(a)*rr*.8])}
+  const lk=Math.min(k,6);
+  const line=lk>1?'<polyline class="ln" stroke="'+t.c+'" points="'+pts.slice(0,lk).map(p=>p.map(v=>v.toFixed(1)).join(",")).join(" ")+(lk>2?" "+pts[0].map(v=>v.toFixed(1)).join(","):"")+'"/>':"";
+  g+='<g class="cl" data-t="'+esc(t.n)+'" tabindex="0" role="button" aria-label="'+esc(t.n)+', '+size+'"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+((mob?50:84)*gl).toFixed(0)+'" ry="'+((mob?38:56)*gl).toFixed(0)+'" fill="url(#ng'+i+')"/>'+line+
+   shown.map((d,j)=>{const[x,y]=pts[j],sz=(k>6?(mob?1.8:2.3):(mob?2.2:2.8))+Math.min(d.rounds,4)*(k>6?(mob?.55:.75):(mob?.7:.95));return '<circle class="st'+(j%2?" tw":"")+'" style="animation-delay:'+(j*.7+i*.3).toFixed(1)+'s" data-id="'+d.id+'" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+sz.toFixed(1)+'" fill="#fff" stroke="'+t.c+'" stroke-width="'+(mob?2:2.5)+'" stroke-opacity=".75"/>'}).join("")+
+   '<text x="'+cx+'" y="'+(cy+(mob?40:58))+'"><tspan>'+esc(t.n)+'</tspan><tspan class="n" dx="6">'+fmt(size)+'</tspan></text></g>';
  });
  svg.innerHTML=defs+g;render();
 }
@@ -179,10 +223,11 @@ sk.addEventListener("pointerover",e=>{const s=e.target.closest(".st");if(!s){tip
  tip.innerHTML='<span data-noi18n>'+esc(d.title)+'</span><small><span>Hosted by</span> <span data-noi18n>'+esc(d.host)+'</span>'+(d.rounds>1?' · '+d.rounds+' <span>rounds</span>':'')+'</small>';
  let x=b.left+b.width/2-o.left;x=Math.max(120,Math.min(o.width-120,x));tip.style.left=x+"px";tip.style.top=(b.top-o.top)+"px";tip.classList.add("on")});
 sk.addEventListener("pointerleave",()=>tip.classList.remove("on"));
-function pick(t){S.t=S.t===t?"":t;render();if(S.t){const y=$("pills").getBoundingClientRect().top+scrollY-80;scrollTo({top:y,behavior:"smooth"})}}
+function goTopic(t){S.t=t;S.s="";S.n=12;sky();try{history.replaceState(null,"",location.pathname+location.search+(t?"#t="+encodeURIComponent(t):"")+(/lang=\w+/.test(location.hash)?(t?"&":"#")+location.hash.match(/lang=\w+/)[0]:""))}catch(e){}}
+function pick(n){if(!S.t){goTopic(n)}else{S.s=S.s===n?"":n;S.n=12;render();const y=$("pills").getBoundingClientRect().top+scrollY-80;scrollTo({top:y,behavior:"smooth"})}}
+$("skyBack").onclick=e=>{e.stopPropagation();goTopic("")};
 sk.addEventListener("click",e=>{const s=e.target.closest(".st");if(s){const a=document.createElement("a");a.href=href(BY[s.dataset.id]);a.target="_top";document.body.appendChild(a);a.click();a.remove();return}const g=e.target.closest(".cl");if(g)pick(g.dataset.t)});
 sk.addEventListener("keydown",e=>{const g=e.target.closest(".cl");if(g&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pick(g.dataset.t)}});
-const m=location.hash.match(/t=([A-Za-z]+)/);if(m&&TOP.some(t=>t.n===m[1]))S.t=m[1];
-render();
+const m=location.hash.match(/t=([A-Za-z]+)/);if(m&&TOP.some(t=>t.n===m[1])){S.t=m[1];sky()}
 })();
 </script>

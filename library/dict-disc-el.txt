@@ -42,3 +42,12 @@ Nov|Νοε
 Oct|Οκτ
 Sep|Σεπ
 Aug|Αυγ
+All topics|Όλα τα θέματα
+All in|Όλα σε
+Each star is a discussion. Tap a subtopic to see its discussions.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα υποθέμα για να δεις τις συζητήσεις του.
+Most picked up this month|Οι πιο συνεχισμένες αυτόν τον μήνα
+All discussions|Όλες οι συζητήσεις
+Show|Δείξε
+more|ακόμη
+Showing|Εμφανίζονται
+of|από

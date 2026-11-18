@@ -2029,3 +2029,8 @@ At the end of a table, the host can save the transcript and notes here. Anyone c
 Notes by the host|Σημειώσεις του οικοδεσπότη
 Ask the host for another round|Ζήτα από τον οικοδεσπότη άλλον έναν γύρο
 This discussion is still going. Ask the host for a chair at the next round.|Αυτή η συζήτηση συνεχίζεται. Ζήτα από τον οικοδεσπότη μια θέση στον επόμενο γύρο.
+All in|Όλα σε
+Each star is a discussion. Tap a subtopic to see its discussions.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα υποθέμα για να δεις τις συζητήσεις του.
+Most picked up this month|Οι πιο συνεχισμένες αυτόν τον μήνα
+more|ακόμη
+Showing|Εμφανίζονται

@@ -42,3 +42,12 @@ Nov|nov|nov
 Oct|ott|oct
 Sep|set|sep
 Aug|ago|ago
+All topics|Tutti gli argomenti|Todos los temas
+All in|Tutto in|Todo en
+Each star is a discussion. Tap a subtopic to see its discussions.|Ogni stella è una discussione. Tocca un sotto-argomento per vederne le discussioni.|Cada estrella es una conversación. Toca un subtema para ver sus conversaciones.
+Most picked up this month|Le più riprese questo mese|Las más retomadas este mes
+All discussions|Tutte le discussioni|Todas las conversaciones
+Show|Mostra|Mostrar
+more|altre|más
+Showing|Visibili|Mostrando
+of|di|de
