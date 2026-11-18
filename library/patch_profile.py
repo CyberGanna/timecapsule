@@ -45,6 +45,9 @@ CSS = r'''<style id="lib-css">
 #uniview.fsw .uni.fs .ufs{width:44px;height:44px;top:2px;right:2px}
 #uniview.fsw .uni.fs .ufs svg{width:34px;height:34px;stroke-width:1.8}
 #uniview.fsw .uni.fs .unitog button{font-size:15px}
+#uniview.fsw #uni g.bk>circle{transform:scale(.77)}
+#uniview.fsw .uni.fs .ulink{font-size:13px}
+#uniview.fsw .uni.fs .urow .un{font-size:14px}
 #uniview.fsw .unicap{font-size:15px;color:var(--mute);max-width:none;width:calc(min(100%, calc((100vh - 150px) * 1.36)) - 28px)}
 .lbreads .uni .ufs,.lbreads .uni .ufs:hover,.lbreads .uni .ufs:focus,.lbreads .uni .ufs:focus-visible{background:none!important;outline:none;box-shadow:none}
 .lbreads .uni .ufs:hover{opacity:.75}
