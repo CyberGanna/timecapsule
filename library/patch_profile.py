@@ -29,6 +29,8 @@ def lib_tab(recs):
                          % (' lbpriv' if r['private'] else '', r['id'], r['id'], html.escape(r['title']), meta, lock))
             h.append('</ul>')
         h.append('</div>')
+    nall = len(recs); npub = sum(1 for r in recs.values() if not r['private'])
+    h.append('<p class="seeall"><a class="lbo" href="../help/live-pages/myuniverse.html#discussions" target="_top"><span>See all discussions</span> ›</a><a class="lbv" href="../help/live-pages/discussions.html#h=Gregory" target="_top"><span>See all discussions</span> ›</a></p>' % ())
     h.append('</section>')
     return '\n'.join(h)
 
@@ -218,6 +220,10 @@ window.KUlib=function(){if(MODE!="lib")setMode("lib")};
     s = rep(s, """<button type="button" class="caplink" data-act="all"><span>'+nb+'</span> books</button>.</span>""", """<button type="button" class="caplink" data-act="all"><span>'+nb+'</span> books</button>. <button type="button" class="caplink" data-act="common"><span>'+NCOM()+'</span> mutual reads</button>.</span>""")
     s = rep(s, 'if(b.dataset.act=="all")allBooks();', 'if(b.dataset.act=="all"||b.dataset.act=="common")allBooks(b.dataset.act=="common");')
     s = rep(s, '</head>', '<style id="tc-common">.ulay .pl .yt{font-style:normal;color:#17C3C8;font-weight:600;margin-left:4px}.ulay .ph .cmb{all:unset;cursor:pointer;font-size:12px;line-height:1;color:#A9B0D6;border:1px solid #3A4175;border-radius:999px;padding:5px 10px;white-space:nowrap}.ulay .ph .cmb[aria-pressed=true]{color:#17C3C8;border-color:#17C3C8;background:rgba(23,195,200,.12)}.ulay .ph .cmb:focus-visible{outline:2px solid #17C3C8;outline-offset:2px}</style></head>')
+    # "See all" at the end of the Tables tab (Karim 2026-11-18): owner -> My tables, visitor -> Gregory's tables page
+    i = s.index('id="p-tb"'); j = s.index('<button type="button" class="more">Show more</button>', i)
+    s = s[:j] + '<button type="button" class="more" hidden>Show more</button><p class="seeall"><a class="lbo" href="../help/live-pages/mytables.html" target="_top"><span>See all tables</span> ›</a><a class="lbv" href="../help/live-pages/hosttables.html" target="_top"><span>See all tables</span> ›</a></p>' + s[j + len('<button type="button" class="more">Show more</button>'):]
+    s = rep(s, '</head>', '<style id="tc-seeall">.panel .seeall{margin:18px 0 0;text-align:center}.panel .seeall a{color:#17C3C8;text-decoration:none;font-weight:600;font-size:14.5px}.panel .seeall a:hover{text-decoration:underline}</style></head>')
     open(P, 'w', encoding='utf8').write(s)
     subprocess.run(['python3', os.path.join(ROOT, 'i18n/add-greek.py'), P], check=True)
     print('profile patched', len(s))

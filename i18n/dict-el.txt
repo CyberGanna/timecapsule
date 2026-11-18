@@ -2050,3 +2050,12 @@ You too|Κι εσύ
 in common with you|κοινά με σένα
 Mutual reads|Κοινές αναγνώσεις
 mutual reads|κοινές αναγνώσεις
+Gregory's profile|Το προφίλ του Gregory
+Gregory's tables|Τα τραπέζια του Gregory
+past tables|προηγούμενα τραπέζια
+See the discussions|Δες τις συζητήσεις
+Discussion saved|Η συζήτηση αποθηκεύτηκε
+chairs free|ελεύθερες καρέκλες
+coming up|επερχόμενα
+See all discussions|Δες όλες τις συζητήσεις
+See all tables|Δες όλα τα τραπέζια

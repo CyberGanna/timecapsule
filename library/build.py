@@ -78,5 +78,6 @@ if __name__ == '__main__':
     recs = page()
     import build_myuni; build_myuni.build()
     import build_disc; build_disc.build()
+    import build_hosttables; build_hosttables.build()
     import patch_profile
     patch_profile.run(ROOT, recs, LIBD, add_dict)

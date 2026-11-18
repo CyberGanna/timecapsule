@@ -161,3 +161,5 @@ See all|Vedi tutte|Ver todas
 You too|Anche tu|Tú también
 Mutual reads|Letture in comune|Lecturas en común
 mutual reads|letture in comune|lecturas en común
+See all discussions|Vedi tutte le discussioni|Ver todas las conversaciones
+See all tables|Vedi tutti i tavoli|Ver todas las mesas
