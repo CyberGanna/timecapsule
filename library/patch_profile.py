@@ -34,6 +34,8 @@ def lib_tab(recs):
 
 CSS = r'''<style id="lib-css">
 .sunav{cursor:pointer;outline:none}
+.lbreads .uni{background:radial-gradient(65% 60% at 50% 45%,rgba(255,214,140,.075) 0%,rgba(255,214,140,0) 75%),radial-gradient(120% 100% at 50% 45%,#161829 0%,#0C0D1A 70%,#08080F 100%)}
+.lbreads.libmode .uni{background:radial-gradient(65% 60% at 50% 45%,rgba(127,200,242,.085) 0%,rgba(127,200,242,0) 75%),radial-gradient(120% 100% at 50% 45%,#121B36 0%,#0A0F22 70%,#060A14 100%)}
 .sunav .avglow{transform-box:fill-box;transform-origin:center;animation:avp 3.6s ease-in-out infinite}
 @keyframes avp{50%{opacity:.55;transform:scale(1.18)}}
 @media (prefers-reduced-motion:reduce){.sunav .avglow{animation:none}}
