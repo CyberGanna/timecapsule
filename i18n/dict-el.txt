@@ -2034,3 +2034,9 @@ Each star is a discussion. Tap a subtopic to see its discussions.|Κάθε ασ�
 Most picked up this month|Οι πιο συνεχισμένες αυτόν τον μήνα
 more|ακόμη
 Showing|Εμφανίζονται
+Suggested from the conversation.|Προτάθηκε από τη συζήτηση.
+Tap another one to change it.|Πάτησε άλλο για να το αλλάξεις.
+That one already exists, so we picked|Υπάρχει ήδη, οπότε διαλέξαμε
+New subtopics show under “Other” on Discussions until about 5 discussions use them.|Τα νέα υποθέματα εμφανίζονται στα «Άλλα» στις Συζητήσεις μέχρι να τα χρησιμοποιήσουν περίπου 5 συζητήσεις.
+Suggested|Προτεινόμενο
+Other|Άλλα

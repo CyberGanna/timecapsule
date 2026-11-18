@@ -124,6 +124,10 @@
 .choice label:has(input:checked){border-color:var(--lamp);background:rgba(23,195,200,.07)}
 .choice input{margin:3px 0 0;width:18px;height:18px;accent-color:#17C3C8;flex:none}
 .choice small{display:block;color:var(--mute);font-size:13px;margin-top:3px}
+.aisug{display:flex;align-items:flex-start;gap:8px;margin:8px 0 2px;font-size:13px;color:var(--soft)}
+.aisug svg{flex:none;width:15px;height:15px;color:#C9A7FF;margin-top:2px}
+.pills button .ai{width:12px;height:12px;color:#C9A7FF;margin-left:2px}
+.subnote{margin:10px 0 0;font-size:12.5px;color:var(--mute)}
 .where{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--soft)}
 .where i{width:8px;height:8px;border-radius:50%;background:var(--c)}
 .acts{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:8px}
@@ -250,10 +254,13 @@
         <h2>Where it goes in Discussions</h2>
         <label class="chk"><input type="checkbox" checked id="asRound"><span>Add it as round 3 of <span data-noi18n>“Is free will an illusion?”</span><small>Same topic and place as rounds 1 and 2.</small></span></label>
         <div id="placeBox" hidden>
+          <p class="aisug" id="aiSug"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg><span><span>Suggested from the conversation.</span> <span>Tap another one to change it.</span></span></p>
           <p class="sublbl" style="margin-top:6px">Topic</p>
           <div class="pills" id="topPills"></div>
           <p class="sublbl">Subtopic</p>
           <div class="pills" id="subPills"></div>
+          <p class="subnote" id="dupHint" hidden></p>
+          <p class="subnote" id="newNote" hidden>New subtopics show under “Other” on Discussions until about 5 discussions use them.</p>
         </div>
         <p class="where" id="whereNow" style="margin-top:6px"><i style="--c:#F4A6D7"></i><span>Philosophy</span><span style="opacity:.5">›</span><span>Free will</span></p>
       </div>
@@ -377,15 +384,20 @@ $("reqs").onclick=function(e){var b=e.target.closest(".ra button");if(!b)return;
 $("gAsk").onclick=function(){$("gAskBox").hidden=true;$("gAsked").hidden=false};
 $("vSend").onclick=function(){$("vForm").hidden=true;$("vSent").hidden=false};
 // save (host)
-var TOP=["Philosophy","Religion","Energy","Travel","Home","Craft"],SUB={Philosophy:["Free will","Phenomenology","Ethics"],Religion:["Faith","Ritual"],Energy:["Wind","Nuclear"],Travel:["Road trips","Slow travel"],Home:["Belonging"],Craft:["Repair"]},P={t:"Philosophy",s:"Free will"};
+var TOP=["Philosophy","Religion","Energy","Travel","Home","Craft"],SUB={Philosophy:["Free will","Phenomenology","Ethics","Mind","Meaning","Time"],Religion:["Faith","Ritual","Sacred texts"],Energy:["Wind","Nuclear","Solar"],Travel:["Road trips","Slow travel","Walking"],Home:["Belonging","Neighbours"],Craft:["Repair","Woodwork"]},AI={t:"Philosophy",s:"Free will"},P={t:AI.t,s:AI.s},NEWS={};
+var SPARK='<svg class="ai" viewBox="0 0 24 24" aria-label="Suggested"><path fill="currentColor" d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6z"/></svg>';
+function nrm(x){return x.toLowerCase().replace(/[^a-z]/g,"")}
 function pills(){
- $("topPills").innerHTML=TOP.map(function(t){return '<button type="button" aria-pressed="'+(t==P.t)+'" data-t="'+t+'"><i style="--c:'+D.col[t]+'"></i>'+t+'</button>'}).join("");
- $("subPills").innerHTML=SUB[P.t].map(function(s){return '<button type="button" aria-pressed="'+(s==P.s)+'" data-s="'+esc(s)+'"><i style="--c:'+D.col[P.t]+'"></i>'+esc(s)+'</button>'}).join("")+'<input type="text" id="newSub" placeholder="+ New subtopic" aria-label="New subtopic">';
+ $("topPills").innerHTML=TOP.map(function(t){return '<button type="button" aria-pressed="'+(t==P.t)+'" data-t="'+t+'"><i style="--c:'+D.col[t]+'"></i>'+t+(t==AI.t?SPARK:'')+'</button>'}).join("");
+ $("subPills").innerHTML=SUB[P.t].map(function(s){return '<button type="button" aria-pressed="'+(s==P.s)+'" data-s="'+esc(s)+'"><i style="--c:'+D.col[P.t]+'"></i>'+(NEWS[s]?'<span data-noi18n>'+esc(s)+'</span>':esc(s))+(P.t==AI.t&&s==AI.s?SPARK:'')+'</button>'}).join("")+'<input type="text" id="newSub" placeholder="+ New subtopic" aria-label="New subtopic">';
  $("whereNow").innerHTML='<i style="--c:'+D.col[P.t]+'"></i><span>'+P.t+'</span><span style="opacity:.5">›</span><span>'+esc(P.s)+'</span>';
- $("newSub").onkeydown=function(e){if(e.key=="Enter"&&this.value.trim()){SUB[P.t].push(this.value.trim());P.s=this.value.trim();pills();$("newSub").focus()}}}
+ $("newNote").hidden=!NEWS[P.s];
+ $("newSub").onkeydown=function(e){if(e.key!="Enter"||!this.value.trim())return;e.preventDefault();var v=this.value.trim(),same=SUB[P.t].filter(function(x){return nrm(x)==nrm(v)})[0];
+  if(same){P.s=same;pills();$("dupHint").innerHTML='<span>That one already exists, so we picked</span> “'+esc(same)+'”.';$("dupHint").hidden=false;return}
+  $("dupHint").hidden=true;SUB[P.t].push(v);NEWS[v]=1;P.s=v;pills();$("newSub").focus()}}
 $("topPills").onclick=function(e){var b=e.target.closest("[data-t]");if(!b)return;P.t=b.dataset.t;P.s=SUB[P.t][0];pills()};
-$("subPills").onclick=function(e){var b=e.target.closest("[data-s]");if(!b)return;P.s=b.dataset.s;pills()};
-$("asRound").onchange=function(){$("placeBox").hidden=this.checked;if(this.checked){P={t:"Philosophy",s:"Free will"}}pills()};
+$("subPills").onclick=function(e){var b=e.target.closest("[data-s]");if(!b)return;P.s=b.dataset.s;$("dupHint").hidden=true;pills()};
+$("asRound").onchange=function(){$("placeBox").hidden=this.checked;if(this.checked){P={t:AI.t,s:AI.s}}pills()};
 $("hSave").onclick=function(){$("hForm").hidden=true;$("hSaved").hidden=false;$("hSaved").querySelector(".done span").innerHTML='<span>Saved to Discussions, in</span> <span>'+P.t+'</span> › <span>'+esc(P.s)+'</span>';scrollTo(0,0)};
 $("hLater").onclick=function(){$("hForm").hidden=true;$("hNot").hidden=false};
 $("gDone").onclick=function(){var out=document.querySelector('input[name=me]:checked').value=="out";S.mine=out?"out":"in";document.querySelectorAll("[data-mine]").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.mine==S.mine)});$("gSavedTx").textContent=out?"Done. Your words are left out of the transcript.":"Done. Your words are in the transcript.";$("gForm").hidden=true;$("gSaved").hidden=false;scrollTo(0,0)};

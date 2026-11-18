@@ -51,3 +51,4 @@ Show|Mostra|Mostrar
 more|altre|más
 Showing|Visibili|Mostrando
 of|di|de
+Other|Altro|Otros

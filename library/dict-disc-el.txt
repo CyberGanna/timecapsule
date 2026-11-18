@@ -51,3 +51,4 @@ Show|Δείξε
 more|ακόμη
 Showing|Εμφανίζονται
 of|από
+Other|Άλλα

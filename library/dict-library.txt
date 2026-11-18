@@ -150,3 +150,8 @@ Tap to open.|Tocca per aprire.|Toca para abrir.
 Notes by the host|Note dell'host|Notas del anfitrión
 Ask the host for another round|Chiedi all'host un altro giro|Pide al anfitrión otra ronda
 This discussion is still going. Ask the host for a chair at the next round.|Questa discussione continua. Chiedi all'host una sedia al prossimo giro.|Esta conversación sigue. Pide al anfitrión una silla en la próxima ronda.
+Suggested from the conversation.|Suggerito dalla conversazione.|Sugerido por la conversación.
+Tap another one to change it.|Toccane un altro per cambiarlo.|Toca otro para cambiarlo.
+That one already exists, so we picked|Esiste già, quindi abbiamo scelto|Ya existe, así que elegimos
+New subtopics show under “Other” on Discussions until about 5 discussions use them.|I nuovi sotto-argomenti compaiono in “Altro” nelle Discussioni finché non li usano circa 5 discussioni.|Los subtemas nuevos aparecen en “Otros” en Conversaciones hasta que unas 5 conversaciones los usan.
+Suggested|Suggerito|Sugerido
