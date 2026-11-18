@@ -43,8 +43,9 @@ $("hAv").innerHTML=av("Gregory");
 const TOP=[];[...UP,...PAST].forEach(r=>{if(!TOP.some(t=>t.n===r.topic))TOP.push({n:r.topic,c:r.col})});
 let T="";const ROWS=[];
 const lib=r=>"../../library/timecapsule-library.html#r="+r.id+"&as=visitor";
+function allNames(r){const POOL=["Nikos","Mia","Omar","Priya","Kofi","Ines","Maya","Yuki","Elif"],nm=r.names.slice();for(const x of POOL){if(nm.length>=r.people)break;if(!nm.includes(x))nm.push(x)}return nm}
 function row(r,kind){
-  const c=r.col,show=r.names.slice(0,5),more=Math.max(0,r.people-show.length);
+  const c=r.col,show=allNames(r).slice(0,6),more=Math.max(0,r.people-show.length);
   const tm=kind==="live"?`<div class="tm lv"><b><i></i>LIVE</b><span>${r.since}</span></div>`:kind==="up"?`<div class="tm"><b>${r.day} <span>${esc(r.mon)}</span></b><span>${esc(r.wd)} ${r.time}</span></div>`:`<div class="tm past"><b>${r.day} <span>${esc(r.mon)}</span></b><span>${esc(r.wd)}</span></div>`;
   const href=kind==="past"?(r.saved?lib(r):""):"table.html";
   const inner=`<div class="th" style="background:radial-gradient(circle at 35% 30%,${c},${c}66 75%,#252B52)"><svg viewBox="0 0 24 24" aria-hidden="true">${TICON[r.topic]||""}</svg></div>
@@ -72,7 +73,7 @@ const scrim=$("scrim"),sheet=$("sheet");let lastF=null;
 function openWho(k){const {r,kind}=ROWS[k];lastF=document.activeElement;
   const when=kind==="live"?`<span>Live now</span>, ${esc(r.since)}`:kind==="up"?`${esc(r.wd)} ${r.day} ${esc(r.mon)}, ${r.time}`:`${esc(r.wd)} ${r.day} ${esc(r.mon)}`;
   const t=kind==="past"?"Who was there":kind==="live"?"At the table now":"Who's coming";
-  const POOL=["Nikos","Mia","Omar","Priya","Kofi","Ines","Maya","Yuki","Elif"],nm=r.names.slice();for(const x of POOL){if(nm.length>=r.people)break;if(!nm.includes(x))nm.push(x)}
+  const nm=allNames(r);
   const more=Math.max(0,r.people-nm.length);
   const li=n=>`<li class="${n==="Gregory"?"mod":""}"><span>${av(n)}</span><span class="nm">${n==="Gregory"?`<a href="../../profile/timecapsule-profile.html" target="_top" style="color:inherit;text-decoration:none">Gregory</a>`:esc(n)}</span>${n==="Gregory"?`<span class="tg">Host</span>`:""}</li>`;
   sheet.innerHTML=`<div class="shd"><div style="flex:1;min-width:0"><h2 id="sh-t">${t}</h2><p><span data-noi18n>${esc(r.title)}</span> · ${when}</p></div><button class="x" type="button" data-close aria-label="Close">✕</button></div>
