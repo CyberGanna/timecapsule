@@ -16,6 +16,7 @@ This repository holds the design prototypes of the product: self-contained HTML 
 | Create a table | `help/live-pages/create.html` | [open](https://claude.ai/artifact/MFBQwEDcUA8ctJbo2BWShj) |
 | My tables | `help/live-pages/mytables.html` | [open](https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB) |
 | Profile | `profile/` | [open](https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy) |
+| Library (save after a table, opt out, pick up again) | `library/` (build: `python3 library/build.py`, also patches Profile) | |
 | People | `help/live-pages/people.html` | [open](https://claude.ai/artifact/MTbRjvLFV7pPhBjpvAzXaq) |
 | Chats | `help/live-pages/chats.html` | [open](https://claude.ai/artifact/PYd4f8xrcNkPc2TyPkE4ib) |
 | Notifications | `notifications/` | [open](https://claude.ai/artifact/SggBcVnWacDjzBsZeke1D1) |

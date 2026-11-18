@@ -24,7 +24,7 @@ Talk, face to face|Parla, faccia a faccia|Habla, cara a cara
 Meet live, on camera, with a handful of people. Guests can message each other privately, and the notes you take are yours alone.|Vi incontrate dal vivo, in video, con poche persone. Gli ospiti possono scriversi in privato e le note che prendi sono solo tue.|Os encontráis en directo, en vídeo, con unas pocas personas. Los invitados pueden escribirse en privado y las notas que tomas son solo tuyas.
 When the table ends, give TimeCoins to the people who made it worth it. The coins you receive become your reputation, and reputation can never be bought.|Quando il tavolo finisce, dai TimeCoins alle persone che l'hanno reso prezioso. I TimeCoins che ricevi diventano la tua reputazione, e la reputazione non si può mai comprare.|Cuando termina la mesa, da TimeCoins a quienes hicieron que valiera la pena. Los TimeCoins que recibes se convierten en tu reputación, y la reputación nunca se puede comprar.
 Keep the record|Conserva la memoria|Guarda la memoria
-If everyone at the table agrees, the transcript is kept, every line with its author and its context, for whoever comes next.|Se tutti al tavolo sono d'accordo, la trascrizione viene conservata, ogni frase con il suo autore e il suo contesto, per chi verrà dopo.|Si todos en la mesa están de acuerdo, la transcripción se conserva, cada frase con su autor y su contexto, para quien venga después.
+The transcript is kept, every line with its author and its context, for whoever comes next. Anyone can leave their words out of it.|La trascrizione viene conservata, ogni frase con il suo autore e il suo contesto, per chi verrà dopo. Chiunque può togliere le proprie parole.|La transcripción se conserva, cada frase con su autor y su contexto, para quien venga después. Cualquiera puede retirar sus palabras.
 More on how to use TimeCapsule|Di più su come usare TimeCapsule|Más sobre cómo usar TimeCapsule
 Transcript · line 214|Trascrizione · riga 214|Transcripción · línea 214
 What we promise|Cosa promettiamo|Lo que prometemos
@@ -34,8 +34,8 @@ A first name is enough|Basta un nome|Basta con un nombre
 Join with your first name or an alias. No surname needed.|Entra con il tuo nome o un alias. Il cognome non serve.|Únete con tu nombre o un alias. No hace falta apellido.
 Your data is never sold|I tuoi dati non vengono mai venduti|Tus datos nunca se venden
 We never sell or mine what you share.|Non vendiamo né sfruttiamo mai ciò che condividi.|Nunca vendemos ni explotamos lo que compartes.
-Public only if all agree|Pubblico solo se tutti sono d'accordo|Público solo si todos están de acuerdo
-A transcript goes public only when everyone at the table says yes.|Una trascrizione diventa pubblica solo quando tutti al tavolo dicono sì.|Una transcripción solo se hace pública cuando todos en la mesa dicen que sí.
+Your words, your choice|Le tue parole, la tua scelta|Tus palabras, tu decisión
+Anyone at the table can leave their words out of a transcript, any time.|Chiunque al tavolo può togliere le proprie parole da una trascrizione, in qualsiasi momento.|Cualquiera en la mesa puede retirar sus palabras de una transcripción, en cualquier momento.
 Why safety and trust come first|Perché sicurezza e fiducia vengono prima|Por qué la seguridad y la confianza van primero
 Our roots|Le nostre radici|Nuestras raíces
 TimeCapsule comes from the team behind TimeRepublik, the largest time bank in the world, founded in 2012. We carry the same belief here: everyone's time is worth the same, and the best of it is what we give each other.|TimeCapsule nasce dal team di TimeRepublik, la più grande banca del tempo al mondo, fondata nel 2012. Qui portiamo la stessa convinzione: il tempo di ognuno vale lo stesso, e la parte migliore è quella che ci diamo a vicenda.|TimeCapsule nace del equipo de TimeRepublik, el mayor banco de tiempo del mundo, fundado en 2012. Aquí mantenemos la misma convicción: el tiempo de cada persona vale lo mismo, y lo mejor es lo que nos damos unos a otros.
@@ -204,4 +204,4 @@ Back to tables|Torna ai tavoli|Volver a las mesas
 Leave table|Lascia il tavolo|Salir de la mesa
 Hosted by|Ospitato da|Organizada por
 Wants to speak|Vuole parlare|Quiere hablar
-Kept · everyone agreed|Conservata · tutti d'accordo|Guardada · todos de acuerdo
+Kept · you can leave your words out|Conservata · puoi togliere le tue parole|Guardada · puedes retirar tus palabras

@@ -400,7 +400,7 @@ Add this line to my notes|Πρόσθεσε αυτή τη φράση στις σ�
 Add to my notes|Πρόσθεσε στις σημειώσεις μου
 Add to the transcript|Πρόσθεσε στην απομαγνητοφώνηση
 Kept for you|Κρατήθηκε για σένα
-Kept · everyone agreed|Κρατήθηκε · συμφώνησαν όλοι
+Kept · everyone agreed|Κρατιέται · μπορείς να αφαιρέσεις τα λόγια σου
 Now viewing as Gregory, the host|Βλέπεις τώρα ως Gregory, ο οικοδεσπότης
 Now viewing as Lena, a guest|Βλέπεις τώρα ως Lena, καλεσμένη
 Guest (Lena)|Καλεσμένη (Lena)
@@ -1305,7 +1305,7 @@ Choose Create a table, pick a topic and write what you want to discuss. Open, sh
 Choose when and who|Διάλεξε πότε και ποιοι
 Start now, later today or on a date you pick. Open tables appear on the Tables page for anyone to join. Private tables stay off the Tables page, and only people with your invite link can join.|Ξεκίνα τώρα, αργότερα σήμερα ή σε μια ημερομηνία που διαλέγεις. Τα ανοιχτά τραπέζια εμφανίζονται στη σελίδα Τραπέζια για όποιον θέλει να μπει. Τα ιδιωτικά τραπέζια δεν εμφανίζονται στη σελίδα Τραπέζια και μπαίνουν μόνο όσοι έχουν τον σύνδεσμο πρόσκλησής σου.
 Set the table|Στρώσε το τραπέζι
-Choose up to eight chairs and the language you will speak. Decide whether to keep a transcript of the discussion. A transcript goes to the public library only if everyone at the table agrees.|Διάλεξε έως οκτώ καρέκλες και τη γλώσσα που θα μιλήσετε. Αποφάσισε αν θα κρατηθεί απομαγνητοφώνηση της συζήτησης. Μια απομαγνητοφώνηση πηγαίνει στη δημόσια βιβλιοθήκη μόνο αν συμφωνήσουν όλοι στο τραπέζι.
+Choose up to eight chairs and the language you will speak. Decide whether to keep a transcript of the discussion. Anyone at the table can leave their words out of it.|Διάλεξε έως οκτώ καρέκλες και τη γλώσσα που θα μιλήσετε. Αποφάσισε αν θα κρατηθεί απομαγνητοφώνηση της συζήτησης. Όποιος είναι στο τραπέζι μπορεί να αφαιρέσει τα λόγια του.
 Share the table link, or use Invite friends to save a chair for someone next to yours: when you sit together you both gain 5 TimeCoins. Before the table, My tables shows who is coming and lets you message your guests.|Μοιράσου τον σύνδεσμο του τραπεζιού ή χρησιμοποίησε το Κάλεσε φίλους για να κρατήσεις μια καρέκλα για κάποιον δίπλα στη δική σου: όταν κάθεστε μαζί κερδίζετε και οι δύο 5 TimeCoins. Πριν από το τραπέζι, τα Τραπέζια μου δείχνουν ποιοι έρχονται και σου επιτρέπουν να γράψεις στους καλεσμένους σου.
 Lead the conversation|Οδήγησε την κουβέντα
 Open with the question and a short welcome, and bring in the quieter voices. Your one control is the notes: questions guests send with Ask come to you, and you decide when to put them to the table. Private messages between guests are theirs, and you can't see or stop them.|Ξεκίνα με την ερώτηση και ένα σύντομο καλωσόρισμα και φέρε μέσα τις πιο ήσυχες φωνές. Το μόνο που ελέγχεις είναι οι σημειώσεις: οι ερωτήσεις που στέλνουν οι καλεσμένοι με το Ρώτα έρχονται σε σένα και εσύ αποφασίζεις πότε θα τις θέσεις στο τραπέζι. Τα ιδιωτικά μηνύματα μεταξύ καλεσμένων είναι δικά τους και δεν μπορείς να τα δεις ή να τα σταματήσεις.
@@ -1359,7 +1359,7 @@ Two: Open and Private. An Open table is on the Tables page and anyone can take a
 What if I can't make it?|Κι αν δεν μπορώ να έρθω;
 Give up your chair in My tables so someone else can sit. At a live table you can leave at any time with Leave table.|Άφησε την καρέκλα σου στα Τραπέζια μου για να κάτσει κάποιος άλλος. Σε ένα live τραπέζι μπορείς να φύγεις όποτε θέλεις με το Φύγε από το τραπέζι.
 Is there a transcript?|Υπάρχει απομαγνητοφώνηση;
-Only when the host turns it on, and the table page tells you before you sit down. A transcript becomes public only if everyone at the table agrees.|Μόνο όταν την ενεργοποιήσει ο οικοδεσπότης, και η σελίδα του τραπεζιού σού το λέει πριν κάτσεις. Μια απομαγνητοφώνηση γίνεται δημόσια μόνο αν συμφωνήσουν όλοι στο τραπέζι.
+Only when the host turns it on, and the table page tells you before you sit down. If you'd rather not be in it, leave your words out: your part is removed and shows only as left out. You can change this any time.|Μόνο όταν την ενεργοποιήσει ο οικοδεσπότης, και η σελίδα του τραπεζιού σού το λέει πριν κάτσεις. Αν δεν θέλεις να είσαι μέσα, αφαίρεσε τα λόγια σου: το κομμάτι σου αφαιρείται και φαίνεται μόνο ως αφαιρεμένο. Μπορείς να το αλλάξεις όποτε θέλεις.
 Who can see my notes?|Ποιος βλέπει τις σημειώσεις μου;
 Only you. A note leaves your Notes tab only when you choose Ask, which sends it to the host, or Transcript.|Μόνο εσύ. Μια σημείωση φεύγει από την καρτέλα Σημειώσεις μόνο όταν διαλέξεις Ρώτα, που τη στέλνει στον οικοδεσπότη, ή Απομαγνητοφώνηση.
 How do I host a table?|Πώς φιλοξενώ ένα τραπέζι;
@@ -1440,7 +1440,7 @@ Talk, face to face|Μίλα πρόσωπο με πρόσωπο
 Meet live, on camera, with a handful of people. Guests can message each other privately, and the notes you take are yours alone.|Συναντηθείτε live, με κάμερα, λίγοι άνθρωποι μαζί. Οι καλεσμένοι μπορούν να γράφουν ιδιωτικά ο ένας στον άλλον και οι σημειώσεις που κρατάς είναι μόνο δικές σου.
 When the table ends, give TimeCoins to the people who made it worth it. The coins you receive become your reputation, and reputation can never be bought.|Όταν τελειώσει το τραπέζι, δώσε TimeCoins σε όσους το έκαναν να αξίζει. Τα νομίσματα που λαμβάνεις γίνονται η φήμη σου, και η φήμη δεν αγοράζεται ποτέ.
 Keep the record|Κράτα την καταγραφή
-If everyone at the table agrees, the transcript is kept, every line with its author and its context, for whoever comes next.|Αν συμφωνήσουν όλοι στο τραπέζι, η απομαγνητοφώνηση κρατιέται, κάθε φράση με τον δημιουργό και το πλαίσιό της, για όποιον έρθει μετά.
+The transcript is kept, every line with its author and its context, for whoever comes next. Anyone can leave their words out of it.|Η απομαγνητοφώνηση κρατιέται, κάθε φράση με τον δημιουργό και το πλαίσιό της, για όποιον έρθει μετά. Όποιος θέλει μπορεί να αφαιρέσει τα λόγια του.
 More on how to use TimeCapsule|Περισσότερα για το πώς χρησιμοποιείς το TimeCapsule
 Transcript · line 214|Απομαγνητοφώνηση · γραμμή 214
 What we promise|Τι υποσχόμαστε
@@ -1450,8 +1450,8 @@ A first name is enough|Αρκεί ένα μικρό όνομα
 Join with your first name or an alias. No surname needed.|Μπες με το μικρό σου όνομα ή με ψευδώνυμο. Δεν χρειάζεται επώνυμο.
 Your data is never sold|Τα δεδομένα σου δεν πωλούνται ποτέ
 We never sell or mine what you share.|Δεν πουλάμε ούτε εκμεταλλευόμαστε ποτέ ό,τι μοιράζεσαι.
-Public only if all agree|Δημόσιο μόνο αν συμφωνήσουν όλοι
-A transcript goes public only when everyone at the table says yes.|Μια απομαγνητοφώνηση γίνεται δημόσια μόνο όταν πουν ναι όλοι στο τραπέζι.
+Your words, your choice|Τα λόγια σου, η επιλογή σου
+Anyone at the table can leave their words out of a transcript, any time.|Όποιος είναι στο τραπέζι μπορεί να αφαιρέσει τα λόγια του από μια απομαγνητοφώνηση, όποτε θέλει.
 Why safety and trust come first|Γιατί η ασφάλεια και η εμπιστοσύνη έρχονται πρώτες
 Our roots|Οι ρίζες μας
 TimeCapsule comes from the team behind TimeRepublik, the largest time bank in the world, founded in 2012. We carry the same belief here: everyone's time is worth the same, and the best of it is what we give each other.|Το TimeCapsule προέρχεται από την ομάδα πίσω από το TimeRepublik, τη μεγαλύτερη τράπεζα χρόνου στον κόσμο, που ιδρύθηκε το 2012. Φέρνουμε εδώ την ίδια πεποίθηση: ο χρόνος του καθενός αξίζει το ίδιο, και ο καλύτερος χρόνος είναι αυτός που δίνουμε ο ένας στον άλλον.
@@ -1532,7 +1532,7 @@ Real people only|Μόνο αληθινοί άνθρωποι
 Every chair is taken by a human being. AI assists and never pretends to be a person.|Κάθε καρέκλα την παίρνει ένας άνθρωπος. Η AI βοηθά και δεν προσποιείται ποτέ ότι είναι άνθρωπος.
 No ads, no tracking cookies, no recordings of calls.|Χωρίς διαφημίσεις, χωρίς cookies παρακολούθησης, χωρίς ηχογράφηση των κλήσεων.
 Your words stay yours|Τα λόγια σου μένουν δικά σου
-A transcript goes public only if everyone at the table agrees.|Μια απομαγνητοφώνηση γίνεται δημόσια μόνο αν συμφωνήσουν όλοι στο τραπέζι.
+Anyone at the table can leave their words out of a transcript.|Όποιος είναι στο τραπέζι μπορεί να αφαιρέσει τα λόγια του από μια απομαγνητοφώνηση.
 Reputation can't be bought|Η φήμη δεν αγοράζεται
 Coins you receive as thanks are your reputation. Coins you might buy for services in the future never count toward it.|Τα νομίσματα που λαμβάνεις ως ευχαριστώ είναι η φήμη σου. Τα νομίσματα που ίσως αγοράσεις στο μέλλον για υπηρεσίες δεν μετράνε ποτέ σε αυτήν.
 You are free to leave|Είσαι ελεύθερος να φύγεις
@@ -1566,7 +1566,7 @@ Sexual content, nudity, or anything that sexualises minors.|Σεξουαλικό
 Encouraging violence, self-harm or illegal acts.|Υποκίνηση βίας, αυτοτραυματισμού ή παράνομων πράξεων.
 Respect privacy|Σεβάσου την ιδιωτικότητα
 Don't record, film or screenshot a table. The only record is the transcript, and only when the host keeps one.|Μην ηχογραφείς, μη βιντεοσκοπείς και μην τραβάς στιγμιότυπα οθόνης από ένα τραπέζι. Η μόνη καταγραφή είναι η απομαγνητοφώνηση, και μόνο όταν την κρατά ο οικοδεσπότης.
-A transcript becomes public only if everyone at the table agrees. Until then, what was said stays with the people who were there.|Μια απομαγνητοφώνηση γίνεται δημόσια μόνο αν συμφωνήσουν όλοι στο τραπέζι. Μέχρι τότε, ό,τι ειπώθηκε μένει σε όσους ήταν εκεί.
+Anyone at the table can leave their words out of a transcript, before or after it is saved. Their part is then removed, not just hidden.|Όποιος είναι στο τραπέζι μπορεί να αφαιρέσει τα λόγια του από μια απομαγνητοφώνηση, πριν ή μετά την αποθήκευσή της. Το κομμάτι του τότε διαγράφεται, δεν απλώς κρύβεται.
 Never share someone's surname, address, workplace or photos without their permission.|Μη μοιράζεσαι ποτέ το επώνυμο, τη διεύθυνση, τον χώρο εργασίας ή φωτογραφίες κάποιου χωρίς την άδειά του.
 Private messages|Ιδιωτικά μηνύματα
 Anyone at a table can send a private message to anyone else. The same rules apply there. The host can't see or control private messages, so if one is unkind, report it yourself.|Όποιος είναι σε ένα τραπέζι μπορεί να στείλει ιδιωτικό μήνυμα σε οποιονδήποτε άλλο. Οι ίδιοι κανόνες ισχύουν κι εκεί. Ο οικοδεσπότης δεν βλέπει ούτε ελέγχει τα ιδιωτικά μηνύματα, οπότε αν κάποιο είναι αγενές, ανάφερέ το εσύ.
@@ -1603,7 +1603,7 @@ Video and sound are streamed live and are not recorded by us.|Η εικόνα κ
 4. Your words and transcripts|4. Τα λόγια σου και οι απομαγνητοφωνήσεις
 What you say and write stays yours.|Ό,τι λες και γράφεις μένει δικό σου.
 When a host chooses Keep a transcript of the discussion, you allow us to store it and show it to the people who were at the table, with each line credited to the name or alias you used.|Όταν ένας οικοδεσπότης διαλέγει Κράτα απομαγνητοφώνηση της συζήτησης, μας επιτρέπεις να την αποθηκεύσουμε και να τη δείξουμε σε όσους ήταν στο τραπέζι, με κάθε φράση να αποδίδεται στο όνομα ή το ψευδώνυμο που χρησιμοποίησες.
-A transcript goes into the public library only if everyone at the table agrees. Then you allow us to keep and show it there, with its authorship and date, as part of a lasting record for future readers.|Μια απομαγνητοφώνηση μπαίνει στη δημόσια βιβλιοθήκη μόνο αν συμφωνήσουν όλοι στο τραπέζι. Τότε μας επιτρέπεις να την κρατήσουμε και να τη δείξουμε εκεί, με τον δημιουργό και την ημερομηνία της, ως μέρος μιας διαρκούς καταγραφής για τους μελλοντικούς αναγνώστες.
+If you leave your words in a transcript that is saved to the library, you allow us to keep and show them there, with their authorship and date, as part of a lasting record for future readers. You can take them out at any time.|Αν αφήσεις τα λόγια σου σε μια απομαγνητοφώνηση που αποθηκεύεται στη βιβλιοθήκη, μας επιτρέπεις να τα κρατήσουμε και να τα δείχνουμε εκεί, με τον συγγραφέα και την ημερομηνία, ως μέρος ενός διαρκούς αρχείου για τους μελλοντικούς αναγνώστες. Μπορείς να τα αφαιρέσεις όποτε θέλεις.
 You can ask us at any time to replace your name with "A guest" in a public transcript.|Μπορείς να μας ζητήσεις οποιαδήποτε στιγμή να αντικαταστήσουμε το όνομά σου με «Ένας καλεσμένος» σε μια δημόσια απομαγνητοφώνηση.
 Your notes are private. Only you see them, unless you send one with Ask or add it to the transcript.|Οι σημειώσεις σου είναι ιδιωτικές. Τις βλέπεις μόνο εσύ, εκτός αν στείλεις μία με το Ρώτα ή την προσθέσεις στην απομαγνητοφώνηση.
 5. TimeCoins|5. TimeCoins
@@ -1841,3 +1841,136 @@ They won't see your profile or tables, take a chair at yours, chat with you or f
 {n} removed|{n}: αφαιρέθηκε
 {n} blocked|{n}: αποκλείστηκε
 {n} unblocked|{n}: ο αποκλεισμός άρθηκε
+Library|Βιβλιοθήκη
+My library|Η βιβλιοθήκη μου
+discussions|συζητήσεις
+All discussions|Όλες οι συζητήσεις
+Tap a planet to open it.|Πάτησε έναν πλανήτη για να την ανοίξεις.
+Tap the photo to go back to the readings.|Πάτησε τη φωτογραφία για να γυρίσεις στα αναγνώσματα.
+Tap the photo to open the library.|Πάτησε τη φωτογραφία για να ανοίξεις τη βιβλιοθήκη.
+Open the library|Άνοιξε τη βιβλιοθήκη
+Back to the readings|Πίσω στα αναγνώσματα
+Transcripts and notes saved after your tables, by topic. Each one can be picked up again.|Απομαγνητοφωνήσεις και σημειώσεις από τα τραπέζια σου, ανά θέμα. Κάθε συζήτηση μπορεί να συνεχιστεί.
+Transcripts and notes from Gregory's tables, by topic. Ask to join the next round of any of them.|Απομαγνητοφωνήσεις και σημειώσεις από τα τραπέζια του Gregory, ανά θέμα. Ζήτα να μπεις στον επόμενο γύρο όποιας θέλεις.
+rounds|γύροι
+people|άτομα
+Only the people at the table|Μόνο όσοι ήταν στο τραπέζι
+Transcript · Notes|Απομαγνητοφώνηση · Σημειώσεις
+Screen|Οθόνη
+After the table|Μετά το τραπέζι
+Saved discussion|Αποθηκευμένη συζήτηση
+Gregory (host)|Gregory (οικοδεσπότης)
+Gabriele (was at the table)|Gabriele (ήταν στο τραπέζι)
+Gabriele (wasn't there)|Gabriele (δεν ήταν εκεί)
+Gregory's library|Η βιβλιοθήκη του Gregory
+Round|Γύρος
+of|από
+people at the table|άτομα στο τραπέζι
+left their words out|αφαίρεσε τα λόγια του
+Table notes|Σημειώσεις τραπεζιού
+My notes|Οι σημειώσεις μου
+Your words in this transcript|Τα λόγια σου σε αυτή την απομαγνητοφώνηση
+Your name shows next to what you said.|Το όνομά σου φαίνεται δίπλα σε όσα είπες.
+Others see that a participant's words are left out.|Οι άλλοι βλέπουν ότι τα λόγια ενός συμμετέχοντα αφαιρέθηκαν.
+Included|Περιλαμβάνονται
+Leave them out|Αφαίρεσέ τα
+A participant's words are left out|Τα λόγια ενός συμμετέχοντα αφαιρέθηκαν
+(you)|(εσύ)
+Notes by Gregory, the host|Σημειώσεις του Gregory, του οικοδεσπότη
+Questions we left open|Ερωτήματα που μείναν ανοιχτά
+Only you can see these|Μόνο εσύ τις βλέπεις
+Pick it up again|Συνέχισέ τη
+Plan the next round. Everyone from earlier rounds gets the invite first.|Σχεδίασε τον επόμενο γύρο. Όσοι ήταν στους προηγούμενους γύρους παίρνουν πρώτοι την πρόσκληση.
+Plan round|Σχεδίασε τον γύρο
+The new round is added to this discussion, so the record keeps growing in one place.|Ο νέος γύρος προστίθεται σε αυτή τη συζήτηση, έτσι το αρχείο μεγαλώνει σε ένα μέρος.
+Asking to join|Ζητούν να μπουν
+People who weren't at the table. You decide who sits down next time.|Άτομα που δεν ήταν στο τραπέζι. Εσύ αποφασίζεις ποιος κάθεται την επόμενη φορά.
+Accept|Αποδοχή
+Decline|Απόρριψη
+Accepted.|Έγινε αποδεκτό.
+gets the invite for the next round.|παίρνει την πρόσκληση για τον επόμενο γύρο.
+Declined. We'll let them know.|Απορρίφθηκε. Θα τους ενημερώσουμε.
+You were at this table, so you'll be invited when Gregory plans the next round.|Ήσουν σε αυτό το τραπέζι, οπότε θα σε προσκαλέσουμε όταν ο Gregory σχεδιάσει τον επόμενο γύρο.
+Ask Gregory for another round|Ζήτα από τον Gregory άλλον έναν γύρο
+Asked. We'll tell you when Gregory plans it.|Το ζήτησες. Θα σου πούμε όταν ο Gregory τον σχεδιάσει.
+Join the next round|Μπες στον επόμενο γύρο
+This discussion is still going. Ask Gregory, the host, for a chair at the next round.|Αυτή η συζήτηση συνεχίζεται. Ζήτα από τον Gregory, τον οικοδεσπότη, μια καρέκλα στον επόμενο γύρο.
+Why you'd like to join (optional)|Γιατί θέλεις να μπεις (προαιρετικό)
+A line about what you'd bring|Μια γραμμή για το τι θα έφερνες
+Ask for a chair|Ζήτα μια καρέκλα
+Request sent. We'll tell you when Gregory answers.|Το αίτημα στάλθηκε. Θα σου πούμε όταν απαντήσει ο Gregory.
+The table just ended|Το τραπέζι μόλις τελείωσε
+Save this table to your library|Αποθήκευσε αυτό το τραπέζι στη βιβλιοθήκη σου
+5 of 6 people are in the transcript. 1 person chose to leave their words out.|5 από 6 άτομα είναι στην απομαγνητοφώνηση. 1 άτομο επέλεξε να αφαιρέσει τα λόγια του.
+Anyone at the table can take their words out later, too. Their part then shows as left out.|Όποιος ήταν στο τραπέζι μπορεί να αφαιρέσει τα λόγια του και αργότερα. Τότε το κομμάτι του φαίνεται ως αφαιρεμένο.
+Table notes are shared with the transcript. Your kept notes stay private.|Οι σημειώσεις του τραπεζιού μοιράζονται με την απομαγνητοφώνηση. Οι δικές σου σημειώσεις μένουν ιδιωτικές.
+Table note|Σημείωση τραπεζιού
+Question left open|Ερώτημα που έμεινε ανοιχτό
+Add my 3 kept notes|Πρόσθεσε τις 3 σημειώσεις μου
+Private. Only you see them in your library.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στη βιβλιοθήκη σου.
+Where it goes in your library|Πού μπαίνει στη βιβλιοθήκη σου
+Add it as round 3 of|Πρόσθεσέ το ως γύρο 3 του
+Same topic and place as rounds 1 and 2.|Ίδιο θέμα και θέση με τους γύρους 1 και 2.
+Subtopic|Υποθέμα
++ New subtopic|+ Νέο υποθέμα
+New subtopic|Νέο υποθέμα
+Who can read it|Ποιος μπορεί να το διαβάσει
+Shown in your library on your profile. Others can ask to join the next round.|Φαίνεται στη βιβλιοθήκη του προφίλ σου. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
+Only the people at this table|Μόνο όσοι ήταν σε αυτό το τραπέζι
+Right for private tables.|Κατάλληλο για ιδιωτικά τραπέζια.
+Save to library|Αποθήκευση στη βιβλιοθήκη
+Saved to your library, in|Αποθηκεύτηκε στη βιβλιοθήκη σου, στο
+Open the discussion|Άνοιξε τη συζήτηση
+See your library|Δες τη βιβλιοθήκη σου
+Not saved. You can save it from My tables for 7 days.|Δεν αποθηκεύτηκε. Μπορείς να το αποθηκεύσεις από τα Τραπέζια μου για 7 ημέρες.
+Your words in the transcript|Τα λόγια σου στην απομαγνητοφώνηση
+Gregory will save|Ο Gregory θα αποθηκεύσει το
+to the library. Choose how you appear in it.|στη βιβλιοθήκη. Διάλεξε πώς εμφανίζεσαι.
+Include my words|Συμπερίληψη των λόγων μου
+Leave my words out|Αφαίρεση των λόγων μου
+What you said is removed. Others see “A participant's words are left out”.|Όσα είπες αφαιρούνται. Οι άλλοι βλέπουν «Τα λόγια ενός συμμετέχοντα αφαιρέθηκαν».
+You can change this any time from the discussion page.|Μπορείς να το αλλάξεις όποτε θέλεις από τη σελίδα της συζήτησης.
+Your notes|Οι σημειώσεις σου
+Save my 3 kept notes to my library|Αποθήκευσε τις 3 σημειώσεις μου στη βιβλιοθήκη μου
+Private. Only you see them.|Ιδιωτικές. Μόνο εσύ τις βλέπεις.
+Done. Your words are in the transcript.|Έτοιμο. Τα λόγια σου είναι στην απομαγνητοφώνηση.
+Done. Your words are left out of the transcript.|Έτοιμο. Τα λόγια σου αφαιρέθηκαν από την απομαγνητοφώνηση.
+Where this sits in the library|Πού βρίσκεται στη βιβλιοθήκη
+Rounds|Γύροι
+Discussion|Συζήτηση
+Free will|Ελεύθερη βούληση
+Phenomenology|Φαινομενολογία
+Ethics|Ηθική
+Faith|Πίστη
+Ritual|Τελετουργία
+Wind|Άνεμος
+Nuclear|Πυρηνική ενέργεια
+Road trips|Οδικά ταξίδια
+Belonging|Το ανήκειν
+Left out of the transcript:|Εκτός απομαγνητοφώνησης:
+Kept · you can leave your words out|Κρατιέται · μπορείς να αφαιρέσεις τα λόγια σου
+Summary|Περίληψη
+AI summary, written after the table|Περίληψη AI, γραμμένη μετά το τραπέζι
+AI summary, edited by Gregory|Περίληψη AI, με αλλαγές του Gregory
+Discussions|Συζητήσεις
+Open Discussions|Άνοιξε Συζητήσεις
+Where this sits in the discussions|Πού βρίσκεται στις συζητήσεις
+Gregory's discussions|Οι συζητήσεις του Gregory
+Save this table to Discussions|Αποθήκευσε αυτό το τραπέζι στις Συζητήσεις
+Private. Only you see them in Discussions.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στις Συζητήσεις.
+Where it goes in Discussions|Πού μπαίνει στις Συζητήσεις
+Shown in Discussions on your profile. Others can ask to join the next round.|Φαίνεται στις Συζητήσεις στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
+Save to Discussions|Αποθήκευση στις Συζητήσεις
+to the discussions on the profile. Choose how you appear in it.|στις συζητήσεις του προφίλ. Διάλεξε πώς εμφανίζεσαι.
+Save my 3 kept notes to Discussions|Αποθήκευσε τις 3 σημειώσεις μου στις Συζητήσεις
+Saved to Discussions, in|Αποθηκεύτηκε στις Συζητήσεις, στο
+See Discussions|Δες τις Συζητήσεις
+Edit summary|Επεξεργασία περίληψης
+Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Κάθε τραπέζι αφήνει ένα ίχνος. Οι συζητήσεις που αποθηκεύεις βρίσκουν εδώ την τροχιά τους, ανά θέμα, ώστε να βλέπεις τις ιδέες που εξερεύνησες με άλλους ανθρώπους.
+Tap a planet to read it again, or pick it up for another round.|Πάτησε έναν πλανήτη για να την ξαναδιαβάσεις ή να τη συνεχίσεις σε έναν ακόμα γύρο.
+Readings|Αναγνώσεις
+What are Discussions?|Τι είναι οι Συζητήσεις;
+About Discussions|Σχετικά με τις Συζητήσεις
+Universe|Σύμπαν
+My universe|Το σύμπαν μου
+books|βιβλία
