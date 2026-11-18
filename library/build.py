@@ -1,4 +1,4 @@
-# Builds library/timecapsule-library.html (After the table + Saved discussion) and patches the Profile.
+# Builds library/timecapsule-library.html (After the table + Saved conversation) and patches the Profile.
 # Run from anywhere: python3 library/build.py
 import re, json, os, posixpath, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)

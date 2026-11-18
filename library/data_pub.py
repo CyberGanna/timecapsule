@@ -1,5 +1,5 @@
-# Public discussions hosted by other people (sample content stays English).
-# Used by the public Discussions page and the saved-discussion page, never by Gregory's profile or My universe.
+# Public conversations hosted by other people (sample content stays English).
+# Used by the public Conversations page and the saved-discussion page, never by Gregory's profile or My universe.
 PUB_COL = {"Science":"#8BE38B","History":"#E8B577","Music":"#9FA8FF","Climate":"#4FD1A5","Art":"#FF6F91","Design":"#FFB35C"}
 # id, host, topic, subtopic, title, rounds [(date, people)], voices left out (last round), "trusted" host
 PUB = [

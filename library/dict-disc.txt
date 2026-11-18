@@ -1,20 +1,20 @@
-Discussions|Discussioni|Conversaciones
+Conversations|Conversazioni|Conversaciones
 Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.|Conversazioni salvate alla fine dei loro tavoli, divise per argomento. Leggi cosa si è detto, poi chiedi all'host di unirti al prossimo giro.|Conversaciones guardadas al final de sus mesas, ordenadas por tema. Lee lo que se dijo y pide al anfitrión unirte a la próxima ronda.
-Search discussions, topics or hosts|Cerca discussioni, argomenti o host|Busca conversaciones, temas o anfitriones
-Search discussions|Cerca discussioni|Buscar conversaciones
-Topics as constellations. Each star is a saved discussion.|Gli argomenti come costellazioni. Ogni stella è una discussione salvata.|Los temas como constelaciones. Cada estrella es una conversación guardada.
-Each star is a discussion. Tap a topic to see its discussions.|Ogni stella è una discussione. Tocca un argomento per vederne le discussioni.|Cada estrella es una conversación. Toca un tema para ver sus conversaciones.
+Search conversations, topics or hosts|Cerca conversazioni, argomenti o host|Busca conversaciones, temas o anfitriones
+Search conversations|Cerca conversazioni|Buscar conversaciones
+Topics as constellations. Each star is a saved conversation.|Gli argomenti come costellazioni. Ogni stella è una conversazione salvata.|Los temas como constelaciones. Cada estrella es una conversación guardada.
+Each star is a conversation. Tap a topic to see its conversations.|Ogni stella è una conversazione. Tocca un argomento per vederne le conversazioni.|Cada estrella es una conversación. Toca un tema para ver sus conversaciones.
 Topics|Argomenti|Temas
 Sort|Ordina|Ordenar
 All|Tutte|Todas
 Recent|Recenti|Recientes
 Most rounds|Più giri|Más rondas
-discussion|discussione|conversación
-discussions|discussioni|conversaciones
+conversation|conversazione|conversación
+conversations|conversazioni|conversaciones
 topics|argomenti|temas
 in|in|en
 Picked up again|Ripresa|Retomada
-Read the discussion|Leggi la discussione|Leer la conversación
+Read the conversation|Leggi la conversazione|Leer la conversación
 Hosted by|Ospitato da|Organizada por
 said|ha detto|dijo
 people|persone|personas
@@ -44,14 +44,14 @@ Sep|set|sep
 Aug|ago|ago
 All topics|Tutti gli argomenti|Todos los temas
 All in|Tutto in|Todo en
-Each star is a discussion. Tap a subtopic to see its discussions.|Ogni stella è una discussione. Tocca un sotto-argomento per vederne le discussioni.|Cada estrella es una conversación. Toca un subtema para ver sus conversaciones.
+Each star is a conversation. Tap a subtopic to see its conversations.|Ogni stella è una conversazione. Tocca un sotto-argomento per vederne le conversazioni.|Cada estrella es una conversación. Toca un subtema para ver sus conversaciones.
 Most picked up this month|Le più riprese questo mese|Las más retomadas este mes
-All discussions|Tutte le discussioni|Todas las conversaciones
+All conversations|Tutte le conversazioni|Todas las conversaciones
 Show|Mostra|Mostrar
 more|altre|más
 Showing|Visibili|Mostrando
 of|di|de
 Other|Altro|Otros
-Discussions by|Discussioni di|Conversaciones de
+Conversations by|Conversazioni di|Conversaciones de
 View profile|Vedi profilo|Ver perfil
-Gregory's discussions|Le discussioni di Gregory|Las conversaciones de Gregory
+Gregory's conversations|Le conversazioni di Gregory|Las conversaciones de Gregory

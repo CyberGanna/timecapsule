@@ -173,15 +173,15 @@
 
 <div class="proto"><div class="lw">
   <b>Prototype</b>
-  <label>Screen <span class="pseg" id="scrSeg"><button type="button" data-scr="save" aria-pressed="false">After the table</button><button type="button" data-scr="rec" aria-pressed="true">Saved discussion</button></span></label>
+  <label>Screen <span class="pseg" id="scrSeg"><button type="button" data-scr="save" aria-pressed="false">After the table</button><button type="button" data-scr="rec" aria-pressed="true">Saved conversation</button></span></label>
   <label>View as <span class="pseg" id="roleSeg"><button type="button" data-role="host" aria-pressed="true">Gregory (host)</button><button type="button" data-role="guest" aria-pressed="false">Gabriele (was at the table)</button><button type="button" data-role="visitor" aria-pressed="false">Gabriele (wasn't there)</button></span></label>
 </div></div>
 
 <main id="lib" class="lw">
 
-<!-- Saved discussion -->
+<!-- Saved conversation -->
 <section id="vrec">
-  <nav class="crumb" aria-label="Where this sits in the discussions"><a href="../profile/timecapsule-profile.html#lib" target="_top" id="rcLib">Gregory's discussions</a><span class="sep">›</span><span id="rcTop"></span><span class="sep">›</span><span id="rcSub"></span></nav>
+  <nav class="crumb" aria-label="Where this sits in the conversations"><a href="../profile/timecapsule-profile.html#lib" target="_top" id="rcLib">Gregory's conversations</a><span class="sep">›</span><span id="rcTop"></span><span class="sep">›</span><span id="rcSub"></span></nav>
   <h1 id="rTitle" data-noi18n></h1>
   <p class="meta" id="rMeta"></p>
   <section class="sum" aria-labelledby="sum-h">
@@ -198,7 +198,7 @@
 
   <div class="grid">
     <div>
-      <div class="vtabs" role="tablist" aria-label="Discussion">
+      <div class="vtabs" role="tablist" aria-label="Conversation">
         <button type="button" role="tab" id="vt-tx" aria-selected="true" aria-controls="vp-tx">Transcript</button>
         <button type="button" role="tab" id="vt-nt" aria-selected="false" aria-controls="vp-nt">Table notes</button>
         <button type="button" role="tab" id="vt-my" aria-selected="false" aria-controls="vp-my">My notes</button>
@@ -227,7 +227,7 @@
         <h3>Pick it up again</h3>
         <p>Plan the next round. Everyone from earlier rounds gets the invite first.</p>
         <a class="btn wide" id="nextRound" href="../help/live-pages/create.html" target="_top">Plan round <span id="nextN">4</span></a>
-        <p class="sm">The new round is added to this discussion, so the record keeps growing in one place.</p>
+        <p class="sm">The new round is added to this conversation, so the record keeps growing in one place.</p>
       </div>
       <div class="card r-host" id="reqCard">
         <h3>Asking to join <span id="reqN" style="color:var(--mute);font-weight:400">2</span></h3>
@@ -247,7 +247,7 @@
       <!-- visitor -->
       <div class="card r-visitor">
         <h3>Join the next round</h3>
-        <p id="hJ">This discussion is still going. Ask Gregory, the host, for a chair at the next round.</p>
+        <p id="hJ">This conversation is still going. Ask Gregory, the host, for a chair at the next round.</p>
         <div id="vForm">
           <label for="vMsg" class="sublbl" style="display:block;margin-top:0">Why you'd like to join (optional)</label>
           <textarea id="vMsg" maxlength="280" placeholder="A line about what you'd bring"></textarea>
@@ -271,7 +271,7 @@
   <div class="s-host">
     <div id="hHead">
     <nav class="crumb">The table just ended</nav>
-    <h1>Save this table to Discussions</h1>
+    <h1>Save this table to Conversations</h1>
     <p class="lead"><span data-noi18n>Is free will an illusion?</span> · <span>Tue 17 Nov</span> · 6 <span>people</span> · 58 min</p>
     </div>
     <div id="hForm">
@@ -287,10 +287,10 @@
         <label class="chk"><input type="checkbox" checked><span><span class="q" data-noi18n>Freedom may be less about choosing and more about owning what we chose.</span><small>Table note</small></span></label>
         <label class="chk"><input type="checkbox" checked><span><span class="q" data-noi18n>Nobody defended full determinism once we spoke about our own children.</span><small>Table note</small></span></label>
         <label class="chk"><input type="checkbox" checked><span><span class="q" data-noi18n>Is luck the enemy of free will, or its condition?</span><small>Question left open</small></span></label>
-        <label class="chk"><input type="checkbox" checked><span>Add my 3 kept notes<small>Private. Only you see them in Discussions.</small></span></label>
+        <label class="chk"><input type="checkbox" checked><span>Add my 3 kept notes<small>Private. Only you see them in Conversations.</small></span></label>
       </div>
       <div class="sec">
-        <h2>Where it goes in Discussions</h2>
+        <h2>Where it goes in Conversations</h2>
         <label class="chk"><input type="checkbox" checked id="asRound"><span>Add it as round 3 of <span data-noi18n>“Is free will an illusion?”</span><small>Same topic and place as rounds 1 and 2.</small></span></label>
         <div id="placeBox" hidden>
           <p class="aisug" id="aiSug"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg><span><span>Suggested from the conversation.</span> <span>Tap another one to change it.</span></span></p>
@@ -299,18 +299,18 @@
           <p class="sublbl">Subtopic</p>
           <div class="pills" id="subPills"></div>
           <p class="subnote" id="dupHint" hidden></p>
-          <p class="subnote" id="newNote" hidden>New subtopics show under “Other” on Discussions until about 5 discussions use them.</p>
+          <p class="subnote" id="newNote" hidden>New subtopics show under “Other” on Conversations until about 5 conversations use them.</p>
         </div>
         <p class="where" id="whereNow" style="margin-top:6px"><i style="--c:#F4A6D7"></i><span>Philosophy</span><span style="opacity:.5">›</span><span>Free will</span></p>
       </div>
       <div class="sec">
         <h2>Who can read it</h2>
         <div class="choice">
-          <label><input type="radio" name="vis" checked><span>Everyone<small>Shown in Discussions on your profile. Others can ask to join the next round.</small></span></label>
+          <label><input type="radio" name="vis" checked><span>Everyone<small>Shown in Conversations on your profile. Others can ask to join the next round.</small></span></label>
           <label><input type="radio" name="vis"><span>Only the people at this table<small>Right for private tables.</small></span></label>
         </div>
       </div>
-      <div class="acts"><button type="button" class="btn" id="hSave">Save to Discussions</button><button type="button" class="later" id="hLater">Not now</button></div>
+      <div class="acts"><button type="button" class="btn" id="hSave">Save to Conversations</button><button type="button" class="later" id="hLater">Not now</button></div>
     </div>
     <div class="saved fin" id="hSaved" hidden>
       <div class="fhead">
@@ -318,7 +318,7 @@
         <nav class="crumb">The table just ended</nav>
         <h1>Thank you for hosting.</h1>
         <p class="lead">You gave six people an hour to think out loud together. That is rarer than it sounds.</p>
-        <p class="fnote" id="hSavedTx"><span>Saved to Discussions, in</span> <span>Philosophy</span> › <span>Free will</span></p>
+        <p class="fnote" id="hSavedTx"><span>Saved to Conversations, in</span> <span>Philosophy</span> › <span>Free will</span></p>
       </div>
       <div class="again"><div><b>Same question, next week?</b><small>We fill in the details from this table, so it takes a minute.</small></div><a class="btn" href="../help/live-pages/create.html#again=1&th=Philosophy&q=Is%20free%20will%20an%20illusion%3F" target="_top">Host round 4</a></div>
       <div class="nxt">
@@ -330,7 +330,7 @@
           <li><div class="ninfo"><b data-noi18n>Is it ever right to lie?</b><small><span>Hosted by</span> Ines · <span>Sun</span> 18:30 · <span>1 chair left</span></small></div><div class="stack" aria-hidden="true"><span style="--a:#5C7BD9">I</span><span style="--a:#D9734E">J</span><span style="--a:#4F9DA6">S</span><span style="--a:#9AA64A">L</span><span style="--a:#C2649A">L</span></div><button type="button" class="btn ghost nsave">Save a chair</button></li>
         </ul>
       </div>
-      <p class="flinks"><button type="button" class="later" data-go="rec">Open the discussion</button><a class="later" href="../profile/timecapsule-profile.html#lib" target="_top">See Discussions</a></p>
+      <p class="flinks"><button type="button" class="later" data-go="rec">Open the conversation</button><a class="later" href="../profile/timecapsule-profile.html#lib" target="_top">See Conversations</a></p>
     </div>
     <div class="saved" id="hNot" hidden>
       <div class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Not saved. You can save it from My tables for 7 days.</span></div>
@@ -342,7 +342,7 @@
     <div id="gHead">
     <nav class="crumb">The table just ended</nav>
     <h1>Your words in the transcript</h1>
-    <p class="lead">Gregory will save <span data-noi18n>“Is free will an illusion?”</span> to the discussions on the profile. Choose how you appear in it.</p>
+    <p class="lead">Gregory will save <span data-noi18n>“Is free will an illusion?”</span> to the conversations on the profile. Choose how you appear in it.</p>
     </div>
     <div id="gForm">
       <div class="sec">
@@ -350,11 +350,11 @@
           <label><input type="radio" name="me" value="in" checked><span>Include my words<small>Your name shows next to what you said.</small></span></label>
           <label><input type="radio" name="me" value="out"><span>Leave my words out<small>What you said is removed. Others see “A participant's words are left out”.</small></span></label>
         </div>
-        <p class="hint" style="margin:12px 0 0">You can change this any time from the discussion page.</p>
+        <p class="hint" style="margin:12px 0 0">You can change this any time from the conversation page.</p>
       </div>
       <div class="sec">
         <h2>Your notes</h2>
-        <label class="chk"><input type="checkbox" checked><span>Save my 3 kept notes to Discussions<small>Private. Only you see them.</small></span></label>
+        <label class="chk"><input type="checkbox" checked><span>Save my 3 kept notes to Conversations<small>Private. Only you see them.</small></span></label>
       </div>
       <div class="acts"><button type="button" class="btn" id="gDone">Done</button></div>
     </div>
@@ -375,7 +375,7 @@
           <li><div class="ninfo"><b data-noi18n>Is it ever right to lie?</b><small><span>Hosted by</span> Ines · <span>Sun</span> 18:30 · <span>1 chair left</span></small></div><div class="stack" aria-hidden="true"><span style="--a:#5C7BD9">I</span><span style="--a:#D9734E">J</span><span style="--a:#4F9DA6">S</span><span style="--a:#9AA64A">L</span><span style="--a:#C2649A">L</span></div><button type="button" class="btn ghost nsave">Save a chair</button></li>
         </ul>
       </div>
-      <p class="flinks"><button type="button" class="later" data-go="rec">Open the discussion</button><a class="later" href="../help/live-pages/agenda.html" target="_top">See all tables</a></p>
+      <p class="flinks"><button type="button" class="later" data-go="rec">Open the conversation</button><a class="later" href="../help/live-pages/agenda.html" target="_top">See all tables</a></p>
     </div>
   </div>
 </section>
@@ -400,14 +400,14 @@ function line(l,i){
 function who(n){return n=="Gabriele"&&S.role=="visitor"?"Elias":n}
 function render(){
  var r=rec(),rd=r.rounds[S.round],tl=rd.tx;
- document.title="TimeCapsule Discussions";
+ document.title="TimeCapsule Conversations";
  $("rcTop").innerHTML='<i style="--c:'+r.col+'"></i><span>'+esc(r.topic)+'</span>';$("rcSub").textContent=r.sub;
- $("rTitle").textContent=r.title;var cl=$("rcLib");var HN=r.host||"Gregory",HL="../help/live-pages/discussions.html#h="+HN;cl.href=HL;cl.innerHTML=r.host?'<span>Discussions by</span> <span data-noi18n>'+esc(HN)+'</span>':'<span>Gregory\'s discussions</span>';
+ $("rTitle").textContent=r.title;var cl=$("rcLib");var HN=r.host||"Gregory",HL="../help/live-pages/discussions.html#h="+HN;cl.href=HL;cl.innerHTML=r.host?'<span>Conversations by</span> <span data-noi18n>'+esc(HN)+'</span>':'<span>Gregory\'s conversations</span>';
  var MON={Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12},kk=function(x){var p=x.rounds[x.rounds.length-1].date.split(" ");return MON[p[2]]*100+ +p[1]};
  var mine=Object.keys(D.byId).map(function(k){return D.byId[k]}).filter(function(x){return (x.host||"Gregory")==HN&&(!x.private||S.role=="host")}),oth=mine.filter(function(x){return x.id!=r.id}).sort(function(a,b){return kk(b)-kk(a)}).slice(0,3);
  $("moreCard").hidden=!oth.length;$("moreH").innerHTML='<span>More from</span> <span data-noi18n>'+esc(HN)+'</span>';
  $("moreList").innerHTML=oth.map(function(x){var d=x.rounds[x.rounds.length-1].date.split(" ");return '<li><a href="#r='+x.id+'&as='+S.role+(/lang=\w+/.test(location.hash)?'&'+location.hash.match(/lang=\w+/)[0]:'')+'" style="--c:'+x.col+'"><i></i><b data-noi18n>'+esc(x.title)+'</b><small><span>'+esc(x.topic)+'</span> · '+d[1]+' <span>'+d[2]+'</span>'+(x.rounds.length>1?' · '+x.rounds.length+' <span>rounds</span>':'')+'</small></a></li>'}).join("");
- $("seeAll").href=HL;$("seeAll").innerHTML='<span>See all</span> '+mine.length+' ›';$("hN").innerHTML='<span>'+(r.host?'Notes by the host':'Notes by Gregory, the host')+'</span>';$("gAsk").innerHTML='<span>'+(r.host?'Ask the host for another round':'Ask Gregory for another round')+'</span>';$("hJ").innerHTML='<span>'+(r.host?'This discussion is still going. Ask the host for a chair at the next round.':'This discussion is still going. Ask Gregory, the host, for a chair at the next round.')+'</span>';var hb=document.querySelector('#roleSeg [data-role="host"]');hb.innerHTML=r.host?'<span data-noi18n>'+esc(r.host)+'</span> <span>(host)</span>':"Gregory (host)";
+ $("seeAll").href=HL;$("seeAll").innerHTML='<span>See all</span> '+mine.length+' ›';$("hN").innerHTML='<span>'+(r.host?'Notes by the host':'Notes by Gregory, the host')+'</span>';$("gAsk").innerHTML='<span>'+(r.host?'Ask the host for another round':'Ask Gregory for another round')+'</span>';$("hJ").innerHTML='<span>'+(r.host?'This conversation is still going. Ask the host for a chair at the next round.':'This conversation is still going. Ask Gregory, the host, for a chair at the next round.')+'</span>';var hb=document.querySelector('#roleSeg [data-role="host"]');hb.innerHTML=r.host?'<span data-noi18n>'+esc(r.host)+'</span> <span>(host)</span>':"Gregory (host)";
  var n=rd.people,left=rd.out;
  $("rMeta").innerHTML=(r.rounds.length>1?'<span>Round</span> '+(S.round+1)+' <span>of</span> '+r.rounds.length+' · ':'')+'<span>'+esc(rd.date)+'</span> · '+(r.host?'<span>Hosted by</span> <span data-noi18n>'+esc(r.host)+'</span>':'<span>Hosted by Gregory</span>');
  var rb=$("rRounds");rb.hidden=r.rounds.length<2;
@@ -475,7 +475,7 @@ function pills(){
 $("topPills").onclick=function(e){var b=e.target.closest("[data-t]");if(!b)return;P.t=b.dataset.t;P.s=SUB[P.t][0];pills()};
 $("subPills").onclick=function(e){var b=e.target.closest("[data-s]");if(!b)return;P.s=b.dataset.s;$("dupHint").hidden=true;pills()};
 $("asRound").onchange=function(){$("placeBox").hidden=this.checked;if(this.checked){P={t:AI.t,s:AI.s}}pills()};
-$("hSave").onclick=function(){$("hForm").hidden=true;$("hHead").hidden=true;$("hSaved").hidden=false;$("hSavedTx").innerHTML='<span>Saved to Discussions, in</span> <span>'+P.t+'</span> › <span>'+esc(P.s)+'</span>';scrollTo(0,0)};
+$("hSave").onclick=function(){$("hForm").hidden=true;$("hHead").hidden=true;$("hSaved").hidden=false;$("hSavedTx").innerHTML='<span>Saved to Conversations, in</span> <span>'+P.t+'</span> › <span>'+esc(P.s)+'</span>';scrollTo(0,0)};
 document.querySelectorAll(".nsave").forEach(function(b){b.onclick=function(){var on=b.getAttribute("aria-pressed")!="true";b.setAttribute("aria-pressed",on);b.textContent=on?"Chair saved":"Save a chair"}});
 $("hLater").onclick=function(){$("hForm").hidden=true;$("hNot").hidden=false};
 $("gDone").onclick=function(){var out=document.querySelector('input[name=me]:checked').value=="out";S.mine=out?"out":"in";document.querySelectorAll("[data-mine]").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.mine==S.mine)});$("gSavedTx").textContent=out?"Your words are left out of the transcript.":"Your words are in the transcript.";$("gForm").hidden=true;$("gHead").hidden=true;$("gSaved").hidden=false;scrollTo(0,0)};

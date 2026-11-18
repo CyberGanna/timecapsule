@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
 <style>
-/* Public Discussions: a constellation of topics, then the saved discussions as cards */
+/* Public Conversations: a constellation of topics, then the saved conversations as cards */
 .dp{--serif:'Newsreader',Georgia,serif}
 .dp .hero{padding-block:36px 0}
 .dp .hero h1{margin:0}
@@ -103,13 +103,13 @@
 
 <div class="wrap dp">
   <section class="hero">
-    <p class="hback" id="hBack" hidden><a href="discussions.html" target="_top"><span aria-hidden="true">‹</span> <span>All discussions</span></a></p>
+    <p class="hback" id="hBack" hidden><a href="discussions.html" target="_top"><span aria-hidden="true">‹</span> <span>All conversations</span></a></p>
     <div class="hhost" id="hHost" hidden></div>
-    <h1 id="dH1">Discussions</h1>
+    <h1 id="dH1">Conversations</h1>
     <p id="dLede">Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.</p>
-    <div class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="dq" placeholder="Search discussions" aria-label="Search discussions"></div>
+    <div class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="dq" placeholder="Search conversations" aria-label="Search conversations"></div>
     <div class="sky" id="sky">
-      <svg id="skySvg" role="img" aria-label="Topics as constellations. Each star is a saved discussion."></svg>
+      <svg id="skySvg" role="img" aria-label="Topics as constellations. Each star is a saved conversation."></svg>
       <div class="skyh" ><button type="button" id="skyBack" hidden><span aria-hidden="true">‹</span> <span>All topics</span></button><b id="skyT"></b></div>
       <div class="tip" id="tip" role="status"></div>
       <p class="skycap" id="skyCap"></p>
@@ -123,7 +123,7 @@
   <p class="cnt" id="cnt"></p>
   <div id="featBox"></div>
   <section id="topBox" hidden><h2 class="sh2">Most picked up this month</h2><div class="grid" id="topGrid"></div></section>
-  <h2 class="sh2" id="allH" hidden>All discussions</h2>
+  <h2 class="sh2" id="allH" hidden>All conversations</h2>
   <div class="grid" id="grid"></div>
   <div class="morew"><button type="button" id="more" hidden><span>Show</span> <span id="moreN"></span> <span>more</span></button><p class="seen"><span>Showing</span> <b id="shown"></b> <span>of</span> <b id="ofN"></b></p></div>
   <div class="empty" id="empty" hidden><span>Nothing matches.</span> <span>Try another word or topic.</span><button type="button" id="clear">Show all</button></div>
@@ -145,7 +145,7 @@ const LIB="../../library/timecapsule-library.html#r=";
 function href(d){return LIB+(d.gen?"free-will":d.id)+"&as=visitor"}
 const S={t:"",s:"",q:"",sort:"recent",n:12};
 function rnd(seed){let s=seed;return()=>((s=Math.imul(s^s>>>15,1|s)+0x6D2B79F5|0,(s>>>0)%10000)/10000)}
-// Prototype: the 21 written discussions plus generated ones, so busy topics show how the page scales
+// Prototype: the 21 written conversations plus generated ones, so busy topics show how the page scales
 const SUBS={Philosophy:["Free will","Ethics","Phenomenology","Mind","Meaning","Time"],Science:["Minds","Space","Brain","Evolution","Physics"],History:["Memory","Letters","Family","Empires","Cities"],Music:["Listening","Silence","Songwriting","Rhythm","Jazz"],Climate:["Cities","Forests","Oceans","Food","Policy"],Energy:["Wind","Nuclear","Solar","Grid"],Travel:["Road trips","Slow travel","Walking","Cities"],Art:["Museums","Painting","Photography","Street art"],Home:["Belonging","Neighbours","Rooms"],Design:["Objects","Typography","Spaces"],Religion:["Faith","Ritual","Sacred texts"],Craft:["Repair","Woodwork","Sewing"]};
 const SIZE={Philosophy:342,Science:214,History:168,Music:151,Climate:126,Energy:97,Travel:88,Art:74,Home:63,Design:41,Religion:38,Craft:23};
 const TPL=["What does %s mean to you?","Is %s overrated?","%S and the people we become","Why %s still matters","What we get wrong about %s","%S: where do we start?","A slow evening on %s","Can %s change a mind?","What %s taught me","%S, honestly","The future of %s","%S at the kitchen table","Small questions about %s","%S for the rest of us"];
@@ -163,7 +163,7 @@ D.forEach(d=>d.score=d.rounds*40+d.key/10);
 const TOP=[];D.forEach(d=>{let t=TOP.find(x=>x.n===d.topic);if(!t){t={n:d.topic,c:d.col,d:[]};TOP.push(t)}t.d.push(d)});
 TOP.sort((a,b)=>b.d.length-a.d.length||a.n.localeCompare(b.n));
 TOP.forEach(t=>{const c={};t.d.forEach(d=>c[d.sub]=(c[d.sub]||0)+1);t.small={};Object.keys(c).forEach(k=>{if(c[k]<5)t.small[k]=1})});
-// A subtopic gets its own constellation once SUBMIN discussions use it; until then it sits under "Other"
+// A subtopic gets its own constellation once SUBMIN conversations use it; until then it sits under "Other"
 const SUBMIN=5;
 function subOf(d){const T=TOP.find(x=>x.n===d.topic);return T.small[d.sub]?"Other":d.sub}
 function subsOf(t){const T=TOP.find(x=>x.n===t),o=[];T.d.forEach(d=>{const n=subOf(d);let s=o.find(x=>x.n===n);if(!s){s={n:n,c:T.c,d:[]};o.push(s)}s.d.push(d)});return o.sort((a,b)=>(a.n==="Other")-(b.n==="Other")||b.d.length-a.d.length)}
@@ -172,7 +172,7 @@ function stack(d){const ns=d.names.slice(0,4);return '<span class="fc" aria-hidd
 function quote(d){return '<blockquote data-noi18n>“'+esc(d.quote[1])+'”</blockquote><cite><span>said</span> <span data-noi18n>'+esc(d.quote[0])+'</span></cite>'}
 function rounds(d){if(d.rounds<2)return "";let h='<span class="rds" aria-label="'+d.rounds+' rounds">';for(let i=0;i<d.rounds;i++)h+=(i?'<s></s>':'')+'<i class="'+(i==d.rounds-1?"f":"")+'"></i>';return h+' <span>'+d.rounds+'</span> <span>rounds</span></span>'}
 function card(d){return '<a class="card" href="'+href(d)+'" target="_top" style="--c:'+d.col+'"><div class="ct"><i></i><span>'+esc(d.topic)+'</span><span class="sub">· <span>'+esc(d.sub)+'</span></span><span class="rn">'+(d.rounds>1?'<span>Round</span> '+d.rounds:'')+'</span></div><h3 data-noi18n>'+esc(d.title)+'</h3>'+quote(d)+'<div class="cf">'+stack(d)+'<span class="who"><span>Hosted by</span> <b data-noi18n>'+esc(d.host)+'</b></span><span class="dt">'+d.day+' <span>'+d.mon+'</span></span></div></a>'}
-function feat(d){return '<a class="feat" href="'+href(d)+'" target="_top" style="--c:'+d.col+'"><div class="fq"><p class="eb"><i></i><span>Picked up again</span></p>'+quote(d)+'</div><div class="fm"><div class="ct"><i></i><span>'+esc(d.topic)+'</span><span class="sub">· <span>'+esc(d.sub)+'</span></span></div><h2 data-noi18n>'+esc(d.title)+'</h2><p class="sum" data-noi18n>'+esc(d.summary)+'</p>'+rounds(d)+'<div class="cf" style="border:0;padding:0">'+stack(d)+'<span class="who"><span>Hosted by</span> <b data-noi18n>'+esc(d.host)+'</b> · '+d.people+' <span>people</span></span></div><span class="go"><span>Read the discussion</span></span></div></a>'}
+function feat(d){return '<a class="feat" href="'+href(d)+'" target="_top" style="--c:'+d.col+'"><div class="fq"><p class="eb"><i></i><span>Picked up again</span></p>'+quote(d)+'</div><div class="fm"><div class="ct"><i></i><span>'+esc(d.topic)+'</span><span class="sub">· <span>'+esc(d.sub)+'</span></span></div><h2 data-noi18n>'+esc(d.title)+'</h2><p class="sum" data-noi18n>'+esc(d.summary)+'</p>'+rounds(d)+'<div class="cf" style="border:0;padding:0">'+stack(d)+'<span class="who"><span>Hosted by</span> <b data-noi18n>'+esc(d.host)+'</b> · '+d.people+' <span>people</span></span></div><span class="go"><span>Read the conversation</span></span></div></a>'}
 function match(d){if(S.t&&d.topic!==S.t)return false;if(S.s&&subOf(d)!==S.s)return false;if(!S.q)return true;const q=S.q.toLowerCase();return [d.title,d.topic,d.sub,d.host,d.quote[1]].some(x=>x.toLowerCase().includes(q))}
 function pillsHtml(){
  if(!S.t)return '<button type="button" data-t="" aria-pressed="true">All</button>'+TOP.map(t=>'<button type="button" data-t="'+esc(t.n)+'" style="--c:'+t.c+'" aria-pressed="false"><i></i><span>'+esc(t.n)+'</span></button>').join("");
@@ -195,16 +195,16 @@ function render(){
  $("more").hidden=left<=0;$("moreN").textContent=Math.min(12,left);$("shown").textContent=Math.min(S.n,L.length)+(f?1:0)+top.length;$("ofN").textContent=total.toLocaleString("en-US");
  $("empty").hidden=total>0;
  const where=S.s?S.s:S.t;
- $("cnt").innerHTML=total?'<b>'+total.toLocaleString("en-US")+'</b> <span>'+(total==1?"discussion":"discussions")+'</span>'+(where?' <span>in</span> <span>'+esc(where)+'</span>':' · <b>'+TOP.length+'</b> <span>topics</span>'):"";
+ $("cnt").innerHTML=total?'<b>'+total.toLocaleString("en-US")+'</b> <span>'+(total==1?"conversation":"conversations")+'</span>'+(where?' <span>in</span> <span>'+esc(where)+'</span>':' · <b>'+TOP.length+'</b> <span>topics</span>'):"";
  $("pills").innerHTML=pillsHtml();
  document.querySelectorAll("#skySvg .cl").forEach(g=>{const on=S.t?g.dataset.t===S.s:false;g.classList.toggle("dim",!!S.s&&!on);g.classList.toggle("on",on)});
 }
 $("pills").onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.back){goTopic("")}else if(b.dataset.t!==undefined){goTopic(b.dataset.t)}else{S.s=S.s===b.dataset.s?"":b.dataset.s;S.n=12;render()}};
 $("more").onclick=()=>{S.n+=12;render()};
-if(HOST){document.title="TimeCapsule "+(HOST==="Gregory"?"Gregory's discussions":"Discussions by "+HOST);$("hBack").hidden=false;
- $("dH1").innerHTML=HOST==="Gregory"?"Gregory's discussions":'<span>Discussions by</span> <span data-noi18n>'+esc(HOST)+'</span>';
+if(HOST){document.title="TimeCapsule "+(HOST==="Gregory"?"Gregory's conversations":"Conversations by "+HOST);$("hBack").hidden=false;
+ $("dH1").innerHTML=HOST==="Gregory"?"Gregory's conversations":'<span>Conversations by</span> <span data-noi18n>'+esc(HOST)+'</span>';
  const tops=new Set(D.map(d=>d.topic)).size,rr=D.reduce((a,d)=>a+d.rounds,0);
- $("dLede").innerHTML='<b>'+D.length+'</b> <span>discussions</span> · <b>'+tops+'</b> <span>topics</span> · <b>'+rr+'</b> <span>rounds</span>'+(HOST==="Gregory"?' · <a href="../../profile/timecapsule-profile.html" target="_top"><span>View profile</span></a>':'');
+ $("dLede").innerHTML='<b>'+D.length+'</b> <span>conversations</span> · <b>'+tops+'</b> <span>topics</span> · <b>'+rr+'</b> <span>rounds</span>'+(HOST==="Gregory"?' · <a href="../../profile/timecapsule-profile.html" target="_top"><span>View profile</span></a>':'');
  $("hHost").hidden=false;$("hHost").innerHTML='<span class="hav">'+av(HOST)+'</span>';}
 document.querySelector(".dp .sort").onclick=e=>{const b=e.target.closest("button");if(!b)return;S.sort=b.dataset.s;document.querySelectorAll(".dp .sort button").forEach(x=>x.setAttribute("aria-pressed",x===b));render()};
 $("dq").oninput=e=>{S.q=e.target.value.trim();S.n=12;render()};
@@ -218,7 +218,7 @@ function sky(){
  const G=S.t?subsOf(S.t):TOP,inT=!!S.t,big=Math.max.apply(null,G.map(x=>x.d.length));
  const mob=matchMedia("(max-width:640px)").matches,cols=mob?3:(inT?Math.min(6,Math.max(3,G.length)):6),W=mob?360:1040,rowH=mob?100:132,H=Math.ceil(G.length/cols)*rowH+(mob?14:46)+(inT?(mob?44:20):0),top0=inT?(mob?44:20):0;
  $("skyBack").hidden=!inT;$("skyT").textContent=S.t;
- $("skyCap").innerHTML=inT?'<span>Each star is a discussion. Tap a subtopic to see its discussions.</span>':'<span>Each star is a discussion. Tap a topic to see its discussions.</span>';
+ $("skyCap").innerHTML=inT?'<span>Each star is a conversation. Tap a subtopic to see its conversations.</span>':'<span>Each star is a conversation. Tap a topic to see its conversations.</span>';
  const svg=$("skySvg");svg.setAttribute("viewBox","0 0 "+W+" "+H);
  let defs='<defs>'+G.map((t,i)=>'<radialGradient id="ng'+i+'"><stop offset="0" stop-color="'+t.c+'" stop-opacity=".34"/><stop offset=".55" stop-color="'+t.c+'" stop-opacity=".09"/><stop offset="1" stop-color="'+t.c+'" stop-opacity="0"/></radialGradient>').join("")+'</defs>';
  let g="";

@@ -49,7 +49,7 @@ function row(r,kind){
   const tm=kind==="live"?`<div class="tm lv"><b><i></i>LIVE</b><span>${r.since}</span></div>`:kind==="up"?`<div class="tm"><b>${r.day} <span>${esc(r.mon)}</span></b><span>${esc(r.wd)} ${r.time}</span></div>`:`<div class="tm past"><b>${r.day} <span>${esc(r.mon)}</span></b><span>${esc(r.wd)}</span></div>`;
   const href=kind==="past"?(r.saved?lib(r):""):"table.html";
   const inner=`<div class="th" style="background:radial-gradient(circle at 35% 30%,${c},${c}66 75%,#252B52)"><svg viewBox="0 0 24 24" aria-hidden="true">${TICON[r.topic]||""}</svg></div>
-    <div class="et"><h3 data-noi18n>${esc(r.title)}</h3><div class="meta"><span class="topic" style="--c:${c}"><i></i><span>${esc(r.topic)}</span></span>${r.round>1?`<span class="rn"><span>Round</span> ${r.round}</span>`:""}${kind==="past"&&r.saved?`<span class="saved">${DOC}<span>Discussion saved</span></span>`:""}</div></div>`;
+    <div class="et"><h3 data-noi18n>${esc(r.title)}</h3><div class="meta"><span class="topic" style="--c:${c}"><i></i><span>${esc(r.topic)}</span></span>${r.round>1?`<span class="rn"><span>Round</span> ${r.round}</span>`:""}${kind==="past"&&r.saved?`<span class="saved">${DOC}<span>Conversation saved</span></span>`:""}</div></div>`;
   const act=kind==="live"?`<a class="btn go" href="table.html" target="_top">Join</a>`:kind==="up"?`<a class="btn go" href="table.html" target="_top">Save a chair</a>`:(r.saved?`<a class="btn" href="${lib(r)}" target="_top">Read</a>`:"");
   return `<article class="row" style="--c:${c}">${tm}
   ${href?`<a class="ei" href="${href}" target="_top" style="color:inherit;text-decoration:none">${inner}</a>`:`<div class="ei" style="cursor:default">${inner}</div>`}
@@ -60,7 +60,7 @@ function render(){
   const f=r=>!T||r.topic===T;
   const live=UP.filter(r=>r.live&&f(r)),up=UP.filter(r=>!r.live&&f(r)),past=PAST.filter(f);
   const nt=new Set(PAST.map(r=>r.topic)).size;
-  $("hLede").innerHTML=`<b>${PAST.length}</b> <span>past tables</span> · <b>${UP.length}</b> <span>coming up</span> · <b>${nt}</b> <span>topics</span> · <a href="discussions.html#h=Gregory" target="_top"><span>See the discussions</span></a>`;
+  $("hLede").innerHTML=`<b>${PAST.length}</b> <span>past tables</span> · <b>${UP.length}</b> <span>coming up</span> · <b>${nt}</b> <span>topics</span> · <a href="discussions.html#h=Gregory" target="_top"><span>See the conversations</span></a>`;
   $("tp").innerHTML=`<button type="button" data-t="" aria-pressed="${!T}">All</button>`+TOP.map(t=>`<button type="button" data-t="${esc(t.n)}" style="--c:${t.c}" aria-pressed="${T===t.n}"><i></i><span>${esc(t.n)}</span></button>`).join("");
   let h="";
   if(live.length||up.length)h+=`<section class="sec"><div class="sh"><h2>Coming up</h2><span>${live.length+up.length}</span></div>${live.map(r=>row(r,"live")).join("")}${up.map(r=>row(r,"up")).join("")}</section>`;

@@ -1,8 +1,8 @@
 Library|Βιβλιοθήκη
 My library|Η βιβλιοθήκη μου
-discussions|συζητήσεις
+conversations|συζητήσεις
 topics|θέματα
-All discussions|Όλες οι συζητήσεις
+All conversations|Όλες οι συζητήσεις
 Tap a planet to open it.|Πάτησε έναν πλανήτη για να την ανοίξεις.
 Tap the photo to go back to the readings.|Πάτησε τη φωτογραφία για να γυρίσεις στα αναγνώσματα.
 Tap the photo to open the library.|Πάτησε τη φωτογραφία για να ανοίξεις τη βιβλιοθήκη.
@@ -16,7 +16,7 @@ Only the people at the table|Μόνο όσοι ήταν στο τραπέζι
 Transcript · Notes|Απομαγνητοφώνηση · Σημειώσεις
 Screen|Οθόνη
 After the table|Μετά το τραπέζι
-Saved discussion|Αποθηκευμένη συζήτηση
+Saved conversation|Αποθηκευμένη συζήτηση
 View as|Προβολή ως
 Gregory (host)|Gregory (οικοδεσπότης)
 Gabriele (was at the table)|Gabriele (ήταν στο τραπέζι)
@@ -43,7 +43,7 @@ Only you can see these|Μόνο εσύ τις βλέπεις
 Pick it up again|Συνέχισέ τη
 Plan the next round. Everyone from earlier rounds gets the invite first.|Σχεδίασε τον επόμενο γύρο. Όσοι ήταν στους προηγούμενους γύρους παίρνουν πρώτοι την πρόσκληση.
 Plan round|Σχεδίασε τον γύρο
-The new round is added to this discussion, so the record keeps growing in one place.|Ο νέος γύρος προστίθεται σε αυτή τη συζήτηση, έτσι το αρχείο μεγαλώνει σε ένα μέρος.
+The new round is added to this conversation, so the record keeps growing in one place.|Ο νέος γύρος προστίθεται σε αυτή τη συζήτηση, έτσι το αρχείο μεγαλώνει σε ένα μέρος.
 Asking to join|Ζητούν να μπουν
 People who weren't at the table. You decide who sits down next time.|Άτομα που δεν ήταν στο τραπέζι. Εσύ αποφασίζεις ποιος κάθεται την επόμενη φορά.
 Accept|Αποδοχή
@@ -55,7 +55,7 @@ You were at this table, so you'll be invited when Gregory plans the next round.|
 Ask Gregory for another round|Ζήτα από τον Gregory άλλον έναν γύρο
 Asked. We'll tell you when Gregory plans it.|Το ζήτησες. Θα σου πούμε όταν ο Gregory τον σχεδιάσει.
 Join the next round|Μπες στον επόμενο γύρο
-This discussion is still going. Ask Gregory, the host, for a chair at the next round.|Αυτή η συζήτηση συνεχίζεται. Ζήτα από τον Gregory, τον οικοδεσπότη, μια καρέκλα στον επόμενο γύρο.
+This conversation is still going. Ask Gregory, the host, for a chair at the next round.|Αυτή η συζήτηση συνεχίζεται. Ζήτα από τον Gregory, τον οικοδεσπότη, μια καρέκλα στον επόμενο γύρο.
 Why you'd like to join (optional)|Γιατί θέλεις να μπεις (προαιρετικό)
 A line about what you'd bring|Μια γραμμή για το τι θα έφερνες
 Ask for a chair|Ζήτα μια καρέκλα
@@ -85,7 +85,7 @@ Right for private tables.|Κατάλληλο για ιδιωτικά τραπέ�
 Save to library|Αποθήκευση στη βιβλιοθήκη
 Not now|Όχι τώρα
 Saved to your library, in|Αποθηκεύτηκε στη βιβλιοθήκη σου, στο
-Open the discussion|Άνοιξε τη συζήτηση
+Open the conversation|Άνοιξε τη συζήτηση
 See your library|Δες τη βιβλιοθήκη σου
 Not saved. You can save it from My tables for 7 days.|Δεν αποθηκεύτηκε. Μπορείς να το αποθηκεύσεις από τα Τραπέζια μου για 7 ημέρες.
 Your words in the transcript|Τα λόγια σου στην απομαγνητοφώνηση
@@ -94,7 +94,7 @@ to the library. Choose how you appear in it.|στη βιβλιοθήκη. Διά
 Include my words|Συμπερίληψη των λόγων μου
 Leave my words out|Αφαίρεση των λόγων μου
 What you said is removed. Others see “A participant's words are left out”.|Όσα είπες αφαιρούνται. Οι άλλοι βλέπουν «Τα λόγια ενός συμμετέχοντα αφαιρέθηκαν».
-You can change this any time from the discussion page.|Μπορείς να το αλλάξεις όποτε θέλεις από τη σελίδα της συζήτησης.
+You can change this any time from the conversation page.|Μπορείς να το αλλάξεις όποτε θέλεις από τη σελίδα της συζήτησης.
 Your notes|Οι σημειώσεις σου
 Save my 3 kept notes to my library|Αποθήκευσε τις 3 σημειώσεις μου στη βιβλιοθήκη μου
 Private. Only you see them.|Ιδιωτικές. Μόνο εσύ τις βλέπεις.
@@ -104,7 +104,7 @@ Done. Your words are left out of the transcript.|Έτοιμο. Τα λόγια �
 Rate and tip|Βαθμολόγησε και δώσε φιλοδώρημα
 Where this sits in the library|Πού βρίσκεται στη βιβλιοθήκη
 Rounds|Γύροι
-Discussion|Συζήτηση
+Conversation|Συζήτηση
 Free will|Ελεύθερη βούληση
 Phenomenology|Φαινομενολογία
 Ethics|Ηθική
@@ -123,25 +123,25 @@ AI summary, edited by Gregory|Περίληψη AI, με αλλαγές του Gr
 Edit|Επεξεργασία
 Save|Αποθήκευση
 Cancel|Ακύρωση
-Discussions|Συζητήσεις
-Open Discussions|Άνοιξε Συζητήσεις
-Where this sits in the discussions|Πού βρίσκεται στις συζητήσεις
-Gregory's discussions|Οι συζητήσεις του Gregory
-Save this table to Discussions|Αποθήκευσε αυτό το τραπέζι στις Συζητήσεις
-Private. Only you see them in Discussions.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στις Συζητήσεις.
-Where it goes in Discussions|Πού μπαίνει στις Συζητήσεις
-Shown in Discussions on your profile. Others can ask to join the next round.|Φαίνεται στις Συζητήσεις στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
-Save to Discussions|Αποθήκευση στις Συζητήσεις
-to the discussions on the profile. Choose how you appear in it.|στις συζητήσεις του προφίλ. Διάλεξε πώς εμφανίζεσαι.
-Save my 3 kept notes to Discussions|Αποθήκευσε τις 3 σημειώσεις μου στις Συζητήσεις
-Saved to Discussions, in|Αποθηκεύτηκε στις Συζητήσεις, στο
-See Discussions|Δες τις Συζητήσεις
+Conversations|Συζητήσεις
+Open Conversations|Άνοιξε Συζητήσεις
+Where this sits in the conversations|Πού βρίσκεται στις συζητήσεις
+Gregory's conversations|Οι συζητήσεις του Gregory
+Save this table to Conversations|Αποθήκευσε αυτό το τραπέζι στις Συζητήσεις
+Private. Only you see them in Conversations.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στις Συζητήσεις.
+Where it goes in Conversations|Πού μπαίνει στις Συζητήσεις
+Shown in Conversations on your profile. Others can ask to join the next round.|Φαίνεται στις Συζητήσεις στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
+Save to Conversations|Αποθήκευση στις Συζητήσεις
+to the conversations on the profile. Choose how you appear in it.|στις συζητήσεις του προφίλ. Διάλεξε πώς εμφανίζεσαι.
+Save my 3 kept notes to Conversations|Αποθήκευσε τις 3 σημειώσεις μου στις Συζητήσεις
+Saved to Conversations, in|Αποθηκεύτηκε στις Συζητήσεις, στο
+See Conversations|Δες τις Συζητήσεις
 Edit summary|Επεξεργασία περίληψης
-Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Κάθε τραπέζι αφήνει ένα ίχνος. Οι συζητήσεις που αποθηκεύεις βρίσκουν εδώ την τροχιά τους, ανά θέμα, ώστε να βλέπεις τις ιδέες που εξερεύνησες με άλλους ανθρώπους.
+Every table leaves a trace. The conversations you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Κάθε τραπέζι αφήνει ένα ίχνος. Οι συζητήσεις που αποθηκεύεις βρίσκουν εδώ την τροχιά τους, ανά θέμα, ώστε να βλέπεις τις ιδέες που εξερεύνησες με άλλους ανθρώπους.
 Tap a planet to read it again, or pick it up for another round.|Πάτησε έναν πλανήτη για να την ξαναδιαβάσεις ή να τη συνεχίσεις σε έναν ακόμα γύρο.
 Readings|Αναγνώσεις
-What are Discussions?|Τι είναι οι Συζητήσεις;
-About Discussions|Σχετικά με τις Συζητήσεις
+What are Conversations?|Τι είναι οι Συζητήσεις;
+About Conversations|Σχετικά με τις Συζητήσεις
 Universe|Σύμπαν
 My universe|Το σύμπαν μου
 books|βιβλία
@@ -150,7 +150,7 @@ Tap to open.|Πάτησε για να ανοίξει.
 You too|Κι εσύ
 Mutual reads|Κοινές αναγνώσεις
 mutual reads|κοινές αναγνώσεις
-See all discussions|Δες όλες τις συζητήσεις
+See all conversations|Δες όλες τις συζητήσεις
 See all tables|Δες όλα τα τραπέζια
 Your words are in the transcript.|Τα λόγια σου είναι στην απομαγνητοφώνηση.
 Your words are left out of the transcript.|Τα λόγια σου αφαιρέθηκαν από την απομαγνητοφώνηση.

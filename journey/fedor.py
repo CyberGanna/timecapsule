@@ -11,7 +11,7 @@ NOTE = '<span class="note">%s</span>'
 STEPS = [
  ("Set up", "Anna <b>sets up the group’s table</b>",
   "Anna wants a room that is always there. Before anyone can receive a link, she sets up the group’s table, once and for all.",
-  ["She creates a Private table: it stays off the Tables page, and only people with the link can see it. She sets it to repeat every Tuesday at 19:00, with the same link and a password, so the group never has to ask for a new one. She turns off “Keep a transcript of the discussion” and leaves the camera optional. She can change any of these settings at any time.",
+  ["She creates a Private table: it stays off the Tables page, and only people with the link can see it. She sets it to repeat every Tuesday at 19:00, with the same link and a password, so the group never has to ask for a new one. She turns off “Keep a transcript of the conversation” and leaves the camera optional. She can change any of these settings at any time.",
    "In the table format she also sets how shares work at this meeting: whether people share in turn or only when they want to. " + NOTE % "To build: a standing table with one fixed link and password, repeating daily or weekly, and the share-format field. Today a table is created one date at a time, with at most ten chairs."],
   [("f-create", "Create a table: Private, transcript off. The repeat, password and share-format options are not in the prototype yet.")], "Set up"),
  ("Link", "Fedor <b>receives the link</b>",
@@ -51,7 +51,7 @@ STEPS = [
   [], "Share"),
  ("Leave", "Fedor <b>can leave quietly, anytime</b>",
   "Fedor wants to be free to go. He can leave the meeting at any moment, without a word.",
-  ["“Leave table” takes him out quietly. There is no “How was the discussion?”, no TimeCoins to award, no rating: for this table the group has turned all of that off. " + NOTE % "To build: turning off Rate and tip and TimeCoins per table. Today Fedor would tap Skip.",
+  ["“Leave table” takes him out quietly. There is no “How was the conversation?”, no TimeCoins to award, no rating: for this table the group has turned all of that off. " + NOTE % "To build: turning off Rate and tip and TimeCoins per table. Today Fedor would tap Skip.",
    "Next Tuesday the same link, the same password, the same faces, the same time."],
   [], "Leave"),
  ("Group", "The group <b>has a home</b>",
@@ -65,7 +65,7 @@ G_HAVE = [
  ("Private tables", "off the Tables page, link only, “don’t forward it”, guests’ faces hidden until you accept."),
  ("Your name, your choice", "real name and photo, first name only, or an alias; with an alias only the host knows who you are."),
  ("Privacy settings", "Let people find me off; tables you joined and private tables never shown to anyone."),
- ("Transcript off", "“Keep a transcript of the discussion” can be turned off for each table."),
+ ("Transcript off", "“Keep a transcript of the conversation” can be turned off for each table."),
  ("Calm tools", "camera optional, background blur, host can mute anyone, Block and Report, Leave table."),
 ]
 G_NEED = [

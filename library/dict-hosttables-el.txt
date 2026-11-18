@@ -3,8 +3,8 @@ Gregory's tables|Τα τραπέζια του Gregory
 past tables|προηγούμενα τραπέζια
 coming up|επερχόμενα
 Coming up|Επερχόμενα
-See the discussions|Δες τις συζητήσεις
-Discussion saved|Η συζήτηση αποθηκεύτηκε
+See the conversations|Δες τις συζητήσεις
+Conversation saved|Η συζήτηση αποθηκεύτηκε
 Save a chair|Κράτα μια καρέκλα
 Read|Διάβασε
 chairs free|ελεύθερες καρέκλες

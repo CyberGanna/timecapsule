@@ -1,4 +1,4 @@
-My discussions|Οι συζητήσεις μου
+My conversations|Οι συζητήσεις μου
 Every table you saved, with its transcript, notes and summary. Open one to read it or pick it up again.|Κάθε τραπέζι που αποθήκευσες, με απομαγνητοφώνηση, σημειώσεις και περίληψη. Άνοιξε ένα για να το ξαναδιαβάσεις ή να το συνεχίσεις.
 Saved|Αποθηκευμένες
 Hosted|Φιλοξένησες
@@ -9,15 +9,15 @@ people|άτομα
 rounds|γύροι
 Open|Άνοιγμα
 New round|Νέος γύρος
-discussion|συζήτηση
-discussions|συζητήσεις
-No saved discussions yet|Δεν υπάρχουν ακόμη αποθηκευμένες συζητήσεις
+conversation|συζήτηση
+conversations|συζητήσεις
+No saved conversations yet|Δεν υπάρχουν ακόμη αποθηκευμένες συζητήσεις
 After a table, save its transcript and notes and they will show up here.|Μετά από ένα τραπέζι, αποθήκευσε την απομαγνητοφώνηση και τις σημειώσεις και θα εμφανιστούν εδώ.
 Find a table|Βρες ένα τραπέζι
 Nothing matches your search|Κανένα αποτέλεσμα
 Try another word, or clear the search.|Δοκίμασε άλλη λέξη ή καθάρισε την αναζήτηση.
 Nothing here yet|Τίποτα ακόμη εδώ
-Discussions you join at someone else's table will show up here.|Οι συζητήσεις στις οποίες συμμετέχεις σε τραπέζια άλλων θα εμφανίζονται εδώ.
+Conversations you join at someone else's table will show up here.|Οι συζητήσεις στις οποίες συμμετέχεις σε τραπέζια άλλων θα εμφανίζονται εδώ.
 November|Νοέμβριος
 October|Οκτώβριος
 September|Σεπτέμβριος
@@ -28,9 +28,9 @@ Sep|Σεπ
 Aug|Αυγ
 saved|αποθηκευμένες
 My universe|Το σύμπαν μου
-The books and films that shaped how you think, and the discussions you saved. Add to them, tidy them, pick them up again.|Τα βιβλία και οι ταινίες που διαμόρφωσαν τη σκέψη σου και οι συζητήσεις που αποθήκευσες. Πρόσθεσε, τακτοποίησε, συνέχισε.
+The books and films that shaped how you think, and the conversations you saved. Add to them, tidy them, pick them up again.|Τα βιβλία και οι ταινίες που διαμόρφωσαν τη σκέψη σου και οι συζητήσεις που αποθήκευσες. Πρόσθεσε, τακτοποίησε, συνέχισε.
 Readings|Αναγνώσματα
-Discussions|Συζητήσεις
+Conversations|Συζητήσεις
 items|στοιχεία
 item|στοιχείο
 topics|θέματα

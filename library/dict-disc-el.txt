@@ -1,20 +1,20 @@
-Discussions|Συζητήσεις
+Conversations|Συζητήσεις
 Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.|Συζητήσεις που αποθηκεύτηκαν στο τέλος των τραπεζιών τους, ανά θέμα. Διάβασε τι ειπώθηκε και ζήτα από τον οικοδεσπότη να μπεις στον επόμενο γύρο.
-Search discussions, topics or hosts|Αναζήτηση συζητήσεων, θεμάτων ή οικοδεσποτών
-Search discussions|Αναζήτηση συζητήσεων
-Topics as constellations. Each star is a saved discussion.|Τα θέματα ως αστερισμοί. Κάθε αστέρι είναι μια αποθηκευμένη συζήτηση.
-Each star is a discussion. Tap a topic to see its discussions.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα θέμα για να δεις τις συζητήσεις του.
+Search conversations, topics or hosts|Αναζήτηση συζητήσεων, θεμάτων ή οικοδεσποτών
+Search conversations|Αναζήτηση συζητήσεων
+Topics as constellations. Each star is a saved conversation.|Τα θέματα ως αστερισμοί. Κάθε αστέρι είναι μια αποθηκευμένη συζήτηση.
+Each star is a conversation. Tap a topic to see its conversations.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα θέμα για να δεις τις συζητήσεις του.
 Topics|Θέματα
 Sort|Ταξινόμηση
 All|Όλες
 Recent|Πρόσφατες
 Most rounds|Περισσότεροι γύροι
-discussion|συζήτηση
-discussions|συζητήσεις
+conversation|συζήτηση
+conversations|συζητήσεις
 topics|θέματα
 in|σε
 Picked up again|Συνεχίστηκε ξανά
-Read the discussion|Διάβασε τη συζήτηση
+Read the conversation|Διάβασε τη συζήτηση
 Hosted by|Οικοδεσπότης
 said|είπε
 people|άτομα
@@ -44,16 +44,16 @@ Sep|Σεπ
 Aug|Αυγ
 All topics|Όλα τα θέματα
 All in|Όλα σε
-Each star is a discussion. Tap a subtopic to see its discussions.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα υποθέμα για να δεις τις συζητήσεις του.
+Each star is a conversation. Tap a subtopic to see its conversations.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα υποθέμα για να δεις τις συζητήσεις του.
 Most picked up this month|Οι πιο συνεχισμένες αυτόν τον μήνα
-All discussions|Όλες οι συζητήσεις
+All conversations|Όλες οι συζητήσεις
 Show|Δείξε
 more|ακόμη
 Showing|Εμφανίζονται
 of|από
 Other|Άλλα
-Discussions by|Συζητήσεις από
+Conversations by|Συζητήσεις από
 More from|Περισσότερα από
 See all|Δες όλες
 View profile|Προβολή προφίλ
-Gregory's discussions|Οι συζητήσεις του Gregory
+Gregory's conversations|Οι συζητήσεις του Gregory
