@@ -1952,17 +1952,17 @@ Kept · you can leave your words out|Κρατιέται · μπορείς να �
 Summary|Περίληψη
 AI summary, written after the table|Περίληψη AI, γραμμένη μετά το τραπέζι
 AI summary, edited by Gregory|Περίληψη AI, με αλλαγές του Gregory
-My Content|Το περιεχόμενό μου
+My content|Το περιεχόμενό μου
 Content|Περιεχόμενο
-Open My Content|Άνοιξε Το περιεχόμενό μου
+Open My content|Άνοιξε Το περιεχόμενό μου
 Where this sits in the content|Πού βρίσκεται στο περιεχόμενο
 Gregory's content|Το περιεχόμενο του Gregory
-Save this table to My Content|Αποθήκευσε αυτό το τραπέζι στο Περιεχόμενό μου
-Private. Only you see them in My Content.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στο Περιεχόμενό σου.
-Where it goes in My Content|Πού μπαίνει στο Περιεχόμενό μου
-Shown in My Content on your profile. Others can ask to join the next round.|Φαίνεται στο Περιεχόμενό σου στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
-Save to My Content|Αποθήκευση στο Περιεχόμενό μου
+Save this table to My content|Αποθήκευσε αυτό το τραπέζι στο Περιεχόμενό μου
+Private. Only you see them in My content.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στο Περιεχόμενό σου.
+Where it goes in My content|Πού μπαίνει στο Περιεχόμενό μου
+Shown in My content on your profile. Others can ask to join the next round.|Φαίνεται στο Περιεχόμενό σου στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
+Save to My content|Αποθήκευση στο Περιεχόμενό μου
 as content on the profile. Choose how you appear in it.|ως περιεχόμενο στο προφίλ. Διάλεξε πώς εμφανίζεσαι.
-Save my 3 kept notes to My Content|Αποθήκευσε τις 3 σημειώσεις μου στο Περιεχόμενό μου
-Saved to My Content, in|Αποθηκεύτηκε στο Περιεχόμενό μου, στο
-See My Content|Δες το Περιεχόμενό μου
+Save my 3 kept notes to My content|Αποθήκευσε τις 3 σημειώσεις μου στο Περιεχόμενό μου
+Saved to My content, in|Αποθηκεύτηκε στο Περιεχόμενό μου, στο
+See My content|Δες το Περιεχόμενό μου
