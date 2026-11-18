@@ -105,7 +105,6 @@ def run(ROOT, recs, LIBD, add_dict):
     s = rep(s, '<span aria-hidden="true">powered by k▪universe</span>', '<span class="wmt" aria-hidden="true">powered by k▪universe</span>')
     s = rep(s, ' el("circle",{cx:cx,cy:cy,r:4.2,fill:"#FFFDF2"},sunG);', ' var avg=sunAv(sys,orbs,cx,cy);')
     s = rep(s, 'sunG.style.opacity=(1-e).toFixed(3);', 'sunG.style.opacity=(1-e).toFixed(3);avg.setAttribute("transform","rotate("+(-TILT*(1-e)).toFixed(2)+" "+cx+" "+cy+")");avg.style.opacity=(1-e).toFixed(3);avg.style.pointerEvents=e>.5?"none":"";')
-    s = rep(s, 'var fn=function(){if(!U.list){utip.hidden=true;', 'var fn=function(){if(MODE=="lib"){goRec(bk[2]);return}if(!U.list){utip.hidden=true;')
     s = rep(s, '"aria-label":bk[0]+" by "+bk[1]+", "+th.n},front);', '"aria-label":bk[0]+BY()+bk[1]+", "+th.n},front);')
     s = rep(s, "aria-label=\"'+esc(b[0])+' by '+esc(b[1])+'\"></button>'", "aria-label=\"'+esc(b[0])+BY()+esc(b[1])+'\"></button>'")
     s = rep(s, "' '+th.n+' books\">'", "' '+th.n+' '+(MODE==\"lib\"?\"discussions\":\"books\")+'\">'")

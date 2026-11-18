@@ -1265,7 +1265,7 @@ function universe(){
  T.forEach(function(th,i){th.b.forEach(function(bk,j){
   var col=PAL[i],g=el("g",{"class":"bk",tabindex:"0",role:"button","aria-label":bk[0]+BY()+bk[1]+", "+th.n},front);
   el("circle",{r:6.5,fill:col,opacity:".12"},g);el("circle",{r:5,fill:"none",stroke:col,"stroke-width":"1.1"},g);el("circle",{"class":"core",r:2.6,fill:col},g);el("circle",{r:12,fill:"transparent"},g);
-  var fn=function(){if(MODE=="lib"){goRec(bk[2]);return}if(!U.list){utip.hidden=true;U.tipf=null;U.list=true;ulink.hidden=false;ulink.textContent="◎ Universe";morph(1,function(){rows();var d=ulay.querySelector('.udot[data-i="'+i+'"][data-j="'+j+'"]');if(d)U.showDot(d)})}};
+  var fn=function(){if(!U.list){utip.hidden=true;U.tipf=null;U.list=true;ulink.hidden=false;ulink.textContent="◎ Universe";morph(1,function(){rows();var d=ulay.querySelector('.udot[data-i="'+i+'"][data-j="'+j+'"]');if(d)U.showDot(d)})}};
   var tin=function(){if(U.list||U.e>0)return;var u=s.parentNode.getBoundingClientRect(),r=g.getBoundingClientRect(),x=r.left+r.width/2-u.left,y=r.top+r.height/2-u.top;
    utip.innerHTML="<b>"+esc(bk[0])+"</b><small>"+esc(bk[1])+"</small>";utip.style.setProperty("--c",col);utip.style.left=Math.min(Math.max(x/u.width*100,28),72)+"%";utip.style.top=y+"px";utip.classList.toggle("dn",y<70);utip.hidden=false;U.tipf=tin},
    tout=function(){utip.hidden=true;U.tipf=null};
