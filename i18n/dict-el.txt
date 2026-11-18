@@ -14,6 +14,7 @@ Notifications, new|Ειδοποιήσεις, νέες
 See all notifications|Όλες οι ειδοποιήσεις
 My profile|Το προφίλ μου
 My tables|Τα τραπέζια μου
+My discussions|Οι συζητήσεις μου
 Settings|Ρυθμίσεις
 Sign out|Αποσύνδεση
 Your menu|Το μενού σου

@@ -14,6 +14,7 @@ Notifications, new|Notifiche, nuove|Notificaciones, nuevas
 See all notifications|Vedi tutte le notifiche|Ver todas las notificaciones
 My profile|Il mio profilo|Mi perfil
 My tables|I miei tavoli|Mis mesas
+My discussions|Le mie discussioni|Mis conversaciones
 Settings|Impostazioni|Ajustes
 Sign out|Esci|Cerrar sesión
 Your menu|Il tuo menu|Tu menú
