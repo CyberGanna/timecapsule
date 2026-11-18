@@ -123,17 +123,17 @@ AI summary, edited by Gregory|Περίληψη AI, με αλλαγές του Gr
 Edit|Επεξεργασία
 Save|Αποθήκευση
 Cancel|Ακύρωση
-My content|Το περιεχόμενό μου
-Content|Περιεχόμενο
-Open My content|Άνοιξε Το περιεχόμενό μου
-Where this sits in the content|Πού βρίσκεται στο περιεχόμενο
-Gregory's content|Το περιεχόμενο του Gregory
-Save this table to My content|Αποθήκευσε αυτό το τραπέζι στο Περιεχόμενό μου
-Private. Only you see them in My content.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στο Περιεχόμενό σου.
-Where it goes in My content|Πού μπαίνει στο Περιεχόμενό μου
-Shown in My content on your profile. Others can ask to join the next round.|Φαίνεται στο Περιεχόμενό σου στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
-Save to My content|Αποθήκευση στο Περιεχόμενό μου
-as content on the profile. Choose how you appear in it.|ως περιεχόμενο στο προφίλ. Διάλεξε πώς εμφανίζεσαι.
-Save my 3 kept notes to My content|Αποθήκευσε τις 3 σημειώσεις μου στο Περιεχόμενό μου
-Saved to My content, in|Αποθηκεύτηκε στο Περιεχόμενό μου, στο
-See My content|Δες το Περιεχόμενό μου
+My discussions|Οι συζητήσεις μου
+Discussions|Συζητήσεις
+Open My discussions|Άνοιξε Οι συζητήσεις μου
+Where this sits in the discussions|Πού βρίσκεται στις συζητήσεις
+Gregory's discussions|Οι συζητήσεις του Gregory
+Save this table to My discussions|Αποθήκευσε αυτό το τραπέζι στις Συζητήσεις μου
+Private. Only you see them in My discussions.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στις Συζητήσεις σου.
+Where it goes in My discussions|Πού μπαίνει στις Συζητήσεις μου
+Shown in My discussions on your profile. Others can ask to join the next round.|Φαίνεται στις Συζητήσεις σου στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
+Save to My discussions|Αποθήκευση στις Συζητήσεις μου
+to the discussions on the profile. Choose how you appear in it.|στις συζητήσεις του προφίλ. Διάλεξε πώς εμφανίζεσαι.
+Save my 3 kept notes to My discussions|Αποθήκευσε τις 3 σημειώσεις μου στις Συζητήσεις μου
+Saved to My discussions, in|Αποθηκεύτηκε στις Συζητήσεις μου, στο
+See My discussions|Δες τις Συζητήσεις μου

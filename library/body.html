@@ -144,7 +144,7 @@
 
 <!-- Saved discussion -->
 <section id="vrec">
-  <nav class="crumb" aria-label="Where this sits in the content"><a href="../profile/timecapsule-profile.html#lib" target="_top" id="rcLib">Gregory's content</a><span class="sep">›</span><span id="rcTop"></span><span class="sep">›</span><span id="rcSub"></span></nav>
+  <nav class="crumb" aria-label="Where this sits in the discussions"><a href="../profile/timecapsule-profile.html#lib" target="_top" id="rcLib">Gregory's discussions</a><span class="sep">›</span><span id="rcTop"></span><span class="sep">›</span><span id="rcSub"></span></nav>
   <h1 id="rTitle" data-noi18n></h1>
   <p class="meta" id="rMeta"></p>
   <section class="sum" aria-labelledby="sum-h">
@@ -227,7 +227,7 @@
   <!-- host -->
   <div class="s-host">
     <nav class="crumb">The table just ended</nav>
-    <h1>Save this table to My content</h1>
+    <h1>Save this table to My discussions</h1>
     <p class="lead"><span data-noi18n>Is free will an illusion?</span> · <span>Tue 17 Nov</span> · 6 <span>people</span> · 58 min</p>
     <div id="hForm">
       <div class="sec">
@@ -242,10 +242,10 @@
         <label class="chk"><input type="checkbox" checked><span><span class="q" data-noi18n>Freedom may be less about choosing and more about owning what we chose.</span><small>Table note</small></span></label>
         <label class="chk"><input type="checkbox" checked><span><span class="q" data-noi18n>Nobody defended full determinism once we spoke about our own children.</span><small>Table note</small></span></label>
         <label class="chk"><input type="checkbox" checked><span><span class="q" data-noi18n>Is luck the enemy of free will, or its condition?</span><small>Question left open</small></span></label>
-        <label class="chk"><input type="checkbox" checked><span>Add my 3 kept notes<small>Private. Only you see them in My content.</small></span></label>
+        <label class="chk"><input type="checkbox" checked><span>Add my 3 kept notes<small>Private. Only you see them in My discussions.</small></span></label>
       </div>
       <div class="sec">
-        <h2>Where it goes in My content</h2>
+        <h2>Where it goes in My discussions</h2>
         <label class="chk"><input type="checkbox" checked id="asRound"><span>Add it as round 3 of <span data-noi18n>“Is free will an illusion?”</span><small>Same topic and place as rounds 1 and 2.</small></span></label>
         <div id="placeBox" hidden>
           <p class="sublbl" style="margin-top:6px">Topic</p>
@@ -258,15 +258,15 @@
       <div class="sec">
         <h2>Who can read it</h2>
         <div class="choice">
-          <label><input type="radio" name="vis" checked><span>Everyone<small>Shown in My content on your profile. Others can ask to join the next round.</small></span></label>
+          <label><input type="radio" name="vis" checked><span>Everyone<small>Shown in My discussions on your profile. Others can ask to join the next round.</small></span></label>
           <label><input type="radio" name="vis"><span>Only the people at this table<small>Right for private tables.</small></span></label>
         </div>
       </div>
-      <div class="acts"><button type="button" class="btn" id="hSave">Save to My content</button><button type="button" class="later" id="hLater">Not now</button></div>
+      <div class="acts"><button type="button" class="btn" id="hSave">Save to My discussions</button><button type="button" class="later" id="hLater">Not now</button></div>
     </div>
     <div class="saved" id="hSaved" hidden>
-      <div class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span><span>Saved to My content, in</span> <span>Philosophy</span> › <span>Free will</span></span></div>
-      <div class="acts"><button type="button" class="btn" data-go="rec">Open the discussion</button><a class="btn ghost" href="../profile/timecapsule-profile.html#lib" target="_top">See My content</a></div>
+      <div class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span><span>Saved to My discussions, in</span> <span>Philosophy</span> › <span>Free will</span></span></div>
+      <div class="acts"><button type="button" class="btn" data-go="rec">Open the discussion</button><a class="btn ghost" href="../profile/timecapsule-profile.html#lib" target="_top">See My discussions</a></div>
     </div>
     <div class="saved" id="hNot" hidden>
       <div class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Not saved. You can save it from My tables for 7 days.</span></div>
@@ -277,7 +277,7 @@
   <div class="s-guest">
     <nav class="crumb">The table just ended</nav>
     <h1>Your words in the transcript</h1>
-    <p class="lead">Gregory will save <span data-noi18n>“Is free will an illusion?”</span> as content on the profile. Choose how you appear in it.</p>
+    <p class="lead">Gregory will save <span data-noi18n>“Is free will an illusion?”</span> to the discussions on the profile. Choose how you appear in it.</p>
     <div id="gForm">
       <div class="sec">
         <div class="choice">
@@ -288,7 +288,7 @@
       </div>
       <div class="sec">
         <h2>Your notes</h2>
-        <label class="chk"><input type="checkbox" checked><span>Save my 3 kept notes to My content<small>Private. Only you see them.</small></span></label>
+        <label class="chk"><input type="checkbox" checked><span>Save my 3 kept notes to My discussions<small>Private. Only you see them.</small></span></label>
       </div>
       <div class="acts"><button type="button" class="btn" id="gDone">Done</button></div>
     </div>
@@ -319,7 +319,7 @@ function line(l,i){
 function who(n){return n=="Gabriele"&&S.role=="visitor"?"Elias":n}
 function render(){
  var r=rec(),rd=r.rounds[S.round],tl=rd.tx;
- document.title="TimeCapsule Content";
+ document.title="TimeCapsule Discussions";
  $("rcTop").innerHTML='<i style="--c:'+r.col+'"></i><span>'+esc(r.topic)+'</span>';$("rcSub").textContent=r.sub;
  $("rTitle").textContent=r.title;
  var n=rd.people,left=rd.out;
@@ -346,7 +346,7 @@ function render(){
  document.querySelectorAll(".r-host").forEach(function(e){e.hidden=S.role!="host"});
  document.querySelectorAll(".r-guest").forEach(function(e){e.hidden=S.role!="guest"});
  document.querySelectorAll(".r-visitor").forEach(function(e){e.hidden=S.role!="visitor"});
- $("rcLib").textContent="Gregory's content";
+ $("rcLib").textContent="Gregory's discussions";
  // save screen
  $("sTx").innerHTML=D.byId["free-will"].rounds[2].tx.slice(0,6).map(function(l){var o=S.role;S.role="host";var h=line(l);S.role=o;return h}).join("");
  document.querySelectorAll(".s-host").forEach(function(e){e.hidden=S.role!="host"});
@@ -385,7 +385,7 @@ function pills(){
 $("topPills").onclick=function(e){var b=e.target.closest("[data-t]");if(!b)return;P.t=b.dataset.t;P.s=SUB[P.t][0];pills()};
 $("subPills").onclick=function(e){var b=e.target.closest("[data-s]");if(!b)return;P.s=b.dataset.s;pills()};
 $("asRound").onchange=function(){$("placeBox").hidden=this.checked;if(this.checked){P={t:"Philosophy",s:"Free will"}}pills()};
-$("hSave").onclick=function(){$("hForm").hidden=true;$("hSaved").hidden=false;$("hSaved").querySelector(".done span").innerHTML='<span>Saved to My content, in</span> <span>'+P.t+'</span> › <span>'+esc(P.s)+'</span>';scrollTo(0,0)};
+$("hSave").onclick=function(){$("hForm").hidden=true;$("hSaved").hidden=false;$("hSaved").querySelector(".done span").innerHTML='<span>Saved to My discussions, in</span> <span>'+P.t+'</span> › <span>'+esc(P.s)+'</span>';scrollTo(0,0)};
 $("hLater").onclick=function(){$("hForm").hidden=true;$("hNot").hidden=false};
 $("gDone").onclick=function(){var out=document.querySelector('input[name=me]:checked').value=="out";S.mine=out?"out":"in";document.querySelectorAll("[data-mine]").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.mine==S.mine)});$("gSavedTx").textContent=out?"Done. Your words are left out of the transcript.":"Done. Your words are in the transcript.";$("gForm").hidden=true;$("gSaved").hidden=false;scrollTo(0,0)};
 // route

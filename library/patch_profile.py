@@ -86,10 +86,10 @@ def run(ROOT, recs, LIBD, add_dict):
     npub = sum(1 for r in recs.values() if not r['private'])
     # tab + panel
     s = rep(s, '<button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>',
-            '<button type="button" role="tab" id="t-lb" aria-selected="false" aria-controls="p-lb"><b class="lbc-o">%d</b><b class="lbc-v">%d</b> Content</button>\n    <button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>' % (len(recs), npub))
+            '<button type="button" role="tab" id="t-lb" aria-selected="false" aria-controls="p-lb"><b class="lbc-o">%d</b><b class="lbc-v">%d</b> Discussions</button>\n    <button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>' % (len(recs), npub))
     s = rep(s, '  <section class="panel" id="p-fw" role="tabpanel"', lib_tab(recs) + '\n\n  <section class="panel" id="p-fw" role="tabpanel"')
     s = rep(s, '<h2 id="uni-h">My readings <span>36</span></h2>',
-            '<h2 id="uni-h" class="uh-sr"><span class="uh-read">My readings</span><span class="uh-lib">My content</span></h2><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">My readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">My content <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div>' % (len(recs), npub))
+            '<h2 id="uni-h" class="uh-sr"><span class="uh-read">My readings</span><span class="uh-lib">My discussions</span></h2><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">My readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">My discussions <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div>' % (len(recs), npub))
     # library data for the map: one orbit per topic, one star per discussion
     order = []; by = {}
     for r in recs.values():
@@ -119,7 +119,7 @@ function sunAv(sys,before,cx,cy){
  var src=(document.querySelector(".lbh img.big")||{}).src||"";
  var cp=el("clipPath",{id:"avclip"},d);el("circle",{cx:cx,cy:cy,r:15},cp);
  var gl=el("radialGradient",{id:"avg"},d);el("stop",{offset:".45","stop-color":"#FFE7A8","stop-opacity":".9"},gl);el("stop",{offset:"1","stop-color":"#F0A040","stop-opacity":"0"},gl);
- var g=el("g",{"class":"sunav",tabindex:"0",role:"button","aria-label":MODE=="lib"?"Back to the readings":"Open My content"},sys);sys.insertBefore(g,before);
+ var g=el("g",{"class":"sunav",tabindex:"0",role:"button","aria-label":MODE=="lib"?"Back to the readings":"Open My discussions"},sys);sys.insertBefore(g,before);
  el("circle",{"class":"avglow",cx:cx,cy:cy,r:28,fill:"url(#avg)"},g);
  el("circle",{cx:cx,cy:cy,r:15.5,fill:"#1B2144"},g);
  if(src){var im=el("image",{x:cx-15,y:cy-15,width:30,height:30,"clip-path":"url(#avclip)",preserveAspectRatio:"xMidYMid slice"},g);im.setAttribute("href",src)}
@@ -127,7 +127,7 @@ function sunAv(sys,before,cx,cy){
  el("circle",{cx:cx,cy:cy,r:22,fill:"transparent"},g);
  var go=function(e){if(e)e.stopPropagation();setMode(MODE=="lib"?"read":"lib")};
  g.addEventListener("click",go);g.addEventListener("keydown",function(e){if(e.key=="Enter"||e.key==" "){e.preventDefault();go()}});
- g.addEventListener("pointerenter",function(){var u=s.parentNode.getBoundingClientRect(),r=g.getBoundingClientRect();utip.innerHTML="<b>"+(MODE=="lib"?"Back to the readings":"Open My content")+"</b>";utip.style.setProperty("--c",MODE=="lib"?"#7FF0F2":"#F7C66B");utip.style.left="50%";utip.style.top=(r.top+r.height/2-u.top)+"px";utip.classList.remove("dn");utip.hidden=false});
+ g.addEventListener("pointerenter",function(){var u=s.parentNode.getBoundingClientRect(),r=g.getBoundingClientRect();utip.innerHTML="<b>"+(MODE=="lib"?"Back to the readings":"Open My discussions")+"</b>";utip.style.setProperty("--c",MODE=="lib"?"#7FF0F2":"#F7C66B");utip.style.left="50%";utip.style.top=(r.top+r.height/2-u.top)+"px";utip.classList.remove("dn");utip.hidden=false});
  g.addEventListener("pointerleave",function(){utip.hidden=true});
  return g}
 document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListener("click",function(){if(b.dataset.m!=MODE)setMode(b.dataset.m)})});

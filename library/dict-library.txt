@@ -123,17 +123,17 @@ AI summary, edited by Gregory|Riassunto IA, modificato da Gregory|Resumen IA, ed
 Edit|Modifica|Editar
 Save|Salva|Guardar
 Cancel|Annulla|Cancelar
-My content|I miei contenuti|Mi contenido
-Content|Contenuti|Contenido
-Open My content|Apri I miei contenuti|Abrir Mi contenido
-Where this sits in the content|Dove si trova nei contenuti|Dónde está en el contenido
-Gregory's content|I contenuti di Gregory|El contenido de Gregory
-Save this table to My content|Salva questo tavolo in I miei contenuti|Guarda esta mesa en Mi contenido
-Private. Only you see them in My content.|Private. Solo tu le vedi in I miei contenuti.|Privadas. Solo tú las ves en Mi contenido.
-Where it goes in My content|Dove va in I miei contenuti|Dónde va en Mi contenido
-Shown in My content on your profile. Others can ask to join the next round.|Appare in I miei contenuti sul tuo profilo. Altri possono chiedere di partecipare al prossimo giro.|Aparece en Mi contenido de tu perfil. Otros pueden pedir unirse a la próxima ronda.
-Save to My content|Salva in I miei contenuti|Guardar en Mi contenido
-as content on the profile. Choose how you appear in it.|tra i contenuti del profilo. Scegli come ci appari.|como contenido del perfil. Elige cómo apareces.
-Save my 3 kept notes to My content|Salva le mie 3 note tenute in I miei contenuti|Guardar mis 3 notas en Mi contenido
-Saved to My content, in|Salvato in I miei contenuti, in|Guardada en Mi contenido, en
-See My content|Vedi I miei contenuti|Ver Mi contenido
+My discussions|Le mie discussioni|Mis conversaciones
+Discussions|Discussioni|Conversaciones
+Open My discussions|Apri Le mie discussioni|Abrir Mis conversaciones
+Where this sits in the discussions|Dove si trova tra le discussioni|Dónde está entre las conversaciones
+Gregory's discussions|Le discussioni di Gregory|Las conversaciones de Gregory
+Save this table to My discussions|Salva questo tavolo in Le mie discussioni|Guarda esta mesa en Mis conversaciones
+Private. Only you see them in My discussions.|Private. Solo tu le vedi in Le mie discussioni.|Privadas. Solo tú las ves en Mis conversaciones.
+Where it goes in My discussions|Dove va in Le mie discussioni|Dónde va en Mis conversaciones
+Shown in My discussions on your profile. Others can ask to join the next round.|Appare in Le mie discussioni sul tuo profilo. Altri possono chiedere di partecipare al prossimo giro.|Aparece en Mis conversaciones de tu perfil. Otros pueden pedir unirse a la próxima ronda.
+Save to My discussions|Salva in Le mie discussioni|Guardar en Mis conversaciones
+to the discussions on the profile. Choose how you appear in it.|tra le discussioni del profilo. Scegli come ci appari.|en las conversaciones del perfil. Elige cómo apareces.
+Save my 3 kept notes to My discussions|Salva le mie 3 note tenute in Le mie discussioni|Guardar mis 3 notas en Mis conversaciones
+Saved to My discussions, in|Salvato in Le mie discussioni, in|Guardada en Mis conversaciones, en
+See My discussions|Vedi Le mie discussioni|Ver Mis conversaciones
