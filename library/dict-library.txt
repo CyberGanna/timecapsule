@@ -145,3 +145,4 @@ About Discussions|Informazioni sulle Discussioni|Acerca de Conversaciones
 Universe|Universo|Universo
 My universe|Il mio universo|Mi universo
 books|libri|libros
+Tap to open.|Tocca per aprire.|Toca para abrir.

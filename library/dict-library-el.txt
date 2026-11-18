@@ -145,3 +145,4 @@ About Discussions|Σχετικά με τις Συζητήσεις
 Universe|Σύμπαν
 My universe|Το σύμπαν μου
 books|βιβλία
+Tap to open.|Πάτησε για να ανοίξει.

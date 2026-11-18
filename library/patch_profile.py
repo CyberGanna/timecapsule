@@ -41,9 +41,8 @@ CSS = r'''<style id="lib-css">
 #uniview:not(.fsw) .unicap{margin-top:4px;padding-bottom:6px}
 .unicap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:10px;text-align:left}
 .unicap .cl{justify-self:start;white-space:nowrap}
-#uniview:not(.fsw) .unicap{font-size:12px}
 .unicap .cm{white-space:nowrap}
-@media (max-width:480px){#uniview:not(.fsw) .unicap{font-size:13px}}
+.unicap .cl .caplink+.caplink{margin-left:8px}
 .unicap .cm{justify-self:center;text-align:center}
 .unicap .cr{justify-self:end;display:flex}
 .unicap .wm{position:static;pointer-events:auto}
@@ -144,7 +143,7 @@ def run(ROOT, recs, LIBD, add_dict):
     s = rep(s, "'<li style=\"--c:'+th.c+'\"><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i", "'<li style=\"--c:'+th.c+'\"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i")
     s = rep(s, '<b>All books</b>', "<b>'+(MODE==\"lib\"?\"All discussions\":\"All books\")+'</b>")
     s = rep(s, "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);return '<button type=\"button\" class=\"caplink\" data-act=\"all\">'+nb+' books</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\">'+T.length+' themes</button>. Hover/tap to learn more.'}",
-            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>.</span><span class=\"cm\">Tap a planet to open it.</span><span class=\"cr\"></span>';return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> books</button>.</span><span class=\"cm\">Tap a planet to open it.</span><span class=\"cr\"></span>'}")
+            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>.</span><span class=\"cm\">Tap to open.</span><span class=\"cr\"></span>';return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> books</button>.</span><span class=\"cm\">Tap to open.</span><span class=\"cr\"></span>'}")
     HELP = r'''function BY(){return MODE=="lib"?", ":" by "}
 function RA(b){return b&&b[2]?' data-r="'+b[2]+'" tabindex="0" role="link"':''}
 function goRec(id){var a=document.createElement("a");a.href="../library/timecapsule-library.html#r="+id+(document.body.classList.contains("visitor")?"&as=visitor":"");a.target="_top";document.body.appendChild(a);a.click();a.remove()}
