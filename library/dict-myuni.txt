@@ -61,3 +61,6 @@ Home|Casa|Hogar
 Craft|Artigianato|Artesanía
 Energy|Energia|Energía
 Travel|Viaggi|Viajes
+Mind-blowing|Illuminante|Alucinante
+Pleasant|Piacevole|Agradable
+Not so inspiring|Poco stimolante|Poco inspiradora

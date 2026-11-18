@@ -61,3 +61,6 @@ Home|Σπίτι
 Craft|Χειροτεχνία
 Energy|Ενέργεια
 Travel|Ταξίδια
+Mind-blowing|Συγκλονιστικό
+Pleasant|Ευχάριστο
+Not so inspiring|Όχι και τόσο εμπνευσμένο

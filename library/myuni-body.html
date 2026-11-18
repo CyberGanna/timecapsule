@@ -26,9 +26,11 @@
 .mu .seg button{all:unset;cursor:pointer;height:30px;padding:0 14px;border-radius:7px;color:var(--mute);font-size:14px;display:inline-flex;align-items:center;gap:6px}
 .mu .seg button svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .mu .seg button[aria-pressed=true]{background:var(--surface);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
-.mu .stars{display:flex;gap:6px}
-.mu .stars button{all:unset;cursor:pointer;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--mute);font-size:12px}
-.mu .stars button[aria-pressed=true]{border-color:var(--teal);background:color-mix(in srgb,var(--teal) 22%,transparent);color:var(--fg)}
+.mu .yes{--r:var(--teal)}.mu .maybe{--r:var(--violet)}.mu .no{--r:#6B7299}
+.mu .stars{display:flex;gap:8px;flex-wrap:wrap}
+.mu .stars button{all:unset;cursor:pointer;height:32px;padding:0 13px;border-radius:999px;border:1.5px solid var(--line);display:inline-flex;align-items:center;gap:7px;color:var(--mute);font-size:13.5px}
+.mu .stars button i{width:8px;height:8px;border-radius:50%;background:var(--r)}
+.mu .stars button[aria-pressed=true]{border-color:var(--r);background:color-mix(in srgb,var(--r) 20%,transparent);color:var(--fg)}
 .mu .fact{display:flex;gap:8px;align-items:center}
 .mu .fact small{color:var(--mute);font-size:12.5px;margin-left:auto}
 .mu .item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line)}
@@ -37,9 +39,8 @@
 .mu .item h3{margin:0;font-weight:600;font-size:15.5px;line-height:1.3}
 .mu .item p{margin:2px 0 0;font-size:13px;color:var(--mute)}
 .mu .item p .kind{color:var(--soft)}
-.mu .dots{display:inline-flex;gap:3px;vertical-align:middle;margin-left:6px}
-.mu .dots i{width:6px;height:6px;border-radius:50%;background:var(--line)}
-.mu .dots i.on{background:var(--c)}
+.mu .rt{display:inline-flex;align-items:center;gap:5px;margin-left:10px;color:#C9CFF0;font-size:12.5px;white-space:nowrap}
+.mu .rt i{width:7px;height:7px;border-radius:50%;background:var(--r)}
 .mu .rm{all:unset;cursor:pointer;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:var(--mute)}
 .mu .rm:hover{background:var(--raise);color:var(--fg)}
 .mu .rm svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
@@ -75,8 +76,8 @@
       <label><span id="fAl">Author</span><input id="fA" maxlength="80"></label>
       <label><span>Topic</span><select id="fTop"></select></label>
       <label class="full" id="fNewL" hidden><span>New topic</span><input id="fNew" maxlength="40"></label>
-      <div class="full"><label style="margin-bottom:8px"><span>How much did it shape you?</span></label><div class="stars" id="fImp" role="group" aria-label="Impact">
-        <button type="button" data-v="1" aria-pressed="false">1</button><button type="button" data-v="2" aria-pressed="false">2</button><button type="button" data-v="3" aria-pressed="true">3</button><button type="button" data-v="4" aria-pressed="false">4</button><button type="button" data-v="5" aria-pressed="false">5</button>
+      <div class="full"><label style="margin-bottom:8px"><span>How much did it shape you?</span></label><div class="stars" id="fImp" role="group" aria-label="Rating">
+        <button type="button" class="yes" data-v="yes" aria-pressed="false"><i></i><span>Mind-blowing</span></button><button type="button" class="maybe" data-v="maybe" aria-pressed="true"><i></i><span>Pleasant</span></button><button type="button" class="no" data-v="no" aria-pressed="false"><i></i><span>Not so inspiring</span></button>
       </div></div>
       <div class="full fact"><button type="submit" class="btn go">Add to my universe</button><button type="button" class="btn" id="fCancel">Cancel</button><small>It shows on your profile right away.</small></div>
     </form>
@@ -110,8 +111,8 @@ function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;","
 const $=id=>document.getElementById(id);
 
 /* ---------- Readings ---------- */
-let R;const KEY="tc-myuni-readings-v1";
-function seed(){return RT.map((t,i)=>({n:t.n,c:t.c,b:t.b.map((x,j)=>({t:x[0],a:x[1],k:"book",imp:[5,4,4,3,3][j%5]}))}))}
+let R;const KEY="tc-myuni-readings-v2";
+function seed(){return RT.map((t,i)=>({n:t.n,c:t.c,b:t.b.map((x,j)=>({t:x[0],a:x[1],k:"book",imp:["yes","yes","maybe","yes","maybe","no"][j%6]}))}))}
 try{R=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 if(!Array.isArray(R))R=seed();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(R))}catch(e){}}
@@ -123,19 +124,19 @@ function renderRead(){
   const html=R.map((t,ti)=>{let items=t.b.map((b,bi)=>({b,bi}));
     if(q)items=items.filter(o=>(o.b.t+" "+o.b.a+" "+t.n).toLowerCase().includes(q));
     if(!items.length)return"";
-    return `<section class="sec" style="--c:${t.c}"><div class="sh"><h2><i></i><span>${esc(t.n)}</span></h2><span>${items.length}</span></div>${items.map(({b,bi})=>`<div class="item${lastNew&&lastNew[0]===ti&&lastNew[1]===bi?" new":""}" style="--c:${t.c}"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">${KICON[b.k]||KICON.book}</svg></div><div><h3 data-noi18n>${esc(b.t)}</h3><p><span class="kind">${b.k==="film"?"Film":"Book"}</span>${b.a?` · <span data-noi18n>${esc(b.a)}</span>`:""}<span class="dots" aria-label="Impact ${b.imp||3} of 5">${[1,2,3,4,5].map(v=>`<i class="${v<=(b.imp||3)?"on":""}"></i>`).join("")}</span></p></div><button type="button" class="rm" data-rm="${ti}:${bi}" aria-label="Remove ${esc(b.t)}" title="Remove">${XI}</button></div>`).join("")}</section>`}).join("");
+    return `<section class="sec" style="--c:${t.c}"><div class="sh"><h2><i></i><span>${esc(t.n)}</span></h2><span>${items.length}</span></div>${items.map(({b,bi})=>`<div class="item${lastNew&&lastNew[0]===ti&&lastNew[1]===bi?" new":""}" style="--c:${t.c}"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">${KICON[b.k]||KICON.book}</svg></div><div><h3 data-noi18n>${esc(b.t)}</h3><p><span class="kind">${b.k==="film"?"Film":"Book"}</span>${b.a?` · <span data-noi18n>${esc(b.a)}</span>`:""}<span class="rt ${RL[b.imp]?b.imp:"maybe"}"><i></i><span>${RL[b.imp]||RL.maybe}</span></span></p></div><button type="button" class="rm" data-rm="${ti}:${bi}" aria-label="Remove ${esc(b.t)}" title="Remove">${XI}</button></div>`).join("")}</section>`}).join("");
   $("rlist").innerHTML=html||`<div class="empty"><b>${q?"Nothing matches your search":"Your universe is empty"}</b><span>${q?"Try another word, or clear the search.":"Add a book or a film that shaped how you think."}</span></div>`;
   lastNew=null;
 }
 function fillTopics(sel){const o=R.map((t,i)=>`<option value="${i}">${esc(t.n)}</option>`).join("")+`<option value="new">New topic…</option>`;$("fTop").innerHTML=o;if(sel!=null)$("fTop").value=sel}
-let kind="book",imp=3;
+let kind="book",imp="maybe";const RL={yes:"Mind-blowing",maybe:"Pleasant",no:"Not so inspiring"};
 function setKind(k){kind=k;document.querySelectorAll(".mu .seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===k));$("fAl").textContent=k==="film"?"Director":"Author"}
-function openForm(o){const f=$("addForm");f.hidden=!o;$("addBtn").setAttribute("aria-expanded",o);if(o){fillTopics(0);$("fNewL").hidden=true;$("fT").value="";$("fA").value="";$("fNew").value="";setKind("book");setImp(3);$("fT").focus()}}
-function setImp(v){imp=v;document.querySelectorAll("#fImp button").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.v===v))}
+function openForm(o){const f=$("addForm");f.hidden=!o;$("addBtn").setAttribute("aria-expanded",o);if(o){fillTopics(0);$("fNewL").hidden=true;$("fT").value="";$("fA").value="";$("fNew").value="";setKind("book");setImp("maybe");$("fT").focus()}}
+function setImp(v){imp=v;document.querySelectorAll("#fImp button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===v))}
 $("addBtn").addEventListener("click",()=>openForm($("addForm").hidden));
 $("fCancel").addEventListener("click",()=>openForm(false));
 document.querySelectorAll(".mu .seg button").forEach(b=>b.addEventListener("click",()=>setKind(b.dataset.k)));
-document.querySelectorAll("#fImp button").forEach(b=>b.addEventListener("click",()=>setImp(+b.dataset.v)));
+document.querySelectorAll("#fImp button").forEach(b=>b.addEventListener("click",()=>setImp(b.dataset.v)));
 $("fTop").addEventListener("change",()=>{$("fNewL").hidden=$("fTop").value!=="new";if(!$("fNewL").hidden)$("fNew").focus()});
 $("addForm").addEventListener("submit",e=>{e.preventDefault();const t=$("fT").value.trim();if(!t){$("fT").focus();return}
   let ti=$("fTop").value;
