@@ -14,6 +14,7 @@ Notifications, new|Ειδοποιήσεις, νέες
 See all notifications|Όλες οι ειδοποιήσεις
 My profile|Το προφίλ μου
 My tables|Τα τραπέζια μου
+My universe|Το σύμπαν μου
 Settings|Ρυθμίσεις
 Sign out|Αποσύνδεση
 Your menu|Το μενού σου
@@ -1974,3 +1975,88 @@ About Discussions|Σχετικά με τις Συζητήσεις
 Universe|Σύμπαν
 My universe|Το σύμπαν μου
 books|βιβλία
+Tap to open.|Πάτησε για να ανοίξει.
+Every table you saved, with its transcript, notes and summary. Open one to read it or pick it up again.|Κάθε τραπέζι που αποθήκευσες, με απομαγνητοφώνηση, σημειώσεις και περίληψη. Άνοιξε ένα για να το ξαναδιαβάσεις ή να το συνεχίσεις.
+Hosted|Φιλοξένησες
+New round|Νέος γύρος
+discussion|συζήτηση
+Search my discussions|Αναζήτηση στις συζητήσεις μου
+No saved discussions yet|Δεν υπάρχουν ακόμη αποθηκευμένες συζητήσεις
+After a table, save its transcript and notes and they will show up here.|Μετά από ένα τραπέζι, αποθήκευσε την απομαγνητοφώνηση και τις σημειώσεις και θα εμφανιστούν εδώ.
+Nothing matches your search|Κανένα αποτέλεσμα
+Discussions you join at someone else's table will show up here.|Οι συζητήσεις στις οποίες συμμετέχεις σε τραπέζια άλλων θα εμφανίζονται εδώ.
+November|Νοέμβριος
+October|Οκτώβριος
+September|Σεπτέμβριος
+August|Αύγουστος
+Nov|Νοε
+Oct|Οκτ
+Sep|Σεπ
+Aug|Αυγ
+saved|αποθηκευμένες
+My discussions|Οι συζητήσεις μου
+The books and films that shaped how you think, and the discussions you saved. Add to them, tidy them, pick them up again.|Τα βιβλία και οι ταινίες που διαμόρφωσαν τη σκέψη σου και οι συζητήσεις που αποθήκευσες. Πρόσθεσε, τακτοποίησε, συνέχισε.
+items|στοιχεία
+item|στοιχείο
+Add|Προσθήκη
+Director|Σκηνοθέτης
+New topic|Νέο θέμα
+New topic…|Νέο θέμα…
+How much did it shape you?|Πόσο σε διαμόρφωσε;
+Add to my universe|Προσθήκη στο σύμπαν μου
+It shows on your profile right away.|Εμφανίζεται αμέσως στο προφίλ σου.
+Book added|Το βιβλίο προστέθηκε
+Film added|Η ταινία προστέθηκε
+Your universe is empty|Το σύμπαν σου είναι άδειο
+Add a book or a film that shaped how you think.|Πρόσθεσε ένα βιβλίο ή μια ταινία που διαμόρφωσε τη σκέψη σου.
+Search my universe|Αναζήτηση στο σύμπαν μου
+(host)|(οικοδεσπότης)
+Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.|Συζητήσεις που αποθηκεύτηκαν στο τέλος των τραπεζιών τους, ανά θέμα. Διάβασε τι ειπώθηκε και ζήτα από τον οικοδεσπότη να μπεις στον επόμενο γύρο.
+Search discussions, topics or hosts|Αναζήτηση συζητήσεων, θεμάτων ή οικοδεσποτών
+Search discussions|Αναζήτηση συζητήσεων
+Topics as constellations. Each star is a saved discussion.|Τα θέματα ως αστερισμοί. Κάθε αστέρι είναι μια αποθηκευμένη συζήτηση.
+Each star is a discussion. Tap a topic to see its discussions.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα θέμα για να δεις τις συζητήσεις του.
+Recent|Πρόσφατες
+Most rounds|Περισσότεροι γύροι
+in|σε
+Picked up again|Συνεχίστηκε ξανά
+Read the discussion|Διάβασε τη συζήτηση
+said|είπε
+Nothing matches.|Δεν βρέθηκε τίποτα.
+Try another word or topic.|Δοκίμασε άλλη λέξη ή θέμα.
+Every table can keep its record|Κάθε τραπέζι μπορεί να κρατήσει το αρχείο του
+At the end of a table, the host can save the transcript and notes here. Anyone can leave their words out.|Στο τέλος ενός τραπεζιού, ο οικοδεσπότης μπορεί να αποθηκεύσει εδώ την απομαγνητοφώνηση και τις σημειώσεις. Όποιος θέλει μπορεί να αφήσει έξω τα λόγια του.
+Notes by the host|Σημειώσεις του οικοδεσπότη
+Ask the host for another round|Ζήτα από τον οικοδεσπότη άλλον έναν γύρο
+This discussion is still going. Ask the host for a chair at the next round.|Αυτή η συζήτηση συνεχίζεται. Ζήτα από τον οικοδεσπότη μια θέση στον επόμενο γύρο.
+All in|Όλα σε
+Each star is a discussion. Tap a subtopic to see its discussions.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα υποθέμα για να δεις τις συζητήσεις του.
+Most picked up this month|Οι πιο συνεχισμένες αυτόν τον μήνα
+more|ακόμη
+Showing|Εμφανίζονται
+Suggested from the conversation.|Προτάθηκε από τη συζήτηση.
+Tap another one to change it.|Πάτησε άλλο για να το αλλάξεις.
+That one already exists, so we picked|Υπάρχει ήδη, οπότε διαλέξαμε
+New subtopics show under “Other” on Discussions until about 5 discussions use them.|Τα νέα υποθέματα εμφανίζονται στα «Άλλα» στις Συζητήσεις μέχρι να τα χρησιμοποιήσουν περίπου 5 συζητήσεις.
+Suggested|Προτεινόμενο
+Other|Άλλα
+How much did you like it?|Πόσο σου άρεσε;
+Pick one|Διάλεξε ένα
+Discussions by|Συζητήσεις από
+More from|Περισσότερα από
+topic|θέμα
+In common|Κοινά
+You too|Κι εσύ
+in common with you|κοινά με σένα
+Mutual reads|Κοινές αναγνώσεις
+mutual reads|κοινές αναγνώσεις
+Gregory's profile|Το προφίλ του Gregory
+Gregory's tables|Τα τραπέζια του Gregory
+past tables|προηγούμενα τραπέζια
+See the discussions|Δες τις συζητήσεις
+Discussion saved|Η συζήτηση αποθηκεύτηκε
+chairs free|ελεύθερες καρέκλες
+coming up|επερχόμενα
+See all discussions|Δες όλες τις συζητήσεις
+See all tables|Δες όλα τα τραπέζια
+At the table now|Στο τραπέζι τώρα

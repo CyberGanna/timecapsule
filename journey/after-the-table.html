@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>After the table · Try the journey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2144;--deep:#121733;--ink:#EEF1FF;--soft:#B4BBE0;--mute:#8E96C4;--violet:#7C5CFF;--teal:#17C3C8;--gold:#F2C14E;--line:#323A6E}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:Sora,Arial,sans-serif;background:var(--deep);color:var(--ink);display:flex;height:100dvh;overflow:hidden}
+a{color:inherit}
+.rail{width:360px;flex:none;display:flex;flex-direction:column;border-right:1px solid var(--line);background:var(--navy)}
+.top{padding:22px 24px 16px;border-bottom:1px solid var(--line)}
+.top .ey{margin:0 0 6px;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.top h1{margin:0;font-size:22px;font-weight:600;letter-spacing:-.01em}
+.top p{margin:6px 0 0;font-size:13px;line-height:1.5;color:var(--mute)}
+.top .home{display:inline-block;margin-bottom:12px;font-size:13px;color:var(--mute);text-decoration:none}
+.top .home:hover{color:#fff}
+ol{list-style:none;margin:0;padding:10px 12px;overflow-y:auto;flex:1}
+.ph{margin:14px 12px 6px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.ph:first-child{margin-top:4px}
+.st button{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;padding:10px 12px;border-radius:12px}
+.st button:hover{background:rgba(255,255,255,.04)}
+.st button:focus-visible{outline:2px solid var(--teal);outline-offset:-2px}
+.st .h{display:flex;gap:10px;align-items:baseline;font-size:14.5px;font-weight:600;color:var(--soft)}
+.st .h b{flex:none;width:20px;font-size:12.5px;color:var(--mute);font-weight:600}
+.st .d{display:none;margin:8px 0 0 30px}
+.st .d p{margin:0 0 8px;font-size:13.5px;line-height:1.55;color:var(--soft);font-weight:300}
+.st .who{display:inline-block;margin:2px 0 0;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:600;background:rgba(242,193,78,.12);color:var(--gold)}
+.st .try{display:block;margin:10px 0 2px;font-size:12.5px;color:var(--mute)}
+.st.on button{background:rgba(23,195,200,.08);box-shadow:inset 0 0 0 1px rgba(23,195,200,.35)}
+.st.on .h{color:#fff}.st.on .h b{color:var(--gold)}
+.st.on .d{display:block}
+.nav{display:flex;gap:8px;align-items:center;padding:14px 16px;border-top:1px solid var(--line)}
+.nav button{all:unset;cursor:pointer;height:38px;padding:0 14px;border-radius:10px;border:1px solid var(--line);font-size:13.5px;font-weight:600;color:var(--soft);display:inline-flex;align-items:center}
+.nav button:hover:not(:disabled){border-color:var(--mute);color:#fff}
+.nav button:disabled{opacity:.35;cursor:default}
+.nav .nx{background:var(--teal);border-color:var(--teal);color:#06262A}
+.nav .nx:hover:not(:disabled){color:#06262A;filter:brightness(1.08)}
+.nav .ct{margin-right:auto;font-size:13px;color:var(--mute)}
+.stage{flex:1;min-width:0;display:flex;flex-direction:column}
+.bar{height:44px;flex:none;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--mute)}
+.bar .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none}
+.bar code{font-family:inherit;color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bar a,.bar button{all:unset;cursor:pointer;color:var(--soft);white-space:nowrap}
+.bar a:hover,.bar button:hover{color:#fff}
+.bar .sp{margin-left:auto}
+iframe{flex:1;width:100%;border:0;background:var(--navy)}
+@media(max-width:820px){
+  body{flex-direction:column}
+  .rail{width:auto;border-right:0;border-bottom:1px solid var(--line);max-height:46dvh}
+  .top{padding:14px 16px 10px}.top h1{font-size:18px}.top p,.top .home{display:none}
+  ol{padding:6px 8px}
+  .ph,.st:not(.on){display:none}
+  .st button{padding:8px 10px}
+  .st .d p{display:none}.st .try{margin-top:8px}
+  .nav{padding:10px 12px}
+  .bar code{display:none}
+}
+</style>
+</head>
+<body>
+<aside class="rail">
+  <div class="top">
+    <a class="home" href="../index.html">‹ All prototype pages</a>
+    <p class="ey">User journey</p>
+    <h1>After the table</h1>
+    <p>Pick a step, then use the real screen on the right. Or do it for real, full screen: <a href="../live-table/timecapsule-live-table.html#as=guest" style="color:var(--teal)">as a guest</a> or <a href="../live-table/timecapsule-live-table.html#as=host" style="color:var(--teal)">as the host</a>.</p>
+  </div>
+  <ol id="steps"></ol>
+  <div class="nav"><span class="ct" id="ct"></span><button type="button" id="pv">‹ Back</button><button type="button" class="nx" id="nx">Next ›</button></div>
+</aside>
+<main class="stage">
+  <div class="bar"><span class="dot"></span><code id="url"></code><span class="sp"></span><button type="button" id="rl">Restart this step</button><a id="nt" target="_blank" rel="noopener">Open in a new tab ↗</a></div>
+  <iframe id="fr" title="Prototype screen"></iframe>
+</main>
+<script>
+const S=[
+ {ph:"Thank the table",t:"Rate the discussion",who:"You are Gabriele, at the table",u:"../rate-tip/timecapsule-rate-tip.html",
+  d:["When the host ends the table, “Rate and tip” opens over the Live Table. One question: How was the discussion?","Skipped it? A reminder comes in the bell and by email, and My tables can open it again."],
+  tr:"Pick a rating, then go on to the tips."},
+ {ph:"Thank the table",t:"Award TimeCoins",who:"You are Gabriele, at the table",u:"../rate-tip/timecapsule-rate-tip.html",
+  d:["Every table you join gives you 8 TimeCoins to award. Split them between the host and the people who inspired you.","Coins received build reputation. Unspent ones expire."],
+  tr:"Split your 8 TimeCoins and send them."},
+ {ph:"Keep the record",t:"Everyone chooses their words",who:"You are Gabriele, at the table",u:"../library/timecapsule-library.html#save&as=guest",
+  d:["Gabriele can include his words or leave them out. Others then see “A participant’s words are left out”.","He can change his mind any time. His kept notes stay private."],
+  tr:"Turn your words off and on again."},
+ {ph:"Keep the record",t:"The host saves it",who:"You are Gregory, the host",u:"../library/timecapsule-library.html#save&as=host",
+  d:["Gregory sees the transcript and the table notes, and saves them to Discussions. AI suggests the topic and subtopic. He can change them.","Words someone left out show as a quiet line."],
+  tr:"Change the topic, then save the discussion."},
+ {ph:"Keep the record",t:"One page for the whole discussion",who:"You are Gabriele, at the table",u:"../library/timecapsule-library.html#r=free-will&as=guest",
+  d:["An AI summary the host can edit, the notes, the questions left open, and the transcript. Every round stacks here.","“More from Gregory” leads to his other discussions."],
+  tr:"Switch between the rounds and open the transcript."},
+ {ph:"Find it again",t:"On the public Discussions page",who:"You are anyone signed in",u:"../help/live-pages/discussions.html",
+  d:["Open tables join a sky of topics anyone can explore: search, topic pills, and the most picked-up discussions of the month.","Private ones never show here."],
+  tr:"Tap a topic pill or search for “free will”."},
+ {ph:"Find it again",t:"In My universe",who:"You are Gabriele",u:"../help/live-pages/myuniverse.html#discussions",
+  d:["Your saved discussions sit next to your Readings, as cards you can filter by topic, Hosted or Joined.","Each card opens the discussion or starts a new round."],
+  tr:"Filter by a topic, then open a card."},
+ {ph:"Find it again",t:"On the profile",who:"You are visiting Gregory",u:"../profile/timecapsule-profile.html#lib",run:d=>{const b=d.querySelector('#viewSeg [data-view=visitor]');b&&b.click()},
+  d:["Each discussion becomes a star in the host’s universe, grouped by topic, and a row in the Discussions tab.","At the end of the Tables and Discussions tabs, “See all” opens the full list."],
+  tr:"Switch the map to Discussions, then try “See all”."},
+ {ph:"Pick it up again",t:"Start a new round",who:"You are the host",u:"../help/live-pages/create.html#again=1&th=Philosophy&q=Is%20free%20will%20an%20illusion%3F",
+  d:["“New round” opens Create a table with the topic and question already filled in. Only the date and time are left.","People who were there join straight away. New people ask the host."],
+  tr:"Pick a date and time, then publish."}
+];
+const $=id=>document.getElementById(id),fr=$("fr");
+let cur=0;
+function list(){let h="",ph="";S.forEach((s,i)=>{if(s.ph!==ph){ph=s.ph;h+=`<li class="ph">${ph}</li>`}
+  h+=`<li class="st" data-i="${i}"><button type="button" aria-controls="fr"><span class="h"><b>${i+1}</b><span>${s.t}</span></span><span class="d"><span class="who">${s.who}</span>${s.d.map(p=>`<p style="margin-top:10px">${p}</p>`).join("")}<span class="try">Try it: ${s.tr}</span></span></button></li>`});
+  $("steps").innerHTML=h}
+function go(i,force){cur=Math.max(0,Math.min(S.length-1,i));const s=S[cur];
+  document.querySelectorAll(".st").forEach(li=>li.classList.toggle("on",+li.dataset.i===cur));
+  document.querySelectorAll(".st button").forEach((b,k)=>b.setAttribute("aria-current",k===cur?"step":"false"));
+  $("ct").textContent=`Step ${cur+1} of ${S.length}`;$("pv").disabled=cur===0;$("nx").disabled=cur===S.length-1;
+  const st=S[cur];if(st.run&&fr.dataset.ran!==String(cur)){fr.dataset.ran=String(cur);setTimeout(()=>{try{st.run(d)}catch(e){}},300)}
+  $("url").textContent=s.u.replace(/^\.\.\//,"/");$("nt").href=s.u;
+  if(force||fr.dataset.u!==s.u){fr.dataset.u=s.u;fr.dataset.ran="";fr.src="about:blank";setTimeout(()=>fr.src=s.u,0)}
+  history.replaceState(null,"","#s="+(cur+1));
+  const on=document.querySelector(".st.on");on&&on.scrollIntoView({block:"nearest"})}
+// keep every click inside the frame: the prototype pages open links with target=_top
+fr.addEventListener("load",()=>{try{const d=fr.contentDocument;if(!d)return;
+  d.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a[target]");if(a&&/_top|_parent/.test(a.target))a.target="_self"},true);
+  const st=S[cur];if(st.run&&fr.dataset.ran!==String(cur)){fr.dataset.ran=String(cur);setTimeout(()=>{try{st.run(d)}catch(e){}},300)}
+  $("url").textContent=fr.contentWindow.location.pathname.replace(/^.*?(\/[^/]+\/[^/]+)$/,"$1")+fr.contentWindow.location.hash}catch(e){}});
+$("steps").addEventListener("click",e=>{const li=e.target.closest(".st");if(li)go(+li.dataset.i)});
+$("pv").onclick=()=>go(cur-1);$("nx").onclick=()=>go(cur+1);$("rl").onclick=()=>go(cur,true);
+document.addEventListener("keydown",e=>{if(e.key==="ArrowRight"||e.key==="ArrowDown"){go(cur+1);e.preventDefault()}if(e.key==="ArrowLeft"||e.key==="ArrowUp"){go(cur-1);e.preventDefault()}});
+list();const m=location.hash.match(/s=(\d+)/);go(m?+m[1]-1:0,true);
+</script>
+</body>
+</html>

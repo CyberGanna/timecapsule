@@ -18,6 +18,15 @@
 .crumb a{color:var(--soft);text-decoration:none}.crumb a:hover{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
 .crumb i{width:8px;height:8px;border-radius:50%;background:var(--c);display:inline-block;margin-right:2px}
 .crumb .sep{opacity:.5}
+.more .mlist{list-style:none;margin:6px 0 0;padding:0}
+.more .mlist li a{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 9px;align-items:baseline;padding:9px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--fg);font-size:14px;line-height:1.35}
+.more .mlist li:first-child a{border-top:0}
+.more .mlist li a:hover b{text-decoration:underline;text-underline-offset:3px}
+.more .mlist i{width:7px;height:7px;border-radius:50%;background:var(--c);display:inline-block;transform:translateY(-1px)}
+.more .mlist b{font-weight:500}
+.more .mlist small{grid-column:2;color:var(--mute);font-size:12.5px}
+.card.more .seeall{display:inline-block;margin-top:10px;color:#17C3C8;font-weight:600;font-size:14px;text-decoration:none}
+.more .seeall:hover{text-decoration:underline;text-underline-offset:3px}
 .meta{color:var(--mute);font-size:14px;margin:0}
 .sum{max-width:720px;margin:22px 0 34px}
 .sumh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px}
@@ -124,6 +133,10 @@
 .choice label:has(input:checked){border-color:var(--lamp);background:rgba(23,195,200,.07)}
 .choice input{margin:3px 0 0;width:18px;height:18px;accent-color:#17C3C8;flex:none}
 .choice small{display:block;color:var(--mute);font-size:13px;margin-top:3px}
+.aisug{display:flex;align-items:flex-start;gap:8px;margin:8px 0 2px;font-size:13px;color:var(--soft)}
+.aisug svg{flex:none;width:15px;height:15px;color:#C9A7FF;margin-top:2px}
+.pills button .ai{width:12px;height:12px;color:#C9A7FF;margin-left:2px}
+.subnote{margin:10px 0 0;font-size:12.5px;color:var(--mute)}
 .where{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--soft)}
 .where i{width:8px;height:8px;border-radius:50%;background:var(--c)}
 .acts{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:8px}
@@ -177,7 +190,7 @@
       </section>
       <section id="vp-nt" role="tabpanel" aria-labelledby="vt-nt" hidden>
         <div class="notes">
-          <div><p class="by">Notes by Gregory, the host</p><ul id="rNotes" data-noi18n></ul></div>
+          <div><p class="by" id="hN">Notes by Gregory, the host</p><ul id="rNotes" data-noi18n></ul></div>
           <div><h2>Questions we left open</h2><ul class="open" id="rOpen" data-noi18n></ul></div>
         </div>
       </section>
@@ -206,19 +219,25 @@
       <div class="card r-guest">
         <h3>Pick it up again</h3>
         <p>You were at this table, so you'll be invited when Gregory plans the next round.</p>
-        <div id="gAskBox"><button type="button" class="btn wide ghost" id="gAsk">Ask Gregory for another round</button></div>
+        <div id="gAskBox"><button type="button" class="btn wide ghost" id="gAsk"><span>Ask Gregory for another round</span></button></div>
         <div class="done" id="gAsked" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Asked. We'll tell you when Gregory plans it.</span></div>
       </div>
       <!-- visitor -->
       <div class="card r-visitor">
         <h3>Join the next round</h3>
-        <p>This discussion is still going. Ask Gregory, the host, for a chair at the next round.</p>
+        <p id="hJ">This discussion is still going. Ask Gregory, the host, for a chair at the next round.</p>
         <div id="vForm">
           <label for="vMsg" class="sublbl" style="display:block;margin-top:0">Why you'd like to join (optional)</label>
           <textarea id="vMsg" maxlength="280" placeholder="A line about what you'd bring"></textarea>
           <button type="button" class="btn wide" id="vSend">Ask for a chair</button>
         </div>
         <div class="done" id="vSent" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Request sent. We'll tell you when Gregory answers.</span></div>
+      </div>
+      <!-- everyone -->
+      <div class="card more" id="moreCard">
+        <h3 id="moreH"></h3>
+        <ul class="mlist" id="moreList"></ul>
+        <a class="seeall" id="seeAll" href="../help/live-pages/discussions.html#h=Gregory" target="_top"></a>
       </div>
     </aside>
   </div>
@@ -250,10 +269,13 @@
         <h2>Where it goes in Discussions</h2>
         <label class="chk"><input type="checkbox" checked id="asRound"><span>Add it as round 3 of <span data-noi18n>“Is free will an illusion?”</span><small>Same topic and place as rounds 1 and 2.</small></span></label>
         <div id="placeBox" hidden>
+          <p class="aisug" id="aiSug"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg><span><span>Suggested from the conversation.</span> <span>Tap another one to change it.</span></span></p>
           <p class="sublbl" style="margin-top:6px">Topic</p>
           <div class="pills" id="topPills"></div>
           <p class="sublbl">Subtopic</p>
           <div class="pills" id="subPills"></div>
+          <p class="subnote" id="dupHint" hidden></p>
+          <p class="subnote" id="newNote" hidden>New subtopics show under “Other” on Discussions until about 5 discussions use them.</p>
         </div>
         <p class="where" id="whereNow" style="margin-top:6px"><i style="--c:#F4A6D7"></i><span>Philosophy</span><span style="opacity:.5">›</span><span>Free will</span></p>
       </div>
@@ -296,7 +318,7 @@
     </div>
     <div class="saved" id="gSaved" hidden>
       <div class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span id="gSavedTx">Done. Your words are in the transcript.</span></div>
-      <div class="acts"><button type="button" class="btn" data-go="rec">Open the discussion</button><a class="btn ghost" href="../rate-tip/timecapsule-rate-tip.html" target="_top">Rate and tip</a></div>
+      <div class="acts"><button type="button" class="btn" data-go="rec">Open the discussion</button><a class="btn ghost" href="../help/live-pages/myuniverse.html#discussions" target="_top">My universe</a></div>
     </div>
   </div>
 </section>
@@ -316,16 +338,21 @@ function line(l,i){
  var you=l[1]=="Gabriele"&&S.role=="guest";
  if(you&&S.mine=="out")return '<li class="out"><div><span>A participant\'s words are left out</span></div></li>';
  var sp=who(l[1]);
- return '<li class="'+(you?"you":"")+'"><span class="av" style="--a:'+(AC[sp]||"#7C5CFF")+'" aria-hidden="true">'+sp[0]+'</span><div><div class="who"><b><span data-noi18n>'+esc(sp)+'</span>'+(you?' <span>(you)</span>':'')+'</b>'+(l[1]=="Gregory"?'<em>Host</em>':'')+'<small>'+esc(l[0])+'</small></div><p data-noi18n>'+esc(l[2])+'</p></div></li>'}
+ return '<li class="'+(you?"you":"")+'"><span class="av" style="--a:'+(AC[sp]||"#7C5CFF")+'" aria-hidden="true">'+sp[0]+'</span><div><div class="who"><b><span data-noi18n>'+esc(sp)+'</span>'+(you?' <span>(you)</span>':'')+'</b>'+(l[1]==(rec().host||"Gregory")?'<em>Host</em>':'')+'<small>'+esc(l[0])+'</small></div><p data-noi18n>'+esc(l[2])+'</p></div></li>'}
 // In the "wasn't there" view Gabriele is the visitor, so the same seat belongs to Elias
 function who(n){return n=="Gabriele"&&S.role=="visitor"?"Elias":n}
 function render(){
  var r=rec(),rd=r.rounds[S.round],tl=rd.tx;
  document.title="TimeCapsule Discussions";
  $("rcTop").innerHTML='<i style="--c:'+r.col+'"></i><span>'+esc(r.topic)+'</span>';$("rcSub").textContent=r.sub;
- $("rTitle").textContent=r.title;
+ $("rTitle").textContent=r.title;var cl=$("rcLib");var HN=r.host||"Gregory",HL="../help/live-pages/discussions.html#h="+HN;cl.href=HL;cl.innerHTML=r.host?'<span>Discussions by</span> <span data-noi18n>'+esc(HN)+'</span>':'<span>Gregory\'s discussions</span>';
+ var MON={Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12},kk=function(x){var p=x.rounds[x.rounds.length-1].date.split(" ");return MON[p[2]]*100+ +p[1]};
+ var mine=Object.keys(D.byId).map(function(k){return D.byId[k]}).filter(function(x){return (x.host||"Gregory")==HN&&(!x.private||S.role=="host")}),oth=mine.filter(function(x){return x.id!=r.id}).sort(function(a,b){return kk(b)-kk(a)}).slice(0,3);
+ $("moreCard").hidden=!oth.length;$("moreH").innerHTML='<span>More from</span> <span data-noi18n>'+esc(HN)+'</span>';
+ $("moreList").innerHTML=oth.map(function(x){var d=x.rounds[x.rounds.length-1].date.split(" ");return '<li><a href="#r='+x.id+'&as='+S.role+(/lang=\w+/.test(location.hash)?'&'+location.hash.match(/lang=\w+/)[0]:'')+'" style="--c:'+x.col+'"><i></i><b data-noi18n>'+esc(x.title)+'</b><small><span>'+esc(x.topic)+'</span> · '+d[1]+' <span>'+d[2]+'</span>'+(x.rounds.length>1?' · '+x.rounds.length+' <span>rounds</span>':'')+'</small></a></li>'}).join("");
+ $("seeAll").href=HL;$("seeAll").innerHTML='<span>See all</span> '+mine.length+' ›';$("hN").innerHTML='<span>'+(r.host?'Notes by the host':'Notes by Gregory, the host')+'</span>';$("gAsk").innerHTML='<span>'+(r.host?'Ask the host for another round':'Ask Gregory for another round')+'</span>';$("hJ").innerHTML='<span>'+(r.host?'This discussion is still going. Ask the host for a chair at the next round.':'This discussion is still going. Ask Gregory, the host, for a chair at the next round.')+'</span>';var hb=document.querySelector('#roleSeg [data-role="host"]');hb.innerHTML=r.host?'<span data-noi18n>'+esc(r.host)+'</span> <span>(host)</span>':"Gregory (host)";
  var n=rd.people,left=rd.out;
- $("rMeta").innerHTML=(r.rounds.length>1?'<span>Round</span> '+(S.round+1)+' <span>of</span> '+r.rounds.length+' · ':'')+'<span>'+esc(rd.date)+'</span> · <span>Hosted by Gregory</span>';
+ $("rMeta").innerHTML=(r.rounds.length>1?'<span>Round</span> '+(S.round+1)+' <span>of</span> '+r.rounds.length+' · ':'')+'<span>'+esc(rd.date)+'</span> · '+(r.host?'<span>Hosted by</span> <span data-noi18n>'+esc(r.host)+'</span>':'<span>Hosted by Gregory</span>');
  var rb=$("rRounds");rb.hidden=r.rounds.length<2;
  rb.innerHTML=r.rounds.map(function(x,i){return (i?'<span class="rline" aria-hidden="true"></span>':'')+'<button type="button" data-r="'+i+'" aria-pressed="'+(i==S.round)+'"><span>Round</span> '+(i+1)+' <small>'+esc(x.date)+'</small></button>'}).join("");
  var names=rd.names.slice();if(rd.tx.some(function(l){return l[1]=="Gabriele"})&&names.indexOf("Gabriele")<0)names.splice(1,0,"Gabriele");names=names.map(who);
@@ -348,7 +375,6 @@ function render(){
  document.querySelectorAll(".r-host").forEach(function(e){e.hidden=S.role!="host"});
  document.querySelectorAll(".r-guest").forEach(function(e){e.hidden=S.role!="guest"});
  document.querySelectorAll(".r-visitor").forEach(function(e){e.hidden=S.role!="visitor"});
- $("rcLib").textContent="Gregory's discussions";
  // save screen
  $("sTx").innerHTML=D.byId["free-will"].rounds[2].tx.slice(0,6).map(function(l){var o=S.role;S.role="host";var h=line(l);S.role=o;return h}).join("");
  document.querySelectorAll(".s-host").forEach(function(e){e.hidden=S.role!="host"});
@@ -378,15 +404,20 @@ $("reqs").onclick=function(e){var b=e.target.closest(".ra button");if(!b)return;
 $("gAsk").onclick=function(){$("gAskBox").hidden=true;$("gAsked").hidden=false};
 $("vSend").onclick=function(){$("vForm").hidden=true;$("vSent").hidden=false};
 // save (host)
-var TOP=["Philosophy","Religion","Energy","Travel","Home","Craft"],SUB={Philosophy:["Free will","Phenomenology","Ethics"],Religion:["Faith","Ritual"],Energy:["Wind","Nuclear"],Travel:["Road trips","Slow travel"],Home:["Belonging"],Craft:["Repair"]},P={t:"Philosophy",s:"Free will"};
+var TOP=["Philosophy","Religion","Energy","Travel","Home","Craft"],SUB={Philosophy:["Free will","Phenomenology","Ethics","Mind","Meaning","Time"],Religion:["Faith","Ritual","Sacred texts"],Energy:["Wind","Nuclear","Solar"],Travel:["Road trips","Slow travel","Walking"],Home:["Belonging","Neighbours"],Craft:["Repair","Woodwork"]},AI={t:"Philosophy",s:"Free will"},P={t:AI.t,s:AI.s},NEWS={};
+var SPARK='<svg class="ai" viewBox="0 0 24 24" aria-label="Suggested"><path fill="currentColor" d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6z"/></svg>';
+function nrm(x){return x.toLowerCase().replace(/[^a-z]/g,"")}
 function pills(){
- $("topPills").innerHTML=TOP.map(function(t){return '<button type="button" aria-pressed="'+(t==P.t)+'" data-t="'+t+'"><i style="--c:'+D.col[t]+'"></i>'+t+'</button>'}).join("");
- $("subPills").innerHTML=SUB[P.t].map(function(s){return '<button type="button" aria-pressed="'+(s==P.s)+'" data-s="'+esc(s)+'"><i style="--c:'+D.col[P.t]+'"></i>'+esc(s)+'</button>'}).join("")+'<input type="text" id="newSub" placeholder="+ New subtopic" aria-label="New subtopic">';
+ $("topPills").innerHTML=TOP.map(function(t){return '<button type="button" aria-pressed="'+(t==P.t)+'" data-t="'+t+'"><i style="--c:'+D.col[t]+'"></i>'+t+(t==AI.t?SPARK:'')+'</button>'}).join("");
+ $("subPills").innerHTML=SUB[P.t].map(function(s){return '<button type="button" aria-pressed="'+(s==P.s)+'" data-s="'+esc(s)+'"><i style="--c:'+D.col[P.t]+'"></i>'+(NEWS[s]?'<span data-noi18n>'+esc(s)+'</span>':esc(s))+(P.t==AI.t&&s==AI.s?SPARK:'')+'</button>'}).join("")+'<input type="text" id="newSub" placeholder="+ New subtopic" aria-label="New subtopic">';
  $("whereNow").innerHTML='<i style="--c:'+D.col[P.t]+'"></i><span>'+P.t+'</span><span style="opacity:.5">›</span><span>'+esc(P.s)+'</span>';
- $("newSub").onkeydown=function(e){if(e.key=="Enter"&&this.value.trim()){SUB[P.t].push(this.value.trim());P.s=this.value.trim();pills();$("newSub").focus()}}}
+ $("newNote").hidden=!NEWS[P.s];
+ $("newSub").onkeydown=function(e){if(e.key!="Enter"||!this.value.trim())return;e.preventDefault();var v=this.value.trim(),same=SUB[P.t].filter(function(x){return nrm(x)==nrm(v)})[0];
+  if(same){P.s=same;pills();$("dupHint").innerHTML='<span>That one already exists, so we picked</span> “'+esc(same)+'”.';$("dupHint").hidden=false;return}
+  $("dupHint").hidden=true;SUB[P.t].push(v);NEWS[v]=1;P.s=v;pills();$("newSub").focus()}}
 $("topPills").onclick=function(e){var b=e.target.closest("[data-t]");if(!b)return;P.t=b.dataset.t;P.s=SUB[P.t][0];pills()};
-$("subPills").onclick=function(e){var b=e.target.closest("[data-s]");if(!b)return;P.s=b.dataset.s;pills()};
-$("asRound").onchange=function(){$("placeBox").hidden=this.checked;if(this.checked){P={t:"Philosophy",s:"Free will"}}pills()};
+$("subPills").onclick=function(e){var b=e.target.closest("[data-s]");if(!b)return;P.s=b.dataset.s;$("dupHint").hidden=true;pills()};
+$("asRound").onchange=function(){$("placeBox").hidden=this.checked;if(this.checked){P={t:AI.t,s:AI.s}}pills()};
 $("hSave").onclick=function(){$("hForm").hidden=true;$("hSaved").hidden=false;$("hSaved").querySelector(".done span").innerHTML='<span>Saved to Discussions, in</span> <span>'+P.t+'</span> › <span>'+esc(P.s)+'</span>';scrollTo(0,0)};
 $("hLater").onclick=function(){$("hForm").hidden=true;$("hNot").hidden=false};
 $("gDone").onclick=function(){var out=document.querySelector('input[name=me]:checked').value=="out";S.mine=out?"out":"in";document.querySelectorAll("[data-mine]").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.mine==S.mine)});$("gSavedTx").textContent=out?"Done. Your words are left out of the transcript.":"Done. Your words are in the transcript.";$("gForm").hidden=true;$("gSaved").hidden=false;scrollTo(0,0)};
@@ -394,6 +425,6 @@ $("gDone").onclick=function(){var out=document.querySelector('input[name=me]:che
 function fromHash(){var m=location.hash.match(/r=([a-z-]+)/);S.rec=m&&D.byId[m[1]]?m[1]:"free-will";S.round=rec().rounds.length-1;if(/save/.test(location.hash)){S.scr="save";document.querySelectorAll("#scrSeg button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.scr=="save")})}
  var am=location.hash.match(/as=(host|guest|visitor)/);if(am){S.role=am[1];document.querySelectorAll("#roleSeg button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.role==S.role)})}}
 fromHash();pills();render();
-window.addEventListener("hashchange",function(){fromHash();render()});
+window.addEventListener("hashchange",function(){fromHash();render();scrollTo(0,0)});
 })();
 </script>

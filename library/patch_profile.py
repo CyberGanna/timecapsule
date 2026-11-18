@@ -29,14 +29,47 @@ def lib_tab(recs):
                          % (' lbpriv' if r['private'] else '', r['id'], r['id'], html.escape(r['title']), meta, lock))
             h.append('</ul>')
         h.append('</div>')
+    nall = len(recs); npub = sum(1 for r in recs.values() if not r['private'])
+    h.append('<p class="seeall"><a class="lbo" href="../help/live-pages/myuniverse.html#discussions" target="_top"><span>See all discussions</span> ›</a><a class="lbv" href="../help/live-pages/discussions.html#h=Gregory" target="_top"><span>See all discussions</span> ›</a></p>' % ())
     h.append('</section>')
     return '\n'.join(h)
 
 CSS = r'''<style id="lib-css">
 .sunav{cursor:default;outline:none}
 .lbreads.libmode .wmt,.lbreads.libmode .kb-r,.lbreads:not(.libmode) .kb-l{display:none}
-.lbreads .uni{background:#0F1A30;border:1px solid #6CB8FF}
-.lbreads.libmode .uni{border-color:#F0C858}
+.lbreads .uni{background:#0F1A30}
+.lbreads .uni:not(.fs){background:none;border:0;border-radius:0}
+#uniview:not(.fsw){background:STARS 0 0/calc(var(--uw,340px) * 2) auto;padding:4px 0 6px}
+#uniview.fsw{background:STARS 0 0/calc(var(--uw,340px) * 2) auto,#0F1A30!important}
+#uni>circle{display:none}
+#uniview.fsw .uni.fs{background:none!important;border:0!important;box-shadow:none}
+#uniview:not(.fsw) .unicap{margin-top:4px;padding-bottom:6px}
+#uniview.fsw .uni.fs .ufs{width:44px;height:44px;top:2px;right:2px}
+#uniview.fsw .uni.fs .ufs svg{width:34px;height:34px;stroke-width:1.8}
+#uniview.fsw .uni.fs .unitog button{font-size:15px}
+#uniview.fsw #uni g.bk>circle{transform:scale(.77)}
+#uniview.fsw .uni.fs .ulink{font-size:13px}
+#uniview.fsw .uni.fs .urow .un{font-size:14px}
+#uniview.fsw .unicap{font-size:15px;color:var(--mute);max-width:none;width:calc(min(100%, calc((100vh - 150px) * 1.36)) - 28px)}
+.lbreads .uni .ufs,.lbreads .uni .ufs:hover,.lbreads .uni .ufs:focus,.lbreads .uni .ufs:focus-visible{background:none!important;outline:none;box-shadow:none}
+.lbreads .uni .ufs:hover{opacity:.75}
+.unicap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:10px;text-align:left}
+.unicap .cl{justify-self:start;white-space:nowrap}
+.unicap .cm{white-space:nowrap}
+.unicap .cl .caplink+.caplink{margin-left:8px}
+.unicap .cm{justify-self:center;text-align:center}
+.unicap .cr{justify-self:end;display:flex}
+.unicap .wm{position:static;pointer-events:auto}
+.unicap .qhelp{width:18px;height:18px;font-size:11px}
+#uniview.fsw .unicap .qhelp{width:22px;height:22px;font-size:13px}
+.lbreads .uni:not(.fs) .unitog{left:0}
+.lbreads .uni:not(.fs) .ufs{right:0}
+.lbreads .uni:not(.fs) .ulink{left:-12px}
+.lbreads .uni:not(.fs) .ulay.pg{background:none;padding-left:0;padding-right:0}
+.lbreads .uni .ulay.pg{background:none!important;border-radius:0;box-shadow:none}
+.lbreads .uni:has(.ulay.pg:not([hidden])) #uni{visibility:hidden}
+#uniview:not(.fsw):has(.ulay.pg:not([hidden]) .ph>b:not([style])){background:none}
+#uniview.fsw:has(.ulay.pg:not([hidden]) .ph>b:not([style])){background:#0F1A30!important}
 .sunav .avglow{transform-box:fill-box;transform-origin:center;animation:avp 3.6s ease-in-out infinite}
 @keyframes avp{50%{opacity:.55;transform:scale(1.18)}}
 @media (prefers-reduced-motion:reduce){.sunav .avglow{animation:none}}
@@ -64,13 +97,16 @@ CSS = r'''<style id="lib-css">
 #uniview.fsw .uni.fs #uni{margin:0!important}
 #uniview.fsw .uni.fs .ulay,#uniview.fsw .uni.fs .ulay:not(.pg){top:0!important;bottom:0!important}
 #uniview.fsw .uni.fs .unitog{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:16px}
-#uniview.fsw .uni.fs .ufs{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px}
+#uniview.fsw .uni.fs .ufs{position:fixed;top:calc(5px + env(safe-area-inset-top,0px));right:6px}
 #uniview.fsw .uni.fs .ulink{position:fixed;top:calc(54px + env(safe-area-inset-top,0px));left:8px}
-#uniview.fsw .uni.fs .ulay.pg{position:fixed;background:#0F1A30;top:calc(44px + env(safe-area-inset-top,0px))!important;padding-top:52px}
+#uniview.fsw .unicap{width:calc(100% - 32px)}
+#uniview.fsw:has(.ulay.pg:not([hidden])) .unicap{visibility:hidden}
+#uniview.fsw .uni.fs .ulay.pg{position:fixed;top:calc(44px + env(safe-area-inset-top,0px))!important;padding-top:52px}
 }
 .uni.fs .ua.uend{min-width:31px;height:28px;line-height:28px;padding:0 8px;font-size:17px}
 .uni:has(#ulink:not([hidden])) #pgb{visibility:hidden}
 #uni-h{margin-bottom:4px}
+.lbsec>h2,.lbsec .reads>h2,.lbreads h2{color:var(--text)}
 body.visitor .unitog .lbc-o,body:not(.visitor) .unitog .lbc-v{display:none}
 .ulay .pl li[data-r]{cursor:pointer}.ulay .pl li[data-r]:hover span{text-decoration:underline;text-underline-offset:3px}
 .lbintro{margin:4px 0 18px;color:var(--mute);font-size:13.5px;line-height:1.5}
@@ -93,6 +129,19 @@ body.visitor #t-lb .lbc-o,body:not(.visitor) #t-lb .lbc-v{display:none}
 @media (max-width:640px){.lbk{display:none}.lbt h4,.lbl{margin-left:0;padding-left:0}}
 </style>'''
 
+import random as _r
+def _stars():
+    g=_r.Random(7);c=[]
+    for i in range(540):
+        x,y,r,o=g.random()*680,g.random()*750,g.random()*.9+.2,g.random()*.45+.1
+        a='<animate attributeName="opacity" values=".2;.85;.2" dur="3.2s" begin="%.1fs" repeatCount="indefinite"/>'%(i%30/10) if i%6==0 else ''
+        c.append('<circle cx="%.1f" cy="%.1f" r="%.2f" fill="#EEF1FF" opacity="%.2f">%s</circle>'%(x,y,r,o,a) if a else '<circle cx="%.1f" cy="%.1f" r="%.2f" fill="#EEF1FF" opacity="%.2f"/>'%(x,y,r,o))
+    svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 750" width="680" height="750">'+''.join(c)+'</svg>'
+    from urllib.parse import quote
+    return 'url("data:image/svg+xml,'+quote(svg)+'")'
+CSS = CSS.replace('STARS', _stars())
+
+
 def run(ROOT, recs, LIBD, add_dict):
     P = os.path.join(ROOT, 'profile/timecapsule-profile.html')
     s = open(P, encoding='utf8').read()
@@ -105,7 +154,7 @@ def run(ROOT, recs, LIBD, add_dict):
             '<button type="button" role="tab" id="t-lb" aria-selected="false" aria-controls="p-lb"><b class="lbc-o">%d</b><b class="lbc-v">%d</b> Discussions</button>\n    <button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>' % (len(recs), npub))
     s = rep(s, '  <section class="panel" id="p-fw" role="tabpanel"', lib_tab(recs) + '\n\n  <section class="panel" id="p-fw" role="tabpanel"')
     s = rep(s, '<h2 id="uni-h">My readings <span>36</span></h2>',
-            '<h2 id="uni-h">My universe</h2>')
+            '<h2 id="uni-h">Universe</h2>')
     s = rep(s, '<div class="uni"><button type="button" class="ulink"', '<div class="uni"><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">Readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">Discussions <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div><button type="button" class="ulink"' % (len(recs), npub))
     # library data for the map: one orbit per topic, one star per discussion
     order = []; by = {}
@@ -129,7 +178,7 @@ def run(ROOT, recs, LIBD, add_dict):
     s = rep(s, "'<li style=\"--c:'+th.c+'\"><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i", "'<li style=\"--c:'+th.c+'\"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i")
     s = rep(s, '<b>All books</b>', "<b>'+(MODE==\"lib\"?\"All discussions\":\"All books\")+'</b>")
     s = rep(s, "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);return '<button type=\"button\" class=\"caplink\" data-act=\"all\">'+nb+' books</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\">'+T.length+' themes</button>. Hover/tap to learn more.'}",
-            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>. <span>Tap a planet to open it.</span>';return '<button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> books</button>. <span>Tap a planet to open it.</span>'}")
+            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>.</span><span class=\"cm\"></span><span class=\"cr\"></span>';return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> books</button>.</span><span class=\"cm\"></span><span class=\"cr\"></span>'}")
     HELP = r'''function BY(){return MODE=="lib"?", ":" by "}
 function RA(b){return b&&b[2]?' data-r="'+b[2]+'" tabindex="0" role="link"':''}
 function goRec(id){var a=document.createElement("a");a.href="../library/timecapsule-library.html#r="+id+(document.body.classList.contains("visitor")?"&as=visitor":"");a.target="_top";document.body.appendChild(a);a.click();a.remove()}
@@ -150,15 +199,35 @@ document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListen
 function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;U.list=false;U.page=-1;U.allPg=false;U.uniPg=false;ulay.hidden=true;ulay.className="ulay";ulink.hidden=true;ulink.textContent="☰ List";s.classList.remove("dim");s.parentNode.classList.remove("pgm");if(typeof back!="undefined"&&back)back.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");var kq=document.getElementById("kq");if(kq)kq.setAttribute("aria-label",m=="lib"?"What are Discussions?":"What is k-universe?");var kb=document.getElementById("kbox");if(kb)kb.setAttribute("aria-label",m=="lib"?"About Discussions":"About k-universe");universe()}
 window.KUlib=function(){if(MODE!="lib")setMode("lib")};
 '''
+    # avatar menu: My universe (Readings + Discussions page)
+    s = rep(s, '<a href="../help/live-pages/mytables.html" target="_top">My tables</a>', '<a href="../help/live-pages/mytables.html" target="_top">My tables</a><a href="../help/live-pages/myuniverse.html" target="_top">My universe</a>')
+    s = rep(s, '<nav class="tch-nav" aria-label="Main"><a href="../help/live-pages/agenda.html" target="_top">Tables</a>', '<nav class="tch-nav" aria-label="Main"><a href="../help/live-pages/agenda.html" target="_top">Tables</a><a href="../help/live-pages/discussions.html" target="_top">Discussions</a>')
     s = rep(s, '\nuniverse();\nwindow.KU={T:T,render:universe};', '\n' + HELP + 'universe();\nwindow.KU={T:RT,render:function(){if(MODE!="read"){MODE="read";T=RT;var r=document.querySelector(".lbreads");if(r)r.classList.remove("libmode");document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m=="read")})}universe()}};')
     s = rep(s, 'd.onclick=function(e){e.stopPropagation();show(d)}', 'd.onclick=function(e){e.stopPropagation();if(MODE=="lib"){goRec(T[d.dataset.i].b[d.dataset.j][2]);return}show(d)}')
     # deep link #lib opens the Library tab and the library map
-    TAIL = CSS + '''<script>(function(){if(!/(^#|&)lib\\b/.test(location.hash))return;var t=document.getElementById("t-lb");if(t)t.click();if(window.KUlib)KUlib()})();</script>\n'''
+    TAIL = CSS + '''<script>(function(){var u=document.getElementById("uni"),v=document.getElementById("uniview");if(!u||!v||!window.ResizeObserver)return;function f(){var w=u.getBoundingClientRect().width;if(w)v.style.setProperty("--uw",w.toFixed(1)+"px")}new ResizeObserver(f).observe(u);f()})();</script><script>(function(){var cap=document.getElementById("unicap"),wm=document.querySelector(".uni .wm");if(!cap||!wm)return;function put(){var r=cap.querySelector(".cr");if(r&&wm.parentNode!==r)r.appendChild(wm)}new MutationObserver(put).observe(cap,{childList:true});put()})();</script><script>(function(){function go(){if(!/(^#|&)lib\\b/.test(location.hash))return;var t=document.getElementById("t-lb");if(t){t.click();setTimeout(function(){(document.getElementById("t-lb").closest(".lbtabs")||t).scrollIntoView({behavior:"smooth",block:"start"})},60)}}go();addEventListener("hashchange",go)})();</script>\n'''
     i = s.rindex('</body></html>')
     s = s[:i] + TAIL + s[i:]
     s = s.replace('◎ Universe', '‹ Back')
     s = rep(s, '\nfunction allBooks(){', '\nvar _ulb=ulink.onclick;ulink.onclick=function(){utip.hidden=true;if(U.list&&!U.uniPg&&(U.page>=0||U.allPg)){rows();return}_ulb()};\nfunction allBooks(){')
     s = rep(s, 'var cx=170,cy=125,TILT=-14,', 'var cx=170,cy=125,TILT=MODE=="lib"?14:-14,')
+    # "In common": books and films the viewer (Gabriele) also has in their universe
+    COMMON = ['Being and Time', 'The Human Condition', 'Meditations', 'The Myth of Sisyphus', 'The Poetics of Space', 'The Craftsman', 'On the Road']
+    s = rep(s, '\nfunction allBooks(){U.allPg=true;', '\nvar MINE=' + json.dumps(COMMON) + ';function YT(b){return MODE!="lib"&&MINE.indexOf(b[0])>=0}function YTM(b){return YT(b)?\' <em class="yt">You too</em>\':""}function NCOM(){var n=0;RT.forEach(function(th){th.b.forEach(function(b){if(MINE.indexOf(b[0])>=0)n++})});return n}\nfunction allBooks(cm){U.allPg=true;')
+    s = rep(s, """<b>'+(MODE=="lib"?"All discussions":"All books")+'</b><span style="min-width:52px"></span></div><ul class="pl">'+T.map(function(th){return th.b.map(function(b){return '<li style="--c:'+th.c+'"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i style="font-style:normal;color:'+th.c+'">'+th.n+'</i></small></li>'}).join("")}).join("")+'</ul>';""",
+      """<b>'+(MODE=="lib"?"All discussions":"All books")+'</b>'+(MODE=="lib"?'<span style="min-width:52px"></span>':'<button type="button" class="cmb" aria-pressed="'+!!cm+'"><span>Mutual reads</span></button>')+'</div><ul class="pl">'+(function(){var L=[];T.forEach(function(th){th.b.forEach(function(b){L.push([th,b])})});if(cm)L=L.filter(function(x){return YT(x[1])}).concat(L.filter(function(x){return !YT(x[1])}));return L.map(function(x){var th=x[0],b=x[1];return '<li style="--c:'+th.c+'"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i style="font-style:normal;color:'+th.c+'">'+th.n+'</i>'+YTM(b)+'</small></li>'}).join("")})()+'</ul>';var cmb=ulay.querySelector(".cmb");if(cmb)cmb.onclick=function(e){e.stopPropagation();allBooks(!cm)};""")
+    s = rep(s, """'</span><small>'+esc(b[1])+'</small></li>'}).join("")+'</ul>';""", """'</span><small>'+esc(b[1])+YTM(b)+'</small></li>'}).join("")+'</ul>';""")
+    s = rep(s, """<button type="button" class="caplink" data-act="all"><span>'+nb+'</span> books</button>.</span>""", """<button type="button" class="caplink" data-act="all"><span>'+nb+'</span> books</button>. <button type="button" class="caplink" data-act="common"><span>'+NCOM()+'</span> mutual reads</button>.</span>""")
+    s = rep(s, 'if(b.dataset.act=="all")allBooks();', 'if(b.dataset.act=="all"||b.dataset.act=="common")allBooks(b.dataset.act=="common");')
+    s = rep(s, '</head>', '<style id="tc-common">.ulay .pl .yt{font-style:normal;color:#17C3C8;font-weight:600;margin-left:4px}.ulay .ph .cmb{all:unset;cursor:pointer;font-size:12px;line-height:1;color:#A9B0D6;border:1px solid #3A4175;border-radius:999px;padding:5px 10px;white-space:nowrap}.ulay .ph .cmb[aria-pressed=true]{color:#17C3C8;border-color:#17C3C8;background:rgba(23,195,200,.12)}.ulay .ph .cmb:focus-visible{outline:2px solid #17C3C8;outline-offset:2px}</style></head>')
+    # "See all" at the end of the Tables tab (Karim 2026-11-18): owner -> My tables, visitor -> Gregory's tables page
+    i = s.index('id="p-tb"'); j = s.index('<button type="button" class="more">Show more</button>', i)
+    s = s[:j] + '<button type="button" class="more" hidden>Show more</button><p class="seeall"><a class="lbo" href="../help/live-pages/mytables.html" target="_top"><span>See all tables</span> ›</a><a class="lbv" href="../help/live-pages/hosttables.html" target="_top"><span>See all tables</span> ›</a></p>' + s[j + len('<button type="button" class="more">Show more</button>'):]
+    s = rep(s, '</head>', '<style id="tc-seeall">.panel .seeall{margin:18px 0 0;text-align:center}.panel .seeall a{color:#17C3C8;text-decoration:none;font-weight:600;font-size:14.5px}.panel .seeall a:hover{text-decoration:underline}</style></head>')
+    # Past tables: a "Read" button for tables with a saved discussion instead of the TimeCoins earned (Karim 2026-11-18)
+    SAVED = {r['title']: [k, bool(r['private'])] for k, r in recs.items()}
+    s = s[:s.rindex('</body>')] + ('<script id="tc-read">(function(){var S=' + json.dumps(SAVED) + ';function go(){document.querySelectorAll("#p-tb .trow:not(.cur)").forEach(function(li){var e=li.querySelector(".earn");if(!e)return;var b=li.querySelector(".tinfo b"),x=b&&S[b.textContent.trim()];if(!x){e.remove();return}var h="../library/timecapsule-library.html#r="+x[0];var w=document.createElement("span");w.className="tread";w.innerHTML=\'<a class="lbo" href="\'+h+\'&as=host" target="_top">Read</a>\'+(x[1]?"":\'<a class="lbv" href="\'+h+\'&as=visitor" target="_top">Read</a>\');w.addEventListener("click",function(ev){ev.stopPropagation()});e.replaceWith(w)})}if(document.readyState=="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(go,0)});else setTimeout(go,0)})();</script>') + s[s.rindex('</body>'):]
+    s = rep(s, '</head>', '<style id="tc-read-css">.tread{margin-left:auto;flex:none;display:flex}.tread a{display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:10px;border:1px solid var(--line2);color:var(--text);font-size:13px;font-weight:500;text-decoration:none}.tread a:hover{border-color:#17C3C8;color:#17C3C8}</style></head>')
     open(P, 'w', encoding='utf8').write(s)
     subprocess.run(['python3', os.path.join(ROOT, 'i18n/add-greek.py'), P], check=True)
     print('profile patched', len(s))

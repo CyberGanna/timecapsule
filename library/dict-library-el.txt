@@ -145,3 +145,10 @@ About Discussions|Σχετικά με τις Συζητήσεις
 Universe|Σύμπαν
 My universe|Το σύμπαν μου
 books|βιβλία
+Tap to open.|Πάτησε για να ανοίξει.
+(host)|(οικοδεσπότης)
+You too|Κι εσύ
+Mutual reads|Κοινές αναγνώσεις
+mutual reads|κοινές αναγνώσεις
+See all discussions|Δες όλες τις συζητήσεις
+See all tables|Δες όλα τα τραπέζια

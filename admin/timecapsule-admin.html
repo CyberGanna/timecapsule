@@ -511,7 +511,7 @@ function drawNav(cur){
   const m=$('#mnav [aria-current]');if(m&&getComputedStyle($('#mnav')).display!=='none')$('#mnav').scrollLeft=m.offsetLeft-20;
 }
 const VIEWS={};let cur='dashboard';
-function route(){const h=location.hash.slice(1);const id=h.split('-')[0];cur=VIEWS[id]?id:'dashboard';closeDrawer();drawNav(cur);VIEWS[cur]();window.scrollTo(0,0);
+function route(){const h=location.hash.slice(1);const id=h.split('-')[0];cur=VIEWS[id]?id:'dashboard';if(h==='topics-subs')tpTab='subs';closeDrawer();drawNav(cur);VIEWS[cur]();window.scrollTo(0,0);
   const sub=h.slice(id.length+1);if(sub&&cur==='conversations'){if(sub[0]==='d'){convKind='direct';selDm=sub}else{convKind='tables';selConv=sub}cQuery='';VIEWS.conversations()}}
 addEventListener('hashchange',route);
 const M=()=>$('#main');
@@ -781,12 +781,55 @@ function drawConv(){
 }
 
 /* ---------- Topics ---------- */
+/* ---------- Subtopics (Discussions) ---------- */
+// Hosts pick or type a subtopic when they save a table; the AI suggests one first. A new subtopic shows under "Other" on Discussions until it has SUBMIN discussions.
+const SUBMIN=5;
+let SUBT=[['philosophy','Ethics',64],['philosophy','Time',63],['philosophy','Phenomenology',62],['philosophy','Free will',55],['philosophy','Mind',49],['philosophy','Meaning',49],['philosophy','Freewill',3],['philosophy','Free choice',2],['philosophy','Stoicism',3],
+ ['science','Space',52],['science','Brain',44],['science','Minds',41],['science','Physics',39],['science','Evolution',38],['science','Sleep',2],
+ ['history','Memory',41],['history','Letters',36],['history','Family',33],['history','Empires',31],['history','Cities',27],
+ ['religion','Faith',15],['religion','Ritual',12],['religion','Sacred texts',10],['religion','Sacred Texts',1],
+ ['energy','Wind',29],['energy','Nuclear',25],['energy','Solar',24],['energy','Grid',19],
+ ['travel','Road trips',26],['travel','Slow travel',24],['travel','Walking',21],['travel','Cities',17],
+ ['home','Belonging',25],['home','Neighbours',21],['home','Rooms',17],['craft','Repair',10],['craft','Woodwork',8],['craft','Sewing',5]].map(([t,n,c],i)=>({id:'s'+i,topic:t,name:n,n:c}));
+let subTopic='',tpTab='topics';
+const norm=x=>x.toLowerCase().replace(/[^a-z]/g,'');
+const SAMEIDEA=[['Free choice','Free will']];
+function subDupes(){const out=[];SUBT.forEach(a=>{SUBT.forEach(b=>{if(a!==b&&a.topic===b.topic&&a.n<b.n&&(norm(a.name)===norm(b.name)||SAMEIDEA.some(([x,y])=>x===a.name&&y===b.name)))out.push([a,b,norm(a.name)===norm(b.name)?'Same words, different spelling':'Looks like the same idea'])})});return out}
+function mergeSub(from,into){const keep=SUBT.slice(),n=from.n;into.n+=n;SUBT=SUBT.filter(x=>x!==from);logAction(`merged the subtopic ${from.name} into ${into.name}`);VIEWS.topics();toast(`Merged ${from.name} into ${into.name}. ${n} discussion${n==1?'':'s'} moved.`,()=>{into.n-=n;SUBT=keep;VIEWS.topics()})}
+function drawSubs(){
+  const L=SUBT.filter(x=>!subTopic||x.topic===subTopic).sort((a,b)=>a.topic.localeCompare(b.topic)||b.n-a.n),D=subDupes().filter(([a])=>!subTopic||a.topic===subTopic);
+  $('#tpbody').innerHTML=`${D.length?`<div class="note warn" style="margin-bottom:14px;display:block"><b style="color:var(--fg);font-weight:600">Possible duplicates</b><div style="display:grid;gap:8px;margin-top:8px">${D.map(([a,b,why])=>`<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">${tpTag(a.topic)}<span style="color:var(--fg)">${esc(a.name)}</span><span style="color:var(--mute)">(${a.n})</span><span style="color:var(--mute)">→</span><span style="color:var(--fg)">${esc(b.name)}</span><span style="color:var(--mute)">(${b.n}) · ${why}</span><span class="sp" style="flex:1"></span><button class="btn sm" data-merge="${a.id}:${b.id}">Merge into ${esc(b.name)}</button></div>`).join('')}</div></div>`:''}
+  <div class="bar" style="margin-bottom:12px"><div class="pills" id="stf">${[['','All']].concat(TOPICS.map(t=>[t.id,t.name])).map(([k,l])=>`<button class="pill" aria-pressed="${subTopic===k}" data-k="${k}">${k?`<i style="background:${topic(k).color}"></i>`:''}${esc(l)}</button>`).join('')}</div></div>
+  <div class="tw"><table class="dt"><thead><tr><th>Subtopic</th><th>Topic</th><th class="r">Discussions</th><th class="hide-s">On Discussions</th></tr></thead><tbody id="sbb">${L.map(x=>`<tr data-id="${x.id}" tabindex="0"><td style="color:var(--fg);font-weight:500">${esc(x.name)}</td><td>${tpTag(x.topic)}</td><td class="r num">${x.n}</td><td class="hide-s">${x.n>=SUBMIN?'<span class="st good">Own constellation</span>':`<span class="st warn">Under "Other" · ${SUBMIN-x.n} more to show</span>`}</td></tr>`).join('')}</tbody></table>
+  <div class="foot"><span>${L.length} subtopics</span><span>Hosts pick these when they save a table. The AI suggests one first. A new subtopic gets its own place on Discussions after ${SUBMIN} discussions.</span></div></div>`;
+  $('#stf').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;subTopic=b.dataset.k;drawSubs()};
+  $('#tpbody').querySelectorAll('[data-merge]').forEach(b=>b.onclick=()=>{const [f,t]=b.dataset.merge.split(':');mergeSub(SUBT.find(x=>x.id===f),SUBT.find(x=>x.id===t))});
+  bindRows('#sbb',id=>openSub(id));
+}
+function openSub(id){
+  const x=SUBT.find(y=>y.id===id),others=SUBT.filter(y=>y.topic===x.topic&&y!==x).sort((a,b)=>b.n-a.n);
+  openDrawer('Edit subtopic',`
+   <div class="note" style="margin-bottom:6px">${tpTag(x.topic)}<span>${x.n} discussion${x.n==1?'':'s'} · ${x.n>=SUBMIN?'has its own constellation on Discussions':'shows under "Other" on Discussions for now'}</span></div>
+   <label class="fld">Name<input id="sn" value="${esc(x.name)}" maxlength="30"></label>
+   <label class="fld">Topic<select id="stp">${TOPICS.map(t=>`<option value="${t.id}" ${t.id===x.topic?'selected':''}>${esc(t.name)}</option>`).join('')}</select></label>
+   <div class="sec"><h4>Merge into another subtopic</h4><p style="color:var(--mute);font-size:12.5px;margin:0 0 8px">Its ${x.n} discussion${x.n==1?'':'s'} move there, and hosts stop seeing this name.</p><label class="fld">Merge into<select id="smv"><option value="">Choose a subtopic</option>${others.map(o=>`<option value="${o.id}">${esc(o.name)} (${o.n})</option>`).join('')}</select></label></div>`,
+   `<button class="btn pri" data-a="save">Save changes</button><button class="btn" data-a="merge">Merge</button><span class="sp"></span>`);
+  $('#drawer').onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;
+   if(b.dataset.a==='save'){const n=$('#sn').value.trim();if(!n){$('#sn').focus();toast('Give the subtopic a name');return}
+     const clash=SUBT.find(y=>y!==x&&y.topic===$('#stp').value&&norm(y.name)===norm(n));if(clash){toast(`${clash.name} already exists. Use Merge instead.`);return}
+     const old=x.name;x.name=n;x.topic=$('#stp').value;logAction(`renamed the subtopic ${old} to ${n}`);closeDrawer();VIEWS.topics();toast(old===n?`Saved ${n}`:`Renamed ${old} to ${n}. Its discussions moved with it.`)}
+   if(b.dataset.a==='merge'){const t=SUBT.find(y=>y.id===$('#smv').value);if(!t){$('#smv').focus();toast('Choose the subtopic to merge into');return}closeDrawer();mergeSub(x,t)}
+  };
+}
 VIEWS.topics=function(){
   const tcount=id=>TABLES.filter(t=>t.topic===id).length*17+(id.length*3);
-  M().innerHTML=`<div class="page">${head('Topics','What tables are about. Members pick these when they create a table or fill their profile.','<button class="btn vio" id="addt"><span style="font-size:17px;font-weight:400">+</span> Add topic</button>')}
+  const tabs=`<div class="cvt" style="padding:0;margin-bottom:16px"><button aria-pressed="${tpTab==='topics'}" data-tab="topics">Topics</button><button aria-pressed="${tpTab==='subs'}" data-tab="subs">Subtopics${subDupes().length?` <span style="color:var(--warn)">· ${subDupes().length} to check</span>`:''}</button></div>`;
+  if(tpTab==='subs'){M().innerHTML=`<div class="page">${head('Topics','Subtopics group saved discussions inside a topic. Tidy them here: rename, move or merge.')}${tabs}<div id="tpbody"></div></div>`;M().querySelector('.cvt').onclick=e=>{const b=e.target.closest('[data-tab]');if(!b)return;tpTab=b.dataset.tab;VIEWS.topics()};drawSubs();return}
+  M().innerHTML=`<div class="page">${head('Topics','What tables are about. Members pick these when they create a table or fill their profile.','<button class="btn vio" id="addt"><span style="font-size:17px;font-weight:400">+</span> Add topic</button>')}${tabs}
   <div class="tw"><table class="dt"><thead><tr><th>Topic</th><th class="hide-s">Description</th><th class="r">Tables</th><th class="r hide-s">On profiles</th><th>Shown</th></tr></thead><tbody id="tpb2">${TOPICS.map(t=>`<tr data-id="${t.id}" tabindex="0"><td><span class="tp" style="color:var(--fg);font-weight:500"><i style="background:${t.color}"></i>${esc(t.name)}</span></td><td class="m hide-s">${esc(t.desc)}</td><td class="r num">${tcount(t.id)}</td><td class="r num hide-s">${fmt(tcount(t.id)*9)}</td><td>${t.shown?'<span class="st good">Shown</span>':'<span class="st">Hidden</span>'}</td></tr>`).join('')}</tbody></table></div>
   <div class="foot"><span>${TOPICS.length} topics</span><span>A topic always shows as a coloured dot and its name.</span></div></div>`;
   bindRows('#tpb2',id=>openTopic(id));$('#addt').onclick=()=>openTopic(null);
+  M().querySelector('.cvt').onclick=e=>{const b=e.target.closest('[data-tab]');if(!b)return;tpTab=b.dataset.tab;VIEWS.topics()};
 };
 function openTopic(id){
   const isNew=!id;const t=isNew?{id:'',name:'',color:SWATCH.find(c=>!TOPICS.some(x=>x.color===c))||SWATCH[0],desc:'',shown:true}:TOPICS.find(x=>x.id===id);
