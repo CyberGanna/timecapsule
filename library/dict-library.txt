@@ -123,20 +123,22 @@ AI summary, edited by Gregory|Riassunto IA, modificato da Gregory|Resumen IA, ed
 Edit|Modifica|Editar
 Save|Salva|Guardar
 Cancel|Annulla|Cancelar
-My discussions|Le mie discussioni|Mis conversaciones
 Discussions|Discussioni|Conversaciones
-Open My discussions|Apri Le mie discussioni|Abrir Mis conversaciones
+Open Discussions|Apri Discussioni|Abrir Conversaciones
 Where this sits in the discussions|Dove si trova tra le discussioni|Dónde está entre las conversaciones
 Gregory's discussions|Le discussioni di Gregory|Las conversaciones de Gregory
-Save this table to My discussions|Salva questo tavolo in Le mie discussioni|Guarda esta mesa en Mis conversaciones
-Private. Only you see them in My discussions.|Private. Solo tu le vedi in Le mie discussioni.|Privadas. Solo tú las ves en Mis conversaciones.
-Where it goes in My discussions|Dove va in Le mie discussioni|Dónde va en Mis conversaciones
-Shown in My discussions on your profile. Others can ask to join the next round.|Appare in Le mie discussioni sul tuo profilo. Altri possono chiedere di partecipare al prossimo giro.|Aparece en Mis conversaciones de tu perfil. Otros pueden pedir unirse a la próxima ronda.
-Save to My discussions|Salva in Le mie discussioni|Guardar en Mis conversaciones
+Save this table to Discussions|Salva questo tavolo in Discussioni|Guarda esta mesa en Conversaciones
+Private. Only you see them in Discussions.|Private. Solo tu le vedi in Discussioni.|Privadas. Solo tú las ves en Conversaciones.
+Where it goes in Discussions|Dove va in Discussioni|Dónde va en Conversaciones
+Shown in Discussions on your profile. Others can ask to join the next round.|Appare in Discussioni sul tuo profilo. Altri possono chiedere di partecipare al prossimo giro.|Aparece en Conversaciones de tu perfil. Otros pueden pedir unirse a la próxima ronda.
+Save to Discussions|Salva in Discussioni|Guardar en Conversaciones
 to the discussions on the profile. Choose how you appear in it.|tra le discussioni del profilo. Scegli come ci appari.|en las conversaciones del perfil. Elige cómo apareces.
-Save my 3 kept notes to My discussions|Salva le mie 3 note tenute in Le mie discussioni|Guardar mis 3 notas en Mis conversaciones
-Saved to My discussions, in|Salvato in Le mie discussioni, in|Guardada en Mis conversaciones, en
-See My discussions|Vedi Le mie discussioni|Ver Mis conversaciones
+Save my 3 kept notes to Discussions|Salva le mie 3 note tenute in Discussioni|Guardar mis 3 notas en Conversaciones
+Saved to Discussions, in|Salvato in Discussioni, in|Guardada en Conversaciones, en
+See Discussions|Vedi Discussioni|Ver Conversaciones
 Edit summary|Modifica il riassunto|Editar el resumen
 Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Ogni tavolo lascia una traccia. Le discussioni che salvi trovano qui la loro orbita, per argomento, così vedi le idee che hai esplorato con altre persone.|Cada mesa deja una huella. Las conversaciones que guardas encuentran aquí su órbita, por tema, para que veas las ideas que has explorado con otras personas.
 Tap a planet to read it again, or pick it up for another round.|Tocca un pianeta per rileggerla o riprenderla per un altro giro.|Toca un planeta para volver a leerla o retomarla en otra ronda.
+Readings|Letture|Lecturas
+What are Discussions?|Cosa sono le Discussioni?|¿Qué son las Conversaciones?
+About Discussions|Informazioni sulle Discussioni|Acerca de Conversaciones

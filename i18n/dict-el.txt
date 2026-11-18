@@ -1952,20 +1952,22 @@ Kept · you can leave your words out|Κρατιέται · μπορείς να �
 Summary|Περίληψη
 AI summary, written after the table|Περίληψη AI, γραμμένη μετά το τραπέζι
 AI summary, edited by Gregory|Περίληψη AI, με αλλαγές του Gregory
-My discussions|Οι συζητήσεις μου
 Discussions|Συζητήσεις
-Open My discussions|Άνοιξε Οι συζητήσεις μου
+Open Discussions|Άνοιξε Συζητήσεις
 Where this sits in the discussions|Πού βρίσκεται στις συζητήσεις
 Gregory's discussions|Οι συζητήσεις του Gregory
-Save this table to My discussions|Αποθήκευσε αυτό το τραπέζι στις Συζητήσεις μου
-Private. Only you see them in My discussions.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στις Συζητήσεις σου.
-Where it goes in My discussions|Πού μπαίνει στις Συζητήσεις μου
-Shown in My discussions on your profile. Others can ask to join the next round.|Φαίνεται στις Συζητήσεις σου στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
-Save to My discussions|Αποθήκευση στις Συζητήσεις μου
+Save this table to Discussions|Αποθήκευσε αυτό το τραπέζι στις Συζητήσεις
+Private. Only you see them in Discussions.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στις Συζητήσεις.
+Where it goes in Discussions|Πού μπαίνει στις Συζητήσεις
+Shown in Discussions on your profile. Others can ask to join the next round.|Φαίνεται στις Συζητήσεις στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
+Save to Discussions|Αποθήκευση στις Συζητήσεις
 to the discussions on the profile. Choose how you appear in it.|στις συζητήσεις του προφίλ. Διάλεξε πώς εμφανίζεσαι.
-Save my 3 kept notes to My discussions|Αποθήκευσε τις 3 σημειώσεις μου στις Συζητήσεις μου
-Saved to My discussions, in|Αποθηκεύτηκε στις Συζητήσεις μου, στο
-See My discussions|Δες τις Συζητήσεις μου
+Save my 3 kept notes to Discussions|Αποθήκευσε τις 3 σημειώσεις μου στις Συζητήσεις
+Saved to Discussions, in|Αποθηκεύτηκε στις Συζητήσεις, στο
+See Discussions|Δες τις Συζητήσεις
 Edit summary|Επεξεργασία περίληψης
 Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Κάθε τραπέζι αφήνει ένα ίχνος. Οι συζητήσεις που αποθηκεύεις βρίσκουν εδώ την τροχιά τους, ανά θέμα, ώστε να βλέπεις τις ιδέες που εξερεύνησες με άλλους ανθρώπους.
 Tap a planet to read it again, or pick it up for another round.|Πάτησε έναν πλανήτη για να την ξαναδιαβάσεις ή να τη συνεχίσεις σε έναν ακόμα γύρο.
+Readings|Αναγνώσεις
+What are Discussions?|Τι είναι οι Συζητήσεις;
+About Discussions|Σχετικά με τις Συζητήσεις

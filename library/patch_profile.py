@@ -89,7 +89,7 @@ def run(ROOT, recs, LIBD, add_dict):
             '<button type="button" role="tab" id="t-lb" aria-selected="false" aria-controls="p-lb"><b class="lbc-o">%d</b><b class="lbc-v">%d</b> Discussions</button>\n    <button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>' % (len(recs), npub))
     s = rep(s, '  <section class="panel" id="p-fw" role="tabpanel"', lib_tab(recs) + '\n\n  <section class="panel" id="p-fw" role="tabpanel"')
     s = rep(s, '<h2 id="uni-h">My readings <span>36</span></h2>',
-            '<h2 id="uni-h" class="uh-sr"><span class="uh-read">My readings</span><span class="uh-lib">My discussions</span></h2><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">My readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">My discussions <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div>' % (len(recs), npub))
+            '<h2 id="uni-h" class="uh-sr"><span class="uh-read">Readings</span><span class="uh-lib">Discussions</span></h2><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">Readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">Discussions <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div>' % (len(recs), npub))
     # library data for the map: one orbit per topic, one star per discussion
     order = []; by = {}
     for r in recs.values():
@@ -100,7 +100,7 @@ def run(ROOT, recs, LIBD, add_dict):
     s = rep(s, '\nvar BOOKS=[];T.forEach', '\nvar RT=T,MODE="read",LT=' + json.dumps(LT, ensure_ascii=False) + ';\nvar BOOKS=[];T.forEach')
     s = rep(s, '<b>k▪universe</b><p>Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><a href="https://k-universe.com/" target="_blank" rel="noopener">Learn more →</a>',
             '<b class="kb-r">k▪universe</b><p class="kb-r">Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><a class="kb-r" href="https://k-universe.com/" target="_blank" rel="noopener">Learn more →</a>'
-            '<b class="kb-l">My discussions</b><p class="kb-l">Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.</p><p class="kb-l">Tap a planet to read it again, or pick it up for another round.</p>')
+            '<b class="kb-l">Discussions</b><p class="kb-l">Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.</p><p class="kb-l">Tap a planet to read it again, or pick it up for another round.</p>')
     s = rep(s, '<span aria-hidden="true">powered by k▪universe</span>', '<span class="wmt" aria-hidden="true">powered by k▪universe</span>')
     s = rep(s, ' el("circle",{cx:cx,cy:cy,r:4.2,fill:"#FFFDF2"},sunG);', ' var avg=sunAv(sys,orbs,cx,cy);')
     s = rep(s, 'sunG.style.opacity=(1-e).toFixed(3);', 'sunG.style.opacity=(1-e).toFixed(3);avg.setAttribute("transform","rotate("+(-TILT*(1-e)).toFixed(2)+" "+cx+" "+cy+")");avg.style.opacity=(1-e).toFixed(3);avg.style.pointerEvents=e>.5?"none":"";')
@@ -122,7 +122,7 @@ function sunAv(sys,before,cx,cy){
  var src=(document.querySelector(".lbh img.big")||{}).src||"";
  var cp=el("clipPath",{id:"avclip"},d);el("circle",{cx:cx,cy:cy,r:15},cp);
  var gl=el("radialGradient",{id:"avg"},d);el("stop",{offset:".45","stop-color":"#FFE7A8","stop-opacity":".9"},gl);el("stop",{offset:"1","stop-color":"#F0A040","stop-opacity":"0"},gl);
- var g=el("g",{"class":"sunav",tabindex:"0",role:"button","aria-label":MODE=="lib"?"Back to the readings":"Open My discussions"},sys);sys.insertBefore(g,before);
+ var g=el("g",{"class":"sunav",tabindex:"0",role:"button","aria-label":MODE=="lib"?"Back to the readings":"Open Discussions"},sys);sys.insertBefore(g,before);
  el("circle",{"class":"avglow",cx:cx,cy:cy,r:28,fill:"url(#avg)"},g);
  el("circle",{cx:cx,cy:cy,r:15.5,fill:"#1B2144"},g);
  if(src){var im=el("image",{x:cx-15,y:cy-15,width:30,height:30,"clip-path":"url(#avclip)",preserveAspectRatio:"xMidYMid slice"},g);im.setAttribute("href",src)}
@@ -130,11 +130,11 @@ function sunAv(sys,before,cx,cy){
  el("circle",{cx:cx,cy:cy,r:22,fill:"transparent"},g);
  var go=function(e){if(e)e.stopPropagation();setMode(MODE=="lib"?"read":"lib")};
  g.addEventListener("click",go);g.addEventListener("keydown",function(e){if(e.key=="Enter"||e.key==" "){e.preventDefault();go()}});
- g.addEventListener("pointerenter",function(){var u=s.parentNode.getBoundingClientRect(),r=g.getBoundingClientRect();utip.innerHTML="<b>"+(MODE=="lib"?"Back to the readings":"Open My discussions")+"</b>";utip.style.setProperty("--c",MODE=="lib"?"#7FF0F2":"#F7C66B");utip.style.left="50%";utip.style.top=(r.top+r.height/2-u.top)+"px";utip.classList.remove("dn");utip.hidden=false});
+ g.addEventListener("pointerenter",function(){var u=s.parentNode.getBoundingClientRect(),r=g.getBoundingClientRect();utip.innerHTML="<b>"+(MODE=="lib"?"Back to the readings":"Open Discussions")+"</b>";utip.style.setProperty("--c",MODE=="lib"?"#7FF0F2":"#F7C66B");utip.style.left="50%";utip.style.top=(r.top+r.height/2-u.top)+"px";utip.classList.remove("dn");utip.hidden=false});
  g.addEventListener("pointerleave",function(){utip.hidden=true});
  return g}
 document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListener("click",function(){if(b.dataset.m!=MODE)setMode(b.dataset.m)})});
-function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");var kq=document.getElementById("kq");if(kq)kq.setAttribute("aria-label",m=="lib"?"What is My discussions?":"What is k-universe?");var kb=document.getElementById("kbox");if(kb)kb.setAttribute("aria-label",m=="lib"?"About My discussions":"About k-universe");universe();var a=s.querySelector(".sunav");if(a&&document.activeElement&&document.activeElement.closest&&document.activeElement.closest(".uni"))a.focus()}
+function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");var kq=document.getElementById("kq");if(kq)kq.setAttribute("aria-label",m=="lib"?"What are Discussions?":"What is k-universe?");var kb=document.getElementById("kbox");if(kb)kb.setAttribute("aria-label",m=="lib"?"About Discussions":"About k-universe");universe();var a=s.querySelector(".sunav");if(a&&document.activeElement&&document.activeElement.closest&&document.activeElement.closest(".uni"))a.focus()}
 window.KUlib=function(){if(MODE!="lib")setMode("lib")};
 '''
     s = rep(s, '\nuniverse();\nwindow.KU={T:T,render:universe};', '\n' + HELP + 'universe();\nwindow.KU={T:RT,render:function(){if(MODE!="read"){MODE="read";T=RT;var r=document.querySelector(".lbreads");if(r)r.classList.remove("libmode");document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m=="read")})}universe()}};')
