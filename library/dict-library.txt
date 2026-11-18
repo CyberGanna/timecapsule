@@ -3,7 +3,7 @@ My library|La mia biblioteca|Mi biblioteca
 discussions|discussioni|conversaciones
 topics|temi|temas
 All discussions|Tutte le discussioni|Todas las conversaciones
-Tap a star to open it.|Tocca una stella per aprirla.|Toca una estrella para abrirla.
+Tap a planet to open it.|Tocca un pianeta per aprirla.|Toca un planeta para abrirla.
 Tap the photo to go back to the readings.|Tocca la foto per tornare alle letture.|Toca la foto para volver a las lecturas.
 Tap the photo to open the library.|Tocca la foto per aprire la biblioteca.|Toca la foto para abrir la biblioteca.
 Open the library|Apri la biblioteca|Abrir la biblioteca
@@ -139,4 +139,4 @@ Saved to My discussions, in|Salvato in Le mie discussioni, in|Guardada en Mis co
 See My discussions|Vedi Le mie discussioni|Ver Mis conversaciones
 Edit summary|Modifica il riassunto|Editar el resumen
 Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Ogni tavolo lascia una traccia. Le discussioni che salvi trovano qui la loro orbita, per argomento, così vedi le idee che hai esplorato con altre persone.|Cada mesa deja una huella. Las conversaciones que guardas encuentran aquí su órbita, por tema, para que veas las ideas que has explorado con otras personas.
-Tap a star to read it again, or pick it up for another round.|Tocca una stella per rileggerla o riprenderla per un altro giro.|Toca una estrella para volver a leerla o retomarla en otra ronda.
+Tap a planet to read it again, or pick it up for another round.|Tocca un pianeta per rileggerla o riprenderla per un altro giro.|Toca un planeta para volver a leerla o retomarla en otra ronda.
