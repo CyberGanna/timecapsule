@@ -1316,6 +1316,7 @@ ulink.onclick=function(){utip.hidden=true;if(U.allPg&&!U.list){U.allPg=false;ula
  if(!U.list){U.list=true;ulink.hidden=false;ulink.textContent="‹ Back";morph(1,rows)}
  else{U.list=false;ulay.hidden=true;s.classList.remove("dim");s.parentNode.classList.remove("pgm");ulink.textContent="☰ List";ulink.hidden=true;morph(0,function(){var nb=T.reduce(function(s,x){return s+x.b.length},0);cap.innerHTML=capU()})}};
 function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE=="lib")return '<button type="button" class="caplink" data-act="all"><span>'+nb+'</span> discussions</button>. <button type="button" class="caplink" data-act="themes"><span>'+T.length+'</span> topics</button>. <span>Tap a planet to open it.</span>';return '<button type="button" class="caplink" data-act="all">'+nb+' books</button>. <button type="button" class="caplink" data-act="themes">'+T.length+' themes</button>. Hover/tap to learn more.'}
+var _ulb=ulink.onclick;ulink.onclick=function(){utip.hidden=true;if(U.list&&!U.uniPg&&(U.page>=0||U.allPg)){rows();return}_ulb()};
 function allBooks(){U.allPg=true;utip.hidden=true;ulink.hidden=false;ulink.textContent="‹ Back";ulay.hidden=false;s.classList.add("dim");ulay.className="ulay pg";
  ulay.innerHTML='<div class="ph"><span style="min-width:52px"></span><b>'+(MODE=="lib"?"All discussions":"All books")+'</b><span style="min-width:52px"></span></div><ul class="pl">'+T.map(function(th){return th.b.map(function(b){return '<li style="--c:'+th.c+'"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i style="font-style:normal;color:'+th.c+'">'+th.n+'</i></small></li>'}).join("")}).join("")+'</ul>';
 }
@@ -1991,6 +1992,7 @@ w.querySelector(".tm-dlg").setAttribute("aria-labelledby",document.body.classLis
 .unitog button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .wmt{display:none!important}
 .uni:has(#ulink:not([hidden])) .unitog{display:none}
+.uni:has(#ulink:not([hidden])) #pgb{visibility:hidden}
 #uni-h{margin-bottom:4px}
 body.visitor .unitog .lbc-o,body:not(.visitor) .unitog .lbc-v{display:none}
 .ulay .pl li[data-r]{cursor:pointer}.ulay .pl li[data-r]:hover span{text-decoration:underline;text-underline-offset:3px}

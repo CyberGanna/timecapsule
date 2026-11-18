@@ -53,6 +53,7 @@ CSS = r'''<style id="lib-css">
 .unitog button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .wmt{display:none!important}
 .uni:has(#ulink:not([hidden])) .unitog{display:none}
+.uni:has(#ulink:not([hidden])) #pgb{visibility:hidden}
 #uni-h{margin-bottom:4px}
 body.visitor .unitog .lbc-o,body:not(.visitor) .unitog .lbc-v{display:none}
 .ulay .pl li[data-r]{cursor:pointer}.ulay .pl li[data-r]:hover span{text-decoration:underline;text-underline-offset:3px}
@@ -144,6 +145,7 @@ window.KUlib=function(){if(MODE!="lib")setMode("lib")};
     i = s.rindex('</body></html>')
     s = s[:i] + TAIL + s[i:]
     s = s.replace('◎ Universe', '‹ Back')
+    s = rep(s, '\nfunction allBooks(){', '\nvar _ulb=ulink.onclick;ulink.onclick=function(){utip.hidden=true;if(U.list&&!U.uniPg&&(U.page>=0||U.allPg)){rows();return}_ulb()};\nfunction allBooks(){')
     s = rep(s, 'var cx=170,cy=125,TILT=-14,', 'var cx=170,cy=125,TILT=MODE=="lib"?14:-14,')
     open(P, 'w', encoding='utf8').write(s)
     subprocess.run(['python3', os.path.join(ROOT, 'i18n/add-greek.py'), P], check=True)
