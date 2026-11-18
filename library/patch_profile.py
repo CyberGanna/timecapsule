@@ -50,7 +50,10 @@ CSS = r'''<style id="lib-css">
 .unitog button[aria-pressed=true]{color:#EEF1FF;border-bottom-color:var(--teal)}
 .unitog button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .wmt{display:none!important}
-.uni:has(#ulink:not([hidden])) .unitog{display:none}
+.lbreads .uni{padding-top:44px}
+.lbreads .ulay{top:44px}
+.lbreads .ulink{top:50px;left:6px}
+.uni.fs .ua.uend{min-width:44px;height:40px;line-height:40px;padding:0 12px;font-size:24px}
 .uni:has(#ulink:not([hidden])) #pgb{visibility:hidden}
 #uni-h{margin-bottom:4px}
 body.visitor .unitog .lbc-o,body:not(.visitor) .unitog .lbc-v{display:none}
