@@ -66,6 +66,8 @@ CSS = r'''<style id="lib-css">
 .lbreads .uni:not(.fs) .ulay.pg{background:none;padding-left:0;padding-right:0}
 .lbreads .uni .ulay.pg{background:none!important;border-radius:0;box-shadow:none}
 .lbreads .uni:has(.ulay.pg:not([hidden])) #uni{visibility:hidden}
+#uniview:not(.fsw):has(.ulay.pg:not([hidden]) .ph>b:not([style])){background:none}
+#uniview.fsw:has(.ulay.pg:not([hidden]) .ph>b:not([style])){background:#0F1A30!important}
 .sunav .avglow{transform-box:fill-box;transform-origin:center;animation:avp 3.6s ease-in-out infinite}
 @keyframes avp{50%{opacity:.55;transform:scale(1.18)}}
 @media (prefers-reduced-motion:reduce){.sunav .avglow{animation:none}}
