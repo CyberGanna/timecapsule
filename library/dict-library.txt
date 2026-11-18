@@ -158,3 +158,6 @@ Suggested|Suggerito|Sugerido
 Discussions by|Discussioni di|Conversaciones de
 More from|Altro da|Más de
 See all|Vedi tutte|Ver todas
+In common|In comune|En común
+You too|Anche tu|Tú también
+in common with you|in comune con te|en común contigo
