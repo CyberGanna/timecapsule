@@ -64,3 +64,5 @@ Travel|Viaggi|Viajes
 Mind-blowing|Illuminante|Alucinante
 Pleasant|Piacevole|Agradable
 Not so inspiring|Poco stimolante|Poco inspiradora
+How much did you like it?|Quanto ti è piaciuto?|¿Cuánto te gustó?
+Pick one|Scegline uno|Elige uno

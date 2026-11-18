@@ -26,6 +26,7 @@
 .mu .seg button{all:unset;cursor:pointer;height:30px;padding:0 14px;border-radius:7px;color:var(--mute);font-size:14px;display:inline-flex;align-items:center;gap:6px}
 .mu .seg button svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .mu .seg button[aria-pressed=true]{background:var(--surface);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
+.mu .form #fImpL{display:block}.mu #fImpL .pick{display:none;margin-left:8px;font-style:normal;color:#FFB4A8}.mu #fImpL.need .pick{display:inline}
 .mu .yes{--r:var(--teal)}.mu .maybe{--r:var(--violet)}.mu .no{--r:#6B7299}
 .mu .stars{display:flex;gap:8px;flex-wrap:wrap}
 .mu .stars button{all:unset;cursor:pointer;height:32px;padding:0 13px;border-radius:999px;border:1.5px solid var(--line);display:inline-flex;align-items:center;gap:7px;color:var(--mute);font-size:13.5px}
@@ -76,8 +77,8 @@
       <label><span id="fAl">Author</span><input id="fA" maxlength="80"></label>
       <label><span>Topic</span><select id="fTop"></select></label>
       <label class="full" id="fNewL" hidden><span>New topic</span><input id="fNew" maxlength="40"></label>
-      <div class="full"><label style="margin-bottom:8px"><span>How much did it shape you?</span></label><div class="stars" id="fImp" role="group" aria-label="Rating">
-        <button type="button" class="yes" data-v="yes" aria-pressed="false"><i></i><span>Mind-blowing</span></button><button type="button" class="maybe" data-v="maybe" aria-pressed="true"><i></i><span>Pleasant</span></button><button type="button" class="no" data-v="no" aria-pressed="false"><i></i><span>Not so inspiring</span></button>
+      <div class="full"><label style="margin-bottom:8px" id="fImpL"><span>How much did you like it?</span> <em class="pick">Pick one</em></label><div class="stars" id="fImp" role="group" aria-label="Rating">
+        <button type="button" class="yes" data-v="yes" aria-pressed="false"><i></i><span>Mind-blowing</span></button><button type="button" class="maybe" data-v="maybe" aria-pressed="false"><i></i><span>Pleasant</span></button><button type="button" class="no" data-v="no" aria-pressed="false"><i></i><span>Not so inspiring</span></button>
       </div></div>
       <div class="full fact"><button type="submit" class="btn go">Add to my universe</button><button type="button" class="btn" id="fCancel">Cancel</button><small>It shows on your profile right away.</small></div>
     </form>
@@ -129,16 +130,16 @@ function renderRead(){
   lastNew=null;
 }
 function fillTopics(sel){const o=R.map((t,i)=>`<option value="${i}">${esc(t.n)}</option>`).join("")+`<option value="new">New topic…</option>`;$("fTop").innerHTML=o;if(sel!=null)$("fTop").value=sel}
-let kind="book",imp="maybe";const RL={yes:"Mind-blowing",maybe:"Pleasant",no:"Not so inspiring"};
+let kind="book",imp=null;const RL={yes:"Mind-blowing",maybe:"Pleasant",no:"Not so inspiring"};
 function setKind(k){kind=k;document.querySelectorAll(".mu .seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===k));$("fAl").textContent=k==="film"?"Director":"Author"}
-function openForm(o){const f=$("addForm");f.hidden=!o;$("addBtn").setAttribute("aria-expanded",o);if(o){fillTopics(0);$("fNewL").hidden=true;$("fT").value="";$("fA").value="";$("fNew").value="";setKind("book");setImp("maybe");$("fT").focus()}}
-function setImp(v){imp=v;document.querySelectorAll("#fImp button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===v))}
+function openForm(o){const f=$("addForm");f.hidden=!o;$("addBtn").setAttribute("aria-expanded",o);if(o){fillTopics(0);$("fNewL").hidden=true;$("fT").value="";$("fA").value="";$("fNew").value="";setKind("book");setImp(null);$("fImpL").classList.remove("need");$("fT").focus()}}
+function setImp(v){imp=v;if(v)$("fImpL").classList.remove("need");document.querySelectorAll("#fImp button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===v))}
 $("addBtn").addEventListener("click",()=>openForm($("addForm").hidden));
 $("fCancel").addEventListener("click",()=>openForm(false));
 document.querySelectorAll(".mu .seg button").forEach(b=>b.addEventListener("click",()=>setKind(b.dataset.k)));
 document.querySelectorAll("#fImp button").forEach(b=>b.addEventListener("click",()=>setImp(b.dataset.v)));
 $("fTop").addEventListener("change",()=>{$("fNewL").hidden=$("fTop").value!=="new";if(!$("fNewL").hidden)$("fNew").focus()});
-$("addForm").addEventListener("submit",e=>{e.preventDefault();const t=$("fT").value.trim();if(!t){$("fT").focus();return}
+$("addForm").addEventListener("submit",e=>{e.preventDefault();const t=$("fT").value.trim();if(!t){$("fT").focus();return}if(!imp){$("fImpL").classList.add("need");document.querySelector("#fImp button").focus();return}
   let ti=$("fTop").value;
   if(ti==="new"){const nn=$("fNew").value.trim();if(!nn){$("fNew").focus();return}let ex=R.findIndex(x=>x.n.toLowerCase()===nn.toLowerCase());if(ex<0){R.push({n:nn,c:NEWCOL[R.length%NEWCOL.length],b:[]});ex=R.length-1}ti=ex}else ti=+ti;
   R[ti].b.unshift({t,a:$("fA").value.trim(),k:kind,imp});lastNew=[ti,0];save();openForm(false);renderRead();

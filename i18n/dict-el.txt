@@ -2040,3 +2040,5 @@ That one already exists, so we picked|Υπάρχει ήδη, οπότε διαλ
 New subtopics show under “Other” on Discussions until about 5 discussions use them.|Τα νέα υποθέματα εμφανίζονται στα «Άλλα» στις Συζητήσεις μέχρι να τα χρησιμοποιήσουν περίπου 5 συζητήσεις.
 Suggested|Προτεινόμενο
 Other|Άλλα
+How much did you like it?|Πόσο σου άρεσε;
+Pick one|Διάλεξε ένα

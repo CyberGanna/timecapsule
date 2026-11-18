@@ -64,3 +64,5 @@ Travel|Ταξίδια
 Mind-blowing|Συγκλονιστικό
 Pleasant|Ευχάριστο
 Not so inspiring|Όχι και τόσο εμπνευσμένο
+How much did you like it?|Πόσο σου άρεσε;
+Pick one|Διάλεξε ένα
