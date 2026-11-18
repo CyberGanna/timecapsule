@@ -1985,13 +1985,14 @@ w.querySelector(".tm-dlg").setAttribute("aria-labelledby",document.body.classLis
 #uniview.fsw .unicap{order:0}
 .ulay .udot{cursor:pointer}
 .uh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.unitog{display:flex;gap:2px;padding:3px;margin:0 0 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
-.unitog button{flex:1;min-height:34px;border:0;border-radius:9px;background:none;color:var(--mute);font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
-.unitog button span{opacity:.7;margin-left:3px;font-variant-numeric:tabular-nums}
+.unitog{display:flex;gap:22px;margin:0 0 14px;border-bottom:1px solid var(--line)}
+.unitog button{display:inline-flex;align-items:baseline;gap:6px;min-height:0;padding:0 0 8px;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;border-radius:0;background:none;color:var(--mute);font:inherit;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.unitog button span{order:-1;font-weight:600;color:var(--text,#EEF1FF);font-variant-numeric:tabular-nums}
 .unitog button:hover{color:var(--text,#EEF1FF)}
-.unitog button[aria-pressed=true]{background:var(--field,#252B52);color:var(--text,#EEF1FF);font-weight:500;box-shadow:inset 0 0 0 1px var(--line2,#4A528A)}
-.unitog button[data-m=read][aria-pressed=true]{box-shadow:inset 0 0 0 1px rgba(247,198,107,.55)}
-.unitog button[data-m=lib][aria-pressed=true]{box-shadow:inset 0 0 0 1px rgba(127,240,242,.55)}
+.unitog button[aria-pressed=true]{color:var(--text,#EEF1FF);border-bottom-color:var(--teal)}
+.unitog button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.lbreads .unicap{text-align:left}
+@media(max-width:860px){.unitog button{font-size:14px;letter-spacing:.1em;padding-bottom:10px}}
 body.visitor .unitog .lbc-o,body:not(.visitor) .unitog .lbc-v{display:none}
 .ulay .pl li[data-r]{cursor:pointer}.ulay .pl li[data-r]:hover span{text-decoration:underline;text-underline-offset:3px}
 #uni-h .uh-lib{display:none}.libmode #uni-h .uh-read{display:none}.libmode #uni-h .uh-lib{display:inline}
