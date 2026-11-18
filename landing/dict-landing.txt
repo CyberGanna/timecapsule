@@ -34,8 +34,8 @@ A first name is enough|Basta un nome|Basta con un nombre
 Join with your first name or an alias. No surname needed.|Entra con il tuo nome o un alias. Il cognome non serve.|Únete con tu nombre o un alias. No hace falta apellido.
 Your data is never sold|I tuoi dati non vengono mai venduti|Tus datos nunca se venden
 We never sell or mine what you share.|Non vendiamo né sfruttiamo mai ciò che condividi.|Nunca vendemos ni explotamos lo que compartes.
-Public only if all agree|Pubblico solo se tutti sono d'accordo|Público solo si todos están de acuerdo
-A transcript goes public only when everyone at the table says yes.|Una trascrizione diventa pubblica solo quando tutti al tavolo dicono sì.|Una transcripción solo se hace pública cuando todos en la mesa dicen que sí.
+Your words, your choice|Le tue parole, la tua scelta|Tus palabras, tu decisión
+Anyone at the table can leave their words out of a transcript, any time.|Chiunque al tavolo può togliere le proprie parole da una trascrizione, in qualsiasi momento.|Cualquiera en la mesa puede retirar sus palabras de una transcripción, en cualquier momento.
 Why safety and trust come first|Perché sicurezza e fiducia vengono prima|Por qué la seguridad y la confianza van primero
 Our roots|Le nostre radici|Nuestras raíces
 TimeCapsule comes from the team behind TimeRepublik, the largest time bank in the world, founded in 2012. We carry the same belief here: everyone's time is worth the same, and the best of it is what we give each other.|TimeCapsule nasce dal team di TimeRepublik, la più grande banca del tempo al mondo, fondata nel 2012. Qui portiamo la stessa convinzione: il tempo di ognuno vale lo stesso, e la parte migliore è quella che ci diamo a vicenda.|TimeCapsule nace del equipo de TimeRepublik, el mayor banco de tiempo del mundo, fundado en 2012. Aquí mantenemos la misma convicción: el tiempo de cada persona vale lo mismo, y lo mejor es lo que nos damos unos a otros.
@@ -204,4 +204,4 @@ Back to tables|Torna ai tavoli|Volver a las mesas
 Leave table|Lascia il tavolo|Salir de la mesa
 Hosted by|Ospitato da|Organizada por
 Wants to speak|Vuole parlare|Quiere hablar
-Kept · everyone agreed|Conservata · tutti d'accordo|Guardada · todos de acuerdo
+Kept · you can leave your words out|Conservata · puoi togliere le tue parole|Guardada · puedes retirar tus palabras

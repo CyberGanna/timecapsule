@@ -400,7 +400,7 @@ Add this line to my notes|Πρόσθεσε αυτή τη φράση στις σ�
 Add to my notes|Πρόσθεσε στις σημειώσεις μου
 Add to the transcript|Πρόσθεσε στην απομαγνητοφώνηση
 Kept for you|Κρατήθηκε για σένα
-Kept · everyone agreed|Κρατήθηκε · συμφώνησαν όλοι
+Kept · everyone agreed|Κρατιέται · μπορείς να αφαιρέσεις τα λόγια σου
 Now viewing as Gregory, the host|Βλέπεις τώρα ως Gregory, ο οικοδεσπότης
 Now viewing as Lena, a guest|Βλέπεις τώρα ως Lena, καλεσμένη
 Guest (Lena)|Καλεσμένη (Lena)
@@ -1450,8 +1450,8 @@ A first name is enough|Αρκεί ένα μικρό όνομα
 Join with your first name or an alias. No surname needed.|Μπες με το μικρό σου όνομα ή με ψευδώνυμο. Δεν χρειάζεται επώνυμο.
 Your data is never sold|Τα δεδομένα σου δεν πωλούνται ποτέ
 We never sell or mine what you share.|Δεν πουλάμε ούτε εκμεταλλευόμαστε ποτέ ό,τι μοιράζεσαι.
-Public only if all agree|Δημόσιο μόνο αν συμφωνήσουν όλοι
-A transcript goes public only when everyone at the table says yes.|Μια απομαγνητοφώνηση γίνεται δημόσια μόνο όταν πουν ναι όλοι στο τραπέζι.
+Your words, your choice|Τα λόγια σου, η επιλογή σου
+Anyone at the table can leave their words out of a transcript, any time.|Όποιος είναι στο τραπέζι μπορεί να αφαιρέσει τα λόγια του από μια απομαγνητοφώνηση, όποτε θέλει.
 Why safety and trust come first|Γιατί η ασφάλεια και η εμπιστοσύνη έρχονται πρώτες
 Our roots|Οι ρίζες μας
 TimeCapsule comes from the team behind TimeRepublik, the largest time bank in the world, founded in 2012. We carry the same belief here: everyone's time is worth the same, and the best of it is what we give each other.|Το TimeCapsule προέρχεται από την ομάδα πίσω από το TimeRepublik, τη μεγαλύτερη τράπεζα χρόνου στον κόσμο, που ιδρύθηκε το 2012. Φέρνουμε εδώ την ίδια πεποίθηση: ο χρόνος του καθενός αξίζει το ίδιο, και ο καλύτερος χρόνος είναι αυτός που δίνουμε ο ένας στον άλλον.
@@ -1948,3 +1948,4 @@ Nuclear|Πυρηνική ενέργεια
 Road trips|Οδικά ταξίδια
 Belonging|Το ανήκειν
 Left out of the transcript:|Εκτός απομαγνητοφώνησης:
+Kept · you can leave your words out|Κρατιέται · μπορείς να αφαιρέσεις τα λόγια σου
