@@ -3,7 +3,7 @@
 import re, json, os, posixpath, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-from data import R, TX, TOPIC_COL
+from data import R, TX, TOPIC_COL, SUM
 
 def records():
     out = {}
@@ -11,7 +11,8 @@ def records():
         tx = TX[rid]; rr = []
         for k, (date, people) in enumerate(rounds):
             t = tx[k]
-            rr.append(dict(date=date, people=people, out=t.get('out', 0), names=t['names'], notes=t['notes'], open=t['open'], my=t.get('my'), tx=[list(x) for x in t['tx']]))
+            summ = SUM.get(rid, [None]*len(rounds))[k] or ('The table talked about "%s". %s Left open: %s' % (title, ' '.join(t['notes']), t['open'][0]))
+            rr.append(dict(summary=summ, date=date, people=people, out=t.get('out', 0), names=t['names'], notes=t['notes'], open=t['open'], my=t.get('my'), tx=[list(x) for x in t['tx']]))
         out[rid] = dict(id=rid, topic=top, sub=sub, title=title, col=TOPIC_COL[top], private=priv, rounds=rr)
     return out
 

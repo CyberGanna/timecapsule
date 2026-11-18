@@ -19,6 +19,19 @@
 .crumb i{width:8px;height:8px;border-radius:50%;background:var(--c);display:inline-block;margin-right:2px}
 .crumb .sep{opacity:.5}
 .meta{color:var(--mute);font-size:14px;margin:0}
+.sum{max-width:720px;margin:18px 0 4px;padding:14px 16px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.sumh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px}
+#lib .sumh h2{margin:0}
+.aitag{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--mute)}
+.aitag svg{width:13px;height:13px;color:#B9A6FF}
+.sumedit{margin-left:auto;border:0;background:none;color:var(--lamp);font:inherit;font-size:13px;cursor:pointer;padding:4px 2px}
+.sumedit:hover{text-decoration:underline;text-underline-offset:3px}
+#sumTx{margin:0;font-family:'Newsreader',Georgia,serif;font-size:17px;line-height:1.55;color:#E2E6FA;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:7;overflow:hidden}
+#sumIn{width:100%;box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font-family:'Newsreader',Georgia,serif;font-size:16.5px;line-height:1.5;resize:vertical}
+#sumIn:focus{outline:2px solid var(--lamp);outline-offset:1px}
+.sumact{display:flex;align-items:center;gap:10px;margin-top:10px}.sumact .btn{min-height:36px;padding:0 14px;font-size:13.5px}
+.sumact small{margin-left:auto;color:var(--mute);font-size:12px}
+.uh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .rounds{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
 .rounds button{display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:0 13px;border-radius:99px;border:1px solid var(--line);background:none;color:var(--soft);font:inherit;font-size:13px;cursor:pointer}
 .rounds button small{color:var(--mute);font-size:12px}
@@ -133,6 +146,15 @@
   <nav class="crumb" aria-label="Where this sits in the library"><a href="../profile/timecapsule-profile.html#lib" target="_top" id="rcLib">Gregory's library</a><span class="sep">›</span><span id="rcTop"></span><span class="sep">›</span><span id="rcSub"></span></nav>
   <h1 id="rTitle" data-noi18n></h1>
   <p class="meta" id="rMeta"></p>
+  <section class="sum" aria-labelledby="sum-h">
+    <div class="sumh"><h2 id="sum-h">Summary</h2><span class="aitag"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg><span id="sumTag">AI summary, written after the table</span></span><button type="button" class="sumedit r-host" id="sumEdit">Edit</button></div>
+    <p id="sumTx" data-noi18n></p>
+    <div id="sumForm" hidden>
+      <label for="sumIn" class="uh-sr">Summary</label>
+      <textarea id="sumIn" rows="7" maxlength="600"></textarea>
+      <div class="sumact"><button type="button" class="btn" id="sumSave">Save</button><button type="button" class="btn ghost" id="sumCancel">Cancel</button><small id="sumCnt"></small></div>
+    </div>
+  </section>
   <div class="rounds" id="rRounds" role="group" aria-label="Rounds"></div>
   <div class="people"><span class="stack" id="rStack"></span><span id="rPeople"></span></div>
 
@@ -307,6 +329,9 @@ function render(){
  $("rStack").innerHTML=names.slice(0,6).map(function(x){return '<span style="--a:'+(AC[x]||"#7C5CFF")+'" title="'+esc(x)+'">'+x[0]+'</span>'}).join("");
  var lo=left+(S.role=="guest"&&S.mine=="out"?1:0);
  $("rPeople").innerHTML=n+' <span>people at the table</span>'+(lo?' · <span>Left out of the transcript:</span> '+lo:'');
+ var ek=r.id+":"+S.round,ed=EDIT[ek];
+ $("sumTx").textContent=ed||rd.summary;$("sumTag").textContent=ed?"AI summary, edited by Gregory":"AI summary, written after the table";
+ $("sumForm").hidden=true;$("sumTx").hidden=false;
  $("rTx").innerHTML=tl.map(line).join("");
  $("rNotes").innerHTML=rd.notes.map(function(x){return '<li>'+esc(x)+'</li>'}).join("");
  $("rOpen").innerHTML=rd.open.map(function(x){return '<li>'+esc(x)+'</li>'}).join("");
@@ -328,6 +353,12 @@ function render(){
  $("vrec").hidden=S.scr!="rec";$("vsave").hidden=S.scr!="save";
  var vb=document.querySelector('[data-role="visitor"]');vb.hidden=S.scr=="save";
 }
+var EDIT={};
+function sumOpen(){var r=rec();$("sumIn").value=$("sumTx").textContent;$("sumTx").hidden=true;$("sumForm").hidden=false;$("sumEdit").hidden=true;cnt();$("sumIn").focus()}
+function sumClose(){$("sumForm").hidden=true;$("sumTx").hidden=false;$("sumEdit").hidden=S.role!="host"}
+function cnt(){$("sumCnt").textContent=$("sumIn").value.length+" / 600"}
+$("sumEdit").onclick=sumOpen;$("sumCancel").onclick=sumClose;$("sumIn").oninput=cnt;
+$("sumSave").onclick=function(){var v=$("sumIn").value.trim();if(v){EDIT[rec().id+":"+S.round]=v;$("sumTx").textContent=v;$("sumTag").textContent="AI summary, edited by Gregory"}sumClose()};
 function tab(id){document.querySelectorAll(".vtabs [role=tab]").forEach(function(t){var on=t.id==id;t.setAttribute("aria-selected",on);$(t.getAttribute("aria-controls")).hidden=!on})}
 document.querySelectorAll(".vtabs [role=tab]").forEach(function(t){t.onclick=function(){tab(t.id)}});
 $("rRounds").onclick=function(e){var b=e.target.closest("[data-r]");if(!b)return;S.round=+b.dataset.r;render()};

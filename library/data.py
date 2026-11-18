@@ -98,3 +98,16 @@ TX = {
   ("0:05","Nikos","A radio from 1974. It still smells warm when it's on."),
   ("0:09","Gabriele","I fixed a chair badly. I still sit on it, proudly.")])],
 }
+
+# AI summary written after each round (editable by the host). Max ~6-7 lines.
+SUM = {
+"free-will": [
+ "Gregory opened with experience rather than theory: when did you last feel you really chose something? Lena described leaving her job as a jump, not a calculation; Tom answered that the jump had ten years of causes. Nikos offered the image the table kept: causes are like weather, not chains.",
+ "The table came back to weather, not chains. Maya brought Frankfurt's cases: you can be responsible even when you couldn't have done otherwise. Ana found that unsettling because excuses stop working; Jonas saw it as a reason to own our choices. Tom closed by asking where luck fits, which became the question for round 3.",
+ "Round 3 took up luck. Tom said the most important things that shaped him, like his parents reading to him, were never chosen. Gabriele suggested freedom is something we grow into, like a language; Lena agreed that we end up saying things nobody taught us. Ana couldn't believe her daughter isn't free, whatever the theory says. Gregory summed up: freedom may be less about choosing and more about owning what we chose, and letting others hold us to it.",
+],
+"phenomenology": [
+ "Gregory proposed describing faith before explaining it. Sofia said that when she prays she doesn't feel anyone listening, she feels herself listening. Marco noted that this description has no God in it, but no absence either. The table left open whether the sacred is perceived or interpreted.",
+ "Starting from Sofia's 'listening', Ana compared faith to music that moves you without knowing who wrote it. Gabriele asked whether we wouldn't still want to thank someone, and Sofia answered that thanking might be the most honest prayer there is. Marion's idea of a gift without a giver stayed open.",
+],
+}

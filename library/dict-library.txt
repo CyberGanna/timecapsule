@@ -117,3 +117,9 @@ Slow travel|Viaggio lento|Viaje lento
 Belonging|Appartenenza|Pertenencia
 Repair|Riparare|Reparar
 Left out of the transcript:|Fuori dalla trascrizione:|Fuera de la transcripción:
+Summary|Riassunto|Resumen
+AI summary, written after the table|Riassunto IA, scritto dopo il tavolo|Resumen IA, escrito después de la mesa
+AI summary, edited by Gregory|Riassunto IA, modificato da Gregory|Resumen IA, editado por Gregory
+Edit|Modifica|Editar
+Save|Salva|Guardar
+Cancel|Annulla|Cancelar
