@@ -1251,7 +1251,7 @@ var raf=0,mraf=0,U={e:0,list:false,frame:null,page:-1};
 var ROWS=function(n){var r=[];for(var i=0;i<n;i++)r.push(n>1?62+i*(145/(n-1)):135);return r};
 function universe(){
  base();cancelAnimationFrame(raf);cancelAnimationFrame(mraf);U.e=0;U.list=false;U.page=-1;
- var cx=170,cy=125,TILT=-14,K=.38,PAL=T.map(function(x){return x.c}),RY=ROWS(T.length);
+ var cx=170,cy=125,TILT=MODE=="lib"?14:-14,K=.38,PAL=T.map(function(x){return x.c}),RY=ROWS(T.length);
  var sg=el("radialGradient",{id:"sun"},d);el("stop",{offset:"0","stop-color":"#FFF6D8"},sg);el("stop",{offset:".25","stop-color":"#F7C66B","stop-opacity":".85"},sg);el("stop",{offset:"1","stop-color":"#F0A040","stop-opacity":"0"},sg);
  var sys=el("g",{transform:"rotate("+TILT+" "+cx+" "+cy+")"},layer);
  var back=el("g",{},sys),sunG=el("g",{},back),orbs=el("g",{},sys),front=el("g",{},sys);

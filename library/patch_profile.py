@@ -144,6 +144,7 @@ window.KUlib=function(){if(MODE!="lib")setMode("lib")};
     i = s.rindex('</body></html>')
     s = s[:i] + TAIL + s[i:]
     s = s.replace('◎ Universe', '‹ Back')
+    s = rep(s, 'var cx=170,cy=125,TILT=-14,', 'var cx=170,cy=125,TILT=MODE=="lib"?14:-14,')
     open(P, 'w', encoding='utf8').write(s)
     subprocess.run(['python3', os.path.join(ROOT, 'i18n/add-greek.py'), P], check=True)
     print('profile patched', len(s))
