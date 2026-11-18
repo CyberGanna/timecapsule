@@ -2042,3 +2042,5 @@ Suggested|Προτεινόμενο
 Other|Άλλα
 How much did you like it?|Πόσο σου άρεσε;
 Pick one|Διάλεξε ένα
+Discussions by|Συζητήσεις από
+More from|Περισσότερα από

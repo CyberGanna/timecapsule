@@ -52,3 +52,8 @@ more|ακόμη
 Showing|Εμφανίζονται
 of|από
 Other|Άλλα
+Discussions by|Συζητήσεις από
+More from|Περισσότερα από
+See all|Δες όλες
+View profile|Προβολή προφίλ
+Gregory's discussions|Οι συζητήσεις του Gregory

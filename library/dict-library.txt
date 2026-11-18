@@ -155,3 +155,6 @@ Tap another one to change it.|Toccane un altro per cambiarlo.|Toca otro para cam
 That one already exists, so we picked|Esiste già, quindi abbiamo scelto|Ya existe, así que elegimos
 New subtopics show under “Other” on Discussions until about 5 discussions use them.|I nuovi sotto-argomenti compaiono in “Altro” nelle Discussioni finché non li usano circa 5 discussioni.|Los subtemas nuevos aparecen en “Otros” en Conversaciones hasta que unas 5 conversaciones los usan.
 Suggested|Suggerito|Sugerido
+Discussions by|Discussioni di|Conversaciones de
+More from|Altro da|Más de
+See all|Vedi tutte|Ver todas

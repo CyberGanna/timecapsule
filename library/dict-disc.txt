@@ -52,3 +52,6 @@ more|altre|más
 Showing|Visibili|Mostrando
 of|di|de
 Other|Altro|Otros
+Discussions by|Discussioni di|Conversaciones de
+View profile|Vedi profilo|Ver perfil
+Gregory's discussions|Le discussioni di Gregory|Las conversaciones de Gregory

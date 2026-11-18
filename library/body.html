@@ -18,6 +18,15 @@
 .crumb a{color:var(--soft);text-decoration:none}.crumb a:hover{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
 .crumb i{width:8px;height:8px;border-radius:50%;background:var(--c);display:inline-block;margin-right:2px}
 .crumb .sep{opacity:.5}
+.more .mlist{list-style:none;margin:6px 0 0;padding:0}
+.more .mlist li a{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 9px;align-items:baseline;padding:9px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--fg);font-size:14px;line-height:1.35}
+.more .mlist li:first-child a{border-top:0}
+.more .mlist li a:hover b{text-decoration:underline;text-underline-offset:3px}
+.more .mlist i{width:7px;height:7px;border-radius:50%;background:var(--c);display:inline-block;transform:translateY(-1px)}
+.more .mlist b{font-weight:500}
+.more .mlist small{grid-column:2;color:var(--mute);font-size:12.5px}
+.more .seeall{display:inline-flex;margin-top:10px;color:var(--teal);font-weight:600;font-size:14px;text-decoration:none}
+.more .seeall:hover{text-decoration:underline;text-underline-offset:3px}
 .meta{color:var(--mute);font-size:14px;margin:0}
 .sum{max-width:720px;margin:22px 0 34px}
 .sumh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px}
@@ -224,6 +233,12 @@
         </div>
         <div class="done" id="vSent" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Request sent. We'll tell you when Gregory answers.</span></div>
       </div>
+      <!-- everyone -->
+      <div class="card more" id="moreCard">
+        <h3 id="moreH"></h3>
+        <ul class="mlist" id="moreList"></ul>
+        <a class="seeall" id="seeAll" href="../help/live-pages/discussions.html#h=Gregory" target="_top"></a>
+      </div>
     </aside>
   </div>
 </section>
@@ -330,7 +345,12 @@ function render(){
  var r=rec(),rd=r.rounds[S.round],tl=rd.tx;
  document.title="TimeCapsule Discussions";
  $("rcTop").innerHTML='<i style="--c:'+r.col+'"></i><span>'+esc(r.topic)+'</span>';$("rcSub").textContent=r.sub;
- $("rTitle").textContent=r.title;var cl=$("rcLib");if(r.host){cl.href="../help/live-pages/discussions.html";cl.innerHTML='<span>Discussions</span>'}else{cl.href="../profile/timecapsule-profile.html#lib";cl.innerHTML='<span>Gregory\'s discussions</span>'}$("hN").innerHTML='<span>'+(r.host?'Notes by the host':'Notes by Gregory, the host')+'</span>';$("gAsk").innerHTML='<span>'+(r.host?'Ask the host for another round':'Ask Gregory for another round')+'</span>';$("hJ").innerHTML='<span>'+(r.host?'This discussion is still going. Ask the host for a chair at the next round.':'This discussion is still going. Ask Gregory, the host, for a chair at the next round.')+'</span>';var hb=document.querySelector('#roleSeg [data-role="host"]');hb.innerHTML=r.host?'<span data-noi18n>'+esc(r.host)+'</span> <span>(host)</span>':"Gregory (host)";
+ $("rTitle").textContent=r.title;var cl=$("rcLib");var HN=r.host||"Gregory",HL="../help/live-pages/discussions.html#h="+HN;cl.href=HL;cl.innerHTML=r.host?'<span>Discussions by</span> <span data-noi18n>'+esc(HN)+'</span>':'<span>Gregory\'s discussions</span>';
+ var MON={Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12},kk=function(x){var p=x.rounds[x.rounds.length-1].date.split(" ");return MON[p[2]]*100+ +p[1]};
+ var mine=Object.keys(D.byId).map(function(k){return D.byId[k]}).filter(function(x){return (x.host||"Gregory")==HN&&(!x.private||S.role=="host")}),oth=mine.filter(function(x){return x.id!=r.id}).sort(function(a,b){return kk(b)-kk(a)}).slice(0,3);
+ $("moreCard").hidden=!oth.length;$("moreH").innerHTML='<span>More from</span> <span data-noi18n>'+esc(HN)+'</span>';
+ $("moreList").innerHTML=oth.map(function(x){var d=x.rounds[x.rounds.length-1].date.split(" ");return '<li><a href="#r='+x.id+'&as='+S.role+(/lang=\w+/.test(location.hash)?'&'+location.hash.match(/lang=\w+/)[0]:'')+'" style="--c:'+x.col+'"><i></i><b data-noi18n>'+esc(x.title)+'</b><small><span>'+esc(x.topic)+'</span> · '+d[1]+' <span>'+d[2]+'</span>'+(x.rounds.length>1?' · '+x.rounds.length+' <span>rounds</span>':'')+'</small></a></li>'}).join("");
+ $("seeAll").href=HL;$("seeAll").innerHTML='<span>See all</span> '+mine.length+' ›';$("hN").innerHTML='<span>'+(r.host?'Notes by the host':'Notes by Gregory, the host')+'</span>';$("gAsk").innerHTML='<span>'+(r.host?'Ask the host for another round':'Ask Gregory for another round')+'</span>';$("hJ").innerHTML='<span>'+(r.host?'This discussion is still going. Ask the host for a chair at the next round.':'This discussion is still going. Ask Gregory, the host, for a chair at the next round.')+'</span>';var hb=document.querySelector('#roleSeg [data-role="host"]');hb.innerHTML=r.host?'<span data-noi18n>'+esc(r.host)+'</span> <span>(host)</span>':"Gregory (host)";
  var n=rd.people,left=rd.out;
  $("rMeta").innerHTML=(r.rounds.length>1?'<span>Round</span> '+(S.round+1)+' <span>of</span> '+r.rounds.length+' · ':'')+'<span>'+esc(rd.date)+'</span> · '+(r.host?'<span>Hosted by</span> <span data-noi18n>'+esc(r.host)+'</span>':'<span>Hosted by Gregory</span>');
  var rb=$("rRounds");rb.hidden=r.rounds.length<2;
@@ -405,6 +425,6 @@ $("gDone").onclick=function(){var out=document.querySelector('input[name=me]:che
 function fromHash(){var m=location.hash.match(/r=([a-z-]+)/);S.rec=m&&D.byId[m[1]]?m[1]:"free-will";S.round=rec().rounds.length-1;if(/save/.test(location.hash)){S.scr="save";document.querySelectorAll("#scrSeg button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.scr=="save")})}
  var am=location.hash.match(/as=(host|guest|visitor)/);if(am){S.role=am[1];document.querySelectorAll("#roleSeg button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.role==S.role)})}}
 fromHash();pills();render();
-window.addEventListener("hashchange",function(){fromHash();render()});
+window.addEventListener("hashchange",function(){fromHash();render();scrollTo(0,0)});
 })();
 </script>
