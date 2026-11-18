@@ -138,3 +138,5 @@ Save my 3 kept notes to My discussions|Αποθήκευσε τις 3 σημει�
 Saved to My discussions, in|Αποθηκεύτηκε στις Συζητήσεις μου, στο
 See My discussions|Δες τις Συζητήσεις μου
 Edit summary|Επεξεργασία περίληψης
+Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Κάθε τραπέζι αφήνει ένα ίχνος. Οι συζητήσεις που αποθηκεύεις βρίσκουν εδώ την τροχιά τους, ανά θέμα, ώστε να βλέπεις τις ιδέες που εξερεύνησες με άλλους ανθρώπους.
+Tap a star to read it again, or pick it up for another round.|Πάτησε ένα αστέρι για να το ξαναδιαβάσεις ή να το συνεχίσεις σε έναν ακόμα γύρο.

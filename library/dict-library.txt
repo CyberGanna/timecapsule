@@ -138,3 +138,5 @@ Save my 3 kept notes to My discussions|Salva le mie 3 note tenute in Le mie disc
 Saved to My discussions, in|Salvato in Le mie discussioni, in|Guardada en Mis conversaciones, en
 See My discussions|Vedi Le mie discussioni|Ver Mis conversaciones
 Edit summary|Modifica il riassunto|Editar el resumen
+Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Ogni tavolo lascia una traccia. Le discussioni che salvi trovano qui la loro orbita, per argomento, così vedi le idee che hai esplorato con altre persone.|Cada mesa deja una huella. Las conversaciones que guardas encuentran aquí su órbita, por tema, para que veas las ideas que has explorado con otras personas.
+Tap a star to read it again, or pick it up for another round.|Tocca una stella per rileggerla o riprenderla per un altro giro.|Toca una estrella para volver a leerla o retomarla en otra ronda.

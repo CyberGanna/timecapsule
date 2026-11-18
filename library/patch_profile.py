@@ -34,6 +34,7 @@ def lib_tab(recs):
 
 CSS = r'''<style id="lib-css">
 .sunav{cursor:pointer;outline:none}
+.lbreads.libmode .wmt,.lbreads.libmode .kb-r,.lbreads:not(.libmode) .kb-l{display:none}
 .lbreads .uni{background:#1D1A12}
 .lbreads.libmode .uni{background:#0F1A30}
 .sunav .avglow{transform-box:fill-box;transform-origin:center;animation:avp 3.6s ease-in-out infinite}
@@ -98,6 +99,10 @@ def run(ROOT, recs, LIBD, add_dict):
     LT = [dict(n=t, c=by[t][0]['col'], b=[[r['title'], r['sub'] + (' · %d rounds' % len(r['rounds']) if len(r['rounds']) > 1 else ''), r['id'], 1 if r['private'] else 0] for r in sorted(by[t], key=lambda r: r['sub'])]) for t in order]
     # universe code
     s = rep(s, '\nvar BOOKS=[];T.forEach', '\nvar RT=T,MODE="read",LT=' + json.dumps(LT, ensure_ascii=False) + ';\nvar BOOKS=[];T.forEach')
+    s = rep(s, '<b>k▪universe</b><p>Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><a href="https://k-universe.com/" target="_blank" rel="noopener">Learn more →</a>',
+            '<b class="kb-r">k▪universe</b><p class="kb-r">Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><a class="kb-r" href="https://k-universe.com/" target="_blank" rel="noopener">Learn more →</a>'
+            '<b class="kb-l">My discussions</b><p class="kb-l">Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.</p><p class="kb-l">Tap a star to read it again, or pick it up for another round.</p>')
+    s = rep(s, '<span aria-hidden="true">powered by k▪universe</span>', '<span class="wmt" aria-hidden="true">powered by k▪universe</span>')
     s = rep(s, ' el("circle",{cx:cx,cy:cy,r:4.2,fill:"#FFFDF2"},sunG);', ' var avg=sunAv(sys,orbs,cx,cy);')
     s = rep(s, 'sunG.style.opacity=(1-e).toFixed(3);', 'sunG.style.opacity=(1-e).toFixed(3);avg.setAttribute("transform","rotate("+(-TILT*(1-e)).toFixed(2)+" "+cx+" "+cy+")");avg.style.opacity=(1-e).toFixed(3);avg.style.pointerEvents=e>.5?"none":"";')
     s = rep(s, 'var fn=function(){if(!U.list){utip.hidden=true;', 'var fn=function(){if(MODE=="lib"){goRec(bk[2]);return}if(!U.list){utip.hidden=true;')
@@ -131,7 +136,7 @@ function sunAv(sys,before,cx,cy){
  g.addEventListener("pointerleave",function(){utip.hidden=true});
  return g}
 document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListener("click",function(){if(b.dataset.m!=MODE)setMode(b.dataset.m)})});
-function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");universe();var a=s.querySelector(".sunav");if(a&&document.activeElement&&document.activeElement.closest&&document.activeElement.closest(".uni"))a.focus()}
+function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");var kq=document.getElementById("kq");if(kq)kq.setAttribute("aria-label",m=="lib"?"What is My discussions?":"What is k-universe?");var kb=document.getElementById("kbox");if(kb)kb.setAttribute("aria-label",m=="lib"?"About My discussions":"About k-universe");universe();var a=s.querySelector(".sunav");if(a&&document.activeElement&&document.activeElement.closest&&document.activeElement.closest(".uni"))a.focus()}
 window.KUlib=function(){if(MODE!="lib")setMode("lib")};
 '''
     s = rep(s, '\nuniverse();\nwindow.KU={T:T,render:universe};', '\n' + HELP + 'universe();\nwindow.KU={T:RT,render:function(){if(MODE!="read"){MODE="read";T=RT;var r=document.querySelector(".lbreads");if(r)r.classList.remove("libmode");document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m=="read")})}universe()}};')
