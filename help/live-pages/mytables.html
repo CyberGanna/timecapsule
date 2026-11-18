@@ -930,7 +930,9 @@ function sheetManage(t){
   h+=`<span class="lbl">Tools</span><div class="mg-tools">${menuItems(t).replace(/<hr>/g,"").replace(/<button[^>]*data-do="who"[^>]*>.*?<\/button>/,"").replace(/ role="menuitem"/g,"")}</div>`;
   openSheet(h); try{history.replaceState(null,"","#t-"+t.id)}catch(e){}
 }
-function fromHash(){const m=/^#t-(\d+)$/.exec(location.hash);const t=m&&byId(+m[1]);if(t&&!t.cancelled){S.tab=t.past?"past":"up";render();sheetManage(t)}}
+const TPAGE=id=>[1,2,3,4].includes(id)&&byId(id)&&!byId(id).past&&!byId(id).cancelled; /* tc-mt: these open the Table page (Karim 2026-11-18) */
+const goTable=id=>{top.location.href=(window.TCI18N?TCI18N.u:(x=>x))("../../table-detail/timecapsule-table.html#t="+id)};
+function fromHash(){const m=/^#t-(\d+)$/.exec(location.hash);const t=m&&byId(+m[1]);if(t&&TPAGE(t.id)){goTable(t.id);return}if(t&&!t.cancelled){S.tab=t.past?"past":"up";render();sheetManage(t)}}
 addEventListener("hashchange",fromHash);
 
 /* exports */
@@ -989,7 +991,7 @@ function act(k,t,el){
 }
 document.addEventListener("click",e=>{
   const mb=e.target.closest("[data-more]"); if(mb){openMenu(mb);return}
-  const op=e.target.closest("[data-open]"); if(op){closeMenu();sheetManage(byId(+op.dataset.open));return}
+  const op=e.target.closest("[data-open]"); if(op){closeMenu();if(TPAGE(+op.dataset.open)){goTable(+op.dataset.open);return}sheetManage(byId(+op.dataset.open));return}
   if(e.target.closest("[data-close]")||e.target===scrim){closeSheet();return}
   if(e.target.id==="sendinv"&&!e.target.disabled){const n=sheet.querySelectorAll(".chk:checked").length;closeSheet();toast(`${n} ${n===1?"invite":"invites"} sent`);const t=byId(+e.target.dataset.id);if(isHost(t)){t.invites=(t.invites||0)+n;render()}return}
   const d=e.target.closest("[data-do]"); if(d&&!d.disabled){act(d.dataset.do,byId(+d.dataset.id),d);return}
@@ -997,7 +999,7 @@ document.addEventListener("click",e=>{
   const rb=e.target.closest("[data-role]"); if(rb){S.role=rb.dataset.role;save();render();return}
   if(!e.target.closest("#menu")) closeMenu();
 });
-document.addEventListener("keydown",e=>{const op=e.target.closest&&e.target.closest("[data-open]");if(op&&(e.key==="Enter"||e.key===" ")){e.preventDefault();sheetManage(byId(+op.dataset.open));return}if(e.key==="Escape"){closeMenu();if(!scrim.hidden)closeSheet()}});
+document.addEventListener("keydown",e=>{const op=e.target.closest&&e.target.closest("[data-open]");if(op&&(e.key==="Enter"||e.key===" ")){e.preventDefault();if(TPAGE(+op.dataset.open)){goTable(+op.dataset.open);return}sheetManage(byId(+op.dataset.open));return}if(e.key==="Escape"){closeMenu();if(!scrim.hidden)closeSheet()}});
 addEventListener("resize",closeMenu); addEventListener("scroll",closeMenu,{passive:true});
 const q=document.getElementById("q"); if(q){q.placeholder="Search my tables";q.addEventListener("input",()=>{S.q=q.value;render()})}
 const sq=document.querySelector("#tch .tch-sbar input"); if(sq) sq.placeholder="Search my tables";
