@@ -33,16 +33,14 @@ def lib_tab(recs):
     return '\n'.join(h)
 
 CSS = r'''<style id="lib-css">
-.sunav{cursor:pointer;outline:none}
+.sunav{cursor:default;outline:none}
 .lbreads.libmode .wmt,.lbreads.libmode .kb-r,.lbreads:not(.libmode) .kb-l{display:none}
-.lbreads .uni{background:#0E2426}
-.lbreads.libmode .uni{background:#0F1A30}
+.lbreads .uni{background:#0F1A30;border:1px solid #F0C858}
+.lbreads.libmode .uni{border-color:#6CB8FF}
 .sunav .avglow{transform-box:fill-box;transform-origin:center;animation:avp 3.6s ease-in-out infinite}
 @keyframes avp{50%{opacity:.55;transform:scale(1.18)}}
 @media (prefers-reduced-motion:reduce){.sunav .avglow{animation:none}}
 .sunav .avring{transition:stroke-width .15s}
-.sunav:hover .avring,.sunav:focus-visible .avring{stroke-width:2.6}
-.sunav:focus-visible .avring{stroke:#17C3C8}
 .ulay .udot{cursor:pointer}
 .uh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .unitog{position:absolute;top:10px;left:14px;z-index:3;display:flex;gap:14px}
@@ -113,7 +111,7 @@ def run(ROOT, recs, LIBD, add_dict):
     s = rep(s, "'<li style=\"--c:'+th.c+'\"><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i", "'<li style=\"--c:'+th.c+'\"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i")
     s = rep(s, '<b>All books</b>', "<b>'+(MODE==\"lib\"?\"All discussions\":\"All books\")+'</b>")
     s = rep(s, "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);return '<button type=\"button\" class=\"caplink\" data-act=\"all\">'+nb+' books</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\">'+T.length+' themes</button>. Hover/tap to learn more.'}",
-            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <span>Tap a planet to open it.</span>';return '<button type=\"button\" class=\"caplink\" data-act=\"all\">'+nb+' books</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\">'+T.length+' themes</button>. Hover/tap to learn more.'}")
+            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>. <span>Tap a planet to open it.</span>';return '<button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> books</button>. Hover/tap to learn more.'}")
     HELP = r'''function BY(){return MODE=="lib"?", ":" by "}
 function RA(b){return b&&b[2]?' data-r="'+b[2]+'" tabindex="0" role="link"':''}
 function goRec(id){var a=document.createElement("a");a.href="../library/timecapsule-library.html#r="+id+(document.body.classList.contains("visitor")?"&as=visitor":"");a.target="_top";document.body.appendChild(a);a.click();a.remove()}
@@ -123,19 +121,15 @@ function sunAv(sys,before,cx,cy){
  var src=(document.querySelector(".lbh img.big")||{}).src||"";
  var cp=el("clipPath",{id:"avclip"},d);el("circle",{cx:cx,cy:cy,r:15},cp);
  var gl=el("radialGradient",{id:"avg"},d);el("stop",{offset:".45","stop-color":"#FFE7A8","stop-opacity":".9"},gl);el("stop",{offset:"1","stop-color":"#F0A040","stop-opacity":"0"},gl);
- var g=el("g",{"class":"sunav",tabindex:"0",role:"button","aria-label":MODE=="lib"?"Back to the readings":"Open Discussions"},sys);sys.insertBefore(g,before);
+ var g=el("g",{"class":"sunav","aria-hidden":"true"},sys);sys.insertBefore(g,before);
  el("circle",{"class":"avglow",cx:cx,cy:cy,r:28,fill:"url(#avg)"},g);
  el("circle",{cx:cx,cy:cy,r:15.5,fill:"#1B2144"},g);
  if(src){var im=el("image",{x:cx-15,y:cy-15,width:30,height:30,"clip-path":"url(#avclip)",preserveAspectRatio:"xMidYMid slice"},g);im.setAttribute("href",src)}
  el("circle",{"class":"avring",cx:cx,cy:cy,r:15.5,fill:"none",stroke:MODE=="lib"?"#7FF0F2":"#FFE3A0","stroke-width":"1.6"},g);
  el("circle",{cx:cx,cy:cy,r:22,fill:"transparent"},g);
- var go=function(e){if(e)e.stopPropagation();setMode(MODE=="lib"?"read":"lib")};
- g.addEventListener("click",go);g.addEventListener("keydown",function(e){if(e.key=="Enter"||e.key==" "){e.preventDefault();go()}});
- g.addEventListener("pointerenter",function(){var u=s.parentNode.getBoundingClientRect(),r=g.getBoundingClientRect();utip.innerHTML="<b>"+(MODE=="lib"?"Back to the readings":"Open Discussions")+"</b>";utip.style.setProperty("--c",MODE=="lib"?"#7FF0F2":"#F7C66B");utip.style.left="50%";utip.style.top=(r.top+r.height/2-u.top)+"px";utip.classList.remove("dn");utip.hidden=false});
- g.addEventListener("pointerleave",function(){utip.hidden=true});
  return g}
 document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListener("click",function(){if(b.dataset.m!=MODE)setMode(b.dataset.m)})});
-function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");var kq=document.getElementById("kq");if(kq)kq.setAttribute("aria-label",m=="lib"?"What are Discussions?":"What is k-universe?");var kb=document.getElementById("kbox");if(kb)kb.setAttribute("aria-label",m=="lib"?"About Discussions":"About k-universe");universe();var a=s.querySelector(".sunav");if(a&&document.activeElement&&document.activeElement.closest&&document.activeElement.closest(".uni"))a.focus()}
+function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");var kq=document.getElementById("kq");if(kq)kq.setAttribute("aria-label",m=="lib"?"What are Discussions?":"What is k-universe?");var kb=document.getElementById("kbox");if(kb)kb.setAttribute("aria-label",m=="lib"?"About Discussions":"About k-universe");universe()}
 window.KUlib=function(){if(MODE!="lib")setMode("lib")};
 '''
     s = rep(s, '\nuniverse();\nwindow.KU={T:T,render:universe};', '\n' + HELP + 'universe();\nwindow.KU={T:RT,render:function(){if(MODE!="read"){MODE="read";T=RT;var r=document.querySelector(".lbreads");if(r)r.classList.remove("libmode");document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m=="read")})}universe()}};')
