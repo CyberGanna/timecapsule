@@ -142,3 +142,4 @@ Tap a planet to read it again, or pick it up for another round.|Tocca un pianeta
 Readings|Letture|Lecturas
 What are Discussions?|Cosa sono le Discussioni?|¿Qué son las Conversaciones?
 About Discussions|Informazioni sulle Discussioni|Acerca de Conversaciones
+Universe|Universo|Universo

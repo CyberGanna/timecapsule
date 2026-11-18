@@ -142,3 +142,4 @@ Tap a planet to read it again, or pick it up for another round.|Πάτησε έ�
 Readings|Αναγνώσεις
 What are Discussions?|Τι είναι οι Συζητήσεις;
 About Discussions|Σχετικά με τις Συζητήσεις
+Universe|Σύμπαν
