@@ -43,17 +43,17 @@ CSS = r'''<style id="lib-css">
 .sunav .avring{transition:stroke-width .15s}
 .sunav:hover .avring,.sunav:focus-visible .avring{stroke-width:2.6}
 .sunav:focus-visible .avring{stroke:#17C3C8}
-.unicap{order:-1;min-height:0!important;margin:0 0 2px!important}
-#uniview.fsw .unicap{order:0}
 .ulay .udot{cursor:pointer}
 .uh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.unitog{display:flex;gap:18px;margin:12px 0 8px}
-.unitog button{display:inline-flex;align-items:baseline;gap:4px;min-height:28px;padding:0;border:0;border-radius:0;background:none;color:var(--mute);font:inherit;font-size:13.5px;cursor:pointer;white-space:nowrap}
+.unitog{position:absolute;top:10px;left:12px;z-index:3;display:flex;gap:16px}
+.unitog button{display:inline-flex;align-items:baseline;gap:4px;min-height:30px;padding:0;border:0;border-bottom:2px solid transparent;border-radius:0;background:none;color:rgba(238,241,255,.6);font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
 .unitog button span{font-weight:600;font-variant-numeric:tabular-nums}
-.unitog button:hover{color:var(--text,#EEF1FF)}
-.unitog button[aria-pressed=true]{color:var(--text,#EEF1FF);font-weight:500}
+.unitog button:hover{color:#EEF1FF}
+.unitog button[aria-pressed=true]{color:#EEF1FF;font-weight:500;border-bottom-color:var(--teal)}
 .unitog button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
-.lbreads .unicap{text-align:left}
+.uni:has(#ulink:not([hidden])) .unitog{display:none}
+#uni-h{margin-bottom:4px}
+@media (min-width:861px){.lbbody{grid-template-columns:410px minmax(0,1fr);gap:40px}}
 body.visitor .unitog .lbc-o,body:not(.visitor) .unitog .lbc-v{display:none}
 .ulay .pl li[data-r]{cursor:pointer}.ulay .pl li[data-r]:hover span{text-decoration:underline;text-underline-offset:3px}
 .lbintro{margin:4px 0 18px;color:var(--mute);font-size:13.5px;line-height:1.5}
@@ -88,7 +88,8 @@ def run(ROOT, recs, LIBD, add_dict):
             '<button type="button" role="tab" id="t-lb" aria-selected="false" aria-controls="p-lb"><b class="lbc-o">%d</b><b class="lbc-v">%d</b> Discussions</button>\n    <button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>' % (len(recs), npub))
     s = rep(s, '  <section class="panel" id="p-fw" role="tabpanel"', lib_tab(recs) + '\n\n  <section class="panel" id="p-fw" role="tabpanel"')
     s = rep(s, '<h2 id="uni-h">My readings <span>36</span></h2>',
-            '<h2 id="uni-h">My universe</h2><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">Readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">Discussions <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div>' % (len(recs), npub))
+            '<h2 id="uni-h">My universe</h2>')
+    s = rep(s, '<div class="uni"><button type="button" class="ulink"', '<div class="uni"><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">Readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">Discussions <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div><button type="button" class="ulink"' % (len(recs), npub))
     # library data for the map: one orbit per topic, one star per discussion
     order = []; by = {}
     for r in recs.values():
