@@ -1146,7 +1146,7 @@ body.visitor .tm-owner{display:none}body:not(.visitor) .tm-vis{display:none}
       <section class="lbsec lbreads"><div class="reads">
       <h2 id="uni-h">My universe</h2>
       <div id="uniview">
-      <div class="uni"><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">Readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">Discussions <span class="lbc-o">12</span><span class="lbc-v">11</span></button></div><button type="button" class="ulink" id="ulink" aria-controls="ulay">☰ List</button><button type="button" class="ufs" id="ufs" aria-label="Open map full screen" aria-pressed="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7"/></svg></button><div class="ulay" id="ulay" hidden></div><div class="utip" id="utip" hidden></div><div class="kbox" id="kbox" role="dialog" aria-label="About k-universe" hidden><button type="button" class="kx" id="kx" aria-label="Close">×</button><b class="kb-r">k▪universe</b><p class="kb-r">Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><a class="kb-r" href="https://k-universe.com/" target="_blank" rel="noopener">Learn more →</a><b class="kb-l">Discussions</b><p class="kb-l">Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.</p><p class="kb-l">Tap a planet to read it again, or pick it up for another round.</p></div><span class="wm"><span class="wmt" aria-hidden="true">powered by k▪universe</span><button type="button" class="qhelp" id="kq" aria-label="What is k-universe?" aria-expanded="false" aria-controls="kbox">?</button></span><svg id="uni" viewBox="0 0 340 250" role="img" aria-labelledby="uni-h" aria-describedby="unicap"></svg></div>
+      <div class="uni"><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">Readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">Discussions <span class="lbc-o">12</span><span class="lbc-v">11</span></button></div><button type="button" class="ulink" id="ulink" aria-controls="ulay">☰ List</button><button type="button" class="ufs" id="ufs" aria-label="Open map full screen" aria-pressed="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7"/></svg></button><div class="ulay" id="ulay" hidden></div><div class="utip" id="utip" hidden></div><div class="kbox" id="kbox" role="dialog" aria-label="About k-universe" hidden><button type="button" class="kx" id="kx" aria-label="Close">×</button><b class="kb-r">k▪universe</b><p class="kb-r">Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><b class="kb-l">Discussions</b><p class="kb-l">Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.</p><p class="kb-l">Tap a planet to read it again, or pick it up for another round.</p></div><span class="wm"><span class="wmt" aria-hidden="true">powered by k▪universe</span><button type="button" class="qhelp" id="kq" aria-label="What is k-universe?" aria-expanded="false" aria-controls="kbox">?</button></span><svg id="uni" viewBox="0 0 340 250" role="img" aria-labelledby="uni-h" aria-describedby="unicap"></svg></div>
       <button type="button" class="uniback" id="uniback" hidden>← Whole universe</button>
       <p class="unicap" id="unicap" aria-live="polite"></p>
       </div></div></section>
@@ -1993,7 +1993,17 @@ w.querySelector(".tm-dlg").setAttribute("aria-labelledby",document.body.classLis
 .lbreads .uni:has(#ulink:not([hidden])) #uni{margin-top:0;margin-bottom:0}
 .lbreads .uni:has(#ulink:not([hidden])) .ulay:not(.pg){top:44px;bottom:0}
 .lbreads .ulink{top:50px;left:6px}
-.uni.fs .ua.uend{min-width:44px;height:40px;line-height:40px;padding:0 12px;font-size:24px}
+@media (max-width:700px){
+#uniview.fsw{background:#0F1A30;padding:0 0 max(20px,env(safe-area-inset-bottom,0px));align-content:center;gap:18px}
+#uniview.fsw .uni.fs{width:100%;border:0!important;border-radius:0;padding-top:0}
+#uniview.fsw .uni.fs #uni{margin:0!important}
+#uniview.fsw .uni.fs .ulay,#uniview.fsw .uni.fs .ulay:not(.pg){top:0!important;bottom:0!important}
+#uniview.fsw .uni.fs .unitog{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:16px}
+#uniview.fsw .uni.fs .ufs{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px}
+#uniview.fsw .uni.fs .ulink{position:fixed;top:calc(54px + env(safe-area-inset-top,0px));left:8px}
+#uniview.fsw .uni.fs .ulay.pg{position:fixed;background:#0F1A30;top:calc(44px + env(safe-area-inset-top,0px))!important;padding-top:52px}
+}
+.uni.fs .ua.uend{min-width:31px;height:28px;line-height:28px;padding:0 8px;font-size:17px}
 .uni:has(#ulink:not([hidden])) #pgb{visibility:hidden}
 #uni-h{margin-bottom:4px}
 body.visitor .unitog .lbc-o,body:not(.visitor) .unitog .lbc-v{display:none}

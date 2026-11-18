@@ -58,7 +58,17 @@ CSS = r'''<style id="lib-css">
 .lbreads .uni:has(#ulink:not([hidden])) #uni{margin-top:0;margin-bottom:0}
 .lbreads .uni:has(#ulink:not([hidden])) .ulay:not(.pg){top:44px;bottom:0}
 .lbreads .ulink{top:50px;left:6px}
-.uni.fs .ua.uend{min-width:44px;height:40px;line-height:40px;padding:0 12px;font-size:24px}
+@media (max-width:700px){
+#uniview.fsw{background:#0F1A30;padding:0 0 max(20px,env(safe-area-inset-bottom,0px));align-content:center;gap:18px}
+#uniview.fsw .uni.fs{width:100%;border:0!important;border-radius:0;padding-top:0}
+#uniview.fsw .uni.fs #uni{margin:0!important}
+#uniview.fsw .uni.fs .ulay,#uniview.fsw .uni.fs .ulay:not(.pg){top:0!important;bottom:0!important}
+#uniview.fsw .uni.fs .unitog{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:16px}
+#uniview.fsw .uni.fs .ufs{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px}
+#uniview.fsw .uni.fs .ulink{position:fixed;top:calc(54px + env(safe-area-inset-top,0px));left:8px}
+#uniview.fsw .uni.fs .ulay.pg{position:fixed;background:#0F1A30;top:calc(44px + env(safe-area-inset-top,0px))!important;padding-top:52px}
+}
+.uni.fs .ua.uend{min-width:31px;height:28px;line-height:28px;padding:0 8px;font-size:17px}
 .uni:has(#ulink:not([hidden])) #pgb{visibility:hidden}
 #uni-h{margin-bottom:4px}
 body.visitor .unitog .lbc-o,body:not(.visitor) .unitog .lbc-v{display:none}
@@ -106,7 +116,7 @@ def run(ROOT, recs, LIBD, add_dict):
     # universe code
     s = rep(s, '\nvar BOOKS=[];T.forEach', '\nvar RT=T,MODE="read",LT=' + json.dumps(LT, ensure_ascii=False) + ';\nvar BOOKS=[];T.forEach')
     s = rep(s, '<b>k▪universe</b><p>Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><a href="https://k-universe.com/" target="_blank" rel="noopener">Learn more →</a>',
-            '<b class="kb-r">k▪universe</b><p class="kb-r">Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><a class="kb-r" href="https://k-universe.com/" target="_blank" rel="noopener">Learn more →</a>'
+            '<b class="kb-r">k▪universe</b><p class="kb-r">Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p>'
             '<b class="kb-l">Discussions</b><p class="kb-l">Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.</p><p class="kb-l">Tap a planet to read it again, or pick it up for another round.</p>')
     s = rep(s, '<span aria-hidden="true">powered by k▪universe</span>', '<span class="wmt" aria-hidden="true">powered by k▪universe</span>')
     s = rep(s, ' el("circle",{cx:cx,cy:cy,r:4.2,fill:"#FFFDF2"},sunG);', ' var avg=sunAv(sys,orbs,cx,cy);')
