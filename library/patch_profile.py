@@ -35,7 +35,7 @@ def lib_tab(recs):
 CSS = r'''<style id="lib-css">
 .sunav{cursor:pointer;outline:none}
 .lbreads.libmode .wmt,.lbreads.libmode .kb-r,.lbreads:not(.libmode) .kb-l{display:none}
-.lbreads .uni{background:#1D1A12}
+.lbreads .uni{background:#0E2426}
 .lbreads.libmode .uni{background:#0F1A30}
 .sunav .avglow{transform-box:fill-box;transform-origin:center;animation:avp 3.6s ease-in-out infinite}
 @keyframes avp{50%{opacity:.55;transform:scale(1.18)}}
