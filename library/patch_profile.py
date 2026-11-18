@@ -37,11 +37,13 @@ CSS = r'''<style id="lib-css">
 .lbreads.libmode .wmt,.lbreads.libmode .kb-r,.lbreads:not(.libmode) .kb-l{display:none}
 .lbreads .uni{background:#0F1A30}
 .lbreads .uni:not(.fs){background:none;border:0;border-radius:0}
-#uniview:not(.fsw){background:STARS 0 0/var(--uw,340px) auto;padding:4px 0 6px}
-#uniview.fsw{background:STARS 0 0/var(--uw,340px) auto,#0F1A30!important}
+#uniview:not(.fsw){background:STARS 0 0/calc(var(--uw,340px) * 2) auto;padding:4px 0 6px}
+#uniview.fsw{background:STARS 0 0/calc(var(--uw,340px) * 2) auto,#0F1A30!important}
 #uni>circle{display:none}
 #uniview.fsw .uni.fs{background:none!important;border:0!important;box-shadow:none}
 #uniview:not(.fsw) .unicap{margin-top:4px;padding-bottom:6px}
+#uniview.fsw .uni.fs .ufs{width:44px;height:44px;top:2px;right:2px}
+#uniview.fsw .uni.fs .ufs svg{width:34px;height:34px;stroke-width:1.8}
 #uniview.fsw .unicap{font-size:13px;color:var(--mute);max-width:none;width:calc(min(100%, calc((100vh - 150px) * 1.36)) - 28px)}
 .lbreads .uni .ufs,.lbreads .uni .ufs:hover,.lbreads .uni .ufs:focus,.lbreads .uni .ufs:focus-visible{background:none!important;outline:none;box-shadow:none}
 .lbreads .uni .ufs:hover{opacity:.75}
@@ -84,7 +86,7 @@ CSS = r'''<style id="lib-css">
 #uniview.fsw .uni.fs #uni{margin:0!important}
 #uniview.fsw .uni.fs .ulay,#uniview.fsw .uni.fs .ulay:not(.pg){top:0!important;bottom:0!important}
 #uniview.fsw .uni.fs .unitog{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:16px}
-#uniview.fsw .uni.fs .ufs{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px}
+#uniview.fsw .uni.fs .ufs{position:fixed;top:calc(5px + env(safe-area-inset-top,0px));right:6px}
 #uniview.fsw .uni.fs .ulink{position:fixed;top:calc(54px + env(safe-area-inset-top,0px));left:8px}
 #uniview.fsw .unicap{width:calc(100% - 32px)}
 #uniview.fsw .uni.fs .ulay.pg{position:fixed;background:#0F1A30;top:calc(44px + env(safe-area-inset-top,0px))!important;padding-top:52px}
@@ -117,11 +119,11 @@ body.visitor #t-lb .lbc-o,body:not(.visitor) #t-lb .lbc-v{display:none}
 import random as _r
 def _stars():
     g=_r.Random(7);c=[]
-    for i in range(90):
-        x,y,r,o=g.random()*340,g.random()*250,g.random()*.9+.2,g.random()*.45+.1
+    for i in range(540):
+        x,y,r,o=g.random()*680,g.random()*750,g.random()*.9+.2,g.random()*.45+.1
         a='<animate attributeName="opacity" values=".2;.85;.2" dur="3.2s" begin="%.1fs" repeatCount="indefinite"/>'%(i%30/10) if i%6==0 else ''
         c.append('<circle cx="%.1f" cy="%.1f" r="%.2f" fill="#EEF1FF" opacity="%.2f">%s</circle>'%(x,y,r,o,a) if a else '<circle cx="%.1f" cy="%.1f" r="%.2f" fill="#EEF1FF" opacity="%.2f"/>'%(x,y,r,o))
-    svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 250" width="340" height="250">'+''.join(c)+'</svg>'
+    svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 750" width="680" height="750">'+''.join(c)+'</svg>'
     from urllib.parse import quote
     return 'url("data:image/svg+xml,'+quote(svg)+'")'
 CSS = CSS.replace('STARS', _stars())
