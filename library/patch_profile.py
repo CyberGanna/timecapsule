@@ -45,12 +45,16 @@ CSS = r'''<style id="lib-css">
 .sunav:focus-visible .avring{stroke:#17C3C8}
 .ulay .udot{cursor:pointer}
 .uh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.unitog{position:absolute;top:10px;left:12px;z-index:3;display:flex;gap:16px}
-.unitog button{display:inline-flex;align-items:baseline;gap:4px;min-height:30px;padding:0;border:0;border-bottom:2px solid transparent;border-radius:0;background:none;color:rgba(238,241,255,.6);font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
-.unitog button span{font-weight:600;font-variant-numeric:tabular-nums}
+.unitog{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:2px;padding:3px;border-radius:12px;background:rgba(11,14,30,.72);border:1px solid rgba(238,241,255,.14);backdrop-filter:blur(4px)}
+.unitog button{min-height:30px;padding:0 14px;border:0;border-radius:9px;background:none;color:rgba(238,241,255,.6);font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
+.unitog button span{opacity:.7;margin-left:3px;font-variant-numeric:tabular-nums}
 .unitog button:hover{color:#EEF1FF}
-.unitog button[aria-pressed=true]{color:#EEF1FF;font-weight:500;border-bottom-color:var(--teal)}
-.unitog button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.unitog button[aria-pressed=true]{background:var(--field,#252B52);color:#EEF1FF;font-weight:500}
+.unitog button[data-m=read][aria-pressed=true]{box-shadow:inset 0 0 0 1px rgba(247,198,107,.55)}
+.unitog button[data-m=lib][aria-pressed=true]{box-shadow:inset 0 0 0 1px rgba(127,240,242,.55)}
+.unitog button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.lbreads .uni:not(.fs){padding:58px 0 34px}
+.lbreads .uni:not(.fs) .ulay:not(.pg){top:58px;bottom:34px}
 .uni:has(#ulink:not([hidden])) .unitog{display:none}
 #uni-h{margin-bottom:4px}
 @media (min-width:861px){.lbbody{grid-template-columns:410px minmax(0,1fr);gap:40px}}
