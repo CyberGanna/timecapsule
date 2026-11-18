@@ -40,6 +40,9 @@ CSS = r'''<style id="lib-css">
 .sunav .avring{transition:stroke-width .15s}
 .sunav:hover .avring,.sunav:focus-visible .avring{stroke-width:2.6}
 .sunav:focus-visible .avring{stroke:#17C3C8}
+.unicap{order:-1;min-height:0!important;margin:0 0 2px!important}
+#uniview.fsw .unicap{order:0}
+.ulay .udot{cursor:pointer}
 .uh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .unitog{display:flex;gap:2px;padding:3px;margin:0 0 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
 .unitog button{flex:1;min-height:34px;border:0;border-radius:9px;background:none;color:var(--mute);font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
@@ -81,10 +84,10 @@ def run(ROOT, recs, LIBD, add_dict):
     npub = sum(1 for r in recs.values() if not r['private'])
     # tab + panel
     s = rep(s, '<button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>',
-            '<button type="button" role="tab" id="t-lb" aria-selected="false" aria-controls="p-lb"><b class="lbc-o">%d</b><b class="lbc-v">%d</b> Library</button>\n    <button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>' % (len(recs), npub))
+            '<button type="button" role="tab" id="t-lb" aria-selected="false" aria-controls="p-lb"><b class="lbc-o">%d</b><b class="lbc-v">%d</b> Content</button>\n    <button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>' % (len(recs), npub))
     s = rep(s, '  <section class="panel" id="p-fw" role="tabpanel"', lib_tab(recs) + '\n\n  <section class="panel" id="p-fw" role="tabpanel"')
     s = rep(s, '<h2 id="uni-h">My readings <span>36</span></h2>',
-            '<h2 id="uni-h" class="uh-sr"><span class="uh-read">My readings</span><span class="uh-lib">My library</span></h2><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">My readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">My library <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div>' % (len(recs), npub))
+            '<h2 id="uni-h" class="uh-sr"><span class="uh-read">My readings</span><span class="uh-lib">My Content</span></h2><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">My readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">My Content <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div>' % (len(recs), npub))
     # library data for the map: one orbit per topic, one star per discussion
     order = []; by = {}
     for r in recs.values():
@@ -114,7 +117,7 @@ function sunAv(sys,before,cx,cy){
  var src=(document.querySelector(".lbh img.big")||{}).src||"";
  var cp=el("clipPath",{id:"avclip"},d);el("circle",{cx:cx,cy:cy,r:15},cp);
  var gl=el("radialGradient",{id:"avg"},d);el("stop",{offset:".45","stop-color":"#FFE7A8","stop-opacity":".9"},gl);el("stop",{offset:"1","stop-color":"#F0A040","stop-opacity":"0"},gl);
- var g=el("g",{"class":"sunav",tabindex:"0",role:"button","aria-label":MODE=="lib"?"Back to the readings":"Open the library"},sys);sys.insertBefore(g,before);
+ var g=el("g",{"class":"sunav",tabindex:"0",role:"button","aria-label":MODE=="lib"?"Back to the readings":"Open My Content"},sys);sys.insertBefore(g,before);
  el("circle",{"class":"avglow",cx:cx,cy:cy,r:28,fill:"url(#avg)"},g);
  el("circle",{cx:cx,cy:cy,r:15.5,fill:"#1B2144"},g);
  if(src){var im=el("image",{x:cx-15,y:cy-15,width:30,height:30,"clip-path":"url(#avclip)",preserveAspectRatio:"xMidYMid slice"},g);im.setAttribute("href",src)}
@@ -122,7 +125,7 @@ function sunAv(sys,before,cx,cy){
  el("circle",{cx:cx,cy:cy,r:22,fill:"transparent"},g);
  var go=function(e){if(e)e.stopPropagation();setMode(MODE=="lib"?"read":"lib")};
  g.addEventListener("click",go);g.addEventListener("keydown",function(e){if(e.key=="Enter"||e.key==" "){e.preventDefault();go()}});
- g.addEventListener("pointerenter",function(){var u=s.parentNode.getBoundingClientRect(),r=g.getBoundingClientRect();utip.innerHTML="<b>"+(MODE=="lib"?"Back to the readings":"Open the library")+"</b>";utip.style.setProperty("--c",MODE=="lib"?"#7FF0F2":"#F7C66B");utip.style.left="50%";utip.style.top=(r.top+r.height/2-u.top)+"px";utip.classList.remove("dn");utip.hidden=false});
+ g.addEventListener("pointerenter",function(){var u=s.parentNode.getBoundingClientRect(),r=g.getBoundingClientRect();utip.innerHTML="<b>"+(MODE=="lib"?"Back to the readings":"Open My Content")+"</b>";utip.style.setProperty("--c",MODE=="lib"?"#7FF0F2":"#F7C66B");utip.style.left="50%";utip.style.top=(r.top+r.height/2-u.top)+"px";utip.classList.remove("dn");utip.hidden=false});
  g.addEventListener("pointerleave",function(){utip.hidden=true});
  return g}
 document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListener("click",function(){if(b.dataset.m!=MODE)setMode(b.dataset.m)})});
@@ -130,6 +133,7 @@ function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;document.querySelec
 window.KUlib=function(){if(MODE!="lib")setMode("lib")};
 '''
     s = rep(s, '\nuniverse();\nwindow.KU={T:T,render:universe};', '\n' + HELP + 'universe();\nwindow.KU={T:RT,render:function(){if(MODE!="read"){MODE="read";T=RT;var r=document.querySelector(".lbreads");if(r)r.classList.remove("libmode");document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m=="read")})}universe()}};')
+    s = rep(s, 'd.onclick=function(e){e.stopPropagation();show(d)}', 'd.onclick=function(e){e.stopPropagation();if(MODE=="lib"){goRec(T[d.dataset.i].b[d.dataset.j][2]);return}show(d)}')
     # deep link #lib opens the Library tab and the library map
     TAIL = CSS + '''<script>(function(){if(!/(^#|&)lib\\b/.test(location.hash))return;var t=document.getElementById("t-lb");if(t)t.click();if(window.KUlib)KUlib()})();</script>\n'''
     i = s.rindex('</body></html>')

@@ -123,3 +123,17 @@ AI summary, edited by Gregory|Riassunto IA, modificato da Gregory|Resumen IA, ed
 Edit|Modifica|Editar
 Save|Salva|Guardar
 Cancel|Annulla|Cancelar
+My Content|I miei contenuti|Mi contenido
+Content|Contenuti|Contenido
+Open My Content|Apri I miei contenuti|Abrir Mi contenido
+Where this sits in the content|Dove si trova nei contenuti|Dónde está en el contenido
+Gregory's content|I contenuti di Gregory|El contenido de Gregory
+Save this table to My Content|Salva questo tavolo in I miei contenuti|Guarda esta mesa en Mi contenido
+Private. Only you see them in My Content.|Private. Solo tu le vedi in I miei contenuti.|Privadas. Solo tú las ves en Mi contenido.
+Where it goes in My Content|Dove va in I miei contenuti|Dónde va en Mi contenido
+Shown in My Content on your profile. Others can ask to join the next round.|Appare in I miei contenuti sul tuo profilo. Altri possono chiedere di partecipare al prossimo giro.|Aparece en Mi contenido de tu perfil. Otros pueden pedir unirse a la próxima ronda.
+Save to My Content|Salva in I miei contenuti|Guardar en Mi contenido
+as content on the profile. Choose how you appear in it.|tra i contenuti del profilo. Scegli come ci appari.|como contenido del perfil. Elige cómo apareces.
+Save my 3 kept notes to My Content|Salva le mie 3 note tenute in I miei contenuti|Guardar mis 3 notas en Mi contenido
+Saved to My Content, in|Salvato in I miei contenuti, in|Guardada en Mi contenido, en
+See My Content|Vedi I miei contenuti|Ver Mi contenido

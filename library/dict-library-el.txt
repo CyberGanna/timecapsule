@@ -123,3 +123,17 @@ AI summary, edited by Gregory|Περίληψη AI, με αλλαγές του Gr
 Edit|Επεξεργασία
 Save|Αποθήκευση
 Cancel|Ακύρωση
+My Content|Το περιεχόμενό μου
+Content|Περιεχόμενο
+Open My Content|Άνοιξε Το περιεχόμενό μου
+Where this sits in the content|Πού βρίσκεται στο περιεχόμενο
+Gregory's content|Το περιεχόμενο του Gregory
+Save this table to My Content|Αποθήκευσε αυτό το τραπέζι στο Περιεχόμενό μου
+Private. Only you see them in My Content.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στο Περιεχόμενό σου.
+Where it goes in My Content|Πού μπαίνει στο Περιεχόμενό μου
+Shown in My Content on your profile. Others can ask to join the next round.|Φαίνεται στο Περιεχόμενό σου στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
+Save to My Content|Αποθήκευση στο Περιεχόμενό μου
+as content on the profile. Choose how you appear in it.|ως περιεχόμενο στο προφίλ. Διάλεξε πώς εμφανίζεσαι.
+Save my 3 kept notes to My Content|Αποθήκευσε τις 3 σημειώσεις μου στο Περιεχόμενό μου
+Saved to My Content, in|Αποθηκεύτηκε στο Περιεχόμενό μου, στο
+See My Content|Δες το Περιεχόμενό μου
