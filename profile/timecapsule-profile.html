@@ -1987,6 +1987,11 @@ w.querySelector(".tm-dlg").setAttribute("aria-labelledby",document.body.classLis
 .wmt{display:none!important}
 .lbreads .uni{padding-top:44px}
 .lbreads .ulay{top:44px}
+.lbreads:not(.fsx) #uni{margin-top:-22px;margin-bottom:22px}
+.lbreads .ulay:not(.pg){top:22px;bottom:22px}
+.lbreads #uni{transition:margin .45s ease}
+.lbreads .uni:has(#ulink:not([hidden])) #uni{margin-top:0;margin-bottom:0}
+.lbreads .uni:has(#ulink:not([hidden])) .ulay:not(.pg){top:44px;bottom:0}
 .lbreads .ulink{top:50px;left:6px}
 .uni.fs .ua.uend{min-width:44px;height:40px;line-height:40px;padding:0 12px;font-size:24px}
 .uni:has(#ulink:not([hidden])) #pgb{visibility:hidden}
