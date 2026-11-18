@@ -1998,7 +1998,9 @@ w.querySelector(".tm-dlg").setAttribute("aria-labelledby",document.body.classLis
 .lbreads .uni:not(.fs) .unitog{left:0}
 .lbreads .uni:not(.fs) .ufs{right:0}
 .lbreads .uni:not(.fs) .ulink{left:-12px}
-.lbreads .uni:not(.fs) .ulay.pg{background:var(--bg);padding-left:0;padding-right:0}
+.lbreads .uni:not(.fs) .ulay.pg{background:none;padding-left:0;padding-right:0}
+.lbreads .uni .ulay.pg{background:none!important;border-radius:0;box-shadow:none}
+.lbreads .uni:has(.ulay.pg:not([hidden])) #uni{visibility:hidden}
 .sunav .avglow{transform-box:fill-box;transform-origin:center;animation:avp 3.6s ease-in-out infinite}
 @keyframes avp{50%{opacity:.55;transform:scale(1.18)}}
 @media (prefers-reduced-motion:reduce){.sunav .avglow{animation:none}}
@@ -2029,7 +2031,8 @@ w.querySelector(".tm-dlg").setAttribute("aria-labelledby",document.body.classLis
 #uniview.fsw .uni.fs .ufs{position:fixed;top:calc(5px + env(safe-area-inset-top,0px));right:6px}
 #uniview.fsw .uni.fs .ulink{position:fixed;top:calc(54px + env(safe-area-inset-top,0px));left:8px}
 #uniview.fsw .unicap{width:calc(100% - 32px)}
-#uniview.fsw .uni.fs .ulay.pg{position:fixed;background:#0F1A30;top:calc(44px + env(safe-area-inset-top,0px))!important;padding-top:52px}
+#uniview.fsw:has(.ulay.pg:not([hidden])) .unicap{visibility:hidden}
+#uniview.fsw .uni.fs .ulay.pg{position:fixed;top:calc(44px + env(safe-area-inset-top,0px))!important;padding-top:52px}
 }
 .uni.fs .ua.uend{min-width:31px;height:28px;line-height:28px;padding:0 8px;font-size:17px}
 .uni:has(#ulink:not([hidden])) #pgb{visibility:hidden}
