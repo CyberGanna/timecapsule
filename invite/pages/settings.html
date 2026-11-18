@@ -776,4 +776,5 @@ $('#so').onclick=()=>ask('Sign out?','<p>You can sign back in with your email an
 document.querySelectorAll('.tch-menu a').forEach(a=>{if(TCI18N.src(a).trim()==='Sign out'){a.addEventListener('click',e=>{e.preventDefault();$('#so').click()})}});
 $('#del').onclick=()=>ask('Delete your account?','<p>This can\'t be undone. We will remove:</p><ul><li>your profile, ratings and feedback</li><li>tables you host (guests are told the table is cancelled)</li><li>your kept notes, transcripts and chats</li><li>your TimeCoins</li></ul><p>Want a copy first? Use Download your data.</p>','Delete account','red',()=>toast('Account deleted (prototype, nothing was removed)'));
 </script>
+<style id="tc-std">/* same header and page edges on every page */html,body{margin:0}</style>
 </body></html>
