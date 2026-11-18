@@ -147,6 +147,6 @@ My universe|Το σύμπαν μου
 books|βιβλία
 Tap to open.|Πάτησε για να ανοίξει.
 (host)|(οικοδεσπότης)
-In common|Κοινά
 You too|Κι εσύ
-in common with you|κοινά με σένα
+Mutual reads|Κοινές αναγνώσεις
+mutual reads|κοινές αναγνώσεις

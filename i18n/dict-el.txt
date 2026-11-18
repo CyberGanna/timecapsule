@@ -2048,3 +2048,5 @@ topic|θέμα
 In common|Κοινά
 You too|Κι εσύ
 in common with you|κοινά με σένα
+Mutual reads|Κοινές αναγνώσεις
+mutual reads|κοινές αναγνώσεις
