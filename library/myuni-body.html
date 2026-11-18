@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
 <style>
 /* My universe: Readings (editable) + Discussions, same calm list style as My tables */
 .mu .tm span{color:var(--mute)}
@@ -51,6 +52,42 @@
 .mu .undo{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--raise);border:1px solid var(--line);color:var(--fg);border-radius:12px;padding:10px 12px 10px 16px;display:flex;gap:14px;align-items:center;font-size:14px;z-index:60;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .mu .undo[hidden]{display:none}
 .mu .undo button{all:unset;cursor:pointer;color:var(--teal);font-weight:600}
+.mu{--serif:'Newsreader',Georgia,serif}
+.mu .dtools{display:flex;align-items:center;gap:16px;margin-top:18px}
+.mu .pills{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex:1 1 auto;min-width:0;padding:2px}
+.mu .pills::-webkit-scrollbar{display:none}
+.mu .pills button{all:unset;cursor:pointer;flex:none;height:34px;padding:0 13px;border-radius:999px;border:1px solid var(--line);display:inline-flex;align-items:center;gap:7px;font-size:13.5px;color:var(--mute)}
+.mu .pills button i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.mu .pills button[aria-pressed=false] i{display:none}
+.mu .pills button[aria-pressed=true]{border-color:#fff;color:var(--fg);background:rgba(255,255,255,.07)}
+.mu .pills button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.mu .dtools .roles,.mu .dtools .add{flex:none}
+.mu .dcnt{margin:14px 0 0;color:var(--mute);font-size:14px}.mu .dcnt b{color:var(--fg);font-weight:600}
+.mu .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:16px 0 0}
+.mu .card{position:relative;display:flex;flex-direction:column;gap:12px;padding:20px 20px 16px;border-radius:16px;border:1px solid var(--line);transition:border-color .2s,transform .2s}
+.mu .card:hover{border-color:#4A5290;transform:translateY(-2px)}
+.mu .card .lk{position:absolute;inset:0;border-radius:16px;z-index:1}
+.mu .card .lk:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.mu .ct{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--soft);min-width:0}
+.mu .ct i{width:7px;height:7px;border-radius:50%;background:var(--c);flex:none}
+.mu .ct .sub{color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mu .ct .rn{margin-left:auto;flex:none;color:var(--mute)}
+.mu .ct .priv{flex:none}
+.mu .card h3{margin:0;font-size:17px;line-height:1.3;font-weight:600}
+.mu .card blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.4;color:#DCE0F7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.mu .card cite{font-style:normal;font-size:12.5px;color:var(--mute);margin-top:-4px}
+.mu .cf{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--mute);min-width:0}
+.mu .cf .host{color:var(--gold);font-weight:600;white-space:nowrap}
+.mu .cf .dt{white-space:nowrap}
+.mu .cf .nr{margin-left:auto;position:relative;z-index:2;color:#17C3C8;text-decoration:none;font-weight:600;white-space:nowrap}
+.mu .cf .nr:hover{text-decoration:underline}
+.mu .fc{display:flex;flex:none}
+.mu .fc span{width:24px;height:24px;border-radius:50%;overflow:hidden;border:2px solid var(--bg);margin-left:-8px;position:relative}
+.mu .fc span:first-child{margin-left:0}
+.mu .fc span.h{box-shadow:0 0 0 1.5px var(--gold)}
+.mu .fc svg{width:100%;height:100%;display:block}
+@media (max-width:1000px){.mu .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.mu .grid{grid-template-columns:1fr}.mu .dtools{flex-direction:column;align-items:stretch;gap:12px}.mu .dtools .add{align-self:flex-start}.mu .pills{margin:0 -22px;padding:2px 22px}.mu .dtools .roles{display:grid;grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.mu .form{grid-template-columns:1fr}.mu .sw button{font-size:16px}}
 </style>
 <div class="wrap mu">
@@ -64,10 +101,11 @@
   </section>
 
   <div id="p-read" role="tabpanel" aria-labelledby="sw-read">
-    <div class="bar">
-      <p class="cnt"><b id="n-items"></b> <span id="n-items-l">items</span> · <b id="n-topics"></b> <span>topics</span></p>
+    <div class="dtools">
+      <div class="pills" id="rpills" role="group" aria-label="Topics"></div>
       <button type="button" class="add" id="addBtn" aria-expanded="false" aria-controls="addForm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Add</span></button>
     </div>
+    <p class="dcnt"><b id="n-items"></b> <span id="n-items-l">items</span> · <b id="n-topics"></b> <span id="n-topics-l">topics</span></p>
     <form class="form" id="addForm" hidden autocomplete="off">
       <div class="full fact"><div class="seg" role="group" aria-label="Kind">
         <button type="button" data-k="book" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5c.8 0 1.5-.7 1.5-1.5z"/></svg><span>Book</span></button>
@@ -86,14 +124,15 @@
   </div>
 
   <div id="p-lib" role="tabpanel" aria-labelledby="sw-lib" hidden>
-    <div class="bar">
-      <p class="cnt"><b id="n-all"></b> <span id="n-lbl">saved</span></p>
+    <div class="dtools">
+      <div class="pills" id="dpills" role="group" aria-label="Topics"></div>
       <div class="roles" role="group" aria-label="Role">
         <button type="button" data-role="all" aria-pressed="true">All</button>
         <button type="button" data-role="host" aria-pressed="false">Hosted</button>
         <button type="button" data-role="in" aria-pressed="false">Joined</button>
       </div>
     </div>
+    <p class="dcnt" id="dcnt"></p>
     <div id="mdlist"></div>
   </div>
   <div class="undo" id="undo" role="status" hidden><span id="undoT"></span><button type="button" id="undoB">Undo</button></div>
@@ -118,11 +157,17 @@ try{R=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 if(!Array.isArray(R))R=seed();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(R))}catch(e){}}
 let lastNew=null;
+let RT0="";
+function rpills(){if(RT0&&!R.some(t=>t.n===RT0&&t.b.length))RT0="";$("rpills").innerHTML=`<button type="button" data-t="" aria-pressed="${!RT0}">All</button>`+R.filter(t=>t.b.length).map(t=>`<button type="button" data-t="${esc(t.n)}" style="--c:${t.c}" aria-pressed="${RT0===t.n}"><i></i><span>${esc(t.n)}</span></button>`).join("")}
+$("rpills").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;RT0=RT0===b.dataset.t?"":b.dataset.t;renderRead()});
 function renderRead(){
-  const n=R.reduce((a,t)=>a+t.b.length,0);
-  $("n-items").textContent=n;$("n-items-l").textContent=n===1?"item":"items";$("n-topics").textContent=R.filter(t=>t.b.length).length;
+  rpills();
   const q=S.q.trim().toLowerCase();
+  const vis=R.filter(t=>!RT0||t.n===RT0).map(t=>t.b.filter(b=>!q||(b.t+" "+b.a+" "+t.n).toLowerCase().includes(q)).length);
+  const n=vis.reduce((a,x)=>a+x,0),nt=vis.filter(x=>x).length;
+  $("n-items").textContent=n;$("n-items-l").textContent=n===1?"item":"items";$("n-topics").textContent=nt;$("n-topics-l").textContent=nt===1?"topic":"topics";
   const html=R.map((t,ti)=>{let items=t.b.map((b,bi)=>({b,bi}));
+    if(RT0&&t.n!==RT0)return"";
     if(q)items=items.filter(o=>(o.b.t+" "+o.b.a+" "+t.n).toLowerCase().includes(q));
     if(!items.length)return"";
     return `<section class="sec" style="--c:${t.c}"><div class="sh"><h2><i></i><span>${esc(t.n)}</span></h2><span>${items.length}</span></div>${items.map(({b,bi})=>`<div class="item${lastNew&&lastNew[0]===ti&&lastNew[1]===bi?" new":""}" style="--c:${t.c}"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">${KICON[b.k]||KICON.book}</svg></div><div><h3 data-noi18n>${esc(b.t)}</h3><p><span class="kind">${b.k==="film"?"Film":"Book"}</span>${b.a?` · <span data-noi18n>${esc(b.a)}</span>`:""}<span class="rt ${RL[b.imp]?b.imp:"maybe"}"><i></i><span>${RL[b.imp]||RL.maybe}</span></span></p></div><button type="button" class="rm" data-rm="${ti}:${bi}" aria-label="Remove ${esc(b.t)}" title="Remove">${XI}</button></div>`).join("")}</section>`}).join("");
@@ -152,31 +197,36 @@ $("rlist").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if
   toast("Removed",()=>{R[ti].b.splice(bi,0,it);save();renderRead()})});
 
 /* ---------- Discussions ---------- */
-const S={role:"all",q:"",none:/(^#|&)new\b/.test(location.hash),mode:/(^#|&)(lib|discussions)\b/.test(location.hash)?"lib":"read"};
+const S={role:"all",t:"",q:"",none:/(^#|&)new\b/.test(location.hash),mode:/(^#|&)(lib|discussions)\b/.test(location.hash)?"lib":"read"};
 const list=$("mdlist");
 function again(r){return "create.html#again=1&th="+encodeURIComponent(r.topic)+"&q="+encodeURIComponent(r.title)}
-function row(r){
-  const c=r.col,show=r.names.slice(0,5),more=r.names.length-show.length;
-  return `<article class="row" style="--c:${c}">
-  <div class="tm"><b>${r.day} <span>${esc(r.month.slice(0,3))}</span></b><span>${esc(r.wd)}</span></div>
-  <a class="ei" href="../../library/timecapsule-library.html#r=${r.id}" target="_top" style="color:inherit;text-decoration:none" aria-label="Open ${esc(r.title)}"><div class="th" style="background:radial-gradient(circle at 35% 30%,${c},${c}66 75%,#252B52)"><svg viewBox="0 0 24 24" aria-hidden="true">${TICON[r.topic]||""}</svg></div>
-    <div class="et"><h3 data-noi18n>${esc(r.title)}</h3><div class="meta"><span class="topic"><i></i><span>${esc(r.topic)}</span></span><span class="role host">You host</span>${r.private?`<span class="priv">${LOCK}<span>Private</span></span>`:""}</div></div></a>
-  <div class="ppl"><span class="fc">${show.map((p,i)=>`<span class="${i===0?"mod":""}" style="z-index:${10-i}" title="${i===0?"You":p}">${av(p)}</span>`).join("")}${more>0?`<em>+${more}</em>`:""}</span><small><b>${r.people} <span>people</span></b>${r.rounds>1?` · ${r.rounds} <span>rounds</span>`:""}</small></div>
-  <div class="act"><a class="btn go" href="../../library/timecapsule-library.html#r=${r.id}" target="_top">Open</a><a class="btn" href="${again(r)}" target="_top">New round</a></div>
+function lib(r){return "../../library/timecapsule-library.html#r="+r.id}
+function stack(r){return '<span class="fc" aria-hidden="true">'+r.names.slice(0,4).map((n,i)=>'<span class="'+(i?"":"h")+'" style="z-index:'+(9-i)+'">'+av(n)+'</span>').join("")+'</span>'}
+function card(r){return `<article class="card" style="--c:${r.col}"><a class="lk" href="${lib(r)}" target="_top" aria-label="Open ${esc(r.title)}"></a>
+  <div class="ct"><i></i><span>${esc(r.topic)}</span><span class="sub">· <span>${esc(r.sub)}</span></span><span class="rn">${r.rounds>1?`<span>Round</span> ${r.rounds}`:""}</span>${r.private?`<span class="priv">${LOCK}<span>Private</span></span>`:""}</div>
+  <h3 data-noi18n>${esc(r.title)}</h3>
+  <blockquote data-noi18n>“${esc(r.quote[1])}”</blockquote><cite><span>said</span> <span data-noi18n>${esc(r.quote[0])}</span></cite>
+  <div class="cf">${stack(r)}<span class="host">You host</span><span class="dt">${r.day} <span>${esc(r.mon3)}</span></span><a class="nr" href="${again(r)}" target="_top">New round</a></div>
 </article>`}
+const TOPS=[];D.forEach(r=>{if(!TOPS.some(t=>t.n===r.topic))TOPS.push({n:r.topic,c:r.col})});
+function pills(){$("dpills").innerHTML=`<button type="button" data-t="" aria-pressed="${!S.t}">All</button>`+TOPS.map(t=>`<button type="button" data-t="${esc(t.n)}" style="--c:${t.c}" aria-pressed="${S.t===t.n}"><i></i><span>${esc(t.n)}</span></button>`).join("")}
+$("dpills").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;S.t=S.t===b.dataset.t?"":b.dataset.t;pills();renderLib()});
 function renderLib(){
   const q=S.q.trim().toLowerCase();
   let rs=S.none?[]:D.filter(r=>S.role!=="in");
-  $("n-all").textContent=S.none?0:D.length;
+  if(S.t)rs=rs.filter(r=>r.topic===S.t);
   if(q)rs=rs.filter(r=>(r.title+" "+r.topic+" "+r.sub).toLowerCase().includes(q));
+  const nt=new Set(rs.map(r=>r.topic)).size;
+  $("dcnt").innerHTML=`<b>${rs.length}</b> <span>${rs.length===1?"discussion":"discussions"}</span> · <b>${nt}</b> <span>${nt===1?"topic":"topics"}</span>`;
   if(!rs.length){let h;
     if(S.none)h=`<b>No saved discussions yet</b><span>After a table, save its transcript and notes and they will show up here.</span><br><a class="btn go" href="agenda.html" target="_top">Find a table</a>`;
     else if(q)h=`<b>Nothing matches your search</b><span>Try another word, or clear the search.</span>`;
     else h=`<b>Nothing here yet</b><span>Discussions you join at someone else's table will show up here.</span>`;
-    list.innerHTML=`<div class="empty">${h}</div>`;return}
-  const by={},order=[];rs.forEach(r=>{if(!by[r.month]){by[r.month]=[];order.push(r.month)}by[r.month].push(r)});
-  list.innerHTML=order.map(m=>`<section class="sec"><div class="sh"><h2>${esc(m)}</h2><span>${by[m].length} <span>${by[m].length===1?"discussion":"discussions"}</span></span></div>${by[m].map(row).join("")}</section>`).join("");
+    $("dcnt").hidden=true;list.innerHTML=`<div class="empty">${h}</div>`;return}
+  $("dcnt").hidden=false;
+  list.innerHTML=`<div class="grid">${rs.map(card).join("")}</div>`;
 }
+pills();
 document.querySelectorAll(".mu .roles button").forEach(b=>b.addEventListener("click",()=>{S.role=b.dataset.role;document.querySelectorAll(".mu .roles button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderLib()}));
 
 /* ---------- switch + search ---------- */

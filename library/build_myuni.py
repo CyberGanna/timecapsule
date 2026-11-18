@@ -13,9 +13,10 @@ def rows():
     for rid, top, sub, title, rounds, priv, outn in R:
         d, n = rounds[-1]; wd, day, mon = d.split()
         names = TX[rid][-1]['names']
+        ls = [l for l in TX[rid][-1]['tx'] if l[1]]; q = ([l for l in ls if l[1] not in ('Gabriele', 'Gregory')] or ls)[-1]
         out.append(dict(id=rid, topic=top, sub=sub, title=title, col=TOPIC_COL[top], private=priv,
                         rounds=len(rounds), people=n, names=names, wd=wd, day=int(day), mon=MON[mon],
-                        month=MONTH[MON[mon]-1], key=MON[mon]*100+int(day)))
+                        month=MONTH[MON[mon]-1], mon3=mon, quote=[q[1], q[2]], key=MON[mon]*100+int(day)))
     out.sort(key=lambda r: -r['key'])
     return out
 

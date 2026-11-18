@@ -66,3 +66,6 @@ Pleasant|Ευχάριστο
 Not so inspiring|Όχι και τόσο εμπνευσμένο
 How much did you like it?|Πόσο σου άρεσε;
 Pick one|Διάλεξε ένα
+said|είπε
+Round|Γύρος
+topic|θέμα
