@@ -52,8 +52,8 @@ CSS = r'''<style id="lib-css">
 .wmt{display:none!important}
 .lbreads .uni{padding-top:44px}
 .lbreads .ulay{top:44px}
-.lbreads:not(.fsx) #uni{margin-top:-22px;margin-bottom:22px}
-.lbreads .ulay:not(.pg){top:22px;bottom:22px}
+.lbreads:not(.fsx) #uni{margin-top:-10px;margin-bottom:10px}
+.lbreads .ulay:not(.pg){top:34px;bottom:10px}
 .lbreads #uni{transition:margin .45s ease}
 .lbreads .uni:has(#ulink:not([hidden])) #uni{margin-top:0;margin-bottom:0}
 .lbreads .uni:has(#ulink:not([hidden])) .ulay:not(.pg){top:44px;bottom:0}
@@ -136,7 +136,7 @@ function sunAv(sys,before,cx,cy){
  el("circle",{"class":"avring",cx:cx,cy:cy,r:15.5,fill:"none",stroke:MODE=="lib"?"#7FF0F2":"#FFE3A0","stroke-width":"1.6"},g);
  el("circle",{cx:cx,cy:cy,r:22,fill:"transparent"},g);
  return g}
-document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListener("click",function(){if(b.dataset.m!=MODE)setMode(b.dataset.m)})});
+document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListener("click",function(){if(b.dataset.m!=MODE||!ulink.hidden||!ulay.hidden)setMode(b.dataset.m)})});
 function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;U.list=false;U.page=-1;U.allPg=false;U.uniPg=false;ulay.hidden=true;ulay.className="ulay";ulink.hidden=true;ulink.textContent="☰ List";s.classList.remove("dim");s.parentNode.classList.remove("pgm");if(typeof back!="undefined"&&back)back.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");var kq=document.getElementById("kq");if(kq)kq.setAttribute("aria-label",m=="lib"?"What are Discussions?":"What is k-universe?");var kb=document.getElementById("kbox");if(kb)kb.setAttribute("aria-label",m=="lib"?"About Discussions":"About k-universe");universe()}
 window.KUlib=function(){if(MODE!="lib")setMode("lib")};
 '''
