@@ -1,0 +1,189 @@
+<style>
+/* My universe: Readings (editable) + Discussions, same calm list style as My tables */
+.mu .tm span{color:var(--mute)}
+.mu .role.host{color:var(--gold)}
+.mu .priv{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--mute)}
+.mu .priv svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mu .btn.go{background:var(--teal);border-color:var(--teal);color:#06262A}
+.mu .btn.go:hover{filter:brightness(1.08)}
+.mu a.btn{text-decoration:none}
+.mu .cnt{margin:0;color:var(--mute);font-size:14px}.mu .cnt b{color:var(--fg);font-weight:600}
+.mu .sw{display:flex;gap:22px;margin:6px 0 0}
+.mu .sw button{all:unset;cursor:pointer;font-size:17px;color:var(--mute);padding:6px 0 7px;border-bottom:2px solid transparent}
+.mu .sw button[aria-selected=true]{color:var(--fg);border-bottom-color:var(--teal)}
+.mu .sw button:focus-visible{outline:2px solid var(--teal);outline-offset:4px;border-radius:2px}
+.mu .bar{margin-top:14px}
+.mu .add{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px;border-radius:10px;border:1px solid var(--teal);background:none;color:var(--teal);font-weight:600;font-size:14px;cursor:pointer}
+.mu .add svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.mu .add[aria-expanded=true]{opacity:.5}
+.mu .form{margin:18px 0 4px;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--surface);display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.mu .form[hidden]{display:none}
+.mu .form .full{grid-column:1/-1}
+.mu .form label{display:grid;gap:6px;font-size:13px;color:var(--mute)}
+.mu .form input,.mu .form select{height:42px;border-radius:10px;border:1px solid var(--line);background:var(--raise);color:var(--fg);padding:0 12px;font:inherit;font-size:15px}
+.mu .form input:focus,.mu .form select:focus{outline:2px solid var(--teal);outline-offset:1px}
+.mu .seg{display:inline-flex;gap:2px;padding:3px;border-radius:10px;background:var(--raise);border:1px solid var(--line);width:max-content}
+.mu .seg button{all:unset;cursor:pointer;height:30px;padding:0 14px;border-radius:7px;color:var(--mute);font-size:14px;display:inline-flex;align-items:center;gap:6px}
+.mu .seg button svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mu .seg button[aria-pressed=true]{background:var(--surface);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
+.mu .stars{display:flex;gap:6px}
+.mu .stars button{all:unset;cursor:pointer;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--mute);font-size:12px}
+.mu .stars button[aria-pressed=true]{border-color:var(--teal);background:color-mix(in srgb,var(--teal) 22%,transparent);color:var(--fg)}
+.mu .fact{display:flex;gap:8px;align-items:center}
+.mu .fact small{color:var(--mute);font-size:12.5px;margin-left:auto}
+.mu .item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line)}
+.mu .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 22%,var(--raise))}
+.mu .ic svg{width:20px;height:20px;fill:none;stroke:var(--c);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.mu .item h3{margin:0;font-weight:600;font-size:15.5px;line-height:1.3}
+.mu .item p{margin:2px 0 0;font-size:13px;color:var(--mute)}
+.mu .item p .kind{color:var(--soft)}
+.mu .dots{display:inline-flex;gap:3px;vertical-align:middle;margin-left:6px}
+.mu .dots i{width:6px;height:6px;border-radius:50%;background:var(--line)}
+.mu .dots i.on{background:var(--c)}
+.mu .rm{all:unset;cursor:pointer;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:var(--mute)}
+.mu .rm:hover{background:var(--raise);color:var(--fg)}
+.mu .rm svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.mu .item.new{animation:munew 1.6s ease}
+@keyframes munew{from{background:color-mix(in srgb,var(--teal) 18%,transparent)}to{background:transparent}}
+.mu .sh i{width:9px;height:9px;border-radius:50%;background:var(--c);display:inline-block;margin-right:10px;vertical-align:middle;transform:translateY(-2px)}
+.mu .undo{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--raise);border:1px solid var(--line);color:var(--fg);border-radius:12px;padding:10px 12px 10px 16px;display:flex;gap:14px;align-items:center;font-size:14px;z-index:60;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.mu .undo[hidden]{display:none}
+.mu .undo button{all:unset;cursor:pointer;color:var(--teal);font-weight:600}
+@media(max-width:700px){.mu .form{grid-template-columns:1fr}.mu .sw button{font-size:16px}}
+</style>
+<div class="wrap mu">
+  <section class="hero">
+    <h1>My universe</h1>
+    <p>The books and films that shaped how you think, and the discussions you saved. Add to them, tidy them, pick them up again.</p>
+    <div class="sw" role="tablist" aria-label="My universe">
+      <button type="button" role="tab" id="sw-read" data-m="read" aria-selected="true">Readings</button>
+      <button type="button" role="tab" id="sw-lib" data-m="lib" aria-selected="false">Discussions</button>
+    </div>
+  </section>
+
+  <div id="p-read" role="tabpanel" aria-labelledby="sw-read">
+    <div class="bar">
+      <p class="cnt"><b id="n-items"></b> <span id="n-items-l">items</span> · <b id="n-topics"></b> <span>topics</span></p>
+      <button type="button" class="add" id="addBtn" aria-expanded="false" aria-controls="addForm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Add</span></button>
+    </div>
+    <form class="form" id="addForm" hidden autocomplete="off">
+      <div class="full fact"><div class="seg" role="group" aria-label="Kind">
+        <button type="button" data-k="book" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5c.8 0 1.5-.7 1.5-1.5z"/></svg><span>Book</span></button>
+        <button type="button" data-k="film" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/></svg><span>Film</span></button>
+      </div></div>
+      <label class="full"><span>Title</span><input id="fT" required maxlength="120"></label>
+      <label><span id="fAl">Author</span><input id="fA" maxlength="80"></label>
+      <label><span>Topic</span><select id="fTop"></select></label>
+      <label class="full" id="fNewL" hidden><span>New topic</span><input id="fNew" maxlength="40"></label>
+      <div class="full"><label style="margin-bottom:8px"><span>How much did it shape you?</span></label><div class="stars" id="fImp" role="group" aria-label="Impact">
+        <button type="button" data-v="1" aria-pressed="false">1</button><button type="button" data-v="2" aria-pressed="false">2</button><button type="button" data-v="3" aria-pressed="true">3</button><button type="button" data-v="4" aria-pressed="false">4</button><button type="button" data-v="5" aria-pressed="false">5</button>
+      </div></div>
+      <div class="full fact"><button type="submit" class="btn go">Add to my universe</button><button type="button" class="btn" id="fCancel">Cancel</button><small>It shows on your profile right away.</small></div>
+    </form>
+    <div id="rlist"></div>
+  </div>
+
+  <div id="p-lib" role="tabpanel" aria-labelledby="sw-lib" hidden>
+    <div class="bar">
+      <p class="cnt"><b id="n-all"></b> <span id="n-lbl">saved</span></p>
+      <div class="roles" role="group" aria-label="Role">
+        <button type="button" data-role="all" aria-pressed="true">All</button>
+        <button type="button" data-role="host" aria-pressed="false">Hosted</button>
+        <button type="button" data-role="in" aria-pressed="false">Joined</button>
+      </div>
+    </div>
+    <div id="mdlist"></div>
+  </div>
+  <div class="undo" id="undo" role="status" hidden><span id="undoT"></span><button type="button" id="undoB">Undo</button></div>
+</div>
+<script>
+(function(){
+const D=/*DATA*/null;
+const RT=/*READ*/null;
+/*HELPERS*/
+const TICON={Philosophy:'<path d="M4 20h16M5 17h14M6 17V9m4 8V9m4 8V9m4 8V9M4 9h16L12 4z"/>',Religion:'<path d="M12 8.5v12M12 8.5C10 7.3 7 7 3.5 7.5v11.5c3.5-.5 6.5-.2 8.5 1M12 8.5c2-1.2 5-1.5 8.5-1v11.5c-3.5-.5-6.5-.2-8.5 1M12 2.5v2.5M8 3.5l1 1.8M16 3.5l-1 1.8"/>',Home:'<path d="M4 11l8-7 8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/>',Craft:'<path d="M14 6l4 4M4 20l9.5-9.5M12 4.5l3-1.5 6 6-1.5 3-2-2-3 3-4.5-4.5 3-3z"/>',Energy:'<path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z"/>',Travel:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5z"/>'};
+const KICON={book:'<path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5c.8 0 1.5-.7 1.5-1.5z"/>',film:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/>'};
+const XI='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+const LOCK='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+const NEWCOL=["#9BE3B4","#FFC27A","#B9C2FF","#FF8FB1"];
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c])}
+const $=id=>document.getElementById(id);
+
+/* ---------- Readings ---------- */
+let R;const KEY="tc-myuni-readings-v1";
+function seed(){return RT.map((t,i)=>({n:t.n,c:t.c,b:t.b.map((x,j)=>({t:x[0],a:x[1],k:"book",imp:[5,4,4,3,3][j%5]}))}))}
+try{R=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+if(!Array.isArray(R))R=seed();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(R))}catch(e){}}
+let lastNew=null;
+function renderRead(){
+  const n=R.reduce((a,t)=>a+t.b.length,0);
+  $("n-items").textContent=n;$("n-items-l").textContent=n===1?"item":"items";$("n-topics").textContent=R.filter(t=>t.b.length).length;
+  const q=S.q.trim().toLowerCase();
+  const html=R.map((t,ti)=>{let items=t.b.map((b,bi)=>({b,bi}));
+    if(q)items=items.filter(o=>(o.b.t+" "+o.b.a+" "+t.n).toLowerCase().includes(q));
+    if(!items.length)return"";
+    return `<section class="sec" style="--c:${t.c}"><div class="sh"><h2><i></i><span>${esc(t.n)}</span></h2><span>${items.length}</span></div>${items.map(({b,bi})=>`<div class="item${lastNew&&lastNew[0]===ti&&lastNew[1]===bi?" new":""}" style="--c:${t.c}"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">${KICON[b.k]||KICON.book}</svg></div><div><h3 data-noi18n>${esc(b.t)}</h3><p><span class="kind">${b.k==="film"?"Film":"Book"}</span>${b.a?` · <span data-noi18n>${esc(b.a)}</span>`:""}<span class="dots" aria-label="Impact ${b.imp||3} of 5">${[1,2,3,4,5].map(v=>`<i class="${v<=(b.imp||3)?"on":""}"></i>`).join("")}</span></p></div><button type="button" class="rm" data-rm="${ti}:${bi}" aria-label="Remove ${esc(b.t)}" title="Remove">${XI}</button></div>`).join("")}</section>`}).join("");
+  $("rlist").innerHTML=html||`<div class="empty"><b>${q?"Nothing matches your search":"Your universe is empty"}</b><span>${q?"Try another word, or clear the search.":"Add a book or a film that shaped how you think."}</span></div>`;
+  lastNew=null;
+}
+function fillTopics(sel){const o=R.map((t,i)=>`<option value="${i}">${esc(t.n)}</option>`).join("")+`<option value="new">New topic…</option>`;$("fTop").innerHTML=o;if(sel!=null)$("fTop").value=sel}
+let kind="book",imp=3;
+function setKind(k){kind=k;document.querySelectorAll(".mu .seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===k));$("fAl").textContent=k==="film"?"Director":"Author"}
+function openForm(o){const f=$("addForm");f.hidden=!o;$("addBtn").setAttribute("aria-expanded",o);if(o){fillTopics(0);$("fNewL").hidden=true;$("fT").value="";$("fA").value="";$("fNew").value="";setKind("book");setImp(3);$("fT").focus()}}
+function setImp(v){imp=v;document.querySelectorAll("#fImp button").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.v===v))}
+$("addBtn").addEventListener("click",()=>openForm($("addForm").hidden));
+$("fCancel").addEventListener("click",()=>openForm(false));
+document.querySelectorAll(".mu .seg button").forEach(b=>b.addEventListener("click",()=>setKind(b.dataset.k)));
+document.querySelectorAll("#fImp button").forEach(b=>b.addEventListener("click",()=>setImp(+b.dataset.v)));
+$("fTop").addEventListener("change",()=>{$("fNewL").hidden=$("fTop").value!=="new";if(!$("fNewL").hidden)$("fNew").focus()});
+$("addForm").addEventListener("submit",e=>{e.preventDefault();const t=$("fT").value.trim();if(!t){$("fT").focus();return}
+  let ti=$("fTop").value;
+  if(ti==="new"){const nn=$("fNew").value.trim();if(!nn){$("fNew").focus();return}let ex=R.findIndex(x=>x.n.toLowerCase()===nn.toLowerCase());if(ex<0){R.push({n:nn,c:NEWCOL[R.length%NEWCOL.length],b:[]});ex=R.length-1}ti=ex}else ti=+ti;
+  R[ti].b.unshift({t,a:$("fA").value.trim(),k:kind,imp});lastNew=[ti,0];save();openForm(false);renderRead();
+  const el=document.querySelector(".mu .item.new");if(el)el.scrollIntoView({behavior:"smooth",block:"center"});
+  toast((kind==="film"?"Film":"Book")+" added",null)});
+let undoFn=null,undoTimer=0;
+function toast(msg,fn){$("undoT").textContent=msg;$("undoB").hidden=!fn;undoFn=fn;$("undo").hidden=false;clearTimeout(undoTimer);undoTimer=setTimeout(()=>{$("undo").hidden=true;undoFn=null},5000)}
+$("undoB").addEventListener("click",()=>{if(undoFn)undoFn();$("undo").hidden=true;undoFn=null});
+$("rlist").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;const[ti,bi]=b.dataset.rm.split(":").map(Number);const it=R[ti].b.splice(bi,1)[0];save();renderRead();
+  toast("Removed",()=>{R[ti].b.splice(bi,0,it);save();renderRead()})});
+
+/* ---------- Discussions ---------- */
+const S={role:"all",q:"",none:/(^#|&)new\b/.test(location.hash),mode:/(^#|&)(lib|discussions)\b/.test(location.hash)?"lib":"read"};
+const list=$("mdlist");
+function again(r){return "create.html#again=1&th="+encodeURIComponent(r.topic)+"&q="+encodeURIComponent(r.title)}
+function row(r){
+  const c=r.col,show=r.names.slice(0,5),more=r.names.length-show.length;
+  return `<article class="row" style="--c:${c}">
+  <div class="tm"><b>${r.day} <span>${esc(r.month.slice(0,3))}</span></b><span>${esc(r.wd)}</span></div>
+  <a class="ei" href="../../library/timecapsule-library.html#r=${r.id}" target="_top" style="color:inherit;text-decoration:none" aria-label="Open ${esc(r.title)}"><div class="th" style="background:radial-gradient(circle at 35% 30%,${c},${c}66 75%,#252B52)"><svg viewBox="0 0 24 24" aria-hidden="true">${TICON[r.topic]||""}</svg></div>
+    <div class="et"><h3 data-noi18n>${esc(r.title)}</h3><div class="meta"><span class="topic"><i></i><span>${esc(r.topic)}</span></span><span class="role host">You host</span>${r.private?`<span class="priv">${LOCK}<span>Private</span></span>`:""}</div></div></a>
+  <div class="ppl"><span class="fc">${show.map((p,i)=>`<span class="${i===0?"mod":""}" style="z-index:${10-i}" title="${i===0?"You":p}">${av(p)}</span>`).join("")}${more>0?`<em>+${more}</em>`:""}</span><small><b>${r.people} <span>people</span></b>${r.rounds>1?` · ${r.rounds} <span>rounds</span>`:""}</small></div>
+  <div class="act"><a class="btn go" href="../../library/timecapsule-library.html#r=${r.id}" target="_top">Open</a><a class="btn" href="${again(r)}" target="_top">New round</a></div>
+</article>`}
+function renderLib(){
+  const q=S.q.trim().toLowerCase();
+  let rs=S.none?[]:D.filter(r=>S.role!=="in");
+  $("n-all").textContent=S.none?0:D.length;
+  if(q)rs=rs.filter(r=>(r.title+" "+r.topic+" "+r.sub).toLowerCase().includes(q));
+  if(!rs.length){let h;
+    if(S.none)h=`<b>No saved discussions yet</b><span>After a table, save its transcript and notes and they will show up here.</span><br><a class="btn go" href="agenda.html" target="_top">Find a table</a>`;
+    else if(q)h=`<b>Nothing matches your search</b><span>Try another word, or clear the search.</span>`;
+    else h=`<b>Nothing here yet</b><span>Discussions you join at someone else's table will show up here.</span>`;
+    list.innerHTML=`<div class="empty">${h}</div>`;return}
+  const by={},order=[];rs.forEach(r=>{if(!by[r.month]){by[r.month]=[];order.push(r.month)}by[r.month].push(r)});
+  list.innerHTML=order.map(m=>`<section class="sec"><div class="sh"><h2>${esc(m)}</h2><span>${by[m].length} <span>${by[m].length===1?"discussion":"discussions"}</span></span></div>${by[m].map(row).join("")}</section>`).join("");
+}
+document.querySelectorAll(".mu .roles button").forEach(b=>b.addEventListener("click",()=>{S.role=b.dataset.role;document.querySelectorAll(".mu .roles button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderLib()}));
+
+/* ---------- switch + search ---------- */
+function setMode(m){S.mode=m;["read","lib"].forEach(k=>{$("p-"+k).hidden=k!==m;$("sw-"+k).setAttribute("aria-selected",k===m)})}
+document.querySelectorAll(".mu .sw button").forEach(b=>b.addEventListener("click",()=>{setMode(b.dataset.m);try{history.replaceState(null,"",location.pathname+location.search+(b.dataset.m==="lib"?"#discussions":"#readings")+(/lang=\w+/.test(location.hash)?"&"+location.hash.match(/lang=\w+/)[0]:""))}catch(e){}}));
+function onQ(v){S.q=v;renderRead();renderLib()}
+const q=$("q");if(q){q.placeholder="Search my universe";q.addEventListener("input",()=>onQ(q.value))}
+const sq=document.querySelector("#tch .tch-sbar input");if(sq){sq.placeholder="Search my universe";sq.addEventListener("input",()=>onQ(sq.value))}
+addEventListener("hashchange",()=>{S.none=/(^#|&)new\b/.test(location.hash);if(/(^#|&)(lib|discussions)\b/.test(location.hash))setMode("lib");else if(/(^#|&)readings\b/.test(location.hash))setMode("read");renderLib()});
+setMode(S.mode);renderRead();renderLib();
+})();
+</script>

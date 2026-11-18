@@ -1,0 +1,63 @@
+My discussions|Le mie discussioni|Mis conversaciones
+Every table you saved, with its transcript, notes and summary. Open one to read it or pick it up again.|Ogni tavolo che hai salvato, con trascrizione, note e riassunto. Aprine uno per rileggerlo o riprenderlo.|Cada mesa que guardaste, con su transcripción, notas y resumen. Abre una para leerla o retomarla.
+Saved|Salvate|Guardadas
+Hosted|Ospitate|Organizadas
+Joined|Partecipate|Asistidas
+You host|Ospiti tu|Organizas tú
+Private|Privata|Privada
+people|persone|personas
+rounds|round|rondas
+Open|Apri|Abrir
+New round|Nuovo round|Nueva ronda
+discussion|discussione|conversación
+discussions|discussioni|conversaciones
+No saved discussions yet|Ancora nessuna discussione salvata|Aún no hay conversaciones guardadas
+After a table, save its transcript and notes and they will show up here.|Dopo un tavolo, salva trascrizione e note: le troverai qui.|Después de una mesa, guarda la transcripción y las notas y aparecerán aquí.
+Find a table|Trova un tavolo|Busca una mesa
+Nothing matches your search|Nessun risultato|Nada coincide con tu búsqueda
+Try another word, or clear the search.|Prova un'altra parola o cancella la ricerca.|Prueba otra palabra o borra la búsqueda.
+Nothing here yet|Ancora niente qui|Aún no hay nada
+Discussions you join at someone else's table will show up here.|Le discussioni a cui partecipi ai tavoli di altri appariranno qui.|Las conversaciones en las que participes en mesas de otros aparecerán aquí.
+November|Novembre|Noviembre
+October|Ottobre|Octubre
+September|Settembre|Septiembre
+August|Agosto|Agosto
+Nov|nov|nov
+Oct|ott|oct
+Sep|set|sep
+Aug|ago|ago
+saved|salvate|guardadas
+My universe|Il mio universo|Mi universo
+The books and films that shaped how you think, and the discussions you saved. Add to them, tidy them, pick them up again.|I libri e i film che hanno formato il tuo modo di pensare, e le discussioni che hai salvato. Aggiungi, riordina, riprendi.|Los libros y las películas que formaron tu manera de pensar, y las conversaciones que guardaste. Añade, ordena, retoma.
+Readings|Letture|Lecturas
+Discussions|Discussioni|Conversaciones
+items|elementi|elementos
+item|elemento|elemento
+topics|temi|temas
+Add|Aggiungi|Añadir
+Book|Libro|Libro
+Film|Film|Película
+Title|Titolo|Título
+Author|Autore|Autor
+Director|Regista|Director
+Topic|Tema|Tema
+New topic|Nuovo tema|Nuevo tema
+New topic…|Nuovo tema…|Nuevo tema…
+How much did it shape you?|Quanto ti ha formato?|¿Cuánto te marcó?
+Add to my universe|Aggiungi al mio universo|Añadir a mi universo
+Cancel|Annulla|Cancelar
+It shows on your profile right away.|Appare subito sul tuo profilo.|Aparece enseguida en tu perfil.
+Book added|Libro aggiunto|Libro añadido
+Film added|Film aggiunto|Película añadida
+Removed|Rimosso|Eliminado
+Undo|Annulla|Deshacer
+Remove|Rimuovi|Quitar
+Your universe is empty|Il tuo universo è vuoto|Tu universo está vacío
+Add a book or a film that shaped how you think.|Aggiungi un libro o un film che ha formato il tuo modo di pensare.|Añade un libro o una película que formó tu manera de pensar.
+Search my universe|Cerca nel mio universo|Buscar en mi universo
+Philosophy|Filosofia|Filosofía
+Religion|Religione|Religión
+Home|Casa|Hogar
+Craft|Artigianato|Artesanía
+Energy|Energia|Energía
+Travel|Viaggi|Viajes

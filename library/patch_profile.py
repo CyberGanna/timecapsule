@@ -197,9 +197,8 @@ document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListen
 function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;U.list=false;U.page=-1;U.allPg=false;U.uniPg=false;ulay.hidden=true;ulay.className="ulay";ulink.hidden=true;ulink.textContent="☰ List";s.classList.remove("dim");s.parentNode.classList.remove("pgm");if(typeof back!="undefined"&&back)back.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");var kq=document.getElementById("kq");if(kq)kq.setAttribute("aria-label",m=="lib"?"What are Discussions?":"What is k-universe?");var kb=document.getElementById("kbox");if(kb)kb.setAttribute("aria-label",m=="lib"?"About Discussions":"About k-universe");universe()}
 window.KUlib=function(){if(MODE!="lib")setMode("lib")};
 '''
-    # avatar menu: My discussions (opens the Discussions tab of your profile)
-    s = rep(s, '<a href="../help/live-pages/mytables.html" target="_top">My tables</a>', '<a href="../help/live-pages/mytables.html" target="_top">My tables</a><a href="timecapsule-profile.html#lib" target="_top">My discussions</a>')
-    s = rep(s, '"My tables":["I miei tavoli","Mis mesas","Τα τραπέζια μου"]', '"My tables":["I miei tavoli","Mis mesas","Τα τραπέζια μου"],"My discussions":["Le mie discussioni","Mis conversaciones","Οι συζητήσεις μου"]')
+    # avatar menu: My universe (Readings + Discussions page)
+    s = rep(s, '<a href="../help/live-pages/mytables.html" target="_top">My tables</a>', '<a href="../help/live-pages/mytables.html" target="_top">My tables</a><a href="../help/live-pages/myuniverse.html" target="_top">My universe</a>')
     s = rep(s, '\nuniverse();\nwindow.KU={T:T,render:universe};', '\n' + HELP + 'universe();\nwindow.KU={T:RT,render:function(){if(MODE!="read"){MODE="read";T=RT;var r=document.querySelector(".lbreads");if(r)r.classList.remove("libmode");document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m=="read")})}universe()}};')
     s = rep(s, 'd.onclick=function(e){e.stopPropagation();show(d)}', 'd.onclick=function(e){e.stopPropagation();if(MODE=="lib"){goRec(T[d.dataset.i].b[d.dataset.j][2]);return}show(d)}')
     # deep link #lib opens the Library tab and the library map

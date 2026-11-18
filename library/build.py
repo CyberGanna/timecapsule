@@ -63,5 +63,6 @@ def page():
 
 if __name__ == '__main__':
     recs = page()
+    import build_myuni; build_myuni.build()
     import patch_profile
     patch_profile.run(ROOT, recs, LIBD, add_dict)
