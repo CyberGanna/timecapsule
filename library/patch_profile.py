@@ -143,6 +143,7 @@ window.KUlib=function(){if(MODE!="lib")setMode("lib")};
     TAIL = CSS + '''<script>(function(){if(!/(^#|&)lib\\b/.test(location.hash))return;var t=document.getElementById("t-lb");if(t)t.click();if(window.KUlib)KUlib()})();</script>\n'''
     i = s.rindex('</body></html>')
     s = s[:i] + TAIL + s[i:]
+    s = s.replace('◎ Universe', '‹ Back')
     open(P, 'w', encoding='utf8').write(s)
     subprocess.run(['python3', os.path.join(ROOT, 'i18n/add-greek.py'), P], check=True)
     print('profile patched', len(s))

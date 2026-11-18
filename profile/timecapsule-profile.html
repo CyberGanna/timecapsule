@@ -1265,7 +1265,7 @@ function universe(){
  T.forEach(function(th,i){th.b.forEach(function(bk,j){
   var col=PAL[i],g=el("g",{"class":"bk",tabindex:"0",role:"button","aria-label":bk[0]+BY()+bk[1]+", "+th.n},front);
   el("circle",{r:6.5,fill:col,opacity:".12"},g);el("circle",{r:5,fill:"none",stroke:col,"stroke-width":"1.1"},g);el("circle",{"class":"core",r:2.6,fill:col},g);el("circle",{r:12,fill:"transparent"},g);
-  var fn=function(){if(!U.list){utip.hidden=true;U.tipf=null;U.list=true;ulink.hidden=false;ulink.textContent="◎ Universe";morph(1,function(){rows();var d=ulay.querySelector('.udot[data-i="'+i+'"][data-j="'+j+'"]');if(d)U.showDot(d)})}};
+  var fn=function(){if(!U.list){utip.hidden=true;U.tipf=null;U.list=true;ulink.hidden=false;ulink.textContent="‹ Back";morph(1,function(){rows();var d=ulay.querySelector('.udot[data-i="'+i+'"][data-j="'+j+'"]');if(d)U.showDot(d)})}};
   var tin=function(){if(U.list||U.e>0)return;var u=s.parentNode.getBoundingClientRect(),r=g.getBoundingClientRect(),x=r.left+r.width/2-u.left,y=r.top+r.height/2-u.top;
    utip.innerHTML="<b>"+esc(bk[0])+"</b><small>"+esc(bk[1])+"</small>";utip.style.setProperty("--c",col);utip.style.left=Math.min(Math.max(x/u.width*100,28),72)+"%";utip.style.top=y+"px";utip.classList.toggle("dn",y<70);utip.hidden=false;U.tipf=tin},
    tout=function(){utip.hidden=true;U.tipf=null};
@@ -1313,10 +1313,10 @@ function page(i,sel){ulay.hidden=false;U.page=i;var th=T[i];s.classList.add("dim
  
  cap.innerHTML=capU();var sl=ulay.querySelector('.pl li.sel');if(sl){var pl=sl.parentNode;pl.scrollTop=Math.max(0,sl.offsetTop-pl.offsetTop-pl.clientHeight/2+sl.offsetHeight/2)}}
 ulink.onclick=function(){utip.hidden=true;if(U.allPg&&!U.list){U.allPg=false;ulay.hidden=true;s.classList.remove("dim");ulink.hidden=true;cap.innerHTML=capU();return}U.allPg=false;U.uniPg=false;back.hidden=true;
- if(!U.list){U.list=true;ulink.hidden=false;ulink.textContent="◎ Universe";morph(1,rows)}
+ if(!U.list){U.list=true;ulink.hidden=false;ulink.textContent="‹ Back";morph(1,rows)}
  else{U.list=false;ulay.hidden=true;s.classList.remove("dim");s.parentNode.classList.remove("pgm");ulink.textContent="☰ List";ulink.hidden=true;morph(0,function(){var nb=T.reduce(function(s,x){return s+x.b.length},0);cap.innerHTML=capU()})}};
 function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE=="lib")return '<button type="button" class="caplink" data-act="all"><span>'+nb+'</span> discussions</button>. <button type="button" class="caplink" data-act="themes"><span>'+T.length+'</span> topics</button>. <span>Tap a planet to open it.</span>';return '<button type="button" class="caplink" data-act="all">'+nb+' books</button>. <button type="button" class="caplink" data-act="themes">'+T.length+' themes</button>. Hover/tap to learn more.'}
-function allBooks(){U.allPg=true;utip.hidden=true;ulink.hidden=false;ulink.textContent="◎ Universe";ulay.hidden=false;s.classList.add("dim");ulay.className="ulay pg";
+function allBooks(){U.allPg=true;utip.hidden=true;ulink.hidden=false;ulink.textContent="‹ Back";ulay.hidden=false;s.classList.add("dim");ulay.className="ulay pg";
  ulay.innerHTML='<div class="ph"><span style="min-width:52px"></span><b>'+(MODE=="lib"?"All discussions":"All books")+'</b><span style="min-width:52px"></span></div><ul class="pl">'+T.map(function(th){return th.b.map(function(b){return '<li style="--c:'+th.c+'"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i style="font-style:normal;color:'+th.c+'">'+th.n+'</i></small></li>'}).join("")}).join("")+'</ul>';
 }
 var kq=document.getElementById("kq"),kbox=document.getElementById("kbox");
@@ -1324,7 +1324,7 @@ function kset(on){kbox.hidden=!on;kq.setAttribute("aria-expanded",on)}
 kq.onclick=function(e){e.stopPropagation();kset(kbox.hidden)};document.getElementById("kx").onclick=function(){kset(false);kq.focus()};
 document.addEventListener("click",function(e){if(!kbox.hidden&&!kbox.contains(e.target))kset(false)});
 document.addEventListener("keydown",function(e){if(e.key=="Escape"&&!kbox.hidden){kset(false);kq.focus()}});
-cap.addEventListener("click",function(e){var b=e.target.closest(".caplink");if(!b)return;if(b.dataset.act=="all")allBooks();else if(U.list)rows();else if(U.allPg){U.allPg=false;U.list=true;ulink.hidden=false;ulink.textContent="◎ Universe";cancelAnimationFrame(mraf);U.e=1;U.frame();rows()}else ulink.onclick()});
+cap.addEventListener("click",function(e){var b=e.target.closest(".caplink");if(!b)return;if(b.dataset.act=="all")allBooks();else if(U.list)rows();else if(U.allPg){U.allPg=false;U.list=true;ulink.hidden=false;ulink.textContent="‹ Back";cancelAnimationFrame(mraf);U.e=1;U.frame();rows()}else ulink.onclick()});
 function orbit(i,sel){
  cancelAnimationFrame(raf);cancelAnimationFrame(mraf);ulink.hidden=true;ulay.hidden=true;s.parentNode.classList.remove("pgm");s.classList.remove("dim");U.list=false;s.onpointerenter=s.onpointerleave=null;base();var th=T[i],cx=170,cy=118,rx=118,ry=78;
  var ng=el("radialGradient",{id:"neb"},d);el("stop",{offset:"0","stop-color":th.c,"stop-opacity":".4"},ng);el("stop",{offset:"1","stop-color":th.c,"stop-opacity":"0"},ng);
