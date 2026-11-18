@@ -146,3 +146,7 @@ Universe|Universo|Universo
 My universe|Il mio universo|Mi universo
 books|libri|libros
 Tap to open.|Tocca per aprire.|Toca para abrir.
+(host)|(host)|(anfitrión)
+Notes by the host|Note dell'host|Notas del anfitrión
+Ask the host for another round|Chiedi all'host un altro giro|Pide al anfitrión otra ronda
+This discussion is still going. Ask the host for a chair at the next round.|Questa discussione continua. Chiedi all'host una sedia al prossimo giro.|Esta conversación sigue. Pide al anfitrión una silla en la próxima ronda.

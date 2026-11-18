@@ -177,7 +177,7 @@
       </section>
       <section id="vp-nt" role="tabpanel" aria-labelledby="vt-nt" hidden>
         <div class="notes">
-          <div><p class="by">Notes by Gregory, the host</p><ul id="rNotes" data-noi18n></ul></div>
+          <div><p class="by" id="hN">Notes by Gregory, the host</p><ul id="rNotes" data-noi18n></ul></div>
           <div><h2>Questions we left open</h2><ul class="open" id="rOpen" data-noi18n></ul></div>
         </div>
       </section>
@@ -206,13 +206,13 @@
       <div class="card r-guest">
         <h3>Pick it up again</h3>
         <p>You were at this table, so you'll be invited when Gregory plans the next round.</p>
-        <div id="gAskBox"><button type="button" class="btn wide ghost" id="gAsk">Ask Gregory for another round</button></div>
+        <div id="gAskBox"><button type="button" class="btn wide ghost" id="gAsk"><span>Ask Gregory for another round</span></button></div>
         <div class="done" id="gAsked" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Asked. We'll tell you when Gregory plans it.</span></div>
       </div>
       <!-- visitor -->
       <div class="card r-visitor">
         <h3>Join the next round</h3>
-        <p>This discussion is still going. Ask Gregory, the host, for a chair at the next round.</p>
+        <p id="hJ">This discussion is still going. Ask Gregory, the host, for a chair at the next round.</p>
         <div id="vForm">
           <label for="vMsg" class="sublbl" style="display:block;margin-top:0">Why you'd like to join (optional)</label>
           <textarea id="vMsg" maxlength="280" placeholder="A line about what you'd bring"></textarea>
@@ -316,16 +316,16 @@ function line(l,i){
  var you=l[1]=="Gabriele"&&S.role=="guest";
  if(you&&S.mine=="out")return '<li class="out"><div><span>A participant\'s words are left out</span></div></li>';
  var sp=who(l[1]);
- return '<li class="'+(you?"you":"")+'"><span class="av" style="--a:'+(AC[sp]||"#7C5CFF")+'" aria-hidden="true">'+sp[0]+'</span><div><div class="who"><b><span data-noi18n>'+esc(sp)+'</span>'+(you?' <span>(you)</span>':'')+'</b>'+(l[1]=="Gregory"?'<em>Host</em>':'')+'<small>'+esc(l[0])+'</small></div><p data-noi18n>'+esc(l[2])+'</p></div></li>'}
+ return '<li class="'+(you?"you":"")+'"><span class="av" style="--a:'+(AC[sp]||"#7C5CFF")+'" aria-hidden="true">'+sp[0]+'</span><div><div class="who"><b><span data-noi18n>'+esc(sp)+'</span>'+(you?' <span>(you)</span>':'')+'</b>'+(l[1]==(rec().host||"Gregory")?'<em>Host</em>':'')+'<small>'+esc(l[0])+'</small></div><p data-noi18n>'+esc(l[2])+'</p></div></li>'}
 // In the "wasn't there" view Gabriele is the visitor, so the same seat belongs to Elias
 function who(n){return n=="Gabriele"&&S.role=="visitor"?"Elias":n}
 function render(){
  var r=rec(),rd=r.rounds[S.round],tl=rd.tx;
  document.title="TimeCapsule Discussions";
  $("rcTop").innerHTML='<i style="--c:'+r.col+'"></i><span>'+esc(r.topic)+'</span>';$("rcSub").textContent=r.sub;
- $("rTitle").textContent=r.title;
+ $("rTitle").textContent=r.title;var cl=$("rcLib");if(r.host){cl.href="../help/live-pages/discussions.html";cl.innerHTML='<span>Discussions</span>'}else{cl.href="../profile/timecapsule-profile.html#lib";cl.innerHTML='<span>Gregory\'s discussions</span>'}$("hN").innerHTML='<span>'+(r.host?'Notes by the host':'Notes by Gregory, the host')+'</span>';$("gAsk").innerHTML='<span>'+(r.host?'Ask the host for another round':'Ask Gregory for another round')+'</span>';$("hJ").innerHTML='<span>'+(r.host?'This discussion is still going. Ask the host for a chair at the next round.':'This discussion is still going. Ask Gregory, the host, for a chair at the next round.')+'</span>';var hb=document.querySelector('#roleSeg [data-role="host"]');hb.innerHTML=r.host?'<span data-noi18n>'+esc(r.host)+'</span> <span>(host)</span>':"Gregory (host)";
  var n=rd.people,left=rd.out;
- $("rMeta").innerHTML=(r.rounds.length>1?'<span>Round</span> '+(S.round+1)+' <span>of</span> '+r.rounds.length+' · ':'')+'<span>'+esc(rd.date)+'</span> · <span>Hosted by Gregory</span>';
+ $("rMeta").innerHTML=(r.rounds.length>1?'<span>Round</span> '+(S.round+1)+' <span>of</span> '+r.rounds.length+' · ':'')+'<span>'+esc(rd.date)+'</span> · '+(r.host?'<span>Hosted by</span> <span data-noi18n>'+esc(r.host)+'</span>':'<span>Hosted by Gregory</span>');
  var rb=$("rRounds");rb.hidden=r.rounds.length<2;
  rb.innerHTML=r.rounds.map(function(x,i){return (i?'<span class="rline" aria-hidden="true"></span>':'')+'<button type="button" data-r="'+i+'" aria-pressed="'+(i==S.round)+'"><span>Round</span> '+(i+1)+' <small>'+esc(x.date)+'</small></button>'}).join("");
  var names=rd.names.slice();if(rd.tx.some(function(l){return l[1]=="Gabriele"})&&names.indexOf("Gabriele")<0)names.splice(1,0,"Gabriele");names=names.map(who);
@@ -348,7 +348,6 @@ function render(){
  document.querySelectorAll(".r-host").forEach(function(e){e.hidden=S.role!="host"});
  document.querySelectorAll(".r-guest").forEach(function(e){e.hidden=S.role!="guest"});
  document.querySelectorAll(".r-visitor").forEach(function(e){e.hidden=S.role!="visitor"});
- $("rcLib").textContent="Gregory's discussions";
  // save screen
  $("sTx").innerHTML=D.byId["free-will"].rounds[2].tx.slice(0,6).map(function(l){var o=S.role;S.role="host";var h=line(l);S.role=o;return h}).join("");
  document.querySelectorAll(".s-host").forEach(function(e){e.hidden=S.role!="host"});

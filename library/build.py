@@ -4,6 +4,7 @@ import re, json, os, posixpath, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 from data import R, TX, TOPIC_COL, SUM
+from data_pub import PUB, PUB_COL, TXP
 
 def records():
     out = {}
@@ -14,6 +15,17 @@ def records():
             summ = SUM.get(rid, [None]*len(rounds))[k] or ('The table talked about "%s". %s Left open: %s' % (title, ' '.join(t['notes']), t['open'][0]))
             rr.append(dict(summary=summ, date=date, people=people, out=t.get('out', 0), names=t['names'], notes=t['notes'], open=t['open'], my=t.get('my'), tx=[list(x) for x in t['tx']]))
         out[rid] = dict(id=rid, topic=top, sub=sub, title=title, col=TOPIC_COL[top], private=priv, rounds=rr)
+    return out
+
+def pub_records():
+    out = {}
+    for rid, host, top, sub, title, rounds, outn, trusted in PUB:
+        tx = TXP[rid]; rr = []
+        for k, (date, people) in enumerate(rounds):
+            t = tx[k]
+            summ = 'The table talked about "%s". %s Left open: %s' % (title, ' '.join(t['notes']), t['open'][0])
+            rr.append(dict(summary=summ, date=date, people=people, out=t.get('out', 0), names=t['names'], notes=t['notes'], open=t['open'], my=None, tx=[list(x) for x in t['tx']]))
+        out[rid] = dict(id=rid, host=host, trusted=trusted, topic=top, sub=sub, title=title, col=PUB_COL[top], private=False, rounds=rr)
     return out
 
 def load_dict(path):
@@ -54,7 +66,8 @@ def page():
     foot = re.sub(r'(href=")([^"]*)"', rebase, foot)
     body = open(os.path.join(HERE, 'body.html'), encoding='utf8').read()
     recs = records()
-    data = dict(byId=recs, col=TOPIC_COL)
+    allr = dict(recs); allr.update(pub_records())
+    data = dict(byId=allr, col=dict(TOPIC_COL, **PUB_COL))
     body = body.replace('/*DATA*/null', json.dumps(data, ensure_ascii=False).replace('</', '<\\/'))
     out = os.path.join(HERE, 'timecapsule-library.html')
     open(out, 'w', encoding='utf8').write(head + body + foot)
@@ -64,5 +77,6 @@ def page():
 if __name__ == '__main__':
     recs = page()
     import build_myuni; build_myuni.build()
+    import build_disc; build_disc.build()
     import patch_profile
     patch_profile.run(ROOT, recs, LIBD, add_dict)

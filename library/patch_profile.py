@@ -199,6 +199,7 @@ window.KUlib=function(){if(MODE!="lib")setMode("lib")};
 '''
     # avatar menu: My universe (Readings + Discussions page)
     s = rep(s, '<a href="../help/live-pages/mytables.html" target="_top">My tables</a>', '<a href="../help/live-pages/mytables.html" target="_top">My tables</a><a href="../help/live-pages/myuniverse.html" target="_top">My universe</a>')
+    s = rep(s, '<nav class="tch-nav" aria-label="Main"><a href="../help/live-pages/agenda.html" target="_top">Tables</a>', '<nav class="tch-nav" aria-label="Main"><a href="../help/live-pages/agenda.html" target="_top">Tables</a><a href="../help/live-pages/discussions.html" target="_top">Discussions</a>')
     s = rep(s, '\nuniverse();\nwindow.KU={T:T,render:universe};', '\n' + HELP + 'universe();\nwindow.KU={T:RT,render:function(){if(MODE!="read"){MODE="read";T=RT;var r=document.querySelector(".lbreads");if(r)r.classList.remove("libmode");document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m=="read")})}universe()}};')
     s = rep(s, 'd.onclick=function(e){e.stopPropagation();show(d)}', 'd.onclick=function(e){e.stopPropagation();if(MODE=="lib"){goRec(T[d.dataset.i].b[d.dataset.j][2]);return}show(d)}')
     # deep link #lib opens the Library tab and the library map

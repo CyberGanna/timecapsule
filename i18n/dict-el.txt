@@ -2010,3 +2010,22 @@ Film added|Η ταινία προστέθηκε
 Your universe is empty|Το σύμπαν σου είναι άδειο
 Add a book or a film that shaped how you think.|Πρόσθεσε ένα βιβλίο ή μια ταινία που διαμόρφωσε τη σκέψη σου.
 Search my universe|Αναζήτηση στο σύμπαν μου
+(host)|(οικοδεσπότης)
+Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.|Συζητήσεις που αποθηκεύτηκαν στο τέλος των τραπεζιών τους, ανά θέμα. Διάβασε τι ειπώθηκε και ζήτα από τον οικοδεσπότη να μπεις στον επόμενο γύρο.
+Search discussions, topics or hosts|Αναζήτηση συζητήσεων, θεμάτων ή οικοδεσποτών
+Search discussions|Αναζήτηση συζητήσεων
+Topics as constellations. Each star is a saved discussion.|Τα θέματα ως αστερισμοί. Κάθε αστέρι είναι μια αποθηκευμένη συζήτηση.
+Each star is a discussion. Tap a topic to see its discussions.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα θέμα για να δεις τις συζητήσεις του.
+Recent|Πρόσφατες
+Most rounds|Περισσότεροι γύροι
+in|σε
+Picked up again|Συνεχίστηκε ξανά
+Read the discussion|Διάβασε τη συζήτηση
+said|είπε
+Nothing matches.|Δεν βρέθηκε τίποτα.
+Try another word or topic.|Δοκίμασε άλλη λέξη ή θέμα.
+Every table can keep its record|Κάθε τραπέζι μπορεί να κρατήσει το αρχείο του
+At the end of a table, the host can save the transcript and notes here. Anyone can leave their words out.|Στο τέλος ενός τραπεζιού, ο οικοδεσπότης μπορεί να αποθηκεύσει εδώ την απομαγνητοφώνηση και τις σημειώσεις. Όποιος θέλει μπορεί να αφήσει έξω τα λόγια του.
+Notes by the host|Σημειώσεις του οικοδεσπότη
+Ask the host for another round|Ζήτα από τον οικοδεσπότη άλλον έναν γύρο
+This discussion is still going. Ask the host for a chair at the next round.|Αυτή η συζήτηση συνεχίζεται. Ζήτα από τον οικοδεσπότη μια θέση στον επόμενο γύρο.

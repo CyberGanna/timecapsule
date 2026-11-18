@@ -1,0 +1,44 @@
+Discussions|Συζητήσεις
+Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.|Συζητήσεις που αποθηκεύτηκαν στο τέλος των τραπεζιών τους, ανά θέμα. Διάβασε τι ειπώθηκε και ζήτα από τον οικοδεσπότη να μπεις στον επόμενο γύρο.
+Search discussions, topics or hosts|Αναζήτηση συζητήσεων, θεμάτων ή οικοδεσποτών
+Search discussions|Αναζήτηση συζητήσεων
+Topics as constellations. Each star is a saved discussion.|Τα θέματα ως αστερισμοί. Κάθε αστέρι είναι μια αποθηκευμένη συζήτηση.
+Each star is a discussion. Tap a topic to see its discussions.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα θέμα για να δεις τις συζητήσεις του.
+Topics|Θέματα
+Sort|Ταξινόμηση
+All|Όλες
+Recent|Πρόσφατες
+Most rounds|Περισσότεροι γύροι
+discussion|συζήτηση
+discussions|συζητήσεις
+topics|θέματα
+in|σε
+Picked up again|Συνεχίστηκε ξανά
+Read the discussion|Διάβασε τη συζήτηση
+Hosted by|Οικοδεσπότης
+said|είπε
+people|άτομα
+Round|Γύρος
+rounds|γύροι
+Nothing matches.|Δεν βρέθηκε τίποτα.
+Try another word or topic.|Δοκίμασε άλλη λέξη ή θέμα.
+Show all|Δείξε όλα
+Every table can keep its record|Κάθε τραπέζι μπορεί να κρατήσει το αρχείο του
+At the end of a table, the host can save the transcript and notes here. Anyone can leave their words out.|Στο τέλος ενός τραπεζιού, ο οικοδεσπότης μπορεί να αποθηκεύσει εδώ την απομαγνητοφώνηση και τις σημειώσεις. Όποιος θέλει μπορεί να αφήσει έξω τα λόγια του.
+Find a table|Βρες ένα τραπέζι
+Philosophy|Φιλοσοφία
+Religion|Θρησκεία
+Energy|Ενέργεια
+Travel|Ταξίδια
+Home|Σπίτι
+Craft|Χειροτεχνία
+Science|Επιστήμη
+History|Ιστορία
+Music|Μουσική
+Climate|Κλίμα
+Art|Τέχνη
+Design|Σχεδιασμός
+Nov|Νοε
+Oct|Οκτ
+Sep|Σεπ
+Aug|Αυγ

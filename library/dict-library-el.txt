@@ -146,3 +146,4 @@ Universe|Σύμπαν
 My universe|Το σύμπαν μου
 books|βιβλία
 Tap to open.|Πάτησε για να ανοίξει.
+(host)|(οικοδεσπότης)

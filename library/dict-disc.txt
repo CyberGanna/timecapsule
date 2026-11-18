@@ -1,0 +1,44 @@
+Discussions|Discussioni|Conversaciones
+Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.|Conversazioni salvate alla fine dei loro tavoli, divise per argomento. Leggi cosa si è detto, poi chiedi all'host di unirti al prossimo giro.|Conversaciones guardadas al final de sus mesas, ordenadas por tema. Lee lo que se dijo y pide al anfitrión unirte a la próxima ronda.
+Search discussions, topics or hosts|Cerca discussioni, argomenti o host|Busca conversaciones, temas o anfitriones
+Search discussions|Cerca discussioni|Buscar conversaciones
+Topics as constellations. Each star is a saved discussion.|Gli argomenti come costellazioni. Ogni stella è una discussione salvata.|Los temas como constelaciones. Cada estrella es una conversación guardada.
+Each star is a discussion. Tap a topic to see its discussions.|Ogni stella è una discussione. Tocca un argomento per vederne le discussioni.|Cada estrella es una conversación. Toca un tema para ver sus conversaciones.
+Topics|Argomenti|Temas
+Sort|Ordina|Ordenar
+All|Tutte|Todas
+Recent|Recenti|Recientes
+Most rounds|Più giri|Más rondas
+discussion|discussione|conversación
+discussions|discussioni|conversaciones
+topics|argomenti|temas
+in|in|en
+Picked up again|Ripresa|Retomada
+Read the discussion|Leggi la discussione|Leer la conversación
+Hosted by|Ospitato da|Organizada por
+said|ha detto|dijo
+people|persone|personas
+Round|Giro|Ronda
+rounds|giri|rondas
+Nothing matches.|Nessun risultato.|No hay resultados.
+Try another word or topic.|Prova un'altra parola o un altro argomento.|Prueba otra palabra u otro tema.
+Show all|Mostra tutto|Mostrar todo
+Every table can keep its record|Ogni tavolo può conservare la sua traccia|Cada mesa puede guardar su registro
+At the end of a table, the host can save the transcript and notes here. Anyone can leave their words out.|Alla fine di un tavolo, l'host può salvare qui la trascrizione e le note. Chiunque può lasciare fuori le proprie parole.|Al final de una mesa, el anfitrión puede guardar aquí la transcripción y las notas. Cualquiera puede dejar fuera sus palabras.
+Find a table|Trova un tavolo|Encuentra una mesa
+Philosophy|Filosofia|Filosofía
+Religion|Religione|Religión
+Energy|Energia|Energía
+Travel|Viaggi|Viajes
+Home|Casa|Hogar
+Craft|Artigianato|Artesanía
+Science|Scienza|Ciencia
+History|Storia|Historia
+Music|Musica|Música
+Climate|Clima|Clima
+Art|Arte|Arte
+Design|Design|Diseño
+Nov|nov|nov
+Oct|ott|oct
+Sep|set|sep
+Aug|ago|ago
