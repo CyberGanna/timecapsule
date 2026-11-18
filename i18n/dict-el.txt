@@ -2084,3 +2084,10 @@ Chair saved|Η θέση κρατήθηκε
 See all tables|Όλα τα τραπέζια
 Same question, next week?|Ίδια ερώτηση, την επόμενη εβδομάδα;
 We fill in the details from this table, so it takes a minute.|Συμπληρώνουμε τα στοιχεία από αυτό το τραπέζι, οπότε θέλει ένα λεπτό.
+Last day to save your table|Τελευταία μέρα για να αποθηκεύσεις το τραπέζι σου
+You hosted it|Το φιλοξένησες εσύ
+Save it to Conversations by tomorrow at 19:30, or it can't be saved any more.|Αποθήκευσέ το στις Συζητήσεις ως αύριο στις 19:30, αλλιώς δεν θα μπορεί πια να αποθηκευτεί.
+Not saved · 6 days left|Δεν αποθηκεύτηκε · απομένουν 6 μέρες
+Not saved. You can save it from|Δεν αποθηκεύτηκε. Μπορείς να το αποθηκεύσεις από τα
+for 7 days. We'll remind you the day before it's too late.|για 7 μέρες. Θα σου το θυμίσουμε την προηγούμενη μέρα.
+Not saved yet|Δεν έχει αποθηκευτεί ακόμα

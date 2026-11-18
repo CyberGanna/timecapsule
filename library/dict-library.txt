@@ -187,3 +187,8 @@ Chair saved|Sedia prenotata|Silla reservada
 See all tables|Vedi tutti i tavoli|Ver todas las mesas
 Same question, next week?|Stessa domanda, la prossima settimana?|¿La misma pregunta, la semana que viene?
 We fill in the details from this table, so it takes a minute.|Compiliamo i dettagli da questo tavolo: basta un minuto.|Rellenamos los datos a partir de esta mesa: es un minuto.
+Not saved. You can save it from|Non salvato. Puoi salvarlo da|No guardada. Puedes guardarla desde
+for 7 days. We'll remind you the day before it's too late.|per 7 giorni. Te lo ricordiamo il giorno prima della scadenza.|durante 7 días. Te lo recordaremos el día antes de que sea tarde.
+Host it again|Ospitalo di nuovo|Organízala otra vez
+Not saved yet|Non ancora salvato|Aún sin guardar
+My tables|I miei tavoli|Mis mesas

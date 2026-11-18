@@ -176,3 +176,8 @@ Chair saved|Η θέση κρατήθηκε
 See all tables|Όλα τα τραπέζια
 Same question, next week?|Ίδια ερώτηση, την επόμενη εβδομάδα;
 We fill in the details from this table, so it takes a minute.|Συμπληρώνουμε τα στοιχεία από αυτό το τραπέζι, οπότε θέλει ένα λεπτό.
+Not saved. You can save it from|Δεν αποθηκεύτηκε. Μπορείς να το αποθηκεύσεις από τα
+for 7 days. We'll remind you the day before it's too late.|για 7 μέρες. Θα σου το θυμίσουμε την προηγούμενη μέρα.
+Host it again|Φιλοξένησέ το ξανά
+Not saved yet|Δεν έχει αποθηκευτεί ακόμα
+My tables|Τα τραπέζια μου

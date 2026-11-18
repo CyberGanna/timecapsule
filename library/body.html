@@ -95,6 +95,7 @@
 .card textarea{width:100%;box-sizing:border-box;min-height:84px;padding:10px 12px;margin:0 0 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;font-size:14px;line-height:1.45;resize:vertical}
 .card textarea:focus{outline:2px solid var(--lamp);outline-offset:1px}
 .done{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:12px;background:rgba(23,195,200,.1);color:var(--fg);font-size:13.5px;line-height:1.5}
+.done a{color:var(--lamp);text-underline-offset:3px}
 .done svg{flex:none;width:18px;height:18px;color:var(--lamp);margin-top:1px}
 .reqs{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:12px}
 .reqs li{display:grid;grid-template-columns:30px 1fr;gap:10px;padding-top:12px;border-top:1px solid var(--line)}
@@ -333,7 +334,7 @@
       <p class="flinks"><button type="button" class="later" data-go="rec">Open the conversation</button><a class="later" href="../profile/timecapsule-profile.html#lib" target="_top">See Conversations</a></p>
     </div>
     <div class="saved" id="hNot" hidden>
-      <div class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Not saved. You can save it from My tables for 7 days.</span></div>
+      <div class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span><span>Not saved. You can save it from</span> <a href="../help/live-pages/mytables.html#past" target="_top">My tables</a> <span>for 7 days. We'll remind you the day before it's too late.</span></span></div>
     </div>
   </div>
 
@@ -483,6 +484,14 @@ $("gDone").onclick=function(){var out=document.querySelector('input[name=me]:che
 function fromHash(){var m=location.hash.match(/r=([a-z-]+)/);S.rec=m&&D.byId[m[1]]?m[1]:"free-will";S.round=rec().rounds.length-1;if(/save/.test(location.hash)){S.scr="save";document.querySelectorAll("#scrSeg button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.scr=="save")})}
  var am=location.hash.match(/as=(host|guest|visitor)/);if(am){S.role=am[1];document.querySelectorAll("#roleSeg button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.role==S.role)})}}
 fromHash();pills();render();
+/* #save&q=<title>: a table saved later from My tables, not a new round (Karim 2026-11-18) */
+(function(){var qm=location.hash.match(/[#&]q=([^&]+)/);if(!qm)return;var q=decodeURIComponent(qm[1]);
+ var l=document.querySelector(".s-host .lead [data-noi18n]");if(l)l.textContent=q;
+ var g=document.querySelector(".s-guest .lead [data-noi18n]");if(g)g.textContent="“"+q+"”";
+ $("asRound").checked=false;$("asRound").closest("label").hidden=true;$("placeBox").hidden=false;pills();
+ var a=document.querySelector("#hSaved .again a");if(a){a.textContent="Host it again";a.href=a.href.replace(/q=[^&]*/,"q="+encodeURIComponent(q))}
+ var c=document.querySelector("#hHead .crumb");if(c)c.textContent="Not saved yet";
+})();
 window.addEventListener("hashchange",function(){fromHash();render();scrollTo(0,0)});
 })();
 </script>
