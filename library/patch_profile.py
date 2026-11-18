@@ -106,7 +106,7 @@ def run(ROOT, recs, LIBD, add_dict):
     # universe code
     s = rep(s, '\nvar BOOKS=[];T.forEach', '\nvar RT=T,MODE="read",LT=' + json.dumps(LT, ensure_ascii=False) + ';\nvar BOOKS=[];T.forEach')
     s = rep(s, '<b>k▪universe</b><p>Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><a href="https://k-universe.com/" target="_blank" rel="noopener">Learn more →</a>',
-            '<b class="kb-r">k▪universe</b><p class="kb-r">Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><a class="kb-r" href="https://k-universe.com/" target="_blank" rel="noopener">Learn more →</a>'
+            '<b class="kb-r">k▪universe</b><p class="kb-r">Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p>'
             '<b class="kb-l">Discussions</b><p class="kb-l">Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.</p><p class="kb-l">Tap a planet to read it again, or pick it up for another round.</p>')
     s = rep(s, '<span aria-hidden="true">powered by k▪universe</span>', '<span class="wmt" aria-hidden="true">powered by k▪universe</span>')
     s = rep(s, ' el("circle",{cx:cx,cy:cy,r:4.2,fill:"#FFFDF2"},sunG);', ' var avg=sunAv(sys,orbs,cx,cy);')
