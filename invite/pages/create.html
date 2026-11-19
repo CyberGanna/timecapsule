@@ -1688,9 +1688,9 @@ function showPage(on,push=true){
   const pg=document.getElementById("cpage");
   pg.hidden=!on; document.querySelectorAll("main,.nav,.hero").forEach(x=>x.hidden=on); scrollTo(0,0);
   if(on&&push&&location.hash!=="#new") try{history.pushState({c:1},"","#new")}catch(e){}
-  if(!on&&location.hash==="#new") try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}
+  if(!on&&/^#(new|created)$/.test(location.hash)) try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}
 }
-addEventListener("popstate",()=>{if(location.hash!=="#new"&&!document.getElementById("cpage").hidden)showPage(false,false)});
+addEventListener("popstate",()=>{if(!/^#(new|created)$/.test(location.hash)&&!document.getElementById("cpage").hidden)showPage(false,false)});
 let calM=null;
 function fmtD(v){const [y,m,d]=v.split("-").map(Number);return new Date(y,m-1,d).toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"})}
 function calHTML(){
@@ -1721,10 +1721,11 @@ function ntClick(b){
   if(b.id==="ntgo"){/* tc-new: open the new table's page (Karim 2026-11-18) */top.location.href=(window.TCI18N?TCI18N.u:(x=>x))("../../table-detail/timecapsule-table.html#"+window.tcNewTable);return true}
   return false;
 }
-function doCreate(){
+function doCreate(L){
+  const snap=JSON.parse(JSON.stringify(nt)), simg=nt.img!=null?IMGS[nt.img]:null;
   const t=ntObj(); t.id=Math.max(...T.map(x=>+x.id||0))+1; t._new=1; t.mine=1;
   T.unshift(t); state.joined.add(t.id); fixNew(); TAKEN.add("__"); 
-  const link=`timecapsule.app/t/${t.id}${Math.random().toString(36).slice(2,6)}`, now=nt.whenK==="now";
+  const link=L||`timecapsule.app/t/${t.id}${Math.random().toString(36).slice(2,6)}`, now=nt.whenK==="now";
   const sh=document.getElementById("cpage"); scrollTo(0,0);
   sh.innerHTML=`<div class="cwrap"><button class="back" data-close>← Back to tables</button>
     <div class="ok cok">
@@ -1737,6 +1738,8 @@ function doCreate(){
       <div class="acts">${now?`<button class="cta" data-close>Later</button><button class="cta go" id="ntgo">Go to my table</button>`:`<button class="cta" data-close>Back to tables</button><button class="cta go" id="ntgo">Go to my table</button>`}</div>
     </div></div>`;
   window.tcNewTable=new URLSearchParams({new:"1",q:t.title,th:nt.theme,seats:String(nt.seats),tl:nt.lang,tr:nt.capsule?"1":"0",vis:nt.vis,now:now?"1":"0",at:now?"0":String(Math.round((Date.now()+t.when*60000)/9e5)*9e5)}).toString();
+try{sessionStorage.setItem("tc-created",JSON.stringify({nt:snap,img:simg,link}))}catch(e){try{sessionStorage.setItem("tc-created",JSON.stringify({nt:Object.assign(snap,{img:null}),img:null,link}))}catch(x){}}
+  try{history.replaceState({c:1},"",location.pathname+location.search+"#created")}catch(e){}
 Object.assign(nt,{title:"",img:null,rep:"none"});
   render();
 }
@@ -1760,7 +1763,8 @@ function fixNew(){const t=T[0];if(!t||!t.mine||t.at)return;S.joined.delete(t.id)
 document.getElementById("me").innerHTML=av("You");
 render();
 setInterval(()=>document.querySelectorAll(".cdn[data-at]").forEach(el=>{el.textContent=until(+el.dataset.at)}),30000);
-if(location.hash==="#new")openCreate();
+if(location.hash==="#created"){try{const c=JSON.parse(sessionStorage.getItem("tc-created")||"null");if(c){openCreate();Object.assign(nt,c.nt);if(c.img){IMGS.push(c.img);nt.img=IMGS.length-1}else nt.img=null;doCreate(c.link)}else showPage(false,false)}catch(e){}}
+else if(location.hash==="#new")openCreate();
 /*tc-again-fn*/ /* Host again: prefill the form from the last table (#again=1&th=...&q=...) */
 (function(){try{
   const h=new URLSearchParams(location.hash.slice(1)); if(!h.has("again")) return;
@@ -1777,7 +1781,7 @@ if(location.hash==="#new")openCreate();
 }catch(e){}})();
 /* standalone create page: opens straight on the form; Cancel / Back return to the Tables page */
 document.addEventListener("click",e=>{if(e.target.closest("[data-close]")){e.preventDefault();e.stopImmediatePropagation();top.location.href=TCI18N.u("https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5")}},true);
-openCreate();
+if(location.hash!=="#created")openCreate();
 </script>
 
 <style id="tc-std">/* same header and page edges on every page */html,body{margin:0}</style>
