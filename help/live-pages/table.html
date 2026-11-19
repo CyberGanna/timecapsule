@@ -1497,7 +1497,7 @@ function showU(el){
   UC.style.left=x+"px";UC.style.top=Math.max(12,y)+"px";
 }
 function hideU(){UC.hidden=true;ucFor=null}
-const HOV=matchMedia("(hover:hover)").matches;
+const HOV=false; /* click only (Karim 2026-11-19) */
 if(HOV){document.addEventListener("mouseover",e=>{const el=e.target.closest("[data-u]");if(el){clearTimeout(ucT);if(ucFor!==el)showU(el)}else if(!e.target.closest(".ucard")&&ucFor){clearTimeout(ucT);ucT=setTimeout(hideU,180)}})}
 document.addEventListener("click",e=>{const el=e.target.closest("[data-u]");if(el){e.preventDefault();ucFor===el&&!HOV?hideU():showU(el);return}if(!e.target.closest(".ucard"))hideU()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")hideU();if((e.key==="Enter"||e.key===" ")&&e.target.dataset&&e.target.dataset.u){e.preventDefault();showU(e.target)}});
