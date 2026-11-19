@@ -2131,3 +2131,10 @@ is on the Tables page. You host. Invite people who'd love this topic.|είναι
 is private. Only people you invite can join. You host|είναι ιδιωτικό. Μπαίνουν μόνο όσοι καλέσεις. Φιλοξενείς εσύ
 is on the Tables page. You host|είναι στη σελίδα Τραπέζια. Φιλοξενείς εσύ
 . Invite people who'd love this topic.|. Κάλεσε όσους θα αγαπούσαν αυτό το θέμα.
+New message|Νέο μήνυμα
+Pick who gets it|Διάλεξε σε ποιον θα πάει
+To|Προς
+Only people you met at a table.|Μόνο άνθρωποι που γνώρισες σε τραπέζι.
+Nobody by that name at your past tables.|Κανείς με αυτό το όνομα στα περασμένα τραπέζια σου.
+Invite card|Πρόσκληση στο τραπέζι
+Add a note (optional)|Πρόσθεσε ένα σημείωμα (προαιρετικό)
