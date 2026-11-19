@@ -2174,3 +2174,4 @@ Anyone with the link can read this conversation.|Όποιος έχει τον σ
 Link to this conversation|Σύνδεσμος σε αυτή τη συζήτηση
 Talk, listen and think together.|Μιλάμε, ακούμε και σκεφτόμαστε μαζί.
 TimeCoins received|TimeCoins που έλαβε
+Tips|Φιλοδωρήματα
