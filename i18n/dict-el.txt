@@ -199,7 +199,7 @@ New password needs at least 10 characters|Ο νέος κωδικός θέλει 
 Enter your current password|Γράψε τον τρέχοντα κωδικό σου
 What rings the bell. Tables starting soon always do.|Τι χτυπάει το κουδουνάκι. Τα τραπέζια που ξεκινούν σύντομα, πάντα.
 Rate and tip reminder|Υπενθύμιση βαθμολογίας και φιλοδωρήματος
-24 hours after a table ends, if you haven't rated it yet, with when your TimeCoins expire.|24 ώρες μετά το τέλος ενός τραπεζιού, αν δεν το έχεις βαθμολογήσει ακόμα, με το πότε λήγουν τα TimeCoins σου.
+The day before rating closes, if you haven't rated the table yet, with when your TimeCoins expire.|Την παραμονή του κλεισίματος της βαθμολόγησης, αν δεν έχεις βαθμολογήσει ακόμα το τραπέζι, με το πότε λήγουν τα TimeCoins σου.
 People you follow|Άνθρωποι που ακολουθείς
 When someone you follow opens a new table.|Όταν κάποιος που ακολουθείς ανοίγει νέο τραπέζι.
 At a full table you saved.|Σε ένα γεμάτο τραπέζι που αποθήκευσες.
@@ -422,7 +422,7 @@ Award your favorite panelists|Επιβράβευσε τους αγαπημένο
 Award anyone at the table after the talk|Επιβράβευσε όποιον ήταν στο τραπέζι μετά την κουβέντα
 Split your TimeCoins between the host and the participants who made it worth it.|Μοίρασε τα TimeCoins σου ανάμεσα στον οικοδεσπότη και τους συμμετέχοντες που την έκαναν να αξίζει.
 You have 8 TimeCoins. Tip whoever inspired you today.|Έχεις 8 TimeCoins. Δώσε φιλοδώρημα σε όποιον σε ενέπνευσε σήμερα.
-They're yours to give away, not to keep. Any you don't award within 3 days expire.|Είναι για να τα δώσεις, όχι για να τα κρατήσεις. Όσα δεν δώσεις μέσα σε 3 ημέρες λήγουν.
+They're yours to give away, not to keep. Any you don't award within 7 days expire.|Είναι για να τα δώσεις, όχι για να τα κρατήσεις. Όσα δεν δώσεις μέσα σε 7 ημέρες λήγουν.
 TimeCoins become reputation|Τα TimeCoins γίνονται φήμη
 They show on each person's profile and can't be spent or passed on.|Φαίνονται στο προφίλ του καθενός και δεν ξοδεύονται ούτε μεταβιβάζονται.
 TimeCoins are how people build their reputation on TimeCapsule. Even one coin tells Gregory and the panelists their voice mattered today.|Με τα TimeCoins οι άνθρωποι χτίζουν τη φήμη τους στο TimeCapsule. Ακόμα και ένα νόμισμα λέει στον Gregory και στους ομιλητές ότι η φωνή τους μέτρησε σήμερα.
@@ -853,7 +853,7 @@ What happened at your tables while you were away.|Τι έγινε στα τρα�
 Filter notifications|Φίλτρο ειδοποιήσεων
 Tables starting soon, changes to a table you're in, and invites always ring the bell. Everything else is up to you in|Τα τραπέζια που ξεκινούν σύντομα, οι αλλαγές σε ένα τραπέζι όπου είσαι και οι προσκλήσεις χτυπούν πάντα το κουδουνάκι. Για όλα τα άλλα αποφασίζεις εσύ στις
 We keep notifications for 30 days.|Κρατάμε τις ειδοποιήσεις για 30 ημέρες.
-Your 8 TimeCoins expire in 2 days.|Τα 8 TimeCoins σου λήγουν σε 2 ημέρες.
+Last day to rate. Your 8 TimeCoins expire tomorrow.|Τελευταία μέρα για βαθμολόγηση. Τα 8 TimeCoins σου λήγουν αύριο.
 Amara sent you a message|Η Amara σού έστειλε μήνυμα
 Priya is hosting a new table|Η Priya φιλοξενεί νέο τραπέζι
 Omar is hosting a new table|Ο Omar φιλοξενεί νέο τραπέζι
@@ -1183,7 +1183,7 @@ A proposal for the coin economy. Prices and numbers are placeholders to try in t
 Two numbers, not one|Δύο αριθμοί, όχι ένας
 If coins are reputation and also money, every purchase would make you look less trusted, and people would hold back from using them. So each person has two numbers that grow together but move apart once you spend.|Αν τα νομίσματα ήταν και φήμη και χρήμα, κάθε αγορά θα σε έκανε να φαίνεσαι λιγότερο αξιόπιστος και οι άνθρωποι θα δίσταζαν να τα χρησιμοποιήσουν. Γι' αυτό ο καθένας έχει δύο αριθμούς που μεγαλώνουν μαζί αλλά χωρίζουν μόλις ξοδέψεις.
 To award|Για να δώσεις
-8 after every table you finish. You can only give them away. Unawarded coins expire after 3 days.|8 μετά από κάθε τραπέζι που ολοκληρώνεις. Μπορείς μόνο να τα δώσεις. Όσα δεν δοθούν λήγουν μετά από 3 ημέρες.
+8 after every table you finish. You can only give them away. Unawarded coins expire after 7 days.|8 μετά από κάθε τραπέζι που ολοκληρώνεις. Μπορείς μόνο να τα δώσεις. Όσα δεν δοθούν λήγουν μετά από 7 ημέρες.
 Every coin someone awards you. It only goes up. It is the number on your profile and part of the Trusted score.|Κάθε νόμισμα που σου δίνει κάποιος. Μόνο ανεβαίνει. Είναι ο αριθμός στο προφίλ σου και μέρος της βαθμολογίας Αξιόπιστος.
 The same coins, as a balance you can spend on extras. Using them lowers this number only.|Τα ίδια νομίσματα, ως υπόλοιπο που μπορείς να ξοδέψεις σε έξτρα. Η χρήση τους μειώνει μόνο αυτόν τον αριθμό.
 Like air miles: the miles that give you status are counted apart from the miles you spend on a flight.|Όπως τα μίλια των αεροπορικών: τα μίλια που σου δίνουν status μετριούνται χωριστά από τα μίλια που ξοδεύεις σε μια πτήση.
@@ -1296,7 +1296,7 @@ When the table is live, choose Join table. A quick camera and microphone check c
 Talk and listen|Μίλα και άκου
 It is an open conversation: no turns to wait for. On the side you can follow the live transcript, write private notes and send a private message to anyone at the table.|Είναι μια ανοιχτή συζήτηση: δεν περιμένεις σειρά. Στο πλάι μπορείς να παρακολουθείς τη ζωντανή απομαγνητοφώνηση, να γράφεις ιδιωτικές σημειώσεις και να στέλνεις ιδιωτικό μήνυμα σε οποιονδήποτε στο τραπέζι.
 Rate and award|Βαθμολόγησε και επιβράβευσε
-When the table ends, say how the conversation was and award your 8 TimeCoins to the people who inspired you. If you leave in a hurry, the bell reminds you the next day.|Όταν τελειώσει το τραπέζι, πες πώς ήταν η συζήτηση και δώσε τα 8 TimeCoins σου σε όσους σε ενέπνευσαν. Αν φύγεις βιαστικά, το κουδουνάκι σού το θυμίζει την επόμενη μέρα.
+When the table ends, say how the conversation was and award your 8 TimeCoins to the people who inspired you. If you sat for at least 10 minutes, you can rate even if you left early. You have 7 days, and the bell reminds you the day before rating closes.|Όταν τελειώσει το τραπέζι, πες πώς ήταν η συζήτηση και δώσε τα 8 TimeCoins σου σε όσους σε ενέπνευσαν. Αν έμεινες τουλάχιστον 10 λεπτά, μπορείς να βαθμολογήσεις ακόμα κι αν έφυγες νωρίτερα. Έχεις 7 ημέρες, και το κουδουνάκι σού το θυμίζει την παραμονή του κλεισίματος.
 Nobody needs your full name. Listening counts too: you can stay quiet for a while and speak when you are ready.|Κανείς δεν χρειάζεται το πλήρες όνομά σου. Και το να ακούς μετράει: μπορείς να μείνεις σιωπηλός για λίγο και να μιλήσεις όταν είσαι έτοιμος.
 Next guide|Επόμενος οδηγός
 Previous|Προηγούμενος
@@ -1374,7 +1374,7 @@ Bring the table back to the question. If it goes on, report the person from thei
 Can I buy TimeCoins?|Μπορώ να αγοράσω TimeCoins;
 No. TimeCoins come only from people at your tables and from inviting friends. They can't be bought with money or cashed out.|Όχι. Τα TimeCoins έρχονται μόνο από τους ανθρώπους στα τραπέζια σου και από την πρόσκληση φίλων. Δεν αγοράζονται με χρήματα και δεν εξαργυρώνονται.
 Why did some of my coins disappear?|Γιατί εξαφανίστηκαν κάποια από τα νομίσματά μου;
-The 8 coins you get to award after a table expire after a few days if you don't award them. Coins you have received never expire.|Τα 8 νομίσματα που παίρνεις για να δώσεις μετά από ένα τραπέζι λήγουν μετά από λίγες ημέρες αν δεν τα δώσεις. Τα νομίσματα που έχεις λάβει δεν λήγουν ποτέ.
+The 8 coins you get to award after a table expire 7 days after it ends if you don't award them. Coins you have received never expire.|Τα 8 νομίσματα που παίρνεις για να δώσεις μετά από ένα τραπέζι λήγουν 7 ημέρες μετά το τέλος του αν δεν τα δώσεις. Τα νομίσματα που έχεις λάβει δεν λήγουν ποτέ.
 What does Trusted mean?|Τι σημαίνει Αξιόπιστος;
 The Trusted badge shows that someone has taken part well over time: finished many tables, hosted with good ratings and received TimeCoins from many different people. Logins, messages and followers don't count.|Το σήμα Αξιόπιστος δείχνει ότι κάποιος έχει συμμετάσχει καλά με τον καιρό: ολοκλήρωσε πολλά τραπέζια, φιλοξένησε με καλές βαθμολογίες και έλαβε TimeCoins από πολλούς διαφορετικούς ανθρώπους. Συνδέσεις, μηνύματα και ακόλουθοι δεν μετράνε.
 How do I see my progress toward Trusted?|Πώς βλέπω την πρόοδό μου προς το Αξιόπιστος;
@@ -2148,3 +2148,17 @@ Starts in|Ξεκινά σε
 Welcome back|Καλώς ήρθες ξανά
 You're back as|Επιστρέφεις ως
 You keep the same name until this table ends, so everyone knows who's back and the record stays clear.|Κρατάς το ίδιο όνομα μέχρι να τελειώσει το τραπέζι, ώστε όλοι να ξέρουν ποιος επέστρεψε και τα πρακτικά να μένουν καθαρά.
+When can I rate a table?|Πότε μπορώ να βαθμολογήσω ένα τραπέζι;
+When the table ends, if you sat at it for at least 10 minutes. Leaving early is fine: you can still rate once it's over. You have 7 days, and the bell reminds you the day before rating closes.|Όταν τελειώσει το τραπέζι, αν έμεινες σε αυτό τουλάχιστον 10 λεπτά. Μπορείς να φύγεις νωρίτερα: βαθμολογείς κανονικά όταν τελειώσει. Έχεις 7 ημέρες, και το κουδουνάκι σού το θυμίζει την παραμονή του κλεισίματος.
+You left the table|Έφυγες από το τραπέζι
+The table is still going. You can go back in while it's live.|Το τραπέζι συνεχίζεται. Μπορείς να ξαναμπείς όσο είναι ζωντανό.
+Rating and tips open when the table ends. You'll have 7 days.|Η βαθμολόγηση και τα φιλοδωρήματα ανοίγουν όταν τελειώσει το τραπέζι. Θα έχεις 7 ημέρες.
+Go back in|Ξαναμπές
+Skip to the end ›|Πήγαινε στο τέλος ›
+1 day left to rate|Απομένει 1 μέρα για βαθμολόγηση
+2 days left to rate|Απομένουν 2 μέρες για βαθμολόγηση
+3 days left to rate|Απομένουν 3 μέρες για βαθμολόγηση
+4 days left to rate|Απομένουν 4 μέρες για βαθμολόγηση
+5 days left to rate|Απομένουν 5 μέρες για βαθμολόγηση
+6 days left to rate|Απομένουν 6 μέρες για βαθμολόγηση
+7 days left to rate|Απομένουν 7 μέρες για βαθμολόγηση
