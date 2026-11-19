@@ -184,17 +184,27 @@
 <!-- Saved conversation -->
 
 
+
 <style id="tc-rshare">
 .rshwrap{margin:0 0 16px}
-.rshare{display:flex;width:100%;justify-content:center;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line,rgba(255,255,255,.14));background:transparent;color:var(--text,#EEF1FF);font:inherit;font-size:14px;font-weight:500;cursor:pointer}
-.rshare svg{width:17px;height:17px}
-.rshare:hover,.rshare[aria-expanded="true"]{border-color:#1BC3C7}
-.rshp{margin:10px 0 0;padding:14px 16px;border:1px solid var(--line,rgba(255,255,255,.14));border-radius:14px;background:rgba(255,255,255,.03)}
-.rshp[hidden]{display:none!important}
-.rshl{display:block;font-size:13px;color:var(--mute,#9AA3C7);margin-bottom:10px;word-break:break-all}
-.rsho{display:flex;flex-wrap:wrap;gap:8px}
-.rsho>*{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line,rgba(255,255,255,.14));background:transparent;color:var(--text,#EEF1FF);font:inherit;font-size:13px;text-decoration:none;cursor:pointer}
-.rsho>*:hover{border-color:#1BC3C7}
+.rshare{display:flex;width:100%;justify-content:center;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line,#3A4175);background:transparent;color:var(--fg,#EEF1FF);font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.rshare svg{width:17px;height:17px}.rshare:hover{border-color:#17C3C8}
+.rsm{position:fixed;inset:0;z-index:80;background:rgba(9,11,28,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;align-items:flex-start;justify-content:center;padding:6vh 20px 20px}
+.rsm[hidden]{display:none!important}
+.rsm-s{width:100%;max-width:460px;max-height:calc(94vh - 20px);overflow:auto;background:#20264A;border:1px solid var(--line,#3A4175);border-radius:22px;padding:26px;box-shadow:0 30px 80px rgba(0,0,0,.5);color:var(--fg,#EEF1FF);text-align:left}
+.rsm-x{float:right;width:34px;height:34px;border-radius:50%;border:1px solid var(--line,#3A4175);background:none;color:var(--mute,#A9B0D6);font-size:18px;cursor:pointer;margin:-6px -6px 0 0}
+.rsm-h{padding-right:30px}.rsm-h h2{margin:0;font-size:22px;font-weight:500;letter-spacing:-.5px}
+.rsm-sub{margin:6px 0 0;color:var(--mute,#A9B0D6);font-size:14px}
+.rsm-lf{display:flex;gap:8px}
+.rsm-lf input{flex:1;min-width:0;height:44px;border-radius:10px;border:1px solid var(--line,#3A4175);background:rgba(255,255,255,.04);color:var(--fg,#EEF1FF);padding:0 12px;font:inherit;font-size:14px}
+.rsm-go{display:inline-flex;align-items:center;gap:7px;height:44px;padding:0 16px;border-radius:10px;border:0;background:#17C3C8;color:#0E1430;font:inherit;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.rsm-go svg{width:17px;height:17px}
+.rsm-o{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 0}
+.rsm-o a,.rsm-o button{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 6px;border-radius:12px;border:1px solid var(--line,#3A4175);background:none;color:#C9CEEA;font:inherit;font-size:13px;text-decoration:none;cursor:pointer}
+.rsm-o a:hover,.rsm-o button:hover{border-color:var(--mute,#A9B0D6);color:var(--fg,#EEF1FF)}
+.rsm-o svg{width:22px;height:22px}
+.rsm-f{margin:16px 0 0;color:var(--mute,#A9B0D6);font-size:13px;line-height:1.5}
+@media (max-width:640px){.rsm{align-items:flex-end;padding:0}.rsm-s{max-width:none;border-radius:22px 22px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom,0px));max-height:92vh}}
 </style>
 <section id="vrec">
   <nav class="crumb" aria-label="Where this sits in the conversations"><a href="../profile/timecapsule-profile.html#lib" target="_top" id="rcLib">Gregory's conversations</a><span class="sep">›</span><span id="rcTop"></span><span class="sep">›</span><span id="rcSub"></span></nav>
@@ -240,6 +250,7 @@
     </div>
 
     <aside aria-label="Pick it up again">
+      <div class="rshwrap"><button type="button" class="rshare" id="rShare" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Share this conversation</span></button></div>
       <!-- host -->
       <div class="card r-host">
         <h3>Pick it up again</h3>
@@ -273,7 +284,6 @@
         </div>
         <div class="done" id="vSent" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Request sent. We'll tell you when Gregory answers.</span></div>
       </div>
-      <div class="rshwrap"><button type="button" class="rshare" id="rShare" aria-expanded="false" aria-controls="rShP"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Share this conversation</span></button><div class="rshp" id="rShP" hidden><span class="rshl" id="rShL" data-noi18n></span><div class="rsho"><button type="button" data-sh="copy">Copy link</button><a data-sh="chat" id="rShC" href="../help/live-pages/chats.html" target="_top">Send in a chat</a><a data-sh="mail" id="rShM" href="#" target="_top">Email</a><button type="button" data-sh="more">More</button></div></div></div>
       <!-- everyone -->
       <div class="card more" id="moreCard">
         <h3 id="moreH"></h3>
@@ -529,13 +539,80 @@ window.addEventListener("hashchange",function(){fromHash();render();scrollTo(0,0
 
 
 
-<script id="tc-rshare-js">
-(function(){var b=document.getElementById("rShare"),p=document.getElementById("rShP");if(!b||!p)return;
-function rid(){var m=location.hash.match(/[#&]r=([^&]+)/);return m?m[1]:"free-will"}
+
+
+<div class="rsm" id="rShM0" hidden><div class="rsm-s" role="dialog" aria-modal="true" aria-labelledby="rsmT">
+<button type="button" class="rsm-x" data-close aria-label="Close">×</button>
+<div class="rsm-h"><h2 id="rsmT">Share this conversation</h2><p class="rsm-sub" id="rsmSub" data-noi18n></p></div>
+<div id="ipkw"></div><p class="iporl">Or send the link</p>
+<div class="rsm-lf"><input id="rShL" readonly aria-label="Link to this conversation" data-noi18n><button type="button" class="rsm-go" data-sh="copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg><span>Copy link</span></button></div>
+<div class="rsm-o"><a data-sh="chat" id="rShC" href="../help/live-pages/chats.html" target="_top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Send in a chat</span></a><a data-sh="mail" id="rShM" href="#" target="_top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg><span>Email</span></a><button type="button" data-sh="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v7h14v-7"/></svg><span>More</span></button></div>
+<p class="rsm-f">Anyone with the link can read this conversation.</p>
+</div></div>
+<style id="tc-ipk-css">.ipk{text-align:left;margin:0}#ipkw{margin-top:18px}.ipk .ipl{display:block;margin:0 0 8px;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8E96C4}
+.ipk .ipb{display:flex;flex-wrap:wrap;align-items:center;gap:6px;min-height:44px;padding:5px 8px;border-radius:12px;border:1px solid #3A4175;background:rgba(255,255,255,.03);cursor:text}
+.ipk .ipb:focus-within{border-color:#17C3C8}.ipk input{flex:1;min-width:120px;border:0;background:none;outline:none;color:#EEF1FF;font:inherit;font-size:14px;padding:6px 4px}
+.ipk input::placeholder{color:#8E96C4}.ipk .chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 4px 0 3px;border-radius:999px;background:#2C3366;color:#EEF1FF;font-size:13px}
+.ipk .chip button{all:unset;cursor:pointer;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;color:#8E96C4;font-size:15px;line-height:1}.ipk .chip button:hover{color:#EEF1FF;background:rgba(255,255,255,.08)}
+.ipk .ia{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:11.5px;font-weight:600;color:#121633;background:var(--a)}
+.ipk ul{list-style:none;margin:6px 0 0;padding:4px;border-radius:12px;border:1px solid #3A4175;background:#20264A}.ipk li{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;color:#EEF1FF;font-size:14px}
+.ipk li .ia{width:30px;height:30px;font-size:13px}.ipk li small{display:block;color:#8E96C4;font-size:12px}.ipk li[aria-selected=true],.ipk li:hover{background:rgba(255,255,255,.06)}.ipk li.none{cursor:default;color:#8E96C4;font-size:13px}.ipk li.none:hover{background:none}
+.ipk .ips{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-top:10px;height:40px;padding:0 18px;border-radius:10px;background:#17C3C8;color:#0E1430;font-size:14px;font-weight:600}
+.ipk .ips:focus-visible{outline:2px solid #EEF1FF;outline-offset:2px}.ipk .ipd{margin:10px 0 0;font-size:13.5px;color:#EEF1FF}.ipk .ipd i{font-style:normal;color:#3DDC97;margin-right:6px}.ipk .ipd small{color:#8E96C4;font-size:13px}
+.iporl{margin:18px 0 8px!important;font-size:11.5px!important;line-height:1.4!important;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8E96C4;text-align:left}</style><script id="tc-ipk">
+window.tcIPK=function(root){
+  var PP=[["Yuki", "#E07A5F", "Where is home?"], ["Lena", "#17C3C8", "Where is home?"], ["Omar", "#F2C14E", "Where is home?"], ["Ana", "#7C5CFF", "Where is home?"], ["Jonas", "#5FA8E0", "Where is home?"], ["Mia", "#E05FA8", "Is happiness a skill?"], ["Kofi", "#3DBE8B", "Is happiness a skill?"], ["Elif", "#C9A0FF", "Is happiness a skill?"], ["Amara", "#FF8A5C", "Is happiness a skill?"], ["Gregory", "#8E7CFF", "Is happiness a skill?"], ["David", "#4FC3F7", "Green technology versus nuclear"], ["Tom", "#F28C8C", "Stoics at the kitchen table"], ["Priya", "#FFB74D", "Is free will an illusion?"], ["Marco", "#81C784", "Stoicism for hard times"], ["Sofia", "#BA68C8", "Stoicism for hard times"], ["Elena", "#4DB6AC", "Is free will an illusion?"]], sel=[], act=-1, list=[];
+  var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+  var ia=function(p){return '<span class="ia" style="--a:'+p[1]+'" aria-hidden="true">'+p[0][0]+'</span>'};
+  root.innerHTML='<div class="ipk"><label class="ipl" for="ipkq">Share with people you\'ve met</label><div class="ipb"><span class="ipc"></span><input id="ipkq" autocomplete="off" placeholder="Type a name" role="combobox" aria-expanded="false" aria-controls="ipkl"></div><ul id="ipkl" role="listbox" hidden></ul><div class="ipf"></div></div>';
+  var q=root.querySelector("input"),ul=root.querySelector("ul"),chips=root.querySelector(".ipc"),foot=root.querySelector(".ipf");
+  function draw(){
+    chips.innerHTML=sel.map(function(p){return '<span class="chip">'+ia(p)+'<span data-noi18n>'+esc(p[0])+'</span><button type="button" data-rm="'+esc(p[0])+'" aria-label="Remove">×</button></span>'}).join("");
+    foot.innerHTML=sel.length?'<button type="button" class="ips">'+(sel.length>1?'Send':'Send')+'</button>':"";
+    q.placeholder=sel.length?"":"Type a name";
+  }
+  function sug(){
+    var v=q.value.trim().toLowerCase();
+    if(!v){ul.hidden=true;q.setAttribute("aria-expanded","false");return}
+    list=PP.filter(function(p){return sel.indexOf(p)<0&&p[0].toLowerCase().indexOf(v)>=0}).sort(function(a,b){return a[0].toLowerCase().indexOf(v)-b[0].toLowerCase().indexOf(v)}).slice(0,5);
+    act=list.length?0:-1;
+    ul.innerHTML=list.length?list.map(function(p,i){return '<li role="option" data-i="'+i+'" aria-selected="'+(i==act)+'">'+ia(p)+'<span><span data-noi18n>'+esc(p[0])+'</span><small><span>Met at</span> <span data-noi18n>'+esc(p[2])+'</span></small></span></li>'}).join(""):'<li class="none">Nobody by that name at your past tables. Send them the link instead.</li>';
+    ul.hidden=false;q.setAttribute("aria-expanded","true");
+  }
+  function pick(i){var p=list[i];if(!p)return;sel.push(p);q.value="";ul.hidden=true;foot.querySelector(".ipd")&&(foot.innerHTML="");draw();q.focus()}
+  function hi(){ul.querySelectorAll("li[data-i]").forEach(function(li){li.setAttribute("aria-selected",String(+li.dataset.i==act))})}
+  q.addEventListener("input",sug);
+  q.addEventListener("keydown",function(e){
+    if(e.key=="ArrowDown"&&list.length){e.preventDefault();act=(act+1)%list.length;hi()}
+    else if(e.key=="ArrowUp"&&list.length){e.preventDefault();act=(act-1+list.length)%list.length;hi()}
+    else if(e.key=="Enter"&&!ul.hidden&&act>=0){e.preventDefault();pick(act)}
+    else if(e.key=="Backspace"&&!q.value&&sel.length){sel.pop();draw()}
+    else if(e.key=="Escape"&&!ul.hidden){e.stopPropagation();ul.hidden=true}
+  });
+  ul.addEventListener("mousedown",function(e){var li=e.target.closest("li[data-i]");if(li){e.preventDefault();pick(+li.dataset.i)}});
+  root.querySelector(".ipb").addEventListener("click",function(e){var b=e.target.closest("[data-rm]");if(b){e.stopPropagation();sel=sel.filter(function(p){return p[0]!=b.dataset.rm});draw();q.focus();return}q.focus()});
+  foot.addEventListener("click",function(e){if(!e.target.closest(".ips"))return;var n=sel.map(function(p){return p[0]});
+    foot.innerHTML='<p class="ipd"><i>✓</i><span>Sent to</span> <span data-noi18n>'+esc(n.join(", "))+'</span>. <small>They get it in their notifications.</small></p>';sel=[];chips.innerHTML="";q.placeholder="Type a name"});
+  draw();
+};
+</script><script id="tc-rshare-js">
+(function(){var b=document.getElementById("rShare"),m=document.getElementById("rShM0");if(!b||!m)return;var last=null,built=false;
+function rid(){var x=location.hash.match(/[#&]r=([^&]+)/);return x?x[1]:"free-will"}
 function link(){return "timecapsule.app/c/"+rid()}
-b.addEventListener("click",function(){var o=p.hidden;p.hidden=!o;b.setAttribute("aria-expanded",o);if(o){document.getElementById("rShL").textContent=link();var t=(document.getElementById("rTitle")||{}).textContent||"";var tp=(document.getElementById("rcTop")||{}).textContent||"",rn=[0,Math.max(1,document.querySelectorAll("#rRounds button").length)];document.getElementById("rShC").href="../help/live-pages/chats.html#compose&kind=conv&q="+encodeURIComponent(t)+"&th="+encodeURIComponent(tp.trim())+"&host=Gregory&rounds="+(rn?rn[1]:1)+"&r="+rid();document.getElementById("rShM").href="mailto:?subject="+encodeURIComponent(t)+"&body="+encodeURIComponent(t+"\nhttps://"+link())}});
-p.addEventListener("click",function(e){var x=e.target.closest("[data-sh]");if(!x)return;var k=x.dataset.sh,u="https://"+link();
- if(k==="copy"){e.preventDefault();try{navigator.clipboard.writeText(u)}catch(_){}x.textContent="Copied ✓";setTimeout(function(){x.textContent=(window.TCI18N&&TCI18N.t?TCI18N.t("Copy link"):"Copy link")},1600)}
- if(k==="more"){e.preventDefault();if(navigator.share){navigator.share({title:(document.getElementById("rTitle")||{}).textContent,url:u}).catch(function(){})}else{try{navigator.clipboard.writeText(u)}catch(_){}x.textContent="Copied ✓"}}
-});})();
+function T(k){return window.TCI18N&&TCI18N.t?TCI18N.t(k):k}
+function open(){last=document.activeElement;var t=((document.getElementById("rTitle")||{}).textContent||"").trim(),tp=((document.getElementById("rcTop")||{}).textContent||"").trim(),n=Math.max(1,document.querySelectorAll("#rRounds button").length);
+ document.getElementById("rsmSub").textContent=t;document.getElementById("rShL").value=link();
+ document.getElementById("rShC").href="../help/live-pages/chats.html#compose&kind=conv&q="+encodeURIComponent(t)+"&th="+encodeURIComponent(tp)+"&host=Gregory&rounds="+n+"&r="+rid();
+ document.getElementById("rShM").href="mailto:?subject="+encodeURIComponent(t)+"&body="+encodeURIComponent(t+"\nhttps://"+link());
+ if(!built&&window.tcIPK){tcIPK(document.getElementById("ipkw"));built=true}
+ m.hidden=false;document.documentElement.style.overflow="hidden";var q=document.getElementById("ipkq");q&&q.focus()}
+function close(){m.hidden=true;document.documentElement.style.overflow="";last&&last.focus&&last.focus()}
+b.addEventListener("click",open);
+m.addEventListener("click",function(e){if(e.target===m||e.target.closest("[data-close]")){close();return}
+ var x=e.target.closest("[data-sh]");if(!x)return;var k=x.dataset.sh,u="https://"+link();
+ if(k==="copy"){try{navigator.clipboard.writeText(u)}catch(_){}var s=x.querySelector("span");s.textContent=T("Copied ✓");setTimeout(function(){s.textContent=T("Copy link")},1600)}
+ if(k==="more"){if(navigator.share){navigator.share({title:document.getElementById("rsmSub").textContent,url:u}).catch(function(){})}else{try{navigator.clipboard.writeText(u)}catch(_){}x.querySelector("span").textContent=T("Copied ✓")}}
+});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!m.hidden)close()});
+})();
 </script>
