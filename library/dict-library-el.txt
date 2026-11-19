@@ -181,3 +181,5 @@ for 7 days. We'll remind you the day before it's too late.|για 7 μέρες. 
 Host it again|Φιλοξένησέ το ξανά
 Not saved yet|Δεν έχει αποθηκευτεί ακόμα
 My tables|Τα τραπέζια μου
+Download transcript|Λήψη απομαγνητοφώνησης
+Download my notes|Λήψη των σημειώσεών μου

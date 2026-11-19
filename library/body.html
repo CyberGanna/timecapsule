@@ -82,6 +82,7 @@
 .notes .open li::marker{content:"? ";color:var(--gold);font-family:Sora,sans-serif;font-weight:600}
 .privnote{display:inline-flex;align-items:center;gap:6px;color:var(--mute);font-size:12px}
 .privnote svg{width:12px;height:12px}
+.xdl{margin:18px 0 0}.xdl button{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:4px 0;color:var(--teal,#2EC4B6);font:inherit;font-size:13.5px;font-weight:600;cursor:pointer}.xdl button:hover{text-decoration:underline}.xdl svg{width:15px;height:15px}
 .card{border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:20px}
 .card+.card{margin-top:16px}
 .card h3{margin:0 0 6px;font-size:17px;font-weight:500;letter-spacing:-.2px}
@@ -210,6 +211,7 @@
           <span class="seg2" role="group" aria-label="Your words in this transcript"><button type="button" data-mine="in" aria-pressed="true">Included</button><button type="button" data-mine="out" aria-pressed="false">Leave them out</button></span>
         </div>
         <ol class="tx" id="rTx"></ol>
+        <p class="xdl"><button type="button" id="dlTx"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 4h2v9.2l3.3-3.3 1.4 1.4L12 17l-5.7-5.7 1.4-1.4 3.3 3.3zM5 19h14v2H5z"/></svg><span>Download transcript</span></button></p>
       </section>
       <section id="vp-nt" role="tabpanel" aria-labelledby="vt-nt" hidden>
         <div class="notes">
@@ -219,6 +221,7 @@
       </section>
       <section id="vp-my" role="tabpanel" aria-labelledby="vt-my" hidden>
         <div class="notes"><div><p class="by privnote"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 10V8a6 6 0 0112 0v2h1v11H5V10zm2 0h8V8a4 4 0 00-8 0z"/></svg>Only you can see these</p><ul id="rMy" data-noi18n></ul></div></div>
+        <p class="xdl"><button type="button" id="dlMy"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 4h2v9.2l3.3-3.3 1.4 1.4L12 17l-5.7-5.7 1.4-1.4 3.3 3.3zM5 19h14v2H5z"/></svg><span>Download my notes</span></button></p>
       </section>
     </div>
 
@@ -399,6 +402,16 @@ function line(l,i){
  return '<li class="'+(you?"you":"")+'"><span class="av" style="--a:'+(AC[sp]||"#7C5CFF")+'" aria-hidden="true">'+sp[0]+'</span><div><div class="who"><b><span data-noi18n>'+esc(sp)+'</span>'+(you?' <span>(you)</span>':'')+'</b>'+(l[1]==(rec().host||"Gregory")?'<em>Host</em>':'')+'<small>'+esc(l[0])+'</small></div><p data-noi18n>'+esc(l[2])+'</p></div></li>'}
 // In the "wasn't there" view Gabriele is the visitor, so the same seat belongs to Elias
 function who(n){return n=="Gabriele"&&S.role=="visitor"?"Elias":n}
+// Download transcript / my notes as a text file (Karim 2026-11-18: moved here from My tables)
+function dlFile(kind){
+ var r=rec(),rd=r.rounds[S.round],tr=window.TCI18N&&TCI18N.t?TCI18N.t:function(x){return x};
+ var head=r.title+"\n"+r.topic+" · "+rd.date+" · "+tr("Hosted by")+" "+(r.host||"Gregory")+"\n\n",body;
+ if(kind=="tx")body=tr("Transcript")+"\n\n"+rd.tx.map(function(l){var you=l[1]=="Gabriele"&&S.role=="guest";if(!l[1]||(you&&S.mine=="out"))return "["+tr("A participant's words are left out")+"]";return "["+l[0]+"] "+who(l[1])+": "+l[2]}).join("\n");
+ else body=tr("My notes")+"\n\n"+(rd.my||["Look up Frankfurt's cases before next round.","Gregory's point about owning a choice: ask him for the source."]).map(function(x){return "• "+x}).join("\n");
+ var slug=r.title.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+ var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([head+body+"\n"],{type:"text/plain"}));a.download=slug+"-"+(kind=="tx"?"transcript":"notes")+".txt";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
+}
+$("dlTx").onclick=function(){dlFile("tx")};$("dlMy").onclick=function(){dlFile("my")};
 function render(){
  var r=rec(),rd=r.rounds[S.round],tl=rd.tx;
  document.title="TimeCapsule Conversations";
@@ -426,6 +439,7 @@ function render(){
  $("rMy").innerHTML=(rd.my||["Look up Frankfurt's cases before next round.","Gregory's point about owning a choice: ask him for the source."]).map(function(x){return '<li>'+esc(x)+'</li>'}).join("");
  $("mineBox").hidden=S.role!="guest";
  $("vt-my").hidden=S.role=="visitor";
+ $("dlTx").parentNode.hidden=S.role=="visitor";
  if(S.role=="visitor"&&$("vt-my").getAttribute("aria-selected")=="true")tab("vt-tx");
  $("nextN").textContent=r.rounds.length+1;
  var last=r.rounds[r.rounds.length-1];

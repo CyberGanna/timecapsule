@@ -192,3 +192,5 @@ for 7 days. We'll remind you the day before it's too late.|per 7 giorni. Te lo r
 Host it again|Ospitalo di nuovo|Organízala otra vez
 Not saved yet|Non ancora salvato|Aún sin guardar
 My tables|I miei tavoli|Mis mesas
+Download transcript|Scarica la trascrizione|Descargar la transcripción
+Download my notes|Scarica le mie note|Descargar mis notas
