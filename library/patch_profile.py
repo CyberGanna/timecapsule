@@ -115,6 +115,7 @@ body.visitor .lbo,body:not(.visitor) .lbv{display:none}
 body.visitor .lbpriv,body.visitor .lbprivonly{display:none!important}
 body.visitor #t-lb .lbc-o,body:not(.visitor) #t-lb .lbc-v{display:none}
 .lbt{margin:0 0 26px}
+.lbt+.lbt{border-top:1px solid var(--line);padding-top:22px}
 .lbt h3{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:16px;font-weight:500}
 .lbt h3 i{width:9px;height:9px;border-radius:50%;background:var(--c)}
 .lbt h3 span{color:var(--mute);font-size:13px;font-weight:400}
