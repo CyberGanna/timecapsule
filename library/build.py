@@ -64,6 +64,7 @@ def page():
         return m.group(1) + np + ('#' + frag if frag else '') + '"'
     head = re.sub(r'(href=")([^"]*)"', rebase, head)
     foot = re.sub(r'(href=")([^"]*)"', rebase, foot)
+    head = head.replace("TCI18N.u('create.html')", "TCI18N.u('../help/live-pages/create.html')")  # Create a table button (Karim 2026-11-19)
     body = open(os.path.join(HERE, 'body.html'), encoding='utf8').read()
     recs = records()
     allr = dict(recs); allr.update(pub_records())
