@@ -1250,7 +1250,7 @@ function liveCard(t){
     <div class="tb"><div class="trow"><span class="lpill"><i></i>Live · ${t.live} min</span><span class="topic"><i></i>${t.theme}</span></div><h3><a class="tdl" href="${tdUrl(t)}" target="_top">${esc(t.title)}</a></h3>
       <div class="meta">with <b>${t.host}</b> · ${t.country}</div>
       <div class="tf"><span class="left">${left>0?`${left} ${left===1?"seat":"seats"} free`:'<span class="full">Table full</span>'}</span>
-      ${t.mine?`<button class="jbtn on" data-hosting>You're hosting</button>`:mine?(t.live?`<button class="jbtn go" data-id="${t.id}">Go back in</button>`:`<button class="jbtn on" data-id="${t.id}">You're in</button>`):left>0?`<button class="jbtn" data-id="${t.id}">Join table</button>`:`<button class="jbtn ghost" data-id="${t.id}">Listen in</button>`}</div></div></article>`;
+      ${t.mine?`<button class="jbtn on" data-hosting>You're hosting</button>`:mine?(t.live?`<button class="jbtn on" data-id="${t.id}">Go back in</button>`:`<button class="jbtn on" data-id="${t.id}">You're in</button>`):left>0?`<button class="jbtn" data-id="${t.id}">Join table</button>`:`<button class="jbtn ghost" data-id="${t.id}">Listen in</button>`}</div></div></article>`;
 }
 function chairs(t){
   const mine=S.joined.has(t.id), k=t.people.length+(mine?1:0), left=t.seats-k;
@@ -1265,7 +1265,7 @@ function evRow(t){
   const c=THEMES[t.theme], mine=S.joined.has(t.id), full=t.people.length>=t.seats&&!mine, u=dayKey(t.at)===0?until(t.at):"";
   if(t.live){const l2=t.seats-t.people.length-(mine?1:0);
     return `<article class="ev" style="--c:${c}"><div class="tm lv"><b><i></i>Live</b><span>${t.live} min in</span></div>`+evMid(t,c)
-    +`${t.mine?`<button class="jbtn on" data-hosting>You're hosting</button>`:mine?(t.live?`<button class="jbtn go" data-id="${t.id}">Go back in</button>`:`<button class="jbtn on" data-id="${t.id}">You're in</button>`):l2>0?`<button class="jbtn go" data-id="${t.id}">Join<span class="lg"> table</span></button>`:`<button class="jbtn ghost" data-id="${t.id}">Listen in</button>`}</article>`;}
+    +`${t.mine?`<button class="jbtn on" data-hosting>You're hosting</button>`:mine?(t.live?`<button class="jbtn on" data-id="${t.id}">Go back in</button>`:`<button class="jbtn on" data-id="${t.id}">You're in</button>`):l2>0?`<button class="jbtn go" data-id="${t.id}">Join<span class="lg"> table</span></button>`:`<button class="jbtn ghost" data-id="${t.id}">Listen in</button>`}</article>`;}
   return `<article class="ev" style="--c:${c}"><div class="tm"><b>${hhmm(t.at)}</b>${u?`<span class="cdn" data-at="${+t.at}">${u}</span>`:""}</div>
     <div class="ei"><div class="th" style="background:radial-gradient(circle at 35% 30%,${c},${c}66 75%,#252B52)">${t.img!=null?`<img src="${IMGS[t.img]}" alt="">`:TICON[t.theme]?`<svg class="ticon" viewBox="0 0 24 24" aria-hidden="true">${TICON[t.theme]}</svg>`:""}</div><div class="et"><h3><a class="tdl" href="${tdUrl(t)}" target="_top">${esc(t.title)}</a></h3>
       <div class="meta"><span class="topic"><i></i>${t.theme}</span> · with <b>${t.host}</b>${t.lang!=="English"?` · ${t.lang}`:""}</div></div></div>
