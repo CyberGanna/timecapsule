@@ -2140,3 +2140,6 @@ Invite card|Πρόσκληση στο τραπέζι
 Add a note (optional)|Πρόσθεσε ένα σημείωμα (προαιρετικό)
 Not sent yet|Δεν στάλθηκε ακόμα
 Send invite to|Στείλε πρόσκληση στον/στην
+Nothing coming up yet. Save a chair at a table, or open your own.|Τίποτα προγραμματισμένο ακόμα. Κράτα μια καρέκλα σε ένα τραπέζι ή άνοιξε το δικό σου.
+Past tables, notes and transcripts are in|Τα περασμένα τραπέζια, οι σημειώσεις και τα πρακτικά είναι στο
+open table|ανοιχτό τραπέζι
