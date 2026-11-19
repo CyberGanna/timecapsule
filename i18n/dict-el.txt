@@ -2011,7 +2011,7 @@ Your universe is empty|Το σύμπαν σου είναι άδειο
 Add a book or a film that shaped how you think.|Πρόσθεσε ένα βιβλίο ή μια ταινία που διαμόρφωσε τη σκέψη σου.
 Search my universe|Αναζήτηση στο σύμπαν μου
 (host)|(οικοδεσπότης)
-Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.|Συζητήσεις που αποθηκεύτηκαν στο τέλος των τραπεζιών τους, ανά θέμα. Διάβασε τι ειπώθηκε και ζήτα από τον οικοδεσπότη να μπεις στον επόμενο γύρο.
+Conversations are what a table leaves behind, saved when it ends and sorted by topic. Read what was said, then ask the host for a chair at the next round, and help write what comes next.|Οι συζητήσεις είναι ό,τι αφήνει πίσω του ένα τραπέζι, αποθηκευμένες όταν τελειώνει και ταξινομημένες ανά θέμα. Διάβασε τι ειπώθηκε, ζήτα από τον οικοδεσπότη μια καρέκλα στον επόμενο γύρο και βοήθησε να γραφτεί η συνέχεια.
 Search conversations, topics or hosts|Αναζήτηση συζητήσεων, θεμάτων ή οικοδεσποτών
 Search conversations|Αναζήτηση συζητήσεων
 Topics as constellations. Each star is a saved conversation.|Τα θέματα ως αστερισμοί. Κάθε αστέρι είναι μια αποθηκευμένη συζήτηση.
