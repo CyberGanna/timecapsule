@@ -53,7 +53,7 @@ STRINGS = {  # English: [it, es, el]
     'Not saved yet.': ['Non ancora salvato.', 'Aún sin guardar.', 'Δεν έχει αποθηκευτεί ακόμα.'],
     "6 days left to save it. We'll remind you the day before.": ['Hai ancora 6 giorni per salvarlo. Te lo ricordiamo il giorno prima.', 'Te quedan 6 días para guardarla. Te lo recordaremos el día antes.', 'Έχεις 6 μέρες για να το αποθηκεύσεις. Θα σου το θυμίσουμε την προηγούμενη μέρα.'],
     'Saved to your Conversations.': ['Salvato nelle tue Conversazioni.', 'Guardada en tus Conversaciones.', 'Αποθηκεύτηκε στις Συζητήσεις σου.'],
-    'Your 8 TimeCoins expire in 2 days.': ['I tuoi 8 TimeCoins scadono tra 2 giorni.', 'Tus 8 TimeCoins caducan en 2 días.', 'Τα 8 TimeCoins σου λήγουν σε 2 μέρες.'],
+    'Last day to rate. Your 8 TimeCoins expire tomorrow.': ['Ultimo giorno per votare. I tuoi 8 TimeCoins scadono domani.', 'Último día para valorar. Tus 8 TimeCoins caducan mañana.', 'Τα 8 TimeCoins σου λήγουν σε 2 μέρες.'],
     'You rated it. Thank you.': ["L'hai valutato. Grazie.", 'Ya la valoraste. Gracias.', 'Το βαθμολόγησες. Ευχαριστούμε.'],
     'Took place': ['Si è svolto', 'Se celebró', 'Πραγματοποιήθηκε'],
     'People': ['Persone', 'Personas', 'Άνθρωποι'],
@@ -108,7 +108,7 @@ def patch_table():
     s = rep(s, 'function factsHTML(){\n', '''function factsHTML(){
   if(st.past){const t=T(),p=st.past,d=new Date(st.pastAt),e=new Date(+d+60*60000),host=st.kind==="host";
     const tr=!t.transcript?`<dd>${tt("Not kept")}<span>${tt("Nothing was recorded or written down.")}</span></dd>`:p.saved?`<dd>${tt("Saved to Conversations")}<span>${tt("Anyone at the table can leave their words out of it.")}</span></dd>`:`<dd class="amb">${tt("Not saved yet")}<span>${tt("6 days left to save it. We'll remind you the day before.")}</span></dd>`;
-    const co=host?`<dd><b style="font-weight:inherit">${p.coins}</b> <b style="font-weight:inherit">${tt("Received")}</b><span>★ ${p.score} ${tt("from guests")}</span></dd>`:st.rated?`<dd><b style="font-weight:inherit">8</b> <b style="font-weight:inherit">${tt("Given")}</b><span>${tt("You tipped the people who inspired you.")}</span></dd>`:`<dd class="amb"><b style="font-weight:inherit">8</b> <b style="font-weight:inherit">${tt("To give")}</b><span>${tt("Your 8 TimeCoins expire in 2 days.")}</span></dd>`;
+    const co=host?`<dd><b style="font-weight:inherit">${p.coins}</b> <b style="font-weight:inherit">${tt("Received")}</b><span>★ ${p.score} ${tt("from guests")}</span></dd>`:st.rated?`<dd><b style="font-weight:inherit">8</b> <b style="font-weight:inherit">${tt("Given")}</b><span>${tt("You tipped the people who inspired you.")}</span></dd>`:`<dd class="amb"><b style="font-weight:inherit">8</b> <b style="font-weight:inherit">${tt("To give")}</b><span>${tt("Last day to rate. Your 8 TimeCoins expire tomorrow.")}</span></dd>`;
     return `<dl class="facts2">
    <div>${I.cal}<div><dt>${tt("Took place")}</dt><dd>${longDate(d)}<span>${hhmm(d)} – ${hhmm(e)}</span></dd></div></div>
    <div>${I.seat}<div><dt>${tt("People")}</dt><dd><b style="font-weight:inherit">${people().length}</b> <b style="font-weight:inherit">${tt("were at the table")}</b><span>${t.lang}</span></dd></div></div>
@@ -121,7 +121,7 @@ def patch_table():
     const again=host?`<button class="btn" data-act="edit">${tt("Host again")}</button>`:"";
     if(host&&t.transcript&&!p.saved) return `<div class="acts2"><a class="btn go" href="${U("../library/timecapsule-library.html#save&as=host&q="+encodeURIComponent(t.title))}" target="_top">${tt("Save to Conversations")}</a>${again}</div><p class="hint"><span class="amb">${tt("Not saved yet.")}</span> <span>${tt("6 days left to save it. We'll remind you the day before.")}</span></p>`;
     const conv=t.transcript&&p.saved?`<a class="btn${!host&&!st.rated?"":" go"}" href="${U(p.conv?"../library/timecapsule-library.html#r="+p.conv+"&as="+(host?"host":"guest"):"../help/live-pages/myuniverse.html#discussions")}" target="_top">${tt("Open the conversation")}</a>`:"";
-    if(!host&&!st.rated) return `<div class="acts2"><a class="btn gold" href="${U("../help/live-pages/mytables.html#rate")}" target="_top">${tt("Rate and tip")}</a>${conv}</div><p class="hint">${tt("Your 8 TimeCoins expire in 2 days.")}${conv?"":` <span>${tt("No transcript was kept at this table.")}</span>`}</p>`;
+    if(!host&&!st.rated) return `<div class="acts2"><a class="btn gold" href="${U("../help/live-pages/mytables.html#rate")}" target="_top">${tt("Rate and tip")}</a>${conv}</div><p class="hint">${tt("Last day to rate. Your 8 TimeCoins expire tomorrow.")}${conv?"":` <span>${tt("No transcript was kept at this table.")}</span>`}</p>`;
     return `<div class="acts2">${conv}${again}</div><p class="hint">${host?(p.saved?tt("Saved to your Conversations."):""):tt("You rated it. Thank you.")}</p>`;
   }
   if(st.wait&&!isOut()){

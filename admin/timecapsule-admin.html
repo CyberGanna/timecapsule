@@ -915,7 +915,7 @@ const BODY={welcome:(u)=>`<p>Hi ${u},</p><p>Welcome to TimeCapsule. Small tables
  confirm:(u)=>`<p>Hi ${u},</p><p>Please confirm this is your email address. The link works for 24 hours.</p><span class="cta">Confirm my email</span>`,
  reset:(u)=>`<p>Hi ${u},</p><p>Someone asked to reset your password. If it was you, use the button below. If not, ignore this email.</p><span class="cta">Choose a new password</span>`,
  summary:(u)=>`<p>Hi ${u},</p><p>Today: Gregory tipped you 2 TimeCoins, a chair opened at a table you saved, and 3 people you follow host tables this week.</p><span class="cta">See your day</span>`,
- rate:(u,e)=>`<p>Hi ${u},</p><p>How was your table with ${esc(e.h)}? Rating takes a minute and helps good hosts get noticed. Your 8 TimeCoins expire in 2 days.</p><span class="cta">Rate and tip</span>`,
+ rate:(u,e)=>`<p>Hi ${u},</p><p>How was your table with ${esc(e.h)}? Rating takes a minute and helps good hosts get noticed. Last day to rate. Your 8 TimeCoins expire tomorrow.</p><span class="cta">Rate and tip</span>`,
  cancel:(u,e)=>`<p>Hi ${u},</p><p>Sorry, "${esc(tById(e.t)?.title||'your table')}" was cancelled by its host. Your chair is free again, and here are similar tables this week.</p><span class="cta">See similar tables</span>`,
  invite:(u,e)=>`<p>Hi ${u},</p><p>${esc(e.h)} saved you a chair at "${esc(tById(e.t)?.title||'a table')}".</p><span class="cta">Take the chair</span>`};
 function openEmail(i){

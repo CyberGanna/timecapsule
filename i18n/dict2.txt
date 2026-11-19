@@ -22,7 +22,7 @@ New password needs at least 10 characters|La nuova password deve avere almeno 10
 Enter your current password|Inserisci la password attuale|Introduce tu contraseña actual
 What rings the bell. Tables starting soon, changes to a table you're in, and invites always do.|Cosa fa suonare la campanella. I tavoli che stanno per iniziare, le modifiche a un tavolo a cui partecipi e gli inviti la fanno sempre suonare.|Lo que hace sonar la campana. Las mesas que empiezan pronto, los cambios en una mesa en la que estás y las invitaciones siempre la hacen sonar.
 Rate and tip reminder|Promemoria per votare e lasciare una mancia|Recordatorio para valorar y dar propina
-24 hours after a table ends, if you haven't rated it yet, with when your TimeCoins expire.|24 ore dopo la fine di un tavolo, se non l'hai ancora votato, con la scadenza dei tuoi TimeCoins.|24 horas después de que termine una mesa, si aún no la has valorado, con cuándo caducan tus TimeCoins.
+The day before rating closes, if you haven't rated the table yet, with when your TimeCoins expire.|Il giorno prima che le valutazioni si chiudano, se non hai ancora votato il tavolo, con la scadenza dei tuoi TimeCoins.|El día antes de que se cierren las valoraciones, si aún no has valorado la mesa, con cuándo caducan tus TimeCoins.
 People you follow|Persone che segui|Personas que sigues
 When someone you follow opens a new table.|Quando qualcuno che segui apre un nuovo tavolo.|Cuando alguien a quien sigues abre una nueva mesa.
 At a full table you saved.|A un tavolo pieno che hai salvato.|En una mesa completa que guardaste.
