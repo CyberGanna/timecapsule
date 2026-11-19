@@ -2172,3 +2172,4 @@ Share with people you've met|Μοιράσου το με ανθρώπους πο�
 Sent to|Στάλθηκε σε
 Anyone with the link can read this conversation.|Όποιος έχει τον σύνδεσμο μπορεί να διαβάσει αυτή τη συζήτηση.
 Link to this conversation|Σύνδεσμος σε αυτή τη συζήτηση
+Talk, listen and think together.|Μιλάμε, ακούμε και σκεφτόμαστε μαζί.
