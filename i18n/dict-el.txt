@@ -2144,3 +2144,4 @@ Nothing coming up yet. Save a chair at a table, or open your own.|Τίποτα �
 Past tables, notes and transcripts are in|Τα περασμένα τραπέζια, οι σημειώσεις και τα πρακτικά είναι στο
 open table|ανοιχτό τραπέζι
 Show table|Δες το τραπέζι
+Starts in|Ξεκινά σε
