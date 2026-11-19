@@ -933,7 +933,7 @@ function sheetManage(t){
   h+=`<span class="lbl">Tools</span><div class="mg-tools">${menuItems(t).replace(/<hr>/g,"").replace(/<button[^>]*data-do="who"[^>]*>.*?<\/button>/,"").replace(/ role="menuitem"/g,"")}</div>`;
   openSheet(h); try{history.replaceState(null,"","#t-"+t.id)}catch(e){}
 }
-const TPAGE=id=>[1,2,3,4].includes(id)&&byId(id)&&!byId(id).past&&!byId(id).cancelled; /* tc-mt: these open the Table page (Karim 2026-11-18) */
+const TPAGE=id=>[1,2,3,4,5,11,12,13,14].includes(id)&&byId(id)&&!byId(id).cancelled; /* tc-mt2: past and waitlist tables too */ /* tc-mt: these open the Table page (Karim 2026-11-18) */
 const goTable=id=>{top.location.href=(window.TCI18N?TCI18N.u:(x=>x))("../../table-detail/timecapsule-table.html#t="+id)};
 function fromHash(){if(location.hash.replace(/&?lang=\w+/,"")==="#past"){S.tab="past";render();return}const m=/^#t-(\d+)$/.exec(location.hash);const t=m&&byId(+m[1]);if(t&&TPAGE(t.id)){goTable(t.id);return}if(t&&!t.cancelled){S.tab=t.past?"past":"up";render();sheetManage(t)}}
 addEventListener("hashchange",fromHash);

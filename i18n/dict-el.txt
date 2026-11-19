@@ -2091,3 +2091,26 @@ Not saved · 6 days left|Δεν αποθηκεύτηκε · απομένουν 6
 Not saved. You can save it from|Δεν αποθηκεύτηκε. Μπορείς να το αποθηκεύσεις από τα
 for 7 days. We'll remind you the day before it's too late.|για 7 μέρες. Θα σου το θυμίσουμε την προηγούμενη μέρα.
 Not saved yet|Δεν έχει αποθηκευτεί ακόμα
+← My tables|← Τα τραπέζια μου
+Open the room when you are ready. Guests can come in after you.|Άνοιξε το δωμάτιο όταν είσαι έτοιμος. Οι καλεσμένοι μπαίνουν μετά από σένα.
+You can open the room 30 minutes before it starts. Nobody can come in before you.|Μπορείς να ανοίξεις το δωμάτιο 30 λεπτά πριν. Κανείς δεν μπαίνει πριν από σένα.
+invite not answered yet|πρόσκληση χωρίς απάντηση
+invites not answered yet|προσκλήσεις χωρίς απάντηση
+Cancel this table? Your guests get a message right away.|Ακύρωση του τραπεζιού; Οι καλεσμένοι σου ενημερώνονται αμέσως.
+Ended|Ολοκληρώθηκε
+Only you see these.|Τις βλέπεις μόνο εσύ.
+were at the table|ήταν στο τραπέζι
+Open in Conversations|Άνοιγμα στις Συζητήσεις
+Not saved yet.|Δεν έχει αποθηκευτεί ακόμα.
+6 days left to save it. We'll remind you the day before.|Έχεις 6 μέρες για να το αποθηκεύσεις. Θα σου το θυμίσουμε την προηγούμενη μέρα.
+Saved to your Conversations.|Αποθηκεύτηκε στις Συζητήσεις σου.
+You rated it. Thank you.|Το βαθμολόγησες. Ευχαριστούμε.
+Took place|Πραγματοποιήθηκε
+Saved to Conversations|Αποθηκεύτηκε στις Συζητήσεις
+Nothing was recorded or written down.|Τίποτα δεν καταγράφηκε.
+from guests|από τους καλεσμένους
+To give|Για να δώσεις
+You tipped the people who inspired you.|Φιλοδώρησες όσους σε ενέπνευσαν.
+Tip the people who inspired you.|Φιλοδώρησε όσους σε ενέπνευσαν.
+2nd in line. We'll tell you as soon as a chair opens up.|Είσαι 2ος στη σειρά. Θα σε ειδοποιήσουμε μόλις αδειάσει μια θέση.
+The table is full. Join the waitlist and we tell you when a chair opens up.|Το τραπέζι είναι γεμάτο. Μπες στη λίστα αναμονής και θα σε ειδοποιήσουμε όταν αδειάσει μια θέση.
