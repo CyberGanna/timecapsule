@@ -412,10 +412,10 @@ Rate and tip|Βαθμολόγησε και δώσε φιλοδώρημα
 Rate and tip this table|Βαθμολόγησε και δώσε φιλοδώρημα σε αυτό το τραπέζι
 Rate and tip yesterday's table|Βαθμολόγησε και δώσε φιλοδώρημα στο χθεσινό τραπέζι
 Rate the table and award TimeCoins|Βαθμολόγησε το τραπέζι και δώσε TimeCoins
-How was the discussion?|Πώς ήταν η συζήτηση;
+How was the conversation?|Πώς ήταν η συζήτηση;
 Pick an answer to continue|Διάλεξε μια απάντηση για να συνεχίσεις
 Add a note (optional)|Πρόσθεσε ένα σχόλιο (προαιρετικό)
-Note about the discussion|Σχόλιο για τη συζήτηση
+Note about the conversation|Σχόλιο για τη συζήτηση
 Next: award TimeCoins|Επόμενο: δώσε TimeCoins
 Award TimeCoins|Δώσε TimeCoins
 Award your favorite panelists|Επιβράβευσε τους αγαπημένους σου ομιλητές
@@ -485,7 +485,7 @@ Table format|Μορφή τραπεζιού
 Who can join|Ποιος μπορεί να μπει
 Anyone can find it on the Tables page and take a free chair.|Όλοι μπορούν να το βρουν στη σελίδα Τραπέζια και να πάρουν μια ελεύθερη καρέκλα.
 Only people invited with the link. It stays off the Tables page.|Μόνο όσοι προσκλήθηκαν με τον σύνδεσμο. Δεν εμφανίζεται στη σελίδα Τραπέζια.
-Keep a transcript of the discussion|Κράτα απομαγνητοφώνηση της συζήτησης
+Keep a transcript of the conversation|Κράτα απομαγνητοφώνηση της συζήτησης
 Anything we should know? (optional)|Κάτι που πρέπει να ξέρουμε; (προαιρετικό)
 Start table|Ξεκίνα το τραπέζι
 Opening your table… (coming soon in this prototype)|Ανοίγουμε το τραπέζι σου… (σύντομα σε αυτό το πρωτότυπο)
@@ -888,7 +888,7 @@ TimeCapsule Notifications|TimeCapsule Ειδοποιήσεις
 Your TimeCoins|Τα TimeCoins σου
 What Trusted means|Τι σημαίνει Αξιόπιστος
 Gregory earned this at tables.|Ο Gregory το κέρδισε στα τραπέζια.
-Many different people rated the discussions highly and awarded TimeCoins, over months. It can't be bought, and it fades if someone stops taking part.|Πολλοί διαφορετικοί άνθρωποι βαθμολόγησαν πολύ θετικά τις συζητήσεις και έδωσαν TimeCoins, μέσα σε μήνες. Δεν αγοράζεται και ξεθωριάζει αν κάποιος πάψει να συμμετέχει.
+Many different people rated the conversations highly and awarded TimeCoins, over months. It can't be bought, and it fades if someone stops taking part.|Πολλοί διαφορετικοί άνθρωποι βαθμολόγησαν πολύ θετικά τις συζητήσεις και έδωσαν TimeCoins, μέσα σε μήνες. Δεν αγοράζεται και ξεθωριάζει αν κάποιος πάψει να συμμετέχει.
 On a host, it reads Trusted host: their guests keep coming back.|Σε έναν οικοδεσπότη γράφει Αξιόπιστος οικοδεσπότης: οι καλεσμένοι του επιστρέφουν.
 Trust|Εμπιστοσύνη
 New|Νέος
@@ -901,7 +901,7 @@ No upheld reports in the last 90 days|Καμία αναφορά που έγιν�
 Guests rate your tables well|Οι καλεσμένοι βαθμολογούν καλά τα τραπέζια σου
 34% of your guests came back to another of your tables. Keep hosting and the chip stays.|Το 34% των καλεσμένων σου ήρθε ξανά σε άλλο τραπέζι σου. Συνέχισε να φιλοξενείς και η ένδειξη μένει.
 How Trusted works|Πώς λειτουργεί το Αξιόπιστος
-Trusted is earned at tables. It grows when you finish tables, host good discussions, and when many different people award you TimeCoins.|Το Αξιόπιστος κερδίζεται στα τραπέζια. Μεγαλώνει όταν ολοκληρώνεις τραπέζια, φιλοξενείς καλές συζητήσεις και όταν πολλοί διαφορετικοί άνθρωποι σου δίνουν TimeCoins.
+Trusted is earned at tables. It grows when you finish tables, host good conversations, and when many different people award you TimeCoins.|Το Αξιόπιστος κερδίζεται στα τραπέζια. Μεγαλώνει όταν ολοκληρώνεις τραπέζια, φιλοξενείς καλές συζητήσεις και όταν πολλοί διαφορετικοί άνθρωποι σου δίνουν TimeCoins.
 Coins from many people count more than many coins from a few.|Νομίσματα από πολλούς ανθρώπους μετράνε περισσότερο από πολλά νομίσματα από λίγους.
 Older tables slowly count less, so trust reflects how you take part now.|Τα παλαιότερα τραπέζια μετράνε σιγά σιγά λιγότερο, ώστε η εμπιστοσύνη να δείχνει πώς συμμετέχεις τώρα.
 Logins, messages, follows and followers never count.|Συνδέσεις, μηνύματα, ακολουθήσεις και ακόλουθοι δεν μετράνε ποτέ.
@@ -1094,7 +1094,7 @@ Coins page|Σελίδα νομισμάτων
 How the economy works|Πώς λειτουργεί η οικονομία
 Gregory|Gregory
 Back to profile|Πίσω στο προφίλ
-People award TimeCoins after a good discussion. What you received stays on your profile. What you use goes back into tables.|Οι άνθρωποι δίνουν TimeCoins μετά από μια καλή συζήτηση. Όσα έλαβες μένουν στο προφίλ σου. Όσα χρησιμοποιείς επιστρέφουν στα τραπέζια.
+People award TimeCoins after a good conversation. What you received stays on your profile. What you use goes back into tables.|Οι άνθρωποι δίνουν TimeCoins μετά από μια καλή συζήτηση. Όσα έλαβες μένουν στο προφίλ σου. Όσα χρησιμοποιείς επιστρέφουν στα τραπέζια.
 This is your reputation. It shows on your profile, and using coins never lowers it.|Αυτή είναι η φήμη σου. Φαίνεται στο προφίλ σου και η χρήση νομισμάτων δεν τη μειώνει ποτέ.
 From 312 people at 96 tables|Από 312 ανθρώπους σε 96 τραπέζια
 Your first coins come after your first table.|Τα πρώτα σου νομίσματα έρχονται μετά το πρώτο σου τραπέζι.
@@ -1116,9 +1116,9 @@ Used|Χρησιμοποιήθηκαν
 Two more chairs|Δύο ακόμα καρέκλες
 Open 2 extra chairs at one of your tables, up to 12.|Άνοιξε 2 επιπλέον καρέκλες σε ένα από τα τραπέζια σου, έως 12.
 Thirty more minutes|Τριάντα λεπτά ακόμα
-Let a good discussion run longer, once per table.|Άφησε μια καλή συζήτηση να κρατήσει περισσότερο, μία φορά ανά τραπέζι.
+Let a good conversation run longer, once per table.|Άφησε μια καλή συζήτηση να κρατήσει περισσότερο, μία φορά ανά τραπέζι.
 Live translated captions|Ζωντανοί μεταφρασμένοι υπότιτλοι
-Everyone reads the discussion in their own language while it happens.|Όλοι διαβάζουν τη συζήτηση στη γλώσσα τους την ώρα που γίνεται.
+Everyone reads the conversation in their own language while it happens.|Όλοι διαβάζουν τη συζήτηση στη γλώσσα τους την ώρα που γίνεται.
 Library edition|Έκδοση βιβλιοθήκης
 A clean transcript with chapters and highlights, once everyone agrees to share it.|Μια καθαρή απομαγνητοφώνηση με κεφάλαια και σημεία-κλειδιά, μόλις συμφωνήσουν όλοι να τη μοιραστούν.
 Table recap|Σύνοψη τραπεζιού
@@ -1199,7 +1199,7 @@ No daily gifts, no login streaks, and you can never buy coins with money.|Χωρ
 What coins can buy|Τι αγοράζουν τα νομίσματα
 A guest receives about 4 coins per table and a host about 30, so guest extras cost about one table and host extras cost less than one hosted table.|Ένας καλεσμένος παίρνει περίπου 4 νομίσματα ανά τραπέζι και ένας οικοδεσπότης περίπου 30, οπότε τα έξτρα του καλεσμένου κοστίζουν περίπου ένα τραπέζι και του οικοδεσπότη λιγότερο από ένα φιλοξενούμενο τραπέζι.
 What stays free, and why|Τι μένει δωρεάν και γιατί
-You asked about paying for Notes or the transcript. My advice is to keep the basics free and charge for what sits on top. The transcript is the lasting record of the discussion, and it only works if everyone keeps one. If notes cost coins, newcomers, who have none, would take part less.|Ρώτησες για πληρωμή για τις Σημειώσεις ή την απομαγνητοφώνηση. Η συμβουλή μου είναι να μείνουν δωρεάν τα βασικά και να χρεώνεται ό,τι μπαίνει από πάνω. Η απομαγνητοφώνηση είναι η μόνιμη καταγραφή της συζήτησης και λειτουργεί μόνο αν την κρατούν όλοι. Αν οι σημειώσεις κόστιζαν νομίσματα, οι νέοι, που δεν έχουν, θα συμμετείχαν λιγότερο.
+You asked about paying for Notes or the transcript. My advice is to keep the basics free and charge for what sits on top. The transcript is the lasting record of the conversation, and it only works if everyone keeps one. If notes cost coins, newcomers, who have none, would take part less.|Ρώτησες για πληρωμή για τις Σημειώσεις ή την απομαγνητοφώνηση. Η συμβουλή μου είναι να μείνουν δωρεάν τα βασικά και να χρεώνεται ό,τι μπαίνει από πάνω. Η απομαγνητοφώνηση είναι η μόνιμη καταγραφή της συζήτησης και λειτουργεί μόνο αν την κρατούν όλοι. Αν οι σημειώσεις κόστιζαν νομίσματα, οι νέοι, που δεν έχουν, θα συμμετείχαν λιγότερο.
 Free:|Δωρεάν:
 sitting at any table, hosting with up to 8 chairs, the live transcript and your copy of it, private notes with Keep and Ask, rating and awarding, reading the public library, block and report, exporting or deleting your data.|συμμετοχή σε οποιοδήποτε τραπέζι, φιλοξενία έως 8 καρεκλών, η ζωντανή απομαγνητοφώνηση και το αντίγραφό σου, ιδιωτικές σημειώσεις με Κράτα και Ρώτα, βαθμολογία και απονομή, ανάγνωση της δημόσιας βιβλιοθήκης, αποκλεισμός και αναφορά, εξαγωγή ή διαγραφή των δεδομένων σου.
 Paid with coins:|Πληρώνονται με νομίσματα:
@@ -1294,9 +1294,9 @@ If the table starts later, choose Save a chair. You can sit as your first name o
 Join when it starts|Μπες όταν ξεκινήσει
 When the table is live, choose Join table. A quick camera and microphone check comes first, then you sit down with the others.|Όταν το τραπέζι είναι live, διάλεξε Μπες στο τραπέζι. Πρώτα γίνεται ένας γρήγορος έλεγχος κάμερας και μικροφώνου και μετά κάθεσαι με τους άλλους.
 Talk and listen|Μίλα και άκου
-It is an open discussion: no turns to wait for. On the side you can follow the live transcript, write private notes and send a private message to anyone at the table.|Είναι μια ανοιχτή συζήτηση: δεν περιμένεις σειρά. Στο πλάι μπορείς να παρακολουθείς τη ζωντανή απομαγνητοφώνηση, να γράφεις ιδιωτικές σημειώσεις και να στέλνεις ιδιωτικό μήνυμα σε οποιονδήποτε στο τραπέζι.
+It is an open conversation: no turns to wait for. On the side you can follow the live transcript, write private notes and send a private message to anyone at the table.|Είναι μια ανοιχτή συζήτηση: δεν περιμένεις σειρά. Στο πλάι μπορείς να παρακολουθείς τη ζωντανή απομαγνητοφώνηση, να γράφεις ιδιωτικές σημειώσεις και να στέλνεις ιδιωτικό μήνυμα σε οποιονδήποτε στο τραπέζι.
 Rate and award|Βαθμολόγησε και επιβράβευσε
-When the table ends, say how the discussion was and award your 8 TimeCoins to the people who inspired you. If you leave in a hurry, the bell reminds you the next day.|Όταν τελειώσει το τραπέζι, πες πώς ήταν η συζήτηση και δώσε τα 8 TimeCoins σου σε όσους σε ενέπνευσαν. Αν φύγεις βιαστικά, το κουδουνάκι σού το θυμίζει την επόμενη μέρα.
+When the table ends, say how the conversation was and award your 8 TimeCoins to the people who inspired you. If you leave in a hurry, the bell reminds you the next day.|Όταν τελειώσει το τραπέζι, πες πώς ήταν η συζήτηση και δώσε τα 8 TimeCoins σου σε όσους σε ενέπνευσαν. Αν φύγεις βιαστικά, το κουδουνάκι σού το θυμίζει την επόμενη μέρα.
 Nobody needs your full name. Listening counts too: you can stay quiet for a while and speak when you are ready.|Κανείς δεν χρειάζεται το πλήρες όνομά σου. Και το να ακούς μετράει: μπορείς να μείνεις σιωπηλός για λίγο και να μιλήσεις όταν είσαι έτοιμος.
 Next guide|Επόμενος οδηγός
 Previous|Προηγούμενος
@@ -1306,7 +1306,7 @@ Choose Create a table, pick a topic and write what you want to discuss. Open, sh
 Choose when and who|Διάλεξε πότε και ποιοι
 Start now, later today or on a date you pick. Open tables appear on the Tables page for anyone to join. Private tables stay off the Tables page, and only people with your invite link can join.|Ξεκίνα τώρα, αργότερα σήμερα ή σε μια ημερομηνία που διαλέγεις. Τα ανοιχτά τραπέζια εμφανίζονται στη σελίδα Τραπέζια για όποιον θέλει να μπει. Τα ιδιωτικά τραπέζια δεν εμφανίζονται στη σελίδα Τραπέζια και μπαίνουν μόνο όσοι έχουν τον σύνδεσμο πρόσκλησής σου.
 Set the table|Στρώσε το τραπέζι
-Choose up to eight chairs and the language you will speak. Decide whether to keep a transcript of the discussion. Anyone at the table can leave their words out of it.|Διάλεξε έως οκτώ καρέκλες και τη γλώσσα που θα μιλήσετε. Αποφάσισε αν θα κρατηθεί απομαγνητοφώνηση της συζήτησης. Όποιος είναι στο τραπέζι μπορεί να αφαιρέσει τα λόγια του.
+Choose up to eight chairs and the language you will speak. Decide whether to keep a transcript of the conversation. Anyone at the table can leave their words out of it.|Διάλεξε έως οκτώ καρέκλες και τη γλώσσα που θα μιλήσετε. Αποφάσισε αν θα κρατηθεί απομαγνητοφώνηση της συζήτησης. Όποιος είναι στο τραπέζι μπορεί να αφαιρέσει τα λόγια του.
 Share the table link, or use Invite friends to save a chair for someone next to yours: when you sit together you both gain 5 TimeCoins. Before the table, My tables shows who is coming and lets you message your guests.|Μοιράσου τον σύνδεσμο του τραπεζιού ή χρησιμοποίησε το Κάλεσε φίλους για να κρατήσεις μια καρέκλα για κάποιον δίπλα στη δική σου: όταν κάθεστε μαζί κερδίζετε και οι δύο 5 TimeCoins. Πριν από το τραπέζι, τα Τραπέζια μου δείχνουν ποιοι έρχονται και σου επιτρέπουν να γράψεις στους καλεσμένους σου.
 Lead the conversation|Οδήγησε την κουβέντα
 Open with the question and a short welcome, and bring in the quieter voices. Your one control is the notes: questions guests send with Ask come to you, and you decide when to put them to the table. Private messages between guests are theirs, and you can't see or stop them.|Ξεκίνα με την ερώτηση και ένα σύντομο καλωσόρισμα και φέρε μέσα τις πιο ήσυχες φωνές. Το μόνο που ελέγχεις είναι οι σημειώσεις: οι ερωτήσεις που στέλνουν οι καλεσμένοι με το Ρώτα έρχονται σε σένα και εσύ αποφασίζεις πότε θα τις θέσεις στο τραπέζι. Τα ιδιωτικά μηνύματα μεταξύ καλεσμένων είναι δικά τους και δεν μπορείς να τα δεις ή να τα σταματήσεις.
@@ -1427,7 +1427,7 @@ What it is|Τι είναι
 A place to think together, not to scroll|Ένας τόπος για να σκεφτόμαστε μαζί, όχι για να σκρολάρουμε
 TimeCapsule is a digital place with a different relationship with technology. It makes room for reflection, dialogue and people who keep coming back.|Το TimeCapsule είναι ένας ψηφιακός τόπος με μια διαφορετική σχέση με την τεχνολογία. Κάνει χώρο για τον στοχασμό, τον διάλογο και τους ανθρώπους που επιστρέφουν ξανά και ξανά.
 Talk, don't scroll|Μίλα, μη σκρολάρεις
-Live discussions with a handful of people, instead of speed and endless content.|Ζωντανές συζητήσεις με λίγους ανθρώπους, αντί για ταχύτητα και ατελείωτο περιεχόμενο.
+Live conversations with a handful of people, instead of speed and endless content.|Ζωντανές συζητήσεις με λίγους ανθρώπους, αντί για ταχύτητα και ατελείωτο περιεχόμενο.
 Trust that grows|Εμπιστοσύνη που μεγαλώνει
 Sit with the same people again and again. Trust, relationships and ideas take shape over time.|Κάτσε με τους ίδιους ανθρώπους ξανά και ξανά. Η εμπιστοσύνη, οι σχέσεις και οι ιδέες παίρνουν μορφή με τον καιρό.
 Ideas that last|Ιδέες που μένουν
@@ -1478,22 +1478,22 @@ Purpose|Σκοπός
 Thank you for reading this far.|Σε ευχαριστούμε που διάβασες ως εδώ.
 Back to the start|Πίσω στην αρχή
 TimeCapsule is a digital place built around a different relationship with technology - one that uses its possibilities without letting its logic determine how we think, communicate and relate to the world.|Το TimeCapsule είναι ένας ψηφιακός τόπος που χτίζεται γύρω από μια διαφορετική σχέση με την τεχνολογία – μια σχέση που αξιοποιεί τις δυνατότητές της χωρίς να αφήνει τη λογική της να ορίζει τον τρόπο που σκεφτόμαστε, επικοινωνούμε και σχετιζόμαστε με τον κόσμο.
-Rather than prioritising speed, efficiency and endless content, it makes room for reflection, dialogue and sustained human participation. People can start discussions, share experiences and ideas, raise questions and challenge perspectives.|Αντί να δίνει προτεραιότητα στην ταχύτητα, στην αποδοτικότητα και στο ατελείωτο περιεχόμενο, ανοίγει χώρο για τον στοχασμό, τον διάλογο και τη διαρκή ανθρώπινη συμμετοχή. Οι άνθρωποι μπορούν να ξεκινούν συζητήσεις, να μοιράζονται εμπειρίες και ιδέες, να θέτουν ερωτήματα και να δοκιμάζουν τις οπτικές τους.
+Rather than prioritising speed, efficiency and endless content, it makes room for reflection, dialogue and sustained human participation. People can start conversations, share experiences and ideas, raise questions and challenge perspectives.|Αντί να δίνει προτεραιότητα στην ταχύτητα, στην αποδοτικότητα και στο ατελείωτο περιεχόμενο, ανοίγει χώρο για τον στοχασμό, τον διάλογο και τη διαρκή ανθρώπινη συμμετοχή. Οι άνθρωποι μπορούν να ξεκινούν συζητήσεις, να μοιράζονται εμπειρίες και ιδέες, να θέτουν ερωτήματα και να δοκιμάζουν τις οπτικές τους.
 Through repeated participation, trust develops, relationships take shape and ideas evolve.|Μέσα από την επαναλαμβανόμενη συμμετοχή, η εμπιστοσύνη ωριμάζει, οι σχέσεις παίρνουν μορφή και οι ιδέες εξελίσσονται.
 At its heart is the understanding that knowledge is more than information: it emerges through human experience, reflection and dialogue.|Στην καρδιά του βρίσκεται η επίγνωση ότι η γνώση είναι κάτι περισσότερο από πληροφορία: αναδύεται μέσα από την ανθρώπινη εμπειρία, τον στοχασμό και τον διάλογο.
 Encountering different perspectives deepens our understanding of ourselves, our societies and the world we inhabit.|Η συνάντηση με διαφορετικές οπτικές βαθαίνει την κατανόηση του εαυτού μας, των κοινωνιών μας και του κόσμου που κατοικούμε.
-TimeCapsule preserves this experience as a lasting record of ideas, knowledge and discussions, together with the contexts they emerge from. Each contribution carries its history and authorship, and the possibility of meaningful exchange. Together, they form an evolving human imprint: an inheritance that future generations can encounter, question and build upon.|Το TimeCapsule διαφυλάσσει αυτή την εμπειρία ως μια διαρκή καταγραφή ιδεών, γνώσεων και συζητήσεων, μαζί με τα πλαίσια από τα οποία αναδύονται. Κάθε συμβολή φέρει την ιστορία και τον δημιουργό της, και τη δυνατότητα μιας ουσιαστικής ανταλλαγής. Μαζί συνθέτουν ένα ανθρώπινο αποτύπωμα που διαρκώς εξελίσσεται: μια κληρονομιά που οι επόμενες γενιές μπορούν να συναντήσουν, να αμφισβητήσουν και να χτίσουν πάνω της.
+TimeCapsule preserves this experience as a lasting record of ideas, knowledge and conversations, together with the contexts they emerge from. Each contribution carries its history and authorship, and the possibility of meaningful exchange. Together, they form an evolving human imprint: an inheritance that future generations can encounter, question and build upon.|Το TimeCapsule διαφυλάσσει αυτή την εμπειρία ως μια διαρκή καταγραφή ιδεών, γνώσεων και συζητήσεων, μαζί με τα πλαίσια από τα οποία αναδύονται. Κάθε συμβολή φέρει την ιστορία και τον δημιουργό της, και τη δυνατότητα μιας ουσιαστικής ανταλλαγής. Μαζί συνθέτουν ένα ανθρώπινο αποτύπωμα που διαρκώς εξελίσσεται: μια κληρονομιά που οι επόμενες γενιές μπορούν να συναντήσουν, να αμφισβητήσουν και να χτίσουν πάνω της.
 Technology serves human expression rather than replacing it. TimeCapsule is a shared human space where people meet, think, communicate and develop understanding together, preserving what each generation has to share for those who follow.|Η τεχνολογία υπηρετεί την ανθρώπινη έκφραση αντί να την αντικαθιστά. Το TimeCapsule είναι ένας κοινός ανθρώπινος χώρος όπου οι άνθρωποι συναντιούνται, σκέφτονται, επικοινωνούν και καλλιεργούν μαζί την κατανόηση, διαφυλάσσοντας ό,τι έχει να μοιραστεί κάθε γενιά για όσους έρχονται μετά.
 TimeCapsule gives people the space and tools to develop ideas, connect around common interests and build communities through active participation. Shared interests and exchanged perspectives create, over time, a sense of belonging.|Το TimeCapsule δίνει στους ανθρώπους τον χώρο και τα εργαλεία για να αναπτύσσουν ιδέες, να συνδέονται γύρω από κοινά ενδιαφέροντα και να χτίζουν κοινότητες μέσα από την ενεργό συμμετοχή. Τα κοινά ενδιαφέροντα και οι οπτικές που ανταλλάσσονται γεννούν, με τον καιρό, ένα αίσθημα του ανήκειν.
-Its environment combines human interaction with AI capabilities. AI tools help people follow discussions, discover relevant contributions, overcome language barriers, organise shared knowledge and prepare activities.|Το περιβάλλον του συνδυάζει την ανθρώπινη αλληλεπίδραση με τις δυνατότητες της τεχνητής νοημοσύνης. Τα εργαλεία AI βοηθούν τους ανθρώπους να παρακολουθούν τις συζητήσεις, να ανακαλύπτουν συμβολές που τους αφορούν, να ξεπερνούν τα γλωσσικά εμπόδια, να οργανώνουν την κοινή γνώση και να προετοιμάζουν δραστηριότητες.
+Its environment combines human interaction with AI capabilities. AI tools help people follow conversations, discover relevant contributions, overcome language barriers, organise shared knowledge and prepare activities.|Το περιβάλλον του συνδυάζει την ανθρώπινη αλληλεπίδραση με τις δυνατότητες της τεχνητής νοημοσύνης. Τα εργαλεία AI βοηθούν τους ανθρώπους να παρακολουθούν τις συζητήσεις, να ανακαλύπτουν συμβολές που τους αφορούν, να ξεπερνούν τα γλωσσικά εμπόδια, να οργανώνουν την κοινή γνώση και να προετοιμάζουν δραστηριότητες.
 This makes participation more accessible and collaboration easier, while judgement, creativity and initiative remain with people.|Έτσι η συμμετοχή γίνεται πιο προσβάσιμη και η συνεργασία πιο εύκολη, ενώ η κρίση, η δημιουργικότητα και η πρωτοβουλία μένουν στους ανθρώπους.
 Within TimeCapsule, people can:|Μέσα στο TimeCapsule, οι άνθρωποι μπορούν:
 Host and participate|Να φιλοξενούν και να συμμετέχουν
-Organise and take part in live discussions, talks, lectures and workshops to exchange knowledge, explore ideas and learn from one another.|Να οργανώνουν και να παίρνουν μέρος σε ζωντανές συζητήσεις, ομιλίες, διαλέξεις και εργαστήρια, για να ανταλλάσσουν γνώσεις, να εξερευνούν ιδέες και να μαθαίνουν ο ένας από τον άλλον.
+Organise and take part in live conversations, talks, lectures and workshops to exchange knowledge, explore ideas and learn from one another.|Να οργανώνουν και να παίρνουν μέρος σε ζωντανές συζητήσεις, ομιλίες, διαλέξεις και εργαστήρια, για να ανταλλάσσουν γνώσεις, να εξερευνούν ιδέες και να μαθαίνουν ο ένας από τον άλλον.
 Turn ideas into shared projects|Να κάνουν τις ιδέες κοινά έργα
 Connect with others, discover common ground, develop initiatives and put collective ideas into practice.|Να συνδέονται με άλλους, να ανακαλύπτουν κοινό έδαφος, να αναπτύσσουν πρωτοβουλίες και να κάνουν πράξη συλλογικές ιδέες.
 Preserve and pass on knowledge|Να διαφυλάσσουν και να μεταδίδουν τη γνώση
-Build a lasting record of ideas, experiences and discussions, with authorship and original context intact, so that future generations can revisit it and build upon it.|Να χτίζουν μια διαρκή καταγραφή ιδεών, εμπειριών και συζητήσεων, με τον δημιουργό και το αρχικό πλαίσιο ακέραια, ώστε οι επόμενες γενιές να μπορούν να επιστρέφουν σε αυτήν και να χτίζουν πάνω της.
+Build a lasting record of ideas, experiences and conversations, with authorship and original context intact, so that future generations can revisit it and build upon it.|Να χτίζουν μια διαρκή καταγραφή ιδεών, εμπειριών και συζητήσεων, με τον δημιουργό και το αρχικό πλαίσιο ακέραια, ώστε οι επόμενες γενιές να μπορούν να επιστρέφουν σε αυτήν και να χτίζουν πάνω της.
 Technology has changed not only how we communicate, but the conditions under which we think, learn, work and relate to one another. Artificial intelligence is accelerating this change, increasingly taking part in activities once shaped by human judgement, creativity and experience. The question is no longer what technology can do, but what place we want it to have in our lives, and what we risk losing when its capabilities begin to define our purposes.|Η τεχνολογία δεν άλλαξε μόνο τον τρόπο που επικοινωνούμε, αλλά και τις συνθήκες μέσα στις οποίες σκεφτόμαστε, μαθαίνουμε, εργαζόμαστε και σχετιζόμαστε μεταξύ μας. Η τεχνητή νοημοσύνη επιταχύνει αυτή την αλλαγή, παίρνοντας όλο και περισσότερο μέρος σε δραστηριότητες που κάποτε διαμόρφωναν η ανθρώπινη κρίση, η δημιουργικότητα και η εμπειρία. Το ερώτημα δεν είναι πια τι μπορεί να κάνει η τεχνολογία, αλλά ποια θέση θέλουμε να έχει στη ζωή μας, και τι κινδυνεύουμε να χάσουμε όταν οι δυνατότητές της αρχίζουν να ορίζουν τους σκοπούς μας.
 TimeCapsule is a place where humans meet through technology, not a place where technology simulates the presence of humans. What is disappearing is not connectivity, but the human presence that gives connectivity its meaning.|Το TimeCapsule είναι ένας τόπος όπου οι άνθρωποι συναντιούνται μέσα από την τεχνολογία, όχι ένας τόπος όπου η τεχνολογία προσομοιώνει την παρουσία των ανθρώπων. Αυτό που χάνεται δεν είναι η συνδεσιμότητα, αλλά η ανθρώπινη παρουσία που δίνει στη συνδεσιμότητα το νόημά της.
 We can exchange more content without gaining understanding, communicate more often without building deeper relationships, and access vast information without acquiring knowledge. More communication does not automatically mean more meaningful participation.|Μπορούμε να ανταλλάσσουμε περισσότερο περιεχόμενο χωρίς να κατανοούμε περισσότερα, να επικοινωνούμε συχνότερα χωρίς να χτίζουμε βαθύτερες σχέσεις, και να έχουμε πρόσβαση σε απέραντη πληροφορία χωρίς να αποκτούμε γνώση. Περισσότερη επικοινωνία δεν σημαίνει αυτόματα πιο ουσιαστική συμμετοχή.
@@ -1603,7 +1603,7 @@ Hosts are members like you, not our staff. We don't check what is said in advanc
 Video and sound are streamed live and are not recorded by us.|Η εικόνα και ο ήχος μεταδίδονται ζωντανά και δεν καταγράφονται από εμάς.
 4. Your words and transcripts|4. Τα λόγια σου και οι απομαγνητοφωνήσεις
 What you say and write stays yours.|Ό,τι λες και γράφεις μένει δικό σου.
-When a host chooses Keep a transcript of the discussion, you allow us to store it and show it to the people who were at the table, with each line credited to the name or alias you used.|Όταν ένας οικοδεσπότης διαλέγει Κράτα απομαγνητοφώνηση της συζήτησης, μας επιτρέπεις να την αποθηκεύσουμε και να τη δείξουμε σε όσους ήταν στο τραπέζι, με κάθε φράση να αποδίδεται στο όνομα ή το ψευδώνυμο που χρησιμοποίησες.
+When a host chooses Keep a transcript of the conversation, you allow us to store it and show it to the people who were at the table, with each line credited to the name or alias you used.|Όταν ένας οικοδεσπότης διαλέγει Κράτα απομαγνητοφώνηση της συζήτησης, μας επιτρέπεις να την αποθηκεύσουμε και να τη δείξουμε σε όσους ήταν στο τραπέζι, με κάθε φράση να αποδίδεται στο όνομα ή το ψευδώνυμο που χρησιμοποίησες.
 If you leave your words in a transcript that is saved to the library, you allow us to keep and show them there, with their authorship and date, as part of a lasting record for future readers. You can take them out at any time.|Αν αφήσεις τα λόγια σου σε μια απομαγνητοφώνηση που αποθηκεύεται στη βιβλιοθήκη, μας επιτρέπεις να τα κρατήσουμε και να τα δείχνουμε εκεί, με τον συγγραφέα και την ημερομηνία, ως μέρος ενός διαρκούς αρχείου για τους μελλοντικούς αναγνώστες. Μπορείς να τα αφαιρέσεις όποτε θέλεις.
 You can ask us at any time to replace your name with "A guest" in a public transcript.|Μπορείς να μας ζητήσεις οποιαδήποτε στιγμή να αντικαταστήσουμε το όνομά σου με «Ένας καλεσμένος» σε μια δημόσια απομαγνητοφώνηση.
 Your notes are private. Only you see them, unless you send one with Ask or add it to the transcript.|Οι σημειώσεις σου είναι ιδιωτικές. Τις βλέπεις μόνο εσύ, εκτός αν στείλεις μία με το Ρώτα ή την προσθέσεις στην απομαγνητοφώνηση.
@@ -1844,8 +1844,8 @@ They won't see your profile or tables, take a chair at yours, chat with you or f
 {n} unblocked|{n}: ο αποκλεισμός άρθηκε
 Library|Βιβλιοθήκη
 My library|Η βιβλιοθήκη μου
-discussions|συζητήσεις
-All discussions|Όλες οι συζητήσεις
+conversations|συζητήσεις
+All conversations|Όλες οι συζητήσεις
 Tap a planet to open it.|Πάτησε έναν πλανήτη για να την ανοίξεις.
 Tap the photo to go back to the readings.|Πάτησε τη φωτογραφία για να γυρίσεις στα αναγνώσματα.
 Tap the photo to open the library.|Πάτησε τη φωτογραφία για να ανοίξεις τη βιβλιοθήκη.
@@ -1859,7 +1859,7 @@ Only the people at the table|Μόνο όσοι ήταν στο τραπέζι
 Transcript · Notes|Απομαγνητοφώνηση · Σημειώσεις
 Screen|Οθόνη
 After the table|Μετά το τραπέζι
-Saved discussion|Αποθηκευμένη συζήτηση
+Saved conversation|Αποθηκευμένη συζήτηση
 Gregory (host)|Gregory (οικοδεσπότης)
 Gabriele (was at the table)|Gabriele (ήταν στο τραπέζι)
 Gabriele (wasn't there)|Gabriele (δεν ήταν εκεί)
@@ -1883,7 +1883,7 @@ Only you can see these|Μόνο εσύ τις βλέπεις
 Pick it up again|Συνέχισέ τη
 Plan the next round. Everyone from earlier rounds gets the invite first.|Σχεδίασε τον επόμενο γύρο. Όσοι ήταν στους προηγούμενους γύρους παίρνουν πρώτοι την πρόσκληση.
 Plan round|Σχεδίασε τον γύρο
-The new round is added to this discussion, so the record keeps growing in one place.|Ο νέος γύρος προστίθεται σε αυτή τη συζήτηση, έτσι το αρχείο μεγαλώνει σε ένα μέρος.
+The new round is added to this conversation, so the record keeps growing in one place.|Ο νέος γύρος προστίθεται σε αυτή τη συζήτηση, έτσι το αρχείο μεγαλώνει σε ένα μέρος.
 Asking to join|Ζητούν να μπουν
 People who weren't at the table. You decide who sits down next time.|Άτομα που δεν ήταν στο τραπέζι. Εσύ αποφασίζεις ποιος κάθεται την επόμενη φορά.
 Accept|Αποδοχή
@@ -1891,11 +1891,11 @@ Decline|Απόρριψη
 Accepted.|Έγινε αποδεκτό.
 gets the invite for the next round.|παίρνει την πρόσκληση για τον επόμενο γύρο.
 Declined. We'll let them know.|Απορρίφθηκε. Θα τους ενημερώσουμε.
-You were at this table, so you'll be invited when Gregory plans the next round.|Ήσουν σε αυτό το τραπέζι, οπότε θα σε προσκαλέσουμε όταν ο Gregory σχεδιάσει τον επόμενο γύρο.
+You were at this table, so you'll be invited when the host plans the next round.|Ήσουν σε αυτό το τραπέζι, οπότε θα σε προσκαλέσουμε όταν ο οικοδεσπότης σχεδιάσει τον επόμενο γύρο.
 Ask Gregory for another round|Ζήτα από τον Gregory άλλον έναν γύρο
 Asked. We'll tell you when Gregory plans it.|Το ζήτησες. Θα σου πούμε όταν ο Gregory τον σχεδιάσει.
 Join the next round|Μπες στον επόμενο γύρο
-This discussion is still going. Ask Gregory, the host, for a chair at the next round.|Αυτή η συζήτηση συνεχίζεται. Ζήτα από τον Gregory, τον οικοδεσπότη, μια καρέκλα στον επόμενο γύρο.
+This conversation is still going. Ask Gregory, the host, for a chair at the next round.|Αυτή η συζήτηση συνεχίζεται. Ζήτα από τον Gregory, τον οικοδεσπότη, μια καρέκλα στον επόμενο γύρο.
 Why you'd like to join (optional)|Γιατί θέλεις να μπεις (προαιρετικό)
 A line about what you'd bring|Μια γραμμή για το τι θα έφερνες
 Ask for a chair|Ζήτα μια καρέκλα
@@ -1921,7 +1921,7 @@ Only the people at this table|Μόνο όσοι ήταν σε αυτό το τρ
 Right for private tables.|Κατάλληλο για ιδιωτικά τραπέζια.
 Save to library|Αποθήκευση στη βιβλιοθήκη
 Saved to your library, in|Αποθηκεύτηκε στη βιβλιοθήκη σου, στο
-Open the discussion|Άνοιξε τη συζήτηση
+Open the conversation|Άνοιξε τη συζήτηση
 See your library|Δες τη βιβλιοθήκη σου
 Not saved. You can save it from My tables for 7 days.|Δεν αποθηκεύτηκε. Μπορείς να το αποθηκεύσεις από τα Τραπέζια μου για 7 ημέρες.
 Your words in the transcript|Τα λόγια σου στην απομαγνητοφώνηση
@@ -1930,7 +1930,7 @@ to the library. Choose how you appear in it.|στη βιβλιοθήκη. Διά
 Include my words|Συμπερίληψη των λόγων μου
 Leave my words out|Αφαίρεση των λόγων μου
 What you said is removed. Others see “A participant's words are left out”.|Όσα είπες αφαιρούνται. Οι άλλοι βλέπουν «Τα λόγια ενός συμμετέχοντα αφαιρέθηκαν».
-You can change this any time from the discussion page.|Μπορείς να το αλλάξεις όποτε θέλεις από τη σελίδα της συζήτησης.
+You can change this any time from the conversation page.|Μπορείς να το αλλάξεις όποτε θέλεις από τη σελίδα της συζήτησης.
 Your notes|Οι σημειώσεις σου
 Save my 3 kept notes to my library|Αποθήκευσε τις 3 σημειώσεις μου στη βιβλιοθήκη μου
 Private. Only you see them.|Ιδιωτικές. Μόνο εσύ τις βλέπεις.
@@ -1938,7 +1938,7 @@ Done. Your words are in the transcript.|Έτοιμο. Τα λόγια σου ε�
 Done. Your words are left out of the transcript.|Έτοιμο. Τα λόγια σου αφαιρέθηκαν από την απομαγνητοφώνηση.
 Where this sits in the library|Πού βρίσκεται στη βιβλιοθήκη
 Rounds|Γύροι
-Discussion|Συζήτηση
+Conversation|Συζήτηση
 Free will|Ελεύθερη βούληση
 Phenomenology|Φαινομενολογία
 Ethics|Ηθική
@@ -1953,25 +1953,25 @@ Kept · you can leave your words out|Κρατιέται · μπορείς να �
 Summary|Περίληψη
 AI summary, written after the table|Περίληψη AI, γραμμένη μετά το τραπέζι
 AI summary, edited by Gregory|Περίληψη AI, με αλλαγές του Gregory
-Discussions|Συζητήσεις
-Open Discussions|Άνοιξε Συζητήσεις
-Where this sits in the discussions|Πού βρίσκεται στις συζητήσεις
-Gregory's discussions|Οι συζητήσεις του Gregory
-Save this table to Discussions|Αποθήκευσε αυτό το τραπέζι στις Συζητήσεις
-Private. Only you see them in Discussions.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στις Συζητήσεις.
-Where it goes in Discussions|Πού μπαίνει στις Συζητήσεις
-Shown in Discussions on your profile. Others can ask to join the next round.|Φαίνεται στις Συζητήσεις στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
-Save to Discussions|Αποθήκευση στις Συζητήσεις
-to the discussions on the profile. Choose how you appear in it.|στις συζητήσεις του προφίλ. Διάλεξε πώς εμφανίζεσαι.
-Save my 3 kept notes to Discussions|Αποθήκευσε τις 3 σημειώσεις μου στις Συζητήσεις
-Saved to Discussions, in|Αποθηκεύτηκε στις Συζητήσεις, στο
-See Discussions|Δες τις Συζητήσεις
+Conversations|Συζητήσεις
+Open Conversations|Άνοιξε Συζητήσεις
+Where this sits in the conversations|Πού βρίσκεται στις συζητήσεις
+Gregory's conversations|Οι συζητήσεις του Gregory
+Save this table to Conversations|Αποθήκευσε αυτό το τραπέζι στις Συζητήσεις
+Private. Only you see them in Conversations.|Ιδιωτικές. Μόνο εσύ τις βλέπεις στις Συζητήσεις.
+Where it goes in Conversations|Πού μπαίνει στις Συζητήσεις
+Shown in Conversations on your profile. Others can ask to join the next round.|Φαίνεται στις Συζητήσεις στο προφίλ. Άλλοι μπορούν να ζητήσουν να μπουν στον επόμενο γύρο.
+Save to Conversations|Αποθήκευση στις Συζητήσεις
+to the conversations on the profile. Choose how you appear in it.|στις συζητήσεις του προφίλ. Διάλεξε πώς εμφανίζεσαι.
+Save my 3 kept notes to Conversations|Αποθήκευσε τις 3 σημειώσεις μου στις Συζητήσεις
+Saved to Conversations, in|Αποθηκεύτηκε στις Συζητήσεις, στο
+See Conversations|Δες τις Συζητήσεις
 Edit summary|Επεξεργασία περίληψης
-Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Κάθε τραπέζι αφήνει ένα ίχνος. Οι συζητήσεις που αποθηκεύεις βρίσκουν εδώ την τροχιά τους, ανά θέμα, ώστε να βλέπεις τις ιδέες που εξερεύνησες με άλλους ανθρώπους.
+Every table leaves a trace. The conversations you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Κάθε τραπέζι αφήνει ένα ίχνος. Οι συζητήσεις που αποθηκεύεις βρίσκουν εδώ την τροχιά τους, ανά θέμα, ώστε να βλέπεις τις ιδέες που εξερεύνησες με άλλους ανθρώπους.
 Tap a planet to read it again, or pick it up for another round.|Πάτησε έναν πλανήτη για να την ξαναδιαβάσεις ή να τη συνεχίσεις σε έναν ακόμα γύρο.
 Readings|Αναγνώσεις
-What are Discussions?|Τι είναι οι Συζητήσεις;
-About Discussions|Σχετικά με τις Συζητήσεις
+What are Conversations?|Τι είναι οι Συζητήσεις;
+About Conversations|Σχετικά με τις Συζητήσεις
 Universe|Σύμπαν
 My universe|Το σύμπαν μου
 books|βιβλία
@@ -1979,12 +1979,12 @@ Tap to open.|Πάτησε για να ανοίξει.
 Every table you saved, with its transcript, notes and summary. Open one to read it or pick it up again.|Κάθε τραπέζι που αποθήκευσες, με απομαγνητοφώνηση, σημειώσεις και περίληψη. Άνοιξε ένα για να το ξαναδιαβάσεις ή να το συνεχίσεις.
 Hosted|Φιλοξένησες
 New round|Νέος γύρος
-discussion|συζήτηση
-Search my discussions|Αναζήτηση στις συζητήσεις μου
-No saved discussions yet|Δεν υπάρχουν ακόμη αποθηκευμένες συζητήσεις
+conversation|συζήτηση
+Search my conversations|Αναζήτηση στις συζητήσεις μου
+No saved conversations yet|Δεν υπάρχουν ακόμη αποθηκευμένες συζητήσεις
 After a table, save its transcript and notes and they will show up here.|Μετά από ένα τραπέζι, αποθήκευσε την απομαγνητοφώνηση και τις σημειώσεις και θα εμφανιστούν εδώ.
 Nothing matches your search|Κανένα αποτέλεσμα
-Discussions you join at someone else's table will show up here.|Οι συζητήσεις στις οποίες συμμετέχεις σε τραπέζια άλλων θα εμφανίζονται εδώ.
+Conversations you join at someone else's table will show up here.|Οι συζητήσεις στις οποίες συμμετέχεις σε τραπέζια άλλων θα εμφανίζονται εδώ.
 November|Νοέμβριος
 October|Οκτώβριος
 September|Σεπτέμβριος
@@ -1994,8 +1994,8 @@ Oct|Οκτ
 Sep|Σεπ
 Aug|Αυγ
 saved|αποθηκευμένες
-My discussions|Οι συζητήσεις μου
-The books and films that shaped how you think, and the discussions you saved. Add to them, tidy them, pick them up again.|Τα βιβλία και οι ταινίες που διαμόρφωσαν τη σκέψη σου και οι συζητήσεις που αποθήκευσες. Πρόσθεσε, τακτοποίησε, συνέχισε.
+My conversations|Οι συζητήσεις μου
+The books and films that shaped how you think, and the conversations you saved. Add to them, tidy them, pick them up again.|Τα βιβλία και οι ταινίες που διαμόρφωσαν τη σκέψη σου και οι συζητήσεις που αποθήκευσες. Πρόσθεσε, τακτοποίησε, συνέχισε.
 items|στοιχεία
 item|στοιχείο
 Add|Προσθήκη
@@ -2012,15 +2012,15 @@ Add a book or a film that shaped how you think.|Πρόσθεσε ένα βιβλ
 Search my universe|Αναζήτηση στο σύμπαν μου
 (host)|(οικοδεσπότης)
 Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.|Συζητήσεις που αποθηκεύτηκαν στο τέλος των τραπεζιών τους, ανά θέμα. Διάβασε τι ειπώθηκε και ζήτα από τον οικοδεσπότη να μπεις στον επόμενο γύρο.
-Search discussions, topics or hosts|Αναζήτηση συζητήσεων, θεμάτων ή οικοδεσποτών
-Search discussions|Αναζήτηση συζητήσεων
-Topics as constellations. Each star is a saved discussion.|Τα θέματα ως αστερισμοί. Κάθε αστέρι είναι μια αποθηκευμένη συζήτηση.
-Each star is a discussion. Tap a topic to see its discussions.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα θέμα για να δεις τις συζητήσεις του.
+Search conversations, topics or hosts|Αναζήτηση συζητήσεων, θεμάτων ή οικοδεσποτών
+Search conversations|Αναζήτηση συζητήσεων
+Topics as constellations. Each star is a saved conversation.|Τα θέματα ως αστερισμοί. Κάθε αστέρι είναι μια αποθηκευμένη συζήτηση.
+Each star is a conversation. Tap a topic to see its conversations.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα θέμα για να δεις τις συζητήσεις του.
 Recent|Πρόσφατες
 Most rounds|Περισσότεροι γύροι
 in|σε
 Picked up again|Συνεχίστηκε ξανά
-Read the discussion|Διάβασε τη συζήτηση
+Read the conversation|Διάβασε τη συζήτηση
 said|είπε
 Nothing matches.|Δεν βρέθηκε τίποτα.
 Try another word or topic.|Δοκίμασε άλλη λέξη ή θέμα.
@@ -2028,21 +2028,21 @@ Every table can keep its record|Κάθε τραπέζι μπορεί να κρα
 At the end of a table, the host can save the transcript and notes here. Anyone can leave their words out.|Στο τέλος ενός τραπεζιού, ο οικοδεσπότης μπορεί να αποθηκεύσει εδώ την απομαγνητοφώνηση και τις σημειώσεις. Όποιος θέλει μπορεί να αφήσει έξω τα λόγια του.
 Notes by the host|Σημειώσεις του οικοδεσπότη
 Ask the host for another round|Ζήτα από τον οικοδεσπότη άλλον έναν γύρο
-This discussion is still going. Ask the host for a chair at the next round.|Αυτή η συζήτηση συνεχίζεται. Ζήτα από τον οικοδεσπότη μια θέση στον επόμενο γύρο.
+This conversation is still going. Ask the host for a chair at the next round.|Αυτή η συζήτηση συνεχίζεται. Ζήτα από τον οικοδεσπότη μια θέση στον επόμενο γύρο.
 All in|Όλα σε
-Each star is a discussion. Tap a subtopic to see its discussions.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα υποθέμα για να δεις τις συζητήσεις του.
+Each star is a conversation. Tap a subtopic to see its conversations.|Κάθε αστέρι είναι μια συζήτηση. Πάτησε ένα υποθέμα για να δεις τις συζητήσεις του.
 Most picked up this month|Οι πιο συνεχισμένες αυτόν τον μήνα
 more|ακόμη
 Showing|Εμφανίζονται
 Suggested from the conversation.|Προτάθηκε από τη συζήτηση.
 Tap another one to change it.|Πάτησε άλλο για να το αλλάξεις.
 That one already exists, so we picked|Υπάρχει ήδη, οπότε διαλέξαμε
-New subtopics show under “Other” on Discussions until about 5 discussions use them.|Τα νέα υποθέματα εμφανίζονται στα «Άλλα» στις Συζητήσεις μέχρι να τα χρησιμοποιήσουν περίπου 5 συζητήσεις.
+New subtopics show under “Other” on Conversations until about 5 conversations use them.|Τα νέα υποθέματα εμφανίζονται στα «Άλλα» στις Συζητήσεις μέχρι να τα χρησιμοποιήσουν περίπου 5 συζητήσεις.
 Suggested|Προτεινόμενο
 Other|Άλλα
 How much did you like it?|Πόσο σου άρεσε;
 Pick one|Διάλεξε ένα
-Discussions by|Συζητήσεις από
+Conversations by|Συζητήσεις από
 More from|Περισσότερα από
 topic|θέμα
 In common|Κοινά
@@ -2053,10 +2053,65 @@ mutual reads|κοινές αναγνώσεις
 Gregory's profile|Το προφίλ του Gregory
 Gregory's tables|Τα τραπέζια του Gregory
 past tables|προηγούμενα τραπέζια
-See the discussions|Δες τις συζητήσεις
-Discussion saved|Η συζήτηση αποθηκεύτηκε
+See the conversations|Δες τις συζητήσεις
+Conversation saved|Η συζήτηση αποθηκεύτηκε
 chairs free|ελεύθερες καρέκλες
 coming up|επερχόμενα
-See all discussions|Δες όλες τις συζητήσεις
+See all conversations|Δες όλες τις συζητήσεις
 See all tables|Δες όλα τα τραπέζια
 At the table now|Στο τραπέζι τώρα
+Your words are in the transcript.|Τα λόγια σου είναι στην απομαγνητοφώνηση.
+Your words are left out of the transcript.|Τα λόγια σου αφαιρέθηκαν από την απομαγνητοφώνηση.
+You're all done|Τελείωσες
+Thank you for being at the table.|Ευχαριστούμε που κάθισες στο τραπέζι.
+Six people, one question, and an hour of real listening. Something you said will stay with someone, maybe longer than you think.|Έξι άνθρωποι, μία ερώτηση και μία ώρα αληθινής ακρόασης. Κάτι που είπες θα μείνει σε κάποιον, ίσως περισσότερο απ' όσο νομίζεις.
+Thank you for hosting.|Ευχαριστούμε που φιλοξένησες το τραπέζι.
+You gave six people an hour to think out loud together. That is rarer than it sounds.|Έδωσες σε έξι ανθρώπους μία ώρα να σκεφτούν φωναχτά μαζί. Είναι πιο σπάνιο απ' όσο ακούγεται.
+Host round 4|Φιλοξένησε τον γύρο 4
+Same question, a new week. We fill in the details from this table.|Ίδια ερώτηση, νέα εβδομάδα. Συμπληρώνουμε τα στοιχεία από αυτό το τραπέζι.
+Keep the conversation going|Συνέχισε τη συζήτηση
+More on|Περισσότερα για
+Philosophy this week|Φιλοσοφία αυτή την εβδομάδα
+Hosted by|Οικοδεσπότης
+Thu|Πέμ
+Sat|Σάβ
+Sun|Κυρ
+2 chairs left|Απομένουν 2 θέσεις
+4 chairs left|Απομένουν 4 θέσεις
+1 chair left|Απομένει 1 θέση
+Save a chair|Κράτησε μια θέση
+Chair saved|Η θέση κρατήθηκε
+See all tables|Όλα τα τραπέζια
+Same question, next week?|Ίδια ερώτηση, την επόμενη εβδομάδα;
+We fill in the details from this table, so it takes a minute.|Συμπληρώνουμε τα στοιχεία από αυτό το τραπέζι, οπότε θέλει ένα λεπτό.
+Last day to save your table|Τελευταία μέρα για να αποθηκεύσεις το τραπέζι σου
+You hosted it|Το φιλοξένησες εσύ
+Save it to Conversations by tomorrow at 19:30, or it can't be saved any more.|Αποθήκευσέ το στις Συζητήσεις ως αύριο στις 19:30, αλλιώς δεν θα μπορεί πια να αποθηκευτεί.
+Not saved · 6 days left|Δεν αποθηκεύτηκε · απομένουν 6 μέρες
+Not saved. You can save it from|Δεν αποθηκεύτηκε. Μπορείς να το αποθηκεύσεις από τα
+for 7 days. We'll remind you the day before it's too late.|για 7 μέρες. Θα σου το θυμίσουμε την προηγούμενη μέρα.
+Not saved yet|Δεν έχει αποθηκευτεί ακόμα
+← My tables|← Τα τραπέζια μου
+Open the room when you are ready. Guests can come in after you.|Άνοιξε το δωμάτιο όταν είσαι έτοιμος. Οι καλεσμένοι μπαίνουν μετά από σένα.
+You can open the room 30 minutes before it starts. Nobody can come in before you.|Μπορείς να ανοίξεις το δωμάτιο 30 λεπτά πριν. Κανείς δεν μπαίνει πριν από σένα.
+invite not answered yet|πρόσκληση χωρίς απάντηση
+invites not answered yet|προσκλήσεις χωρίς απάντηση
+Cancel this table? Your guests get a message right away.|Ακύρωση του τραπεζιού; Οι καλεσμένοι σου ενημερώνονται αμέσως.
+Ended|Ολοκληρώθηκε
+Only you see these.|Τις βλέπεις μόνο εσύ.
+were at the table|ήταν στο τραπέζι
+Open in Conversations|Άνοιγμα στις Συζητήσεις
+Not saved yet.|Δεν έχει αποθηκευτεί ακόμα.
+6 days left to save it. We'll remind you the day before.|Έχεις 6 μέρες για να το αποθηκεύσεις. Θα σου το θυμίσουμε την προηγούμενη μέρα.
+Saved to your Conversations.|Αποθηκεύτηκε στις Συζητήσεις σου.
+You rated it. Thank you.|Το βαθμολόγησες. Ευχαριστούμε.
+Took place|Πραγματοποιήθηκε
+Saved to Conversations|Αποθηκεύτηκε στις Συζητήσεις
+Nothing was recorded or written down.|Τίποτα δεν καταγράφηκε.
+from guests|από τους καλεσμένους
+To give|Για να δώσεις
+You tipped the people who inspired you.|Φιλοδώρησες όσους σε ενέπνευσαν.
+Tip the people who inspired you.|Φιλοδώρησε όσους σε ενέπνευσαν.
+2nd in line. We'll tell you as soon as a chair opens up.|Είσαι 2ος στη σειρά. Θα σε ειδοποιήσουμε μόλις αδειάσει μια θέση.
+The table is full. Join the waitlist and we tell you when a chair opens up.|Το τραπέζι είναι γεμάτο. Μπες στη λίστα αναμονής και θα σε ειδοποιήσουμε όταν αδειάσει μια θέση.
+No transcript was kept at this table.|Σε αυτό το τραπέζι δεν κρατήθηκε απομαγνητοφώνηση.

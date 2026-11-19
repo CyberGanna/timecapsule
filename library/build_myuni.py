@@ -1,4 +1,4 @@
-# Builds help/live-pages/myuniverse.html ("My universe": Readings + Discussions, avatar menu) from the My tables page shell.
+# Builds help/live-pages/myuniverse.html ("My universe": Readings + Conversations, avatar menu) from the My tables page shell.
 # Run: python3 library/build_myuni.py (build.py runs it too)
 import re, json, os, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
@@ -46,8 +46,8 @@ def build():
     head = re.sub(r'<title>[^<]*</title>', '<title>TimeCapsule My universe</title>', head, count=1)
     if '<meta name="viewport"' not in head[:2000]:
         head = '<!doctype html>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n' + head
-    # menu: My tables becomes a normal link, My discussions is the current page
-    head = re.sub(r'<a href="#" data-tch="noop" aria-current="page" style="color:var\(--tch-teal\)">My tables</a><a href="[^"]*" target="_top">My (?:discussions|universe)</a>',
+    # menu: My tables becomes a normal link, My conversations is the current page
+    head = re.sub(r'<a href="#" data-tch="noop" aria-current="page" style="color:var\(--tch-teal\)">My tables</a><a href="[^"]*" target="_top">My (?:conversations|universe)</a>',
                         '<a href="mytables.html" target="_top">My tables</a><a href="#" data-tch="noop" aria-current="page" style="color:var(--tch-teal)">My universe</a>', head)
     assert 'aria-current="page" style="color:var(--tch-teal)">My universe' in head
     head = head.replace('Search my tables', 'Search my universe')

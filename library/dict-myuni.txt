@@ -1,4 +1,4 @@
-My discussions|Le mie discussioni|Mis conversaciones
+My conversations|Le mie conversazioni|Mis conversaciones
 Every table you saved, with its transcript, notes and summary. Open one to read it or pick it up again.|Ogni tavolo che hai salvato, con trascrizione, note e riassunto. Aprine uno per rileggerlo o riprenderlo.|Cada mesa que guardaste, con su transcripción, notas y resumen. Abre una para leerla o retomarla.
 Saved|Salvate|Guardadas
 Hosted|Ospitate|Organizadas
@@ -9,15 +9,15 @@ people|persone|personas
 rounds|round|rondas
 Open|Apri|Abrir
 New round|Nuovo round|Nueva ronda
-discussion|discussione|conversación
-discussions|discussioni|conversaciones
-No saved discussions yet|Ancora nessuna discussione salvata|Aún no hay conversaciones guardadas
+conversation|conversazione|conversación
+conversations|conversazioni|conversaciones
+No saved conversations yet|Ancora nessuna conversazione salvata|Aún no hay conversaciones guardadas
 After a table, save its transcript and notes and they will show up here.|Dopo un tavolo, salva trascrizione e note: le troverai qui.|Después de una mesa, guarda la transcripción y las notas y aparecerán aquí.
 Find a table|Trova un tavolo|Busca una mesa
 Nothing matches your search|Nessun risultato|Nada coincide con tu búsqueda
 Try another word, or clear the search.|Prova un'altra parola o cancella la ricerca.|Prueba otra palabra o borra la búsqueda.
 Nothing here yet|Ancora niente qui|Aún no hay nada
-Discussions you join at someone else's table will show up here.|Le discussioni a cui partecipi ai tavoli di altri appariranno qui.|Las conversaciones en las que participes en mesas de otros aparecerán aquí.
+Conversations you join at someone else's table will show up here.|Le conversazioni a cui partecipi ai tavoli di altri appariranno qui.|Las conversaciones en las que participes en mesas de otros aparecerán aquí.
 November|Novembre|Noviembre
 October|Ottobre|Octubre
 September|Settembre|Septiembre
@@ -28,9 +28,9 @@ Sep|set|sep
 Aug|ago|ago
 saved|salvate|guardadas
 My universe|Il mio universo|Mi universo
-The books and films that shaped how you think, and the discussions you saved. Add to them, tidy them, pick them up again.|I libri e i film che hanno formato il tuo modo di pensare, e le discussioni che hai salvato. Aggiungi, riordina, riprendi.|Los libros y las películas que formaron tu manera de pensar, y las conversaciones que guardaste. Añade, ordena, retoma.
+The books and films that shaped how you think, and the conversations you saved. Add to them, tidy them, pick them up again.|I libri e i film che hanno formato il tuo modo di pensare, e le conversazioni che hai salvato. Aggiungi, riordina, riprendi.|Los libros y las películas que formaron tu manera de pensar, y las conversaciones que guardaste. Añade, ordena, retoma.
 Readings|Letture|Lecturas
-Discussions|Discussioni|Conversaciones
+Conversations|Conversazioni|Conversaciones
 items|elementi|elementos
 item|elemento|elemento
 topics|temi|temas

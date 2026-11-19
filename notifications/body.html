@@ -105,7 +105,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.05;letter-spac
 /*AVATARS*/
 P.Amara=["#FFE9C7","#7C5CFF","#7A4E33","#1B1B1B","bun"];P.Yuki=["#D9F8FA","#F2C14E","#F1C9A5","#1B1B1B","short"];
 const $=s=>document.querySelector(s);
-const URL_={agenda:"https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5",live:"https://claude.ai/artifact/2CoEp7SXhBT2oP5hu3zNkk",rate:"https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB#rate",mytables:"https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB",profile:"https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy",chats:"https://claude.ai/artifact/PYd4f8xrcNkPc2TyPkE4ib",people:"https://claude.ai/artifact/MTbRjvLFV7pPhBjpvAzXaq",settings:"https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy#notifications"};
+const URL_={savelater:"../library/timecapsule-library.html#save&as=host&q=Are%20we%20free%20to%20change%20who%20we%20are%3F",agenda:"https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5",live:"https://claude.ai/artifact/2CoEp7SXhBT2oP5hu3zNkk",rate:"https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB#rate",mytables:"https://claude.ai/artifact/GPnp3CiH7iGDpkbqvA4cLB",profile:"https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy",chats:"https://claude.ai/artifact/PYd4f8xrcNkPc2TyPkE4ib",people:"https://claude.ai/artifact/MTbRjvLFV7pPhBjpvAzXaq",settings:"https://claude.ai/artifact/PAUksqiFCEtbuDeWsoXjWy#notifications"};
 const TOP={Philosophy:"#F29BD0",Travel:"#D9E35F",Energy:"#6CB8FF",Science:"#8BE38B",Home:"#5FE0DE"};
 const ICON={
  clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>',
@@ -119,6 +119,7 @@ const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
 /* f: 'tables' | 'tips' | 'people' | 'chats' */
 const N=[
  {id:1,g:'today',f:'tables',un:1,ic:['t','clock'],t:'Starting in 10 min',d:[{q:'Is free will an illusion?'},' ','Hosted by Gregory'],meta:[{tag:'Philosophy'},'Your chair is saved'],time:'18:50',go:'live',acts:[{l:'Join now',c:'pri',go:'live'}]},
+ {id:12,g:'today',f:'tables',un:1,ic:['t','clock'],t:'Last day to save your table',d:[{q:'Are we free to change who we are?'},' ','You hosted it'],say2:"Save it to Conversations by tomorrow at 19:30, or it can't be saved any more.",time:'19:30',go:'savelater',acts:[{l:'Save to Conversations',c:'',go:'savelater'}]},
  {id:2,g:'today',f:'tips',un:1,ic:['k','star'],t:"Rate and tip yesterday's table",d:[{q:'Phenomenology vs. God'},' ','with Gregory'],say2:'Your 8 TimeCoins expire in 2 days.',time:'09:00',go:'rate',acts:[{l:'Rate and tip',c:'gold',go:'rate'}]},
  {id:3,g:'today',f:'chats',un:1,ic:['p','Amara'],t:'Amara sent you a message',say:'Here is the book I mentioned, The Overstory.',time:'17:40',chat:'a',acts:[{l:'Reply',c:'',chat:'a'}]},
  {id:4,g:'today',f:'people',un:1,ic:['p','Priya'],t:'Priya is hosting a new table',d:[{q:'Slow travel and the art of staying'}],meta:[{tag:'Travel'},'Thu at 19:00','3 chairs free'],time:'15:05',go:'agenda',acts:[{l:'Save a chair',c:'',save:1}]},

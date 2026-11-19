@@ -1,4 +1,4 @@
-# Builds help/live-pages/discussions.html (public Discussions page, header link) from the My tables page shell.
+# Builds help/live-pages/discussions.html (public Conversations page, header link) from the My tables page shell.
 # Run: python3 library/build_disc.py (build.py runs it too)
 import re, json, os, subprocess, sys, random
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
@@ -38,13 +38,13 @@ def build():
     helpers = re.search(r'\nconst HAIR=.*?\nconst P=.*?\nfunction av\(n\).*?\n', s, re.S).group(0)
     head = s[:s.index('<div class="wrap">\n  <section class="hero">')]
     foot = s[s.index('<style id="tcf-css">'):s.index('<style id="tce-css">')] + s[s.index('<footer class="tcf"'):]
-    head = re.sub(r'<title>[^<]*</title>', '<title>TimeCapsule Discussions</title>', head, count=1)
+    head = re.sub(r'<title>[^<]*</title>', '<title>TimeCapsule Conversations</title>', head, count=1)
     if '<meta name="viewport"' not in head[:2000]:
         head = '<!doctype html>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n' + head
     head = head.replace('<a href="#" data-tch="noop" aria-current="page" style="color:var(--tch-teal)">My tables</a>', '<a href="mytables.html" target="_top">My tables</a>')
-    head, n = re.subn(r'<a href="discussions.html" target="_top">Discussions</a>', '<a href="#" aria-current="page">Discussions</a>', head)
+    head, n = re.subn(r'<a href="discussions.html" target="_top">Conversations</a>', '<a href="#" aria-current="page">Conversations</a>', head)
     assert n >= 1, 'nav link missing in mytables shell'
-    head = head.replace('Search my tables', 'Search discussions')
+    head = head.replace('Search my tables', 'Search conversations')
     D1 = load_dict(os.path.join(HERE, 'dict-disc.txt'), 3); DE = load_dict(os.path.join(HERE, 'dict-disc-el.txt'), 1)
     m0 = re.search(r'<script id="tc-i18n">window\.TCI18N_DICT=(.*?);\n', head, re.S)
     D = json.loads(m0.group(1).replace('<\\/', '</'))

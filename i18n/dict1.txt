@@ -178,4 +178,4 @@ Gregory (owner)|Gregory (proprietario)|Gregory (propietario)
 You|Tu|Tú
 Yes|Sì|Sí
 No|No|No
-Discussions|Discussioni|Conversaciones
+Conversations|Conversazioni|Conversaciones

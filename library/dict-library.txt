@@ -1,8 +1,8 @@
 Library|Biblioteca|Biblioteca
 My library|La mia biblioteca|Mi biblioteca
-discussions|discussioni|conversaciones
+conversations|conversazioni|conversaciones
 topics|temi|temas
-All discussions|Tutte le discussioni|Todas las conversaciones
+All conversations|Tutte le conversazioni|Todas las conversaciones
 Tap a planet to open it.|Tocca un pianeta per aprirla.|Toca un planeta para abrirla.
 Tap the photo to go back to the readings.|Tocca la foto per tornare alle letture.|Toca la foto para volver a las lecturas.
 Tap the photo to open the library.|Tocca la foto per aprire la biblioteca.|Toca la foto para abrir la biblioteca.
@@ -16,7 +16,7 @@ Only the people at the table|Solo chi era al tavolo|Solo quienes estaban en la m
 Transcript · Notes|Trascrizione · Note|Transcripción · Notas
 Screen|Schermata|Pantalla
 After the table|Dopo il tavolo|Después de la mesa
-Saved discussion|Discussione salvata|Conversación guardada
+Saved conversation|Conversazione salvata|Conversación guardada
 View as|Vedi come|Ver como
 Gregory (host)|Gregory (host)|Gregory (anfitrión)
 Gabriele (was at the table)|Gabriele (era al tavolo)|Gabriele (estaba en la mesa)
@@ -43,7 +43,7 @@ Only you can see these|Solo tu puoi vederle|Solo tú puedes verlas
 Pick it up again|Riprendila|Retómala
 Plan the next round. Everyone from earlier rounds gets the invite first.|Pianifica il prossimo giro. Chi era ai giri precedenti riceve l'invito per primo.|Planifica la próxima ronda. Quienes estuvieron en rondas anteriores reciben la invitación primero.
 Plan round|Pianifica il giro|Planificar la ronda
-The new round is added to this discussion, so the record keeps growing in one place.|Il nuovo giro si aggiunge a questa discussione, così la memoria cresce in un solo posto.|La nueva ronda se añade a esta conversación, así el registro crece en un solo lugar.
+The new round is added to this conversation, so the record keeps growing in one place.|Il nuovo giro si aggiunge a questa conversazione, così la memoria cresce in un solo posto.|La nueva ronda se añade a esta conversación, así el registro crece en un solo lugar.
 Asking to join|Chiedono di partecipare|Piden unirse
 People who weren't at the table. You decide who sits down next time.|Persone che non erano al tavolo. Decidi tu chi si siede la prossima volta.|Personas que no estaban en la mesa. Tú decides quién se sienta la próxima vez.
 Accept|Accetta|Aceptar
@@ -51,11 +51,11 @@ Decline|Rifiuta|Rechazar
 Accepted.|Accettato.|Aceptado.
 gets the invite for the next round.|riceve l'invito per il prossimo giro.|recibe la invitación para la próxima ronda.
 Declined. We'll let them know.|Rifiutato. Glielo diremo noi.|Rechazado. Se lo haremos saber.
-You were at this table, so you'll be invited when Gregory plans the next round.|Eri a questo tavolo, quindi sarai invitato quando Gregory pianifica il prossimo giro.|Estuviste en esta mesa, así que te invitaremos cuando Gregory planifique la próxima ronda.
+You were at this table, so you'll be invited when the host plans the next round.|Eri a questo tavolo, quindi sarai invitato quando l'host pianifica il prossimo giro.|Estuviste en esta mesa, así que te invitaremos cuando el anfitrión planifique la próxima ronda.
 Ask Gregory for another round|Chiedi a Gregory un altro giro|Pide a Gregory otra ronda
 Asked. We'll tell you when Gregory plans it.|Richiesta inviata. Ti avvisiamo quando Gregory lo pianifica.|Pedido. Te avisaremos cuando Gregory la planifique.
 Join the next round|Partecipa al prossimo giro|Únete a la próxima ronda
-This discussion is still going. Ask Gregory, the host, for a chair at the next round.|Questa discussione continua. Chiedi a Gregory, l'host, una sedia al prossimo giro.|Esta conversación sigue. Pide a Gregory, el anfitrión, una silla en la próxima ronda.
+This conversation is still going. Ask Gregory, the host, for a chair at the next round.|Questa conversazione continua. Chiedi a Gregory, l'host, una sedia al prossimo giro.|Esta conversación sigue. Pide a Gregory, el anfitrión, una silla en la próxima ronda.
 Why you'd like to join (optional)|Perché vorresti partecipare (facoltativo)|Por qué te gustaría unirte (opcional)
 A line about what you'd bring|Una riga su cosa porteresti|Una línea sobre lo que aportarías
 Ask for a chair|Chiedi una sedia|Pedir una silla
@@ -85,7 +85,7 @@ Right for private tables.|Adatto ai tavoli privati.|Adecuado para mesas privadas
 Save to library|Salva nella biblioteca|Guardar en la biblioteca
 Not now|Non ora|Ahora no
 Saved to your library, in|Salvato nella tua biblioteca, in|Guardada en tu biblioteca, en
-Open the discussion|Apri la discussione|Abrir la conversación
+Open the conversation|Apri la conversazione|Abrir la conversación
 See your library|Vedi la tua biblioteca|Ver tu biblioteca
 Not saved. You can save it from My tables for 7 days.|Non salvato. Puoi salvarlo da I miei tavoli per 7 giorni.|No guardada. Puedes guardarla desde Mis mesas durante 7 días.
 Your words in the transcript|Le tue parole nella trascrizione|Tus palabras en la transcripción
@@ -94,7 +94,7 @@ to the library. Choose how you appear in it.|nella biblioteca. Scegli come ci ap
 Include my words|Includi le mie parole|Incluir mis palabras
 Leave my words out|Togli le mie parole|Retirar mis palabras
 What you said is removed. Others see “A participant's words are left out”.|Ciò che hai detto viene tolto. Gli altri vedono “Le parole di un partecipante sono state tolte”.|Lo que dijiste se retira. Los demás ven “Se han retirado las palabras de un participante”.
-You can change this any time from the discussion page.|Puoi cambiarlo quando vuoi dalla pagina della discussione.|Puedes cambiarlo cuando quieras desde la página de la conversación.
+You can change this any time from the conversation page.|Puoi cambiarlo quando vuoi dalla pagina della conversazione.|Puedes cambiarlo cuando quieras desde la página de la conversación.
 Your notes|Le tue note|Tus notas
 Save my 3 kept notes to my library|Salva le mie 3 note tenute nella mia biblioteca|Guardar mis 3 notas en mi biblioteca
 Private. Only you see them.|Private. Solo tu le vedi.|Privadas. Solo tú las ves.
@@ -104,7 +104,7 @@ Done. Your words are left out of the transcript.|Fatto. Le tue parole sono state
 Rate and tip|Valuta e lascia una mancia|Valorar y dar propina
 Where this sits in the library|Dove si trova nella biblioteca|Dónde está en la biblioteca
 Rounds|Giri|Rondas
-Discussion|Discussione|Conversación
+Conversation|Conversazione|Conversación
 Free will|Libero arbitrio|Libre albedrío
 Phenomenology|Fenomenologia|Fenomenología
 Ethics|Etica|Ética
@@ -123,25 +123,25 @@ AI summary, edited by Gregory|Riassunto IA, modificato da Gregory|Resumen IA, ed
 Edit|Modifica|Editar
 Save|Salva|Guardar
 Cancel|Annulla|Cancelar
-Discussions|Discussioni|Conversaciones
-Open Discussions|Apri Discussioni|Abrir Conversaciones
-Where this sits in the discussions|Dove si trova tra le discussioni|Dónde está entre las conversaciones
-Gregory's discussions|Le discussioni di Gregory|Las conversaciones de Gregory
-Save this table to Discussions|Salva questo tavolo in Discussioni|Guarda esta mesa en Conversaciones
-Private. Only you see them in Discussions.|Private. Solo tu le vedi in Discussioni.|Privadas. Solo tú las ves en Conversaciones.
-Where it goes in Discussions|Dove va in Discussioni|Dónde va en Conversaciones
-Shown in Discussions on your profile. Others can ask to join the next round.|Appare in Discussioni sul tuo profilo. Altri possono chiedere di partecipare al prossimo giro.|Aparece en Conversaciones de tu perfil. Otros pueden pedir unirse a la próxima ronda.
-Save to Discussions|Salva in Discussioni|Guardar en Conversaciones
-to the discussions on the profile. Choose how you appear in it.|tra le discussioni del profilo. Scegli come ci appari.|en las conversaciones del perfil. Elige cómo apareces.
-Save my 3 kept notes to Discussions|Salva le mie 3 note tenute in Discussioni|Guardar mis 3 notas en Conversaciones
-Saved to Discussions, in|Salvato in Discussioni, in|Guardada en Conversaciones, en
-See Discussions|Vedi Discussioni|Ver Conversaciones
+Conversations|Conversazioni|Conversaciones
+Open Conversations|Apri Conversazioni|Abrir Conversaciones
+Where this sits in the conversations|Dove si trova tra le conversazioni|Dónde está entre las conversaciones
+Gregory's conversations|Le conversazioni di Gregory|Las conversaciones de Gregory
+Save this table to Conversations|Salva questo tavolo in Conversazioni|Guarda esta mesa en Conversaciones
+Private. Only you see them in Conversations.|Private. Solo tu le vedi in Conversazioni.|Privadas. Solo tú las ves en Conversaciones.
+Where it goes in Conversations|Dove va in Conversazioni|Dónde va en Conversaciones
+Shown in Conversations on your profile. Others can ask to join the next round.|Appare in Conversazioni sul tuo profilo. Altri possono chiedere di partecipare al prossimo giro.|Aparece en Conversaciones de tu perfil. Otros pueden pedir unirse a la próxima ronda.
+Save to Conversations|Salva in Conversazioni|Guardar en Conversaciones
+to the conversations on the profile. Choose how you appear in it.|tra le conversazioni del profilo. Scegli come ci appari.|en las conversaciones del perfil. Elige cómo apareces.
+Save my 3 kept notes to Conversations|Salva le mie 3 note tenute in Conversazioni|Guardar mis 3 notas en Conversaciones
+Saved to Conversations, in|Salvato in Conversazioni, in|Guardada en Conversaciones, en
+See Conversations|Vedi Conversazioni|Ver Conversaciones
 Edit summary|Modifica il riassunto|Editar el resumen
-Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Ogni tavolo lascia una traccia. Le discussioni che salvi trovano qui la loro orbita, per argomento, così vedi le idee che hai esplorato con altre persone.|Cada mesa deja una huella. Las conversaciones que guardas encuentran aquí su órbita, por tema, para que veas las ideas que has explorado con otras personas.
+Every table leaves a trace. The conversations you save find their orbit here, by topic, so you can see the ideas you have explored with other people.|Ogni tavolo lascia una traccia. Le conversazioni che salvi trovano qui la loro orbita, per argomento, così vedi le idee che hai esplorato con altre persone.|Cada mesa deja una huella. Las conversaciones que guardas encuentran aquí su órbita, por tema, para que veas las ideas que has explorado con otras personas.
 Tap a planet to read it again, or pick it up for another round.|Tocca un pianeta per rileggerla o riprenderla per un altro giro.|Toca un planeta para volver a leerla o retomarla en otra ronda.
 Readings|Letture|Lecturas
-What are Discussions?|Cosa sono le Discussioni?|¿Qué son las Conversaciones?
-About Discussions|Informazioni sulle Discussioni|Acerca de Conversaciones
+What are Conversations?|Cosa sono le Conversazioni?|¿Qué son las Conversaciones?
+About Conversations|Informazioni sulle Conversazioni|Acerca de Conversaciones
 Universe|Universo|Universo
 My universe|Il mio universo|Mi universo
 books|libri|libros
@@ -149,17 +149,46 @@ Tap to open.|Tocca per aprire.|Toca para abrir.
 (host)|(host)|(anfitrión)
 Notes by the host|Note dell'host|Notas del anfitrión
 Ask the host for another round|Chiedi all'host un altro giro|Pide al anfitrión otra ronda
-This discussion is still going. Ask the host for a chair at the next round.|Questa discussione continua. Chiedi all'host una sedia al prossimo giro.|Esta conversación sigue. Pide al anfitrión una silla en la próxima ronda.
+This conversation is still going. Ask the host for a chair at the next round.|Questa conversazione continua. Chiedi all'host una sedia al prossimo giro.|Esta conversación sigue. Pide al anfitrión una silla en la próxima ronda.
 Suggested from the conversation.|Suggerito dalla conversazione.|Sugerido por la conversación.
 Tap another one to change it.|Toccane un altro per cambiarlo.|Toca otro para cambiarlo.
 That one already exists, so we picked|Esiste già, quindi abbiamo scelto|Ya existe, así que elegimos
-New subtopics show under “Other” on Discussions until about 5 discussions use them.|I nuovi sotto-argomenti compaiono in “Altro” nelle Discussioni finché non li usano circa 5 discussioni.|Los subtemas nuevos aparecen en “Otros” en Conversaciones hasta que unas 5 conversaciones los usan.
+New subtopics show under “Other” on Conversations until about 5 conversations use them.|I nuovi sotto-argomenti compaiono in “Altro” nelle Conversazioni finché non li usano circa 5 conversazioni.|Los subtemas nuevos aparecen en “Otros” en Conversaciones hasta que unas 5 conversaciones los usan.
 Suggested|Suggerito|Sugerido
-Discussions by|Discussioni di|Conversaciones de
+Conversations by|Conversazioni di|Conversaciones de
 More from|Altro da|Más de
 See all|Vedi tutte|Ver todas
 You too|Anche tu|Tú también
 Mutual reads|Letture in comune|Lecturas en común
 mutual reads|letture in comune|lecturas en común
-See all discussions|Vedi tutte le discussioni|Ver todas las conversaciones
+See all conversations|Vedi tutte le conversazioni|Ver todas las conversaciones
 See all tables|Vedi tutti i tavoli|Ver todas las mesas
+Your words are in the transcript.|Le tue parole sono nella trascrizione.|Tus palabras están en la transcripción.
+Your words are left out of the transcript.|Le tue parole sono state tolte dalla trascrizione.|Tus palabras se retiraron de la transcripción.
+You're all done|Hai finito|Ya está todo
+Thank you for being at the table.|Grazie di esserti seduto al tavolo.|Gracias por sentarte a la mesa.
+Six people, one question, and an hour of real listening. Something you said will stay with someone, maybe longer than you think.|Sei persone, una domanda e un'ora di ascolto vero. Qualcosa che hai detto resterà a qualcuno, forse più a lungo di quanto pensi.|Seis personas, una pregunta y una hora de escucha de verdad. Algo que dijiste se quedará con alguien, quizá más de lo que crees.
+Thank you for hosting.|Grazie per aver ospitato il tavolo.|Gracias por ser anfitrión.
+You gave six people an hour to think out loud together. That is rarer than it sounds.|Hai dato a sei persone un'ora per pensare ad alta voce insieme. È più raro di quanto sembri.|Diste a seis personas una hora para pensar en voz alta juntas. Es más raro de lo que parece.
+Host round 4|Ospita il round 4|Organiza la ronda 4
+Same question, a new week. We fill in the details from this table.|Stessa domanda, nuova settimana. Compiliamo i dettagli da questo tavolo.|La misma pregunta, otra semana. Rellenamos los datos a partir de esta mesa.
+Keep the conversation going|Continua la conversazione|Sigue la conversación
+More on|Altro su|Más sobre
+Philosophy this week|Filosofia questa settimana|Filosofía esta semana
+Hosted by|Ospitato da|Organiza
+Thu|Gio|Jue
+Sat|Sab|Sáb
+Sun|Dom|Dom
+2 chairs left|2 sedie libere|Quedan 2 sillas
+4 chairs left|4 sedie libere|Quedan 4 sillas
+1 chair left|1 sedia libera|Queda 1 silla
+Save a chair|Prenota una sedia|Reserva una silla
+Chair saved|Sedia prenotata|Silla reservada
+See all tables|Vedi tutti i tavoli|Ver todas las mesas
+Same question, next week?|Stessa domanda, la prossima settimana?|¿La misma pregunta, la semana que viene?
+We fill in the details from this table, so it takes a minute.|Compiliamo i dettagli da questo tavolo: basta un minuto.|Rellenamos los datos a partir de esta mesa: es un minuto.
+Not saved. You can save it from|Non salvato. Puoi salvarlo da|No guardada. Puedes guardarla desde
+for 7 days. We'll remind you the day before it's too late.|per 7 giorni. Te lo ricordiamo il giorno prima della scadenza.|durante 7 días. Te lo recordaremos el día antes de que sea tarde.
+Host it again|Ospitalo di nuovo|Organízala otra vez
+Not saved yet|Non ancora salvato|Aún sin guardar
+My tables|I miei tavoli|Mis mesas

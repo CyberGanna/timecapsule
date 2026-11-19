@@ -75,14 +75,14 @@ Rate and tip|Vota e lascia una mancia|Valorar y dar propina
 Rate and tip this table|Vota e lascia una mancia a questo tavolo|Valora y da propina a esta mesa
 Rate and tip yesterday's table|Vota il tavolo di ieri e lascia una mancia|Valora la mesa de ayer y da propina
 Rate the table and award TimeCoins|Vota il tavolo e assegna TimeCoins|Valora la mesa y da TimeCoins
-How was the discussion?|Com'è stata la discussione?|¿Qué tal la conversación?
+How was the conversation?|Com'è stata la conversazione?|¿Qué tal la conversación?
 Pick an answer to continue|Scegli una risposta per continuare|Elige una respuesta para continuar
 Add a note (optional)|Aggiungi una nota (facoltativa)|Añade una nota (opcional)
-Note about the discussion|Nota sulla discussione|Nota sobre la conversación
+Note about the conversation|Nota sulla conversazione|Nota sobre la conversación
 Next: award TimeCoins|Avanti: assegna TimeCoins|Siguiente: dar TimeCoins
 Award TimeCoins|Assegna TimeCoins|Dar TimeCoins
 Award your favorite panelists|Premia i partecipanti preferiti|Premia a tus participantes favoritos
-Award anyone at the table after the talk|Premia chiunque al tavolo dopo la discussione|Premia a cualquiera de la mesa después de la charla
+Award anyone at the table after the talk|Premia chiunque al tavolo dopo la conversazione|Premia a cualquiera de la mesa después de la charla
 Split your TimeCoins between the moderator and the participants who made it worth it.|Dividi i tuoi TimeCoins tra il moderatore e i partecipanti che l'hanno resa preziosa.|Reparte tus TimeCoins entre el moderador y los participantes que hicieron que valiera la pena.
 You have 8 TimeCoins. Tip whoever inspired you today.|Hai 8 TimeCoins. Premia chi ti ha ispirato oggi.|Tienes 8 TimeCoins. Da propina a quien te inspiró hoy.
 They're yours to give away, not to keep. Any you don't award within 3 days expire.|Sono da regalare, non da tenere. Quelli non assegnati entro 3 giorni scadono.|Son para regalar, no para guardar. Los que no des en 3 días caducan.
@@ -149,7 +149,7 @@ Table format|Formato del tavolo|Formato de la mesa
 Who can join|Chi può partecipare|Quién puede unirse
 Anyone can find it on the Tables page and take a free chair.|Chiunque può trovarlo nella pagina Tavoli e prendere un posto libero.|Cualquiera puede encontrarla en la página Mesas y ocupar un sitio libre.
 Only people invited with the link. It stays off the Tables page.|Solo chi è invitato con il link. Non compare nella pagina Tavoli.|Solo quien tenga el enlace de invitación. No aparece en la página Mesas.
-Keep a transcript of the discussion|Conserva una trascrizione della discussione|Guardar una transcripción de la conversación
+Keep a transcript of the conversation|Conserva una trascrizione della conversazione|Guardar una transcripción de la conversación
 Anything we should know? (optional)|C'è qualcosa che dovremmo sapere? (facoltativo)|¿Algo que debamos saber? (opcional)
 Start table|Apri il tavolo|Empezar la mesa
 Opening your table… (coming soon in this prototype)|Apertura del tavolo… (presto in questo prototipo)|Abriendo tu mesa… (pronto en este prototipo)

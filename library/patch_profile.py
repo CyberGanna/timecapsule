@@ -1,3 +1,4 @@
+import re
 # Adds the library to the Profile: the glowing photo in the centre of the k-universe map
 # opens "My library" (discussions as stars, topics as orbits), plus a Library tab.
 # Idempotent: if the profile is already patched it starts again from the pre-library version in git.
@@ -30,7 +31,7 @@ def lib_tab(recs):
             h.append('</ul>')
         h.append('</div>')
     nall = len(recs); npub = sum(1 for r in recs.values() if not r['private'])
-    h.append('<p class="seeall"><a class="lbo" href="../help/live-pages/myuniverse.html#discussions" target="_top"><span>See all discussions</span> ›</a><a class="lbv" href="../help/live-pages/discussions.html#h=Gregory" target="_top"><span>See all discussions</span> ›</a></p>' % ())
+    h.append('<p class="seeall"><a class="lbo" href="../help/live-pages/myuniverse.html#discussions" target="_top"><span>See all conversations</span> ›</a><a class="lbv" href="../help/live-pages/discussions.html#h=Gregory" target="_top"><span>See all conversations</span> ›</a></p>' % ())
     h.append('</section>')
     return '\n'.join(h)
 
@@ -151,12 +152,12 @@ def run(ROOT, recs, LIBD, add_dict):
     npub = sum(1 for r in recs.values() if not r['private'])
     # tab + panel
     s = rep(s, '<button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>',
-            '<button type="button" role="tab" id="t-lb" aria-selected="false" aria-controls="p-lb"><b class="lbc-o">%d</b><b class="lbc-v">%d</b> Discussions</button>\n    <button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>' % (len(recs), npub))
+            '<button type="button" role="tab" id="t-lb" aria-selected="false" aria-controls="p-lb"><b class="lbc-o">%d</b><b class="lbc-v">%d</b> Conversations</button>\n    <button type="button" role="tab" id="t-fw" aria-selected="false" aria-controls="p-fw"><b>6</b> Following</button>' % (len(recs), npub))
     s = rep(s, '  <section class="panel" id="p-fw" role="tabpanel"', lib_tab(recs) + '\n\n  <section class="panel" id="p-fw" role="tabpanel"')
     s = rep(s, '<h2 id="uni-h">My readings <span>36</span></h2>',
             '<h2 id="uni-h">Universe</h2>')
-    s = rep(s, '<div class="uni"><button type="button" class="ulink"', '<div class="uni"><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">Readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">Discussions <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div><button type="button" class="ulink"' % (len(recs), npub))
-    # library data for the map: one orbit per topic, one star per discussion
+    s = rep(s, '<div class="uni"><button type="button" class="ulink"', '<div class="uni"><div class="unitog" role="group" aria-label="Which universe"><button type="button" data-m="read" aria-pressed="true">Readings <span>36</span></button><button type="button" data-m="lib" aria-pressed="false">Conversations <span class="lbc-o">%d</span><span class="lbc-v">%d</span></button></div><button type="button" class="ulink"' % (len(recs), npub))
+    # library data for the map: one orbit per topic, one star per conversation
     order = []; by = {}
     for r in recs.values():
         by.setdefault(r['topic'], []).append(r)
@@ -166,19 +167,19 @@ def run(ROOT, recs, LIBD, add_dict):
     s = rep(s, '\nvar BOOKS=[];T.forEach', '\nvar RT=T,MODE="read",LT=' + json.dumps(LT, ensure_ascii=False) + ';\nvar BOOKS=[];T.forEach')
     s = rep(s, '<b>k▪universe</b><p>Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p><a href="https://k-universe.com/" target="_blank" rel="noopener">Learn more →</a>',
             '<b class="kb-r">k▪universe</b><p class="kb-r">Turns your reading list into a living map. Every book finds its orbit in a theme, so you can see at a glance what shapes your thinking.</p>'
-            '<b class="kb-l">Discussions</b><p class="kb-l">Every table leaves a trace. The discussions you save find their orbit here, by topic, so you can see the ideas you have explored with other people.</p><p class="kb-l">Tap a planet to read it again, or pick it up for another round.</p>')
+            '<b class="kb-l">Conversations</b><p class="kb-l">Every table leaves a trace. The conversations you save find their orbit here, by topic, so you can see the ideas you have explored with other people.</p><p class="kb-l">Tap a planet to read it again, or pick it up for another round.</p>')
     s = rep(s, '<span aria-hidden="true">powered by k▪universe</span>', '<span class="wmt" aria-hidden="true">powered by k▪universe</span>')
     s = rep(s, ' el("circle",{cx:cx,cy:cy,r:4.2,fill:"#FFFDF2"},sunG);', ' var avg=sunAv(sys,orbs,cx,cy);')
     s = rep(s, 'sunG.style.opacity=(1-e).toFixed(3);', 'sunG.style.opacity=(1-e).toFixed(3);avg.setAttribute("transform","rotate("+(-TILT*(1-e)).toFixed(2)+" "+cx+" "+cy+")");avg.style.opacity=(1-e).toFixed(3);avg.style.pointerEvents=e>.5?"none":"";')
     s = rep(s, '"aria-label":bk[0]+" by "+bk[1]+", "+th.n},front);', '"aria-label":bk[0]+BY()+bk[1]+", "+th.n},front);')
     s = rep(s, "aria-label=\"'+esc(b[0])+' by '+esc(b[1])+'\"></button>'", "aria-label=\"'+esc(b[0])+BY()+esc(b[1])+'\"></button>'")
-    s = rep(s, "' '+th.n+' books\">'", "' '+th.n+' '+(MODE==\"lib\"?\"discussions\":\"books\")+'\">'")
+    s = rep(s, "' '+th.n+' books\">'", "' '+th.n+' '+(MODE==\"lib\"?\"conversations\":\"books\")+'\">'")
     s = rep(s, 's.onclick=null;s.onpointerdown=function(ev){if(U.list', 's.onclick=null;s.onpointerdown=function(ev){if(ev.target.closest&&ev.target.closest(".sunav"))return;if(U.list')
     s = rep(s, "'<li style=\"--c:'+th.c+'\"'+(k===sel?' class=\"sel\"':'')+'>", "'<li style=\"--c:'+th.c+'\"'+RA(b)+(k===sel?' class=\"sel\"':'')+'>")
     s = rep(s, "'<li style=\"--c:'+th.c+'\"><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i", "'<li style=\"--c:'+th.c+'\"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i")
-    s = rep(s, '<b>All books</b>', "<b>'+(MODE==\"lib\"?\"All discussions\":\"All books\")+'</b>")
+    s = rep(s, '<b>All books</b>', "<b>'+(MODE==\"lib\"?\"All conversations\":\"All books\")+'</b>")
     s = rep(s, "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);return '<button type=\"button\" class=\"caplink\" data-act=\"all\">'+nb+' books</button>. <button type=\"button\" class=\"caplink\" data-act=\"themes\">'+T.length+' themes</button>. Hover/tap to learn more.'}",
-            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> discussions</button>.</span><span class=\"cm\"></span><span class=\"cr\"></span>';return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> books</button>.</span><span class=\"cm\"></span><span class=\"cr\"></span>'}")
+            "function capU(){var nb=T.reduce(function(a,x){return a+x.b.length},0);if(MODE==\"lib\")return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> conversations</button>.</span><span class=\"cm\"></span><span class=\"cr\"></span>';return '<span class=\"cl\"><button type=\"button\" class=\"caplink\" data-act=\"themes\"><span>'+T.length+'</span> topics</button>. <button type=\"button\" class=\"caplink\" data-act=\"all\"><span>'+nb+'</span> books</button>.</span><span class=\"cm\"></span><span class=\"cr\"></span>'}")
     HELP = r'''function BY(){return MODE=="lib"?", ":" by "}
 function RA(b){return b&&b[2]?' data-r="'+b[2]+'" tabindex="0" role="link"':''}
 function goRec(id){var a=document.createElement("a");a.href="../library/timecapsule-library.html#r="+id+(document.body.classList.contains("visitor")?"&as=visitor":"");a.target="_top";document.body.appendChild(a);a.click();a.remove()}
@@ -196,12 +197,12 @@ function sunAv(sys,before,cx,cy){
  el("circle",{cx:cx,cy:cy,r:22,fill:"transparent"},g);
  return g}
 document.querySelectorAll(".unitog button").forEach(function(b){b.addEventListener("click",function(){if(b.dataset.m!=MODE||!ulink.hidden||!ulay.hidden)setMode(b.dataset.m)})});
-function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;U.list=false;U.page=-1;U.allPg=false;U.uniPg=false;ulay.hidden=true;ulay.className="ulay";ulink.hidden=true;ulink.textContent="☰ List";s.classList.remove("dim");s.parentNode.classList.remove("pgm");if(typeof back!="undefined"&&back)back.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");var kq=document.getElementById("kq");if(kq)kq.setAttribute("aria-label",m=="lib"?"What are Discussions?":"What is k-universe?");var kb=document.getElementById("kbox");if(kb)kb.setAttribute("aria-label",m=="lib"?"About Discussions":"About k-universe");universe()}
+function setMode(m){MODE=m;T=m=="lib"?LT:RT;utip.hidden=true;U.list=false;U.page=-1;U.allPg=false;U.uniPg=false;ulay.hidden=true;ulay.className="ulay";ulink.hidden=true;ulink.textContent="☰ List";s.classList.remove("dim");s.parentNode.classList.remove("pgm");if(typeof back!="undefined"&&back)back.hidden=true;document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m==m)});var r=document.querySelector(".lbreads");if(r)r.classList.toggle("libmode",m=="lib");var kq=document.getElementById("kq");if(kq)kq.setAttribute("aria-label",m=="lib"?"What are Conversations?":"What is k-universe?");var kb=document.getElementById("kbox");if(kb)kb.setAttribute("aria-label",m=="lib"?"About Conversations":"About k-universe");universe()}
 window.KUlib=function(){if(MODE!="lib")setMode("lib")};
 '''
-    # avatar menu: My universe (Readings + Discussions page)
+    # avatar menu: My universe (Readings + Conversations page)
     s = rep(s, '<a href="../help/live-pages/mytables.html" target="_top">My tables</a>', '<a href="../help/live-pages/mytables.html" target="_top">My tables</a><a href="../help/live-pages/myuniverse.html" target="_top">My universe</a>')
-    s = rep(s, '<nav class="tch-nav" aria-label="Main"><a href="../help/live-pages/agenda.html" target="_top">Tables</a>', '<nav class="tch-nav" aria-label="Main"><a href="../help/live-pages/agenda.html" target="_top">Tables</a><a href="../help/live-pages/discussions.html" target="_top">Discussions</a>')
+    s = rep(s, '<nav class="tch-nav" aria-label="Main"><a href="../help/live-pages/agenda.html" target="_top">Tables</a>', '<nav class="tch-nav" aria-label="Main"><a href="../help/live-pages/agenda.html" target="_top">Tables</a><a href="../help/live-pages/discussions.html" target="_top">Conversations</a>')
     s = rep(s, '\nuniverse();\nwindow.KU={T:T,render:universe};', '\n' + HELP + 'universe();\nwindow.KU={T:RT,render:function(){if(MODE!="read"){MODE="read";T=RT;var r=document.querySelector(".lbreads");if(r)r.classList.remove("libmode");document.querySelectorAll(".unitog button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.m=="read")})}universe()}};')
     s = rep(s, 'd.onclick=function(e){e.stopPropagation();show(d)}', 'd.onclick=function(e){e.stopPropagation();if(MODE=="lib"){goRec(T[d.dataset.i].b[d.dataset.j][2]);return}show(d)}')
     # deep link #lib opens the Library tab and the library map
@@ -214,8 +215,8 @@ window.KUlib=function(){if(MODE!="lib")setMode("lib")};
     # "In common": books and films the viewer (Gabriele) also has in their universe
     COMMON = ['Being and Time', 'The Human Condition', 'Meditations', 'The Myth of Sisyphus', 'The Poetics of Space', 'The Craftsman', 'On the Road']
     s = rep(s, '\nfunction allBooks(){U.allPg=true;', '\nvar MINE=' + json.dumps(COMMON) + ';function YT(b){return MODE!="lib"&&MINE.indexOf(b[0])>=0}function YTM(b){return YT(b)?\' <em class="yt">You too</em>\':""}function NCOM(){var n=0;RT.forEach(function(th){th.b.forEach(function(b){if(MINE.indexOf(b[0])>=0)n++})});return n}\nfunction allBooks(cm){U.allPg=true;')
-    s = rep(s, """<b>'+(MODE=="lib"?"All discussions":"All books")+'</b><span style="min-width:52px"></span></div><ul class="pl">'+T.map(function(th){return th.b.map(function(b){return '<li style="--c:'+th.c+'"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i style="font-style:normal;color:'+th.c+'">'+th.n+'</i></small></li>'}).join("")}).join("")+'</ul>';""",
-      """<b>'+(MODE=="lib"?"All discussions":"All books")+'</b>'+(MODE=="lib"?'<span style="min-width:52px"></span>':'<button type="button" class="cmb" aria-pressed="'+!!cm+'"><span>Mutual reads</span></button>')+'</div><ul class="pl">'+(function(){var L=[];T.forEach(function(th){th.b.forEach(function(b){L.push([th,b])})});if(cm)L=L.filter(function(x){return YT(x[1])}).concat(L.filter(function(x){return !YT(x[1])}));return L.map(function(x){var th=x[0],b=x[1];return '<li style="--c:'+th.c+'"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i style="font-style:normal;color:'+th.c+'">'+th.n+'</i>'+YTM(b)+'</small></li>'}).join("")})()+'</ul>';var cmb=ulay.querySelector(".cmb");if(cmb)cmb.onclick=function(e){e.stopPropagation();allBooks(!cm)};""")
+    s = rep(s, """<b>'+(MODE=="lib"?"All conversations":"All books")+'</b><span style="min-width:52px"></span></div><ul class="pl">'+T.map(function(th){return th.b.map(function(b){return '<li style="--c:'+th.c+'"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i style="font-style:normal;color:'+th.c+'">'+th.n+'</i></small></li>'}).join("")}).join("")+'</ul>';""",
+      """<b>'+(MODE=="lib"?"All conversations":"All books")+'</b>'+(MODE=="lib"?'<span style="min-width:52px"></span>':'<button type="button" class="cmb" aria-pressed="'+!!cm+'"><span>Mutual reads</span></button>')+'</div><ul class="pl">'+(function(){var L=[];T.forEach(function(th){th.b.forEach(function(b){L.push([th,b])})});if(cm)L=L.filter(function(x){return YT(x[1])}).concat(L.filter(function(x){return !YT(x[1])}));return L.map(function(x){var th=x[0],b=x[1];return '<li style="--c:'+th.c+'"'+RA(b)+'><span>'+esc(b[0])+'</span><small>'+esc(b[1])+' · <i style="font-style:normal;color:'+th.c+'">'+th.n+'</i>'+YTM(b)+'</small></li>'}).join("")})()+'</ul>';var cmb=ulay.querySelector(".cmb");if(cmb)cmb.onclick=function(e){e.stopPropagation();allBooks(!cm)};""")
     s = rep(s, """'</span><small>'+esc(b[1])+'</small></li>'}).join("")+'</ul>';""", """'</span><small>'+esc(b[1])+YTM(b)+'</small></li>'}).join("")+'</ul>';""")
     s = rep(s, """<button type="button" class="caplink" data-act="all"><span>'+nb+'</span> books</button>.</span>""", """<button type="button" class="caplink" data-act="all"><span>'+nb+'</span> books</button>. <button type="button" class="caplink" data-act="common"><span>'+NCOM()+'</span> mutual reads</button>.</span>""")
     s = rep(s, 'if(b.dataset.act=="all")allBooks();', 'if(b.dataset.act=="all"||b.dataset.act=="common")allBooks(b.dataset.act=="common");')
@@ -224,10 +225,13 @@ window.KUlib=function(){if(MODE!="lib")setMode("lib")};
     i = s.index('id="p-tb"'); j = s.index('<button type="button" class="more">Show more</button>', i)
     s = s[:j] + '<button type="button" class="more" hidden>Show more</button><p class="seeall"><a class="lbo" href="../help/live-pages/mytables.html" target="_top"><span>See all tables</span> ›</a><a class="lbv" href="../help/live-pages/hosttables.html" target="_top"><span>See all tables</span> ›</a></p>' + s[j + len('<button type="button" class="more">Show more</button>'):]
     s = rep(s, '</head>', '<style id="tc-seeall">.panel .seeall{margin:18px 0 0;text-align:center}.panel .seeall a{color:#17C3C8;text-decoration:none;font-weight:600;font-size:14.5px}.panel .seeall a:hover{text-decoration:underline}</style></head>')
-    # Past tables: a "Read" button for tables with a saved discussion instead of the TimeCoins earned (Karim 2026-11-18)
+    # Past tables: a "Read" button for tables with a saved conversation instead of the TimeCoins earned (Karim 2026-11-18)
     SAVED = {r['title']: [k, bool(r['private'])] for k, r in recs.items()}
     s = s[:s.rindex('</body>')] + ('<script id="tc-read">(function(){var S=' + json.dumps(SAVED) + ';function go(){document.querySelectorAll("#p-tb .trow:not(.cur)").forEach(function(li){var e=li.querySelector(".earn");if(!e)return;var b=li.querySelector(".tinfo b"),x=b&&S[b.textContent.trim()];if(!x){e.remove();return}var h="../library/timecapsule-library.html#r="+x[0];var w=document.createElement("span");w.className="tread";w.innerHTML=\'<a class="lbo" href="\'+h+\'&as=host" target="_top">Read</a>\'+(x[1]?"":\'<a class="lbv" href="\'+h+\'&as=visitor" target="_top">Read</a>\');w.addEventListener("click",function(ev){ev.stopPropagation()});e.replaceWith(w)})}if(document.readyState=="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(go,0)});else setTimeout(go,0)})();</script>') + s[s.rindex('</body>'):]
     s = rep(s, '</head>', '<style id="tc-read-css">.tread{margin-left:auto;flex:none;display:flex}.tread a{display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:10px;border:1px solid var(--line2);color:var(--text);font-size:13px;font-weight:500;text-decoration:none}.tread a:hover{border-color:#17C3C8;color:#17C3C8}</style></head>')
+    # "Discussions" was renamed "Conversations" (Karim 2026-11-18); the base page still has the old word
+    s = re.sub(r'(?<![/#|(\w-])([Dd])iscussion(s?)\b(?!\.html)(?![\w-])', lambda m: ('C' if m.group(1) == 'D' else 'c') + 'onversation' + m.group(2), s)
+    s = re.sub(r'(?<!in )([Dd])iscussion([ei])\b', lambda m: ('C' if m.group(1) == 'D' else 'c') + 'onversazion' + m.group(2), s)
     open(P, 'w', encoding='utf8').write(s)
     subprocess.run(['python3', os.path.join(ROOT, 'i18n/add-greek.py'), P], check=True)
     print('profile patched', len(s))
