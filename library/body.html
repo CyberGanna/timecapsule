@@ -182,10 +182,25 @@
 <main id="lib" class="lw">
 
 <!-- Saved conversation -->
+<style id="tc-rshare">
+.rtrow{display:flex;align-items:flex-start;gap:16px;max-width:800px}
+.rtrow h1{flex:1;min-width:0}
+.rshare{flex:none;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;margin-top:4px;border-radius:12px;border:1px solid var(--line,rgba(255,255,255,.14));background:transparent;color:var(--text,#EEF1FF);font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.rshare svg{width:17px;height:17px}
+.rshare:hover,.rshare[aria-expanded="true"]{border-color:#1BC3C7}
+.rshp{max-width:800px;margin:4px 0 18px;padding:14px 16px;border:1px solid var(--line,rgba(255,255,255,.14));border-radius:14px;background:rgba(255,255,255,.03)}
+.rshp[hidden]{display:none!important}
+.rshl{display:block;font-size:13px;color:var(--mute,#9AA3C7);margin-bottom:10px;word-break:break-all}
+.rsho{display:flex;flex-wrap:wrap;gap:8px}
+.rsho>*{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line,rgba(255,255,255,.14));background:transparent;color:var(--text,#EEF1FF);font:inherit;font-size:13px;text-decoration:none;cursor:pointer}
+.rsho>*:hover{border-color:#1BC3C7}
+@media (max-width:600px){.rshare span{display:none}.rshare{width:40px;padding:0;justify-content:center}}
+</style>
 <section id="vrec">
   <nav class="crumb" aria-label="Where this sits in the conversations"><a href="../profile/timecapsule-profile.html#lib" target="_top" id="rcLib">Gregory's conversations</a><span class="sep">›</span><span id="rcTop"></span><span class="sep">›</span><span id="rcSub"></span></nav>
-  <h1 id="rTitle" data-noi18n></h1>
+  <div class="rtrow"><h1 id="rTitle" data-noi18n></h1><button type="button" class="rshare" id="rShare" aria-expanded="false" aria-controls="rShP"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Share</span></button></div>
   <p class="meta" id="rMeta"></p>
+  <div class="rshp" id="rShP" hidden><span class="rshl" id="rShL" data-noi18n></span><div class="rsho"><button type="button" data-sh="copy">Copy link</button><a data-sh="chat" href="../help/live-pages/chats.html" target="_top">Send in a chat</a><a data-sh="mail" id="rShM" href="#" target="_top">Email</a><button type="button" data-sh="more">More</button></div></div>
   <section class="sum" aria-labelledby="sum-h">
     <div class="sumh"><h2 id="sum-h">Summary</h2><span class="aitag"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg><span id="sumTag">AI summary, written after the table</span></span></div>
     <p id="sumTx"><span id="sumTxt" data-noi18n></span><button type="button" class="sumdots r-host" id="sumEdit" aria-label="Edit summary" title="Edit summary">Edit<svg viewBox="0 0 20 8" aria-hidden="true"><circle cx="3" cy="4" r="1.7"/><circle cx="10" cy="4" r="1.7"/><circle cx="17" cy="4" r="1.7"/></svg></button></p>
@@ -508,4 +523,15 @@ fromHash();pills();render();
 })();
 window.addEventListener("hashchange",function(){fromHash();render();scrollTo(0,0)});
 })();
+</script>
+
+<script id="tc-rshare-js">
+(function(){var b=document.getElementById("rShare"),p=document.getElementById("rShP");if(!b||!p)return;
+function rid(){var m=location.hash.match(/[#&]r=([^&]+)/);return m?m[1]:"free-will"}
+function link(){return "timecapsule.app/c/"+rid()}
+b.addEventListener("click",function(){var o=p.hidden;p.hidden=!o;b.setAttribute("aria-expanded",o);if(o){document.getElementById("rShL").textContent=link();var t=(document.getElementById("rTitle")||{}).textContent||"";document.getElementById("rShM").href="mailto:?subject="+encodeURIComponent(t)+"&body="+encodeURIComponent(t+"\nhttps://"+link())}});
+p.addEventListener("click",function(e){var x=e.target.closest("[data-sh]");if(!x)return;var k=x.dataset.sh,u="https://"+link();
+ if(k==="copy"){e.preventDefault();try{navigator.clipboard.writeText(u)}catch(_){}x.textContent="Copied ✓";setTimeout(function(){x.textContent=(window.TCI18N&&TCI18N.t?TCI18N.t("Copy link"):"Copy link")},1600)}
+ if(k==="more"){e.preventDefault();if(navigator.share){navigator.share({title:(document.getElementById("rTitle")||{}).textContent,url:u}).catch(function(){})}else{try{navigator.clipboard.writeText(u)}catch(_){}x.textContent="Copied ✓"}}
+});})();
 </script>
