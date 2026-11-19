@@ -2138,3 +2138,5 @@ Only people you met at a table.|Μόνο άνθρωποι που γνώρισε�
 Nobody by that name at your past tables.|Κανείς με αυτό το όνομα στα περασμένα τραπέζια σου.
 Invite card|Πρόσκληση στο τραπέζι
 Add a note (optional)|Πρόσθεσε ένα σημείωμα (προαιρετικό)
+Not sent yet|Δεν στάλθηκε ακόμα
+Send invite to|Στείλε πρόσκληση στον/στην

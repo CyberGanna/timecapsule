@@ -15,9 +15,10 @@ CSS = '''<style id="tc-compose-css">.to{max-width:520px;width:100%;margin:6px au
 .to li[aria-selected=true],.to li:hover{background:rgba(255,255,255,.06)}.to li.none{cursor:default;color:var(--mute,#8E96C4);font-size:13px}.to li.none:hover{background:none}
 .to .hint{margin:14px 0 0;color:var(--mute,#8E96C4);font-size:13px;line-height:1.5}.to .pv{margin:16px 0 0;padding:12px 14px;border-radius:14px;background:#2C3366;font-size:14px;line-height:1.5;word-break:break-word}
 .to.warn input{border-color:#F2C14E}.to .pvw{margin:22px 0 0}.to .pvw .go,.att .go{display:none}.to .pvl{display:block;margin:0 0 8px;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mute,#8E96C4)}
-.att{display:flex;align-items:center;gap:12px;margin:0 clamp(16px,4vw,48px);padding:10px 12px;border-radius:14px 14px 0 0;border:1px solid rgba(124,92,255,.5);border-bottom:0;background:var(--surface,#20264A)}.att .ico{width:36px;height:36px;border-radius:50%;flex:none;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,var(--c),#252B52)}
-.att .ico svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.att .t{flex:1;min-width:0;font-size:13.5px}.att .t small{display:block;color:var(--mute,#8E96C4);font-size:12px}.att .t b{font-weight:500}
-.att .x{all:unset;cursor:pointer;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:var(--mute,#8E96C4);font-size:18px}.att .x:hover{background:rgba(255,255,255,.08);color:#EEF1FF}</style>'''
+.draft{align-self:flex-end;display:flex;flex-direction:column;align-items:flex-end;gap:10px;margin:14px 0 4px;max-width:100%}.draft .dl{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#F2C14E}
+.draft .inv{border:1.5px dashed rgba(124,92,255,.7)}.draft .go{display:none}.draft .dacts{display:flex;gap:8px;align-items:center}
+.draft .dsend{all:unset;box-sizing:border-box;cursor:pointer;height:40px;padding:0 18px;border-radius:10px;background:#17C3C8;color:#0E1430;font-size:14px;font-weight:600}.draft .dsend:focus-visible{outline:2px solid #EEF1FF;outline-offset:2px}
+.draft .dx{all:unset;cursor:pointer;height:40px;padding:0 12px;border-radius:10px;color:var(--mute,#8E96C4);font-size:14px}.draft .dx:hover{color:#EEF1FF}</style>'''
 
 JS = '''
 /* tc-compose: Send in a chat from a table opens a new message with the link written; you pick who gets it */
@@ -34,8 +35,13 @@ JS = '''
   document.getElementById("invbtn").style.display="none";
   const q=document.getElementById("tonm"),ul=document.getElementById("tosug"),txt=document.getElementById("txt");
   const ph=txt.placeholder; txt.placeholder="Add a note (optional)";
-  function tray(){if(document.getElementById("att"))return;document.getElementById("composer").insertAdjacentHTML("beforebegin",'<div class="att" id="att" style="--c:'+THEMES[TT.theme]+'"><span class="ico">'+icon(TT.theme)+'</span><span class="t"><span>Invite card</span>: <b data-noi18n>'+esc(TT.title)+'</b><small>'+esc(TT.when)+'</small></span><button type="button" class="x" id="attx" aria-label="Remove">×</button></div>');
-    document.getElementById("attx").onclick=()=>{document.getElementById("att").remove();txt.placeholder=ph}}
+  function tray(name){const st=document.getElementById("stream");if(document.getElementById("att"))return;
+    st.insertAdjacentHTML("beforeend",'<div class="draft" id="att"><span class="dl">Not sent yet</span>'+invCard("new",true)+'<div class="dacts"><button type="button" class="dx" id="attx">Remove</button><button type="button" class="dsend" id="atts"><span>Send invite to</span> <span data-noi18n>'+esc(name)+'</span></button></div></div>');
+    st.scrollTop=st.scrollHeight;
+    document.getElementById("attx").onclick=()=>{document.getElementById("att").remove();txt.placeholder=ph};
+    document.getElementById("atts").onclick=()=>sendDraft()}
+  function sendDraft(){const at=document.getElementById("att");if(!at)return;const t=txt.value.trim();txt.value="";at.remove();txt.placeholder=ph;
+    push({from:ME,inv:"new",at:now()});if(t)push(["You",t,now()]);reply(S.cur)}
   function sug(){const v=q.value.trim().toLowerCase();document.getElementById("to").classList.remove("warn");
     if(!v){ul.hidden=true;q.setAttribute("aria-expanded","false");return}
     list=people.filter(p=>p.name.toLowerCase().includes(v)).sort((a,b)=>a.name.toLowerCase().indexOf(v)-b.name.toLowerCase().indexOf(v)).slice(0,5);act=list.length?0:-1;
@@ -44,7 +50,7 @@ JS = '''
   function pick(i){const p=list[i];if(!p)return;let c=C.find(x=>x.kind==="person"&&x.name===p.name);
     if(!c){c={id:"new-"+p.name.toLowerCase(),kind:"person",name:p.name,online:false,seen:"",unread:0,ctx:"You met at <b>"+esc(p.met)+"</b>",m:[]};C.unshift(c)}
     try{history.replaceState(history.state,"",location.pathname+location.search)}catch(e){}
-    open(c.id);tray();txt.focus()}
+    open(c.id);tray(p.name);txt.focus()}
   q.addEventListener("input",sug);
   q.addEventListener("keydown",e=>{if(e.key==="ArrowDown"&&list.length){e.preventDefault();act=(act+1)%%list.length;ul.querySelectorAll("li[data-i]").forEach(li=>li.setAttribute("aria-selected",String(+li.dataset.i===act)))}
     else if(e.key==="ArrowUp"&&list.length){e.preventDefault();act=(act-1+list.length)%%list.length;ul.querySelectorAll("li[data-i]").forEach(li=>li.setAttribute("aria-selected",String(+li.dataset.i===act)))}
@@ -52,16 +58,15 @@ JS = '''
   ul.addEventListener("mousedown",e=>{const li=e.target.closest("li[data-i]");if(li){e.preventDefault();pick(+li.dataset.i)}});
   document.getElementById("composer").addEventListener("submit",e=>{
     if(!S.cur){e.preventDefault();e.stopImmediatePropagation();document.getElementById("to").classList.add("warn");q.focus();return}
-    const at=document.getElementById("att");if(!at)return;
-    e.preventDefault();e.stopImmediatePropagation();const t=txt.value.trim();txt.value="";at.remove();txt.placeholder=ph;
-    push({from:ME,inv:"new",at:now()});if(t)push(["You",t,now()]);reply(S.cur)},true);
+    if(!document.getElementById("att"))return;
+    e.preventDefault();e.stopImmediatePropagation();sendDraft()},true);
   document.addEventListener("click",e=>{if(e.target.closest("#back")){const at=document.getElementById("att");if(at)at.remove();txt.placeholder=ph}});
   q.focus();
   return true;
 })()||'''
 
 STR = {'New message': ['Nuovo messaggio', 'Nuevo mensaje', 'Νέο μήνυμα'], 'Pick who gets it': ['Scegli a chi mandarlo', 'Elige a quién enviarlo', 'Διάλεξε σε ποιον θα πάει'],
-       'To': ['A', 'Para', 'Προς'], 'Only people you met at a table.': ['Solo persone conosciute a un tavolo.', 'Solo personas que conociste en una mesa.', 'Μόνο άνθρωποι που γνώρισες σε τραπέζι.'], 'Invite card': ['Invito al tavolo', 'Invitación a la mesa', 'Πρόσκληση στο τραπέζι'], 'Add a note (optional)': ['Aggiungi una nota (facoltativa)', 'Añade una nota (opcional)', 'Πρόσθεσε ένα σημείωμα (προαιρετικό)'],
+       'To': ['A', 'Para', 'Προς'], 'Only people you met at a table.': ['Solo persone conosciute a un tavolo.', 'Solo personas que conociste en una mesa.', 'Μόνο άνθρωποι που γνώρισες σε τραπέζι.'], 'Invite card': ['Invito al tavolo', 'Invitación a la mesa', 'Πρόσκληση στο τραπέζι'], 'Not sent yet': ['Non ancora inviato', 'Aún sin enviar', 'Δεν στάλθηκε ακόμα'], 'Send invite to': ['Invia invito a', 'Enviar invitación a', 'Στείλε πρόσκληση στον/στην'], 'Remove': ['Togli', 'Quitar', 'Αφαίρεση'], 'Add a note (optional)': ['Aggiungi una nota (facoltativa)', 'Añade una nota (opcional)', 'Πρόσθεσε ένα σημείωμα (προαιρετικό)'],
        'Nobody by that name at your past tables.': ['Nessuno con questo nome ai tuoi tavoli passati.', 'Nadie con ese nombre en tus mesas pasadas.', 'Κανείς με αυτό το όνομα στα περασμένα τραπέζια σου.'],
        'Type a name': ['Scrivi un nome', 'Escribe un nombre', 'Γράψε ένα όνομα'], 'Met at': ['Conosciuto a', 'Os conocisteis en', 'Γνωριστήκατε στο']}
 MSG = 'Pull up a chair with me: '
