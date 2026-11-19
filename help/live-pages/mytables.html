@@ -763,7 +763,7 @@ function pplLine(t){
     if(isHost(t)&&t.unsaved) return `<small><b>${t.people.length-1} guests</b> · <span class="unsv">Not saved · ${t.unsaved} days left</span></small>`;
     if(!isHost(t)&&!t.rated){const d=Math.min(7,Math.max(1,7-Math.floor((Date.now()-(+t.at))/864e5)));return `<small><b>${t.host}</b> hosted · <span class="unsv">${d===1?"1 day":d+" days"} left to rate</span></small>`}
     if(isHost(t)) return `<small><b>${t.people.length-1} guests</b> · ★ ${t.score} · <span style="color:var(--gold)">${t.coins} TimeCoins</span></small>`;
-    return `<small><b>${t.host}</b> hosted · ${t.people.length} at the table${t.notes.length?` · <b>${t.notes.length} kept ${t.notes.length===1?"note":"notes"}</b>`:""}</small>`;
+    return `<small><b>${t.host}</b> hosted · ${t.people.length} at the table</small>`;
   }
   const left=t.seats-t.people.length;
   if(isHost(t)) return `<small><b>${t.people.length-1} coming</b> · ${left>0?`${left} free`:"full"}${t.invites?` · ${t.invites} invited`:""}</small>`;
