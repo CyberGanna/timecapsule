@@ -2114,3 +2114,4 @@ You tipped the people who inspired you.|Φιλοδώρησες όσους σε �
 Tip the people who inspired you.|Φιλοδώρησε όσους σε ενέπνευσαν.
 2nd in line. We'll tell you as soon as a chair opens up.|Είσαι 2ος στη σειρά. Θα σε ειδοποιήσουμε μόλις αδειάσει μια θέση.
 The table is full. Join the waitlist and we tell you when a chair opens up.|Το τραπέζι είναι γεμάτο. Μπες στη λίστα αναμονής και θα σε ειδοποιήσουμε όταν αδειάσει μια θέση.
+No transcript was kept at this table.|Σε αυτό το τραπέζι δεν κρατήθηκε απομαγνητοφώνηση.

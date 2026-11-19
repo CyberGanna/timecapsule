@@ -30,7 +30,7 @@ MT2 = {
              people=['You', 'Mia', 'Kofi', 'Elif', 'Omar', 'Yuki', 'Amara', 'Gregory'], slug='happiness-skill', past=-2, hh=[19, 0], score=4.8, coins=9,
              notes=["Next time open with the 'two lists' exercise.", "Kofi's point about gratitude and envy: follow up."],
              desc='Can we practise being happy, the way we practise an instrument? We try a few small exercises and talk about what really changed for us.'),
-    13: dict(title='Green technology versus nuclear', topic='Energy', host='Lena', lang='English', transcript=False, rated=False, you='in',
+    13: dict(title='Green technology versus nuclear', topic='Energy', host='Lena', lang='English', transcript=True, saved=True, rated=False, you='in',
              people=['Lena', 'Kofi', 'David', 'Ana', 'You'], slug='green-vs-nuclear', past=-5, hh=[18, 0],
              notes=['Look up the Finnish storage project David mentioned.'],
              desc='Solar, wind, storage or nuclear: what gets us to clean energy fastest? Bring one fact that surprised you.'),
@@ -39,6 +39,7 @@ MT2 = {
              desc='Habits, character, the stories others tell about us. We ask how much of who we are is ours to change, and what it takes.'),
 }
 STRINGS = {  # English: [it, es, el]
+    'No transcript was kept at this table.': ['A questo tavolo non è stata tenuta nessuna trascrizione.', 'En esta mesa no se guardó transcripción.', 'Σε αυτό το τραπέζι δεν κρατήθηκε απομαγνητοφώνηση.'],
     'Ended': ['Concluso', 'Terminada', 'Ολοκληρώθηκε'],
     'Who was there': ["Chi c'era", 'Quién estuvo', 'Ποιοι ήταν εκεί'],
     'Your kept notes': ['Le tue note tenute', 'Tus notas guardadas', 'Οι σημειώσεις που κράτησες'],
@@ -118,8 +119,8 @@ def patch_table():
     s = rep(s, '  if(st.kind==="host"){\n    if(st.cancelled)', '''  if(st.past){const p=st.past,host=st.kind==="host",U=(window.TCI18N?TCI18N.u:(x=>x));
     const again=host?`<button class="btn" data-act="edit">${tt("Host again")}</button>`:"";
     if(host&&t.transcript&&!p.saved) return `<div class="acts2"><a class="btn go" href="${U("../library/timecapsule-library.html#save&as=host&q="+encodeURIComponent(t.title))}" target="_top">${tt("Save to Conversations")}</a>${again}</div><p class="hint"><span class="amb">${tt("Not saved yet.")}</span> <span>${tt("6 days left to save it. We'll remind you the day before.")}</span></p>`;
-    if(!host&&!st.rated) return `<div class="acts2"><a class="btn gold" href="${U("../rate-tip/timecapsule-rate-tip.html#as=guest")}" target="_top">${tt("Rate and tip")}</a></div><p class="hint">${tt("Your 8 TimeCoins expire in 2 days.")}</p>`;
-    const conv=t.transcript&&p.saved?`<a class="btn go" href="${U("../help/live-pages/myuniverse.html#discussions")}" target="_top">${tt("Open in Conversations")}</a>`:"";
+    const conv=t.transcript&&p.saved?`<a class="btn${!host&&!st.rated?"":" go"}" href="${U("../help/live-pages/myuniverse.html#discussions")}" target="_top">${tt("Open in Conversations")}</a>`:"";
+    if(!host&&!st.rated) return `<div class="acts2"><a class="btn gold" href="${U("../help/live-pages/mytables.html#rate")}" target="_top">${tt("Rate and tip")}</a>${conv}</div><p class="hint">${tt("Your 8 TimeCoins expire in 2 days.")}${conv?"":` <span>${tt("No transcript was kept at this table.")}</span>`}</p>`;
     return `<div class="acts2">${conv}${again}</div><p class="hint">${host?(p.saved?tt("Saved to your Conversations."):""):tt("You rated it. Thank you.")}</p>`;
   }
   if(st.wait&&!isOut()){
