@@ -2,7 +2,7 @@
 Idempotent, marker "tc-cok4". Run after patch_tidy.py."""
 import os, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS = '''<style id="tc-cok4">.cok .cktitle{margin:10px auto 0!important;max-width:440px;font-family:'Newsreader',Georgia,serif;font-size:22px!important;line-height:1.35!important;color:var(--text)!important}
+CSS = '''<style id="tc-cok4">.cok .cktitle{margin:10px auto 0!important;max-width:440px;font-family:inherit;font-size:18px!important;font-weight:500;line-height:1.4!important;color:var(--muted)!important}
 .cok .cklive{display:flex;width:max-content;margin:16px auto 0;align-items:center;gap:8px;height:30px;padding:0 14px;border-radius:999px;background:rgba(61,220,132,.14);color:#3DDC84;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
 .cok .cklive i{width:8px;height:8px;border-radius:50%;background:#3DDC84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:ckp 1.8s infinite}@keyframes ckp{70%{box-shadow:0 0 0 8px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
 .cok .ckcd{display:flex;justify-content:center;align-items:baseline;gap:14px;margin-top:16px}.cok .ckcd .lab{font-size:13px;color:var(--mute)}.cok .ckcd .u b{font-size:30px;font-weight:500;color:#F2C14E;font-variant-numeric:tabular-nums;letter-spacing:-.02em}.cok .ckcd .u small{margin-left:3px;font-size:12px;color:var(--mute)}
