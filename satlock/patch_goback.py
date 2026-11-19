@@ -5,7 +5,7 @@ FILES=sys.argv[1:] or ["help/live-pages/agenda.html","invite/pages/agenda.html"]
 for f in FILES:
     s=open(f).read(); o=s
     a='mine?`<button class="jbtn on" data-id="${t.id}">You\'re in</button>`'
-    b='mine?(t.live?`<button class="jbtn go" data-id="${t.id}">Go back in</button>`:`<button class="jbtn on" data-id="${t.id}">You\'re in</button>`)'
+    b='mine?(t.live?`<button class="jbtn on" data-id="${t.id}">Go back in</button>`:`<button class="jbtn on" data-id="${t.id}">You\'re in</button>`)'
     if 'Go back in</button>' not in s: s=s.replace(a,b)
     a='if(!on){t.live?openJoin(t):openSheet(t);return}'
     if a in s and 'tc-goback' not in s:
