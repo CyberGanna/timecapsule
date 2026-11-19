@@ -51,7 +51,7 @@ Decline|Rifiuta|Rechazar
 Accepted.|Accettato.|Aceptado.
 gets the invite for the next round.|riceve l'invito per il prossimo giro.|recibe la invitación para la próxima ronda.
 Declined. We'll let them know.|Rifiutato. Glielo diremo noi.|Rechazado. Se lo haremos saber.
-You were at this table, so you'll be invited when Gregory plans the next round.|Eri a questo tavolo, quindi sarai invitato quando Gregory pianifica il prossimo giro.|Estuviste en esta mesa, así que te invitaremos cuando Gregory planifique la próxima ronda.
+You were at this table, so you'll be invited when the host plans the next round.|Eri a questo tavolo, quindi sarai invitato quando l'host pianifica il prossimo giro.|Estuviste en esta mesa, así que te invitaremos cuando el anfitrión planifique la próxima ronda.
 Ask Gregory for another round|Chiedi a Gregory un altro giro|Pide a Gregory otra ronda
 Asked. We'll tell you when Gregory plans it.|Richiesta inviata. Ti avvisiamo quando Gregory lo pianifica.|Pedido. Te avisaremos cuando Gregory la planifique.
 Join the next round|Partecipa al prossimo giro|Únete a la próxima ronda

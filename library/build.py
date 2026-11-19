@@ -24,7 +24,7 @@ def pub_records():
         for k, (date, people) in enumerate(rounds):
             t = tx[k]
             summ = 'The table talked about "%s". %s Left open: %s' % (title, ' '.join(t['notes']), t['open'][0])
-            rr.append(dict(summary=summ, date=date, people=people, out=t.get('out', 0), names=t['names'], notes=t['notes'], open=t['open'], my=None, tx=[list(x) for x in t['tx']]))
+            rr.append(dict(summary=summ, date=date, people=people, out=t.get('out', 0), names=t['names'], notes=t['notes'], open=t['open'], my=t.get('my'), tx=[list(x) for x in t['tx']]))
         out[rid] = dict(id=rid, host=host, trusted=trusted, topic=top, sub=sub, title=title, col=PUB_COL[top], private=False, rounds=rr)
     return out
 

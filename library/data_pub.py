@@ -1,6 +1,6 @@
 # Public conversations hosted by other people (sample content stays English).
 # Used by the public Conversations page and the saved-discussion page, never by Gregory's profile or My universe.
-PUB_COL = {"Science":"#8BE38B","History":"#E8B577","Music":"#9FA8FF","Climate":"#4FD1A5","Art":"#FF6F91","Design":"#FFB35C"}
+PUB_COL = {"Home":"#7FF0F2","Energy":"#7CC8FF","Philosophy":"#F4A6D7","Science":"#8BE38B","History":"#E8B577","Music":"#9FA8FF","Climate":"#4FD1A5","Art":"#FF6F91","Design":"#FFB35C"}
 # id, host, topic, subtopic, title, rounds [(date, people)], voices left out (last round), "trusted" host
 PUB = [
  ("listening","Amara","Music","Listening","Why do sad songs make us feel better?",[("Tue 27 Oct",5),("Mon 16 Nov",6)],0,True),
@@ -13,6 +13,10 @@ PUB = [
  ("stars","Nikos","Science","Space","Would you go to Mars and not come back?",[("Tue 3 Nov",6)],0,True),
  ("letters","Mia","History","Letters","Letters we would write by hand again",[("Fri 30 Oct",4)],0,True),
  ("forest","Kofi","Climate","Forests","What a forest knows that we don't",[("Wed 28 Oct",5)],0,True),
+ # past tables from My tables (Gabriele was there), Karim 2026-11-18
+ ("where-home","Yuki","Home","Belonging","Where is home?",[("Tue 17 Nov",6)],0,True),
+ ("happiness-skill","Gabriele","Philosophy","Happiness","Is happiness a skill?",[("Mon 16 Nov",8)],0,False),
+ ("green-nuclear","Lena","Energy","Nuclear","Green technology versus nuclear",[("Sat 14 Nov",5)],0,False),
 ]
 
 TXP = {
@@ -78,4 +82,22 @@ TXP = {
   ("0:07","Lea","That strength is something you pass on, not something you keep."),
   ("0:11","Tom","A forest has no CEO and it's been fine for millions of years."),
   ("0:16","Lena","It's slow. Maybe that's the secret.")])],
+"where-home": [dict(names=["Yuki","Lena","Gabriele","Omar","Ana","Jonas"], notes=["Home can be a person, a smell, a kitchen."], open=["Can you be homesick for a place you never lived?"], my=["Home might be a person, not a place. (Lena)","Ask Yuki for the name of the tea house in Kyoto.","Keep: 'You can be homesick for a place you never lived.'"], tx=[
+  ("0:02","Yuki","Where is home for you tonight? Not the address, the feeling."),
+  ("0:06","Lena","For me home might be a person, not a place."),
+  ("0:10","Omar","I grew up in three cities. I feel at home in the kitchen of each one."),
+  ("0:14","Gabriele","You can be homesick for a place you never lived."),
+  ("0:18","Ana","That is exactly how I feel about my grandmother's village.")])],
+"happiness-skill": [dict(names=["Gabriele","Mia","Kofi","Elif","Omar","Yuki","Amara","Gregory"], notes=["Gratitude helps, until it turns into comparing."], open=["Is noticing the real skill, more than being happy?"], my=["Next time open with the 'two lists' exercise.","Kofi's point about gratitude and envy: follow up."], tx=[
+  ("0:01","Gabriele","Tonight's question: is happiness a skill we can practise?"),
+  ("0:05","Mia","I think it is more like a garden than a skill."),
+  ("0:09","Kofi","Gratitude helps, but it can turn into comparing. Then envy comes back."),
+  ("0:13","Elif","Maybe the skill is noticing, not being happy."),
+  ("0:17","Gregory","We don't practise happiness. We practise attention, and happiness visits.")])],
+"green-nuclear": [dict(names=["Lena","Kofi","David","Ana","Gabriele"], notes=["Storage is the bottleneck, not generation."], open=["Is nuclear a bridge or a detour?"], my=["Look up the Finnish storage project David mentioned."], tx=[
+  ("0:02","Lena","Bring one fact that surprised you. Who starts?"),
+  ("0:06","David","Finland stores energy in sand. Hot sand, for months."),
+  ("0:10","Kofi","In Ghana the sun is free, but the batteries are not."),
+  ("0:14","Gabriele","So the real question is storage, not solar versus nuclear."),
+  ("0:18","Ana","And who pays for it while we wait.")])]
 }

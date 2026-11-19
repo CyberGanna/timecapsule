@@ -51,7 +51,7 @@ Decline|Απόρριψη
 Accepted.|Έγινε αποδεκτό.
 gets the invite for the next round.|παίρνει την πρόσκληση για τον επόμενο γύρο.
 Declined. We'll let them know.|Απορρίφθηκε. Θα τους ενημερώσουμε.
-You were at this table, so you'll be invited when Gregory plans the next round.|Ήσουν σε αυτό το τραπέζι, οπότε θα σε προσκαλέσουμε όταν ο Gregory σχεδιάσει τον επόμενο γύρο.
+You were at this table, so you'll be invited when the host plans the next round.|Ήσουν σε αυτό το τραπέζι, οπότε θα σε προσκαλέσουμε όταν ο οικοδεσπότης σχεδιάσει τον επόμενο γύρο.
 Ask Gregory for another round|Ζήτα από τον Gregory άλλον έναν γύρο
 Asked. We'll tell you when Gregory plans it.|Το ζήτησες. Θα σου πούμε όταν ο Gregory τον σχεδιάσει.
 Join the next round|Μπες στον επόμενο γύρο

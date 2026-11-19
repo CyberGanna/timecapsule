@@ -22,15 +22,15 @@ MT2 = {
             people=['Omar', 'Priya', 'Tom', 'Sofia', 'Kofi', 'Elif'], talk='Omar', slug='who-writes-history', inDays=3, hh=[17, 0],
             you='wait', waitPos=2,
             desc='Winners, archivists, grandmothers at the kitchen table. We ask whose stories get kept, whose get lost, and what we each would want remembered.'),
-    11: dict(title='Where is home?', topic='Home', host='Yuki', lang='English', transcript=True, saved=True, rated=True, you='in',
+    11: dict(title='Where is home?', conv='where-home',  topic='Home', host='Yuki', lang='English', transcript=True, saved=True, rated=True, you='in',
              people=['Yuki', 'Lena', 'You', 'Omar', 'Ana', 'Jonas'], slug='where-is-home', past=-1, hh=[20, 0],
              notes=['Home might be a person, not a place. (Lena)', 'Ask Yuki for the name of the tea house in Kyoto.', "Keep: 'You can be homesick for a place you never lived.'"],
              desc='The house you grew up in, the city you chose, the people who make a place feel right. We share where home is for us now, and how it changed.'),
-    12: dict(title='Is happiness a skill?', topic='Philosophy', host='You', lang='English', transcript=True, saved=True,
+    12: dict(title='Is happiness a skill?', conv='happiness-skill',  topic='Philosophy', host='You', lang='English', transcript=True, saved=True,
              people=['You', 'Mia', 'Kofi', 'Elif', 'Omar', 'Yuki', 'Amara', 'Gregory'], slug='happiness-skill', past=-2, hh=[19, 0], score=4.8, coins=9,
              notes=["Next time open with the 'two lists' exercise.", "Kofi's point about gratitude and envy: follow up."],
              desc='Can we practise being happy, the way we practise an instrument? We try a few small exercises and talk about what really changed for us.'),
-    13: dict(title='Green technology versus nuclear', topic='Energy', host='Lena', lang='English', transcript=True, saved=True, rated=False, you='in',
+    13: dict(title='Green technology versus nuclear', conv='green-nuclear',  topic='Energy', host='Lena', lang='English', transcript=True, saved=True, rated=False, you='in',
              people=['Lena', 'Kofi', 'David', 'Ana', 'You'], slug='green-vs-nuclear', past=-5, hh=[18, 0],
              notes=['Look up the Finnish storage project David mentioned.'],
              desc='Solar, wind, storage or nuclear: what gets us to clean energy fastest? Bring one fact that surprised you.'),
@@ -47,6 +47,7 @@ STRINGS = {  # English: [it, es, el]
     'were at the table': ['erano al tavolo', 'estuvieron en la mesa', 'ήταν στο τραπέζι'],
     'Save to Conversations': ['Salva in Conversazioni', 'Guardar en Conversaciones', 'Αποθήκευση στις Συζητήσεις'],
     'Host again': ['Ospita di nuovo', 'Organizar de nuevo', 'Φιλοξένησε ξανά'],
+    'Open the conversation': ['Apri la conversazione', 'Abrir la conversación', 'Άνοιξε τη συζήτηση'],
     'Open in Conversations': ['Apri in Conversazioni', 'Abrir en Conversaciones', 'Άνοιγμα στις Συζητήσεις'],
     'Rate and tip': ['Valuta e premia', 'Valora y premia', 'Βαθμολόγησε και φιλοδώρησε'],
     'Not saved yet.': ['Non ancora salvato.', 'Aún sin guardar.', 'Δεν έχει αποθηκευτεί ακόμα.'],
@@ -119,7 +120,7 @@ def patch_table():
     s = rep(s, '  if(st.kind==="host"){\n    if(st.cancelled)', '''  if(st.past){const p=st.past,host=st.kind==="host",U=(window.TCI18N?TCI18N.u:(x=>x));
     const again=host?`<button class="btn" data-act="edit">${tt("Host again")}</button>`:"";
     if(host&&t.transcript&&!p.saved) return `<div class="acts2"><a class="btn go" href="${U("../library/timecapsule-library.html#save&as=host&q="+encodeURIComponent(t.title))}" target="_top">${tt("Save to Conversations")}</a>${again}</div><p class="hint"><span class="amb">${tt("Not saved yet.")}</span> <span>${tt("6 days left to save it. We'll remind you the day before.")}</span></p>`;
-    const conv=t.transcript&&p.saved?`<a class="btn${!host&&!st.rated?"":" go"}" href="${U("../help/live-pages/myuniverse.html#discussions")}" target="_top">${tt("Open in Conversations")}</a>`:"";
+    const conv=t.transcript&&p.saved?`<a class="btn${!host&&!st.rated?"":" go"}" href="${U(p.conv?"../library/timecapsule-library.html#r="+p.conv+"&as="+(host?"host":"guest"):"../help/live-pages/myuniverse.html#discussions")}" target="_top">${tt("Open the conversation")}</a>`:"";
     if(!host&&!st.rated) return `<div class="acts2"><a class="btn gold" href="${U("../help/live-pages/mytables.html#rate")}" target="_top">${tt("Rate and tip")}</a>${conv}</div><p class="hint">${tt("Your 8 TimeCoins expire in 2 days.")}${conv?"":` <span>${tt("No transcript was kept at this table.")}</span>`}</p>`;
     return `<div class="acts2">${conv}${again}</div><p class="hint">${host?(p.saved?tt("Saved to your Conversations."):""):tt("You rated it. Thank you.")}</p>`;
   }
