@@ -2163,3 +2163,8 @@ Skip to the end ›|Πήγαινε στο τέλος ›
 6 days left to rate|Απομένουν 6 μέρες για βαθμολόγηση
 7 days left to rate|Απομένουν 7 μέρες για βαθμολόγηση
 Copied ✓|Αντιγράφηκε ✓
+Share this conversation|Κοινοποίησε αυτή τη συζήτηση
+round|γύρος
+hosted by|με οικοδεσπότη
+Send to|Στείλε σε
+Shared a conversation|Κοινοποίησε μια συζήτηση
