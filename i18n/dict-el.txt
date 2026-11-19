@@ -2145,3 +2145,6 @@ Past tables, notes and transcripts are in|Τα περασμένα τραπέζι
 open table|ανοιχτό τραπέζι
 Show table|Δες το τραπέζι
 Starts in|Ξεκινά σε
+Welcome back|Καλώς ήρθες ξανά
+You're back as|Επιστρέφεις ως
+You keep the same name until this table ends, so everyone knows who's back and the record stays clear.|Κρατάς το ίδιο όνομα μέχρι να τελειώσει το τραπέζι, ώστε όλοι να ξέρουν ποιος επέστρεψε και τα πρακτικά να μένουν καθαρά.
