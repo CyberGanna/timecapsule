@@ -220,7 +220,7 @@ function tcpHTML(u){
   <div class="tcph"><span class="tcpav">${u.avatar||""}</span><div class="tcpw"><div class="tcpn"><b>${u.name}</b>${u.trusted?`<span class="tcpt" title="Trusted">${SHIELD}Trusted</span>`:""}</div>${meta?`<p class="tcpm">${meta}</p>`:""}</div></div>
   ${u.bio?`<p class="tcpb">${u.bio}</p>`:""}
   ${u.topics&&u.topics.length?`<div class="tcptg">${u.topics.map(([t,c])=>`<span style="--c:${c||"#A9B0D6"}"><i></i>${t}</span>`).join("")}</div>`:""}
-  <dl><div><dd>${u.tables}</dd><dt>Tables</dt></div><div><dd>${u.feedbacks}</dd><dt>Feedbacks</dt></div><div><dd class="gold">${u.coins}</dd><dt>TimeCoins</dt></div></dl>
+  <dl><div><dd>${u.tables}</dd><dt>Tables</dt></div><div><dd>${u.convs!=null?u.convs:Math.round((u.tables||0)*.6)}</dd><dt>Conversations</dt></div><div><dd class="gold">${u.coins}</dd><dt>TimeCoins received</dt></div></dl>
   <div class="tcpa">${u.profile?`<a class="pf" href="${u.profile}" target="_top">View profile</a>`:`<span style="margin-right:auto"></span>`}<a class="ic" href="${URL_CHATS}" target="_top" aria-label="Chat with ${u.name}" title="Chat">${TCP_CHAT}</a>${tcpFollowBtn(u.name)}</div>`;
 }
 document.addEventListener("click",e=>{const b=e.target.closest(".tcpf");if(!b)return;e.preventDefault();e.stopPropagation();const n=b.dataset.f;TCP_FOLLOW.has(n)?TCP_FOLLOW.delete(n):TCP_FOLLOW.add(n);b.outerHTML=tcpFollowBtn(n)},true);
