@@ -1427,4 +1427,7 @@ if(/[#&]out\b/.test(location.hash))proto.querySelector('[data-so="1"]').click();
 </body></html>
 
 <style id="tc-std">/* same header and page edges on every page */html,body{margin:0}@media (min-width:701px){.hud{left:40px;top:100px}.hud h1{font-size:clamp(34px,calc(3vw + 10px),54px);font-weight:300;letter-spacing:-.03em;line-height:1.08;margin:0 0 18px}.hud .cta{margin-top:26px}}</style>
+<script id="tc-so-landing">/* Signed out = the landing page (Karim 2026-11-19) */
+document.addEventListener('click',function(e){var b=e.target.closest('#lproto [data-so="1"]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();var u='../landing/timecapsule-landing.html';if(window.TCI18N&&TCI18N.u)u=TCI18N.u(u);var a=document.createElement('a');a.href=u;a.target='_top';document.body.appendChild(a);a.click();a.remove()},true);
+</script>
 </body></html>
