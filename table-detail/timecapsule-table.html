@@ -1102,6 +1102,7 @@ main.land .tf .jbtn{padding-inline:14px;height:36px;margin-left:auto}
 .tcp .tcptg i{width:7px;height:7px;border-radius:50%;background:var(--c);flex:none}
 .tcp dl{display:flex;margin:0;padding-top:12px;border-top:1px solid #3A4175}
 .tcp dl div{flex:1;display:grid;justify-items:center;gap:2px}
+.tcp dl a.tcpn{display:grid;justify-items:center;gap:2px;color:inherit;text-decoration:none;border-radius:8px}.tcp dl a.tcpn:hover dd,.tcp dl a.tcpn:hover dt{color:#17C3C8}
 .tcp dl div+div{border-left:1px solid #3A4175}
 .tcp dd{margin:0;font-size:20px;font-weight:500;line-height:1.1;color:#EEF1FF;font-variant-numeric:tabular-nums}
 .tcp dd.gold{color:#F2C558}
@@ -1589,7 +1590,7 @@ function tcpHTML(u){
   <div class="tcph"><span class="tcpav">${u.avatar||""}</span><div class="tcpw"><div class="tcpn"><b>${u.name}</b>${u.trusted?`<span class="tcpt" title="Trusted">${SHIELD}Trusted</span>`:""}</div>${meta?`<p class="tcpm">${meta}</p>`:""}</div></div>
   ${u.bio?`<p class="tcpb">${u.bio}</p>`:""}
   ${u.topics&&u.topics.length?`<div class="tcptg">${u.topics.map(([t,c])=>`<span style="--c:${c||"#A9B0D6"}"><i></i>${t}</span>`).join("")}</div>`:""}
-  <dl><div><dd>${u.tables}</dd><dt>Tables</dt></div><div><dd>${u.convs!=null?u.convs:Math.round((u.tables||0)*.6)}</dd><dt>Conversations</dt></div><div><dd class="gold">${u.coins}</dd><dt title="TimeCoins received">Tips</dt></div></dl>
+  <dl><div>${u.profile?`<a class="tcpn" href="${((p)=>{let x=(location.pathname.indexOf("/live-pages/")>=0?"":location.pathname.indexOf("/invite/pages/")>=0?"../../help/live-pages/":"../help/live-pages/")+p;return window.TCI18N&&TCI18N.u?TCI18N.u(x):x})("hosttables.html")}" target="_top">`:""}<dd>${u.tables}</dd><dt>Tables</dt>${u.profile?"</a>":""}</div><div>${u.profile?`<a class="tcpn" href="${((p)=>{let x=(location.pathname.indexOf("/live-pages/")>=0?"":location.pathname.indexOf("/invite/pages/")>=0?"../../help/live-pages/":"../help/live-pages/")+p;return window.TCI18N&&TCI18N.u?TCI18N.u(x):x})("discussions.html#h="+encodeURIComponent(u.name||"Gregory"))}" target="_top">`:""}<dd>${u.convs!=null?u.convs:Math.round((u.tables||0)*.6)}</dd><dt>Conversations</dt>${u.profile?"</a>":""}</div><div><dd class="gold">${u.coins}</dd><dt title="TimeCoins received">Tips</dt></div></dl>
   <div class="tcpa">${u.profile?`<a class="pf" href="${u.profile}" target="_top">View profile</a>`:`<span style="margin-right:auto"></span>`}<a class="ic" href="${URL_CHATS}" target="_top" aria-label="Chat with ${u.name}" title="Chat">${TCP_CHAT}</a>${tcpFollowBtn(u.name)}</div>`;
 }
 document.addEventListener("click",e=>{const b=e.target.closest(".tcpf");if(!b)return;e.preventDefault();e.stopPropagation();const n=b.dataset.f;TCP_FOLLOW.has(n)?TCP_FOLLOW.delete(n):TCP_FOLLOW.add(n);b.outerHTML=tcpFollowBtn(n)},true);

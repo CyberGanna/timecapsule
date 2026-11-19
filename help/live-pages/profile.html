@@ -1589,4 +1589,6 @@ w.querySelector(".tm-dlg").setAttribute("aria-labelledby",document.body.classLis
 </body></html>
 
 <style id="tc-std">/* same header and page edges on every page */html,body{margin:0}</style>
+<script id="tc-statlinks">(function(){var m={0:"t-tb",1:"t-lb"};document.querySelectorAll(".lbstats>div").forEach(function(d,i){if(!m[i])return;var t=document.getElementById(m[i]);if(!t)return;d.classList.add("lbsl");d.setAttribute("role","link");d.tabIndex=0;var go=function(){t.click();t.scrollIntoView({behavior:"smooth",block:"start"})};d.addEventListener("click",go);d.addEventListener("keydown",function(e){if(e.key==="Enter")go()})})})();</script>
+<style>.lbstats .lbsl{cursor:pointer}.lbstats .lbsl:hover dd,.lbstats .lbsl:hover dt{color:#17C3C8}</style>
 </body></html>
