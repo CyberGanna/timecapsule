@@ -2128,3 +2128,6 @@ Starting now|Ξεκινά τώρα
 Your table is open!|Το τραπέζι σου άνοιξε!
 Go to my table|Πήγαινε στο τραπέζι μου
 is on the Tables page. You host. Invite people who'd love this topic.|είναι στη σελίδα Τραπέζια. Φιλοξενείς εσύ. Κάλεσε όσους θα αγαπούσαν αυτό το θέμα.
+is private. Only people you invite can join. You host|είναι ιδιωτικό. Μπαίνουν μόνο όσοι καλέσεις. Φιλοξενείς εσύ
+is on the Tables page. You host|είναι στη σελίδα Τραπέζια. Φιλοξενείς εσύ
+. Invite people who'd love this topic.|. Κάλεσε όσους θα αγαπούσαν αυτό το θέμα.
