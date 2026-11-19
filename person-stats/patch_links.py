@@ -5,7 +5,7 @@ import subprocess,re
 def files(pat): return subprocess.run("grep -rlF '"+pat+"' --include=*.html --include=*.js .",shell=True,capture_output=True,text=True).stdout.split()
 BASE='(location.pathname.indexOf("/live-pages/")>=0?"":location.pathname.indexOf("/invite/pages/")>=0?"../../help/live-pages/":"../help/live-pages/")'
 LU='((p)=>{let x='+BASE+'+p;return window.TCI18N&&TCI18N.u?TCI18N.u(x):x})'
-CSS='.tcp dl a.tcpn{display:grid;justify-items:center;gap:2px;color:inherit;text-decoration:none;border-radius:8px}.tcp dl a.tcpn:hover dd,.tcp dl a.tcpn:hover dt{color:#17C3C8}'
+CSS='.tcp dl a.tcpn{display:grid;justify-items:center;gap:2px;color:inherit;text-decoration:none;border-radius:8px}.tcp dl a.tcpn{padding:4px 0;margin:-4px 2px}.tcp dl a.tcpn:hover{background:rgba(255,255,255,.06)}.tcp dl a.tcpn:hover dt{color:#EEF1FF}'
 for f in files('<dt>Conversations</dt></div><div><dd class="gold">'):
     s=open(f).read();o=s
     for v in ('${fmt(u.tables)}','${u.tables}'):
@@ -21,11 +21,11 @@ f='rate-tip/timecapsule-rate-tip.html';s=open(f).read()
 o='<dl class="lbpst"><div><dd>12</dd><dt>Tables</dt></div><div><dd>11</dd><dt>Conversations</dt></div>'
 if o in s:
     s=s.replace(o,'<dl class="lbpst"><div><a class="lbpn" href="../help/live-pages/hosttables.html" target="_top"><dd>12</dd><dt>Tables</dt></a></div><div><a class="lbpn" href="../help/live-pages/discussions.html#h=Gregory" target="_top"><dd>11</dd><dt>Conversations</dt></a></div>')
-    s=s.replace('</head>','<style>.lbpst a.lbpn{display:grid;justify-items:center;color:inherit;text-decoration:none}.lbpst a.lbpn:hover dd,.lbpst a.lbpn:hover dt{color:#17C3C8}</style></head>',1)
+    s=s.replace('</head>','<style>.lbpst a.lbpn{display:grid;justify-items:center;color:inherit;text-decoration:none}.lbpst a.lbpn{border-radius:8px;padding:4px 0;margin:-4px 2px}.lbpst a.lbpn:hover{background:rgba(255,255,255,.06)}.lbpst a.lbpn:hover dt{color:#EEF1FF}</style></head>',1)
     open(f,'w').write(s);print('rate',f)
 # Profile header: numbers open the tabs
 JS='''<script id="tc-statlinks">(function(){var m={0:"p-tb",1:"p-lb"};document.querySelectorAll(".lbstats>div").forEach(function(d,i){if(!m[i])return;var p=document.getElementById(m[i]);if(!p)return;d.classList.add("lbsl");d.setAttribute("role","link");d.tabIndex=0;var go=function(){var a=p.querySelector(".seeall a."+(document.body.classList.contains("visitor")?"lbv":"lbo"));if(a)a.click()};d.addEventListener("click",go);d.addEventListener("keydown",function(e){if(e.key==="Enter")go()})})})();</script>
-<style>.lbstats .lbsl{cursor:pointer}.lbstats .lbsl:hover dd,.lbstats .lbsl:hover dt{color:#17C3C8}</style>'''
+<style>.lbstats .lbsl{cursor:pointer;position:relative}.lbstats .lbsl,.lbstats .coinstat{border-radius:0!important;background:none!important}.lbstats .lbsl::before,.lbstats .coinstat::before{content:"";position:absolute;inset:-4px 6px;border-radius:8px;pointer-events:none}.lbstats .lbsl:hover::before,.lbstats .coinstat:hover::before{background:rgba(255,255,255,.06)}.lbstats .lbsl:hover dt,.coinstat:hover dt{color:#EEF1FF!important}</style>'''
 for f in files('<dl class="lbstats">'):
     s=open(f).read()
     if 'tc-statlinks' in s: continue
