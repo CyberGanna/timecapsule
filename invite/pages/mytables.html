@@ -1658,7 +1658,7 @@ $("skaward").onclick=function(){closeSkip();if(leaving)return;var p=document.que
 $("skgo").onclick=function(){closeSkip();if(leaving)closePop();else go(3)};
 $("sk").onclick=function(e){if(e.target===this)closeSkip()};
 document.addEventListener("keydown",function(e){if(e.key!=="Escape")return;if(!$("sk").hidden)closeSkip();else if(!$("rtscrim").hidden)tryClose()});
-function tryClose(){if(step==3||(step==2&&total()))closePop();else openSkip(true)}
+function tryClose(){if(step==1||step==3||(step==2&&total()))closePop();else openSkip(true)}
 function closePop(){$("rtscrim").classList.add("out");setTimeout(function(){$("rtscrim").hidden=true;$("rtscrim").classList.remove("out");if(EMBED){parent.postMessage({rt:"close",done:step==3,rating:rating,coins:total()},"*");return}$("reopen").hidden=false;$("reopen").focus()},220)}
 function openPop(){step=1;rating=null;val=val.map(function(){return 0});$("note").value="";$("note").hidden=true;$("addnote").hidden=false;render();$("reopen").hidden=true;$("rtscrim").hidden=false;M.scrollTop=0}
 $("rtx").onclick=tryClose;$("reopen").onclick=openPop;
