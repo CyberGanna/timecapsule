@@ -183,3 +183,9 @@ Not saved yet|Δεν έχει αποθηκευτεί ακόμα
 My tables|Τα τραπέζια μου
 Download transcript|Λήψη απομαγνητοφώνησης
 Download my notes|Λήψη των σημειώσεών μου
+Share this conversation|Κοινοποίησε αυτή τη συζήτηση
+Copy link|Αντιγραφή συνδέσμου
+Send in a chat|Αποστολή σε συνομιλία
+Email|Email
+More|Περισσότερα
+Copied ✓|Αντιγράφηκε ✓
