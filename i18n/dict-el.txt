@@ -2117,3 +2117,14 @@ The table is full. Join the waitlist and we tell you when a chair opens up.|Το
 No transcript was kept at this table.|Σε αυτό το τραπέζι δεν κρατήθηκε απομαγνητοφώνηση.
 Download transcript|Λήψη απομαγνητοφώνησης
 Download my notes|Λήψη των σημειώσεών μου
+Invite people you've met|Κάλεσε ανθρώπους που γνώρισες
+Type a name|Γράψε ένα όνομα
+Met at|Γνωριστήκατε στο
+Send invite|Στείλε την πρόσκληση
+Nobody by that name at your past tables. Send them the link instead.|Κανείς με αυτό το όνομα στα περασμένα τραπέζια σου. Στείλε του τον σύνδεσμο.
+They get it in their notifications.|Το βλέπουν στις ειδοποιήσεις τους.
+Or send the link|Ή στείλε τον σύνδεσμο
+Starting now|Ξεκινά τώρα
+Your table is open!|Το τραπέζι σου άνοιξε!
+Go to my table|Πήγαινε στο τραπέζι μου
+is on the Tables page. You host. Invite people who'd love this topic.|είναι στη σελίδα Τραπέζια. Φιλοξενείς εσύ. Κάλεσε όσους θα αγαπούσαν αυτό το θέμα.
