@@ -1,5 +1,5 @@
 """Karim 2026-11-19: Tables and Conversations numbers are links. Pop-up (people with a profile, i.e. Gregory):
-Tables -> Gregory's tables page, Conversations -> his conversations. Profile header: open the Tables / Conversations tab.
+Tables -> Gregory's tables page, Conversations -> his conversations. Profile header: open the full pages (same as the tabs' See all links; Karim 2026-11-19).
 Rate and tip host preview: same pages as the pop-up. Idempotent; run after patch.py and patch_tips.py."""
 import subprocess,re
 def files(pat): return subprocess.run("grep -rlF '"+pat+"' --include=*.html --include=*.js .",shell=True,capture_output=True,text=True).stdout.split()
@@ -24,7 +24,7 @@ if o in s:
     s=s.replace('</head>','<style>.lbpst a.lbpn{display:grid;justify-items:center;color:inherit;text-decoration:none}.lbpst a.lbpn:hover dd,.lbpst a.lbpn:hover dt{color:#17C3C8}</style></head>',1)
     open(f,'w').write(s);print('rate',f)
 # Profile header: numbers open the tabs
-JS='''<script id="tc-statlinks">(function(){var m={0:"t-tb",1:"t-lb"};document.querySelectorAll(".lbstats>div").forEach(function(d,i){if(!m[i])return;var t=document.getElementById(m[i]);if(!t)return;d.classList.add("lbsl");d.setAttribute("role","link");d.tabIndex=0;var go=function(){t.click();t.scrollIntoView({behavior:"smooth",block:"start"})};d.addEventListener("click",go);d.addEventListener("keydown",function(e){if(e.key==="Enter")go()})})})();</script>
+JS='''<script id="tc-statlinks">(function(){var m={0:"p-tb",1:"p-lb"};document.querySelectorAll(".lbstats>div").forEach(function(d,i){if(!m[i])return;var p=document.getElementById(m[i]);if(!p)return;d.classList.add("lbsl");d.setAttribute("role","link");d.tabIndex=0;var go=function(){var a=p.querySelector(".seeall a."+(document.body.classList.contains("visitor")?"lbv":"lbo"));if(a)a.click()};d.addEventListener("click",go);d.addEventListener("keydown",function(e){if(e.key==="Enter")go()})})})();</script>
 <style>.lbstats .lbsl{cursor:pointer}.lbstats .lbsl:hover dd,.lbstats .lbsl:hover dt{color:#17C3C8}</style>'''
 for f in files('<dl class="lbstats">'):
     s=open(f).read()
