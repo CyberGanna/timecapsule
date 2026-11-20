@@ -142,7 +142,7 @@ S.append(slide(4, '<div class="kick">01 &nbsp;Philosophy</div>'
                '<li><b>Inheritance.</b> A lasting human record that others can question and build on.</li>'
                '<li><b>Better talk.</b> People think before they speak, and tables become worth keeping.</li>'
                '</ul>'
-               '<div class="quote">The record should feel like a gift to the future, not a file kept on you.</div>'))
+               '<div class="quote">A conversation can become an enduring contribution: something to revisit, build on and pass forward.</div>'))
 
 # 5 the risk
 S.append(slide(5, '<div class="kick">The risk, honestly</div>'
