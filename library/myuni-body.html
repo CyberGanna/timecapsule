@@ -93,7 +93,8 @@
 <div class="wrap mu">
   <section class="hero">
     <h1>My universe</h1>
-    <p>The books and films that shaped how you think, and the conversations you saved. Add to them, tidy them, pick them up again.</p>
+    <p class="intro" data-m="read">The books and films that shaped how you think, sorted by topic. Add one and it joins the map on your profile.</p>
+    <p class="intro" data-m="lib" hidden>What your tables left behind, saved and sorted by topic. Read one again, or pick it up for a new round.</p>
     <div class="sw" role="tablist" aria-label="My universe">
       <button type="button" role="tab" id="sw-read" data-m="read" aria-selected="true">Readings</button>
       <button type="button" role="tab" id="sw-lib" data-m="lib" aria-selected="false">Conversations</button>
@@ -171,7 +172,7 @@ function renderRead(){
     if(q)items=items.filter(o=>(o.b.t+" "+o.b.a+" "+t.n).toLowerCase().includes(q));
     if(!items.length)return"";
     return `<section class="sec" style="--c:${t.c}"><div class="sh"><h2><i></i><span>${esc(t.n)}</span></h2><span>${items.length}</span></div>${items.map(({b,bi})=>`<div class="item${lastNew&&lastNew[0]===ti&&lastNew[1]===bi?" new":""}" style="--c:${t.c}"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">${KICON[b.k]||KICON.book}</svg></div><div><h3 data-noi18n>${esc(b.t)}</h3><p><span class="kind">${b.k==="film"?"Film":"Book"}</span>${b.a?` · <span data-noi18n>${esc(b.a)}</span>`:""}<span class="rt ${RL[b.imp]?b.imp:"maybe"}"><i></i><span>${RL[b.imp]||RL.maybe}</span></span></p></div><button type="button" class="rm" data-rm="${ti}:${bi}" aria-label="Remove ${esc(b.t)}" title="Remove">${XI}</button></div>`).join("")}</section>`}).join("");
-  $("rlist").innerHTML=html||`<div class="empty"><b>${q?"Nothing matches your search":"Your universe is empty"}</b><span>${q?"Try another word, or clear the search.":"Add a book or a film that shaped how you think."}</span></div>`;
+  $("rlist").innerHTML=html||`<div class="empty"><b>${q?"Nothing matches your search":"No readings yet"}</b><span>${q?"Try another word, or clear the search.":"Add a book or a film that shaped how you think."}</span></div>`;
   lastNew=null;
 }
 function fillTopics(sel){const o=R.map((t,i)=>`<option value="${i}">${esc(t.n)}</option>`).join("")+`<option value="new">New topic…</option>`;$("fTop").innerHTML=o;if(sel!=null)$("fTop").value=sel}
@@ -230,7 +231,7 @@ pills();
 document.querySelectorAll(".mu .roles button").forEach(b=>b.addEventListener("click",()=>{S.role=b.dataset.role;document.querySelectorAll(".mu .roles button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderLib()}));
 
 /* ---------- switch + search ---------- */
-function setMode(m){S.mode=m;["read","lib"].forEach(k=>{$("p-"+k).hidden=k!==m;$("sw-"+k).setAttribute("aria-selected",k===m)})}
+function setMode(m){S.mode=m;["read","lib"].forEach(k=>{$("p-"+k).hidden=k!==m;document.querySelectorAll(".mu .intro").forEach(p=>p.hidden=p.dataset.m!==m);$("sw-"+k).setAttribute("aria-selected",k===m)})}
 document.querySelectorAll(".mu .sw button").forEach(b=>b.addEventListener("click",()=>{setMode(b.dataset.m);try{history.replaceState(null,"",location.pathname+location.search+(b.dataset.m==="lib"?"#discussions":"#readings")+(/lang=\w+/.test(location.hash)?"&"+location.hash.match(/lang=\w+/)[0]:""))}catch(e){}}));
 function onQ(v){S.q=v;renderRead();renderLib()}
 const q=$("q");if(q){q.placeholder="Search my universe";q.addEventListener("input",()=>onQ(q.value))}

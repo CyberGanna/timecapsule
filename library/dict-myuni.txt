@@ -69,3 +69,6 @@ Pick one|Scegline uno|Elige uno
 said|ha detto|dijo
 Round|Giro|Ronda
 topic|tema|tema
+The books and films that shaped how you think, sorted by topic. Add one and it joins the map on your profile.|I libri e i film che hanno formato il tuo modo di pensare, ordinati per argomento. Aggiungine uno e comparirà sulla mappa del tuo profilo.|Los libros y las películas que formaron tu manera de pensar, ordenados por tema. Añade uno y aparecerá en el mapa de tu perfil.
+What your tables left behind, saved and sorted by topic. Read one again, or pick it up for a new round.|Ciò che i tuoi tavoli hanno lasciato, salvato e ordinato per argomento. Rileggi una conversazione o riprendila per un nuovo giro.|Lo que dejaron tus mesas, guardado y ordenado por tema. Vuelve a leer una conversación o retómala en una nueva ronda.
+No readings yet|Ancora nessuna lettura|Todavía no hay lecturas
