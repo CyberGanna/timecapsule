@@ -12,3 +12,4 @@
 .ulay.pg:not(.opt-all) .pl>li:nth-child(n+19){display:none!important}
 }
 .ulay.pg.opt-mut .pl>li:not(:has(.yt)){display:none!important}
+.ulay .ph .cmb{display:none!important}
