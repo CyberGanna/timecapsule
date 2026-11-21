@@ -2152,4 +2152,5 @@ body.visitor #t-lb .lbc-o,body:not(.visitor) #t-lb .lbc-v{display:none}
 })();
 (function(){var t=document.getElementById('t-fb');if(!t)return;var fix=function(){if(t.textContent.trim()!=='Feedbacks'){mo.disconnect();t.textContent='Feedbacks';mo.observe(t,{childList:true,subtree:true,characterData:true})}};var mo=new MutationObserver(fix);mo.observe(t,{childList:true,subtree:true,characterData:true});fix()})();
 (function(){var m=document.querySelector('#p-fb .more');if(!m)return;m.addEventListener('click',function(e){if(!document.body.classList.contains('opt-more')){document.body.classList.add('opt-more');e.stopImmediatePropagation();e.preventDefault()}},true)})();
+(function(){document.querySelectorAll('.lbmeta').forEach(function(m){var f=function(){if(/^\s*Host\s·\s/.test(m.textContent)){mo.disconnect();m.textContent=m.textContent.replace(/^\s*Host\s·\s/,'');mo.observe(m,{childList:true,characterData:true,subtree:true})}};var mo=new MutationObserver(f);mo.observe(m,{childList:true,characterData:true,subtree:true});f()})})();
 });</script></body></html>
