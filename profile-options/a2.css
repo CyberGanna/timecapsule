@@ -4,10 +4,10 @@
 .ulay.pg:not([hidden]){position:relative!important;inset:auto!important;top:auto!important;bottom:auto!important;display:block!important;padding-top:6px!important}
 .ulay.pg .pl{overflow:visible!important;max-height:none!important;height:auto!important;-webkit-mask-image:none!important;mask-image:none!important;padding-bottom:6px}
 .ulay.pg .ph{position:static!important}
-.ulay.pg:not(.opt-all) .pl>li:nth-child(n+9){display:none!important}
+@media(max-width:699px){.ulay.pg:not(.opt-all) .pl>li:nth-child(n+10){display:none!important}}
 .opt-allbtn{all:unset;cursor:pointer;display:block;margin:6px 0 4px 16px;color:var(--teal);font-size:14px}
 .opt-allbtn:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
 @media(min-width:700px){
 .ulay.pg .pl{display:grid!important;grid-template-columns:1fr 1fr;column-gap:36px;align-items:start}
-.ulay.pg:not(.opt-all) .pl>li:nth-child(n+9){display:none!important}
+.ulay.pg:not(.opt-all) .pl>li:nth-child(n+19){display:none!important}
 }

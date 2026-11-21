@@ -3,7 +3,7 @@ new MutationObserver(function(){var open=!u.hidden&&u.classList.contains('pg');i
 (function(){var u=document.getElementById('ulay');if(!u)return;
 var f=function(){mo.disconnect();var pl=u.querySelector('.pl'),btn=u.querySelector('.opt-allbtn');
  var n=pl?pl.querySelectorAll(':scope>li').length:0;
- if(pl&&n>8&&!u.classList.contains('opt-all')){if(!btn){btn=document.createElement('button');btn.type='button';btn.className='opt-allbtn';btn.onclick=function(){u.classList.add('opt-all');btn.remove()};}btn.textContent='Show all '+n;pl.after(btn)}else if(btn)btn.remove();
+ var lim=matchMedia('(min-width:700px)').matches?18:9;if(pl&&n>lim&&!u.classList.contains('opt-all')){if(!btn){btn=document.createElement('button');btn.type='button';btn.className='opt-allbtn';btn.onclick=function(){u.classList.add('opt-all');btn.remove()};}btn.textContent='Show all '+n;pl.after(btn)}else if(btn)btn.remove();
  mo.observe(u,{childList:true,subtree:true})};
 var mo=new MutationObserver(f);
 new MutationObserver(function(){u.classList.remove('opt-all');f()}).observe(u,{attributes:true,attributeFilter:['hidden']});
