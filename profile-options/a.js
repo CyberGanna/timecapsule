@@ -1,18 +1,29 @@
 (function(){
  var tags=document.getElementById('herotags'),meta=document.querySelector('.lbmeta');
  if(tags&&meta)meta.after(tags);
- // ratings as tappable chips; each one filters the feedbacks (uses the page's own Ratings buttons)
+ // ratings as tappable chips; each one filters the list you are looking at (Received or Given)
  var hb=[...document.querySelectorAll('.hist button')];
- var sw=document.querySelector('#p-fb .fbsw');
+ var P=document.getElementById('p-fb'),sw=P&&P.querySelector('.fbsw'),gl=P&&P.querySelector('.list.given');
  if(sw&&hb.length){
   var box=document.createElement('div');box.className='opt-rchips';box.setAttribute('role','group');box.setAttribute('aria-label','Filter by rating');
+  var gcur=null,giv=function(){return P.classList.contains('giv')};
+  var gapply=function(){if(!gl)return;gl.querySelectorAll('li.fb').forEach(function(li){li.hidden=!!gcur&&li.dataset.v!==gcur})};
+  var paint=function(){var g=giv(),f=false;
+   hb.forEach(function(b,i){var c=box.children[i],v=b.dataset.h,on,dim,n;
+    if(g){n=gl?gl.querySelectorAll('li.fb[data-v="'+v+'"]').length:0;on=gcur===v;dim=!!gcur&&!on}
+    else{n=b.querySelector('b').textContent;on=b.classList.contains('on');dim=b.classList.contains('dim')}
+    c.querySelector('b').textContent=n;c.classList.toggle('on',on);c.classList.toggle('dim',dim);c.setAttribute('aria-pressed',on);if(on)f=true});
+   if(!g){if(!f&&document.body.classList.contains('opt-filt'))document.body.classList.add('opt-more');document.body.classList.toggle('opt-filt',f)}};
   hb.forEach(function(b){var c=document.createElement('button');c.type='button';
-   c.innerHTML='<i></i><b>'+b.querySelector('b').textContent+'</b> '+b.querySelector('span').textContent;
-   c.addEventListener('click',function(){var y=scrollY;b.click();requestAnimationFrame(function(){scrollTo({top:y})})});
+   c.innerHTML='<i></i><b></b> '+b.querySelector('span').textContent;
+   c.addEventListener('click',function(){if(giv()){gcur=gcur===b.dataset.h?null:b.dataset.h;gapply();paint();return}
+    var y=scrollY;b.click();requestAnimationFrame(function(){scrollTo({top:y})})});
    box.appendChild(c)});
   sw.after(box);
-  var sync=function(){var f=hb.some(function(b){return b.classList.contains('on')});if(!f&&document.body.classList.contains('opt-filt'))document.body.classList.add('opt-more');document.body.classList.toggle('opt-filt',f);hb.forEach(function(b,i){var c=box.children[i];c.classList.toggle('on',b.classList.contains('on'));c.classList.toggle('dim',b.classList.contains('dim'));c.setAttribute('aria-pressed',b.classList.contains('on'))})};
-  hb.forEach(function(b){new MutationObserver(sync).observe(b,{attributes:true,attributeFilter:['class']})});sync();
+  hb.forEach(function(b){new MutationObserver(paint).observe(b,{attributes:true,attributeFilter:['class']})});
+  // switching Received/Given clears the Given filter and shows that list's own numbers
+  new MutationObserver(function(){gcur=null;gapply();paint()}).observe(P,{attributes:true,attributeFilter:['class']});
+  paint();
  }
  document.querySelectorAll('.lbtabs .tabs b').forEach(b=>b.remove());
  // ? next to the Universe title; card split into Readings and Conversations (text from My universe)
