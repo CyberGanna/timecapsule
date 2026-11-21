@@ -7,19 +7,30 @@ main#vprofile{max-width:680px!important}
 .lbh #bio{max-width:520px}
 .lbh .lbright{display:contents}
 .lbh #editprof{position:absolute!important;top:20px;right:0;z-index:3}
-.lbstats{justify-content:center;gap:0}
-.lbstats div{display:flex!important;align-items:baseline;gap:5px;padding:0 12px!important}
-.lbstats div+div{border-left:0!important}
-.lbstats div+div::before{content:"·";color:var(--mute);margin-right:12px}
-.lbstats dd{font-size:15px!important;font-weight:600!important}
-.lbstats dt{font-size:13px!important;letter-spacing:0!important;text-transform:none!important}
-.lbstats dd,.lbstats dt{cursor:pointer;text-decoration:underline;text-decoration-color:rgba(238,241,255,.25);text-underline-offset:4px}
+.lbstats{justify-content:center;margin-top:10px!important}
 .lbh #herotags{justify-content:center;margin-top:2px}
 .lbbody{grid-template-columns:1fr!important;gap:40px!important}
 .lbside{display:grid!important;gap:0!important}
 .lbside>section:not(.lbreads){display:none!important}
 .lbreads #uniview .uni svg#uni{width:100%;max-height:380px}
 .lbreads .unicap{text-align:center}
-.lbtabs .list>li.fb:nth-child(n+4){display:none!important}
-.opt-rline{font-size:13px;color:var(--mute);margin:2px 0 6px}
-.opt-rline b{color:var(--text);font-weight:600}
+body:not(.opt-filt) .lbtabs .list>li.fb:nth-child(n+4){display:none!important}
+.opt-rchips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 8px}
+.opt-rchips button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(238,241,255,.03);font-size:13px;color:var(--mute)}
+.opt-rchips button b{color:var(--text);font-weight:600}
+.opt-rchips button i{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.opt-rchips button:nth-child(2) i{background:var(--violet)}.opt-rchips button:nth-child(3) i{background:#7C83B3}
+.opt-rchips button:hover{border-color:rgba(238,241,255,.35);color:var(--text)}
+.opt-rchips button.on{border-color:#EEF1FF;background:rgba(238,241,255,.1);color:var(--text)}
+.opt-rchips button.dim{opacity:.45}
+.opt-rchips button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+/* ? next to the Universe title, card opens under it */
+.lbreads .reads{position:relative}
+#uni-h{justify-content:flex-start!important;align-items:center;gap:8px}
+#uni-h #kq{position:static!important;margin:0;transform:none}
+.lbreads .reads>#kbox{top:34px;bottom:auto;left:0;right:auto;width:min(320px,100%);display:grid;gap:6px}
+.lbreads .reads>#kbox[hidden]{display:none}
+#kbox .opt-kh{margin-top:6px;font-size:12px!important;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:500}
+#kbox .opt-kh:first-of-type{margin-top:0}
+#uni-h #kq{width:16px;height:16px;font-size:10px}
+body .lbtabs .mix:has(.filt:not([hidden])){display:none}

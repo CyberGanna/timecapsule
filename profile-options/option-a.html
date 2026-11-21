@@ -695,22 +695,33 @@ main#vprofile{max-width:680px!important}
 .lbh #bio{max-width:520px}
 .lbh .lbright{display:contents}
 .lbh #editprof{position:absolute!important;top:20px;right:0;z-index:3}
-.lbstats{justify-content:center;gap:0}
-.lbstats div{display:flex!important;align-items:baseline;gap:5px;padding:0 12px!important}
-.lbstats div+div{border-left:0!important}
-.lbstats div+div::before{content:"·";color:var(--mute);margin-right:12px}
-.lbstats dd{font-size:15px!important;font-weight:600!important}
-.lbstats dt{font-size:13px!important;letter-spacing:0!important;text-transform:none!important}
-.lbstats dd,.lbstats dt{cursor:pointer;text-decoration:underline;text-decoration-color:rgba(238,241,255,.25);text-underline-offset:4px}
+.lbstats{justify-content:center;margin-top:10px!important}
 .lbh #herotags{justify-content:center;margin-top:2px}
 .lbbody{grid-template-columns:1fr!important;gap:40px!important}
 .lbside{display:grid!important;gap:0!important}
 .lbside>section:not(.lbreads){display:none!important}
 .lbreads #uniview .uni svg#uni{width:100%;max-height:380px}
 .lbreads .unicap{text-align:center}
-.lbtabs .list>li.fb:nth-child(n+4){display:none!important}
-.opt-rline{font-size:13px;color:var(--mute);margin:2px 0 6px}
-.opt-rline b{color:var(--text);font-weight:600}
+body:not(.opt-filt) .lbtabs .list>li.fb:nth-child(n+4){display:none!important}
+.opt-rchips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 8px}
+.opt-rchips button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(238,241,255,.03);font-size:13px;color:var(--mute)}
+.opt-rchips button b{color:var(--text);font-weight:600}
+.opt-rchips button i{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.opt-rchips button:nth-child(2) i{background:var(--violet)}.opt-rchips button:nth-child(3) i{background:#7C83B3}
+.opt-rchips button:hover{border-color:rgba(238,241,255,.35);color:var(--text)}
+.opt-rchips button.on{border-color:#EEF1FF;background:rgba(238,241,255,.1);color:var(--text)}
+.opt-rchips button.dim{opacity:.45}
+.opt-rchips button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+/* ? next to the Universe title, card opens under it */
+.lbreads .reads{position:relative}
+#uni-h{justify-content:flex-start!important;align-items:center;gap:8px}
+#uni-h #kq{position:static!important;margin:0;transform:none}
+.lbreads .reads>#kbox{top:34px;bottom:auto;left:0;right:auto;width:min(320px,100%);display:grid;gap:6px}
+.lbreads .reads>#kbox[hidden]{display:none}
+#kbox .opt-kh{margin-top:6px;font-size:12px!important;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:500}
+#kbox .opt-kh:first-of-type{margin-top:0}
+#uni-h #kq{width:16px;height:16px;font-size:10px}
+body .lbtabs .mix:has(.filt:not([hidden])){display:none}
 </style></head><body><div class="optbar">Draft, not live: Option A · One calm column. <a href="index.html" style="color:#fff">All options</a> · <a href="../profile/timecapsule-profile.html" style="color:#fff">Current page</a></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F9DA74"/><stop offset="1" stop-color="#F0C858"/></linearGradient><symbol id="coin" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19.2" fill="#E2AC3C" stroke="#B07A1C" stroke-width="1.4"/><circle cx="20" cy="20" r="17.6" fill="none" stroke="#FFE38A" stroke-width="1.6" stroke-dasharray="1 1.4"/><circle cx="20" cy="20" r="15.2" fill="url(#cg)" stroke="#B07A1C" stroke-width="1.1"/><circle cx="20" cy="20" r="12.4" fill="none" stroke="#C98F22" stroke-opacity=".6" stroke-width=".9"/><path d="M20 12V20L25.5 23.2" fill="none" stroke="#9A6614" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="1.8" fill="#9A6614"/></symbol></defs></svg>
 
@@ -2100,10 +2111,31 @@ body.visitor #t-lb .lbc-o,body:not(.visitor) #t-lb .lbc-v{display:none}
 <script>window.addEventListener("load",function(){(function(){
  var tags=document.getElementById('herotags'),meta=document.querySelector('.lbmeta');
  if(tags&&meta)meta.after(tags);
- // one quiet line instead of the Ratings block
- var h=[...document.querySelectorAll('.hist button')].map(b=>'<b>'+b.querySelector('b').textContent+'</b> '+b.querySelector('span').textContent);
+ // ratings as tappable chips; each one filters the feedbacks (uses the page's own Ratings buttons)
+ var hb=[...document.querySelectorAll('.hist button')];
  var sw=document.querySelector('#p-fb .fbsw');
- if(sw&&h.length){var p=document.createElement('p');p.className='opt-rline';p.innerHTML=h.join(' · ');sw.after(p)}
+ if(sw&&hb.length){
+  var box=document.createElement('div');box.className='opt-rchips';box.setAttribute('role','group');box.setAttribute('aria-label','Filter by rating');
+  hb.forEach(function(b){var c=document.createElement('button');c.type='button';
+   c.innerHTML='<i></i><b>'+b.querySelector('b').textContent+'</b> '+b.querySelector('span').textContent;
+   c.addEventListener('click',function(){var y=scrollY;b.click();requestAnimationFrame(function(){scrollTo({top:y})})});
+   box.appendChild(c)});
+  sw.after(box);
+  var sync=function(){document.body.classList.toggle('opt-filt',hb.some(function(b){return b.classList.contains('on')}));hb.forEach(function(b,i){var c=box.children[i];c.classList.toggle('on',b.classList.contains('on'));c.classList.toggle('dim',b.classList.contains('dim'));c.setAttribute('aria-pressed',b.classList.contains('on'))})};
+  hb.forEach(function(b){new MutationObserver(sync).observe(b,{attributes:true,attributeFilter:['class']})});sync();
+ }
  document.querySelectorAll('.lbtabs .tabs b').forEach(b=>b.remove());
+ // ? next to the Universe title; card split into Readings and Conversations (text from My universe)
+ var h=document.getElementById('uni-h'),kq=document.getElementById('kq'),kb=document.getElementById('kbox'),reads=document.querySelector('.lbreads .reads');
+ if(h&&kq&&kb&&reads){
+  var old=kq.parentElement;h.appendChild(kq);if(old&&old.tagName=='SPAN'&&!old.textContent.trim()&&!old.children.length)old.remove();
+  kq.setAttribute('aria-label','What is in the universe?');
+  h.after(kb);
+  var kx=document.getElementById('kx');[...kb.children].forEach(function(n){if(n!==kx)n.remove()});
+  kb.insertAdjacentHTML('beforeend','<b class="opt-kh">Readings</b><p>The books and films that shaped how you think, sorted by topic. Add one and it joins the map on your profile.</p><b class="opt-kh">Conversations</b><p>What your tables left behind, saved and sorted by topic. Read one again, or pick it up for a new round.</p>');
+  kb.setAttribute('aria-label','About the universe');
+  new MutationObserver(function(){if(kq.getAttribute('aria-label')!='What is in the universe?')kq.setAttribute('aria-label','What is in the universe?');if(kb.getAttribute('aria-label')!='About the universe')kb.setAttribute('aria-label','About the universe')}).observe(kq,{attributes:true});
+ }
 })();
+(function(){var t=document.getElementById('t-fb');if(!t)return;var fix=function(){if(t.textContent.trim()!=='Feedbacks'){mo.disconnect();t.textContent='Feedbacks';mo.observe(t,{childList:true,subtree:true,characterData:true})}};var mo=new MutationObserver(fix);mo.observe(t,{childList:true,subtree:true,characterData:true});fix()})();
 });</script></body></html>
