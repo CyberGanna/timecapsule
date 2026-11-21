@@ -7,7 +7,7 @@ main#vprofile{max-width:680px!important}
 .lbh #bio{max-width:520px}
 .lbh .lbright{display:contents}
 .lbh #editprof{position:absolute!important;top:20px;right:0;z-index:3}
-.lbstats{justify-content:center;margin-top:10px!important}
+.lbstats{justify-content:center;margin-top:10px!important;zoom:.78}
 .lbh #herotags{justify-content:center;margin-top:2px}
 .lbbody{grid-template-columns:1fr!important;gap:40px!important}
 .lbside{display:grid!important;gap:0!important}
