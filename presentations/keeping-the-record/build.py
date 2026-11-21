@@ -121,7 +121,7 @@ S.append(slide(2, '<div class="kick">The tension</div>'
                '<h1>The record is our <b>greatest value</b>, and our <b>greatest obstacle</b>.</h1>'
                '<div class="two">'
                '<div class="card v"><h3>Why we keep it</h3><p>Knowledge that outlives the call.</p><p>Authorship: your words, with your name.</p><p>Something future generations can build on.</p></div>'
-               '<div class="card t"><h3>Why it can hold people back</h3><p>People speak less freely when they know it is kept.</p><p>Some will not sign up if saving sounds permanent and public.</p></div>'
+               '<div class="card t"><h3>Why it can hold people back</h3><p>People speak less freely when they know it is kept.</p><p>Some will not sign up if saving audio and transcripts feels permanent and public.</p></div>'
                '</div>'))
 
 # 3 two problems, three questions
