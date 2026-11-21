@@ -702,7 +702,7 @@ main#vprofile{max-width:680px!important}
 .lbside>section:not(.lbreads){display:none!important}
 .lbreads #uniview .uni svg#uni{width:100%;max-height:380px}
 .lbreads .unicap{text-align:center}
-body:not(.opt-filt) .lbtabs .list>li.fb:nth-child(n+4){display:none!important}
+body:not(.opt-filt):not(.opt-more) .lbtabs .list>li.fb:nth-child(n+4){display:none!important}
 .opt-rchips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 8px}
 .opt-rchips button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(238,241,255,.03);font-size:13px;color:var(--mute)}
 .opt-rchips button b{color:var(--text);font-weight:600}
@@ -2121,7 +2121,7 @@ body.visitor #t-lb .lbc-o,body:not(.visitor) #t-lb .lbc-v{display:none}
    c.addEventListener('click',function(){var y=scrollY;b.click();requestAnimationFrame(function(){scrollTo({top:y})})});
    box.appendChild(c)});
   sw.after(box);
-  var sync=function(){document.body.classList.toggle('opt-filt',hb.some(function(b){return b.classList.contains('on')}));hb.forEach(function(b,i){var c=box.children[i];c.classList.toggle('on',b.classList.contains('on'));c.classList.toggle('dim',b.classList.contains('dim'));c.setAttribute('aria-pressed',b.classList.contains('on'))})};
+  var sync=function(){var f=hb.some(function(b){return b.classList.contains('on')});if(!f&&document.body.classList.contains('opt-filt'))document.body.classList.add('opt-more');document.body.classList.toggle('opt-filt',f);hb.forEach(function(b,i){var c=box.children[i];c.classList.toggle('on',b.classList.contains('on'));c.classList.toggle('dim',b.classList.contains('dim'));c.setAttribute('aria-pressed',b.classList.contains('on'))})};
   hb.forEach(function(b){new MutationObserver(sync).observe(b,{attributes:true,attributeFilter:['class']})});sync();
  }
  document.querySelectorAll('.lbtabs .tabs b').forEach(b=>b.remove());
@@ -2138,4 +2138,5 @@ body.visitor #t-lb .lbc-o,body:not(.visitor) #t-lb .lbc-v{display:none}
  }
 })();
 (function(){var t=document.getElementById('t-fb');if(!t)return;var fix=function(){if(t.textContent.trim()!=='Feedbacks'){mo.disconnect();t.textContent='Feedbacks';mo.observe(t,{childList:true,subtree:true,characterData:true})}};var mo=new MutationObserver(fix);mo.observe(t,{childList:true,subtree:true,characterData:true});fix()})();
+(function(){var m=document.querySelector('#p-fb .more');if(!m)return;m.addEventListener('click',function(e){if(!document.body.classList.contains('opt-more')){document.body.classList.add('opt-more');e.stopImmediatePropagation();e.preventDefault()}},true)})();
 });</script></body></html>
