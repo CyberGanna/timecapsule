@@ -34,3 +34,4 @@ body:not(.opt-filt):not(.opt-more) .lbtabs .list:not(.given)>li.fb:nth-child(n+4
 #kbox .opt-kh:first-of-type{margin-top:0}
 #uni-h #kq{width:16px;height:16px;font-size:10px}
 body .lbtabs .mix:has(.filt:not([hidden])){display:none}
+.lbh .lbmeta{margin-top:-4px}

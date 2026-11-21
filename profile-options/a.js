@@ -1,6 +1,7 @@
 (function(){
- var tags=document.getElementById('herotags'),meta=document.querySelector('.lbmeta');
- if(tags&&meta)meta.after(tags);
+ var tags=document.getElementById('herotags'),meta=document.querySelector('.lbmeta'),nm=document.querySelector('.lbname'),bio=document.getElementById('bio');
+ if(meta&&nm)nm.after(meta);
+ if(tags&&bio)bio.after(tags);
  // ratings as tappable chips; each one filters the list you are looking at (Received or Given)
  var hb=[...document.querySelectorAll('.hist button')];
  var P=document.getElementById('p-fb'),sw=P&&P.querySelector('.fbsw'),gl=P&&P.querySelector('.list.given');
