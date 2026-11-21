@@ -1,0 +1,20 @@
+/* B. The universe is the cover */
+.lbback{display:none!important}
+.lbh.hasbd{padding-top:8px}
+.lbh.hasbd .big{box-shadow:none}
+.lbbody{grid-template-columns:1fr!important;gap:30px!important}
+.lbmain{display:grid!important}
+.lbside{order:-1}
+.lbside>section:not(.lbreads){display:none!important}
+.lbreads .reads>h2{display:none}
+.lbreads #uniview .uni{border-radius:16px}
+.lbreads #uniview .uni svg#uni{display:block;margin:0 auto;width:100%;max-height:440px}
+.lbreads .unicap{text-align:center}
+#p-about{display:grid;gap:30px;padding-top:18px}
+#p-about[hidden]{display:none}
+#p-about .lbsec{gap:14px}
+.lbtabs .list>li.fb:nth-child(n+6){display:none!important}
+.lbh .lbright{display:grid;justify-items:end;gap:14px}
+.lbh #editprof{position:static!important;order:-1}
+@media(min-width:861px){#p-about{grid-template-columns:1fr 1.3fr;gap:48px}}
+#p-about .lbsec{align-content:start}
