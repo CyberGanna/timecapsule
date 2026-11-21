@@ -69,3 +69,6 @@ Pick one|Διάλεξε ένα
 said|είπε
 Round|Γύρος
 topic|θέμα
+The books and films that shaped how you think, sorted by topic. Add one and it joins the map on your profile.|Τα βιβλία και οι ταινίες που διαμόρφωσαν τη σκέψη σου, ταξινομημένα ανά θέμα. Πρόσθεσε ένα και θα εμφανιστεί στον χάρτη του προφίλ σου.
+What your tables left behind, saved and sorted by topic. Read one again, or pick it up for a new round.|Ό,τι άφησαν πίσω τα τραπέζια σου, αποθηκευμένο και ταξινομημένο ανά θέμα. Ξαναδιάβασε μια συζήτηση ή συνέχισέ τη σε έναν νέο γύρο.
+No readings yet|Δεν υπάρχουν ακόμα αναγνώσματα
