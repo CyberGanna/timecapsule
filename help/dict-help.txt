@@ -135,8 +135,8 @@ Five guides: your first table, hosting, TimeCoins, notes and reporting abuse.|Ci
 Help and more|Aiuto e altro|Ayuda y más
 Small tables, real people. Your data is never sold.|Tavoli piccoli, persone vere. I tuoi dati non vengono mai venduti.|Mesas pequeñas, personas reales. Tus datos nunca se venden.
 Kept notes|Note tenute|Notas guardadas
-Can I message someone privately during a table?|Posso scrivere in privato a qualcuno durante un tavolo?|¿Puedo escribir en privado a alguien durante una mesa?
-Yes. Open Messages and pick a person. Only the two of you see it. The host can't see or control private messages.|Sì. Apri Messaggi e scegli una persona. Lo vedete solo voi due. L'host non può vedere né controllare i messaggi privati.|Sí. Abre Mensajes y elige a una persona. Solo lo veis vosotros dos. El anfitrión no puede ver ni controlar los mensajes privados.
+Can I chat with someone privately during a table?|Posso chattare in privato con qualcuno durante un tavolo?|¿Puedo chatear en privado con alguien durante una mesa?
+Yes. Open Chat and pick a person. Only the two of you see it. The host can't see or control private messages.|Sì. Apri Chat e scegli una persona. Lo vedete solo voi due. L'host non può vedere né controllare i messaggi privati.|Sí. Abre Chat y elige a una persona. Solo lo veis vosotros dos. El anfitrión no puede ver ni controlar los mensajes privados.
 What can the host control?|Cosa può controllare l'host?|¿Qué puede controlar el anfitrión?
 Only the notes. Questions guests send with Ask come to the host, who decides when to put them to the table. The host can't read or stop private messages.|Solo le note. Le domande che gli ospiti inviano con Chiedi arrivano all'host, che decide quando proporle al tavolo. L'host non può leggere né fermare i messaggi privati.|Solo las notas. Las preguntas que los invitados envían con Preguntar llegan al anfitrión, que decide cuándo plantearlas a la mesa. El anfitrión no puede leer ni detener los mensajes privados.
 Report abuse|Segnala un abuso|Denunciar un abuso

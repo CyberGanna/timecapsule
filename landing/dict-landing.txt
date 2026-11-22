@@ -205,3 +205,4 @@ Leave table|Lascia il tavolo|Salir de la mesa
 Hosted by|Ospitato da|Organizada por
 Wants to speak|Vuole parlare|Quiere hablar
 Kept · you can leave your words out|Conservata · puoi togliere le tue parole|Guardada · puedes retirar tus palabras
+Chat|Chat|Chat
