@@ -815,8 +815,11 @@ body.opt-lineopen .opt-rows{animation:optin .45s ease both}
 .opt-items.all>div.opt-all{display:none!important}
 body.opt-lineopen .opt-items{gap:5px 36px}
 body.opt-lineopen .opt-rows{margin-bottom:32px}
-.unitog{display:none!important}
-.uni{padding-top:0!important}
+.unitog:not(.opt-kind){display:none!important}
+.opt-kind button span{display:none}
+/* the mutual link is for visitors only */
+body:not(.visitor) .opt-hint button{display:inline!important;visibility:hidden!important}
+body:not(.visitor) .opt-g[data-k="__mut"]{display:none!important}
 #kbox b.opt-kh~b.opt-kh,#kbox b.opt-kh~b.opt-kh+p{display:none!important}
 </style></head><body><div class="optbar">Draft, not live: Option A9 · The orbit becomes a line. <a href="index.html" style="color:#fff">All options</a> · <a href="../profile/timecapsule-profile.html" style="color:#fff">Current page</a></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F9DA74"/><stop offset="1" stop-color="#F0C858"/></linearGradient><symbol id="coin" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19.2" fill="#E2AC3C" stroke="#B07A1C" stroke-width="1.4"/><circle cx="20" cy="20" r="17.6" fill="none" stroke="#FFE38A" stroke-width="1.6" stroke-dasharray="1 1.4"/><circle cx="20" cy="20" r="15.2" fill="url(#cg)" stroke="#B07A1C" stroke-width="1.1"/><circle cx="20" cy="20" r="12.4" fill="none" stroke="#C98F22" stroke-opacity=".6" stroke-width=".9"/><path d="M20 12V20L25.5 23.2" fill="none" stroke="#9A6614" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="1.8" fill="#9A6614"/></symbol></defs></svg>
@@ -2271,7 +2274,7 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  function item(b,m){
   if(m==='lib'){var as=document.body.classList.contains('visitor')?'visitor':'host';
    return '<div><a href="../library/timecapsule-library.html#r='+encodeURIComponent(b[2])+'&as='+as+'" target="_top">'+esc(b[0])+'</a><small>'+esc(b[1])+'</small></div>'}
-  return '<div><span>'+esc(b[0])+(window.__YT(b)?'<em>You too</em>':'')+'</span><small>'+(b[3]==='film'?'Film · ':'')+esc(b[1])+'</small></div>'}
+  return '<div><span>'+esc(b[0])+(window.__YT(b)?'<em>You too</em>':'')+'</span><small>'+esc(b[1])+'</small></div>'}
  function row(key,label,color,books,m,cls){
   var li=document.createElement('div');li.className='opt-g';li.dataset.k=key;
   var n=books.length,nf=books.filter(function(b){return b[3]==='film'}).length,nb=n-nf,unit=m==='lib'?(n==1?'conversation':'conversations'):[nb?(nb+' '+(nb==1?'book':'books')):'',nf?(nf+' '+(nf==1?'film':'films')):''].filter(Boolean).join(' · ');
@@ -2286,7 +2289,7 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
   if(m!=='lib'){var mine=[];T.forEach(function(t){t.b.forEach(function(b){if(window.__YT(b))mine.push(b)})});
    if(mine.length)ul.appendChild(row('__mut','Books you both read','#17C3C8',mine,m,'mut'))}
   T.forEach(function(t){ul.appendChild(row(t.n,t.n,t.c,t.b,m))})}
- render();
+ render();window.__optRender=function(){last=null;render()};
  document.querySelectorAll('.unitog button').forEach(function(b){new MutationObserver(render).observe(b,{attributes:true,attributeFilter:['aria-pressed']})});
  // tapping a planet opens its topic row instead of a list inside the map
  function openFrom(g){var lab=g.getAttribute('aria-label')||'',topic=lab.slice(lab.lastIndexOf(', ')+2);
@@ -2340,6 +2343,19 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  // Version 2: the universe is Readings only (books and films); conversations live in their tab
  var rb=document.querySelector('.unitog button[data-m="read"]');if(rb&&rb.getAttribute('aria-pressed')!=='true')rb.click();
  var kh=document.querySelector('#kbox b.opt-kh');if(kh)kh.textContent='Books, Films';
+ // Version 2: a Books | Films switch on the map; each kind gets its own universe
+ (function(){var og=document.querySelector('.unitog'),RT=window.__RT;if(!og||!RT||!window.KU)return;
+  var ALL=RT.map(function(t){return Object.assign({},t,{b:t.b.slice()})});
+  var sw=og.cloneNode(true);sw.classList.add('opt-kind');sw.setAttribute('aria-label','Books or films');
+  var bs=sw.querySelectorAll('button');bs[0].textContent='Books';bs[1].textContent='Films';
+  bs.forEach(function(b,i){b.removeAttribute('data-m');b.dataset.k=i?'film':'book';b.setAttribute('aria-pressed',i?'false':'true')});
+  og.after(sw);
+  function set(k){RT.length=0;ALL.forEach(function(t){var b=t.b.filter(function(x){return (x[3]==='film')===(k==='film')});if(b.length)RT.push(Object.assign({},t,{b:b}))});
+   bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k?'true':'false')})}
+  set('book');
+  bs.forEach(function(b){b.addEventListener('click',function(){if(b.getAttribute('aria-pressed')==='true')return;if(rb)rb.click();set(b.dataset.k);window.KU.render();if(window.__optRender)window.__optRender()})});
+  window.KU.render();if(window.__optRender)window.__optRender();
+ })();
  var NS='http://www.w3.org/2000/svg',box=svg.parentNode,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
  var LY=16,X0=22,X1=318,STRIP=34,N=140,DUR=reduce?0:650;
  var st=null; // {key,col,pts:[[from],[to]],dots,strip}
