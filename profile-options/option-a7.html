@@ -774,9 +774,7 @@ body .lbtabs .mix:has(.filt:not([hidden])){display:none}
 .opt-items.all>div.opt-all{display:none!important}
 
 /* A7: map only, no extra tab. A planet opens just its topic, right under the map. */
-.unitog{display:none!important}
 .uni{padding-top:0!important}
-#kbox b.opt-kh~b.opt-kh,#kbox b.opt-kh~b.opt-kh+p{display:none!important}
 .opt-rows>.opt-g:not(:has(>.opt-row[aria-expanded=true])){display:none}
 .opt-rows:not(:has(.opt-row[aria-expanded=true])){display:none}
 .opt-rows{border-top:0;margin-top:6px}
@@ -796,6 +794,7 @@ body.opt-allrows #uniview{display:none!important}
 body.opt-allrows .opt-rows{margin-top:0}
 body.opt-allrows .opt-row[aria-expanded=false] svg{visibility:hidden}
 body.opt-allrows .opt-hint{display:none}
+.opt-hint button[hidden]{display:none}
 </style></head><body><div class="optbar">Draft, not live: Option A7 · Map, tap the photo for the list. <a href="index.html" style="color:#fff">All options</a> · <a href="../profile/timecapsule-profile.html" style="color:#fff">Current page</a></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F9DA74"/><stop offset="1" stop-color="#F0C858"/></linearGradient><symbol id="coin" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19.2" fill="#E2AC3C" stroke="#B07A1C" stroke-width="1.4"/><circle cx="20" cy="20" r="17.6" fill="none" stroke="#FFE38A" stroke-width="1.6" stroke-dasharray="1 1.4"/><circle cx="20" cy="20" r="15.2" fill="url(#cg)" stroke="#B07A1C" stroke-width="1.1"/><circle cx="20" cy="20" r="12.4" fill="none" stroke="#C98F22" stroke-opacity=".6" stroke-width=".9"/><path d="M20 12V20L25.5 23.2" fill="none" stroke="#9A6614" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="1.8" fill="#9A6614"/></symbol></defs></svg>
 
@@ -2278,26 +2277,31 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
 (function(){
  window.__optNoScroll=1;
  var view=document.getElementById('uniview'),rows=document.querySelector('.opt-rows');if(!view||!rows)return;
- var rb=document.querySelector('.unitog button[data-m="read"]');if(rb&&rb.getAttribute('aria-pressed')!=='true')rb.click();
  var X='<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
- function fix(){rows.querySelectorAll('.opt-row').forEach(function(b){var s=b.querySelector('svg');if(s&&!s.dataset.x){s.outerHTML=X;b.querySelector('svg').dataset.x=1;b.setAttribute('aria-label',b.textContent.trim()+', close')}})}
- fix();new MutationObserver(fix).observe(rows,{childList:true});
- var hint=document.createElement('p');hint.className='opt-hint';hint.textContent='Tap to open topic. Tap photo to see all.';rows.before(hint);
- var mut=rows.querySelector('.opt-g[data-k="__mut"]');
- if(mut){var n=mut.lastChild.querySelectorAll(':scope>div:not(.opt-all)').length,b=document.createElement('button');b.type='button';b.textContent='· '+n+' you both read';
-  b.addEventListener('click',function(){var y=scrollY;rows.querySelectorAll(':scope>.opt-g').forEach(function(o){var on=o===mut;o.firstChild.setAttribute('aria-expanded',on);o.lastChild.hidden=!on});window.scrollTo(0,y)});hint.appendChild(b)}
-
- // tapping the photo shows every topic (each opens in place)
- var head=document.createElement('div');head.className='opt-allhead';head.innerHTML='<span>All topics</span><button type="button">Back to the map</button>';rows.prepend(head);
- function all(on){document.body.classList.toggle('opt-allrows',on);if(!on)rows.querySelectorAll('.opt-row[aria-expanded=true]').forEach(function(b){b.click()})}
+ var hint=document.createElement('p');hint.className='opt-hint';hint.innerHTML='<span>Tap to open topic. Tap photo to see all.</span>';rows.before(hint);
+ var mb=document.createElement('button');mb.type='button';hint.appendChild(mb);
+ var head=document.createElement('div');head.className='opt-allhead';head.innerHTML='<span>All topics</span><button type="button">Back to the map</button>';
  head.querySelector('button').addEventListener('click',function(){all(false)});
- var sun=document.querySelector('#uni .sunav');
- if(sun){sun.setAttribute('tabindex','0');sun.setAttribute('role','button');sun.setAttribute('aria-label','See all topics as a list');
-  var go=function(e){e.stopImmediatePropagation();e.preventDefault();rows.querySelectorAll('.opt-row[aria-expanded=true]').forEach(function(b){b.setAttribute('aria-expanded','false');b.nextSibling.hidden=true});all(true);var h=document.getElementById('uni-h');if(h&&h.getBoundingClientRect().top<0)h.scrollIntoView({block:'start'})};
-  var onSun=function(e){if(e.target.closest&&e.target.closest('.sunav'))return true;if(e.clientX==null)return false;var r=sun.getBoundingClientRect();return e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom};
-  view.addEventListener('click',function(e){if(!document.body.classList.contains('opt-allrows')&&onSun(e))go(e)},true);
-  sun.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')go(e)},true)}
- var host=view.closest('.uni')||document.body;
- new MutationObserver(function(){document.body.classList.toggle('uni-a7open',!!rows.querySelector('.opt-row[aria-expanded=true]'))}).observe(rows,{subtree:true,attributes:true,attributeFilter:['aria-expanded']});
+ function mut(){return rows.querySelector('.opt-g[data-k="__mut"]')}
+ mb.addEventListener('click',function(){var m=mut();if(!m)return;var y=scrollY;rows.querySelectorAll(':scope>.opt-g').forEach(function(o){var on=o===m;o.firstChild.setAttribute('aria-expanded',on);o.lastChild.hidden=!on});window.scrollTo(0,y)});
+ // after every render (Readings or Conversations): close icons, the All topics header, the mutual link
+ var busy=false;
+ function fix(){if(busy)return;busy=true;
+  rows.querySelectorAll('.opt-row').forEach(function(b){var s=b.querySelector('svg');if(s&&!s.dataset.x){s.outerHTML=X;b.querySelector('svg').dataset.x=1;b.setAttribute('aria-label',b.textContent.trim()+', close')}});
+  if(rows.firstChild!==head)rows.prepend(head);
+  var m=mut();mb.hidden=!m;if(m)mb.textContent='· '+m.lastChild.querySelectorAll(':scope>div:not(.opt-all)').length+' you both read';
+  busy=false}
+ fix();new MutationObserver(fix).observe(rows,{childList:true});
+ function all(on){document.body.classList.toggle('opt-allrows',on);rows.querySelectorAll('.opt-row[aria-expanded=true]').forEach(function(b){b.setAttribute('aria-expanded','false');b.nextSibling.hidden=true})}
+ // switching Readings / Conversations goes back to the map
+ document.querySelectorAll('.unitog button').forEach(function(b){b.addEventListener('click',function(){all(false)})});
+ // tapping the photo swaps the map for the list of all topics
+ function sun(){return document.querySelector('#uni .sunav')}
+ function go(e){e.stopImmediatePropagation();e.preventDefault();all(true);var h=document.getElementById('uni-h');if(h&&h.getBoundingClientRect().top<0)h.scrollIntoView({block:'start'})}
+ function onSun(e){var s=sun();if(!s)return false;if(e.target.closest&&e.target.closest('.sunav'))return true;if(!e.clientX&&!e.clientY)return false;var r=s.getBoundingClientRect();return e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom}
+ view.addEventListener('click',function(e){if(!document.body.classList.contains('opt-allrows')&&onSun(e))go(e)},true);
+ view.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.closest&&e.target.closest('.sunav'))go(e)},true);
+ function tagSun(){var s=sun();if(s&&!s.hasAttribute('tabindex')){s.setAttribute('tabindex','0');s.setAttribute('role','button');s.setAttribute('aria-label','See all topics as a list')}}
+ tagSun();new MutationObserver(tagSun).observe(document.getElementById('uni'),{childList:true});
 })();
 });</script></body></html>
