@@ -4,19 +4,19 @@ import os
 here=os.path.dirname(os.path.abspath(__file__))
 src=open(os.path.join(here,'..','profile','timecapsule-profile.html'),encoding='utf-8').read()
 common=open(os.path.join(here,'common.css')).read()
-names={'a3':'Option A3 · One way in','a2':'Option A2 · Lists open in the page','a':'Option A · One calm column','b':'Option B · The universe is the cover','c':'Option C · Same layout, trimmed'}
+names={'a4':'Option A4 · Universe on the cover','a3':'Option A3 · One way in','a2':'Option A2 · Lists open in the page','a':'Option A · One calm column','b':'Option B · The universe is the cover','c':'Option C · Same layout, trimmed'}
 for k,label in names.items():
-    parts={'a2':['a','a2'],'a3':['a','a2','a3']}.get(k,[k])
+    parts={'a2':['a','a2'],'a3':['a','a2','a3'],'a4':['a','a2','a3','a4']}.get(k,[k])
     css='\n'.join(open(os.path.join(here,p+'.css')).read() for p in parts); js='\n'.join(open(os.path.join(here,p+'.js')).read() for p in parts)
     bar=f'<div class="optbar">Draft, not live: {label}. <a href="index.html" style="color:#fff">All options</a> · <a href="../profile/timecapsule-profile.html" style="color:#fff">Current page</a></div>'
     page=src
-    if k in ('a2','a3'):
+    if k in ('a2','a3','a4'):
         # slower drift (about a third), full stop near the mouse, stop for 4 s after a touch
         for a,b in [('m.a+=m.w*dt*sp','m.a+=m.w*dt*sp*.35*((Date.now()-(window.__uniHold||0))<4000?0:1)'),
                     ('goal=Math.min(1,Math.max(.08,(d-8)/70))','goal=Math.min(1,Math.max(0,(d-8)/70))')]:
             assert page.count(a)==1,a
             page=page.replace(a,b)
-    if k=='a3':
+    if k in ('a3','a4'):
         # expose the universe data so the topic rows can be built from it
         for a,b in [('var RT=T,MODE="read",LT=','var RT=window.__RT=T,MODE="read",LT=window.__LT='),
                     ('function YT(b){return MODE!="lib"&&MINE.indexOf(b[0])>=0}','function YT(b){return MODE!="lib"&&MINE.indexOf(b[0])>=0}window.__YT=function(b){return MINE.indexOf(b[0])>=0};')]:
