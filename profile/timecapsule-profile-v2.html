@@ -2343,7 +2343,15 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  function tp(m,x,y){return [m.a*x+m.c*y+m.e,m.b*x+m.d*y+m.f]}
  function metrics(){var r=svg.getBoundingClientRect(),s=Math.min(r.width/340,r.height/250);return {r:r,s:s,ox:(r.width-340*s)/2,oy:(r.height-250*s)/2}}
  // the orbit as it is now (centre, radii, tilt) and each planet's angle on it, in map units
- function geom(key){var list=T()||[],i=list.findIndex(function(t){return t.n===key});if(i<0)return null;
+ function mgeom(){var M=metrics(),ur=box.getBoundingClientRect(),X0=(ur.left-M.r.left-M.ox)/M.s+4,X1=(ur.right-M.r.left-M.ox)/M.s-4;
+  var mine=[];(window.__RT||[]).forEach(function(t){t.b.forEach(function(b){if(window.__YT&&window.__YT(b))mine.push(b[0])})});if(!mine.length)return null;
+  var els=[],dots=[];svg.querySelectorAll('g.bk').forEach(function(g){var lab=g.getAttribute('aria-label')||'',ti=mine.find(function(t){return lab.indexOf(t+' by ')===0});if(!ti)return;
+   var sys=g.parentNode.parentNode,mr=/rotate\(\s*([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)/.exec(sys.getAttribute('transform')||''),m=/translate\(\s*([-\d.]+)[ ,]+([-\d.]+)/.exec(g.getAttribute('transform')||'');if(!m)return;
+   var x=+m[1],y=+m[2];if(mr){var a=+mr[1]*Math.PI/180,cx=+mr[2],cy=+mr[3],dx=x-cx,dy=y-cy;x=cx+dx*Math.cos(a)-dy*Math.sin(a);y=cy+dx*Math.sin(a)+dy*Math.cos(a)}
+   var c=g.querySelector('.core');els.push(g);dots.push({p:[x,y],c:c?c.getAttribute('fill'):'#17C3C8'})});
+  dots.sort(function(a,b){return a.p[0]-b.p[0]});dots.forEach(function(d,j){d.x=X0+(X1-X0)*(j+.5)/dots.length});
+  return {key:'__mut',mut:true,col:'#17C3C8',els:els,dots:dots,X0:X0,X1:X1}}
+ function geom(key){if(key==='__mut')return mgeom();var list=T()||[],i=list.findIndex(function(t){return t.n===key});if(i<0)return null;
   var M=metrics(),ur=box.getBoundingClientRect(),X0=(ur.left-M.r.left-M.ox)/M.s+4,X1=(ur.right-M.r.left-M.ox)/M.s-4;
   var el=svg.querySelectorAll('ellipse[stroke-dasharray]')[i];if(!el)return null;
   var cx=+el.getAttribute('cx'),cy=+el.getAttribute('cy'),rx=+el.getAttribute('rx'),ry=+el.getAttribute('ry');
@@ -2363,17 +2371,19 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  function ux(g,t){var u=((t-Math.PI)%(2*Math.PI)+4*Math.PI)%(2*Math.PI)/(2*Math.PI);return g.X0+(g.X1-g.X0)*u}
  function run(g,dir,done){ // dir 1: orbit -> line at the top, -1: back
   var o=overlay(),pl=mk('polyline',{fill:'none',stroke:g.col,'stroke-opacity':'.8','stroke-width':'1.6','stroke-linecap':'round','stroke-dasharray':'0 5'},o);
-  var cs=g.ts.map(function(){return mk('circle',{r:3.4,fill:g.col},o)});
+  if(g.mut)pl.setAttribute('points',g.X0+','+LY+' '+g.X1+','+LY);
+  var cs=g.mut?g.dots.map(function(d){return mk('circle',{r:3.4,fill:d.c},o)}):g.ts.map(function(){return mk('circle',{r:3.4,fill:g.col},o)});
   var t0=performance.now();
   function f(now){var e=DUR?Math.min(1,(now-t0)/DUR):1,k=ease(dir>0?e:1-e);
-   pl.setAttribute('points',pts(g,k).map(function(p){return p[0].toFixed(2)+','+p[1].toFixed(2)}).join(' '));
-   g.ts.forEach(function(t,j){var p=pos(g.a,t),x=ux(g,t);cs[j].setAttribute('cx',(p[0]+(x-p[0])*k).toFixed(2));cs[j].setAttribute('cy',(p[1]+(LY-p[1])*k).toFixed(2))});
+   if(g.mut){pl.setAttribute('stroke-opacity',(.8*k).toFixed(3));g.dots.forEach(function(d,j){cs[j].setAttribute('cx',(d.p[0]+(d.x-d.p[0])*k).toFixed(2));cs[j].setAttribute('cy',(d.p[1]+(LY-d.p[1])*k).toFixed(2))})}
+   else{pl.setAttribute('points',pts(g,k).map(function(p){return p[0].toFixed(2)+','+p[1].toFixed(2)}).join(' '));
+   g.ts.forEach(function(t,j){var p=pos(g.a,t),x=ux(g,t);cs[j].setAttribute('cx',(p[0]+(x-p[0])*k).toFixed(2));cs[j].setAttribute('cy',(p[1]+(LY-p[1])*k).toFixed(2))})}
    if(e<1)requestAnimationFrame(f);else{o.remove();done()}}
   requestAnimationFrame(f)}
  function strip(g,m){var s=mk('svg',{viewBox:g.X0.toFixed(2)+' 0 '+(g.X1-g.X0).toFixed(2)+' '+STRIP,'class':'opt-strip',role:'button',tabindex:'0','aria-label':'Back to the universe'});
   s.style.width=((g.X1-g.X0)*m.s)+'px';s.style.height=(STRIP*m.s)+'px';s.style.marginTop=m.oy+'px';
-  mk('polyline',{points:pts(g,1).map(function(p){return p[0].toFixed(2)+','+p[1].toFixed(2)}).join(' '),fill:'none',stroke:g.col,'stroke-opacity':'.8','stroke-width':'1.6','stroke-linecap':'round','stroke-dasharray':'0 5'},s);
-  g.ts.forEach(function(t){mk('circle',{cx:ux(g,t).toFixed(2),cy:LY,r:3.4,fill:g.col},s)});
+  mk('polyline',{points:g.mut?(g.X0+','+LY+' '+g.X1+','+LY):pts(g,1).map(function(p){return p[0].toFixed(2)+','+p[1].toFixed(2)}).join(' '),fill:'none',stroke:g.col,'stroke-opacity':'.8','stroke-width':'1.6','stroke-linecap':'round','stroke-dasharray':'0 5'},s);
+  if(g.mut)g.dots.forEach(function(d){mk('circle',{cx:d.x.toFixed(2),cy:LY,r:3.4,fill:d.c},s)});else g.ts.forEach(function(t){mk('circle',{cx:ux(g,t).toFixed(2),cy:LY,r:3.4,fill:g.col},s)});
   s.addEventListener('click',close);s.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();close()}});
   return s}
  function setRow(key){rows.querySelectorAll(':scope>.opt-g').forEach(function(x){var on=x.dataset.k===key;x.firstChild.setAttribute('aria-expanded',on);x.lastChild.hidden=!on})}
@@ -2407,7 +2417,7 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  rows.parentNode.addEventListener('click',function(e){if(!st)return;var b=e.target.closest&&e.target.closest('.opt-row');if(!b||!rows.contains(b))return;e.stopImmediatePropagation();e.preventDefault();close()},true);
  // switch, photo list and mutual link: go back to the map at once
  document.querySelectorAll('.unitog button').forEach(function(b){b.addEventListener('click',quick,true)});
- var mb=document.querySelector('.opt-hint button');if(mb)mb.addEventListener('click',quick,true);
+ var mb=document.querySelector('.opt-hint button');if(mb)mb.addEventListener('click',function(e){e.stopImmediatePropagation();e.preventDefault();if(st)quick();open('__mut')},true);
  new MutationObserver(function(){if(document.body.classList.contains('opt-allrows'))quick()}).observe(document.body,{attributes:true,attributeFilter:['class']});
 })();
 });</script></body></html>
