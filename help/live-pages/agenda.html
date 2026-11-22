@@ -1834,4 +1834,10 @@ function tcSatHTML(t){const r=tcSatGet(t);me.mode=r.mode;me.alias=r.alias||me.al
     <p class="satn">You keep the same name until this table ends, so everyone knows who's back and the record stays clear.</p></div>`}
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("#enter");if(b)tcSatSet(window.__satT)},true);
 </script>
-</body></html>
+<style id="tc-tblphone">@media (max-width:640px){
+body .tbl .ttop{display:none!important}
+body .tbl{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto!important;flex-direction:column}
+body .tbl .tb{width:auto!important;grid-column:1/-1!important}
+body .ei .th{display:none!important}
+body .ei{gap:0!important}
+}</style></body></html>
