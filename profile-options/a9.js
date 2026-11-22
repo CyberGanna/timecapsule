@@ -16,7 +16,12 @@
    bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k?'true':'false')});
    window.__optMutLabel=k==='film'?'Films you both watched':'Books you both read';window.__optMutVerb=k==='film'?'watched':'read'}
   set('book');
-  bs.forEach(function(b){b.addEventListener('click',function(){if(b.getAttribute('aria-pressed')==='true')return;if(rb)rb.click();set(b.dataset.k);window.KU.render();if(window.__optRender)window.__optRender()})});
+  // All topics (photo tap): the BOOKS | FILMS switch moves above the list, so the other kind is one tap away
+  var home=sw.parentNode,homeNext=sw.nextSibling;
+  new MutationObserver(function(){var on=document.body.classList.contains('opt-allrows');
+   if(on&&sw.parentNode===home){rows.before(sw);sw.classList.add('opt-kind-all')}
+   else if(!on&&sw.parentNode!==home){home.insertBefore(sw,homeNext);sw.classList.remove('opt-kind-all')}}).observe(document.body,{attributes:true,attributeFilter:['class']});
+  bs.forEach(function(b){b.addEventListener('click',function(){if(b.getAttribute('aria-pressed')==='true')return;if(rb&&!document.body.classList.contains('opt-allrows'))rb.click();set(b.dataset.k);window.KU.render();if(window.__optRender)window.__optRender()})});
   window.KU.render();if(window.__optRender)window.__optRender();
  })();
  var NS='http://www.w3.org/2000/svg',box=svg.parentNode,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
