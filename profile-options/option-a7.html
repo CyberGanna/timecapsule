@@ -2268,7 +2268,7 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  // tapping a planet opens its topic row instead of a list inside the map
  function openFrom(g){var lab=g.getAttribute('aria-label')||'',topic=lab.slice(lab.lastIndexOf(', ')+2);
   var li=[...ul.children].find(function(x){return x.dataset.k===topic});if(!li)return;
-  toggle(li,true);if(window.__optNoScroll){var r=li.getBoundingClientRect(),vh=innerHeight;if(r.top>vh-80)window.scrollBy(0,r.top-vh+Math.min(220,vh/3))}else li.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+  toggle(li,true);if(window.__optNoScroll){var r=li.getBoundingClientRect(),vh=innerHeight;if(r.top>vh*.6)window.scrollBy({top:r.top-vh*.35,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})}else li.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
   li.firstChild.classList.remove('opt-flash');void li.offsetWidth;li.firstChild.classList.add('opt-flash')}
  svg.addEventListener('click',function(e){var g=e.target.closest&&e.target.closest('g.bk');if(g){e.stopImmediatePropagation();e.preventDefault();openFrom(g)}},true);
  svg.addEventListener('keydown',function(e){var g=e.target.closest&&e.target.closest('g.bk');if(g&&(e.key==='Enter'||e.key===' ')){e.stopImmediatePropagation();e.preventDefault();openFrom(g)}},true);
@@ -2283,7 +2283,7 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  var head=document.createElement('div');head.className='opt-allhead';head.innerHTML='<span>All topics</span><button type="button">Back to the map</button>';
  head.querySelector('button').addEventListener('click',function(){all(false)});
  function mut(){return rows.querySelector('.opt-g[data-k="__mut"]')}
- mb.addEventListener('click',function(){var m=mut();if(!m)return;var y=scrollY;rows.querySelectorAll(':scope>.opt-g').forEach(function(o){var on=o===m;o.firstChild.setAttribute('aria-expanded',on);o.lastChild.hidden=!on});window.scrollTo(0,y)});
+ mb.addEventListener('click',function(){var m=mut();if(!m)return;var y=scrollY;rows.querySelectorAll(':scope>.opt-g').forEach(function(o){var on=o===m;o.firstChild.setAttribute('aria-expanded',on);o.lastChild.hidden=!on});window.scrollTo(0,y);var r=m.getBoundingClientRect(),vh=innerHeight;if(r.top>vh*.6)window.scrollBy({top:r.top-vh*.35,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})});
  // after every render (Readings or Conversations): close icons, the All topics header, the mutual link
  var busy=false;
  function fix(){if(busy)return;busy=true;

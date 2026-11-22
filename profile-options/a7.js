@@ -7,7 +7,7 @@
  var head=document.createElement('div');head.className='opt-allhead';head.innerHTML='<span>All topics</span><button type="button">Back to the map</button>';
  head.querySelector('button').addEventListener('click',function(){all(false)});
  function mut(){return rows.querySelector('.opt-g[data-k="__mut"]')}
- mb.addEventListener('click',function(){var m=mut();if(!m)return;var y=scrollY;rows.querySelectorAll(':scope>.opt-g').forEach(function(o){var on=o===m;o.firstChild.setAttribute('aria-expanded',on);o.lastChild.hidden=!on});window.scrollTo(0,y)});
+ mb.addEventListener('click',function(){var m=mut();if(!m)return;var y=scrollY;rows.querySelectorAll(':scope>.opt-g').forEach(function(o){var on=o===m;o.firstChild.setAttribute('aria-expanded',on);o.lastChild.hidden=!on});window.scrollTo(0,y);var r=m.getBoundingClientRect(),vh=innerHeight;if(r.top>vh*.6)window.scrollBy({top:r.top-vh*.35,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})});
  // after every render (Readings or Conversations): close icons, the All topics header, the mutual link
  var busy=false;
  function fix(){if(busy)return;busy=true;
