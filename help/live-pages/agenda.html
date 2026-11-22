@@ -1458,7 +1458,7 @@ const NOUN=["Owl","Comet","Reader","Fox","Harbor","Pine","Lantern","River","Spar
 const ACOL=["#7C5CFF","#17C3C8","#F4A6D7","#FF9E8A","#7CC8FF","#E9F27A"];
 const TAKEN=new Set(Object.keys(P).map(x=>x.toLowerCase()).concat(["blue comet","admin","host"]));
 const me={mode:"name",alias:"",col:ACOL[0]};
-// alias ideas drawn from the books in the user's k-universe: [alias, book, author]
+// alias ideas drawn from the books in the user's universe: [alias, book, author]
 const KBOOKS=[["Zarathustra","Thus Spoke Zarathustra","Nietzsche"],["Happy Sisyphus","The Myth of Sisyphus","Camus"],["Owl of Minerva","Phenomenology of Spirit","Hegel"],["Knight of Faith","Fear and Trembling","Kierkegaard"],["Dasein","Being and Time","Heidegger"],["Golden Mean","Nicomachean Ethics","Aristotle"],["Cave Dweller","The Republic","Plato"],["Inner Citadel","Meditations","Marcus Aurelius"],["Conatus","Ethics","Spinoza"],["Noumenon","Critique of Pure Reason","Kant"],["Beetle in a Box","Philosophical Investigations","Wittgenstein"],["Vita Activa","The Human Condition","Arendt"],["The Other","The Second Sex","de Beauvoir"],["Fusion of Horizons","Truth and Method","Gadamer"],["Evil Demon","Meditations on First Philosophy","Descartes"],["The Face","Totality and Infinity","Levinas"]];
 const KB=Object.fromEntries(KBOOKS.map(k=>[k[0],k]));
 function rndAlias(){const f=KBOOKS.filter(k=>!TAKEN.has(k[0].toLowerCase()));return f[Math.random()*f.length|0][0]}

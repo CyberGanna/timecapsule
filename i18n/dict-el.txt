@@ -2193,3 +2193,5 @@ Yes. Open Chat and pick a person. Only the two of you see it. The host can't see
 Open conversation|Άνοιξε συζήτηση
 Save conversation|Αποθήκευση συζήτησης
 Suggestions|Προτάσεις
+What is my universe?|Τι είναι το σύμπαν μου;
+About my universe|Σχετικά με το σύμπαν μου
