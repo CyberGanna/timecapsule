@@ -1,0 +1,13 @@
+/* A8: a planet opens its orbit as a flat circle with titles */
+.uni{position:relative}
+.opt-orb{display:block;width:100%;height:auto}
+.opt-orb[hidden],#uni[hidden],.opt-orbback[hidden]{display:none!important}
+.opt-orbn{font-family:var(--font);letter-spacing:.14em;font-weight:600}
+.opt-orbu{font-family:var(--font);font-size:8px;fill:#9AA3C7}
+.opt-orbc{cursor:pointer}.opt-orbc:focus{outline:none}.opt-orbc:focus-visible text{text-decoration:underline}
+.opt-orbl{font-family:var(--font);font-size:7.2px;fill:#D3D8F5}
+.opt-orbl.lnk{cursor:pointer}.opt-orbl.lnk:hover{fill:#2DE2E6}
+.opt-orbl.big{font-size:9px}
+.opt-orbl.yt{fill:#2DE2E6}
+.opt-orbback{all:unset;position:absolute;top:10px;right:12px;cursor:pointer;color:var(--teal);font-size:13px;z-index:3}
+.opt-orbback:focus-visible{outline:2px solid var(--teal);outline-offset:2px}

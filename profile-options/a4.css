@@ -1,0 +1,18 @@
+/* A4: the universe drifts across the starry cover; the section below is only the list */
+.lbh.hasbd{padding-top:330px!important}
+@media(max-width:860px){.lbh.hasbd{padding-top:250px!important}}
+.lbh>#uniview{position:absolute!important;z-index:1;top:-24px;left:50%;transform:translateX(-50%);width:min(820px,100vw);height:330px;margin:0}
+@media(max-width:860px){.lbh>#uniview{height:250px}}
+.lbh>#uniview .uni{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;height:100%;border-radius:0;overflow:visible}
+.lbh>#uniview svg#uni{width:100%;height:100%;max-height:none!important}
+.lbh>#uniview .sunav{display:none}
+.lbh>#uniview .utip{z-index:4}
+.lbh .lbname,.lbh #bio{text-shadow:0 1px 10px rgba(7,9,18,.7)}
+/* the Readings | Conversations switch sits above the list */
+.opt-tog{display:flex;gap:18px;margin:14px 0 0}
+.opt-tog .unitog{position:static!important;display:flex;gap:18px}
+body.opt-sun .lbh>#uniview{height:420px}
+body.opt-sun .lbh.hasbd{padding-top:190px!important}
+body.opt-sun .lbh .big{position:relative;z-index:2}
+body.opt-sun .lbh .lbwho{position:relative;z-index:2}
+@media(max-width:860px){body.opt-sun .lbh>#uniview{height:300px}body.opt-sun .lbh.hasbd{padding-top:120px!important}}

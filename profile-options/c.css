@@ -1,0 +1,10 @@
+/* C. Same layout, trimmed */
+.lbh.hasbd{padding-top:120px}
+.lbh #herotags{margin-top:2px}
+.lbside>section:not(.lbreads){display:none!important}
+.lbreads .reads>h2{margin-top:0}
+.lbtabs .list>li.fb:nth-child(n+5){display:none!important}
+#p-fb .hist{display:grid;gap:8px;padding:4px 0 6px}
+#p-fb .hist+.hhint{display:none}
+.lbtabs .tabs b{display:none}
+#p-fb .hist{margin-bottom:8px}

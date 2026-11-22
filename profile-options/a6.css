@@ -1,0 +1,8 @@
+/* A6: universe is the Readings map only, no switches; lists live in the tabs */
+.unitog{display:none!important}
+.uni{padding-top:0!important}
+#p-rd{padding-top:6px}
+#p-rd[hidden]{display:none}
+#p-rd .opt-rows{margin-top:6px}
+.opt-hint{margin:8px 0 0;text-align:center;font-size:13px;color:var(--mute)}
+#kbox b.opt-kh~b.opt-kh,#kbox b.opt-kh~b.opt-kh+p{display:none!important}

@@ -1,0 +1,12 @@
+/* A5: Map | List switch, one at a time */
+#uni-h{position:relative}
+.opt-ml{margin-left:auto;display:flex;gap:14px;text-transform:none;letter-spacing:0}
+.opt-ml button{all:unset;cursor:pointer;font-size:13px;color:var(--mute);padding-bottom:3px;border-bottom:1.5px solid transparent}
+.opt-ml button[aria-pressed=true]{color:var(--text);border-bottom-color:var(--teal)}
+.opt-ml button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.opt-tog{margin:4px 0 0}
+.opt-tog .unitog{position:static!important;display:flex;gap:18px}
+.uni{padding-top:0!important}
+body.opt-list #uniview{display:none!important}
+body:not(.opt-list) .opt-rows{display:none!important}
+.opt-rows{margin-top:10px}
