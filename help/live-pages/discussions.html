@@ -599,7 +599,7 @@ main{padding-block:4px 90px}
   <a class="tch-pf" href="chats.html" target="_top">See all chats</a>
  </div>
  <div class="tch-chat" hidden>
-  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../../profile/timecapsule-profile.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
+  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../../profile/timecapsule-profile-v2.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
   <div class="tch-log" aria-live="polite"></div>
   <div class="tch-quick"></div>
   <form class="tch-cf"><input type="text" placeholder="Write a message…" aria-label="Write a message" autocomplete="off"><button type="submit" aria-label="Send" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></form>
@@ -618,7 +618,7 @@ main{padding-block:4px 90px}
 <div class="tch-menu" data-tchp="menu" hidden>
   <div class="tch-who"><i class="tch-mav"></i><div><b>You</b><small>● 42 TimeCoins</small></div></div>
   <a class="ph" href="agenda.html" target="_top">Tables</a><a class="ph" href="people.html" target="_top">People</a><a class="ph" href="../../world/timecapsule-world.html" target="_top">World</a>
-  <a href="../../profile/timecapsule-profile.html" target="_top">My profile</a><a href="mytables.html" target="_top">My tables</a><a href="myuniverse.html" target="_top">My universe</a><a href="myconversations.html" target="_top">My conversations</a><a href="../../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="settings.html" target="_top">Settings</a><a href="../timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
+  <a href="../../profile/timecapsule-profile-v2.html" target="_top">My profile</a><a href="mytables.html" target="_top">My tables</a><a href="myuniverse.html" target="_top">My universe</a><a href="myconversations.html" target="_top">My conversations</a><a href="../../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="settings.html" target="_top">Settings</a><a href="../timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
 </div>
 </header>
 <script>
@@ -898,7 +898,7 @@ $("more").onclick=()=>{S.n+=12;render()};
 if(HOST){document.title="TimeCapsule "+(HOST==="Gregory"?"Gregory's conversations":"Conversations by "+HOST);$("hBack").hidden=false;
  $("dH1").innerHTML=HOST==="Gregory"?"Gregory's conversations":'<span>Conversations by</span> <span data-noi18n>'+esc(HOST)+'</span>';
  const tops=new Set(D.map(d=>d.topic)).size,rr=D.reduce((a,d)=>a+d.rounds,0);
- $("dLede").innerHTML='<b>'+D.length+'</b> <span>conversations</span> · <b>'+tops+'</b> <span>topics</span> · <b>'+rr+'</b> <span>rounds</span>'+(HOST==="Gregory"?' · <a href="../../profile/timecapsule-profile.html" target="_top"><span>View profile</span></a>':'');
+ $("dLede").innerHTML='<b>'+D.length+'</b> <span>conversations</span> · <b>'+tops+'</b> <span>topics</span> · <b>'+rr+'</b> <span>rounds</span>'+(HOST==="Gregory"?' · <a href="../../profile/timecapsule-profile-v2.html" target="_top"><span>View profile</span></a>':'');
  $("hHost").hidden=false;$("hHost").innerHTML='<span class="hav">'+av(HOST)+'</span>';}
 document.querySelector(".dp .sort").onclick=e=>{const b=e.target.closest("button");if(!b)return;S.sort=b.dataset.s;document.querySelectorAll(".dp .sort button").forEach(x=>x.setAttribute("aria-pressed",x===b));render()};
 $("dq").oninput=e=>{S.q=e.target.value.trim();S.n=12;render()};
