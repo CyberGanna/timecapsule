@@ -27,7 +27,7 @@ TABLES = """<style id="tc-mytabs">
 .tabs .tab[aria-pressed=true]{%s}
 .tabs .tab[aria-pressed=true] span{color:#4A5180}
 .tabs .tab:focus-visible{outline:2px solid var(--teal,#17C3C8);outline-offset:2px}
-.tab .todo{top:-5px;right:-5px;width:13px;height:13px}
+.tab .todo{top:-4px;right:-4px;width:10px;height:10px;background:var(--teal,#17C3C8)!important}
 @media (max-width:700px){.tabs .tab{flex:none;justify-content:center}}
 </style>""" % (BOX, ON)
 

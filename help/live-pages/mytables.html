@@ -2077,19 +2077,7 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 <p>Small tables, real people. Your data is never sold.</p>
 </div></footer>
 <style id="tc-std">/* same header and page edges on every page */html,body{margin:0}.wrap{max-width:1180px}.hero{padding-top:36px}.hero h1{font-size:48px;letter-spacing:-.04em;line-height:1.05}@media (max-width:640px){.hero{padding-top:22px}.hero h1{font-size:32px}}</style>
-<style id="tc-mytabs">
-.hero{padding-bottom:0!important}
-.wrap>.bar{padding-block:16px 18px;border-bottom:0}
-.tabs{gap:4px}
-.tabs .tab{height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:none;font-size:14px;display:inline-flex;align-items:center;gap:8px;color:var(--fg);cursor:pointer;box-sizing:border-box;flex:none}
-.tabs .tab b{font-weight:500}
-.tabs .tab span{font-size:12px;color:var(--mute)}
-.tabs .tab[aria-pressed=true]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
-.tabs .tab[aria-pressed=true] span{color:#4A5180}
-.tabs .tab:focus-visible{outline:2px solid var(--teal,#17C3C8);outline-offset:2px}
-.tab .todo{top:-5px;right:-5px;width:13px;height:13px}
-@media (max-width:700px){.tabs .tab{flex:none;justify-content:center}}
-</style><style id="tc-mtphone">@media (max-width:640px){
+<style id="tc-mtphone">@media (max-width:640px){
 body .row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"t m" "i i" "p p" "a a";gap:0;padding:16px 0 18px;align-items:start}
 body .row .tm{grid-area:t;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;align-self:center;font-size:13px;color:var(--mute);min-height:0}
 body .row .tm b{font-size:13px;font-weight:500;color:var(--soft)}
@@ -2109,4 +2097,16 @@ body .row .act .btn{grid-area:a;justify-self:start;margin-top:12px;height:36px;p
 body .row .act .more{grid-area:m;align-self:center;width:32px;height:28px;margin:-4px -6px -4px 0}
 .e-chip{transform:scale(.86);transform-origin:left bottom}
 .e-chip>:not(.e-seg){display:none}
-}</style></body></html>
+}</style><style id="tc-mytabs">
+.hero{padding-bottom:0!important}
+.wrap>.bar{padding-block:16px 18px;border-bottom:0}
+.tabs{gap:4px}
+.tabs .tab{height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:none;font-size:14px;display:inline-flex;align-items:center;gap:8px;color:var(--fg);cursor:pointer;box-sizing:border-box;flex:none}
+.tabs .tab b{font-weight:500}
+.tabs .tab span{font-size:12px;color:var(--mute)}
+.tabs .tab[aria-pressed=true]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.tabs .tab[aria-pressed=true] span{color:#4A5180}
+.tabs .tab:focus-visible{outline:2px solid var(--teal,#17C3C8);outline-offset:2px}
+.tab .todo{top:-4px;right:-4px;width:10px;height:10px;background:var(--teal,#17C3C8)!important}
+@media (max-width:700px){.tabs .tab{flex:none;justify-content:center}}
+</style></body></html>
