@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<style id="disc-chips">.dp .sky{display:none!important}.dp .hero{padding-bottom:4px}.dp .tools{align-items:flex-start}.dp .pills{flex-wrap:wrap;overflow:visible;-webkit-mask-image:none;mask-image:none;row-gap:8px}.dp .pills button .n{font-weight:400;color:var(--mute);opacity:.8;font-size:12.5px}.dp .pills button[aria-pressed=true] .n{color:var(--soft);opacity:1}@media (max-width:640px){.dp .pills{margin:0;padding:2px 0}.dp .pills button{height:32px;padding:0 11px;font-size:13px}}</style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
 <style>
 /* Public Conversations: a constellation of topics, then the saved conversations as cards */
 .dp{--serif:'Newsreader',Georgia,serif}
@@ -175,9 +175,9 @@ function card(d){return '<a class="card" href="'+href(d)+'" target="_top" style=
 function feat(d){return '<a class="feat" href="'+href(d)+'" target="_top" style="--c:'+d.col+'"><div class="fq"><p class="eb"><i></i><span>Picked up again</span></p>'+quote(d)+'</div><div class="fm"><div class="ct"><i></i><span>'+esc(d.topic)+'</span><span class="sub">· <span>'+esc(d.sub)+'</span></span></div><h2 data-noi18n>'+esc(d.title)+'</h2><p class="sum" data-noi18n>'+esc(d.summary)+'</p>'+rounds(d)+'<div class="cf" style="border:0;padding:0">'+stack(d)+'<span class="who"><span>Hosted by</span> <b data-noi18n>'+esc(d.host)+'</b> · '+d.people+' <span>people</span></span></div><span class="go"><span>Read the conversation</span></span></div></a>'}
 function match(d){if(S.t&&d.topic!==S.t)return false;if(S.s&&subOf(d)!==S.s)return false;if(!S.q)return true;const q=S.q.toLowerCase();return [d.title,d.topic,d.sub,d.host,d.quote[1]].some(x=>x.toLowerCase().includes(q))}
 function pillsHtml(){
- if(!S.t)return '<button type="button" data-t="" aria-pressed="true">All</button>'+TOP.map(t=>'<button type="button" data-t="'+esc(t.n)+'" style="--c:'+t.c+'" aria-pressed="false"><i></i><span>'+esc(t.n)+'</span></button>').join("");
+ if(!S.t)return '<button type="button" data-t="" aria-pressed="true">All</button>'+TOP.map(t=>'<button type="button" data-t="'+esc(t.n)+'" style="--c:'+t.c+'" aria-pressed="false"><i></i><span>'+esc(t.n)+'</span> <b class="n">'+t.d.length+'</b></button>').join("");
  const T=TOP.find(x=>x.n===S.t);
- return '<button type="button" class="back" data-back="1"><span aria-hidden="true">‹</span> <span>All topics</span></button><button type="button" data-s="" style="--c:'+T.c+'" aria-pressed="'+(!S.s)+'"><i></i><span>All in</span> <span>'+esc(S.t)+'</span></button>'+subsOf(S.t).map(x=>'<button type="button" data-s="'+esc(x.n)+'" style="--c:'+T.c+'" aria-pressed="'+(S.s===x.n)+'"><i></i><span>'+esc(x.n)+'</span></button>').join("");
+ return '<button type="button" class="back" data-back="1"><span aria-hidden="true">‹</span> <span>All topics</span></button><button type="button" data-s="" style="--c:'+T.c+'" aria-pressed="'+(!S.s)+'"><i></i><span>All in</span> <span>'+esc(S.t)+'</span> <b class="n">'+T.d.length+'</b></button>'+subsOf(S.t).map(x=>'<button type="button" data-s="'+esc(x.n)+'" style="--c:'+T.c+'" aria-pressed="'+(S.s===x.n)+'"><i></i><span>'+esc(x.n)+'</span> <b class="n">'+x.d.length+'</b></button>').join("");
 }
 function render(){
  let L=D.filter(match);
