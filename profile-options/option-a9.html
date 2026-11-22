@@ -2426,4 +2426,6 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  var mb=document.querySelector('.opt-hint button');if(mb)mb.addEventListener('click',function(e){e.stopImmediatePropagation();e.preventDefault();if(st)quick();open('__mut')},true);
  new MutationObserver(function(){if(document.body.classList.contains('opt-allrows'))quick()}).observe(document.body,{attributes:true,attributeFilter:['class']});
 })();
+// Version 2: tabs in order Tables, Conversations, Feedbacks, Following; Tables open by default
+(function(){var tl=document.querySelector('.lbtabs .tabs');if(!tl)return;['t-tb','t-lb','t-fb','t-fw'].forEach(function(id){var b=document.getElementById(id);if(b)tl.appendChild(b)});var tb=document.getElementById('t-tb');if(tb)tb.click()})();
 });</script></body></html>
