@@ -12,7 +12,7 @@
   var li=document.createElement('div');li.className='opt-g';li.dataset.k=key;
   var n=books.length,unit=m==='lib'?(n==1?'conversation':'conversations'):(n==1?'book':'books');
   li.innerHTML='<button type="button" class="opt-row'+(cls?' '+cls:'')+'" aria-expanded="false" style="--c:'+color+'"><i></i><span>'+esc(label)+'</span><small>'+n+' '+unit+'</small>'+CH+'</button><div class="opt-items'+(n>18?' opt-big':'')+'" hidden>'+books.map(function(b,i){var h=item(b,m);return i>=9?h.replace('<div>','<div class="opt-x'+(i<18?' opt-d':'')+'">'):h}).join('')+(n>9?'<div class="opt-all"><button type="button">Show all '+n+'</button></div>':'')+'</div>';
-  li.firstChild.addEventListener('click',function(){toggle(li)});var sa=li.querySelector('.opt-all button');if(sa)sa.addEventListener('click',function(){li.lastChild.classList.add('all')});return li}
+  li.firstChild.addEventListener('click',function(){var y=li.getBoundingClientRect().top;toggle(li);var d=li.getBoundingClientRect().top-y;if(Math.abs(d)>1)window.scrollBy(0,d)});var sa=li.querySelector('.opt-all button');if(sa)sa.addEventListener('click',function(){li.lastChild.classList.add('all')});return li}
  function toggle(li,force){var btn=li.firstChild,list=li.lastChild,open=force!=null?force:btn.getAttribute('aria-expanded')!=='true';
   ul.querySelectorAll(':scope>.opt-g').forEach(function(o){if(o!==li){o.firstChild.setAttribute('aria-expanded','false');o.lastChild.hidden=true}});
   btn.setAttribute('aria-expanded',open);list.hidden=!open;return open}
