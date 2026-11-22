@@ -16,7 +16,7 @@ body.opt-lineopen .opt-rows{animation:optin .45s ease both}
 @media(min-width:700px){.opt-items:not(.all)>div.opt-x.opt-d{display:grid}.opt-items>div.opt-all{display:none}.opt-items.opt-big>div.opt-all{display:grid}}
 .opt-items.all>div.opt-all{display:none!important}
 body.opt-lineopen .opt-items{gap:5px 36px}
-body.opt-lineopen .opt-rows{margin-bottom:32px}
+body.opt-lineopen .opt-rows{margin-bottom:12px}
 .unitog:not(.opt-kind){display:none!important}
 .opt-kind button span{display:none}
 /* the mutual link is for visitors only */
@@ -28,4 +28,11 @@ body:not(.visitor) .opt-g[data-k="__mut"]{display:none!important}
 /* Version 2: bigger universe on wide screens (the photo keeps its size, see build.py) */
 .lbreads #uniview .uni svg#uni{max-height:470px!important}
 /* Books | Films in capitals, like the tabs below */
-.opt-kind button{text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+.opt-kind button{text-transform:uppercase;font-size:12px!important;letter-spacing:.14em!important;font-weight:400;color:var(--mute)!important;border-bottom-width:2px}
+.opt-kind button[aria-pressed=true]{color:var(--fg)!important}
+@media(max-width:860px){.opt-kind button{font-size:14px!important;letter-spacing:.1em!important}}
+@media(max-width:640px){.opt-kind button{font-size:12.5px!important;letter-spacing:.06em!important}}
+/* Version 2: less dead space around the universe */
+.lbreads #uniview .uni svg#uni{margin-top:-13%!important;margin-bottom:-6%!important}
+.opt-hint{margin-bottom:6px}
+body.opt-lineopen .opt-rows{margin-top:-24px!important}

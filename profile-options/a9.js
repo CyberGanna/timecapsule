@@ -20,7 +20,7 @@
   window.KU.render();if(window.__optRender)window.__optRender();
  })();
  var NS='http://www.w3.org/2000/svg',box=svg.parentNode,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
- var LY=16,X0=22,X1=318,STRIP=34,N=140,DUR=reduce?0:650;
+ var LY=50,X0=22,X1=318,STRIP=34,N=140,DUR=reduce?0:650;
  var st=null; // {key,col,pts:[[from],[to]],dots,strip}
  function mode(){var b=document.querySelector('.unitog button[aria-pressed=true]');return b?b.dataset.m:'read'}
  function T(){return mode()==='lib'?window.__LT:window.__RT}
@@ -65,7 +65,7 @@
    g.ts.forEach(function(t,j){var p=pos(g.a,t),x=ux(g,t);cs[j].setAttribute('cx',(p[0]+(x-p[0])*k).toFixed(2));cs[j].setAttribute('cy',(p[1]+(LY-p[1])*k).toFixed(2))})}
    if(e<1)requestAnimationFrame(f);else{o.remove();done()}}
   requestAnimationFrame(f)}
- function strip(g,m){var s=mk('svg',{viewBox:g.X0.toFixed(2)+' 0 '+(g.X1-g.X0).toFixed(2)+' '+STRIP,'class':'opt-strip',role:'button',tabindex:'0','aria-label':'Back to the universe'});
+ function strip(g,m){var s=mk('svg',{viewBox:g.X0.toFixed(2)+' '+(LY-16)+' '+(g.X1-g.X0).toFixed(2)+' '+STRIP,'class':'opt-strip',role:'button',tabindex:'0','aria-label':'Back to the universe'});
   s.style.width=((g.X1-g.X0)*m.s)+'px';s.style.height=(STRIP*m.s)+'px';s.style.marginTop=m.oy+'px';
   mk('polyline',{points:g.mut?(g.X0+','+LY+' '+g.X1+','+LY):pts(g,1).map(function(p){return p[0].toFixed(2)+','+p[1].toFixed(2)}).join(' '),fill:'none',stroke:g.col,'stroke-opacity':'.8','stroke-width':'1.6','stroke-linecap':'round','stroke-dasharray':'0 5'},s);
   if(g.mut)g.dots.forEach(function(d){mk('circle',{cx:d.x.toFixed(2),cy:LY,r:3.4,fill:d.c},s)});else g.ts.forEach(function(t){mk('circle',{cx:ux(g,t).toFixed(2),cy:LY,r:3.4,fill:g.col},s)});
@@ -77,7 +77,7 @@
   var tip=document.getElementById('utip');if(tip)tip.hidden=true;
   vis(g,false);svg.classList.add('opt-fade');
   g.tab0=tabs?tabs.getBoundingClientRect().top:0;
-  run(g,1,function(){var y=scrollY,m=metrics();svg.style.display='none';g.strip=strip(g,m);svg.after(g.strip);var dy=(m.r.top+m.oy)-g.strip.getBoundingClientRect().top;g.strip.style.marginTop=(m.oy+dy)+'px';svg.classList.remove('opt-fade');
+  run(g,1,function(){var y=scrollY,m=metrics();svg.style.display='none';g.strip=strip(g,m);svg.after(g.strip);var dy=(m.r.top+m.oy+(LY-16)*m.s)-g.strip.getBoundingClientRect().top;g.strip.style.marginTop=(m.oy+dy)+'px';svg.classList.remove('opt-fade');
    document.body.classList.add('opt-lineopen');setRow(key);limit(key);st=g;fit();window.scrollTo(0,y);busy=false})}
  function close(){if(busy||!st)return;busy=true;var g=st,y=scrollY;
   setRow(null);rows.style.paddingBottom='';document.body.classList.remove('opt-lineopen');g.strip.remove();svg.style.display='';svg.classList.add('opt-fade');window.scrollTo(0,y);void svg.getBoundingClientRect();svg.classList.remove('opt-fade');
