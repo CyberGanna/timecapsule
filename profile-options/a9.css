@@ -24,3 +24,8 @@ body.opt-lineopen .opt-rows{margin-bottom:32px}
 .opt-hint button[hidden],body:not(.visitor) .opt-hint button{display:none!important}
 body:not(.visitor) .opt-g[data-k="__mut"]{display:none!important}
 #kbox b.opt-kh~b.opt-kh,#kbox b.opt-kh~b.opt-kh+p{display:none!important}
+
+/* Version 2: bigger universe on wide screens (the photo keeps its size, see build.py) */
+.lbreads #uniview .uni svg#uni{max-height:470px!important}
+/* Books | Films in capitals, like the tabs below */
+.opt-kind button{text-transform:uppercase;letter-spacing:.12em;font-size:12px}
