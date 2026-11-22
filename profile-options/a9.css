@@ -28,4 +28,7 @@ body:not(.visitor) .opt-g[data-k="__mut"]{display:none!important}
 /* Version 2: bigger universe on wide screens (the photo keeps its size, see build.py) */
 .lbreads #uniview .uni svg#uni{max-height:470px!important}
 /* Books | Films in capitals, like the tabs below */
-.opt-kind button{text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+.opt-kind button{text-transform:uppercase;font-size:12px!important;letter-spacing:.14em!important;font-weight:400;color:var(--mute)!important;border-bottom-width:2px}
+.opt-kind button[aria-pressed=true]{color:var(--fg)!important}
+@media(max-width:860px){.opt-kind button{font-size:14px!important;letter-spacing:.1em!important}}
+@media(max-width:640px){.opt-kind button{font-size:12.5px!important;letter-spacing:.06em!important}}

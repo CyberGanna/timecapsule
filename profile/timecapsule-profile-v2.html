@@ -826,7 +826,10 @@ body:not(.visitor) .opt-g[data-k="__mut"]{display:none!important}
 /* Version 2: bigger universe on wide screens (the photo keeps its size, see build.py) */
 .lbreads #uniview .uni svg#uni{max-height:470px!important}
 /* Books | Films in capitals, like the tabs below */
-.opt-kind button{text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+.opt-kind button{text-transform:uppercase;font-size:12px!important;letter-spacing:.14em!important;font-weight:400;color:var(--mute)!important;border-bottom-width:2px}
+.opt-kind button[aria-pressed=true]{color:var(--fg)!important}
+@media(max-width:860px){.opt-kind button{font-size:14px!important;letter-spacing:.1em!important}}
+@media(max-width:640px){.opt-kind button{font-size:12.5px!important;letter-spacing:.06em!important}}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F9DA74"/><stop offset="1" stop-color="#F0C858"/></linearGradient><symbol id="coin" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19.2" fill="#E2AC3C" stroke="#B07A1C" stroke-width="1.4"/><circle cx="20" cy="20" r="17.6" fill="none" stroke="#FFE38A" stroke-width="1.6" stroke-dasharray="1 1.4"/><circle cx="20" cy="20" r="15.2" fill="url(#cg)" stroke="#B07A1C" stroke-width="1.1"/><circle cx="20" cy="20" r="12.4" fill="none" stroke="#C98F22" stroke-opacity=".6" stroke-width=".9"/><path d="M20 12V20L25.5 23.2" fill="none" stroke="#9A6614" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="1.8" fill="#9A6614"/></symbol></defs></svg>
 
