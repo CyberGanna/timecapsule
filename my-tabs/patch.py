@@ -5,6 +5,10 @@ solid light box when selected, outlined otherwise); topic filters = round outlin
   16px under the subtitle, no divider line.
 - My universe: Books / Films use the same boxes, 16px under the subtitle.
 - My universe / My conversations: topic pills start exactly on the page's left edge (was +2px).
+- Phones (Karim 2026-11-22, "My tables on mobile is unreadable"): every page gets the viewport
+  meta tag (My tables had none, so phones showed the desktop layout shrunk down), and the
+  scrolling topic pills bleed exactly to the 20px gutter instead of 22px, so no page is 2px
+  wider than the screen (My universe, My conversations, Host tables).
 Idempotent: re-run after any rebuild of these pages.  python3 my-tabs/patch.py
 """
 import os, re
@@ -27,18 +31,27 @@ TABLES = """<style id="tc-mytabs">
 @media (max-width:700px){.tabs .tab{flex:none;justify-content:center}}
 </style>""" % (BOX, ON)
 
-MU = """<style id="tc-mytabs">@media (min-width:641px){.mu .pills{margin-left:-2px}}</style>"""
+PHONE = "@media (max-width:640px){.mu .pills{margin:0 -20px;padding:2px 20px}}"
+MU = """<style id="tc-mytabs">@media (min-width:641px){.mu .pills{margin-left:-2px}}%s</style>""" % PHONE
 
-UNI = """<style id="tc-mytabs">@media (min-width:641px){.mu .pills{margin-left:-2px}}
+HT = """<style id="tc-mytabs">@media (max-width:640px){.ht .pills{margin:18px -20px 0;padding:2px 20px}}</style>"""
+
+UNI = """<style id="tc-mytabs">@media (min-width:641px){.mu .pills{margin-left:-2px}}%s
 .mu .sw{gap:4px;margin:16px 0 0}
 .mu .sw button{all:unset;%s;font-weight:500}
 .mu .sw button[aria-selected=true]{%s}
 .mu .sw button:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:10px}
 @media(max-width:700px){.mu .sw button{font-size:14px}}
-</style>""" % (BOX, ON)
+</style>""" % (PHONE, BOX, ON)
+
+VP = '<meta name="viewport" content="width=device-width, initial-scale=1">'
 
 def put(fn, css):
     p = os.path.join(R, fn); s = open(p, encoding='utf-8').read()
+    # the viewport tag must be at the top level, not only inside a <template> or srcdoc
+    head = s.split('<template', 1)[0].split('srcdoc', 1)[0]
+    if not re.search(r'<meta name="?viewport"?', head):
+        s = VP + '\n' + s
     s = re.sub(r'<style id="tc-mytabs">.*?</style>', '', s, flags=re.S)
     i = s.rfind('</body>'); assert i > 0, fn
     s = s[:i] + css + s[i:]
@@ -47,3 +60,4 @@ def put(fn, css):
 put('mytables.html', TABLES)
 put('myuniverse.html', UNI)
 put('myconversations.html', MU)
+put('hosttables.html', HT)
