@@ -11,3 +11,14 @@
 .opt-hint button{all:unset;cursor:pointer;color:var(--teal);margin-left:6px}
 .opt-hint button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .uni-a7open .opt-hint{display:none}
+#uni .sunav{cursor:pointer}
+#uni .sunav:focus{outline:none}
+.opt-allhead{display:none}
+body.opt-allrows .opt-rows{display:block!important;border-top:0}
+body.opt-allrows .opt-rows>.opt-g{display:block!important;border-bottom:1px solid var(--line)}
+body.opt-allrows .opt-allhead{display:flex;align-items:center;justify-content:space-between;padding:12px 4px 10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--line)}
+body.opt-allrows .opt-allhead button{all:unset;cursor:pointer;color:var(--teal);font-size:13px;letter-spacing:0;text-transform:none}
+body.opt-allrows #uniview{display:none!important}
+body.opt-allrows .opt-rows{margin-top:0}
+body.opt-allrows .opt-row[aria-expanded=false] svg{visibility:hidden}
+body.opt-allrows .opt-hint{display:none}

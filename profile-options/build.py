@@ -4,7 +4,7 @@ import os
 here=os.path.dirname(os.path.abspath(__file__))
 src=open(os.path.join(here,'..','profile','timecapsule-profile.html'),encoding='utf-8').read()
 common=open(os.path.join(here,'common.css')).read()
-names={'a7':'Option A7 · Map only, one topic opens below','a6':'Option A6 · Map only, lists in the tabs','a5':'Option A5 · Map or List','a4':'Option A4 · Universe on the cover','a3':'Option A3 · One way in','a2':'Option A2 · Lists open in the page','a':'Option A · One calm column','b':'Option B · The universe is the cover','c':'Option C · Same layout, trimmed'}
+names={'a7':'Option A7 · Map, tap the photo for the list','a6':'Option A6 · Map only, lists in the tabs','a5':'Option A5 · Map or List','a4':'Option A4 · Universe on the cover','a3':'Option A3 · One way in','a2':'Option A2 · Lists open in the page','a':'Option A · One calm column','b':'Option B · The universe is the cover','c':'Option C · Same layout, trimmed'}
 for k,label in names.items():
     parts={'a2':['a','a2'],'a3':['a','a2','a3'],'a4':['a','a2','a3','a4'],'a5':['a','a2','a3','a5'],'a6':['a','a2','a3','a6'],'a7':['a','a2','a3','a7']}.get(k,[k])
     css='\n'.join(open(os.path.join(here,p+'.css')).read() for p in parts); js='\n'.join(open(os.path.join(here,p+'.js')).read() for p in parts)
