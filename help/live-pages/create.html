@@ -1533,7 +1533,7 @@ function wireAlias(){
 }
 function fillSugg(){
   const set=new Set(); while(set.size<4) set.add(rndAlias());
-  document.getElementById("sugg").innerHTML=`<span class="kfrom">Ideas from your <b>k▪universe</b></span>`+[...set].map(a=>`<button data-sugg="${a}" title="${KB[a][1]} · ${KB[a][2]}">${a}<small>${KB[a][1]}</small></button>`).join("");
+  document.getElementById("sugg").innerHTML=`<span class="kfrom">Suggestions</span>`+[...set].map(a=>`<button data-sugg="${a}" title="${KB[a][1]} · ${KB[a][2]}">${a}<small>${KB[a][1]}</small></button>`).join("");
 }
 function updAlias(){
   const inp=document.getElementById("ain"); if(!inp) return;
