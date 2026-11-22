@@ -8,6 +8,8 @@ Phones only (max-width 640px); desktop and tablet unchanged.
   on the right edge like the desktop column (Karim 2026-11-22: option A, then "A but bottom right", then
   "fit them aligned with last line": button on the same line as the people line).
 - The prototype switch at the bottom drops its PROTOTYPE label and gets smaller.
+Labels (Karim 2026-11-22, "to save space you can lose the 'to' in both buttons"), all widths:
+  "Open the conversation" -> "Open conversation", "Save to Conversations" -> "Save conversation".
 Idempotent: re-run after any rebuild of My tables (after my-tabs/patch.py).  python3 mytables-phone/patch.py
 """
 import os, re
@@ -34,6 +36,14 @@ body .row .act .more{width:30px;height:30px;margin:0 -6px 0 0}
 .e-chip>:not(.e-seg){display:none}
 }</style>"""
 s = open(P, encoding='utf-8').read()
+LABELS = [
+  ('"Open the conversation":["Apri la conversazione","Abrir la conversación","Άνοιξε τη συζήτηση"]', '"Open conversation":["Apri conversazione","Abrir conversación","Άνοιξε συζήτηση"]'),
+  ('"Save to Conversations":["Salva in Conversazioni","Guardar en Conversaciones","Αποθήκευση στις Συζητήσεις"]', '"Save conversation":["Salva conversazione","Guardar conversación","Αποθήκευση συζήτησης"]'),
+  ('Open the conversation', 'Open conversation'),
+  ('Save to Conversations', 'Save conversation'),
+]
+for a, b in LABELS:
+    s = s.replace(a, b)
 s = re.sub(r'<style id="tc-mtphone">.*?</style>', '', s, flags=re.S)
 i = s.rfind('</body>'); assert i > 0
 open(P, 'w', encoding='utf-8').write(s[:i] + CSS + s[i:]); print('patched mytables.html')
