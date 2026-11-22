@@ -2195,3 +2195,4 @@ Save conversation|Αποθήκευση συζήτησης
 Suggestions|Προτάσεις
 What is my universe?|Τι είναι το σύμπαν μου;
 About my universe|Σχετικά με το σύμπαν μου
+Save chair|Κράτα θέση

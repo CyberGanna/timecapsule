@@ -10,6 +10,10 @@ s=open(P,encoding="utf-8").read()
 s=re.sub(r'<style id="card-polish">.*?</style>','',s,flags=re.S)
 s=re.sub(r'<script id="card-polish-js">.*?</script>','',s,flags=re.S)
 block='<style id="card-polish">'+CSS+'</style><script id="card-polish-js">'+JS+'</script>'
+# "Save a chair" -> "Save chair" on the Tables page buttons (Karim 2026-11-22)
+s=s.replace('data-id="${t.id}">Save a chair</button>','data-id="${t.id}">Save chair</button>')
+if '"Save chair":[' not in s:
+    s=s.replace('"Save a chair":["Tieni un posto","Reservar sitio","Κράτησε μια θέση"],','"Save a chair":["Tieni un posto","Reservar sitio","Κράτησε μια θέση"],"Save chair":["Tieni posto","Reservar sitio","Κράτα θέση"],',1)
 i=s.rfind("</body>")
 s=s[:i]+block+s[i:] if i>=0 else s+block
 open(P,"w",encoding="utf-8").write(s)
