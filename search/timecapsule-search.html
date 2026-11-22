@@ -417,7 +417,7 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
   <a class="tch-pf" href="../help/live-pages/chats.html" target="_top">See all chats</a>
  </div>
  <div class="tch-chat" hidden>
-  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../profile/timecapsule-profile.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
+  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../profile/timecapsule-profile-v2.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
   <div class="tch-log" aria-live="polite"></div>
   <div class="tch-quick"></div>
   <form class="tch-cf"><input type="text" placeholder="Write a message…" aria-label="Write a message" autocomplete="off"><button type="submit" aria-label="Send" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></form>
@@ -437,7 +437,7 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
 <div class="tch-menu" data-tchp="menu" hidden>
   <div class="tch-who"><i class="tch-mav"></i><div><b>You</b><small>● 42 TimeCoins</small></div></div>
   <a class="ph" href="../help/live-pages/agenda.html" target="_top">Tables</a><a class="ph" href="../help/live-pages/people.html" target="_top">People</a><a class="ph" href="../world/timecapsule-world.html" target="_top">World</a>
-  <a href="../profile/timecapsule-profile.html" target="_top">My profile</a><a href="../help/live-pages/mytables.html" target="_top">My tables</a><a href="../help/live-pages/myuniverse.html" target="_top">My universe</a><a href="../help/live-pages/myconversations.html" target="_top">My conversations</a><a href="../help/live-pages/settings.html" target="_top">Settings</a><hr><a href="#" data-tch="noop">Sign out</a>
+  <a href="../profile/timecapsule-profile-v2.html" target="_top">My profile</a><a href="../help/live-pages/mytables.html" target="_top">My tables</a><a href="../help/live-pages/myuniverse.html" target="_top">My universe</a><a href="../help/live-pages/myconversations.html" target="_top">My conversations</a><a href="../help/live-pages/settings.html" target="_top">Settings</a><hr><a href="#" data-tch="noop">Sign out</a>
 </div>
 </header>
 <script>
@@ -700,7 +700,7 @@ const TICON={
  Travel:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5z"/>',
  Science:'<path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3M7 15h10"/>',
  History:'<path d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9"/>'};
-const LIVE_TABLE="../live-table/timecapsule-live-table.html", PROFILE="../profile/timecapsule-profile.html", CREATE="../help/live-pages/create.html";
+const LIVE_TABLE="../live-table/timecapsule-live-table.html", PROFILE="../profile/timecapsule-profile-v2.html", CREATE="../help/live-pages/create.html";
 const NOW=new Date();
 const mins=m=>new Date(Math.ceil((NOW.getTime()+m*60000)/3e5)*3e5);
 const at=(d,h,m)=>{const x=new Date(NOW);x.setDate(x.getDate()+d);x.setHours(h,m,0,0);return x};

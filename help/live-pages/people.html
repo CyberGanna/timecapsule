@@ -417,7 +417,7 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
   <a class="tch-pf" href="chats.html" target="_top">See all chats</a>
  </div>
  <div class="tch-chat" hidden>
-  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../../profile/timecapsule-profile.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
+  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../../profile/timecapsule-profile-v2.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
   <div class="tch-log" aria-live="polite"></div>
   <div class="tch-quick"></div>
   <form class="tch-cf"><input type="text" placeholder="Write a message…" aria-label="Write a message" autocomplete="off"><button type="submit" aria-label="Send" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></form>
@@ -437,7 +437,7 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
 <div class="tch-menu" data-tchp="menu" hidden>
   <div class="tch-who"><i class="tch-mav"></i><div><b>You</b><small>● 42 TimeCoins</small></div></div>
   <a class="ph" href="agenda.html" target="_top">Tables</a><a class="ph" href="#">People</a><a class="ph" href="../../world/timecapsule-world.html" target="_top">World</a>
-  <a href="../../profile/timecapsule-profile.html" target="_top">My profile</a><a href="mytables.html" target="_top">My tables</a><a href="myuniverse.html" target="_top">My universe</a><a href="myconversations.html" target="_top">My conversations</a><a href="../../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="settings.html" target="_top">Settings</a><a href="../timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
+  <a href="../../profile/timecapsule-profile-v2.html" target="_top">My profile</a><a href="mytables.html" target="_top">My tables</a><a href="myuniverse.html" target="_top">My universe</a><a href="myconversations.html" target="_top">My conversations</a><a href="../../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="settings.html" target="_top">Settings</a><a href="../timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
 </div>
 </header>
 <script>
@@ -658,7 +658,7 @@ const HAIR={short:c=>`<path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill
 const P={Lena:["#E6E0FF","#17C3C8","#F3D2B8","#D9B26A","long"],David:["#D9F8FA","#7C5CFF","#D9A47C","#4A3426","short"],Marco:["#E6E0FF","#17C3C8","#C68E6B","#1B1B1B","short"],Ana:["#D9F8FA","#7C5CFF","#E8B994","#2B1B14","long"],Sofia:["#D9F8FA","#090B16","#F1C9A5","#8A4B2A","bun"],Jonas:["#E6E0FF","#7C5CFF","#F3D2B8","#C9A15A","short"],Gregory:["#FFE9C7","#2E3566","#E8B994","#6B4A33","beard"],Mia:["#FFE0EC","#F4A6D7","#F1C9A5","#1B1B1B","long"],Omar:["#E6E0FF","#17C3C8","#A86F4C","#1B1B1B","beard"],Yuki:["#D9F8FA","#C9A7FF","#F3D2B8","#121212","bun"],Tom:["#FFE9C7","#7C5CFF","#F1C9A5","#B0B6C9","bald"],Priya:["#FFE0EC","#17C3C8","#B9805A","#1B1B1B","long"],Elif:["#E6E0FF","#FF9E8A","#E8B994","#3A2A20","long"],Kofi:["#D9F8FA","#E9F27A","#7A4E33","#121212","short"],Amara:["#FFE9C7","#17C3C8","#6E4630","#121212","bun"],Noah:["#D9F8FA","#F4A6D7","#E8B994","#8A4B2A","short"]};
 function av(n){const[bg,sh,sk,ha,st]=P[n];return `<svg viewBox="0 0 64 64" role="img" aria-label="${n}"><rect width="64" height="64" fill="${bg}"/><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="${sh}"/><rect x="27" y="34" width="10" height="11" fill="${sk}"/><circle cx="32" cy="26" r="12" fill="${sk}"/>${HAIR[st](ha)}<circle cx="28" cy="27" r="1.5" fill="#090B16"/><circle cx="36" cy="27" r="1.5" fill="#090B16"/><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`}
 const C={Philosophy:"#F29BD0",Religion:"#B99BFF",Home:"#5FE0DE",Craft:"#FF9478",Energy:"#6CB8FF",Travel:"#D9E35F",Science:"#8BE38B",History:"#E8B577"};
-const PROFILE="../../profile/timecapsule-profile.html";
+const PROFILE="../../profile/timecapsule-profile-v2.html";
 /* soon: minutes until next hosted table (0 = live now, null = not hosting) */
 const U=[
  {n:"Gregory",city:"Zurich",t:1,bd:"deep",bio:"Philosophy teacher. Hosts the free will table on Tuesdays.",tags:["Philosophy","Religion"],r:4.9,tb:48,co:312,soon:0,nt:"Is free will an illusion?",met:"Is free will an illusion?"},

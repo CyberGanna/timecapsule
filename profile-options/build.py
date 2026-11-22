@@ -60,6 +60,6 @@ for k,label in names.items():
     print('wrote option-'+k)
     if k=='a9':
         # Profile Version 2 (Karim, 2026-11-22): option A9 as its own page next to the current Profile, no draft bar
-        v2=out.replace(bar,'',1).replace('<title>Gregory Profile Letterbox','<title>Profile Version 2',1)
+        v2=out.replace(bar,'',1).replace('timecapsule-profile.html','timecapsule-profile-v2.html')  # V2 is the default Profile since 2026-11-22: its links stay on V2
         open(os.path.join(here,'..','profile','timecapsule-profile-v2.html'),'w',encoding='utf-8').write(v2)
         print('wrote profile/timecapsule-profile-v2.html')

@@ -417,7 +417,7 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
   <a class="tch-pf" href="chats.html" target="_top">See all chats</a>
  </div>
  <div class="tch-chat" hidden>
-  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../../profile/timecapsule-profile.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
+  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../../profile/timecapsule-profile-v2.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
   <div class="tch-log" aria-live="polite"></div>
   <div class="tch-quick"></div>
   <form class="tch-cf"><input type="text" placeholder="Write a message…" aria-label="Write a message" autocomplete="off"><button type="submit" aria-label="Send" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></form>
@@ -437,7 +437,7 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer;-webkit-tap
 <div class="tch-menu" data-tchp="menu" hidden>
   <div class="tch-who"><i class="tch-mav"></i><div><b>You</b><small>● 42 TimeCoins</small></div></div>
   <a class="ph" href="agenda.html" target="_top">Tables</a><a class="ph" href="people.html" target="_top">People</a><a class="ph" href="../../world/timecapsule-world.html" target="_top">World</a>
-  <a href="../../profile/timecapsule-profile.html" target="_top">My profile</a><a href="mytables.html" target="_top">My tables</a><a href="myuniverse.html" target="_top">My universe</a><a href="myconversations.html" target="_top">My conversations</a><a href="../../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="#" aria-current="page" data-tch="close">Settings</a><a href="../timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
+  <a href="../../profile/timecapsule-profile-v2.html" target="_top">My profile</a><a href="mytables.html" target="_top">My tables</a><a href="myuniverse.html" target="_top">My universe</a><a href="myconversations.html" target="_top">My conversations</a><a href="../../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="#" aria-current="page" data-tch="close">Settings</a><a href="../timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
 </div>
 </header>
 <script>
@@ -634,7 +634,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.05;letter-spac
       <section class="sec" id="account" data-t="Account">
         <h2>Account</h2>
         <div class="rows">
-          <div class="me"><span class="ph" id="meph"></span><div class="tx"><b>Gregory</b><span>Zurich · member since March 2026</span></div><a class="lnk" href="../../profile/timecapsule-profile.html" target="_top">Edit profile</a></div>
+          <div class="me"><span class="ph" id="meph"></span><div class="tx"><b>Gregory</b><span>Zurich · member since March 2026</span></div><a class="lnk" href="../../profile/timecapsule-profile-v2.html" target="_top">Edit profile</a></div>
           <div class="row stack"><div class="tx"><b>Name</b><span>Shown at tables and on your profile.</span></div><span class="val" data-v="name">Gregory</span><button class="lnk" data-edit="name">Change</button></div>
           <div class="edit" data-ed="name"><label>Name<input value="Gregory" maxlength="40"></label><div class="acts"><button class="btn pri" data-save="name">Save</button><button class="btn" data-cancel>Cancel</button></div></div>
           <div class="row stack"><div class="tx"><b>Email</b><span>Only for sign-in and the notifications you choose. Never shown.</span></div><span class="val" data-v="email">gregory@example.com</span><button class="lnk" data-edit="email">Change</button></div>
@@ -716,7 +716,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.05;letter-spac
 const HAIR={short:c=>`<path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="${c}"/>`,long:c=>`<path d="M19 30C16 9 48 9 45 30L45 44L40 44L40 27C36 20 28 20 24 27L24 44L19 44Z" fill="${c}"/>`,bun:c=>`<path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="${c}"/><circle cx="32" cy="9" r="6" fill="${c}"/>`,bald:c=>`<path d="M21 22C23 15 41 15 43 22C39 19 25 19 21 22Z" fill="${c}"/>`,beard:c=>`<path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="${c}"/><path d="M22 28C22 40 42 40 42 28C40 34 24 34 22 28Z" fill="${c}"/>`};
 const P={Lena:["#E6E0FF","#17C3C8","#F3D2B8","#D9B26A","long"],Omar:["#E6E0FF","#17C3C8","#A86F4C","#1B1B1B","beard"],Mia:["#FFE0EC","#F4A6D7","#F1C9A5","#1B1B1B","long"],Priya:["#FFE0EC","#17C3C8","#B9805A","#1B1B1B","long"],Kofi:["#D9F8FA","#E9F27A","#7A4E33","#121212","short"],Noah:["#D9F8FA","#F4A6D7","#E8B994","#8A4B2A","short"],Gregory:["#FFE9C7","#2E3566","#E8B994","#6B4A33","beard"],Victor:["#E6E0FF","#7C5CFF","#D9A47C","#4A3426","short"],Ruth:["#FFE9C7","#17C3C8","#F1C9A5","#B0B6C9","bun"],Dmitri:["#D9F8FA","#090B16","#F3D2B8","#C9A15A","bald"]};
 function av(n){const[bg,sh,sk,ha,st]=P[n];return `<svg viewBox="0 0 64 64" role="img" aria-label="${n}"><rect width="64" height="64" fill="${bg}"/><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="${sh}"/><rect x="27" y="34" width="10" height="11" fill="${sk}"/><circle cx="32" cy="26" r="12" fill="${sk}"/>${HAIR[st](ha)}<circle cx="28" cy="27" r="1.5" fill="#090B16"/><circle cx="36" cy="27" r="1.5" fill="#090B16"/><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`}
-const PROFILE="../../profile/timecapsule-profile.html";
+const PROFILE="../../profile/timecapsule-profile-v2.html";
 const $=s=>document.querySelector(s);
 document.getElementById('meph').innerHTML=av('Gregory');
 

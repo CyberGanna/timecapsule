@@ -509,7 +509,7 @@ canvas.drag{cursor:grabbing}
   <a class="tch-pf" href="../help/live-pages/chats.html" target="_top">See all chats</a>
  </div>
  <div class="tch-chat" hidden>
-  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../profile/timecapsule-profile.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
+  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../profile/timecapsule-profile-v2.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
   <div class="tch-log" aria-live="polite"></div>
   <div class="tch-quick"></div>
   <form class="tch-cf"><input type="text" placeholder="Write a message…" aria-label="Write a message" autocomplete="off"><button type="submit" aria-label="Send" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></form>
@@ -529,7 +529,7 @@ canvas.drag{cursor:grabbing}
 <div class="tch-menu" data-tchp="menu" hidden>
   <div class="tch-who"><i class="tch-mav"></i><div><b>You</b><small>● 42 TimeCoins</small></div></div>
   <a class="ph" href="../help/live-pages/agenda.html" target="_top">Tables</a><a class="ph" href="../help/live-pages/people.html" target="_top">People</a><a class="ph" href="../world/timecapsule-world.html" target="_top">World</a>
-  <a href="../profile/timecapsule-profile.html" target="_top">My profile</a><a href="../help/live-pages/mytables.html" target="_top">My tables</a><a href="../help/live-pages/myuniverse.html" target="_top">My universe</a><a href="../help/live-pages/myconversations.html" target="_top">My conversations</a><a href="../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="../help/live-pages/settings.html" target="_top">Settings</a><a href="../help/timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
+  <a href="../profile/timecapsule-profile-v2.html" target="_top">My profile</a><a href="../help/live-pages/mytables.html" target="_top">My tables</a><a href="../help/live-pages/myuniverse.html" target="_top">My universe</a><a href="../help/live-pages/myconversations.html" target="_top">My conversations</a><a href="../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="../help/live-pages/settings.html" target="_top">Settings</a><a href="../help/timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
 </div>
 </header>
 <script>
@@ -1161,7 +1161,7 @@ function gpShow(el){
   const n=el.dataset.gu, city=el.dataset.gc, mod=el.dataset.gi==="0", hh=[...n].reduce((a,c)=>a+c.charCodeAt(0),0);
   const tables=8+hh%31, coins=(mod?900:60)+hh*7%700;
   GP.innerHTML=tcpHTML({name:n,avatar:face(n),trusted:mod,role:mod?"Host":"",place:city+(CITY[city]?", "+CITY[city][2]:""),
-    topics:GT?[[GT.th,GT.c]]:[],tables,feedbacks:Math.round(tables*.6)+hh%5,coins,profile:n==="Gregory"?"../profile/timecapsule-profile.html":""});
+    topics:GT?[[GT.th,GT.c]]:[],tables,feedbacks:Math.round(tables*.6)+hh%5,coins,profile:n==="Gregory"?"../profile/timecapsule-profile-v2.html":""});
   GP.hidden=false; gpFor=el;
   const r=el.getBoundingClientRect(), w=GP.offsetWidth, ph=GP.offsetHeight;
   let x=r.left+r.width/2-w/2; x=Math.max(12,Math.min(x,innerWidth-w-12));

@@ -63,7 +63,7 @@ open('timecapsule-landing-artifact.html', 'w', encoding='utf8').write(s)
 # 2) site version (relative links inside the GitHub / Cloudflare site, #lang kept by tc-i18n)
 SITE = {'1HRtzD5kj8RFhEngLuAgU5': 'help/live-pages/agenda.html', 'WXKBrXY78yuhpghQCpK3RU': 'world/timecapsule-world.html',
  'AQKmmAgq8JPDsrRACWEy6i': 'table-detail/timecapsule-table.html', 'MFBQwEDcUA8ctJbo2BWShj': 'help/live-pages/create.html',
- 'GPnp3CiH7iGDpkbqvA4cLB': 'help/live-pages/mytables.html', 'TQ3edAr7Dje1uPbGk3yEQy': 'profile/timecapsule-profile.html',
+ 'GPnp3CiH7iGDpkbqvA4cLB': 'help/live-pages/mytables.html', 'TQ3edAr7Dje1uPbGk3yEQy': 'profile/timecapsule-profile-v2.html',
  'MTbRjvLFV7pPhBjpvAzXaq': 'help/live-pages/people.html', 'PYd4f8xrcNkPc2TyPkE4ib': 'help/live-pages/chats.html',
  'SggBcVnWacDjzBsZeke1D1': 'notifications/notifications.html', 'NdgohZznzHtQ8p2PmohNhE': 'search/timecapsule-search.html',
  'PAUksqiFCEtbuDeWsoXjWy': 'help/live-pages/settings.html', 'BFBabdFxq8LxqDChfvRn61': 'auth/timecapsule-signin.html',

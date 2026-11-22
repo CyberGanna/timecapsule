@@ -599,7 +599,7 @@ main{padding-block:4px 90px}
   <a class="tch-pf" href="chats.html" target="_top">See all chats</a>
  </div>
  <div class="tch-chat" hidden>
-  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../../profile/timecapsule-profile.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
+  <div class="tch-ch"><button class="tch-bk" type="button" data-tch="back" aria-label="Back to chats">←</button><a class="tch-pl2" href="../../profile/timecapsule-profile-v2.html" target="_top" title="Open profile"><i class="tch-av"></i><div class="tch-tx"><b></b><span></span></div></a><button class="tch-x" type="button" data-tch="close" aria-label="Close chat">✕</button></div>
   <div class="tch-log" aria-live="polite"></div>
   <div class="tch-quick"></div>
   <form class="tch-cf"><input type="text" placeholder="Write a message…" aria-label="Write a message" autocomplete="off"><button type="submit" aria-label="Send" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></form>
@@ -618,7 +618,7 @@ main{padding-block:4px 90px}
 <div class="tch-menu" data-tchp="menu" hidden>
   <div class="tch-who"><i class="tch-mav"></i><div><b>You</b><small>● 42 TimeCoins</small></div></div>
   <a class="ph" href="agenda.html" target="_top">Tables</a><a class="ph" href="people.html" target="_top">People</a><a class="ph" href="../../world/timecapsule-world.html" target="_top">World</a>
-  <a href="../../profile/timecapsule-profile.html" target="_top">My profile</a><a href="mytables.html" target="_top">My tables</a><a href="myuniverse.html" target="_top">My universe</a><a href="myconversations.html" target="_top">My conversations</a><a href="../../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="settings.html" target="_top">Settings</a><a href="../timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
+  <a href="../../profile/timecapsule-profile-v2.html" target="_top">My profile</a><a href="mytables.html" target="_top">My tables</a><a href="myuniverse.html" target="_top">My universe</a><a href="myconversations.html" target="_top">My conversations</a><a href="../../invite/timecapsule-invite.html" target="_top">Invite friends</a><a href="settings.html" target="_top">Settings</a><a href="../timecapsule-guides.html" target="_top">Help</a><hr><a href="#" data-tch="noop">Sign out</a>
 </div>
 </header>
 <script>
@@ -713,7 +713,7 @@ main{padding-block:4px 90px}
 </style>
 <div class="wrap ht">
   <section class="hero">
-    <p class="hback"><a href="../../profile/timecapsule-profile.html" target="_top"><span aria-hidden="true">‹</span> <span>Gregory's profile</span></a></p>
+    <p class="hback"><a href="../../profile/timecapsule-profile-v2.html" target="_top"><span aria-hidden="true">‹</span> <span>Gregory's profile</span></a></p>
     <span class="hav" id="hAv"></span>
     <h1>Gregory's tables</h1>
     <p id="hLede"></p>
@@ -770,7 +770,7 @@ function openWho(k){const {r,kind}=ROWS[k];lastF=document.activeElement;
   const t=kind==="past"?"Who was there":kind==="live"?"At the table now":"Who's coming";
   const nm=allNames(r);
   const more=Math.max(0,r.people-nm.length);
-  const li=n=>`<li class="${n==="Gregory"?"mod":""}"><span>${av(n)}</span><span class="nm">${n==="Gregory"?`<a href="../../profile/timecapsule-profile.html" target="_top" style="color:inherit;text-decoration:none">Gregory</a>`:esc(n)}</span>${n==="Gregory"?`<span class="tg">Host</span>`:""}</li>`;
+  const li=n=>`<li class="${n==="Gregory"?"mod":""}"><span>${av(n)}</span><span class="nm">${n==="Gregory"?`<a href="../../profile/timecapsule-profile-v2.html" target="_top" style="color:inherit;text-decoration:none">Gregory</a>`:esc(n)}</span>${n==="Gregory"?`<span class="tg">Host</span>`:""}</li>`;
   sheet.innerHTML=`<div class="shd"><div style="flex:1;min-width:0"><h2 id="sh-t">${t}</h2><p><span data-noi18n>${esc(r.title)}</span> · ${when}</p></div><button class="x" type="button" data-close aria-label="Close">✕</button></div>
   <span class="lbl">${r.people} <span>people</span>${kind==="up"?` · ${r.free} <span>chairs free</span>`:""}</span><ul class="plist">${nm.map(li).join("")}</ul>${more?`<p class="note">+${more} <span>more</span></p>`:""}`;
   scrim.hidden=false;requestAnimationFrame(()=>scrim.classList.add("on"));sheet.querySelector(".x").focus({preventScroll:true})}
