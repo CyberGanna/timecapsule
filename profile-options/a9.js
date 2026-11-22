@@ -2,6 +2,9 @@
  // A9: tapping a planet straightens its orbit into a line at the top; the topic's books open below the line
  var view=document.getElementById('uniview'),svg=document.getElementById('uni'),rows=document.querySelector('.opt-rows');
  if(!view||!svg||!rows)return;
+ // Version 2: the universe is Readings only (books and films); conversations live in their tab
+ var rb=document.querySelector('.unitog button[data-m="read"]');if(rb&&rb.getAttribute('aria-pressed')!=='true')rb.click();
+ var kh=document.querySelector('#kbox b.opt-kh');if(kh)kh.textContent='Books, Films';
  var NS='http://www.w3.org/2000/svg',box=svg.parentNode,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
  var LY=16,X0=22,X1=318,STRIP=34,N=140,DUR=reduce?0:650;
  var st=null; // {key,col,pts:[[from],[to]],dots,strip}
