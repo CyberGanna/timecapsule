@@ -9,3 +9,4 @@ var f=function(){mo.disconnect();var pl=u.querySelector('.pl'),btn=u.querySelect
 var mo=new MutationObserver(f);
 new MutationObserver(function(){u.classList.remove('opt-all');f()}).observe(u,{attributes:true,attributeFilter:['hidden']});
 mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria-pressed']});})();
+(function(){var s=document.getElementById('uni');if(!s)return;var h=function(){window.__uniHold=Date.now()};s.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')h()});s.addEventListener('touchmove',h,{passive:true})})();

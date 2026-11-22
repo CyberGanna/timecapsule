@@ -9,7 +9,14 @@ for k,label in names.items():
     parts=['a',k] if k=='a2' else [k]
     css='\n'.join(open(os.path.join(here,p+'.css')).read() for p in parts); js='\n'.join(open(os.path.join(here,p+'.js')).read() for p in parts)
     bar=f'<div class="optbar">Draft, not live: {label}. <a href="index.html" style="color:#fff">All options</a> · <a href="../profile/timecapsule-profile.html" style="color:#fff">Current page</a></div>'
-    out=src.replace('</head>',f'<style>{common}\n{css}</style></head>',1)
+    page=src
+    if k=='a2':
+        # slower drift (about a third), full stop near the mouse, stop for 4 s after a touch
+        for a,b in [('m.a+=m.w*dt*sp','m.a+=m.w*dt*sp*.35*((Date.now()-(window.__uniHold||0))<4000?0:1)'),
+                    ('goal=Math.min(1,Math.max(.08,(d-8)/70))','goal=Math.min(1,Math.max(0,(d-8)/70))')]:
+            assert page.count(a)==1,a
+            page=page.replace(a,b)
+    out=page.replace('</head>',f'<style>{common}\n{css}</style></head>',1)
     i=out.find('<body>'); j=out.find('>',i)+1
     out=out[:j]+bar+out[j:]
     e=out.rfind('</body>')
