@@ -2190,3 +2190,5 @@ films|ταινίες
 Chat with guests|Συζήτηση με τους καλεσμένους
 Can I chat with someone privately during a table?|Μπορώ να κάνω ιδιωτική συζήτηση με κάποιον κατά τη διάρκεια ενός τραπεζιού;
 Yes. Open Chat and pick a person. Only the two of you see it. The host can't see or control private messages.|Ναι. Άνοιξε τη Συζήτηση και διάλεξε ένα άτομο. Το βλέπετε μόνο εσείς οι δύο. Ο οικοδεσπότης δεν βλέπει ούτε ελέγχει τα ιδιωτικά μηνύματα.
+Open conversation|Άνοιξε συζήτηση
+Save conversation|Αποθήκευση συζήτησης
