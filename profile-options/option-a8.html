@@ -2262,11 +2262,11 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  function item(b,m){
   if(m==='lib'){var as=document.body.classList.contains('visitor')?'visitor':'host';
    return '<div><a href="../library/timecapsule-library.html#r='+encodeURIComponent(b[2])+'&as='+as+'" target="_top">'+esc(b[0])+'</a><small>'+esc(b[1])+'</small></div>'}
-  return '<div><span>'+esc(b[0])+(window.__YT(b)?'<em>You too</em>':'')+'</span><small>'+esc(b[1])+'</small></div>'}
+  return '<div><span>'+esc(b[0])+(window.__YT(b)?'<em>You too</em>':'')+'</span><small>'+(b[3]==='film'?'Film · ':'')+esc(b[1])+'</small></div>'}
  function row(key,label,color,books,m,cls){
   var li=document.createElement('div');li.className='opt-g';li.dataset.k=key;
-  var n=books.length,unit=m==='lib'?(n==1?'conversation':'conversations'):(n==1?'book':'books');
-  li.innerHTML='<button type="button" class="opt-row'+(cls?' '+cls:'')+'" aria-expanded="false" style="--c:'+color+'"><i></i><span>'+esc(label)+'</span><small>'+n+' '+unit+'</small>'+CH+'</button><div class="opt-items'+(n>18?' opt-big':'')+'" hidden>'+books.map(function(b,i){var h=item(b,m);return i>=9?h.replace('<div>','<div class="opt-x'+(i<18?' opt-d':'')+'">'):h}).join('')+(n>9?'<div class="opt-all"><button type="button">Show all '+n+'</button></div>':'')+'</div>';
+  var n=books.length,nf=books.filter(function(b){return b[3]==='film'}).length,nb=n-nf,unit=m==='lib'?(n==1?'conversation':'conversations'):[nb?(nb+' '+(nb==1?'book':'books')):'',nf?(nf+' '+(nf==1?'film':'films')):''].filter(Boolean).join(' · ');
+  li.innerHTML='<button type="button" class="opt-row'+(cls?' '+cls:'')+'" aria-expanded="false" style="--c:'+color+'"><i></i><span>'+esc(label)+'</span><small>'+(m==='lib'?n+' ':'')+unit+'</small>'+CH+'</button><div class="opt-items'+(n>18?' opt-big':'')+'" hidden>'+books.map(function(b,i){var h=item(b,m);return i>=9?h.replace('<div>','<div class="opt-x'+(i<18?' opt-d':'')+'">'):h}).join('')+(n>9?'<div class="opt-all"><button type="button">Show all '+n+'</button></div>':'')+'</div>';
   li.firstChild.addEventListener('click',function(){var y=li.getBoundingClientRect().top;toggle(li);var d=li.getBoundingClientRect().top-y;if(Math.abs(d)>1)window.scrollBy(0,d)});var sa=li.querySelector('.opt-all button');if(sa)sa.addEventListener('click',function(){li.lastChild.classList.add('all')});return li}
  function toggle(li,force){var btn=li.firstChild,list=li.lastChild,open=force!=null?force:btn.getAttribute('aria-expanded')!=='true';
   ul.querySelectorAll(':scope>.opt-g').forEach(function(o){if(o!==li){o.firstChild.setAttribute('aria-expanded','false');o.lastChild.hidden=true}});

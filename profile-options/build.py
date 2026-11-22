@@ -33,6 +33,12 @@ for k,label in names.items():
                     ('function YT(b){return MODE!="lib"&&MINE.indexOf(b[0])>=0}','function YT(b){return MODE!="lib"&&MINE.indexOf(b[0])>=0}window.__YT=function(b){return MINE.indexOf(b[0])>=0};')]:
             assert page.count(a)==1,a
             page=page.replace(a,b)
+    if k=='a9':
+        # Version 2: films join the Readings universe (sample films, Gabriele-style demo data)
+        films='{"Philosophy":[["The Seventh Seal","Bergman"],["My Dinner with Andre","Malle"],["Waking Life","Linklater"]],"Religion":[["Of Gods and Men","Beauvois"]],"Home":[["Tokyo Story","Ozu"]],"Travel":[["Paris, Texas","Wenders"],["The Motorcycle Diaries","Salles"]],"Energy":[["Koyaanisqatsi","Reggio"]],"Craft":[["Jiro Dreams of Sushi","Gelb"]]}'
+        a='var RT=window.__RT=T,'
+        assert page.count(a)==1,a
+        page=page.replace(a,'(function(F){T.forEach(function(t){(F[t.n]||[]).forEach(function(f){t.b.push([f[0],f[1],"","film"])})})})('+films+');'+a)
     out=page.replace('</head>',f'<style>{common}\n{css}</style></head>',1)
     i=out.find('<body>'); j=out.find('>',i)+1
     out=out[:j]+bar+out[j:]
