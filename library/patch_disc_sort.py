@@ -16,6 +16,6 @@ for rel in ('library/disc-body.html', 'help/live-pages/discussions.html'):
     if 'id="disc-sort"' in s: print(rel, 'already'); continue
     assert s.count(A) == 1, rel
     s = s.replace(A, B)
-    i = s.index('<style id="disc-cardshade">')
+    i = s.index('<style id="disc-chips">')
     s = s[:i] + CSS + s[i:]
     open(F, 'w', encoding='utf8').write(s); print(rel, 'patched')
