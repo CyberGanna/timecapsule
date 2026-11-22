@@ -1867,7 +1867,11 @@ body .tbl{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto!
 body .tbl .tb{width:auto!important;grid-column:1/-1!important}
 body .ei .th{display:none!important}
 body .ei{gap:0!important}
-}</style><style id="card-polish">/* whole-card blurry background */
+}</style><style id="card-polish">main.land .live .tbl .tb{min-width:0!important}
+main.land .live .tbl .tf{gap:10px!important}
+main.land .live .tbl .tf{flex-wrap:wrap!important;row-gap:8px!important}
+main.land .live .tbl .tf .jbtn{flex:none;margin-left:auto}
+/* whole-card blurry background */
 main.land .live .tbl{position:relative;isolation:isolate;overflow:hidden}
 main.land .live .tbl>.tbg{position:absolute;z-index:-2}
 main.land .live .tbl>.tbg.gen{inset:-60px;filter:blur(40px) saturate(1.05)}
@@ -1882,7 +1886,7 @@ main.land .live .trow{flex-direction:column!important;align-items:flex-start!imp
 main.land .live .topic{white-space:nowrap}
 /* footer: seats + button on one line, pinned to the bottom */
 main.land .live .tb{justify-content:flex-start!important}
-main.land .live .tf{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;flex-wrap:nowrap!important;margin-top:auto!important;padding-top:10px}
+main.land .live .tf{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;flex-wrap:wrap!important;row-gap:8px;margin-top:auto!important;padding-top:10px}
 main.land .live .tf .left{white-space:nowrap}
 /* seats: lighter, finer */
 main.land .live .ttop .seat{border:1.5px solid rgba(27,33,68,.85)!important}
