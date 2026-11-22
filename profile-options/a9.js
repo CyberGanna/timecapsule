@@ -49,14 +49,25 @@
  function open(key){if(busy||st)return;var g=geom(key);if(!g)return;busy=true;window.__uniHold=1e15;
   var tip=document.getElementById('utip');if(tip)tip.hidden=true;
   vis(g,false);svg.classList.add('opt-fade');
-  run(g,1,function(){var y=scrollY,m=metrics(),h0=box.offsetHeight;svg.style.display='none';g.strip=strip(g,m);svg.after(g.strip);var dy=(m.r.top+m.oy)-g.strip.getBoundingClientRect().top;g.strip.style.marginTop=(m.oy+dy)+'px';svg.classList.remove('opt-fade');
-   document.body.classList.add('opt-lineopen');setRow(key);slide(h0);window.scrollTo(0,y);st=g;busy=false})}
+  g.tab0=tabs?tabs.getBoundingClientRect().top:0;
+  run(g,1,function(){var y=scrollY,m=metrics();svg.style.display='none';g.strip=strip(g,m);svg.after(g.strip);var dy=(m.r.top+m.oy)-g.strip.getBoundingClientRect().top;g.strip.style.marginTop=(m.oy+dy)+'px';svg.classList.remove('opt-fade');
+   document.body.classList.add('opt-lineopen');setRow(key);limit(key);st=g;fit();window.scrollTo(0,y);busy=false})}
  function close(){if(busy||!st)return;busy=true;var g=st,y=scrollY;
-  var h0=box.offsetHeight;setRow(null);document.body.classList.remove('opt-lineopen');g.strip.remove();svg.style.display='';slide(h0);svg.classList.add('opt-fade');window.scrollTo(0,y);void svg.getBoundingClientRect();svg.classList.remove('opt-fade');
+  setRow(null);rows.style.paddingBottom='';document.body.classList.remove('opt-lineopen');g.strip.remove();svg.style.display='';svg.classList.add('opt-fade');window.scrollTo(0,y);void svg.getBoundingClientRect();svg.classList.remove('opt-fade');
   run(g,-1,function(){vis(g,true);st=null;busy=false;window.__uniHold=Date.now()-3000})}
- function quick(){if(!st)return;vis(st,true);setRow(null);document.body.classList.remove('opt-lineopen');st.strip.remove();svg.style.display='';svg.classList.remove('opt-fade');st=null;busy=false;window.__uniHold=0}
+ function quick(){if(!st)return;vis(st,true);rows.style.paddingBottom='';setRow(null);document.body.classList.remove('opt-lineopen');st.strip.remove();svg.style.display='';svg.classList.remove('opt-fade');st=null;busy=false;window.__uniHold=0}
  function slide(h0){if(reduce)return;var h1=box.offsetHeight;if(h0===h1)return;box.style.height=h0+'px';void box.offsetHeight;box.style.transition='height .45s cubic-bezier(.2,.8,.2,1)';box.style.height=h1+'px';
   setTimeout(function(){box.style.transition='';box.style.height=''},480)}
+ // at most 7 books per column (7 on a phone, 7 + 7 on a wide screen), then "Show all"
+ function limit(key){var g=[].find.call(rows.querySelectorAll(':scope>.opt-g'),function(x){return x.dataset.k===key});if(!g)return;var it=g.lastChild;
+  var ds=[].filter.call(it.children,function(d){return !d.classList.contains('opt-all')}),n=ds.length;
+  ds.forEach(function(d,i){d.classList.toggle('opt-x',i>=7);d.classList.toggle('opt-d',i>=7&&i<14)});
+  it.classList.toggle('opt-big',n>14);var a=it.querySelector('.opt-all');
+  if(n>7&&!a){a=document.createElement('div');a.className='opt-all';a.innerHTML='<button type="button">Show all '+n+'</button>';it.appendChild(a);a.firstChild.addEventListener('click',function(){it.classList.add('all')})}
+  if(a&&!a.dataset.fit){a.dataset.fit=1;a.firstChild.addEventListener('click',function(){setTimeout(fit,0)})}}
+ // the open list keeps at least the height the universe had, so nothing below moves
+ var tabs=document.querySelector('.lbtabs');
+ function fit(){if(!st||!tabs)return;rows.style.paddingBottom='';var d=st.tab0-tabs.getBoundingClientRect().top;if(d>0)rows.style.paddingBottom=d+'px'}
  function keyOf(g){var lab=g.getAttribute('aria-label')||'';return lab.slice(lab.lastIndexOf(', ')+2)}
  view.addEventListener('click',function(e){var g=e.target.closest&&e.target.closest('#uni g.bk');if(!g)return;e.stopImmediatePropagation();e.preventDefault();open(keyOf(g))},true);
  view.addEventListener('keydown',function(e){var g=e.target.closest&&e.target.closest('#uni g.bk');if(!g||!(e.key==='Enter'||e.key===' '))return;e.stopImmediatePropagation();e.preventDefault();open(keyOf(g))},true);

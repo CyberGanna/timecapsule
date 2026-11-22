@@ -12,3 +12,7 @@ body.opt-lineopen .opt-rows{margin-top:0}
 body.opt-lineopen .opt-rows{animation:optin .45s ease both}
 @keyframes optin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){body.opt-lineopen .opt-rows{animation:none}}
+.opt-items:not(.all)>div.opt-x{display:none}
+@media(min-width:700px){.opt-items:not(.all)>div.opt-x.opt-d{display:grid}.opt-items>div.opt-all{display:none}.opt-items.opt-big>div.opt-all{display:grid}}
+.opt-items.all>div.opt-all{display:none!important}
+body.opt-lineopen .opt-items{gap:5px 36px}
