@@ -40,3 +40,8 @@ for k,label in names.items():
     out=out[:e]+f'<script>window.addEventListener("load",function(){{{js}}});</script>'+out[e:]
     open(os.path.join(here,f'option-{k}.html'),'w',encoding='utf-8').write(out)
     print('wrote option-'+k)
+    if k=='a9':
+        # Profile Version 2 (Karim, 2026-11-22): option A9 as its own page next to the current Profile, no draft bar
+        v2=out.replace(bar,'',1).replace('<title>Gregory Profile Letterbox','<title>Profile Version 2',1)
+        open(os.path.join(here,'..','profile','timecapsule-profile-v2.html'),'w',encoding='utf-8').write(v2)
+        print('wrote profile/timecapsule-profile-v2.html')
