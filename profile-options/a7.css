@@ -7,10 +7,9 @@
 .opt-rows{border-top:0;margin-top:6px}
 .opt-rows>.opt-g{border-bottom:0}
 .opt-row[aria-expanded=true] svg{transform:rotate(0)!important}
-.opt-hint{margin:8px 0 0;text-align:center;font-size:13px;color:var(--mute)}
+.opt-hint{margin:-22px 0 34px;position:relative;text-align:center;font-size:13px;color:var(--mute)}
 .opt-hint button{all:unset;cursor:pointer;color:var(--teal);margin-left:6px}
 .opt-hint button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
-.uni-a7open .opt-hint{display:none}
 #uni .sunav{cursor:pointer}
 #uni .sunav:focus{outline:none}
 .opt-allhead{display:none}

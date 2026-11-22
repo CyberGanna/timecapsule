@@ -2245,7 +2245,7 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  // tapping a planet opens its topic row instead of a list inside the map
  function openFrom(g){var lab=g.getAttribute('aria-label')||'',topic=lab.slice(lab.lastIndexOf(', ')+2);
   var li=[...ul.children].find(function(x){return x.dataset.k===topic});if(!li)return;
-  toggle(li,true);li.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+  toggle(li,true);if(window.__optNoScroll){var r=li.getBoundingClientRect(),vh=innerHeight;if(r.top>vh-80)window.scrollBy(0,r.top-vh+Math.min(220,vh/3))}else li.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
   li.firstChild.classList.remove('opt-flash');void li.offsetWidth;li.firstChild.classList.add('opt-flash')}
  svg.addEventListener('click',function(e){var g=e.target.closest&&e.target.closest('g.bk');if(g){e.stopImmediatePropagation();e.preventDefault();openFrom(g)}},true);
  svg.addEventListener('keydown',function(e){var g=e.target.closest&&e.target.closest('g.bk');if(g&&(e.key==='Enter'||e.key===' ')){e.stopImmediatePropagation();e.preventDefault();openFrom(g)}},true);
