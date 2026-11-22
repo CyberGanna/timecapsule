@@ -321,7 +321,7 @@ canvas.drag{cursor:grabbing}
 .coord{margin-top:10px;padding-top:10px;border-top:1px solid rgba(127,160,255,.15);font:400 10.5px/1.6 "JetBrains Mono",monospace;letter-spacing:.06em;color:#6F78A8;text-transform:uppercase}
 .card .btns{display:flex;gap:8px;margin-top:14px}
 .card .btns button{flex:1;height:38px;border-radius:10px;font-weight:600;font-size:13.5px}
-.join{flex:1.6 1 0!important;white-space:nowrap;padding:0 12px;border:0;background:var(--lamp);color:var(--lamp-ink)}
+.join{border:0;background:var(--lamp);color:var(--lamp-ink)}
 .listen{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.07)}
 
 @media (max-width:760px){
@@ -628,7 +628,7 @@ body .fl[aria-pressed=true] .c{color:#0E7F83}
 <div class="hud">
   <h1>The world, talking</h1>
   <p><span class="dk">Small tables, real people, every corner of the world.</span><span class="mb">Small tables, real people,<br>everywhere in the world.</span><br>Be part of the conversation.</p>
-  <a class="cta" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">Join a table <span aria-hidden="true">→</span></a>
+  <a class="cta" href="https://claude.ai/artifact/1HRtzD5kj8RFhEngLuAgU5" target="_top">Join the conversation <span aria-hidden="true">→</span></a>
 </div>
 <div class="count"><div class="lv"><b id="np">0</b>people talking</div><div><b id="nt">0</b>tables live</div><div><b id="nc">0</b>topics</div></div>
 
@@ -1078,7 +1078,7 @@ function pick(x,y){
     <div class="faces">${T.p.map(([n,c],i)=>`<span data-gu="${n}" data-gc="${c}" data-gi="${i}" tabindex="0" aria-label="${n}" style="z-index:${T.p.length-i}">${face(n)}</span>`).join("")}</div>
     <div class="where">${T.p.length} people from ${cs.length} ${cs.length===1?"country":"countries"}: ${cs.join(", ")}</div>
     <div class="coord">Host at ${fmtLL(...CITY[T.p[0][1]])} · ${T.p[0][1]}<br>Live since ${Math.floor(10+Math.random()*40)} min</div>
-    <div class="btns"><button class="listen" type="button">Listen in</button><button class="join" type="button">Join the conversation</button></div>`;
+    <div class="btns"><button class="listen" type="button">Listen in</button><button class="join" type="button">Join table</button></div>`;
   card.hidden=false;
   const cw=300, ch=card.offsetHeight;
   card.style.left=Math.min(Math.max(x+16,12),W-cw-12)+"px"; card.style.top=Math.min(Math.max(y-ch/2,12),H-ch-12)+"px";

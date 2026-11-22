@@ -29,7 +29,7 @@ hud = re.search(r'<div class="hud">.*?</div>', s, re.S).group(0)
 s = s.replace(hud, '''<div class="hud">
   <h1 class="lp-h">The world, talking</h1>
   <p>Small tables, real people, every corner of the world. Talk, listen and think together.</p>
-  <div class="lp-acts"><a class="cta" href="''' + ONB + '''" target="_top">Join a table <span aria-hidden="true">→</span></a></div>
+  <div class="lp-acts"><a class="cta" href="''' + ONB + '''" target="_top">Join the conversation <span aria-hidden="true">→</span></a></div>
 </div>''', 1)
 # pause drawing while the globe is scrolled away or the long read is open
 s = rep(s, 'try{draw(now)}catch(e){console.error(e)}', 'if(!window.__lpPause)try{draw(now)}catch(e){console.error(e)}')
