@@ -2244,7 +2244,7 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  function item(b,m){
   if(m==='lib'){var as=document.body.classList.contains('visitor')?'visitor':'host';
    return '<div><a href="../library/timecapsule-library.html#r='+encodeURIComponent(b[2])+'&as='+as+'" target="_top">'+esc(b[0])+'</a><small>'+esc(b[1])+'</small></div>'}
-  return '<div><span>'+esc(b[0])+(window.__YT(b)?'<em>You too</em>':'')+'</span><small>'+(b[3]==='film'?'Film · ':'')+esc(b[1])+'</small></div>'}
+  return '<div><span>'+esc(b[0])+(window.__YT(b)?'<em>You too</em>':'')+'</span><small>'+esc(b[1])+'</small></div>'}
  function row(key,label,color,books,m,cls){
   var li=document.createElement('div');li.className='opt-g';li.dataset.k=key;
   var n=books.length,nf=books.filter(function(b){return b[3]==='film'}).length,nb=n-nf,unit=m==='lib'?(n==1?'conversation':'conversations'):[nb?(nb+' '+(nb==1?'book':'books')):'',nf?(nf+' '+(nf==1?'film':'films')):''].filter(Boolean).join(' · ');
@@ -2259,7 +2259,7 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
   if(m!=='lib'){var mine=[];T.forEach(function(t){t.b.forEach(function(b){if(window.__YT(b))mine.push(b)})});
    if(mine.length)ul.appendChild(row('__mut','Books you both read','#17C3C8',mine,m,'mut'))}
   T.forEach(function(t){ul.appendChild(row(t.n,t.n,t.c,t.b,m))})}
- render();
+ render();window.__optRender=function(){last=null;render()};
  document.querySelectorAll('.unitog button').forEach(function(b){new MutationObserver(render).observe(b,{attributes:true,attributeFilter:['aria-pressed']})});
  // tapping a planet opens its topic row instead of a list inside the map
  function openFrom(g){var lab=g.getAttribute('aria-label')||'',topic=lab.slice(lab.lastIndexOf(', ')+2);

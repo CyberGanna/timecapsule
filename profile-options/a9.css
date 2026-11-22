@@ -17,6 +17,9 @@ body.opt-lineopen .opt-rows{animation:optin .45s ease both}
 .opt-items.all>div.opt-all{display:none!important}
 body.opt-lineopen .opt-items{gap:5px 36px}
 body.opt-lineopen .opt-rows{margin-bottom:32px}
-.unitog{display:none!important}
-.uni{padding-top:0!important}
+.unitog:not(.opt-kind){display:none!important}
+.opt-kind button span{display:none}
+/* the mutual link is for visitors only */
+body:not(.visitor) .opt-hint button{display:inline!important;visibility:hidden!important}
+body:not(.visitor) .opt-g[data-k="__mut"]{display:none!important}
 #kbox b.opt-kh~b.opt-kh,#kbox b.opt-kh~b.opt-kh+p{display:none!important}
