@@ -9,3 +9,6 @@
 body.opt-lineopen .opt-hint{display:none}
 body.opt-lineopen .opt-rows{margin-top:0}
 @media (prefers-reduced-motion:reduce){#uni{transition:none}}
+body.opt-lineopen .opt-rows{animation:optin .45s ease both}
+@keyframes optin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){body.opt-lineopen .opt-rows{animation:none}}
