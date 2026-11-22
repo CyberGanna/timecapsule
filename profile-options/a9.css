@@ -1,0 +1,11 @@
+/* A9: the tapped orbit straightens into a line on top of its list */
+.uni{position:relative}
+.opt-morph{position:absolute;pointer-events:none;z-index:2}
+#uni{transition:opacity .3s ease}
+#uni.opt-fade{opacity:0}
+.opt-strip{display:block;margin-left:auto;margin-right:auto;cursor:pointer}
+.opt-strip:focus{outline:none}
+.opt-strip:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+body.opt-lineopen .opt-hint{display:none}
+body.opt-lineopen .opt-rows{margin-top:0}
+@media (prefers-reduced-motion:reduce){#uni{transition:none}}
