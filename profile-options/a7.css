@@ -19,3 +19,4 @@ body.opt-allrows .opt-rows{margin-top:0}
 body.opt-allrows .opt-row[aria-expanded=false] svg{visibility:hidden}
 body.opt-allrows .opt-hint{display:none}
 .opt-hint button[hidden]{display:inline!important;visibility:hidden}
+body.opt-allrows .opt-rows{margin-bottom:48px}

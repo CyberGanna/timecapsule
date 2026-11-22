@@ -16,3 +16,4 @@ body.opt-lineopen .opt-rows{animation:optin .45s ease both}
 @media(min-width:700px){.opt-items:not(.all)>div.opt-x.opt-d{display:grid}.opt-items>div.opt-all{display:none}.opt-items.opt-big>div.opt-all{display:grid}}
 .opt-items.all>div.opt-all{display:none!important}
 body.opt-lineopen .opt-items{gap:5px 36px}
+body.opt-lineopen .opt-rows{margin-bottom:32px}
