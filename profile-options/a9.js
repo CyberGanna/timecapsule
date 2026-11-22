@@ -13,7 +13,8 @@
   bs.forEach(function(b,i){b.removeAttribute('data-m');b.dataset.k=i?'film':'book';b.setAttribute('aria-pressed',i?'false':'true')});
   og.after(sw);
   function set(k){RT.length=0;ALL.forEach(function(t){var b=t.b.filter(function(x){return (x[3]==='film')===(k==='film')});if(b.length)RT.push(Object.assign({},t,{b:b}))});
-   bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k?'true':'false')})}
+   bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k?'true':'false')});
+   window.__optMutLabel=k==='film'?'Films you both watched':'Books you both read';window.__optMutVerb=k==='film'?'watched':'read'}
   set('book');
   bs.forEach(function(b){b.addEventListener('click',function(){if(b.getAttribute('aria-pressed')==='true')return;if(rb)rb.click();set(b.dataset.k);window.KU.render();if(window.__optRender)window.__optRender()})});
   window.KU.render();if(window.__optRender)window.__optRender();

@@ -72,3 +72,14 @@ topic|tema|tema
 The books and films that shaped how you think, sorted by topic. Add one and it joins the map on your profile.|I libri e i film che hanno formato il tuo modo di pensare, ordinati per argomento. Aggiungine uno e comparirà sulla mappa del tuo profilo.|Los libros y las películas que formaron tu manera de pensar, ordenados por tema. Añade uno y aparecerá en el mapa de tu perfil.
 What your tables left behind, saved and sorted by topic. Read one again, or pick it up for a new round.|Ciò che i tuoi tavoli hanno lasciato, salvato e ordinato per argomento. Rileggi una conversazione o riprendila per un nuovo giro.|Lo que dejaron tus mesas, guardado y ordenado por tema. Vuelve a leer una conversación o retómala en una nueva ronda.
 No readings yet|Ancora nessuna lettura|Todavía no hay lecturas
+Books|Libri|Libros
+Films|Film|Películas
+book|libro|libro
+books|libri|libros
+film|film|película
+films|film|películas
+No books yet|Ancora nessun libro|Aún no hay libros
+No films yet|Ancora nessun film|Aún no hay películas
+Add a book that shaped how you think.|Aggiungi un libro che ha formato il tuo modo di pensare.|Añade un libro que formó tu manera de pensar.
+Add a film that shaped how you think.|Aggiungi un film che ha formato il tuo modo di pensare.|Añade una película que formó tu manera de pensar.
+Search my conversations|Cerca nelle mie conversazioni|Buscar en mis conversaciones

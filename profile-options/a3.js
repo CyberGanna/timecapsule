@@ -20,7 +20,7 @@
  function render(){var m=mode();if(m===last&&ul.children.length)return;last=m;ul.innerHTML='';
   var T=m==='lib'?window.__LT:window.__RT;
   if(m!=='lib'){var mine=[];T.forEach(function(t){t.b.forEach(function(b){if(window.__YT(b))mine.push(b)})});
-   if(mine.length)ul.appendChild(row('__mut','Books you both read','#17C3C8',mine,m,'mut'))}
+   if(mine.length)ul.appendChild(row('__mut',window.__optMutLabel||'Books you both read','#17C3C8',mine,m,'mut'))}
   T.forEach(function(t){ul.appendChild(row(t.n,t.n,t.c,t.b,m))})}
  render();window.__optRender=function(){last=null;render()};
  document.querySelectorAll('.unitog button').forEach(function(b){new MutationObserver(render).observe(b,{attributes:true,attributeFilter:['aria-pressed']})});

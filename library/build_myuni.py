@@ -1,4 +1,4 @@
-# Builds help/live-pages/myuniverse.html ("My universe": Readings + Conversations, avatar menu) from the My tables page shell.
+# Builds help/live-pages/myuniverse.html ("My universe": Books | Films) and help/live-pages/myconversations.html ("My conversations") from the My tables page shell.
 # Run: python3 library/build_myuni.py (build.py runs it too)
 import re, json, os, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
@@ -33,7 +33,16 @@ def load_dict(path, n):
             p = ln.rstrip('\n').split('|'); D[p[0]] = p[1:]
     return D
 
-def build():
+FILMS = {"Philosophy": [["The Seventh Seal", "Ingmar Bergman"], ["My Dinner with Andre", "Louis Malle"], ["Waking Life", "Richard Linklater"]],
+         "Religion": [["Of Gods and Men", "Xavier Beauvois"]], "Home": [["Tokyo Story", "Yasujiro Ozu"]],
+         "Travel": [["Paris, Texas", "Wim Wenders"], ["The Motorcycle Diaries", "Walter Salles"]],
+         "Energy": [["Koyaanisqatsi", "Godfrey Reggio"]], "Craft": [["Jiro Dreams of Sushi", "David Gelb"]]}
+
+def cut(body, keep, drop):
+    body = re.sub(r'<!--%s-->.*?<!--/%s-->' % (drop, drop), '', body, flags=re.S)
+    return body.replace('<!--%s-->' % keep, '').replace('<!--/%s-->' % keep, '')
+
+def build(page='uni'):
     src = os.path.join(ROOT, 'help/live-pages/mytables.html')
     s = open(src, encoding='utf8').read()
     # avatar helpers from the My tables script
@@ -42,15 +51,18 @@ def build():
     # shell: everything up to the hero, plus footer
     head = s[:s.index('<div class="wrap">\n  <section class="hero">')]
     foot = s[s.index('<style id="tcf-css">'):s.index('<style id="tce-css">')] + s[s.index('<footer class="tcf"'):]
-    head = head.replace('<title>TimeCapsule My tables</title>', '<title>TimeCapsule My universe</title>')
-    head = re.sub(r'<title>[^<]*</title>', '<title>TimeCapsule My universe</title>', head, count=1)
+    NAME = 'My universe' if page == 'uni' else 'My conversations'
+    FILE = 'myuniverse.html' if page == 'uni' else 'myconversations.html'
+    head = re.sub(r'<title>[^<]*</title>', '<title>TimeCapsule %s</title>' % NAME, head, count=1)
     if '<meta name="viewport"' not in head[:2000]:
         head = '<!doctype html>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n' + head
     # menu: My tables becomes a normal link, My conversations is the current page
-    head = re.sub(r'<a href="#" data-tch="noop" aria-current="page" style="color:var\(--tch-teal\)">My tables</a><a href="[^"]*" target="_top">My (?:conversations|universe)</a>',
-                        '<a href="mytables.html" target="_top">My tables</a><a href="#" data-tch="noop" aria-current="page" style="color:var(--tch-teal)">My universe</a>', head)
-    assert 'aria-current="page" style="color:var(--tch-teal)">My universe' in head
-    head = head.replace('Search my tables', 'Search my universe')
+    CUR = '<a href="#" data-tch="noop" aria-current="page" style="color:var(--tch-teal)">%s</a>'
+    head, n = re.subn(r'<a href="#" data-tch="noop" aria-current="page" style="color:var\(--tch-teal\)">My tables</a><a href="myuniverse.html" target="_top">My universe</a><a href="myconversations.html" target="_top">My conversations</a>',
+                      '<a href="mytables.html" target="_top">My tables</a>' + (CUR % 'My universe' if page == 'uni' else '<a href="myuniverse.html" target="_top">My universe</a>')
+                      + (CUR % 'My conversations' if page != 'uni' else '<a href="myconversations.html" target="_top">My conversations</a>'), head)
+    assert n == 1, 'menu'
+    head = head.replace('Search my tables', 'Search my universe' if page == 'uni' else 'Search my conversations')
     # dictionary
     D1 = load_dict(os.path.join(HERE, 'dict-myuni.txt'), 3)
     DE = load_dict(os.path.join(HERE, 'dict-myuni-el.txt'), 1)
@@ -63,10 +75,16 @@ def build():
     body = body.replace('/*DATA*/null', json.dumps(rows(), ensure_ascii=False).replace('</', '<\\/'))
     body = body.replace('/*READ*/null', json.dumps(readings(), ensure_ascii=False).replace('</', '<\\/'))
     body = body.replace('/*HELPERS*/', helpers)
-    out = os.path.join(ROOT, 'help/live-pages/myuniverse.html')
+    body = body.replace('/*FILMS*/null', json.dumps(FILMS, ensure_ascii=False)).replace('/*PAGE*/"uni"', json.dumps(page))
+    body = cut(body, 'UNI', 'CONV') if page == 'uni' else cut(body, 'CONV', 'UNI')
+    if page == 'uni':
+        # old links to the Conversations half of My universe now go to My conversations
+        body = '<script>if(/(^#|&)(lib|discussions)\\b/.test(location.hash))location.replace("myconversations.html"+(location.hash.match(/lang=\\w+/)?"#"+location.hash.match(/lang=\\w+/)[0]:""))</script>\n' + body
+    out = os.path.join(ROOT, 'help/live-pages/' + FILE)
     open(out, 'w', encoding='utf8').write(head + body + foot)
     subprocess.run(['python3', os.path.join(ROOT, 'i18n/add-greek.py'), out], check=True)
     return out
 
 if __name__ == '__main__':
-    print(build())
+    print(build('uni'))
+    print(build('conv'))
