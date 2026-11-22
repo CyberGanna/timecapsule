@@ -834,6 +834,9 @@ body:not(.visitor) .opt-g[data-k="__mut"]{display:none!important}
 .lbreads #uniview .uni svg#uni{margin-top:-13%!important;margin-bottom:-6%!important}
 .opt-hint{margin-bottom:6px}
 body.opt-lineopen .opt-rows{margin-top:-24px!important}
+
+/* All topics: BOOKS | FILMS sits above the list */
+.opt-kind.opt-kind-all{position:static!important;display:flex!important;margin:0 0 4px}
 </style></head><body><div class="optbar">Draft, not live: Option A9 · The orbit becomes a line. <a href="index.html" style="color:#fff">All options</a> · <a href="../profile/timecapsule-profile.html" style="color:#fff">Current page</a></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F9DA74"/><stop offset="1" stop-color="#F0C858"/></linearGradient><symbol id="coin" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19.2" fill="#E2AC3C" stroke="#B07A1C" stroke-width="1.4"/><circle cx="20" cy="20" r="17.6" fill="none" stroke="#FFE38A" stroke-width="1.6" stroke-dasharray="1 1.4"/><circle cx="20" cy="20" r="15.2" fill="url(#cg)" stroke="#B07A1C" stroke-width="1.1"/><circle cx="20" cy="20" r="12.4" fill="none" stroke="#C98F22" stroke-opacity=".6" stroke-width=".9"/><path d="M20 12V20L25.5 23.2" fill="none" stroke="#9A6614" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="1.8" fill="#9A6614"/></symbol></defs></svg>
 
@@ -2367,7 +2370,12 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
    bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k?'true':'false')});
    window.__optMutLabel=k==='film'?'Films you both watched':'Books you both read';window.__optMutVerb=k==='film'?'watched':'read'}
   set('book');
-  bs.forEach(function(b){b.addEventListener('click',function(){if(b.getAttribute('aria-pressed')==='true')return;if(rb)rb.click();set(b.dataset.k);window.KU.render();if(window.__optRender)window.__optRender()})});
+  // All topics (photo tap): the BOOKS | FILMS switch moves above the list, so the other kind is one tap away
+  var home=sw.parentNode,homeNext=sw.nextSibling;
+  new MutationObserver(function(){var on=document.body.classList.contains('opt-allrows');
+   if(on&&sw.parentNode===home){rows.before(sw);sw.classList.add('opt-kind-all')}
+   else if(!on&&sw.parentNode!==home){home.insertBefore(sw,homeNext);sw.classList.remove('opt-kind-all')}}).observe(document.body,{attributes:true,attributeFilter:['class']});
+  bs.forEach(function(b){b.addEventListener('click',function(){if(b.getAttribute('aria-pressed')==='true')return;if(rb&&!document.body.classList.contains('opt-allrows'))rb.click();set(b.dataset.k);window.KU.render();if(window.__optRender)window.__optRender()})});
   window.KU.render();if(window.__optRender)window.__optRender();
  })();
  var NS='http://www.w3.org/2000/svg',box=svg.parentNode,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;

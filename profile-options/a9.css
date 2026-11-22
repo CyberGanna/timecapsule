@@ -36,3 +36,6 @@ body:not(.visitor) .opt-g[data-k="__mut"]{display:none!important}
 .lbreads #uniview .uni svg#uni{margin-top:-13%!important;margin-bottom:-6%!important}
 .opt-hint{margin-bottom:6px}
 body.opt-lineopen .opt-rows{margin-top:-24px!important}
+
+/* All topics: BOOKS | FILMS sits above the list */
+.opt-kind.opt-kind-all{position:static!important;display:flex!important;margin:0 0 4px}
