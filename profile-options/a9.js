@@ -4,7 +4,7 @@
  if(!view||!svg||!rows)return;
  // Version 2: the universe is Readings only (books and films); conversations live in their tab
  var rb=document.querySelector('.unitog button[data-m="read"]');if(rb&&rb.getAttribute('aria-pressed')!=='true')rb.click();
- var kh=document.querySelector('#kbox b.opt-kh');if(kh)kh.textContent='Books, Films';
+ var kh=document.querySelector('#kbox b.opt-kh');if(kh){kh.textContent='Books, Films';var kp=kh.nextElementSibling;if(kp)kp.textContent='Every book and film that moved you finds its orbit here, by topic. Together they map how you think, and help you meet people on your wavelength.'}
  // Version 2: a Books | Films switch on the map; each kind gets its own universe
  (function(){var og=document.querySelector('.unitog'),RT=window.__RT;if(!og||!RT||!window.KU)return;
   var ALL=RT.map(function(t){return Object.assign({},t,{b:t.b.slice()})});
