@@ -2057,14 +2057,14 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 <style id="tc-std">/* same header and page edges on every page */html,body{margin:0}.wrap{max-width:1180px}.hero{padding-top:36px}.hero h1{font-size:48px;letter-spacing:-.04em;line-height:1.05}@media (max-width:640px){.hero{padding-top:22px}.hero h1{font-size:32px}}</style>
 <style id="tc-mytabs">
 .hero{padding-bottom:0!important}
-.wrap>.bar{padding-block:6px 18px;border-bottom:0}
-.tabs{gap:22px}
-.tabs .tab{height:auto;padding:6px 0 7px;border:0;border-bottom:2px solid transparent;border-radius:0;background:none;font-size:17px;gap:7px;color:var(--mute);cursor:pointer;flex:none}
-.tabs .tab b{font-weight:400}
-.tabs .tab span{font-size:13px;color:var(--mute)}
-.tabs .tab[aria-pressed=true]{background:none;color:var(--fg);border-bottom-color:var(--teal,#17C3C8)}
-.tabs .tab[aria-pressed=true] span{color:var(--soft,#A9B0D6)}
-.tabs .tab:focus-visible{outline:2px solid var(--teal,#17C3C8);outline-offset:4px;border-radius:2px}
-.tab .todo{top:6px;right:-13px;width:9px;height:9px}
-@media (max-width:700px){.tabs .tab{font-size:16px;flex:none;justify-content:flex-start}}
+.wrap>.bar{padding-block:16px 18px;border-bottom:0}
+.tabs{gap:4px}
+.tabs .tab{height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:none;font-size:14px;display:inline-flex;align-items:center;gap:8px;color:var(--fg);cursor:pointer;box-sizing:border-box;flex:none}
+.tabs .tab b{font-weight:500}
+.tabs .tab span{font-size:12px;color:var(--mute)}
+.tabs .tab[aria-pressed=true]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.tabs .tab[aria-pressed=true] span{color:#4A5180}
+.tabs .tab:focus-visible{outline:2px solid var(--teal,#17C3C8);outline-offset:2px}
+.tab .todo{top:-5px;right:-5px;width:13px;height:13px}
+@media (max-width:700px){.tabs .tab{flex:none;justify-content:center}}
 </style></body></html>
