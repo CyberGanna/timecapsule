@@ -37,6 +37,17 @@ for k,label in names.items():
         # Version 2: films join the Readings universe (sample films, Gabriele-style demo data)
         films='{"Philosophy":[["The Seventh Seal","Bergman"],["My Dinner with Andre","Malle"],["Waking Life","Linklater"]],"Religion":[["Of Gods and Men","Beauvois"]],"Home":[["Tokyo Story","Ozu"]],"Travel":[["Paris, Texas","Wenders"],["The Motorcycle Diaries","Salles"]],"Energy":[["Koyaanisqatsi","Reggio"]],"Craft":[["Jiro Dreams of Sushi","Gelb"]]}'
         page=page.replace('"On the Road"]','"On the Road", "Paris, Texas", "Tokyo Story", "The Seventh Seal"]',1)
+        # Version 2: a bigger universe. Orbits spaced out (44+21k -> 40+25k); the photo keeps its on-screen size
+        for x,y in [('var rx=44+RK.indexOf(i)*21;','var rx=40+RK.indexOf(i)*25;'),
+                    ('function sunAv(sys,before,cx,cy){','function sunAv(sys,before,cx,cy){var Z=1,uw=document.getElementById("uni").getBoundingClientRect().width;if(uw)Z=Math.min(1,1.52/(uw/340));'),
+                    ('el("circle",{cx:cx,cy:cy,r:15},cp);','el("circle",{cx:cx,cy:cy,r:15*Z},cp);'),
+                    ('el("circle",{"class":"avglow",cx:cx,cy:cy,r:28,','el("circle",{"class":"avglow",cx:cx,cy:cy,r:28*Z,'),
+                    ('el("circle",{cx:cx,cy:cy,r:15.5,fill:"#1B2144"},g);','el("circle",{cx:cx,cy:cy,r:15.5*Z,fill:"#1B2144"},g);'),
+                    ('el("image",{x:cx-15,y:cy-15,width:30,height:30,','el("image",{x:cx-15*Z,y:cy-15*Z,width:30*Z,height:30*Z,'),
+                    ('el("circle",{"class":"avring",cx:cx,cy:cy,r:15.5,','el("circle",{"class":"avring",cx:cx,cy:cy,r:15.5*Z,'),
+                    ('el("circle",{cx:cx,cy:cy,r:22,fill:"transparent"},g);','el("circle",{cx:cx,cy:cy,r:22*Z,fill:"transparent"},g);')]:
+            assert page.count(x)==1,x
+            page=page.replace(x,y)
         a='var RT=window.__RT=T,'
         assert page.count(a)==1,a
         page=page.replace(a,'(function(F){T.forEach(function(t){(F[t.n]||[]).forEach(function(f){t.b.push([f[0],f[1],"","film"])})})})('+films+');'+a)
