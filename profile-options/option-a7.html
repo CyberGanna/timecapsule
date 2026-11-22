@@ -2282,7 +2282,7 @@ mo.observe(u,{childList:true,subtree:true,attributes:true,attributeFilter:['aria
  var X='<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
  function fix(){rows.querySelectorAll('.opt-row').forEach(function(b){var s=b.querySelector('svg');if(s&&!s.dataset.x){s.outerHTML=X;b.querySelector('svg').dataset.x=1;b.setAttribute('aria-label',b.textContent.trim()+', close')}})}
  fix();new MutationObserver(fix).observe(rows,{childList:true});
- var hint=document.createElement('p');hint.className='opt-hint';hint.textContent='Tap an orbit to open it. Tap the photo to see all.';rows.before(hint);
+ var hint=document.createElement('p');hint.className='opt-hint';hint.textContent='Tap to open topic. Tap photo to see all.';rows.before(hint);
  var mut=rows.querySelector('.opt-g[data-k="__mut"]');
  if(mut){var n=mut.lastChild.querySelectorAll(':scope>div:not(.opt-all)').length,b=document.createElement('button');b.type='button';b.textContent='· '+n+' you both read';
   b.addEventListener('click',function(){var y=scrollY;rows.querySelectorAll(':scope>.opt-g').forEach(function(o){var on=o===mut;o.firstChild.setAttribute('aria-expanded',on);o.lastChild.hidden=!on});window.scrollTo(0,y)});hint.appendChild(b)}
