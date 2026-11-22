@@ -46,7 +46,7 @@ STRINGS = {  # English: [it, es, el]
     'Edit table': ['Modifica il tavolo', 'Editar la mesa', 'Επεξεργασία τραπεζιού'],
     'Invite people': ['Invita persone', 'Invitar personas', 'Κάλεσε ανθρώπους'],
     'Copy link': ['Copia il link', 'Copiar enlace', 'Αντιγραφή συνδέσμου'],
-    'Message guests': ['Scrivi agli ospiti', 'Escribir a los invitados', 'Μήνυμα στους καλεσμένους'],
+    'Chat with guests': ['Chatta con gli ospiti', 'Chatear con los invitados', 'Συζήτηση με τους καλεσμένους'],
     'Cancel table': ['Annulla il tavolo', 'Cancelar la mesa', 'Ακύρωση τραπεζιού'],
     'Keep it': ['Lo tengo', 'Mantenerla', 'Κράτα το'],
     'Host tools': ["Strumenti dell'host", 'Herramientas del anfitrión', 'Εργαλεία οικοδεσπότη'],
@@ -111,7 +111,7 @@ const T=()=>TABLES[st.kind];''')
     const near=isLive()||st.startAt-Date.now()<=30*60000,inv=t.invites||0;
     return `<div class="acts2"><button class="btn go" data-act="start"${near?"":" disabled"}>Start table</button></div>
       <p class="hint">${near?"Open the room when you are ready. Guests can come in after you.":"You can open the room 30 minutes before it starts. Nobody can come in before you."}${inv?` <span>${inv} ${inv===1?"invite not answered yet":"invites not answered yet"}</span>.`:""}</p>
-      <div class="htools"><h4>Host tools</h4><div class="hb"><button type="button" data-act="edit">''' + ic('edit') + '''<span>Edit table</span></button><button type="button" data-act="invite">''' + ic('inv') + '''<span>Invite people</span></button><button type="button" data-act="msg">''' + ic('msg') + '''<span>Message guests</span></button><button type="button" class="dz" data-act="cancel">''' + ic('x') + '''<span>Cancel table</span></button></div>
+      <div class="htools"><h4>Host tools</h4><div class="hb"><button type="button" data-act="edit">''' + ic('edit') + '''<span>Edit table</span></button><button type="button" data-act="invite">''' + ic('inv') + '''<span>Invite people</span></button><button type="button" data-act="msg">''' + ic('msg') + '''<span>Chat with guests</span></button><button type="button" class="dz" data-act="cancel">''' + ic('x') + '''<span>Cancel table</span></button></div>
       ${st.confirmCancel?`<div class="cc"><p>Cancel this table? Your guests get a message right away.</p><div class="hb"><button type="button" class="dzf" data-act="cancelyes">Cancel table</button><button type="button" data-act="cancelno">Keep it</button></div></div>`:""}</div>`;
   }
 ''')
