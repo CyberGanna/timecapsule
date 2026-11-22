@@ -1,0 +1,13 @@
+/* A7: map only, no extra tab. A planet opens just its topic, right under the map. */
+.unitog{display:none!important}
+.uni{padding-top:0!important}
+#kbox b.opt-kh~b.opt-kh,#kbox b.opt-kh~b.opt-kh+p{display:none!important}
+.opt-rows>.opt-g:not(:has(>.opt-row[aria-expanded=true])){display:none}
+.opt-rows:not(:has(.opt-row[aria-expanded=true])){display:none}
+.opt-rows{border-top:0;margin-top:6px}
+.opt-rows>.opt-g{border-bottom:0}
+.opt-row[aria-expanded=true] svg{transform:rotate(0)!important}
+.opt-hint{margin:8px 0 0;text-align:center;font-size:13px;color:var(--mute)}
+.opt-hint button{all:unset;cursor:pointer;color:var(--teal);margin-left:6px}
+.opt-hint button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.uni-a7open .opt-hint{display:none}
