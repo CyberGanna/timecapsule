@@ -266,7 +266,7 @@ function aliasHTML(){return `<div class="opt"><label class="l">Show me at the ta
   </div></div>`}
 function wireAlias(){if(!me.alias)me.alias=rndAlias();document.getElementById("ain").value=me.alias;fillSugg();updAlias();document.getElementById("ain").addEventListener("input",updAlias)}
 function fillSugg(){const s=new Set();while(s.size<4)s.add(rndAlias());
-  document.getElementById("sugg").innerHTML=`<span class="kfrom">Ideas from your <b>k▪universe</b></span>`+[...s].map(a=>`<button data-sugg="${a}" title="${KB[a][1]} · ${KB[a][2]}">${a}<small>${KB[a][1]}</small></button>`).join("")}
+  document.getElementById("sugg").innerHTML=`<span class="kfrom">Suggestions</span>`+[...s].map(a=>`<button data-sugg="${a}" title="${KB[a][1]} · ${KB[a][2]}">${a}<small>${KB[a][1]}</small></button>`).join("")}
 function updAlias(){const inp=document.getElementById("ain");if(!inp)return;const v=inp.value,[ok,msg]=checkAlias(v),m=document.getElementById("amsg");
   m.textContent=msg;m.className="amsg "+(ok?"good":"bad");inp.classList.toggle("bad",!ok);
   document.getElementById("apv").innerHTML=mono(v||"?",me.col,44);document.getElementById("apn").textContent=v.trim()||"…";if(ok)me.alias=v.trim();
