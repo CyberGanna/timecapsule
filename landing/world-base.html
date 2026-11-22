@@ -324,7 +324,7 @@ canvas.drag{cursor:grabbing}
 .coord{margin-top:10px;padding-top:10px;border-top:1px solid rgba(127,160,255,.15);font:400 10.5px/1.6 "JetBrains Mono",monospace;letter-spacing:.06em;color:#6F78A8;text-transform:uppercase}
 .card .btns{display:flex;gap:8px;margin-top:14px}
 .card .btns button{flex:1;height:38px;border-radius:10px;font-weight:600;font-size:13.5px}
-.join{flex:1.6 1 0!important;white-space:nowrap;padding:0 12px;border:0;background:var(--lamp);color:var(--lamp-ink)}
+.join{border:0;background:var(--lamp);color:var(--lamp-ink)}
 .listen{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.07)}
 
 @media (max-width:760px){
@@ -1364,7 +1364,7 @@ function cardBtns(T){
     if(SO&&freeUsed&&!on)lb=`<a class="listen" href="${SIGNIN}" target="_top">Sign in to listen</a>`;
     else lb=`<button class="listen${on?" on":""}" type="button" aria-pressed="${on}">${HP}<span>${on?"Stop listening":"Listen in"}</span></button>`;
   }
-  const jb=SO?`<a class="join" href="${SIGNIN}" target="_top">Sign in to join</a>`:`<button class="join" type="button">Join the conversation</button>`;
+  const jb=SO?`<a class="join" href="${SIGNIN}" target="_top">Sign in to join</a>`:`<button class="join" type="button">Join table</button>`;
   const note=T.lis?(SO&&!freeUsed?`<div class="lnote"><span>5 minutes free</span></div>`:"")
                   :`<div class="lnote"><span>Only the people at the table can hear it</span></div>`;
   return `<div class="btns">${lb}${jb}</div>${note}`;
