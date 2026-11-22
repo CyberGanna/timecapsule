@@ -1,29 +1,41 @@
 """Unify the view switch on the "My ..." pages (Karim 2026-11-22).
-Underline = switch view (Books | Films, Upcoming | Past); outlined pills = filter by topic.
-- My tables: Upcoming / Past become underlined tabs like Books / Films on My universe
-  (17px, mute -> white, 2px teal underline, 22px gap, 6px under the subtitle), counts kept,
-  purple "to do" dot moved next to the Past count. Divider line under the bar removed.
+Karim 2026-11-22: view switch = BOXES like the Tables page day filter (36px, radius 10,
+solid light box when selected, outlined otherwise); topic filters = round outlined pills.
+- My tables: Upcoming / Past boxes sized exactly like the Tables page, counts and purple dot kept,
+  16px under the subtitle, no divider line.
+- My universe: Books / Films use the same boxes, 16px under the subtitle.
 - My universe / My conversations: topic pills start exactly on the page's left edge (was +2px).
 Idempotent: re-run after any rebuild of these pages.  python3 my-tabs/patch.py
 """
 import os, re
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'help', 'live-pages')
 
+BOX = "height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:none;font-size:14px;display:inline-flex;align-items:center;gap:8px;color:var(--fg);cursor:pointer;box-sizing:border-box"
+ON = "background:var(--fg);border-color:var(--fg);color:var(--bg)"
+
 TABLES = """<style id="tc-mytabs">
 .hero{padding-bottom:0!important}
-.wrap>.bar{padding-block:6px 18px;border-bottom:0}
-.tabs{gap:22px}
-.tabs .tab{height:auto;padding:6px 0 7px;border:0;border-bottom:2px solid transparent;border-radius:0;background:none;font-size:17px;gap:7px;color:var(--mute);cursor:pointer;flex:none}
-.tabs .tab b{font-weight:400}
-.tabs .tab span{font-size:13px;color:var(--mute)}
-.tabs .tab[aria-pressed=true]{background:none;color:var(--fg);border-bottom-color:var(--teal,#17C3C8)}
-.tabs .tab[aria-pressed=true] span{color:var(--soft,#A9B0D6)}
-.tabs .tab:focus-visible{outline:2px solid var(--teal,#17C3C8);outline-offset:4px;border-radius:2px}
-.tab .todo{top:6px;right:-13px;width:9px;height:9px}
-@media (max-width:700px){.tabs .tab{font-size:16px;flex:none;justify-content:flex-start}}
-</style>"""
+.wrap>.bar{padding-block:16px 18px;border-bottom:0}
+.tabs{gap:4px}
+.tabs .tab{%s;flex:none}
+.tabs .tab b{font-weight:500}
+.tabs .tab span{font-size:12px;color:var(--mute)}
+.tabs .tab[aria-pressed=true]{%s}
+.tabs .tab[aria-pressed=true] span{color:#4A5180}
+.tabs .tab:focus-visible{outline:2px solid var(--teal,#17C3C8);outline-offset:2px}
+.tab .todo{top:-5px;right:-5px;width:13px;height:13px}
+@media (max-width:700px){.tabs .tab{flex:none;justify-content:center}}
+</style>""" % (BOX, ON)
 
 MU = """<style id="tc-mytabs">@media (min-width:641px){.mu .pills{margin-left:-2px}}</style>"""
+
+UNI = """<style id="tc-mytabs">@media (min-width:641px){.mu .pills{margin-left:-2px}}
+.mu .sw{gap:4px;margin:16px 0 0}
+.mu .sw button{all:unset;%s;font-weight:500}
+.mu .sw button[aria-selected=true]{%s}
+.mu .sw button:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:10px}
+@media(max-width:700px){.mu .sw button{font-size:14px}}
+</style>""" % (BOX, ON)
 
 def put(fn, css):
     p = os.path.join(R, fn); s = open(p, encoding='utf-8').read()
@@ -33,5 +45,5 @@ def put(fn, css):
     open(p, 'w', encoding='utf-8').write(s); print('patched', fn)
 
 put('mytables.html', TABLES)
-put('myuniverse.html', MU)
+put('myuniverse.html', UNI)
 put('myconversations.html', MU)
