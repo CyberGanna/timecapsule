@@ -16,6 +16,17 @@ for k,label in names.items():
                     ('goal=Math.min(1,Math.max(.08,(d-8)/70))','goal=Math.min(1,Math.max(0,(d-8)/70))')]:
             assert page.count(a)==1,a
             page=page.replace(a,b)
+    if k=='a6':
+        # topics with more books sit on outer orbits (map only; lists keep their order)
+        a='var R=[],O=[];T.forEach(function(th,i){var rx=44+i*21;'
+        b='var R=[],O=[],RK=T.map(function(x,i){return i}).sort(function(p,q){return T[p].b.length-T[q].b.length||p-q});T.forEach(function(th,i){var rx=44+RK.indexOf(i)*21;'
+        assert page.count(a)==1,a
+        page=page.replace(a,b)
+        # plain dot per book, no halo or ring around it
+        a='el("circle",{r:6.5,fill:col,opacity:".12"},g);el("circle",{r:5,fill:"none",stroke:col,"stroke-width":"1.1"},g);el("circle",{"class":"core",r:2.6,fill:col},g);'
+        b='el("circle",{"class":"core",r:3.4,fill:col},g);'
+        assert page.count(a)==1,a
+        page=page.replace(a,b)
     if k in ('a3','a4','a5','a6'):
         # expose the universe data so the topic rows can be built from it
         for a,b in [('var RT=T,MODE="read",LT=','var RT=window.__RT=T,MODE="read",LT=window.__LT='),
