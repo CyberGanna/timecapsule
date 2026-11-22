@@ -1279,7 +1279,7 @@ function liveCard(t){
     <div class="tb"><div class="trow"><span class="lpill"><i></i>Live · ${t.live} min</span><span class="topic"><i></i>${t.theme}</span></div><h3><a class="tdl" href="${tdUrl(t)}" target="_top">${esc(t.title)}</a></h3>
       <div class="meta">with <b>${t.host}</b> · ${t.country}</div>
       <div class="tf"><span class="left">${left>0?`${left} ${left===1?"seat":"seats"} free`:'<span class="full">Table full</span>'}</span>
-      ${t.mine?`<button class="jbtn on" data-hosting>You're hosting</button>`:mine?(t.live?`<button class="jbtn on" data-id="${t.id}">Go back in</button>`:`<button class="jbtn on" data-id="${t.id}">You're in</button>`):left>0?`<button class="jbtn" data-id="${t.id}">Join table</button>`:`<button class="jbtn ghost" data-id="${t.id}">Listen in</button>`}</div></div></article>`;
+      ${t.mine?`<button class="jbtn on" data-hosting>You're hosting</button>`:mine?(t.live?`<button class="jbtn on" data-id="${t.id}">Go back in</button>`:`<button class="jbtn on" data-id="${t.id}">You're in</button>`):left>0?`<button class="jbtn" data-id="${t.id}">Join</button>`:`<button class="jbtn ghost" data-id="${t.id}">Listen in</button>`}</div></div></article>`;
 }
 function chairs(t){
   const mine=S.joined.has(t.id), k=t.people.length+(mine?1:0), left=t.seats-k;
@@ -1900,6 +1900,17 @@ main.land .live .ttop .board.photo{outline:2px solid color-mix(in srgb,var(--c) 
 main.land .live .tbl .tb{padding-right:16px!important}
 main.land .live .tbl .meta{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 main.land .live .tbl .lpill{font-size:14px!important;font-weight:700!important;letter-spacing:.1em!important}
+main.land .live .ttop .board{inset:21%!important}
+main.land .live .tbl[data-live] .ttop .board.photo::after{display:block!important;background:rgba(10,8,24,.6)!important}
+main.land .live .ttop .board b.cpm{font-size:24px;font-weight:600;letter-spacing:-.01em;z-index:1}
+main.land .live .ttop .board b.cpm small{font-size:10px;letter-spacing:.16em;margin-top:4px;opacity:.9}
+@media (min-width:1101px),(min-width:641px) and (max-width:900px){main.land .live .ttop{width:150px!important}main.land .live .ttop .ring{width:138px!important;height:138px!important}main.land .live .ttop .seat{width:25px!important;height:25px!important;margin:-12.5px 0 0 -12.5px!important}}
+main.land .live .tbl .tb{padding:18px 20px 18px 4px!important;gap:6px!important}
+main.land .live .tbl .tf .jbtn{height:34px!important;font-size:14px!important;padding-inline:14px!important}
+main.land .live .tbl .tb{justify-content:flex-start!important}
+main.land .live .tbl .tf{margin-top:auto!important;padding-top:12px!important}
+@media (min-width:1101px),(min-width:641px) and (max-width:900px){main.land .live .ttop{width:158px!important;padding:16px 0 16px 6px!important}main.land .live .ttop .ring{width:132px!important;height:132px!important}main.land .live .ttop .seat{width:24px!important;height:24px!important;margin:-12px 0 0 -12px!important}}
+main.land .live .tbl .meta{font-size:13px!important}
 </style><script id="card-polish-js">(function(){
 function c4(a){var m=(a.getAttribute("style")||"").match(/--c:\s*(#[0-9A-Fa-f]{6})/);return m?m[1]:"#A9B0D6"}
 function polish(){document.querySelectorAll("main.land .live .tbl:not([data-cp])").forEach(function(a){
