@@ -77,7 +77,7 @@ def page():
 
 if __name__ == '__main__':
     recs = page()
-    import build_myuni; build_myuni.build()
+    import build_myuni; build_myuni.build("uni"); build_myuni.build("conv")
     import build_disc; build_disc.build()
     import build_hosttables; build_hosttables.build()
     import patch_profile

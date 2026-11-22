@@ -20,6 +20,7 @@ body.opt-lineopen .opt-rows{margin-bottom:32px}
 .unitog:not(.opt-kind){display:none!important}
 .opt-kind button span{display:none}
 /* the mutual link is for visitors only */
-body:not(.visitor) .opt-hint button{display:inline!important;visibility:hidden!important}
+/* no mutual link (owner view, or nothing in common): the hint line stays centred */
+.opt-hint button[hidden],body:not(.visitor) .opt-hint button{display:none!important}
 body:not(.visitor) .opt-g[data-k="__mut"]{display:none!important}
 #kbox b.opt-kh~b.opt-kh,#kbox b.opt-kh~b.opt-kh+p{display:none!important}

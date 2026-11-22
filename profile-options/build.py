@@ -36,6 +36,7 @@ for k,label in names.items():
     if k=='a9':
         # Version 2: films join the Readings universe (sample films, Gabriele-style demo data)
         films='{"Philosophy":[["The Seventh Seal","Bergman"],["My Dinner with Andre","Malle"],["Waking Life","Linklater"]],"Religion":[["Of Gods and Men","Beauvois"]],"Home":[["Tokyo Story","Ozu"]],"Travel":[["Paris, Texas","Wenders"],["The Motorcycle Diaries","Salles"]],"Energy":[["Koyaanisqatsi","Reggio"]],"Craft":[["Jiro Dreams of Sushi","Gelb"]]}'
+        page=page.replace('"On the Road"]','"On the Road", "Paris, Texas", "Tokyo Story", "The Seventh Seal"]',1)
         a='var RT=window.__RT=T,'
         assert page.count(a)==1,a
         page=page.replace(a,'(function(F){T.forEach(function(t){(F[t.n]||[]).forEach(function(f){t.b.push([f[0],f[1],"","film"])})})})('+films+');'+a)

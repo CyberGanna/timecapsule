@@ -92,16 +92,17 @@
 </style>
 <div class="wrap mu">
   <section class="hero">
-    <h1>My universe</h1>
-    <p class="intro" data-m="read">The books and films that shaped how you think, sorted by topic. Add one and it joins the map on your profile.</p>
-    <p class="intro" data-m="lib" hidden>What your tables left behind, saved and sorted by topic. Read one again, or pick it up for a new round.</p>
+<!--UNI-->    <h1>My universe</h1>
+    <p class="intro">The books and films that shaped how you think, sorted by topic. Add one and it joins the map on your profile.</p>
     <div class="sw" role="tablist" aria-label="My universe">
-      <button type="button" role="tab" id="sw-read" data-m="read" aria-selected="true">Readings</button>
-      <button type="button" role="tab" id="sw-lib" data-m="lib" aria-selected="false">Conversations</button>
-    </div>
+      <button type="button" role="tab" id="sw-book" data-k="book" aria-selected="true" aria-controls="p-read">Books</button>
+      <button type="button" role="tab" id="sw-film" data-k="film" aria-selected="false" aria-controls="p-read">Films</button>
+    </div><!--/UNI-->
+<!--CONV-->    <h1>My conversations</h1>
+    <p class="intro">What your tables left behind, saved and sorted by topic. Read one again, or pick it up for a new round.</p><!--/CONV-->
   </section>
 
-  <div id="p-read" role="tabpanel" aria-labelledby="sw-read">
+<!--UNI-->  <div id="p-read" role="tabpanel">
     <div class="dtools">
       <div class="pills" id="rpills" role="group" aria-label="Topics"></div>
       <button type="button" class="add" id="addBtn" aria-expanded="false" aria-controls="addForm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Add</span></button>
@@ -122,9 +123,9 @@
       <div class="full fact"><button type="submit" class="btn go">Add to my universe</button><button type="button" class="btn" id="fCancel">Cancel</button><small>It shows on your profile right away.</small></div>
     </form>
     <div id="rlist"></div>
-  </div>
+  </div><!--/UNI-->
 
-  <div id="p-lib" role="tabpanel" aria-labelledby="sw-lib" hidden>
+<!--CONV-->  <div id="p-lib">
     <div class="dtools">
       <div class="pills" id="dpills" role="group" aria-label="Topics"></div>
       <div class="roles" role="group" aria-label="Role">
@@ -135,13 +136,15 @@
     </div>
     <p class="dcnt" id="dcnt"></p>
     <div id="mdlist"></div>
-  </div>
+  </div><!--/CONV-->
   <div class="undo" id="undo" role="status" hidden><span id="undoT"></span><button type="button" id="undoB">Undo</button></div>
 </div>
 <script>
 (function(){
 const D=/*DATA*/null;
 const RT=/*READ*/null;
+const FILMS=/*FILMS*/null;
+const PAGE=/*PAGE*/"uni";
 /*HELPERS*/
 const TICON={Philosophy:'<path d="M4 20h16M5 17h14M6 17V9m4 8V9m4 8V9m4 8V9M4 9h16L12 4z"/>',Religion:'<path d="M12 8.5v12M12 8.5C10 7.3 7 7 3.5 7.5v11.5c3.5-.5 6.5-.2 8.5 1M12 8.5c2-1.2 5-1.5 8.5-1v11.5c-3.5-.5-6.5-.2-8.5 1M12 2.5v2.5M8 3.5l1 1.8M16 3.5l-1 1.8"/>',Home:'<path d="M4 11l8-7 8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/>',Craft:'<path d="M14 6l4 4M4 20l9.5-9.5M12 4.5l3-1.5 6 6-1.5 3-2-2-3 3-4.5-4.5 3-3z"/>',Energy:'<path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z"/>',Travel:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5z"/>'};
 const KICON={book:'<path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5c.8 0 1.5-.7 1.5-1.5z"/>',film:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/>'};
@@ -150,55 +153,58 @@ const LOCK='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width
 const NEWCOL=["#9BE3B4","#FFC27A","#B9C2FF","#FF8FB1"];
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c])}
 const $=id=>document.getElementById(id);
+const on=(id,ev,fn)=>{const e=$(id);if(e)e.addEventListener(ev,fn)};
 
 /* ---------- Readings ---------- */
-let R;const KEY="tc-myuni-readings-v2";
-function seed(){return RT.map((t,i)=>({n:t.n,c:t.c,b:t.b.map((x,j)=>({t:x[0],a:x[1],k:"book",imp:["yes","yes","maybe","yes","maybe","no"][j%6]}))}))}
+let R;const KEY="tc-myuni-readings-v3";
+function seed(){return RT.map((t,i)=>({n:t.n,c:t.c,b:t.b.map((x,j)=>({t:x[0],a:x[1],k:"book",imp:["yes","yes","maybe","yes","maybe","no"][j%6]})).concat((FILMS[t.n]||[]).map((x,j)=>({t:x[0],a:x[1],k:"film",imp:["yes","maybe","yes"][j%3]})))}))}
 try{R=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+const K={kind:/(^#|&)films\b/.test(location.hash)?"film":"book"};
+const ofK=b=>(b.k||"book")===K.kind;
 if(!Array.isArray(R))R=seed();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(R))}catch(e){}}
 let lastNew=null;
 let RT0="";
-function rpills(){if(RT0&&!R.some(t=>t.n===RT0&&t.b.length))RT0="";$("rpills").innerHTML=`<button type="button" data-t="" aria-pressed="${!RT0}">All</button>`+R.filter(t=>t.b.length).map(t=>`<button type="button" data-t="${esc(t.n)}" style="--c:${t.c}" aria-pressed="${RT0===t.n}"><i></i><span>${esc(t.n)}</span></button>`).join("")}
-$("rpills").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;RT0=RT0===b.dataset.t?"":b.dataset.t;renderRead()});
+function rpills(){if(RT0&&!R.some(t=>t.n===RT0&&t.b.some(ofK)))RT0="";$("rpills").innerHTML=`<button type="button" data-t="" aria-pressed="${!RT0}">All</button>`+R.filter(t=>t.b.some(ofK)).map(t=>`<button type="button" data-t="${esc(t.n)}" style="--c:${t.c}" aria-pressed="${RT0===t.n}"><i></i><span>${esc(t.n)}</span></button>`).join("")}
+on("rpills","click",e=>{const b=e.target.closest("button");if(!b)return;RT0=RT0===b.dataset.t?"":b.dataset.t;renderRead()});
 function renderRead(){
   rpills();
   const q=S.q.trim().toLowerCase();
-  const vis=R.filter(t=>!RT0||t.n===RT0).map(t=>t.b.filter(b=>!q||(b.t+" "+b.a+" "+t.n).toLowerCase().includes(q)).length);
+  const vis=R.filter(t=>!RT0||t.n===RT0).map(t=>t.b.filter(b=>ofK(b)&&(!q||(b.t+" "+b.a+" "+t.n).toLowerCase().includes(q))).length);
   const n=vis.reduce((a,x)=>a+x,0),nt=vis.filter(x=>x).length;
-  $("n-items").textContent=n;$("n-items-l").textContent=n===1?"item":"items";$("n-topics").textContent=nt;$("n-topics-l").textContent=nt===1?"topic":"topics";
-  const html=R.map((t,ti)=>{let items=t.b.map((b,bi)=>({b,bi}));
+  $("n-items").textContent=n;$("n-items-l").textContent=K.kind==="film"?(n===1?"film":"films"):(n===1?"book":"books");$("n-topics").textContent=nt;$("n-topics-l").textContent=nt===1?"topic":"topics";
+  const html=R.map((t,ti)=>{let items=t.b.map((b,bi)=>({b,bi})).filter(o=>ofK(o.b));
     if(RT0&&t.n!==RT0)return"";
     if(q)items=items.filter(o=>(o.b.t+" "+o.b.a+" "+t.n).toLowerCase().includes(q));
     if(!items.length)return"";
-    return `<section class="sec" style="--c:${t.c}"><div class="sh"><h2><i></i><span>${esc(t.n)}</span></h2><span>${items.length}</span></div>${items.map(({b,bi})=>`<div class="item${lastNew&&lastNew[0]===ti&&lastNew[1]===bi?" new":""}" style="--c:${t.c}"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">${KICON[b.k]||KICON.book}</svg></div><div><h3 data-noi18n>${esc(b.t)}</h3><p><span class="kind">${b.k==="film"?"Film":"Book"}</span>${b.a?` · <span data-noi18n>${esc(b.a)}</span>`:""}<span class="rt ${RL[b.imp]?b.imp:"maybe"}"><i></i><span>${RL[b.imp]||RL.maybe}</span></span></p></div><button type="button" class="rm" data-rm="${ti}:${bi}" aria-label="Remove ${esc(b.t)}" title="Remove">${XI}</button></div>`).join("")}</section>`}).join("");
-  $("rlist").innerHTML=html||`<div class="empty"><b>${q?"Nothing matches your search":"No readings yet"}</b><span>${q?"Try another word, or clear the search.":"Add a book or a film that shaped how you think."}</span></div>`;
+    return `<section class="sec" style="--c:${t.c}"><div class="sh"><h2><i></i><span>${esc(t.n)}</span></h2><span>${items.length}</span></div>${items.map(({b,bi})=>`<div class="item${lastNew&&lastNew[0]===ti&&lastNew[1]===bi?" new":""}" style="--c:${t.c}"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">${KICON[b.k]||KICON.book}</svg></div><div><h3 data-noi18n>${esc(b.t)}</h3><p>${b.a?`<span data-noi18n>${esc(b.a)}</span>`:""}<span class="rt ${RL[b.imp]?b.imp:"maybe"}"><i></i><span>${RL[b.imp]||RL.maybe}</span></span></p></div><button type="button" class="rm" data-rm="${ti}:${bi}" aria-label="Remove ${esc(b.t)}" title="Remove">${XI}</button></div>`).join("")}</section>`}).join("");
+  $("rlist").innerHTML=html||`<div class="empty"><b>${q?"Nothing matches your search":(K.kind==="film"?"No films yet":"No books yet")}</b><span>${q?"Try another word, or clear the search.":(K.kind==="film"?"Add a film that shaped how you think.":"Add a book that shaped how you think.")}</span></div>`;
   lastNew=null;
 }
 function fillTopics(sel){const o=R.map((t,i)=>`<option value="${i}">${esc(t.n)}</option>`).join("")+`<option value="new">New topic…</option>`;$("fTop").innerHTML=o;if(sel!=null)$("fTop").value=sel}
 let kind="book",imp=null;const RL={yes:"Mind-blowing",maybe:"Pleasant",no:"Not so inspiring"};
 function setKind(k){kind=k;document.querySelectorAll(".mu .seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===k));$("fAl").textContent=k==="film"?"Director":"Author"}
-function openForm(o){const f=$("addForm");f.hidden=!o;$("addBtn").setAttribute("aria-expanded",o);if(o){fillTopics(0);$("fNewL").hidden=true;$("fT").value="";$("fA").value="";$("fNew").value="";setKind("book");setImp(null);$("fImpL").classList.remove("need");$("fT").focus()}}
+function openForm(o){const f=$("addForm");f.hidden=!o;$("addBtn").setAttribute("aria-expanded",o);if(o){fillTopics(0);$("fNewL").hidden=true;$("fT").value="";$("fA").value="";$("fNew").value="";setKind(K.kind);setImp(null);$("fImpL").classList.remove("need");$("fT").focus()}}
 function setImp(v){imp=v;if(v)$("fImpL").classList.remove("need");document.querySelectorAll("#fImp button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===v))}
-$("addBtn").addEventListener("click",()=>openForm($("addForm").hidden));
-$("fCancel").addEventListener("click",()=>openForm(false));
+on("addBtn","click",()=>openForm($("addForm").hidden));
+on("fCancel","click",()=>openForm(false));
 document.querySelectorAll(".mu .seg button").forEach(b=>b.addEventListener("click",()=>setKind(b.dataset.k)));
 document.querySelectorAll("#fImp button").forEach(b=>b.addEventListener("click",()=>setImp(b.dataset.v)));
-$("fTop").addEventListener("change",()=>{$("fNewL").hidden=$("fTop").value!=="new";if(!$("fNewL").hidden)$("fNew").focus()});
-$("addForm").addEventListener("submit",e=>{e.preventDefault();const t=$("fT").value.trim();if(!t){$("fT").focus();return}if(!imp){$("fImpL").classList.add("need");document.querySelector("#fImp button").focus();return}
+on("fTop","change",()=>{$("fNewL").hidden=$("fTop").value!=="new";if(!$("fNewL").hidden)$("fNew").focus()});
+on("addForm","submit",e=>{e.preventDefault();const t=$("fT").value.trim();if(!t){$("fT").focus();return}if(!imp){$("fImpL").classList.add("need");document.querySelector("#fImp button").focus();return}
   let ti=$("fTop").value;
   if(ti==="new"){const nn=$("fNew").value.trim();if(!nn){$("fNew").focus();return}let ex=R.findIndex(x=>x.n.toLowerCase()===nn.toLowerCase());if(ex<0){R.push({n:nn,c:NEWCOL[R.length%NEWCOL.length],b:[]});ex=R.length-1}ti=ex}else ti=+ti;
-  R[ti].b.unshift({t,a:$("fA").value.trim(),k:kind,imp});lastNew=[ti,0];save();openForm(false);renderRead();
+  R[ti].b.unshift({t,a:$("fA").value.trim(),k:kind,imp});lastNew=[ti,0];save();openForm(false);if(kind!==K.kind)setKindTab(kind);renderRead();
   const el=document.querySelector(".mu .item.new");if(el)el.scrollIntoView({behavior:"smooth",block:"center"});
   toast((kind==="film"?"Film":"Book")+" added",null)});
 let undoFn=null,undoTimer=0;
 function toast(msg,fn){$("undoT").textContent=msg;$("undoB").hidden=!fn;undoFn=fn;$("undo").hidden=false;clearTimeout(undoTimer);undoTimer=setTimeout(()=>{$("undo").hidden=true;undoFn=null},5000)}
 $("undoB").addEventListener("click",()=>{if(undoFn)undoFn();$("undo").hidden=true;undoFn=null});
-$("rlist").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;const[ti,bi]=b.dataset.rm.split(":").map(Number);const it=R[ti].b.splice(bi,1)[0];save();renderRead();
+on("rlist","click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;const[ti,bi]=b.dataset.rm.split(":").map(Number);const it=R[ti].b.splice(bi,1)[0];save();renderRead();
   toast("Removed",()=>{R[ti].b.splice(bi,0,it);save();renderRead()})});
 
 /* ---------- Conversations ---------- */
-const S={role:"all",t:"",q:"",none:/(^#|&)new\b/.test(location.hash),mode:/(^#|&)(lib|discussions)\b/.test(location.hash)?"lib":"read"};
+const S={role:"all",t:"",q:"",none:/(^#|&)new\b/.test(location.hash)};
 const list=$("mdlist");
 function again(r){return "create.html#again=1&th="+encodeURIComponent(r.topic)+"&q="+encodeURIComponent(r.title)}
 function lib(r){return "../../library/timecapsule-library.html#r="+r.id}
@@ -211,7 +217,7 @@ function card(r){return `<article class="card" style="--c:${r.col}"><a class="lk
 </article>`}
 const TOPS=[];D.forEach(r=>{if(!TOPS.some(t=>t.n===r.topic))TOPS.push({n:r.topic,c:r.col})});
 function pills(){$("dpills").innerHTML=`<button type="button" data-t="" aria-pressed="${!S.t}">All</button>`+TOPS.map(t=>`<button type="button" data-t="${esc(t.n)}" style="--c:${t.c}" aria-pressed="${S.t===t.n}"><i></i><span>${esc(t.n)}</span></button>`).join("")}
-$("dpills").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;S.t=S.t===b.dataset.t?"":b.dataset.t;pills();renderLib()});
+on("dpills","click",e=>{const b=e.target.closest("button");if(!b)return;S.t=S.t===b.dataset.t?"":b.dataset.t;pills();renderLib()});
 function renderLib(){
   const q=S.q.trim().toLowerCase();
   let rs=S.none?[]:D.filter(r=>S.role!=="in");
@@ -227,16 +233,20 @@ function renderLib(){
   $("dcnt").hidden=false;
   list.innerHTML=`<div class="grid">${rs.map(card).join("")}</div>`;
 }
-pills();
 document.querySelectorAll(".mu .roles button").forEach(b=>b.addEventListener("click",()=>{S.role=b.dataset.role;document.querySelectorAll(".mu .roles button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderLib()}));
 
 /* ---------- switch + search ---------- */
-function setMode(m){S.mode=m;["read","lib"].forEach(k=>{$("p-"+k).hidden=k!==m;document.querySelectorAll(".mu .intro").forEach(p=>p.hidden=p.dataset.m!==m);$("sw-"+k).setAttribute("aria-selected",k===m)})}
-document.querySelectorAll(".mu .sw button").forEach(b=>b.addEventListener("click",()=>{setMode(b.dataset.m);try{history.replaceState(null,"",location.pathname+location.search+(b.dataset.m==="lib"?"#discussions":"#readings")+(/lang=\w+/.test(location.hash)?"&"+location.hash.match(/lang=\w+/)[0]:""))}catch(e){}}));
-function onQ(v){S.q=v;renderRead();renderLib()}
-const q=$("q");if(q){q.placeholder="Search my universe";q.addEventListener("input",()=>onQ(q.value))}
-const sq=document.querySelector("#tch .tch-sbar input");if(sq){sq.placeholder="Search my universe";sq.addEventListener("input",()=>onQ(sq.value))}
-addEventListener("hashchange",()=>{S.none=/(^#|&)new\b/.test(location.hash);if(/(^#|&)(lib|discussions)\b/.test(location.hash))setMode("lib");else if(/(^#|&)readings\b/.test(location.hash))setMode("read");renderLib()});
-setMode(S.mode);renderRead();renderLib();
+function setKindTab(k){K.kind=k;document.querySelectorAll(".mu .sw button").forEach(b=>b.setAttribute("aria-selected",b.dataset.k===k))}
+function onQ(v){S.q=v;if(PAGE==="uni")renderRead();else renderLib()}
+const q=$("q");if(q){q.placeholder=PAGE==="uni"?"Search my universe":"Search my conversations";q.addEventListener("input",()=>onQ(q.value))}
+const sq=document.querySelector("#tch .tch-sbar input");if(sq){sq.placeholder=PAGE==="uni"?"Search my universe":"Search my conversations";sq.addEventListener("input",()=>onQ(sq.value))}
+if(PAGE==="uni"){
+  document.querySelectorAll(".mu .sw button").forEach(b=>b.addEventListener("click",()=>{if(b.dataset.k===K.kind)return;openForm(false);RT0="";setKindTab(b.dataset.k);renderRead();try{history.replaceState(null,"",location.pathname+location.search+"#"+(K.kind==="film"?"films":"books")+(/lang=\w+/.test(location.hash)?"&"+location.hash.match(/lang=\w+/)[0]:""))}catch(e){}}));
+  addEventListener("hashchange",()=>{const k=/(^#|&)films\b/.test(location.hash)?"film":"book";if(k!==K.kind){setKindTab(k);renderRead()}});
+  setKindTab(K.kind);renderRead();
+}else{
+  addEventListener("hashchange",()=>{S.none=/(^#|&)new\b/.test(location.hash);renderLib()});
+  pills();renderLib();
+}
 })();
 </script>

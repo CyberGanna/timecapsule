@@ -13,7 +13,7 @@
  function fix(){if(busy)return;busy=true;
   rows.querySelectorAll('.opt-row').forEach(function(b){var s=b.querySelector('svg');if(s&&!s.dataset.x){s.outerHTML=X;b.querySelector('svg').dataset.x=1;b.setAttribute('aria-label',b.textContent.trim()+', close')}});
   if(rows.firstChild!==head)rows.prepend(head);
-  var m=mut();mb.hidden=!m;if(m)mb.textContent='· '+m.lastChild.querySelectorAll(':scope>div:not(.opt-all)').length+' you both read';
+  var m=mut();mb.hidden=!m;if(m)mb.textContent='· '+m.lastChild.querySelectorAll(':scope>div:not(.opt-all)').length+' you both '+(window.__optMutVerb||'read');
   busy=false}
  fix();new MutationObserver(fix).observe(rows,{childList:true});
  function all(on){document.body.classList.toggle('opt-allrows',on);rows.querySelectorAll('.opt-row[aria-expanded=true]').forEach(function(b){b.setAttribute('aria-expanded','false');b.nextSibling.hidden=true})}
