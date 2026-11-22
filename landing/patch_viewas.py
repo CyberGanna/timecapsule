@@ -15,8 +15,8 @@ document.addEventListener('click',function(e){var b=e.target.closest('#lproto [d
 </script>'''
 if 'tc-so-landing' not in s:
     i=s.rfind('</body>'); s=s[:i]+JS+'\n'+s[i:]; open(W,'w').write(s); print('patched',W)
-# Karim 2026-11-19: hero button says "Join a table" and opens Onboarding (signed out)
+# Karim 2026-11-19: hero button says "Join the conversation" (2026-11-22) and opens Onboarding (signed out)
 f="landing/timecapsule-landing.html"; s=open(f).read()
 o='<a class="cta" href="../onboarding/timecapsule-onboarding.html" target="_top">Join TimeCapsule <span aria-hidden="true">→</span></a>'
 if o in s:
-    s=s.replace(o,'<a class="cta" href="../onboarding/timecapsule-onboarding.html" target="_top">Join a table <span aria-hidden="true">→</span></a>',1); open(f,'w').write(s); print('button',f)
+    s=s.replace(o,'<a class="cta" href="../onboarding/timecapsule-onboarding.html" target="_top">Join the conversation <span aria-hidden="true">→</span></a>',1); open(f,'w').write(s); print('button',f)
