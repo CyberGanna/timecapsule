@@ -9,8 +9,8 @@ s=open(P,encoding="utf-8").read()
 FN=r'''function liveCard(t){ /* card-v2 */
   const c=THEMES[t.theme], mine=S.joined.has(t.id), k=t.people.length+(mine?1:0), left=t.seats-k, soon=!t.live;
   const ppl=[...t.people]; if(mine) ppl.push("You");
-  const faces=ppl.slice(0,4).map(p=>`<span${p!=="You"?` data-u="${p}" tabindex="0"`:""}${p===t.talk&&!soon?' class="talk"':""}>${av(p)}</span>`).join("")+(ppl.length>4?`<span class="more">+${ppl.length-4}</span>`:"");
-  const hd=t.img!=null?`<div class="cc-hd"><img src="${IMGS[t.img]}" alt="" loading="lazy"></div>`:`<div class="cc-hd plain">${TICON[t.theme]?`<svg viewBox="0 0 24 24" aria-hidden="true">${TICON[t.theme]}</svg>`:""}</div>`;
+  const faces=ppl.map(p=>`<span${p!=="You"?` data-u="${p}" tabindex="0"`:""}>${av(p)}</span>`).join("")+Array.from({length:Math.max(0,left)},()=>`<em aria-hidden="true"></em>`).join("");
+  const hd="";
   const q=!soon&&CCQ[t.title];
   let when, btn;
   if(soon){const m=Math.max(1,Math.round((t.at-NOW)/60000));
@@ -20,12 +20,12 @@ FN=r'''function liveCard(t){ /* card-v2 */
     when=`<span class="cc-live">LIVE<span>${t.live} of 60 min</span></span>`;
     btn=t.mine?`<button class="jbtn on" data-hosting>You're hosting</button>`:mine?`<button class="jbtn on back" data-id="${t.id}">Go back in</button>`:left>0?`<button class="jbtn" data-id="${t.id}">Join</button>`:`<button class="jbtn ghost" data-id="${t.id}">Listen in</button>`;
   }
-  return `<article class="tbl cc${soon?" soon":""}" hasimg"" data-cp="1" style="--c:${c}">${hd}<div class="cc-in">${soon?"":`<div class="cc-hour"><i style="width:${Math.min(100,t.live/60*100)}%"></i></div>`}
+  return `<article class="tbl cc${soon?" soon":""}""" data-cp="1" style="--c:${c}">${hd}<div class="cc-in">${soon?"":`<div class="cc-hour"><i style="width:${Math.min(100,t.live/60*100)}%"></i></div>`}
     <div class="cc-top"><span class="cc-topic"><i></i>${t.theme}</span>${when}</div>
     <h3><a class="tdl" href="${tdUrl(t)}" target="_top">${esc(t.title)}</a></h3>
     <div class="cc-host">with <b>${t.host}</b> · ${t.country}</div>
     ${q?`<blockquote>“${q}”<cite>${t.talk}, just now</cite></blockquote>`:""}
-    <div class="cc-foot"><span class="cc-faces">${faces}</span><span class="cc-seats">${left>0?`${left} ${left===1?"chair":"chairs"} free`:soon?"Full · waitlist open":"Table full"}</span>${btn}</div></div></article>`;
+    <div class="cc-foot"><div class="cc-seatrow"><span class="cc-faces">${faces}</span><span class="cc-seats">${left>0?`${left} ${left===1?"chair":"chairs"} free`:soon?"Full · waitlist open":"Table full"}</span></div>${btn}</div></div></article>`;
 }
 const CCQ={
  "Is free will an illusion?":"If my brain decides before I notice, who is the “I” that is responsible?",
@@ -54,18 +54,19 @@ main .live .tbl.cc>.tbg{display:none!important}
 .cc-live{font-size:12px;font-weight:600;letter-spacing:.14em;color:#3DDC84;white-space:nowrap}
 .cc-live span{color:#A9B0D6;font-weight:400;letter-spacing:0;margin-left:6px}
 .cc-when{font-size:12.5px;color:#A9B0D6;white-space:nowrap}
-main .live .tbl.cc h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-family:Literata,Georgia,serif!important;font-weight:500!important;font-size:23px!important;line-height:1.22!important;margin:16px 0 8px!important;letter-spacing:-.005em;color:#EEF1FF}
+main .live .tbl.cc .cc-hour{border-radius:20px 20px 0 0}main .live .tbl.cc h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-family:Literata,Georgia,serif!important;font-weight:500!important;font-size:23px!important;line-height:1.22!important;margin:16px 0 8px!important;letter-spacing:-.005em;color:#EEF1FF}
 .cc-host{font-size:13.5px;color:#A9B0D6}.cc-host b{color:#C9CFF0;font-weight:500}
 .tbl.cc blockquote{display:block;margin:18px 0 0;padding:2px 0 2px 14px;border-left:2px solid var(--c);font-family:Literata,Georgia,serif;font-style:italic;font-size:15.5px;line-height:1.45;color:#C9CFF0}
 .tbl.cc blockquote cite{display:block;margin-top:6px;font-family:Sora,sans-serif;font-style:normal;font-size:12px;color:#A9B0D6}
-.cc-foot{margin-top:auto;padding-top:22px;display:flex;align-items:center;gap:12px}
-.cc-faces{display:flex;flex:none}.cc-faces>span{width:26px;height:26px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px #20264A;margin-left:-8px;display:block}.cc-faces>span:first-child{margin-left:0}
+.cc-foot{margin-top:auto;padding-top:22px;display:flex;flex-direction:column;gap:14px}
+.cc-seatrow{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
+.cc-faces{display:grid;grid-auto-flow:column;grid-auto-columns:32px;gap:6px;min-width:0;flex:none}.cc-faces>span,.cc-faces>em{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;display:block}
 .cc-faces svg,.cc-faces img{width:100%;height:100%;display:block}
-.cc-faces .more{display:grid;place-items:center;background:#2C3366;color:#C9CFF0;font-size:11px;font-weight:600}
-.cc-seats{font-size:13px;color:#A9B0D6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-main .live .tbl.cc .cc-foot .jbtn{margin-left:auto!important;flex:none;white-space:nowrap;height:38px!important;padding:0 18px!important;border-radius:10px!important}
+.cc-faces>em{box-sizing:border-box;border:1.5px dashed rgba(238,241,255,.28)}
+.cc-seats{font-size:13px;color:#A9B0D6;white-space:nowrap;flex:none}
+main .live .tbl.cc .cc-foot .jbtn{width:100%!important;margin:0!important;height:42px!important;padding:0 18px!important;border-radius:10px!important;justify-content:center}
 main .live .tbl.cc .cc-foot .jbtn.back{background:transparent!important;color:#F2C14E!important;box-shadow:inset 0 0 0 1.5px #17C3C8!important;border:0!important}
-@media (max-width:640px){.tbl.cc .cc-in{padding:18px 18px 16px}main .live .tbl.cc h3{font-size:20px!important;margin-top:12px!important}.tbl.cc blockquote{font-size:14.5px;margin-top:14px}.cc-foot{padding-top:18px}.cc-hd{height:96px}}
+@media (max-width:640px){.tbl.cc .cc-in{padding:18px 18px 16px}main .live .tbl.cc h3{font-size:20px!important;margin-top:12px!important}.tbl.cc blockquote{font-size:14.5px;margin-top:14px}.cc-foot{padding-top:18px}.cc-faces{gap:5px;grid-auto-columns:28px}}
 </style>'''
 s=re.sub(r'<style id="card-v2">.*?</style>','',s,flags=re.S)
 i=s.rfind("</body>"); s=s[:i]+CSS+s[i:] if i>=0 else s+CSS
