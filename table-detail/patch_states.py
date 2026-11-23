@@ -22,7 +22,7 @@ const v3=(o)=>`<div class="wrap e-v3">${backL}<section class="td tdc2${o.off?' v
 FULL = r''' full(){return v3({when:`<span class="cc-when">Tomorrow · 19:00</span><span class="v3-tag">Full</span>`,
   note:`<h2><span class="e-ni e-t">${I.seat}</span>This table is full</h2><p>All 8 chairs are taken. People sometimes give their chair back before it starts, so one may still open up.</p>
   <div class="e-acts" id="e-wl"><button class="e-btn e-pri" type="button" data-wl>${I.bell}Join the waitlist</button>${A(U.agenda,'See other tables','e-lnk')}</div>
-  <p class="e-hint" id="e-wlh">${I.bell}If a chair opens, we ring your bell. The first person to take it gets the chair.</p>`,
+  <p class="e-hint" id="e-wlh">${I.bell}If a chair opens, we ring your bell.</p>`,
   side:v3who("Who's coming",['Gregory','Lena','Omar','Mia','Priya','Kofi','Noah','Ruth'],8)+`<div class="tds-facts"><h2>Details</h2>${v3facts('Tomorrow, 19:00 – 20:00<span>your time</span>')}</div>`})},
  cancelled(){return v3({off:1,when:`<span class="v3-tag v3-x">Cancelled</span>`,
   note:`<h2><span class="e-ni e-r">${I.off}</span>Gregory cancelled this table</h2><p class="e-say">Sorry everyone, I'm unwell tonight. Same question next Thursday, and I'll invite you first.<span class="e-by">Gregory, 2 hours ago</span></p><p>Your chair is free again. There's nothing you need to do.</p>

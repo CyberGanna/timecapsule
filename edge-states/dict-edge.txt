@@ -22,7 +22,7 @@ Join the waitlist|Mettiti in lista d'attesa|Apúntate a la lista de espera
 You're on the waitlist|Sei in lista d'attesa|Estás en la lista de espera
 You left the waitlist|Hai lasciato la lista d'attesa|Has salido de la lista de espera
 See other tables|Vedi altri tavoli|Ver otras mesas
-If a chair opens, we ring your bell. The first person to take it gets the chair.|Se si libera un posto, suoniamo la tua campanella. Il posto va al primo che lo prende.|Si queda un sitio libre, sonará tu campana. El sitio es para quien lo coja primero.
+If a chair opens, we ring your bell.|Se si libera un posto, suoniamo la tua campanella. Il posto va al primo che lo prende.|Si queda un sitio libre, sonará tu campana. El sitio es para quien lo coja primero.
 Tables with free chairs|Tavoli con posti liberi|Mesas con sitios libres
 Close to this one, by topic and time.|Vicini a questo per tema e orario.|Parecidas a esta por tema y hora.
 What makes a life meaningful?|Che cosa dà senso a una vita?|¿Qué le da sentido a una vida?
