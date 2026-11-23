@@ -1407,7 +1407,7 @@ function showU(el){
   const n=el.dataset.u, u=uinfo(n); ucFor=el;
   UC.innerHTML=tcpHTML({name:n,avatar:av(n),trusted:u.hosted>0,role:u.hosted?"Host":"",place:u.country,since:u.since,bio:u.bio,
     topics:u.topics.map(x=>[x,THEMES[x]]),tables:u.tables,feedbacks:Math.round(u.tables*.6)+(u.coins%7),coins:u.coins,
-    profile:n==="Gregory"?"../../profile/timecapsule-profile-v2.html":u.prof});
+    profile:"../../profile/timecapsule-profile-v2.html"});
   UC.hidden=false;
   const r=el.getBoundingClientRect(), w=UC.offsetWidth, hh=UC.offsetHeight;
   let x=r.left+r.width/2-w/2; x=Math.max(12,Math.min(x,innerWidth-w-12));
