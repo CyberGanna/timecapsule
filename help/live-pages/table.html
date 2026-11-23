@@ -1764,6 +1764,8 @@ addEventListener("tc-lang",()=>render());
 .tdside .facts2{margin:0;grid-template-columns:1fr;border-top:1px solid var(--line)}
 .tdside .facts2>div:nth-child(2){display:none} /* chairs: already shown in At the table */
 .tdside .facts2>div{padding:10px 0;gap:14px}
+.tdside .facts2>div:last-child{border-bottom:0}
+.tdc2.live .tda .hint{display:none} /* Karim 2026-11-23: no camera/turns line under Join table */
 .tdside .facts2>div>div{display:grid;grid-template-columns:110px minmax(0,1fr);column-gap:12px;flex:1}
 .tdside .facts2 dt{font-size:13.5px;color:var(--mute);margin-top:1px}
 .tdside .facts2 dd{margin:0;font-size:14.5px}
