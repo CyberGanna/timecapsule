@@ -2077,14 +2077,28 @@ const SIM=[
  {t:'Thu',h:'20:00',q:'Do we choose what we believe?',tp:'Philosophy',host:'Omar',free:'5 of 8 chairs free'}];
 const simRows=()=>`<section class="e-more"><h2>Tables with free chairs</h2><p>Close to this one, by topic and time.</p><ul class="e-rows">${SIM.map((r,i)=>`<li class="e-rw"><div class="e-tm"><b>${r.h}</b><small>${r.t}</small></div><div class="e-tt"><b>${r.q}</b><div class="e-meta"><span>${topic(r.tp)}</span><span>${r.host} hosts</span><span>${r.free}</span></div></div><button class="e-btn e-sm e-go" type="button" data-save="${i}">Save a chair</button></li>`).join('')}</ul></section>`;
 
+/* tce-v3: Full and Cancelled on the Open table template */
+const V3C={Gregory:'Switzerland',Lena:'Germany',Omar:'Morocco',Mia:'France',Priya:'India',Kofi:'Ghana',Noah:'Canada',Ruth:'United Kingdom'};
+const v3img=()=>typeof TD_IMG!=="undefined"?TD_IMG.open:"";
+const v3host=`<div class="cc-host"><span>with</span> <b>Gregory</b> · <span>Switzerland</span> <span class="e-trust">${I.tshield}Trusted</span></div>`;
+const v3facts=w=>{let f=typeof factsHTML==="function"?factsHTML():"";return f.replace(/(<dt>When<\/dt>)<dd>[\s\S]*?<\/dd>/,`$1<dd>${w}</dd>`)};
+const v3who=(h,ppl,n)=>`<div><h2>${h} <small>${ppl.length} / ${n}</small></h2><ul class="who2">${ppl.map((p,i)=>`<li><span class="pa">${av(p)}</span><div><b>${p}</b><small>${i===0?'<i class="mt">Host</i> · ':''}${V3C[p]||''}</small></div></li>`).join('')}</ul></div>`;
+const v3=(o)=>`<div class="wrap e-v3">${backL}<section class="td tdc2${o.off?' v3-off':''}" style="--c:${T.Philosophy}">
+ <article class="tdc"><div class="tdhd"><img src="${v3img()}" alt=""></div><div class="tdm">
+  <div class="cc-top"><span class="cc-topic"><i></i>Philosophy</span>${o.when}</div>
+  <h1>Is free will an illusion?</h1>${v3host}
+  <div class="tda"><div class="e-note v3-note">${o.note}</div></div></div></article>
+ <aside class="tdside">${o.side}</aside></section>${simRows()}</div>`;
 const S={
- full(){return `<div class="e-wrap">${backL}<div class="e-td">${stage(['Gregory','Lena','Omar','Mia','Priya','Kofi','Noah','Ruth'],0,'<b>8</b> at the table · no free chairs')}<div class="e-info"><div class="e-trow"><span class="e-when">Tomorrow · 19:00</span>${topic('Philosophy')}</div><h1 class="e-h1">Is free will an illusion?</h1>${host}
- <div class="e-note"><h2><span class="e-ni e-t">${I.seat}</span>This table is full</h2><p>All 8 chairs are taken. People sometimes give their chair back before it starts, so one may still open up.</p>
- <div class="e-acts" id="e-wl"><button class="e-btn e-pri" type="button" data-wl>${I.bell}Join the waitlist</button>${A(U.agenda,'See other tables','e-lnk')}</div>
- <p class="e-hint" id="e-wlh">${I.bell}If a chair opens, we ring your bell. The first person to take it gets the chair.</p></div></div></div>${simRows()}</div>`},
- cancelled(){return `<div class="e-wrap">${backL}<div class="e-td">${stage([],1,'Cancelled by the host')}<div class="e-info"><div class="e-trow"><span class="e-when e-x">Cancelled</span>${topic('Philosophy')}</div><h1 class="e-dim">Is free will an illusion?</h1>${host}
- <div class="e-note"><h2><span class="e-ni e-r">${I.off}</span>Gregory cancelled this table</h2><p class="e-say">Sorry everyone, I'm unwell tonight. Same question next Thursday, and I'll invite you first.<span class="e-by">Gregory, 2 hours ago</span></p><p>Your chair is free again. There's nothing you need to do.</p>
- <div class="e-acts">${A(U.agenda,'Find another table')}<button class="e-lnk" type="button" data-fol>Follow Gregory</button></div><p class="e-hint" id="e-folh" hidden>${I.bell}We'll tell you when Gregory hosts next.</p></div></div></div>${simRows()}</div>`},
+ full(){return v3({when:`<span class="cc-when">Tomorrow · 19:00</span><span class="v3-tag">Full</span>`,
+  note:`<h2><span class="e-ni e-t">${I.seat}</span>This table is full</h2><p>All 8 chairs are taken. People sometimes give their chair back before it starts, so one may still open up.</p>
+  <div class="e-acts" id="e-wl"><button class="e-btn e-pri" type="button" data-wl>${I.bell}Join the waitlist</button>${A(U.agenda,'See other tables','e-lnk')}</div>
+  <p class="e-hint" id="e-wlh">${I.bell}If a chair opens, we ring your bell. The first person to take it gets the chair.</p>`,
+  side:v3who("Who's coming",['Gregory','Lena','Omar','Mia','Priya','Kofi','Noah','Ruth'],8)+`<div class="tds-facts"><h2>Details</h2>${v3facts('Tomorrow, 19:00 – 20:00<span>your time</span>')}</div>`})},
+ cancelled(){return v3({off:1,when:`<span class="v3-tag v3-x">Cancelled</span>`,
+  note:`<h2><span class="e-ni e-r">${I.off}</span>Gregory cancelled this table</h2><p class="e-say">Sorry everyone, I'm unwell tonight. Same question next Thursday, and I'll invite you first.<span class="e-by">Gregory, 2 hours ago</span></p><p>Your chair is free again. There's nothing you need to do.</p>
+  <div class="e-acts">${A(U.agenda,'Find another table')}<button class="e-lnk" type="button" data-fol>Follow Gregory</button></div><p class="e-hint" id="e-folh" hidden>${I.bell}We'll tell you when Gregory hosts next.</p>`,
+  side:v3who("Who was coming",['Gregory','Lena','Omar','Mia','Priya'],8)+`<div class="tds-facts"><h2>Details</h2>${v3facts('Was tomorrow, 19:00 – 20:00<span>Cancelled by the host</span>')}</div>`})},
  removed(){return `<div class="e-wrap">${solo({art:ART.removed,h:"You're no longer at this table",p:['The host removed you from “Is free will an illusion?”. You can’t rejoin this table.','Everything else stays as it was: your profile, your TimeCoins and your other tables.'],
  extra:`<div class="e-card"><span class="e-ni e-t">${I.note}</span><div><b>Your notes are safe</b><span>Anything you kept from this table is in My tables, and only you can see it.</span></div></div>`,
  acts:A(U.agenda,'See other tables')+`<button class="e-lnk" type="button" data-tell>Think it was a mistake? Tell us</button>`})}</div>`},
@@ -2244,4 +2258,15 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 @media (max-width:640px){.tdside .facts2>div>div{grid-template-columns:1fr}}
 @media (max-width:960px){.td.tdc2{grid-template-columns:1fr;gap:36px}.tdhd{height:220px}}
 @media (max-width:640px){.td.tdc2{margin-top:16px}.tdc{border-radius:18px}.tdhd{height:170px}.tdm{padding:20px 18px 20px}.tdm h1{font-size:25px;margin-top:12px}.tdm .desc{font-size:15px}.tdside .who2{grid-template-columns:1fr 1fr}}
+</style><style id="tce-v3">
+.e-v3{padding-bottom:24px}.e-v3 .e-back{margin-top:24px}
+.e-v3 .td.tdc2{margin-bottom:48px}
+.v3-note{margin:0!important;padding:0!important;border:0!important;background:none!important}
+.v3-note h2{font-size:18px!important}
+.tdm .v3-tag{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F2C14E}
+.tdm .v3-tag.v3-x{color:#FF9AA5}
+.v3-off .tdhd img{filter:grayscale(1) brightness(.6)}
+.v3-off .tdm h1{color:#A9B0D6}
+.e-v3 .e-trust{margin-left:8px}
+.e-v3 .e-more{margin-top:8px}
 </style></body></html>
