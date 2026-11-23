@@ -2230,3 +2230,7 @@ What would you like to talk about?|Για τι θα ήθελες να μιλήσ
 Say hello to|Πες ένα γεια στον/στην
 Crossing universes|Σύμπαντα που συναντιούνται
 in common|κοινά
+Wellbeing|Ευεξία
+Books & Films|Βιβλία και ταινίες
+Work & Tech|Εργασία και τεχνολογία
+Languages|Γλώσσες
