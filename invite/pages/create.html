@@ -1688,7 +1688,7 @@ function coverHTML(){
 }
 function setCover(file){
   if(!file||!/^image\//.test(file.type)) return;
-  const r=new FileReader(); r.onload=()=>{IMGS.push(r.result); nt.img=IMGS.length-1; document.getElementById("ntcover").innerHTML=coverHTML(); ntPreview()}; r.readAsDataURL(file);
+  const r=new FileReader(); r.onload=()=>tcShrink(r.result,u=>{/*tc-shrink*/IMGS.push(u); nt.img=IMGS.length-1; document.getElementById("ntcover").innerHTML=coverHTML(); ntPreview()}); r.readAsDataURL(file);
 }
 function openCreate(){
   const pg=document.getElementById("cpage");
@@ -1960,4 +1960,4 @@ function chairGuard(t){
 .climit .cl2{margin-top:8px}
 .climit p b{color:var(--text,#EEF1FF);font-weight:500}
 .climit .acts .cta{flex:1;display:flex;align-items:center;justify-content:center;text-decoration:none}
-</style></body></html>
+</style><script>function tcShrink(src,cb){const i=new Image();i.onload=()=>{try{const m=1600,k=Math.min(1,m/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext("2d").drawImage(i,0,0,c.width,c.height);cb(c.toDataURL("image/jpeg",.82))}catch(e){cb(src)}};i.onerror=()=>cb(src);i.src=src}</script></body></html>
