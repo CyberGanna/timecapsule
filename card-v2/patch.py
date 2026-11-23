@@ -19,7 +19,7 @@ FN=r'''function liveCard(t){ /* card-v2 */
     btn=t.mine?`<button class="jbtn on" data-hosting>You're hosting</button>`:mine?`<button class="jbtn on" data-id="${t.id}">Chair saved</button>`:left>0?`<button class="jbtn" data-id="${t.id}">Save chair</button>`:`<button class="jbtn ghost" data-id="${t.id}">Join waitlist</button>`;
   }else{
     when=`<span class="cc-live">LIVE<span>${t.live} of 60 min</span></span>`;
-    btn=t.mine?`<button class="jbtn on" data-hosting>You're hosting</button>`:mine?`<button class="jbtn on back" data-id="${t.id}">Go back in</button>`:left>0?`<button class="jbtn" data-id="${t.id}">Join</button>`:`<button class="jbtn ghost" data-id="${t.id}">Listen in</button>`;
+    btn=t.mine?`<button class="jbtn on" data-hosting>You're hosting</button>`:mine?`<button class="jbtn on back" data-id="${t.id}">Go back in</button>`:left>0?`<button class="jbtn" data-id="${t.id}">Join table</button>`:`<button class="jbtn ghost" data-id="${t.id}">Listen in</button>`;
   }
   return `<article class="tbl cc${soon?" soon":""}""" data-cp="1" style="--c:${c}">${hd}<div class="cc-in">${soon?"":`<div class="cc-hour"><i style="width:${Math.min(100,t.live/60*100)}%"></i></div>`}
     <div class="cc-top"><span class="cc-topic"><i></i>${t.theme}</span>${when}</div>
@@ -74,17 +74,17 @@ main .live .tbl.cc .cc-hour{border-radius:20px 20px 0 0}main .live .tbl.cc h3{di
 .tbl.cc blockquote{display:block;margin:18px 0 0;padding:2px 0 2px 14px;border-left:2px solid var(--c);font-family:Literata,Georgia,serif;font-style:italic;font-size:15.5px;line-height:1.45;color:#C9CFF0}
 .tbl.cc blockquote cite{display:block;margin-top:6px;font-family:Sora,sans-serif;font-style:normal;font-size:12px;color:#A9B0D6}
 .cc-foot{margin-top:auto;padding-top:22px;display:flex;flex-direction:column;gap:14px}
-.cc-seatrow{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
-.cc-faces{display:grid;grid-auto-flow:column;grid-auto-columns:32px;gap:6px;min-width:0;flex:none}.cc-faces>span,.cc-faces>em{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;display:block}
+.cc-seatrow{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:0}
+.cc-faces{display:flex;justify-content:space-between;gap:5px;width:100%;min-width:0;flex:none}.cc-faces>span,.cc-faces>em{flex:0 1 40px;min-width:0;aspect-ratio:1;border-radius:50%;overflow:hidden;display:block}
 .cc-faces svg,.cc-faces img{width:100%;height:100%;display:block}
 .cc-faces>em{box-sizing:border-box;border:1.5px dashed rgba(238,241,255,.28)}
-.cc-seats{font-size:13px;color:#A9B0D6;white-space:nowrap;flex:none}
+.cc-seats{font-size:13px;color:#A9B0D6;white-space:nowrap;flex:none;text-align:center}
 main .live .tbl.cc .cc-foot .jbtn{width:100%!important;margin:0!important;height:42px!important;padding:0 18px!important;border-radius:10px!important;justify-content:center}
 main .live .tbl.cc .cc-foot .jbtn.back{background:transparent!important;color:#F2C14E!important;box-shadow:inset 0 0 0 1.5px #17C3C8!important;border:0!important}
 /* List view: the question in the same serif as the cards (Karim 2026-11-22) */
 .agenda .ev .et h3{font-family:Literata,Georgia,serif!important;font-weight:500!important;font-size:19px!important;line-height:1.25!important;letter-spacing:-.005em}
 @media (max-width:640px){.agenda .ev .et h3{font-size:17px!important}}
-@media (max-width:640px){.tbl.cc .cc-in{padding:18px 18px 16px}main .live .tbl.cc h3{font-size:20px!important;margin-top:12px!important}.tbl.cc blockquote{font-size:14.5px;margin-top:14px}.cc-foot{padding-top:18px}.cc-faces{gap:5px;grid-auto-columns:28px}.cc-hd{height:128px}}
+@media (max-width:640px){.tbl.cc .cc-in{padding:18px 18px 16px}main .live .tbl.cc h3{font-size:20px!important;margin-top:12px!important}.tbl.cc blockquote{font-size:14.5px;margin-top:14px}.cc-foot{padding-top:18px}.cc-faces{gap:5px}.cc-hd{height:128px}}
 </style>'''
 s=re.sub(r'<style id="card-v2">.*?</style>','',s,flags=re.S)
 i=s.rfind("</body>"); s=s[:i]+CSS+s[i:] if i>=0 else s+CSS
