@@ -11,7 +11,7 @@ FN=r'''function liveCard(t){ /* card-v2 */
   const ppl=[...t.people]; if(mine) ppl.push("You");
   const faces=ppl.map(p=>`<span${p!=="You"?` data-u="${p}" tabindex="0"`:""}>${av(p)}</span>`).join("")+Array.from({length:Math.max(0,left)},()=>`<em aria-hidden="true"></em>`).join("");
   /* photo header (Karim 2026-11-22): the host's photo; tables without one get a sample photo as a stand-in for the topic photo */
-  const hd=`<div class="cc-hd"><img src="${IMGS[t.img!=null?t.img:(CCIMG[t.id]??t.id%IMGS.length)]}" alt="" loading="lazy"></div>`;
+  const hd=`<div class="cc-hd"><img src="${(t.img!=null?IMGS[t.img]:CCPOOL[(CCIMG[t.id]??t.id)%CCPOOL.length])}" alt="" loading="lazy"></div>`;
   const q=false; /* quotes removed (Karim 2026-11-22) */
   let when, btn;
   if(soon){const m=Math.max(1,Math.round((t.at-NOW)/60000));
@@ -28,7 +28,7 @@ FN=r'''function liveCard(t){ /* card-v2 */
     ${q?`<blockquote>“${q}”<cite>${t.talk}, just now</cite></blockquote>`:""}
     <div class="cc-foot"><div class="cc-seatrow"><span class="cc-faces">${faces}</span><span class="cc-seats">${left>0?`${left} ${left===1?"chair":"chairs"} free`:soon?"Full · waitlist open":"Table full"}</span></div>${btn}</div></div></article>`;
 }
-const CCIMG={1:3,3:0,16:4,18:3}; /* sample stand-ins, spread so neighbours differ */
+const CCIMG={1:5,3:0,16:6,18:8}; /* stand-ins: index into CCPOOL = sample photos + Profile backdrops, spread so neighbours differ */
 const CCQ={
  "Is free will an illusion?":"If my brain decides before I notice, who is the “I” that is responsible?",
  "Who owns the past? Museums and stolen objects":"A museum label is also a way of saying who the object belongs to.",
@@ -39,6 +39,14 @@ const CCQ={
 '''
 a=s.index("function liveCard(t){"); b=s.index("\nfunction chairs(t){",a)
 s=s[:a]+FN.rstrip("\n")+s[b:]
+# Profile backdrops mixed with the sample photos (Karim 2026-11-22)
+import os
+PROF=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','profile','timecapsule-profile-v2.html')
+ps=open(PROF,encoding='utf-8').read()
+BD={m.group(1):m.group(2) for m in re.finditer(r'\.bd-([a-z]+)\{background:url\((data:image/[^)]+)\)',ps)}
+POOL='const CCPOOL=[...IMGS,'+','.join('"%s"'%BD[k] for k in ['galaxy','sunset','alps','eclipse'])+'];'
+s=re.sub(r'const CCPOOL=\[\.\.\.IMGS,[^\]]*\];\n?','',s)
+s=s.replace('const CCIMG=',POOL+'\nconst CCIMG=',1)
 
 CSS=r'''<style id="card-v2">
 main .live article.tbl.cc{display:flex!important;flex-direction:column!important;height:auto!important;max-height:none!important;position:relative;padding:0!important;min-height:0!important;overflow:hidden;border:1px solid #323A6C!important;border-radius:20px!important;background:radial-gradient(120% 70% at 0% 0%,color-mix(in srgb,var(--c) 9%,transparent),transparent 60%),#20264A!important;box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 12px 30px rgba(5,8,25,.25)!important;transition:border-color .2s,transform .2s}
