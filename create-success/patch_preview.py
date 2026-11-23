@@ -33,7 +33,7 @@ CSS = '''<style id="tc-pvc-css">
 .pcard .pvc::after{content:"";position:absolute;inset:0;border:1px solid #323A6C;border-radius:inherit;pointer-events:none;z-index:4}
 .pvc-hd{position:relative;height:160px;overflow:hidden;background:#252B52}.pvc-hd img{width:100%;height:100%;object-fit:cover;display:block}
 .pvc-hd::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,25,54,0) 55%,rgba(32,38,74,.55))}
-.pvc-hour{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(238,241,255,.10);z-index:2}.pvc-hour i{display:block;width:2%;height:100%;background:var(--c)}
+.pvc-hour{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(238,241,255,.10);z-index:2}.pvc-hour i{display:block;width:2%;height:100%;background:#3DDC84}
 .pvc-in{padding:20px 22px 20px}
 .pvc .cc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:#C9CFF0}
 .pvc .cc-topic{display:flex;align-items:center;gap:8px}.pvc .cc-topic i{width:8px;height:8px;border-radius:50%;background:var(--c)}

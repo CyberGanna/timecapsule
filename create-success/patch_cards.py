@@ -23,7 +23,7 @@ CSS = '''<style id="tc-cok5">
 .cok .cktop.ckph{position:relative;height:190px;padding:0!important;overflow:hidden;background:#252B52}
 .cok .ckph img{width:100%;height:100%;object-fit:cover;display:block}
 .cok .ckph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,25,54,0) 55%,rgba(32,38,74,.6))}
-.cok .ckhour{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(238,241,255,.10);z-index:2}.cok .ckhour i{display:block;width:2%;height:100%;background:var(--c)}
+.cok .ckhour{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(238,241,255,.10);z-index:2}.cok .ckhour i{display:block;width:2%;height:100%;background:#3DDC84}
 .cok .ckmeta{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:14px;font-size:13.5px;color:#C9CFF0}
 .cok .cktopic{display:flex;align-items:center;gap:8px}.cok .cktopic i{width:8px;height:8px;border-radius:50%;background:var(--c)}
 .cok .cklv{font-size:12px;font-weight:600;letter-spacing:.14em;color:#3DDC84}

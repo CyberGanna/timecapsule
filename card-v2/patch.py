@@ -63,7 +63,7 @@ main .live article.tbl.cc:hover::after{border-color:color-mix(in srgb,var(--c) 4
 .cc-hd img{width:100%;height:100%;object-fit:cover;display:block}
 .tbl.cc .cc-in{position:relative;display:flex;flex-direction:column;flex:1 1 auto;min-height:0;padding:22px 22px 20px}
 .cc-hour{position:absolute;left:0;right:0;top:0;height:3px;background:rgba(238,241,255,.06)}
-.cc-hour i{display:block;height:100%;background:var(--c);border-radius:0 3px 3px 0}
+.cc-hour i{display:block;height:100%;background:#3DDC84;border-radius:0 3px 3px 0}
 .cc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:#C9CFF0}
 .cc-topic{display:flex;align-items:center;gap:8px;min-width:0}.cc-topic i{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
 .cc-live{font-size:12px;font-weight:600;letter-spacing:.14em;color:#3DDC84;white-space:nowrap}
