@@ -11,8 +11,8 @@ const V3C={Gregory:'Switzerland',Lena:'Germany',Omar:'Morocco',Mia:'France',Priy
 const v3img=()=>typeof TD_IMG!=="undefined"?TD_IMG.open:"";
 const v3host=`<div class="cc-host"><span>with</span> <b>Gregory</b> · <span>Switzerland</span> <span class="e-trust">${I.tshield}Trusted</span></div>`;
 const v3facts=w=>{let f=typeof factsHTML==="function"?factsHTML():"";return f.replace(/(<dt>When<\/dt>)<dd>[\s\S]*?<\/dd>/,`$1<dd>${w}</dd>`)};
-const v3who=(h,ppl,n)=>`<div><h2>${h} <small>${ppl.length} / ${n}</small></h2><ul class="who2">${ppl.map((p,i)=>`<li><span class="pa">${av(p)}</span><div><b>${p}</b><small>${i===0?'<i class="mt">Host</i> · ':''}${V3C[p]||''}</small></div></li>`).join('')}</ul></div>`;
-const v3=(o)=>`<div class="wrap e-v3">${backL}<section class="td tdc2${o.off?' v3-off':''}" style="--c:${T.Philosophy}">
+const v3who=(h,ppl,n)=>`<div class="tds-who"><h2>${h} <small>${ppl.length} / ${n}</small></h2><ul class="who2">${ppl.map((p,i)=>`<li><span class="pa">${av(p)}</span><div><b>${p}</b><small>${i===0?'<i class="mt">Host</i> · ':''}${V3C[p]||''}</small></div></li>`).join('')}</ul></div>`;
+const v3=(o)=>`<div class="wrap e-v3"><a class="back" href="${U.agenda}" target="_top">← Back to tables</a><section class="td tdc2${o.off?' v3-off':''}" style="--c:${T.Philosophy}">
  <article class="tdc"><div class="tdhd"><img src="${v3img()}" alt=""></div><div class="tdm">
   <div class="cc-top"><span class="cc-topic"><i></i>Philosophy</span>${o.when}</div>
   <h1>Is free will an illusion?</h1>${v3host}
@@ -30,11 +30,11 @@ FULL = r''' full(){return v3({when:`<span class="cc-when">Tomorrow · 19:00</spa
   side:v3who("Who was coming",['Gregory','Lena','Omar','Mia','Priya'],8)+`<div class="tds-facts"><h2>Details</h2>${v3facts('Was tomorrow, 19:00 – 20:00<span>Cancelled by the host</span>')}</div>`})},
 '''
 CSS = '''<style id="tce-v3">
-.e-v3{padding-bottom:24px}.e-v3 .e-back{margin-top:24px}
-.e-v3 .td.tdc2{margin-bottom:48px}
+.e-v3{padding:8px 20px 80px!important;line-height:1.5}.e-v3 .back{margin-top:22px}
+.e-v3 .td.tdc2{margin-bottom:64px}
 .v3-note{margin:0!important;padding:0!important;border:0!important;background:none!important}
 .v3-note h2{font-size:18px!important}
-.tdm .v3-tag{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F2C14E}
+.tdm .v3-tag{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F2C14E}
 .tdm .v3-tag.v3-x{color:#FF9AA5}
 .v3-off .tdhd img{filter:grayscale(1) brightness(.6)}
 .v3-off .tdm h1{color:#A9B0D6}
