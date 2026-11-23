@@ -181,3 +181,4 @@ Drag to move|Trascina per spostare|Arrastra para mover
 Drag the picture to choose what shows.|Trascina l'immagine per scegliere cosa si vede.|Arrastra la imagen para elegir qué se ve.
 Picture|Immagine|Imagen
 What would you like to talk about?|Di cosa ti piacerebbe parlare?|¿De qué te gustaría hablar?
+Say hello to|Saluta|Saluda a
