@@ -2196,3 +2196,9 @@ Suggestions|Προτάσεις
 What is my universe?|Τι είναι το σύμπαν μου;
 About my universe|Σχετικά με το σύμπαν μου
 Save chair|Κράτα θέση
+Can't make it?|Δεν μπορείς να έρθεις;
+Chair given back. Someone else can sit.|Η καρέκλα ελευθερώθηκε. Μπορεί να κάτσει κάποιος άλλος.
+You can also tap Can't make it? on the reminder. Giving a chair back before the table starts has no penalty.|Μπορείς επίσης να πατήσεις «Δεν μπορείς να έρθεις;» στην υπενθύμιση. Αν αφήσεις την καρέκλα πριν ξεκινήσει το τραπέζι, δεν υπάρχει καμία συνέπεια.
+What if I don't show up?|Κι αν δεν εμφανιστώ;
+We keep your chair for the first 10 minutes. After that it goes to the first person on the waitlist, or opens to anyone. Missing one table is fine. After three missed tables in 30 days, you can only save a chair on the day of the table for two weeks. Only you see this, and it never touches your TimeCoins or your profile.|Κρατάμε την καρέκλα σου για τα πρώτα 10 λεπτά. Μετά πηγαίνει στο πρώτο άτομο στη λίστα αναμονής ή ανοίγει για όλους. Αν λείψεις από ένα τραπέζι, δεν πειράζει. Μετά από τρία τραπέζια που έχασες σε 30 ημέρες, για δύο εβδομάδες μπορείς να κρατάς καρέκλα μόνο την ίδια μέρα του τραπεζιού. Το βλέπεις μόνο εσύ και δεν επηρεάζει ποτέ τα TimeCoins ή το προφίλ σου.
+If you don't join within 10 minutes of the start, your chair goes to someone else. To give it back sooner, tap Can't make it? on the reminder.|Αν δεν μπεις μέσα σε 10 λεπτά από την έναρξη, η καρέκλα σου πηγαίνει σε κάποιον άλλο. Για να την αφήσεις νωρίτερα, πάτησε «Δεν μπορείς να έρθεις;» στην υπενθύμιση.
