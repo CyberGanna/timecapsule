@@ -422,7 +422,7 @@ Award your favorite panelists|Επιβράβευσε τους αγαπημένο
 Award anyone at the table after the talk|Επιβράβευσε όποιον ήταν στο τραπέζι μετά την κουβέντα
 Split your TimeCoins between the host and the participants who made it worth it.|Μοίρασε τα TimeCoins σου ανάμεσα στον οικοδεσπότη και τους συμμετέχοντες που την έκαναν να αξίζει.
 You have 8 TimeCoins. Tip whoever inspired you today.|Έχεις 8 TimeCoins. Δώσε φιλοδώρημα σε όποιον σε ενέπνευσε σήμερα.
-They're for giving, not keeping. You have 7 days after the table to award them; any you haven't given by then are lost.|Είναι για να τα δώσεις, όχι για να τα κρατήσεις. Έχεις 7 ημέρες μετά το τραπέζι για να τα δώσεις· όσα δεν δώσεις χάνονται.
+They're meant to be given away. Use them within 7 days, or they expire.|Είναι για να τα χαρίσεις. Χρησιμοποίησέ τα μέσα σε 7 ημέρες, αλλιώς λήγουν.
 TimeCoins become reputation|Τα TimeCoins γίνονται φήμη
 They show on each person's profile and can't be spent or passed on.|Φαίνονται στο προφίλ του καθενός και δεν ξοδεύονται ούτε μεταβιβάζονται.
 TimeCoins are how people build their reputation on TimeCapsule. Even one coin tells Gregory and the panelists their voice mattered today.|Με τα TimeCoins οι άνθρωποι χτίζουν τη φήμη τους στο TimeCapsule. Ακόμα και ένα νόμισμα λέει στον Gregory και στους ομιλητές ότι η φωνή τους μέτρησε σήμερα.
