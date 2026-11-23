@@ -14,15 +14,15 @@ H='if(b.dataset&&b.dataset.v&&b.closest(".vsw")){S.view=b.dataset.v==="list"?"li
 if 'b.closest(".vsw")' not in s:
     s=s.replace('  if(b.id==="vcyc"){',"  "+H+'if(b.id==="vcyc"){',1)
 CSS='''<style id="view-switch">
-.vsw{margin-left:auto;align-self:center;display:inline-flex;gap:4px;flex:none}
-.vbox{height:34px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:none;color:var(--fg);font:inherit;font-size:14px;display:inline-flex;align-items:center;gap:7px;cursor:pointer;box-sizing:border-box;white-space:nowrap}
-.vbox svg{width:14px;height:14px;fill:currentColor;opacity:.8}
-.vbox[aria-pressed=true]{background:var(--fg)!important;border-color:var(--fg)!important;color:var(--bg)!important}.vbox[aria-pressed=true] span{color:var(--bg)!important}
-@media (hover:hover){.vbox[aria-pressed=false]:hover{border-color:var(--mute)}}
-.vbox:focus-visible{outline:2px solid var(--teal,#17C3C8);outline-offset:2px}
-@media (max-width:640px){.vbox{height:32px;padding:0 10px;font-size:13px}.sh:has(.vsw){flex-wrap:nowrap;align-items:center;gap:10px}.sh:has(.vsw) h2,.sh:has(.vsw)>span{white-space:nowrap}.sh:has(.vsw)>span{font-size:13px}}
-@media (max-width:400px){.vbox span{display:none}.vbox{width:36px;padding:0;justify-content:center}}
-@media (max-width:380px){.vbox{width:32px;height:30px}.vsw{gap:3px}.sh:has(.vsw){gap:8px}.sh:has(.vsw) h2{font-size:19px!important}.sh:has(.vsw)>span{font-size:12px}}
+.vsw{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:2px;flex:none}
+.vbox{min-height:34px;padding:0 8px;border:0;background:none;color:var(--mute);font:inherit;font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:7px;cursor:pointer;white-space:nowrap}
+.vbox+.vbox{border-left:1px solid var(--line);border-radius:0;min-height:16px;margin-left:2px;padding-left:10px}
+.vbox svg{width:15px;height:15px;fill:currentColor}
+.vbox[aria-pressed=true]{color:var(--fg);cursor:default}
+@media (hover:hover){.vbox[aria-pressed=false]:hover{color:var(--fg)}}
+.vbox:focus-visible{outline:2px solid var(--teal,#17C3C8);outline-offset:2px;border-radius:6px}
+@media (max-width:640px){.sh:has(.vsw){flex-wrap:nowrap;align-items:center;gap:10px}.sh:has(.vsw) h2,.sh:has(.vsw)>span{white-space:nowrap}.sh:has(.vsw)>span{font-size:13px}.vbox span{display:none}.vbox{padding:0 7px;min-height:36px}.vbox+.vbox{min-height:16px;padding-left:9px}.vbox svg{width:17px;height:17px}.vsw{margin-right:-7px}}
+@media (max-width:380px){.sh:has(.vsw){gap:6px}.sh:has(.vsw) h2{font-size:19px!important}.sh:has(.vsw)>span{font-size:12px}}
 </style>'''
 import re
 s=re.sub(r'<style id="view-switch">.*?</style>','',s,flags=re.S)
