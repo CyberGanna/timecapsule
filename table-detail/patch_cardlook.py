@@ -37,14 +37,14 @@ function tdSection(){
   return `<section class="td tdc2${isLive()?" live":""}" style="--c:${c}">
     <article class="tdc">
      <div class="tdhd"><img src="${TD_IMG[st.kind]}" alt="">${isLive()?`<div class="cc-hour tdhour"><i style="width:${Math.min(100,m/60*100)}%%"></i></div>`:""}</div>
-     <div class="tdm">${tdTop()}<h1>${t.title}</h1>${tdHost()}<p class="desc">${t.desc}</p>
+     <div class="tdm">${tdTop()}<h1>${t.title}</h1>${tdHost()}
       <div class="tda">${isLive()?"":cdHTML()}${actionsHTML()}</div></div>
     </article>
     <aside class="tdside">
      <div class="tds-who">${whoHTML()}</div>
      <div class="tds-facts"><h2>Details</h2>${factsHTML()}</div>
-     <div class="tds-good">${goodHTML()}</div>
     </aside>
+    <div class="tds-good">${goodHTML()}</div>
    </section>`;
 }
 </script>'''
@@ -86,8 +86,10 @@ CSS = r'''<style id="td-card-css">
 .tdside .facts2>div>div{display:grid;grid-template-columns:110px minmax(0,1fr);column-gap:12px;flex:1}
 .tdside .facts2 dt{font-size:13.5px;color:var(--mute);margin-top:1px}
 .tdside .facts2 dd{margin:0;font-size:14.5px}
-.tdc{position:sticky;top:20px}
-@media (max-width:960px){.tdc{position:relative;top:auto}}
+.tds-good{grid-column:1/-1;padding-top:30px;border-top:1px solid var(--line)}
+.tds-good h2{font-size:18px;font-weight:500;margin:0 0 16px;letter-spacing:-.2px}
+.tds-good .gk{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media (max-width:960px){.tds-good .gk{grid-template-columns:1fr;gap:14px}}
 @media (max-width:640px){.tdside .facts2>div>div{grid-template-columns:1fr}}
 @media (max-width:960px){.td.tdc2{grid-template-columns:1fr;gap:36px}.tdhd{height:220px}}
 @media (max-width:640px){.td.tdc2{margin-top:16px}.tdc{border-radius:18px}.tdhd{height:170px}.tdm{padding:20px 18px 20px}.tdm h1{font-size:25px;margin-top:12px}.tdm .desc{font-size:15px}.tdside .who2{grid-template-columns:1fr 1fr}}
