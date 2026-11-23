@@ -179,3 +179,4 @@ One chair per table, at up to 5 upcoming tables at a time, and never at two tabl
 You can save chairs at up to 5 tables at a time, as long as they don't overlap.|Puoi tenere posti fino a 5 tavoli alla volta, purché non si sovrappongano.|Puedes guardar sitios en hasta 5 mesas a la vez, siempre que no se solapen.
 Drag to move|Trascina per spostare|Arrastra para mover
 Drag the picture to choose what shows.|Trascina l'immagine per scegliere cosa si vede.|Arrastra la imagen para elegir qué se ve.
+Picture|Immagine|Imagen
