@@ -407,7 +407,14 @@ const TOPICS=[
  {id:'energy',name:'Energy',color:'#6CB8FF',desc:'Power, climate and the grid.',shown:true},
  {id:'travel',name:'Travel',color:'#D9E35F',desc:'Places, journeys, being a stranger.',shown:true},
  {id:'science',name:'Science',color:'#8BE38B',desc:'How the world works.',shown:true},
- {id:'history',name:'History',color:'#E8B577',desc:'What happened, and why it matters now.',shown:true}
+ {id:'history',name:'History',color:'#E8B577',desc:'What happened, and why it matters now.',shown:true},
+ {id:'society',name:'Society',color:'#FFD166',desc:'How we live together.',shown:true},
+ {id:'wellbeing',name:'Wellbeing',color:'#9BE7C4',desc:'Body, mind and care.',shown:true},
+ {id:'booksfilms',name:'Books & Films',color:'#FFA8A8',desc:'Stories we read and watch.',shown:true},
+ {id:'worktech',name:'Work & Tech',color:'#A9B8D9',desc:'Jobs, tools and the future of work.',shown:true},
+ {id:'languages',name:'Languages',color:'#E8E4D8',desc:'Learning and speaking other languages.',shown:true},
+ {id:'art',name:'Art',color:'#FF6F91',desc:'Making and looking at art.',shown:true},
+ {id:'music',name:'Music',color:'#9FA8FF',desc:'Listening, playing and what music does to us.',shown:true}
 ];
 const SWATCH=['#F29BD0','#B99BFF','#5FE0DE','#FF9478','#6CB8FF','#D9E35F','#8BE38B','#E8B577','#FF7EA8','#7FD6A8','#C6A2FF','#FFC46B','#9FB4FF','#E2E6F7'];
 const topic=id=>TOPICS.find(t=>t.id===id)||{name:'No topic',color:'#A9B0D6'};
@@ -598,7 +605,7 @@ function drawDau(){
 }
 function drawTopicBars(){
   const el=$('#tpb');if(!el)return;const f=range/30;
-  const rows=TOPICS.filter(t=>t.shown).map((t,i)=>({t,v:Math.max(1,Math.round(([142,64,51,38,44,57,73,49][i]||12)*f))})).sort((a,b)=>b.v-a.v);
+  const rows=TOPICS.filter(t=>t.shown).map((t,i)=>({t,v:Math.max(1,Math.round(([142,64,51,38,44,57,73,49,41,47,36,33,18,22,29][i]||12)*f))})).sort((a,b)=>b.v-a.v);
   const max=Math.max(...rows.map(r=>r.v));const tot=rows.reduce((a,r)=>a+r.v,0);
   $('#tpsub').textContent=`${fmt(tot)} tables in the last ${range} days`;
   el.innerHTML=rows.map(r=>`<div class="hb" title="${esc(r.t.name)}: ${r.v} tables (${Math.round(r.v/tot*100)}%)"><span class="tp"><i style="background:${r.t.color}"></i>${esc(r.t.name)}</span><div class="trk"><div class="fill" style="width:${(r.v/max*100).toFixed(1)}%"></div></div><span class="v num">${r.v}</span></div>`).join('');
