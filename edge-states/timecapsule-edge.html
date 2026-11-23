@@ -808,7 +808,7 @@ const MT={up:{art:ART.chair,h:'No tables yet',p:['Save a chair at any table on t
  past:{art:tbl({n:6}),h:'Nothing here yet',p:['After your first table, you’ll find it here with its transcript and the notes you kept.'],acts:A(U.agenda,'Find a table')}};
 const NAV={full:0,cancelled:0,removed:0,'new-agenda':0,'new-following':1};
 let cur='full';
-function show(s,push){if(!S[s])s='full';cur=s;
+function show(s,push){/* tc-edge-tl */if(s==='full'||s==='cancelled'){const m=location.hash.match(/[#&]lang=[a-z]+/);location.href=U.table+'#'+s+(m?'&'+m[0].slice(1):'');return}if(!S[s])s='removed';cur=s;
  document.body.classList.toggle('newu',s.startsWith('new-'));
  $('#page').innerHTML=S[s]();
  document.querySelectorAll('.proto [data-s]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===s));
@@ -840,7 +840,7 @@ const closeS=()=>{$('#scrim').hidden=true};
 $('#sh-c').onclick=closeS;$('#scrim').addEventListener('click',e=>{if(e.target.id==='scrim')closeS()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#scrim').hidden)closeS()});
 $('#sh-s').onclick=()=>{closeS();$('#sh-x').value='';toast('Thanks. We’ll read it and get back to you by email.')};
-show((location.hash.slice(1).split('&')[0])||'full',false);
+show((location.hash.slice(1).split('&')[0])||'removed',false);
 window.addEventListener('hashchange',()=>{const h=location.hash.slice(1).split('&')[0];if(h&&h!==cur&&S[h])show(h,false)});
 </script>
 <style id="tcf-css">
