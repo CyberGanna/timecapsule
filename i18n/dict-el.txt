@@ -2202,3 +2202,15 @@ You can also tap Can't make it? on the reminder. Giving a chair back before the 
 What if I don't show up?|Κι αν δεν εμφανιστώ;
 We keep your chair for the first 10 minutes. After that it goes to the first person on the waitlist, or opens to anyone. Missing one table is fine. After three missed tables in 30 days, you can only save a chair on the day of the table for two weeks. Only you see this, and it never touches your TimeCoins or your profile.|Κρατάμε την καρέκλα σου για τα πρώτα 10 λεπτά. Μετά πηγαίνει στο πρώτο άτομο στη λίστα αναμονής ή ανοίγει για όλους. Αν λείψεις από ένα τραπέζι, δεν πειράζει. Μετά από τρία τραπέζια που έχασες σε 30 ημέρες, για δύο εβδομάδες μπορείς να κρατάς καρέκλα μόνο την ίδια μέρα του τραπεζιού. Το βλέπεις μόνο εσύ και δεν επηρεάζει ποτέ τα TimeCoins ή το προφίλ σου.
 If you don't join within 10 minutes of the start, your chair goes to someone else. To give it back sooner, tap Can't make it? on the reminder.|Αν δεν μπεις μέσα σε 10 λεπτά από την έναρξη, η καρέκλα σου πηγαίνει σε κάποιον άλλο. Για να την αφήσεις νωρίτερα, πάτησε «Δεν μπορείς να έρθεις;» στην υπενθύμιση.
+You're at another table then|Είσαι ήδη σε άλλο τραπέζι εκείνη την ώρα
+You can sit at one table at a time.|Μπορείς να κάθεσαι σε ένα τραπέζι τη φορά.
+You saved a chair at|Κράτησες καρέκλα στο
+Keep my chair|Κρατάω την καρέκλα μου
+Swap tables|Άλλαξε τραπέζι
+Your chair at the other table is free again|Η καρέκλα σου στο άλλο τραπέζι είναι πάλι ελεύθερη
+You have 5 saved chairs|Έχεις 5 κρατημένες καρέκλες
+You can save up to 5 chairs at a time, so others get a seat too. Give one back in My tables, or save this one after one of your tables ends.|Μπορείς να κρατάς έως 5 καρέκλες τη φορά, για να βρίσκουν θέση και οι άλλοι. Άφησε μία στα Τραπέζια μου ή κράτα αυτή όταν τελειώσει ένα από τα τραπέζια σου.
+Open My tables|Άνοιξε τα Τραπέζια μου
+How many chairs can I save?|Πόσες καρέκλες μπορώ να κρατήσω;
+One chair per table, at up to 5 upcoming tables at a time, and never at two tables that overlap. Tables you host don't count.|Μία καρέκλα ανά τραπέζι, σε έως 5 επερχόμενα τραπέζια τη φορά, και ποτέ σε δύο τραπέζια που συμπίπτουν. Τα τραπέζια που φιλοξενείς δεν μετράνε.
+You can save chairs at up to 5 tables at a time, as long as they don't overlap.|Μπορείς να κρατάς καρέκλες σε έως 5 τραπέζια τη φορά, αρκεί να μη συμπίπτουν.
