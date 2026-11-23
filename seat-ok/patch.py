@@ -78,3 +78,18 @@ for rel in FILES:
     if 'family=Literata' not in s:
         s = s.replace('</title>', '</title>' + FONT, 1)
     open(p, 'w', encoding='utf8').write(s); print(rel, 'summary card')
+
+# Step 3 (Karim 2026-11-23): round the header corners on the summary (Safari clipping) and no boxes behind
+# the people at the table. Marker "tc-seatok3".
+CSS3 = '''<style id="tc-seatok3">
+.sum{isolation:isolate}
+.sum .sumhd{border-radius:15px 15px 0 0;transform:translateZ(0)}
+.sum .sumimg,.sum .sumimg img{border-radius:15px 15px 0 0}
+.plist li{background:none!important;padding:4px 0!important}
+</style>'''
+for rel in FILES:
+    p = os.path.join(ROOT, rel); s = open(p, encoding='utf8').read()
+    if 'tc-seatok3' in s:
+        continue
+    i = s.rindex('</body>'); s = s[:i] + CSS3 + s[i:]
+    open(p, 'w', encoding='utf8').write(s); print(rel, 'step 3')
