@@ -1331,14 +1331,14 @@ function tdSection(){
   return `<section class="td tdc2${isLive()?" live":""}" style="--c:${c}">
     <article class="tdc">
      <div class="tdhd"><img src="${TD_IMG[st.kind]}" alt="">${isLive()?`<div class="cc-hour tdhour"><i style="width:${Math.min(100,m/60*100)}%"></i></div>`:""}</div>
-     <div class="tdm">${tdTop()}<h1>${t.title}</h1>${tdHost()}<p class="desc">${t.desc}</p>
+     <div class="tdm">${tdTop()}<h1>${t.title}</h1>${tdHost()}
       <div class="tda">${isLive()?"":cdHTML()}${actionsHTML()}</div></div>
     </article>
     <aside class="tdside">
      <div class="tds-who">${whoHTML()}</div>
      <div class="tds-facts"><h2>Details</h2>${factsHTML()}</div>
-     <div class="tds-good">${goodHTML()}</div>
     </aside>
+    <div class="tds-good">${goodHTML()}</div>
    </section>`;
 }
 </script><script>
@@ -2048,9 +2048,10 @@ const I={
  tshield:'<svg viewBox="0 0 12 12"><path d="M6 1l4 1.6v3c0 2.4-1.7 4.1-4 5.1-2.3-1-4-2.7-4-5.1v-3z" fill="#12304A"/><path d="M4.2 6l1.3 1.3L8 4.8" fill="none" stroke="#7FF0F2" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 };
 const seatsAt=(n,r)=>Array.from({length:n},(_,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;return[50+r*Math.cos(a),50+r*Math.sin(a)]});
-function stage(people,off,cap){
- const pos=seatsAt(8,45);
- return `<div class="e-stage${off?' e-off':''}"><div class="e-tbg"></div><div class="e-ring"><div class="e-board">${I.cols}</div>${pos.map((p,i)=>{const n=people[i];return `<span class="e-seat${n?'':' e-ghost'}${i===0&&n?' e-host':''}" style="left:${p[0]}%;top:${p[1]}%">${n?av(n):''}</span>`}).join('')}</div><div class="e-cap">${cap}</div></div>`}
+function stage(people,off,cap){ /* tce-v2 */
+ const img=typeof TD_IMG!=="undefined"?TD_IMG.open:"";
+ const faces=off?"":`<span class="e-faces">${Array.from({length:8},(_,i)=>people[i]?`<span>${av(people[i])}</span>`:`<em></em>`).join("")}</span>`;
+ return `<div class="e-stage2${off?' e-off':''}"><img src="${img}" alt=""><div class="e-st-in">${faces}<div class="e-cap">${cap}</div></div></div>`}
 const host=`<div class="e-who"><span class="e-av">${av('Gregory')}</span><div><b>Gregory <span class="e-trust">${I.tshield}Trusted</span></b><small>Host · Switzerland</small></div></div>`;
 const topic=t=>`<span class="e-tag"><i style="background:${T[t]}"></i>${t}</span>`;
 const backL=`<a class="e-back" href="${U.agenda}" target="_top">${I.back}Back to tables</a>`;
@@ -2216,9 +2217,27 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 .tdside .facts2>div>div{display:grid;grid-template-columns:110px minmax(0,1fr);column-gap:12px;flex:1}
 .tdside .facts2 dt{font-size:13.5px;color:var(--mute);margin-top:1px}
 .tdside .facts2 dd{margin:0;font-size:14.5px}
-.tdc{position:sticky;top:20px}
-@media (max-width:960px){.tdc{position:relative;top:auto}}
+.tds-good{grid-column:1/-1;padding-top:30px;border-top:1px solid var(--line)}
+.tds-good h2{font-size:18px;font-weight:500;margin:0 0 16px;letter-spacing:-.2px}
+.tds-good .gk{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media (max-width:960px){.tds-good .gk{grid-template-columns:1fr;gap:14px}}
 @media (max-width:640px){.tdside .facts2>div>div{grid-template-columns:1fr}}
 @media (max-width:960px){.td.tdc2{grid-template-columns:1fr;gap:36px}.tdhd{height:220px}}
 @media (max-width:640px){.td.tdc2{margin-top:16px}.tdc{border-radius:18px}.tdhd{height:170px}.tdm{padding:20px 18px 20px}.tdm h1{font-size:25px;margin-top:12px}.tdm .desc{font-size:15px}.tdside .who2{grid-template-columns:1fr 1fr}}
+</style><style id="tce-v2">
+.e-stage2{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:1/1;background:#252B52;isolation:isolate}
+.e-stage2::after{content:"";position:absolute;inset:0;border:1px solid #323A6C;border-radius:inherit;pointer-events:none;z-index:3}
+.e-stage2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.e-stage2::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,25,54,0) 35%,rgba(20,25,54,.88))}
+.e-stage2.e-off img{filter:grayscale(1) brightness(.6)}
+.e-st-in{position:absolute;left:0;right:0;bottom:0;padding:22px 24px 22px;display:flex;flex-direction:column;gap:12px}
+.e-faces{display:flex;justify-content:space-between;gap:6px}
+.e-faces>span,.e-faces>em{flex:0 1 40px;min-width:0;aspect-ratio:1;border-radius:50%;overflow:hidden;display:block;box-sizing:border-box}
+.e-faces svg{width:100%;height:100%;display:block}
+.e-faces>em{border:1.5px dashed rgba(238,241,255,.35)}
+.e-stage2 .e-cap{font-size:13.5px;color:#C9CFF0;text-align:center}
+.e-stage2 .e-cap b{color:#EEF1FF;font-weight:500}
+.e-stage2.e-off .e-cap{font-size:15px;color:#EEF1FF}
+.e-td h1{font-family:Literata,Georgia,serif!important;font-weight:500!important;letter-spacing:-.01em!important;line-height:1.22!important;padding-bottom:.08em}
+@media (max-width:960px){.e-stage2{aspect-ratio:16/10}}
 </style></body></html>
