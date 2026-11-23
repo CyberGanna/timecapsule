@@ -54,7 +54,7 @@ STEPS = [
   [("rate", "“How was the conversation?”"), ("rate-tip", "Award your favourite panelists with TimeCoins.")], "Rate and tip"),
  ("Keep", "Ted <b>keeps the record</b>",
   "Ted wants to remember what was said. He goes back to My tables the next morning.",
-  ["Gregory had turned on “Keep a transcript of the conversation”, so it is saved with the names of who said what, together with the notes Ted marked Keep. It becomes public in the library only if everyone at the table agrees. Ideas keep their authorship and their context, so others can return to them, question them and build on them.",
+  ["Gregory had turned on “Keep a transcript of the conversation”, so it is saved with the names of who said what, together with the notes Ted marked Keep. Anyone at the table could have left their own words out, and their part would simply be missing. Ideas keep their authorship and their context, so others can return to them, question them and build on them.",
    "My tables also lists what is coming: the tables he saved and, soon, the ones he will host."],
   [("mytables", "My tables: upcoming and past tables in one place.")], "Keep the record"),
  ("Belong", "Ted <b>fills his universe</b>",
