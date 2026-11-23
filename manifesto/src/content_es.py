@@ -2,7 +2,7 @@ import copy
 import content_en as E
 
 D = {}
-for l in open('/mnt/project-files/landing/dict-landing.txt'):
+for l in open('../../landing/dict-landing.txt'):
     p = l.rstrip('\n').split('|')
     if len(p) >= 3:
         D[p[0]] = p[2]
@@ -84,15 +84,19 @@ def fix(s):
         if a in s: s = s.replace(a, b); _USED.add(i)
     return s
 
+def L(v):
+    # landing dict keys say "conversations" since the rename; this text keeps Gregory's "discussions"
+    return D[v] if v in D else D[v.replace('discussions', 'conversations')]
+
 def tr(s):
     if s['id'] == 'antidote': blocks = ANTIDOTE_ES
     elif s['id'] == 'faq': blocks = FAQ_ES
     else:
         blocks = []
         for t, v in s['blocks']:
-            if t == 'ul': v = [[LABELS[a], D[b]] for a, b in v]
-            elif t == 'bel': v = [D[x] for x in v]
-            else: v = D[v]
+            if t == 'ul': v = [[LABELS[a], L(b)] for a, b in v]
+            elif t == 'bel': v = [L(x) for x in v]
+            else: v = L(v)
             blocks.append((t, v))
     blocks = [(t, [[fix(a), fix(b)] for a, b in v] if t == 'ul' else [fix(x) for x in v] if t == 'bel' else fix(v)) for t, v in blocks]
     n = dict(s); n['h1'], n['foot'] = HEAD[s['id']]; n['blocks'] = blocks

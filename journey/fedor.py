@@ -41,7 +41,7 @@ STEPS = [
   [("f-camera", "“Ready to join?” Name or alias, camera optional.")], "Join the meeting"),
  ("Listen", "Fedor <b>listens to the shares</b>",
   "Fedor wants to hear the others first. He sits with the group as on any Tuesday.",
-  ["Anna gives the turns. The screen shows the person who is speaking large, and the rest of the participants in a row beside it, so Fedor sees both the speaker and the group. The host can mute anyone, so no one is interrupted. People shows who is at the table, and Messages lets him write privately to Anna.",
+  ["Anna gives the turns. The screen shows the person who is speaking large, and the rest of the participants in a row beside it, so Fedor sees both the speaker and the group. The host can mute anyone, so no one is interrupted. People shows who is at the table, and Chat lets him write privately to Anna.",
    "Nothing is kept. No transcript is saved, no recording is made, and his Notes, if he writes any, are visible only to him. " + NOTE % "To build: a speaker view with the group beside it (today the Live Table shows equal tiles), and a switch that turns the live transcript off completely for such tables."],
   [("f-live", "The Live Table, People tab. Example names on a prototype screen.")], "The meeting"),
  ("Share", "Fedor <b>shares</b>",

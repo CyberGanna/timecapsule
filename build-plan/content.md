@@ -37,7 +37,7 @@ The rule is simple: rent the hard parts (video, speech-to-text, email, sign-in) 
 | Payments | Stripe, only when buying TimeCoins is decided | Buying spendable coins | Not needed for launch |
 | Monitoring | Sentry and simple uptime checks | Tells us when something breaks | |
 
-Two points matter for later decisions. TimeCoins are just numbers in our own database, not crypto, so tipping and reputation need no payment provider; only *buying* coins brings payments and legal rules into play. And Knowledge orbits connect to k▪universe through a simple link between accounts, so k▪universe needs to offer a way for TimeCapsule to read a person's favourites, with their consent.
+Two points matter for later decisions. TimeCoins are just numbers in our own database, not crypto, so tipping and reputation need no payment provider; only *buying* coins brings payments and legal rules into play. And the My universe map (books and films) connects to k▪universe through a simple link between accounts, so k▪universe needs to offer a way for TimeCapsule to read a person's favourites, with their consent.
 
 ## Phases
 
@@ -49,7 +49,7 @@ Phases 0 to 4 take about six months to a public launch, with private groups read
 2. **Phase 1, Foundation (5 to 6 weeks).** Sign in, onboarding, Profile, Settings with the blocked list, Create a table, the Tables page, the table page and private invites, My tables, Host again, the five emails, all four languages. At the end you can create a table and invite people, but not yet sit at it.
 3. **Phase 2, Live Table (5 to 6 weeks).** Video at the table with host controls, private messages between guests, notes, transcripts with an off switch per table, Rate and Tip, the TimeCoins ledger (Received and To use), reminders. Private tables never appear on the globe from day one. At the end a full table works from invite to tip.
 4. **Phase 3, Closed beta (4 to 6 weeks).** Founding hosts and about 100 to 200 invited people. Chats, notifications, People, Search, Admin with reporting and the Trusted host badge given by hand. 24/7 on-call: uptime and error monitoring that emails Gabriele within a minute, plus an AI agent that investigates each alert and emails a summary and a proposed fix for approval. We fix what real conversations show us and collect data to set the Trusted rule.
-5. **Phase 4, Public launch (4 to 6 weeks).** The globe with Listen in, the automatic Trusted rule, Knowledge orbits with k▪universe, the landing page, security and privacy review, load test.
+5. **Phase 4, Public launch (4 to 6 weeks).** The globe with Listen in, the automatic Trusted rule, My universe (books and films) with k▪universe, the landing page, security and privacy review, load test.
 6. **Phase 5, Private groups (6 to 8 weeks, can start during Phase 4).** The group entity with a members-only page, standing recurring link, waiting room, co-hosts, more than 10 chairs, the per-table switch for Rate and TimeCoins, SMS or WhatsApp reminders.
 
 If a recovery group like Fedor's is one of the first communities you want, Phase 5 can move ahead of the globe and Listen in. That is a choice about who you launch with first.
@@ -116,7 +116,7 @@ Only two decisions block the start: the team option and the company country. The
 | Listen-in rules (who, how long, free minutes) | The globe and listen-only seats | Phase 4 |
 | The Trusted rule | The automatic badge. The beta gives real numbers to set it | Phase 4 |
 | TimeCoin prices and whether coins can be bought | Earning and tipping need no decision. Buying coins needs payments and a legal check in your country | After launch |
-| What k▪universe shares with TimeCapsule | Knowledge orbits | Phase 4 |
+| What k▪universe shares with TimeCapsule | My universe | Phase 4 |
 
 ## Risks and next steps
 
