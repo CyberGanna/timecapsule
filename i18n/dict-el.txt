@@ -769,7 +769,7 @@ Join the waitlist|Μπες στη λίστα αναμονής
 You're on the waitlist|Είσαι στη λίστα αναμονής
 You left the waitlist|Βγήκες από τη λίστα αναμονής
 See other tables|Δες άλλα τραπέζια
-If a chair opens, we ring your bell.|Αν ελευθερωθεί καρέκλα, χτυπάμε το κουδουνάκι σου. Όποιος την πάρει πρώτος, την κρατά.
+If a chair opens, we ring your bell.|Αν ελευθερωθεί καρέκλα, χτυπάμε το κουδουνάκι σου.
 Tables with free chairs|Τραπέζια με ελεύθερες καρέκλες
 Close to this one, by topic and time.|Κοντά σε αυτό, κατά θέμα και ώρα.
 What makes a life meaningful?|Τι δίνει νόημα σε μια ζωή;
