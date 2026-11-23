@@ -37,7 +37,7 @@ const UP=/*UP*/null, PAST=/*PAST*/null;
 /*HELPERS*/
 const $=id=>document.getElementById(id);
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c])}
-const TICON={Philosophy:'<path d="M4 20h16M5 17h14M6 17V9m4 8V9m4 8V9m4 8V9M4 9h16L12 4z"/>',Religion:'<path d="M12 8.5v12M12 8.5C10 7.3 7 7 3.5 7.5v11.5c3.5-.5 6.5-.2 8.5 1M12 8.5c2-1.2 5-1.5 8.5-1v11.5c-3.5-.5-6.5-.2-8.5 1M12 2.5v2.5M8 3.5l1 1.8M16 3.5l-1 1.8"/>',Home:'<path d="M4 11l8-7 8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/>',Craft:'<path d="M14 6l4 4M4 20l9.5-9.5M12 4.5l3-1.5 6 6-1.5 3-2-2-3 3-4.5-4.5 3-3z"/>',Energy:'<path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z"/>',Travel:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5z"/>'};
+const TICON={Philosophy:'<path d="M4 20h16M5 17h14M6 17V9m4 8V9m4 8V9m4 8V9M4 9h16L12 4z"/>',Religion:'<circle cx="12" cy="9.5" r="6.5" style="stroke-dasharray:0 3.4;stroke-width:2.6;stroke-linecap:round"/><path d="M12 16v3.2M10.3 21l1.7-1.8 1.7 1.8"/>',Home:'<path d="M4 11l8-7 8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/>',Craft:'<path d="M14 6l4 4M4 20l9.5-9.5M12 4.5l3-1.5 6 6-1.5 3-2-2-3 3-4.5-4.5 3-3z"/>',Energy:'<path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z"/>',Travel:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5z"/>'};
 const DOC='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h4"/></svg>';
 $("hAv").innerHTML=av("Gregory");
 const TOP=[];[...UP,...PAST].forEach(r=>{if(!TOP.some(t=>t.n===r.topic))TOP.push({n:r.topic,c:r.col})});

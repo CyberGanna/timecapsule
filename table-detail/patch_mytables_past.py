@@ -87,7 +87,7 @@ def patch_table():
     add = ''.join('%s:%s,' % (json.dumps(k), json.dumps(v, ensure_ascii=False)) for k, v in STRINGS.items())
     s = rep(s, 'window.TCI18N_DICT={', 'window.TCI18N_DICT={' + add)
     s = rep(s, '</title>', '</title>' + CSS)
-    s = rep(s, 'function render(){\n  const t=T(),c=TOPIC_C[t.topic];', 'function render(){\n  Object.assign(TICON,{Home:\'<path d="M4 11l8-7 8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/>\',Energy:\'<path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z"/>\',History:\'<path d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9"/>\'});\n  const t=T(),c=TOPIC_C[t.topic];')
+    s = rep(s, 'function render(){\n  const t=T(),c=TOPIC_C[t.topic];', 'function render(){\n  Object.assign(TICON,{Home:\'<path d="M4 11l8-7 8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/>\',Energy:\'<path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z"/>\',History:\'<path d="M7 5.5A2.5 2.5 0 0 1 9.5 3H19a2 2 0 0 1 0 4h-2.5v11.5A2.5 2.5 0 0 1 14 21H5a2 2 0 0 1 0-4h2z"/><path d="M5 17h9.5a2 2 0 0 1-.5 4M10.5 8.5h3M10.5 12h3"/>\'});\n  const t=T(),c=TOPIC_C[t.topic];')
     s = rep(s, 'const TOPIC_C={Philosophy:"#F29BD0",', 'const TOPIC_C={Home:"#5FE0DE",Energy:"#6CB8FF",Philosophy:"#F29BD0",')
     # merge the extra tables into MT before the #t=N reader runs, and read past/waitlist
     s = rep(s, '(function(){const m=(location.hash||"").match(/[#&]t=(\\d+)/),d=m&&MT[m[1]];if(!d)return;st.mt=+m[1];',
