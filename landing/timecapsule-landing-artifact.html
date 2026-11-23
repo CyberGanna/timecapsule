@@ -1188,7 +1188,7 @@ function gpShow(el){
   const n=el.dataset.gu, city=el.dataset.gc, mod=el.dataset.gi==="0", hh=[...n].reduce((a,c)=>a+c.charCodeAt(0),0);
   const tables=8+hh%31, coins=(mod?900:60)+hh*7%700;
   GP.innerHTML=tcpHTML({name:n,avatar:face(n),trusted:mod,role:mod?"Host":"",place:city+(CITY[city]?", "+CITY[city][2]:""),
-    topics:GT?[[GT.th,GT.c]]:[],tables,feedbacks:Math.round(tables*.6)+hh%5,coins,profile:n==="Gregory"?"https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy":""});
+    topics:GT?[[GT.th,GT.c]]:[],tables,feedbacks:Math.round(tables*.6)+hh%5,coins,profile:"https://claude.ai/artifact/TQ3edAr7Dje1uPbGk3yEQy"});
   GP.hidden=false; gpFor=el;
   const r=el.getBoundingClientRect(), w=GP.offsetWidth, ph=GP.offsetHeight;
   let x=r.left+r.width/2-w/2; x=Math.max(12,Math.min(x,innerWidth-w-12));
