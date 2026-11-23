@@ -26,6 +26,8 @@ CSS = '''<style id="tch-even">
 #tch .tch-ic .tch-n{left:21.5px;top:4.5px;min-width:15px;height:15px;padding:0 4px;border-radius:8px;color:#0F1530;font-size:9.5px;font-weight:700;line-height:15px;letter-spacing:0;display:block;text-align:center;font-style:normal}
 #tch .tch-ic .tch-d{left:25px;top:8px;width:8px;height:8px;border-radius:50%}
 #tch .tch-pg{display:none}
+#tch .tch-menu a[aria-current=page]{color:var(--tch-teal,#17C3C8);background:none;box-shadow:none}
+#tch .tch-menu a[aria-current=page]:hover{background:var(--tch-field)}
 #tch.over .tch-ic .tch-n,#tch.over .tch-ic .tch-d{box-shadow:none}
 #tch .tch-pop li.un time{color:var(--tch-teal,#17C3C8)}
 #tch .tch-pop li.un .tch-tx b::after{background:var(--tch-teal,#17C3C8)}
@@ -49,10 +51,11 @@ body .fl[aria-pressed=true] .c{color:#0E7F83}
 #tch .tch-pg[aria-expanded=true] svg{transform:rotate(180deg)}
 #tch .tch-pg[aria-expanded=true],#tch .tch-pg:hover{color:var(--tch-fg)}
 #tch .tch-pages{left:max(12px,env(safe-area-inset-left,0px));right:auto;width:200px}
-#tch .tch-pages a[aria-current=page]{color:var(--tch-fg);background:var(--tch-field);box-shadow:inset 2px 0 0 var(--tch-teal,#17C3C8)}
 #tch .tch-menu[data-tchp=menu] .ph{display:none}
 }
 </style>'''
+# Marks the current page in the avatar menu and the page menu (teal word), by comparing link paths.
+CUR_JS = '''<script id="tch-cur">(function(){var n=function(p){return decodeURIComponent(p).replace(/\\.html$/,'').replace(/\\/index$/,'/').replace(/\\/$/,'')};var here=n(location.pathname);document.querySelectorAll('#tch .tch-menu a[href]').forEach(function(a){var h=a.getAttribute('href');if(!h||h.charAt(0)==='#')return;var u=new URL(h,location.href);if(n(u.pathname)===here)a.setAttribute('aria-current','page')})})();</script>'''
 STYLE = re.compile(r'<style id="tch-even">.*?</style>\n?', re.S)
 IC = re.compile(r'(<(?:a|button) class="tch-ic[^"]*"[^>]*>)<svg\b.*?</svg>', re.S)
 SR = re.compile(r'(<button class="tch-ib"[^>]*data-tch="search"[^>]*>)<svg\b.*?</svg>', re.S)
@@ -91,6 +94,10 @@ for f in glob.glob(os.path.join(ROOT, '**/*.html'), recursive=True):
     s = IC.sub(lambda m: m.group(1) + (CHAT if 'data-tch="msg"' in m.group(1) else BELL), s)
     s = SR.sub(lambda m: m.group(1) + SEARCH, s)
     s = pages(s)
+    s = re.sub(r'<script id="tch-cur">.*?</script>\n?', '', s, flags=re.S)
+    k = s.find('</header>', s.find('<header id="tch"'))
+    if k > 0:
+        s = s[:k + 9] + '\n' + CUR_JS + s[k + 9:]
     if s != o:
         open(f, 'w', encoding='utf8').write(s); changed.append(rel)
 print(len(changed)); print('\n'.join(sorted(changed)))
