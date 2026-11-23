@@ -23,11 +23,11 @@ CSS = '''<style id="tc-sugmenu">
 #cpage .sgl small{color:var(--mute);font-size:12px;flex:none}
 </style><script>/* tc-sugmenu */
 document.addEventListener("click",e=>{
-  const t=e.target.closest&&e.target.closest("#cpage .sgbtn");
-  document.querySelectorAll("#cpage .sgl").forEach(l=>{const b=l.parentNode.querySelector(".sgbtn");
+  const t=e.target.closest&&e.target.closest("#cpage .sgm .sgbtn");
+  document.querySelectorAll("#cpage .sgm .sgl").forEach(l=>{const b=l.parentNode.querySelector(".sgbtn");
     const open=t&&b===t&&l.hidden; l.hidden=!open; b.setAttribute("aria-expanded",String(open));});
 },true);/* capture: the Create page stops click bubbling */
-document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll("#cpage .sgl:not([hidden])").forEach(l=>{l.hidden=true;const b=l.parentNode.querySelector(".sgbtn");b.setAttribute("aria-expanded","false");b.focus()})});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll("#cpage .sgm .sgl:not([hidden])").forEach(l=>{l.hidden=true;const b=l.parentNode.querySelector(".sgbtn");b.setAttribute("aria-expanded","false");b.focus()})});
 </script>'''
 for rel in FILES:
     p = os.path.join(ROOT, rel); s = open(p, encoding='utf8').read()
