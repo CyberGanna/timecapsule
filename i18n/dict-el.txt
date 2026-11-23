@@ -2225,3 +2225,4 @@ Be honest about your age. TimeCapsule is for people aged 16 and over.|Να λε�
 If someone threatens you or a table, report it here and tell the local police as well.|Αν κάποιος απειλήσει εσένα ή ένα τραπέζι, ανάφερέ το εδώ και ενημέρωσε και την τοπική αστυνομία.
 Drag to move|Σύρε για μετακίνηση
 Drag the picture to choose what shows.|Σύρε την εικόνα για να διαλέξεις τι φαίνεται.
+Picture|Εικόνα
