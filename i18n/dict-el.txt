@@ -2227,3 +2227,4 @@ Drag to move|Σύρε για μετακίνηση
 Drag the picture to choose what shows.|Σύρε την εικόνα για να διαλέξεις τι φαίνεται.
 Picture|Εικόνα
 What would you like to talk about?|Για τι θα ήθελες να μιλήσεις;
+Say hello to|Πες ένα γεια στον/στην
