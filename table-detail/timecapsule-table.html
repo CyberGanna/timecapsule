@@ -1326,8 +1326,8 @@ function tdHost(){
   return `<div class="cc-host"><span>with</span> <b data-u="${t.host}" tabindex="0">${t.host}</b> · <span>${p[0]}</span>${p[4]?` <span class="tchip" title="Trusted host">${SHIELD}<span>Trusted</span></span>`:""}</div>`;
 }
 function tdHdImg(){ /* new table: host's picture from Create, else topic icon on topic colour */
-  const t=T();if(st.kind==="host"){let im=null;try{im=JSON.parse(sessionStorage.getItem("tc-created")||"{}").img}catch(e){}
-   return im?`<img src="${im}" alt="">`:`<div class="tcplain"><svg viewBox="0 0 24 24" aria-hidden="true">${TICON[t.topic]||TICON.Philosophy}</svg></div>`}
+  const t=T();if(st.kind==="host"){let im=null,ps="50% 50%";try{const c=JSON.parse(sessionStorage.getItem("tc-created")||"{}");im=c.img;ps=c.pos||ps}catch(e){}/*tc-pos*/
+   return im?`<img src="${im}" alt="" style="object-position:${ps}">`:`<div class="tcplain"><svg viewBox="0 0 24 24" aria-hidden="true">${TICON[t.topic]||TICON.Philosophy}</svg></div>`}
   return `<img src="${TD_IMG[st.kind]||TD_IMG.open}" alt="">`;
 }
 function tdSection(){
