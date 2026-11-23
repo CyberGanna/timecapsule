@@ -2027,4 +2027,4 @@ body.tcdrag,body.tcdrag *{cursor:grabbing!important}
 </style><script>/* tc-trow: wheel scrolls the topic row; fade hides at the end */
 document.addEventListener("wheel",e=>{const r=e.target.closest&&e.target.closest("#cpage .ntchips");if(!r||r.scrollWidth<=r.clientWidth)return;if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){r.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
 document.addEventListener("scroll",e=>{const r=e.target;if(r&&r.classList&&r.classList.contains("ntchips"))r.classList.toggle("end",r.scrollLeft+r.clientWidth>=r.scrollWidth-2)},true);
-</script></body></html>
+</script><style id="tc-ntgrid">#cpage .ntgrid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important;align-items:end}#cpage .ntgrid .opt{min-width:0}#cpage .ntgrid .step,#cpage .ntgrid select{box-sizing:border-box;height:48px!important;min-height:48px;border-radius:12px!important;width:100%!important;margin:0!important}#cpage .ntgrid .step{padding:0 4px!important}#cpage .ntgrid select{padding:0 14px!important;font-size:15px!important}</style></body></html>
