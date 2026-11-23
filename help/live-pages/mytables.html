@@ -1720,7 +1720,7 @@ function render(){
   else{c.textContent="Done";c.disabled=false;h.textContent="";
     $("thanksline").textContent=sp?"Your TimeCoins are on their way":"Your rating was sent";
     var note=$("note").value.trim();
-    $("summary").innerHTML='<div><span>Conversation</span><b>'+lbl[rating]+'</b></div>'+(note?'<div><span>Your note</span><b></b></div>':'')+'<div><span>Awarded</span><b>'+(sp?people.filter(function(p,i){return val[i]}).map(function(p){return p[0]+" "+val[people.indexOf(p)]}).join(" · "):"None this time")+'</b></div><div><span>TimeCoins left</span><b>'+(BUD-sp)+(BUD-sp?" · expire in 7 days":"")+'</b></div>';
+    $("summary").innerHTML='<div><span>Conversation</span><b>'+lbl[rating]+'</b></div>'+(note?'<div><span>Your note</span><b></b></div>':'')+'<div><span>Awarded</span><b>'+(sp?people.filter(function(p,i){return val[i]}).map(function(p){return p[0]+": "+val[people.indexOf(p)]}).join(" · "):"None this time")+'</b></div><div><span>TimeCoins left</span><b>'+(BUD-sp)+(BUD-sp?" · expire in 7 days":"")+'</b></div>';
     if(note)$("summary").children[1].querySelector("b").textContent="“"+note+"”";}
 }
 var leaving=false;function openSkip(l){leaving=!!l;$("skgo").textContent=leaving?"Leave anyway":"Skip anyway";$("skaward").textContent=leaving?"Stay and rate":"Award TimeCoins";$("sk").hidden=false;$("skaward").focus()}
