@@ -179,3 +179,10 @@ You|Tu|Tú
 Yes|Sì|Sí
 No|No|No
 Conversations|Conversazioni|Conversaciones
+Society|Società|Sociedad
+Wellbeing|Benessere|Bienestar
+Books & Films|Libri e film|Libros y películas
+Work & Tech|Lavoro e tecnologia|Trabajo y tecnología
+Languages|Lingue|Idiomas
+Art|Arte|Arte
+Music|Musica|Música
