@@ -585,6 +585,8 @@ main{padding-block:4px 90px}
 #tch .tch-ic .tch-n{left:21.5px;top:4.5px;min-width:15px;height:15px;padding:0 4px;border-radius:8px;color:#0F1530;font-size:9.5px;font-weight:700;line-height:15px;letter-spacing:0;display:block;text-align:center;font-style:normal}
 #tch .tch-ic .tch-d{left:25px;top:8px;width:8px;height:8px;border-radius:50%}
 #tch .tch-pg{display:none}
+#tch .tch-menu a[aria-current=page]{color:var(--tch-teal,#17C3C8);background:none;box-shadow:none}
+#tch .tch-menu a[aria-current=page]:hover{background:var(--tch-field)}
 #tch.over .tch-ic .tch-n,#tch.over .tch-ic .tch-d{box-shadow:none}
 #tch .tch-pop li.un time{color:var(--tch-teal,#17C3C8)}
 #tch .tch-pop li.un .tch-tx b::after{background:var(--tch-teal,#17C3C8)}
@@ -608,7 +610,6 @@ body .fl[aria-pressed=true] .c{color:#0E7F83}
 #tch .tch-pg[aria-expanded=true] svg{transform:rotate(180deg)}
 #tch .tch-pg[aria-expanded=true],#tch .tch-pg:hover{color:var(--tch-fg)}
 #tch .tch-pages{left:max(12px,env(safe-area-inset-left,0px));right:auto;width:200px}
-#tch .tch-pages a[aria-current=page]{color:var(--tch-fg);background:var(--tch-field);box-shadow:inset 2px 0 0 var(--tch-teal,#17C3C8)}
 #tch .tch-menu[data-tchp=menu] .ph{display:none}
 }
 </style>
@@ -659,6 +660,7 @@ body .fl[aria-pressed=true] .c{color:#0E7F83}
 </div>
 <div class="tch-menu tch-pages" data-tchp="pages" hidden><a href="agenda.html" target="_top">Tables</a><a href="discussions.html" target="_top">Conversations</a><a href="people.html" target="_top">People</a><a href="../../world/timecapsule-world.html" target="_top">World</a></div>
 </header>
+<script id="tch-cur">(function(){var n=function(p){return decodeURIComponent(p).replace(/\.html$/,'').replace(/\/index$/,'/').replace(/\/$/,'')};var here=n(location.pathname);document.querySelectorAll('#tch .tch-menu a[href]').forEach(function(a){var h=a.getAttribute('href');if(!h||h.charAt(0)==='#')return;var u=new URL(h,location.href);if(n(u.pathname)===here)a.setAttribute('aria-current','page')})})();</script>
 <script>
 (function(){
   var H=document.getElementById('tch'); if(!H) return;
