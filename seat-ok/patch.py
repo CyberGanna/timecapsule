@@ -86,6 +86,9 @@ CSS3 = '''<style id="tc-seatok3">
 .sum .sumhd{border-radius:15px 15px 0 0;transform:translateZ(0)}
 .sum .sumimg,.sum .sumimg img{border-radius:15px 15px 0 0}
 .plist li{background:none!important;padding:4px 0!important}
+.sum{position:relative;border:0!important}
+.sum::after{content:"";position:absolute;inset:0;border:1px solid var(--line);border-radius:inherit;pointer-events:none;z-index:3}
+.sum .sumimg img{transform:scale(1.03)}
 </style>'''
 for rel in FILES:
     p = os.path.join(ROOT, rel); s = open(p, encoding='utf8').read()
