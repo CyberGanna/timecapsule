@@ -1325,9 +1325,9 @@ function renderNav(){
 const VI={grid:'<rect x="2" y="2" width="5" height="5" rx="1.2"/><rect x="9" y="2" width="5" height="5" rx="1.2"/><rect x="2" y="9" width="5" height="5" rx="1.2"/><rect x="9" y="9" width="5" height="5" rx="1.2"/>',
   land:'<rect x="1.5" y="2" width="13" height="5" rx="1.2"/><rect x="1.5" y="9" width="13" height="5" rx="1.2"/>',
   list:'<rect x="2" y="2.5" width="12" height="3" rx="1"/><rect x="2" y="6.5" width="12" height="3" rx="1"/><rect x="2" y="10.5" width="12" height="3" rx="1"/>'};
-function vlink(){ /* view-switch */
-  const L=S.view==="list", ic=k=>`<svg viewBox="0 0 16 16" aria-hidden="true">${VI[k]}</svg>`;
-  return `<div class="vsw" role="group" aria-label="View"><button class="vbox" data-v="cards" aria-pressed="${!L}">${ic("grid")}<span>Cards</span></button><button class="vbox" data-v="list" aria-pressed="${L}">${ic("list")}<span>List</span></button></div>`}
+function vlink(){ /* view-switch: one link that shows the other view */
+  const L=S.view==="list", to=L?"cards":"list", t=L?"Cards":"List";
+  return `<span class="vsw"><button class="vcyc" data-v="${to}" title="${t}" aria-label="${t}"><svg viewBox="0 0 16 16" aria-hidden="true">${VI[L?"grid":"list"]}</svg><span class="vt">${t}</span></button></span>`}
 function render(){
   renderNav();
   const box=(a)=>S.view==="list"?`<div class="agenda">${a.map(evRow).join("")}</div>`:`<div class="live">${a.map(liveCard).join("")}</div>`;
@@ -1967,14 +1967,4 @@ main .live .tbl.cc .cc-foot .jbtn.back{background:transparent!important;color:#F
 .agenda .ev .et h3{font-family:Literata,Georgia,serif!important;font-weight:500!important;font-size:19px!important;line-height:1.25!important;letter-spacing:-.005em}
 @media (max-width:640px){.agenda .ev .et h3{font-size:17px!important}}
 @media (max-width:640px){.tbl.cc .cc-in{padding:18px 18px 16px}main .live .tbl.cc h3{font-size:20px!important;margin-top:12px!important}.tbl.cc blockquote{font-size:14.5px;margin-top:14px}.cc-foot{padding-top:18px}.cc-faces{gap:5px;grid-auto-columns:28px}}
-</style><style id="view-switch">
-.vsw{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:2px;flex:none}
-.vbox{min-height:34px;padding:0 8px;border:0;background:none;color:var(--mute);font:inherit;font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:7px;cursor:pointer;white-space:nowrap}
-.vbox+.vbox{border-left:1px solid var(--line);border-radius:0;min-height:16px;margin-left:2px;padding-left:10px}
-.vbox svg{width:15px;height:15px;fill:currentColor}
-.vbox[aria-pressed=true]{color:var(--fg);cursor:default}
-@media (hover:hover){.vbox[aria-pressed=false]:hover{color:var(--fg)}}
-.vbox:focus-visible{outline:2px solid var(--teal,#17C3C8);outline-offset:2px;border-radius:6px}
-@media (max-width:640px){.sh:has(.vsw){flex-wrap:nowrap;align-items:center;gap:10px}.sh:has(.vsw) h2,.sh:has(.vsw)>span{white-space:nowrap}.sh:has(.vsw)>span{font-size:13px}.vbox span{display:none}.vbox{padding:0 7px;min-height:36px}.vbox+.vbox{min-height:16px;padding-left:9px}.vbox svg{width:17px;height:17px}.vsw{margin-right:-7px}}
-@media (max-width:380px){.sh:has(.vsw){gap:6px}.sh:has(.vsw) h2{font-size:19px!important}.sh:has(.vsw)>span{font-size:12px}}
-</style></body></html>
+</style><style id="view-switch">.vsw{margin-left:auto;align-self:center;display:inline-flex}.vsw .vcyc{margin-left:0}</style></body></html>
