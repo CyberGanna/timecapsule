@@ -243,7 +243,7 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
  <p class="lede">During a table you can write notes on the side. They are private: only you can see them.</p>
  <ol class="steps">
   <li><div class="body"><h2>Write a note</h2><p>Open the Notes tab and start typing. To catch a moment, tap the note icon next to a line in the transcript, and your note quotes it.</p>
-   <div class="mini"><div class="note"><q>Gregory: Maybe choosing is just noticing what we already are.</q><span>Ask about habits. Are they choices we stopped seeing?</span><div><span class="flag k"><svg><use href="#i-pin"/></svg>Keep</span><span class="flag a"><svg><use href="#i-q"/></svg>Ask</span><span class="flag tr"><svg><use href="#i-lines"/></svg>Transcript</span></div></div></div></div></li>
+   <div class="mini gd-catch" aria-hidden="true"><div class="gtr"><div class="gln"><span class="ga"><svg viewBox="0 0 64 64" role="img" aria-label="Lena"><rect width="64" height="64" fill="#E6E0FF"/><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#7C5CFF"/><rect x="27" y="34" width="10" height="11" fill="#E8B994"/><circle cx="32" cy="26" r="12" fill="#E8B994"/><path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="#3A2A20"/><circle cx="28" cy="27" r="1.5" fill="#090B16"/><circle cx="36" cy="27" r="1.5" fill="#090B16"/><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span><div><div class="gw"><b>Lena</b>19:24</div><p>I think habits decide most of my day.</p></div><span class="gclip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M12 12v6M9 15h6"/></svg></span></div><div class="gln on"><span class="ga"><svg viewBox="0 0 64 64" role="img" aria-label="Gregory"><rect width="64" height="64" fill="#FFE9C7"/><path d="M8 66C8 47 20 43 32 43C44 43 56 47 56 66Z" fill="#2E3566"/><rect x="27" y="34" width="10" height="11" fill="#E8B994"/><circle cx="32" cy="26" r="12" fill="#E8B994"/><path d="M20 26C19 12 45 12 44 26C40 19 24 19 20 26Z" fill="#6B4A33"/><path d="M22 28C22 40 42 40 42 28C40 34 24 34 22 28Z" fill="#6B4A33"/><circle cx="28" cy="27" r="1.5" fill="#090B16"/><circle cx="36" cy="27" r="1.5" fill="#090B16"/><path d="M28.5 31.5Q32 34.5 35.5 31.5" stroke="#090B16" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span><div><div class="gw"><b>Gregory</b>19:25</div><p>Maybe choosing is just noticing what we already are.</p></div><span class="gclip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M12 12v6M9 15h6"/></svg></span><span class="gtip">Add to my notes</span></div></div></div><div class="mini"><div class="note"><q>Gregory: Maybe choosing is just noticing what we already are.</q><span>Ask about habits. Are they choices we stopped seeing?</span><div><span class="flag k"><svg><use href="#i-pin"/></svg>Keep</span><span class="flag a"><svg><use href="#i-q"/></svg>Ask</span><span class="flag tr"><svg><use href="#i-lines"/></svg>Transcript</span></div></div></div></div></li>
   <li><div class="body"><h2>Three ways to use a note</h2>
    <div class="fl">
     <span class="flag k"><svg><use href="#i-pin"/></svg>Keep</span><p>Save the note for later. Kept notes wait for you in My tables, where you can export them as a text file.</p>
@@ -297,4 +297,16 @@ h1{font-weight:400;font-size:clamp(32px,4.6vw,46px);line-height:1.08;letter-spac
  show();
 })();
 </script>
-</body></html>
+<style id="gd-catch">
+.gd-catch .gtr{width:100%;max-width:440px;padding:6px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.gln{position:relative;display:grid;grid-template-columns:28px minmax(0,1fr) 30px;gap:10px;align-items:start;padding:8px 0}
+.gln+.gln{border-top:1px solid var(--line)}
+.gln .ga{width:28px;height:28px;border-radius:50%;overflow:hidden}.gln .ga svg{width:100%;height:100%;display:block}
+.gln .gw{font-size:12px;color:var(--mute);margin-bottom:2px}.gln .gw b{color:var(--fg);font-weight:600;margin-right:6px}
+.gln p{margin:0;font-size:14px;line-height:1.5;color:var(--soft)}
+.gclip{width:30px;height:30px;border-radius:9px;border:1px solid var(--line);display:grid;place-items:center;color:var(--mute);opacity:.55}
+.gclip svg{width:15px;height:15px}
+.gln.on .gclip{opacity:1;color:#EEF1FF;border-color:#17C3C8;box-shadow:0 0 0 3px rgba(23,195,200,.18)}
+.gtip{position:absolute;right:0;top:-24px;font-size:11.5px;padding:3px 8px;border-radius:6px;background:#EEF1FF;color:#1B1F3B;white-space:nowrap}
+.gd-catch+.mini{margin-top:10px}
+</style></body></html>
