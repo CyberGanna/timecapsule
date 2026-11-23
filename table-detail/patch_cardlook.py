@@ -31,12 +31,17 @@ function tdHost(){
   const t=T(),p=PROF[t.host];
   return `<div class="cc-host"><span>with</span> <b data-u="${t.host}" tabindex="0">${t.host}</b> · <span>${p[0]}</span>${p[4]?` <span class="tchip" title="Trusted host">${SHIELD}<span>Trusted</span></span>`:""}</div>`;
 }
+function tdHdImg(){ /* new table: host's picture from Create, else topic icon on topic colour */
+  const t=T();if(st.kind==="host"){let im=null;try{im=JSON.parse(sessionStorage.getItem("tc-created")||"{}").img}catch(e){}
+   return im?`<img src="${im}" alt="">`:`<div class="tcplain"><svg viewBox="0 0 24 24" aria-hidden="true">${TICON[t.topic]||TICON.Philosophy}</svg></div>`}
+  return `<img src="${TD_IMG[st.kind]||TD_IMG.open}" alt="">`;
+}
 function tdSection(){
   const t=T(),c=TOPIC_C[t.topic],m=isLive()?Math.round((Date.now()-st.liveSince)/60000):0;
   /* two sections (Karim 2026-11-23): the card on the left, people and details on the right */
   return `<section class="td tdc2${isLive()?" live":""}" style="--c:${c}">
     <article class="tdc">
-     <div class="tdhd"><img src="${TD_IMG[st.kind]}" alt="">${isLive()?`<div class="cc-hour tdhour"><i style="width:${Math.min(100,m/60*100)}%%"></i></div>`:""}</div>
+     <div class="tdhd">${tdHdImg()}${isLive()?`<div class="cc-hour tdhour"><i style="width:${Math.min(100,m/60*100)}%%"></i></div>`:""}</div>
      <div class="tdm">${tdTop()}<h1>${t.title}</h1>${tdHost()}
       <div class="tda">${isLive()?"":cdHTML()}${actionsHTML()}</div></div>
     </article>
@@ -53,7 +58,7 @@ CSS = r'''<style id="td-card-css">
 .td.tdc2{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:44px;align-items:start;padding:0;margin:24px 0 64px}
 .tdc{position:relative;border-radius:22px;overflow:hidden;background:radial-gradient(120%% 70%% at 0%% 0%%,color-mix(in srgb,var(--c) 9%%,transparent),transparent 60%%),#20264A;box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 12px 30px rgba(5,8,25,.25)}
 .tdc::after{content:"";position:absolute;inset:0;border:1px solid #323A6C;border-radius:inherit;pointer-events:none;z-index:4}
-.tdhd{position:relative;height:240px;overflow:hidden;background:#252B52}
+.tdhd{position:relative;height:190px;overflow:hidden;background:#252B52}
 .tdhd img{width:100%%;height:100%%;object-fit:cover;display:block}
 .tdhd::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,25,54,0) 55%%,rgba(32,38,74,.6))}
 .tdhd .tdhour{position:absolute;left:0;right:0;top:auto;bottom:0;height:3px;background:rgba(238,241,255,.10);z-index:2}
@@ -76,6 +81,8 @@ CSS = r'''<style id="td-card-css">
 .tda .acts2 .lnk{justify-self:center;align-self:center}
 .tda .hint{margin-top:14px;font-size:13px;line-height:1.5}
 .tda .gate h3{margin-top:0}.tda .gate{padding:0;border:0;background:none}
+.tcplain{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(45%% 65%% at 18%% 30%%,color-mix(in srgb,var(--c) 60%%,transparent),transparent 70%%),radial-gradient(50%% 70%% at 85%% 75%%,rgba(124,92,255,.5),transparent 70%%),radial-gradient(40%% 55%% at 70%% 12%%,rgba(23,195,200,.33),transparent 70%%),radial-gradient(45%% 65%% at 25%% 95%%,color-mix(in srgb,var(--c) 36%%,transparent),transparent 70%%),#252B52}
+.tcplain svg{width:52px;height:52px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.92}
 .tdside{display:flex;flex-direction:column;gap:36px;min-width:0;padding-top:4px}
 .tdside h2{font-size:18px;font-weight:500;margin:0 0 14px;letter-spacing:-.2px}
 .tdside h2 small{font-size:13px;color:var(--mute);font-weight:400;margin-left:8px}
@@ -95,7 +102,7 @@ CSS = r'''<style id="td-card-css">
 .tds-good .gk{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media (max-width:960px){.tds-good .gk{grid-template-columns:1fr;gap:14px}}
 @media (max-width:640px){.tdside .facts2>div>div{grid-template-columns:1fr}}
-@media (max-width:960px){.td.tdc2{grid-template-columns:1fr;gap:36px}.tdhd{height:220px}}
+@media (max-width:960px){.td.tdc2{grid-template-columns:1fr;gap:36px}.tdhd{height:180px}}
 @media (max-width:640px){.td.tdc2{margin-top:16px}.tdc{border-radius:18px}.tdhd{height:170px}.tdm{padding:20px 18px 20px}.tdm h1{font-size:25px;margin-top:12px}.tdm .desc{font-size:15px}.tdside .who2{grid-template-columns:1fr 1fr}}
 </style>'''
 
@@ -111,6 +118,8 @@ for f in FILES:
     s = re.sub(r'\$\{tdSection\(\)\}\s*\$\{factsHTML\(\)\}\s*<section class="low">.*?</section>', '${tdSection()}', s, count=1, flags=re.S)
     if '"Details":' not in s:
         s = s.replace('window.TCI18N_DICT={', 'window.TCI18N_DICT={"Details":["Dettagli","Detalles","Λεπτομέρειες"],', 1)
+    s = s.replace('Array.from({length:Math.min(free,2)},()=>`<li class="free">', 'Array.from({length:free},()=>`<li class="free">')
+    s = s.replace('<button type="button" data-act="msg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Chat with guests</span></button>', '')
     # tick: live minutes read "41 of 60 min" and the hour bar grows
     old = 'document.querySelectorAll(".lmin").forEach(x=>x.textContent=m+" min");return}'
     new = 'document.querySelectorAll(".lmin").forEach(x=>x.textContent=m+(x.dataset.of?" of 60 min":" min"));document.querySelectorAll(".tdhour i").forEach(x=>x.style.width=Math.min(100,m/60*100)+"%");return}'
