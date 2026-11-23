@@ -1696,7 +1696,7 @@ function ntPreview(){
 }
 function coverHTML(){
   return nt.img!=null
-    ? `<div class="cvwrap"><div class="cvimg"><img src="${IMGS[nt.img]}" alt="Cover picture" draggable="false"></div><small class="cvhint">Drag to move</small></div><div class="cvact"><button data-cv="pick">Change</button><button data-cv="rm">Remove</button></div>`
+    ? `<div class="cvwrap"><div class="cvimg"><img src="${IMGS[nt.img]}" alt="Cover picture" draggable="false"></div><small class="cvhint">Drag to move</small></div><div class="cvact"><!--tc-nochange--><button data-cv="rm">Remove</button></div>`
     : `<button class="cvdrop" data-cv="pick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16L9 11L13 15L16 12L20 16M4 5H20V19H4ZM15 8.5A1 1 0 1 0 15 8.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Add a picture <span class="optl">optional</span></button>`;
 }
 function setCover(file){
