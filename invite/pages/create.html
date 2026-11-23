@@ -1700,7 +1700,7 @@ function openCreate(){
       <div class="opt" style="margin-top:0"><label class="l">Topic</label><div class="ntchips">${Object.keys(THEMES).map(k=>`<button class="fch" data-nth="${k}" aria-pressed="${nt.theme===k}" style="--c:${THEMES[k]}"><i></i>${k}</button>`).join("")}</div></div>
       <div class="opt"><label class="l" for="ntq">What would you like to talk about?</label>
         <div class="qwrap"><textarea id="ntq" maxlength="90" rows="2" placeholder="e.g. Free will, slow travel, home batteries…">${nt.title}</textarea><span id="ntcount"></span></div>
-          <div class="sparks"><!--tc-ctidy--><span class="sl">Suggestions</span>${SPARKS.map(([q,th])=>`<button data-spark="${q}" data-sth="${th}">${q}</button>`).join("")}</div></div>
+          <div class="sparks sgm"><!--tc-ctidy--><!--tc-sugmenu--><button type="button" class="sgbtn" aria-expanded="false" aria-haspopup="true"><span>Suggestions</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="sgl" role="menu" hidden>${SPARKS.map(([q,th])=>`<button role="menuitem" data-spark="${q}" data-sth="${th}"><i style="background:${THEMES[th]||"#A9B0D6"}"></i><span>${q}</span><small>${th}</small></button>`).join("")}</div></div></div>
       <div class="opt"><label class="l">Picture <span class="optl">optional</span></label><div class="cover" id="ntcover">${coverHTML()}</div>
         <input type="file" id="ntfile" accept="image/*" hidden></div>
       <div class="opt"><label class="l">When</label>${seg("nw",[["now","Now"],["today","Today"],["date","Pick a date"]],nt.whenK)}
@@ -2010,4 +2010,24 @@ body.tcdrag,body.tcdrag *{cursor:grabbing!important}
 </style><script>/* tc-trow: wheel scrolls the topic row; fade hides at the end */
 document.addEventListener("wheel",e=>{const r=e.target.closest&&e.target.closest("#cpage .ntchips");if(!r||r.scrollWidth<=r.clientWidth)return;if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){r.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
 document.addEventListener("scroll",e=>{const r=e.target;if(r&&r.classList&&r.classList.contains("ntchips"))r.classList.toggle("end",r.scrollLeft+r.clientWidth>=r.scrollWidth-2)},true);
-</script><style id="tc-ntgrid">#cpage .ntgrid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important;align-items:end}#cpage .ntgrid .opt{min-width:0}#cpage .ntgrid .step,#cpage .ntgrid select{box-sizing:border-box;height:48px!important;min-height:48px;border-radius:12px!important;width:100%!important;margin:0!important}#cpage .ntgrid .step{padding:0 4px!important}#cpage .ntgrid select{padding:0 14px!important;font-size:15px!important}</style></body></html>
+</script><style id="tc-ntgrid">#cpage .ntgrid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important;align-items:end}#cpage .ntgrid .opt{min-width:0}#cpage .ntgrid .step,#cpage .ntgrid select{box-sizing:border-box;height:48px!important;min-height:48px;border-radius:12px!important;width:100%!important;margin:0!important}#cpage .ntgrid .step{padding:0 4px!important}#cpage .ntgrid select{padding:0 14px!important;font-size:15px!important}</style><style id="tc-sugmenu">
+#cpage .sparks.sgm{position:relative!important;display:block!important;margin:10px 0 0!important}
+#cpage .sgbtn{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px 0 14px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--text);font:inherit;font-size:13.5px;cursor:pointer}
+#cpage .sgbtn:hover,#cpage .sgbtn[aria-expanded="true"]{border-color:rgba(238,241,255,.35)}
+#cpage .sgbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .15s}
+#cpage .sgbtn[aria-expanded="true"] svg{transform:rotate(180deg)}
+#cpage .sgl{position:absolute;left:0;top:38px;z-index:30;min-width:300px;max-width:100%;padding:6px;border-radius:12px;background:#262C55;border:1px solid var(--line);box-shadow:0 14px 34px rgba(0,0,0,.35)}
+#cpage .sgl[hidden]{display:none}
+#cpage .sgl button{display:flex!important;align-items:center;gap:10px;width:100%;height:auto!important;min-height:40px;padding:8px 10px!important;border:0!important;border-radius:8px!important;background:none!important;color:var(--text);font:inherit;font-size:14px!important;text-align:left;cursor:pointer;white-space:normal!important}
+#cpage .sgl button:hover,#cpage .sgl button:focus-visible{background:rgba(255,255,255,.06)!important;outline:none}
+#cpage .sgl i{width:7px;height:7px;border-radius:50%;flex:none}
+#cpage .sgl span{flex:1}
+#cpage .sgl small{color:var(--mute);font-size:12px;flex:none}
+</style><script>/* tc-sugmenu */
+document.addEventListener("click",e=>{
+  const t=e.target.closest&&e.target.closest("#cpage .sgbtn");
+  document.querySelectorAll("#cpage .sgl").forEach(l=>{const b=l.parentNode.querySelector(".sgbtn");
+    const open=t&&b===t&&l.hidden; l.hidden=!open; b.setAttribute("aria-expanded",String(open));});
+},true);/* capture: the Create page stops click bubbling */
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll("#cpage .sgl:not([hidden])").forEach(l=>{l.hidden=true;const b=l.parentNode.querySelector(".sgbtn");b.setAttribute("aria-expanded","false");b.focus()})});
+</script></body></html>
