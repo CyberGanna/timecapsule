@@ -2214,3 +2214,12 @@ Open My tables|Άνοιξε τα Τραπέζια μου
 How many chairs can I save?|Πόσες καρέκλες μπορώ να κρατήσω;
 One chair per table, at up to 5 upcoming tables at a time, and never at two tables that overlap. Tables you host don't count.|Μία καρέκλα ανά τραπέζι, σε έως 5 επερχόμενα τραπέζια τη φορά, και ποτέ σε δύο τραπέζια που συμπίπτουν. Τα τραπέζια που φιλοξενείς δεν μετράνε.
 You can save chairs at up to 5 tables at a time, as long as they don't overlap.|Μπορείς να κρατάς καρέκλες σε έως 5 τραπέζια τη φορά, αρκεί να μη συμπίπτουν.
+Hate or contempt aimed at people for who they are: origin, race, nationality, religion, gender, sexuality, disability or age.|Μίσος ή περιφρόνηση προς ανθρώπους για αυτό που είναι: καταγωγή, φυλή, εθνικότητα, θρησκεία, φύλο, σεξουαλικότητα, αναπηρία ή ηλικία.
+Sexual content or nudity.|Σεξουαλικό περιεχόμενο ή γυμνό.
+Sharing someone's intimate images, real or made with AI, threatening to share them, or pressuring anyone to send them.|Να μοιράζεσαι προσωπικές εικόνες κάποιου, αληθινές ή φτιαγμένες με τεχνητή νοημοσύνη, να απειλείς ότι θα τις μοιραστείς ή να πιέζεις κάποιον να τις στείλει.
+Anything that sexualises, grooms or endangers a child. We report it to the authorities.|Οτιδήποτε σεξουαλικοποιεί, αποπλανά ή θέτει σε κίνδυνο ένα παιδί. Το αναφέρουμε στις αρχές.
+Praising or supporting terrorist or violent extremist groups, or showing graphic violence.|Να επαινείς ή να υποστηρίζεις τρομοκρατικές ή βίαιες εξτρεμιστικές ομάδες, ή να δείχνεις ωμή βία.
+Talking about your own hard times is welcome. If someone at a table seems at risk of harming themselves, report it and we will reach out with support.|Είναι ευπρόσδεκτο να μιλάς για τις δικές σου δύσκολες στιγμές. Αν κάποιος σε ένα τραπέζι φαίνεται να κινδυνεύει να κάνει κακό στον εαυτό του, ανάφερέ το και θα επικοινωνήσουμε μαζί του για να του προσφέρουμε στήριξη.
+Never share someone's surname, address, phone number, email, workplace or photos without their permission, and never threaten to.|Μη μοιράζεσαι ποτέ το επώνυμο, τη διεύθυνση, το τηλέφωνο, το email, τον χώρο εργασίας ή φωτογραφίες κάποιου χωρίς την άδειά του, και μην απειλείς ποτέ ότι θα το κάνεις.
+Be honest about your age. TimeCapsule is for people aged 16 and over.|Να λες την αλήθεια για την ηλικία σου. Το TimeCapsule είναι για άτομα 16 ετών και άνω.
+If someone threatens you or a table, report it here and tell the local police as well.|Αν κάποιος απειλήσει εσένα ή ένα τραπέζι, ανάφερέ το εδώ και ενημέρωσε και την τοπική αστυνομία.
