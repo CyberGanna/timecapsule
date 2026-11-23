@@ -1325,12 +1325,17 @@ function tdHost(){
   const t=T(),p=PROF[t.host];
   return `<div class="cc-host"><span>with</span> <b data-u="${t.host}" tabindex="0">${t.host}</b> · <span>${p[0]}</span>${p[4]?` <span class="tchip" title="Trusted host">${SHIELD}<span>Trusted</span></span>`:""}</div>`;
 }
+function tdHdImg(){ /* new table: host's picture from Create, else topic icon on topic colour */
+  const t=T();if(st.kind==="host"){let im=null;try{im=JSON.parse(sessionStorage.getItem("tc-created")||"{}").img}catch(e){}
+   return im?`<img src="${im}" alt="">`:`<div class="tcplain"><svg viewBox="0 0 24 24" aria-hidden="true">${TICON[t.topic]||TICON.Philosophy}</svg></div>`}
+  return `<img src="${TD_IMG[st.kind]||TD_IMG.open}" alt="">`;
+}
 function tdSection(){
   const t=T(),c=TOPIC_C[t.topic],m=isLive()?Math.round((Date.now()-st.liveSince)/60000):0;
   /* two sections (Karim 2026-11-23): the card on the left, people and details on the right */
   return `<section class="td tdc2${isLive()?" live":""}" style="--c:${c}">
     <article class="tdc">
-     <div class="tdhd"><img src="${TD_IMG[st.kind]}" alt="">${isLive()?`<div class="cc-hour tdhour"><i style="width:${Math.min(100,m/60*100)}%"></i></div>`:""}</div>
+     <div class="tdhd">${tdHdImg()}${isLive()?`<div class="cc-hour tdhour"><i style="width:${Math.min(100,m/60*100)}%"></i></div>`:""}</div>
      <div class="tdm">${tdTop()}<h1>${t.title}</h1>${tdHost()}
       <div class="tda">${isLive()?"":cdHTML()}${actionsHTML()}</div></div>
     </article>
@@ -1560,7 +1565,7 @@ function actionsHTML(){
     const near=isLive()||st.startAt-Date.now()<=30*60000,inv=t.invites||0;
     return `<div class="acts2"><button class="btn go" data-act="start"${near?"":" disabled"}>Start table</button></div>
       <p class="hint">${near?"Open the room when you are ready. Guests can come in after you.":"You can open the room 30 minutes before it starts. Nobody can come in before you."}${inv?` <span>${inv} ${inv===1?"invite not answered yet":"invites not answered yet"}</span>.`:""}</p>
-      <div class="htools"><h4>Host tools</h4><div class="hb"><button type="button" data-act="edit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg><span>Edit table</span></button><button type="button" data-act="invite"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 20c0-3.9 3.1-6 7-6s7 2.1 7 6M19 8v6M16 11h6"/></svg><span>Invite people</span></button><button type="button" data-act="msg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Chat with guests</span></button><button type="button" class="dz" data-act="cancel"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Cancel table</span></button></div>
+      <div class="htools"><h4>Host tools</h4><div class="hb"><button type="button" data-act="edit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg><span>Edit table</span></button><button type="button" data-act="invite"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 20c0-3.9 3.1-6 7-6s7 2.1 7 6M19 8v6M16 11h6"/></svg><span>Invite people</span></button><button type="button" class="dz" data-act="cancel"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Cancel table</span></button></div>
       ${st.confirmCancel?`<div class="cc"><p>Cancel this table? Your guests get a message right away.</p><div class="hb"><button type="button" class="dzf" data-act="cancelyes">Cancel table</button><button type="button" data-act="cancelno">Keep it</button></div></div>`:""}</div>`;
   }
   const share=st.kind==="open"?`<button class="btn" data-act="share">${I.share}<span>Invite</span></button>`:"";
@@ -1600,7 +1605,7 @@ function whoHTML(){
     if(p==="You") return `<li class="me"><span class="pa">${av("You")}</span><div><b style="cursor:default">You</b><small>${st.kind==="host"?`<i class="mt">Host</i> · `:""}Gabriele</small></div></li>`;
     const pr=PROF[p]||["",""];const role=i===0?"Host":"";
     return `<li><span class="pa" data-u="${p}" tabindex="0">${av(p)}</span><div><b data-u="${p}">${p}</b><small>${role?`<i class="mt">${role}</i> · `:""}${pr[0]}</small></div></li>`}).join("");
-  const frees=Array.from({length:Math.min(free,2)},()=>`<li class="free"><span class="pa"></span><div><b>Free chair</b></div></li>`).join("");
+  const frees=Array.from({length:free},()=>`<li class="free"><span class="pa"></span><div><b>Free chair</b></div></li>`).join("");
   if(st.past) return `<h2>${tt("Who was there")} <small>${ppl.length}</small></h2><ul class="who2">${rows}</ul>`;
   return `<h2>${isLive()?"At the table":"Who's coming"} <small>${ppl.length} / ${t.seats}</small></h2><ul class="who2">${rows}${frees}</ul>`;
 }
@@ -2210,11 +2215,22 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 .e-stage2.e-off .e-cap{font-size:15px;color:#EEF1FF}
 .e-td h1{font-family:Literata,Georgia,serif!important;font-weight:500!important;letter-spacing:-.01em!important;line-height:1.22!important;padding-bottom:.08em}
 @media (max-width:960px){.e-stage2{aspect-ratio:16/10}}
+</style><style id="tce-v3">
+.e-v3{padding-bottom:24px}.e-v3 .e-back{margin-top:24px}
+.e-v3 .td.tdc2{margin-bottom:48px}
+.v3-note{margin:0!important;padding:0!important;border:0!important;background:none!important}
+.v3-note h2{font-size:18px!important}
+.tdm .v3-tag{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F2C14E}
+.tdm .v3-tag.v3-x{color:#FF9AA5}
+.v3-off .tdhd img{filter:grayscale(1) brightness(.6)}
+.v3-off .tdm h1{color:#A9B0D6}
+.e-v3 .e-trust{margin-left:8px}
+.e-v3 .e-more{margin-top:8px}
 </style><style id="td-card-css">
 .td.tdc2{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:44px;align-items:start;padding:0;margin:24px 0 64px}
 .tdc{position:relative;border-radius:22px;overflow:hidden;background:radial-gradient(120% 70% at 0% 0%,color-mix(in srgb,var(--c) 9%,transparent),transparent 60%),#20264A;box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 12px 30px rgba(5,8,25,.25)}
 .tdc::after{content:"";position:absolute;inset:0;border:1px solid #323A6C;border-radius:inherit;pointer-events:none;z-index:4}
-.tdhd{position:relative;height:240px;overflow:hidden;background:#252B52}
+.tdhd{position:relative;height:190px;overflow:hidden;background:#252B52}
 .tdhd img{width:100%;height:100%;object-fit:cover;display:block}
 .tdhd::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,25,54,0) 55%,rgba(32,38,74,.6))}
 .tdhd .tdhour{position:absolute;left:0;right:0;top:auto;bottom:0;height:3px;background:rgba(238,241,255,.10);z-index:2}
@@ -2237,6 +2253,8 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 .tda .acts2 .lnk{justify-self:center;align-self:center}
 .tda .hint{margin-top:14px;font-size:13px;line-height:1.5}
 .tda .gate h3{margin-top:0}.tda .gate{padding:0;border:0;background:none}
+.tcplain{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(45% 65% at 18% 30%,color-mix(in srgb,var(--c) 60%,transparent),transparent 70%),radial-gradient(50% 70% at 85% 75%,rgba(124,92,255,.5),transparent 70%),radial-gradient(40% 55% at 70% 12%,rgba(23,195,200,.33),transparent 70%),radial-gradient(45% 65% at 25% 95%,color-mix(in srgb,var(--c) 36%,transparent),transparent 70%),#252B52}
+.tcplain svg{width:52px;height:52px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.92}
 .tdside{display:flex;flex-direction:column;gap:36px;min-width:0;padding-top:4px}
 .tdside h2{font-size:18px;font-weight:500;margin:0 0 14px;letter-spacing:-.2px}
 .tdside h2 small{font-size:13px;color:var(--mute);font-weight:400;margin-left:8px}
@@ -2256,17 +2274,6 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 .tds-good .gk{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media (max-width:960px){.tds-good .gk{grid-template-columns:1fr;gap:14px}}
 @media (max-width:640px){.tdside .facts2>div>div{grid-template-columns:1fr}}
-@media (max-width:960px){.td.tdc2{grid-template-columns:1fr;gap:36px}.tdhd{height:220px}}
+@media (max-width:960px){.td.tdc2{grid-template-columns:1fr;gap:36px}.tdhd{height:180px}}
 @media (max-width:640px){.td.tdc2{margin-top:16px}.tdc{border-radius:18px}.tdhd{height:170px}.tdm{padding:20px 18px 20px}.tdm h1{font-size:25px;margin-top:12px}.tdm .desc{font-size:15px}.tdside .who2{grid-template-columns:1fr 1fr}}
-</style><style id="tce-v3">
-.e-v3{padding-bottom:24px}.e-v3 .e-back{margin-top:24px}
-.e-v3 .td.tdc2{margin-bottom:48px}
-.v3-note{margin:0!important;padding:0!important;border:0!important;background:none!important}
-.v3-note h2{font-size:18px!important}
-.tdm .v3-tag{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F2C14E}
-.tdm .v3-tag.v3-x{color:#FF9AA5}
-.v3-off .tdhd img{filter:grayscale(1) brightness(.6)}
-.v3-off .tdm h1{color:#A9B0D6}
-.e-v3 .e-trust{margin-left:8px}
-.e-v3 .e-more{margin-top:8px}
 </style></body></html>
