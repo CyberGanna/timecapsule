@@ -25,6 +25,7 @@ CSS = '''<style id="tch-even">
 #tch .tch-ic .tch-n,#tch .tch-ic .tch-d{position:absolute;top:auto;right:auto;box-shadow:0 0 0 2px var(--tch-bg);background:var(--tch-teal,#17C3C8)}
 #tch .tch-ic .tch-n{left:21.5px;top:4.5px;min-width:15px;height:15px;padding:0 4px;border-radius:8px;color:#0F1530;font-size:9.5px;font-weight:700;line-height:15px;letter-spacing:0;display:block;text-align:center;font-style:normal}
 #tch .tch-ic .tch-d{left:25px;top:8px;width:8px;height:8px;border-radius:50%}
+#tch .tch-pg{display:none}
 #tch.over .tch-ic .tch-n,#tch.over .tch-ic .tch-d{box-shadow:none}
 #tch .tch-pop li.un time{color:var(--tch-teal,#17C3C8)}
 #tch .tch-pop li.un .tch-tx b::after{background:var(--tch-teal,#17C3C8)}
@@ -35,17 +36,48 @@ body .fl[aria-pressed=true] .c{color:#0E7F83}
 @media (max-width:640px){
 #tch .tch-bar{gap:8px}
 #tch .tch-ib,#tch .tch-ic{width:36px;height:36px;border-radius:10px;background:var(--tch-field);box-shadow:inset 0 0 0 1px var(--tch-line);color:var(--tch-fg)}
-#tch .tch-ib svg,#tch .tch-ic svg{width:20px;height:20px}
+#tch .tch-ic svg{width:20px;height:20px}
+#tch .tch-ib{width:36px;background:none;box-shadow:none;color:var(--tch-soft)}
+#tch .tch-ib svg{width:22px;height:22px}
 #tch .tch-ic .tch-n{left:auto;right:-6px;top:-6px}
 #tch .tch-ic .tch-d{left:auto;right:-4px;top:-4px;width:10px;height:10px}
 #tch .tch-create{width:36px;height:36px;margin-left:0}
 #tch .tch-create+.tch-ic,#tch .tch-ic+.tch-ic{margin-left:0}
 #tch .tch-me{width:36px;height:36px;margin-left:4px}
+#tch .tch-pg{display:grid;place-items:center;width:28px;height:36px;margin-left:-4px;padding:0;border:0;border-radius:8px;background:none;color:var(--tch-soft);flex:none}
+#tch .tch-pg svg{width:14px;height:14px;transition:transform .15s}
+#tch .tch-pg[aria-expanded=true] svg{transform:rotate(180deg)}
+#tch .tch-pg[aria-expanded=true],#tch .tch-pg:hover{color:var(--tch-fg)}
+#tch .tch-pages{left:max(12px,env(safe-area-inset-left,0px));right:auto;width:200px}
+#tch .tch-pages a[aria-current=page]{color:var(--tch-fg);background:var(--tch-field);box-shadow:inset 2px 0 0 var(--tch-teal,#17C3C8)}
+#tch .tch-menu[data-tchp=menu] .ph{display:none}
 }
 </style>'''
 STYLE = re.compile(r'<style id="tch-even">.*?</style>\n?', re.S)
 IC = re.compile(r'(<(?:a|button) class="tch-ic[^"]*"[^>]*>)<svg\b.*?</svg>', re.S)
 SR = re.compile(r'(<button class="tch-ib"[^>]*data-tch="search"[^>]*>)<svg\b.*?</svg>', re.S)
+PG_BTN = ('<button class="tch-pg" type="button" data-tch="pages" aria-haspopup="true" aria-expanded="false" aria-label="Pages">'
+          '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>')
+PH = re.compile(r'(?:<a class="ph" [^>]*>[^<]*</a>)+')
+def pages(s):
+    # Phone page menu next to the logo (Karim 2026-11-23): the four page links move out of the avatar menu.
+    s = re.sub(r'<button class="tch-pg".*?</button>', '', s, flags=re.S)
+    s = re.sub(r'<div class="tch-menu tch-pages".*?</div>\n?', '', s, flags=re.S)
+    i = s.find('<a class="tch-logo"')
+    m = PH.search(s)
+    if i < 0 or not m or 'data-tchp="menu"' not in s:
+        return s
+    j = s.find('</a>', i) + 4
+    s = s[:j] + PG_BTN + s[j:]
+    m = PH.search(s)
+    links = m.group(0).replace('class="ph" ', '')
+    nav = s[i:s.find('</nav>', i)]
+    cur = re.search(r'<a [^>]*aria-current="page"[^>]*>([^<]*)</a>', nav)
+    if cur:
+        links = re.sub(r'(<a [^>]*)(>%s</a>)' % re.escape(cur.group(1)), r'\1 aria-current="page"\2', links, count=1)
+    k = s.find('</header>', s.find('<div class="tch-menu" data-tchp="menu"'))
+    s = s[:k] + '<div class="tch-menu tch-pages" data-tchp="pages" hidden>' + links + '</div>\n' + s[k:]
+    return s
 changed = []
 for f in glob.glob(os.path.join(ROOT, '**/*.html'), recursive=True):
     rel = os.path.relpath(f, ROOT)
@@ -58,6 +90,7 @@ for f in glob.glob(os.path.join(ROOT, '**/*.html'), recursive=True):
     s = s.replace('<header id="tch"', CSS + '\n<header id="tch"', 1)
     s = IC.sub(lambda m: m.group(1) + (CHAT if 'data-tch="msg"' in m.group(1) else BELL), s)
     s = SR.sub(lambda m: m.group(1) + SEARCH, s)
+    s = pages(s)
     if s != o:
         open(f, 'w', encoding='utf8').write(s); changed.append(rel)
 print(len(changed)); print('\n'.join(sorted(changed)))
