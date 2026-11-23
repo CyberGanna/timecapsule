@@ -15,9 +15,9 @@ REPL = [
      '${t.img!=null?`<img alt="" src="${IMGS[t.img]}">`:' + PLAIN + '}'),
 ]
 CSS = '''<style id="tc-plain">
-.tcplain{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(45% 65% at 18% 30%,color-mix(in srgb,var(--c) 60%,transparent),transparent 70%),radial-gradient(50% 70% at 85% 75%,rgba(124,92,255,.5),transparent 70%),radial-gradient(40% 55% at 70% 12%,rgba(23,195,200,.33),transparent 70%),radial-gradient(45% 65% at 25% 95%,color-mix(in srgb,var(--c) 36%,transparent),transparent 70%),#252B52}
-.tcplain svg{width:56px;height:56px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.92}
-.pvc-hd .tcplain+*,.cok .ckph .tcplain{z-index:0}
+.tcplain{position:absolute;inset:0;z-index:1;display:grid;place-items:center;background:var(--c)}
+.tcplain svg{width:52px;height:52px;fill:none;stroke:#1B1F3B;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.cok .ckph .tcplain{z-index:1}
 </style>'''
 
 for rel in FILES:
