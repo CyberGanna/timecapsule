@@ -66,7 +66,7 @@ main .live article.tbl.cc:hover::after{border-color:color-mix(in srgb,var(--c) 4
 .cc-hour i{display:block;height:100%;background:#3DDC84;border-radius:0 3px 3px 0}
 .cc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:#C9CFF0}
 .cc-topic{display:flex;align-items:center;gap:8px;min-width:0}.cc-topic i{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
-.cc-live{font-size:12px;font-weight:600;letter-spacing:.14em;color:#3DDC84;white-space:nowrap}
+.cc-live{font-size:13px;font-weight:600;letter-spacing:.14em;color:#3DDC84;white-space:nowrap}
 .cc-live span{color:#A9B0D6;font-weight:400;letter-spacing:0;margin-left:6px}
 .cc-when{font-size:12.5px;color:#A9B0D6;white-space:nowrap}
 main .live .tbl.cc .cc-hour{border-radius:20px 20px 0 0}main .live .tbl.cc h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-family:Literata,Georgia,serif!important;font-weight:500!important;font-size:23px!important;line-height:1.28!important;padding-bottom:.12em!important;margin:16px 0 4px!important;letter-spacing:-.005em;color:#EEF1FF}
