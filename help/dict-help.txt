@@ -178,3 +178,4 @@ How many chairs can I save?|Quanti posti posso tenere?|¿Cuántos sitios puedo g
 One chair per table, at up to 5 upcoming tables at a time, and never at two tables that overlap. Tables you host don't count.|Un posto per tavolo, fino a 5 tavoli in arrivo alla volta, e mai a due tavoli che si sovrappongono. I tavoli che ospiti non contano.|Un sitio por mesa, en hasta 5 mesas próximas a la vez, y nunca en dos mesas que se solapen. Las mesas que organizas no cuentan.
 You can save chairs at up to 5 tables at a time, as long as they don't overlap.|Puoi tenere posti fino a 5 tavoli alla volta, purché non si sovrappongano.|Puedes guardar sitios en hasta 5 mesas a la vez, siempre que no se solapen.
 Drag to move|Trascina per spostare|Arrastra para mover
+Drag the picture to choose what shows.|Trascina l'immagine per scegliere cosa si vede.|Arrastra la imagen para elegir qué se ve.
