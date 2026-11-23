@@ -2223,3 +2223,4 @@ Talking about your own hard times is welcome. If someone at a table seems at ris
 Never share someone's surname, address, phone number, email, workplace or photos without their permission, and never threaten to.|Μη μοιράζεσαι ποτέ το επώνυμο, τη διεύθυνση, το τηλέφωνο, το email, τον χώρο εργασίας ή φωτογραφίες κάποιου χωρίς την άδειά του, και μην απειλείς ποτέ ότι θα το κάνεις.
 Be honest about your age. TimeCapsule is for people aged 16 and over.|Να λες την αλήθεια για την ηλικία σου. Το TimeCapsule είναι για άτομα 16 ετών και άνω.
 If someone threatens you or a table, report it here and tell the local police as well.|Αν κάποιος απειλήσει εσένα ή ένα τραπέζι, ανάφερέ το εδώ και ενημέρωσε και την τοπική αστυνομία.
+Drag to move|Σύρε για μετακίνηση
