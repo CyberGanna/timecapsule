@@ -182,3 +182,9 @@ Drag the picture to choose what shows.|Trascina l'immagine per scegliere cosa si
 Picture|Immagine|Imagen
 What would you like to talk about?|Di cosa ti piacerebbe parlare?|¿De qué te gustaría hablar?
 Say hello to|Saluta|Saluda a
+Crossing universes|Universi che si incrociano|Universos que se cruzan
+in common|in comune|en común
+book|libro|libro
+books|libri|libros
+film|film|película
+films|film|películas
