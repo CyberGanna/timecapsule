@@ -2180,7 +2180,23 @@ function tcSatHTML(t){const r=tcSatGet(t);me.mode=r.mode;me.alias=r.alias||me.al
     <p class="satn">You keep the same name until this table ends, so everyone knows who's back and the record stays clear.</p></div>`}
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("#enter");if(b)tcSatSet(window.__satT)},true);
 </script>
-<style id="td-card-css">
+<style id="tce-v2">
+.e-stage2{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:1/1;background:#252B52;isolation:isolate}
+.e-stage2::after{content:"";position:absolute;inset:0;border:1px solid #323A6C;border-radius:inherit;pointer-events:none;z-index:3}
+.e-stage2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.e-stage2::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,25,54,0) 35%,rgba(20,25,54,.88))}
+.e-stage2.e-off img{filter:grayscale(1) brightness(.6)}
+.e-st-in{position:absolute;left:0;right:0;bottom:0;padding:22px 24px 22px;display:flex;flex-direction:column;gap:12px}
+.e-faces{display:flex;justify-content:space-between;gap:6px}
+.e-faces>span,.e-faces>em{flex:0 1 40px;min-width:0;aspect-ratio:1;border-radius:50%;overflow:hidden;display:block;box-sizing:border-box}
+.e-faces svg{width:100%;height:100%;display:block}
+.e-faces>em{border:1.5px dashed rgba(238,241,255,.35)}
+.e-stage2 .e-cap{font-size:13.5px;color:#C9CFF0;text-align:center}
+.e-stage2 .e-cap b{color:#EEF1FF;font-weight:500}
+.e-stage2.e-off .e-cap{font-size:15px;color:#EEF1FF}
+.e-td h1{font-family:Literata,Georgia,serif!important;font-weight:500!important;letter-spacing:-.01em!important;line-height:1.22!important;padding-bottom:.08em}
+@media (max-width:960px){.e-stage2{aspect-ratio:16/10}}
+</style><style id="td-card-css">
 .td.tdc2{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:44px;align-items:start;padding:0;margin:24px 0 64px}
 .tdc{position:relative;border-radius:22px;overflow:hidden;background:radial-gradient(120% 70% at 0% 0%,color-mix(in srgb,var(--c) 9%,transparent),transparent 60%),#20264A;box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 12px 30px rgba(5,8,25,.25)}
 .tdc::after{content:"";position:absolute;inset:0;border:1px solid #323A6C;border-radius:inherit;pointer-events:none;z-index:4}
@@ -2210,10 +2226,11 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 .tdside{display:flex;flex-direction:column;gap:36px;min-width:0;padding-top:4px}
 .tdside h2{font-size:18px;font-weight:500;margin:0 0 14px;letter-spacing:-.2px}
 .tdside h2 small{font-size:13px;color:var(--mute);font-weight:400;margin-left:8px}
-.tdside .who2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tdside .who2{grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 12px}.tdside .who2 li{gap:10px}.tdside .who2 .pa{width:34px;height:34px}
+.tdside{gap:28px}
 .tdside .facts2{margin:0;grid-template-columns:1fr;border-top:1px solid var(--line)}
 .tdside .facts2>div:nth-child(2){display:none} /* chairs: already shown in At the table */
-.tdside .facts2>div{padding:13px 0;gap:14px}
+.tdside .facts2>div{padding:10px 0;gap:14px}
 .tdside .facts2>div>div{display:grid;grid-template-columns:110px minmax(0,1fr);column-gap:12px;flex:1}
 .tdside .facts2 dt{font-size:13.5px;color:var(--mute);margin-top:1px}
 .tdside .facts2 dd{margin:0;font-size:14.5px}
@@ -2224,20 +2241,4 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 @media (max-width:640px){.tdside .facts2>div>div{grid-template-columns:1fr}}
 @media (max-width:960px){.td.tdc2{grid-template-columns:1fr;gap:36px}.tdhd{height:220px}}
 @media (max-width:640px){.td.tdc2{margin-top:16px}.tdc{border-radius:18px}.tdhd{height:170px}.tdm{padding:20px 18px 20px}.tdm h1{font-size:25px;margin-top:12px}.tdm .desc{font-size:15px}.tdside .who2{grid-template-columns:1fr 1fr}}
-</style><style id="tce-v2">
-.e-stage2{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:1/1;background:#252B52;isolation:isolate}
-.e-stage2::after{content:"";position:absolute;inset:0;border:1px solid #323A6C;border-radius:inherit;pointer-events:none;z-index:3}
-.e-stage2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.e-stage2::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,25,54,0) 35%,rgba(20,25,54,.88))}
-.e-stage2.e-off img{filter:grayscale(1) brightness(.6)}
-.e-st-in{position:absolute;left:0;right:0;bottom:0;padding:22px 24px 22px;display:flex;flex-direction:column;gap:12px}
-.e-faces{display:flex;justify-content:space-between;gap:6px}
-.e-faces>span,.e-faces>em{flex:0 1 40px;min-width:0;aspect-ratio:1;border-radius:50%;overflow:hidden;display:block;box-sizing:border-box}
-.e-faces svg{width:100%;height:100%;display:block}
-.e-faces>em{border:1.5px dashed rgba(238,241,255,.35)}
-.e-stage2 .e-cap{font-size:13.5px;color:#C9CFF0;text-align:center}
-.e-stage2 .e-cap b{color:#EEF1FF;font-weight:500}
-.e-stage2.e-off .e-cap{font-size:15px;color:#EEF1FF}
-.e-td h1{font-family:Literata,Georgia,serif!important;font-weight:500!important;letter-spacing:-.01em!important;line-height:1.22!important;padding-bottom:.08em}
-@media (max-width:960px){.e-stage2{aspect-ratio:16/10}}
 </style></body></html>
