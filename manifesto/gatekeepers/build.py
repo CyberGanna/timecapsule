@@ -30,40 +30,45 @@ h2:first-child{margin-top:0}
 .it{position:relative;padding-left:9mm;font-size:10.4pt;line-height:1.45;margin-bottom:2.4mm}
 .it::before{content:"";position:absolute;left:0;top:.42em;width:10px;height:10px;border-radius:50%;border:2px solid var(--teal);background:#fff}
 .it b{font-family:'Sora',sans-serif;font-weight:600;font-size:9.6pt;color:var(--navy)}
-.principle{margin-top:auto;flex:none;background:var(--navy);color:#fff;border-radius:3mm;padding:6.5mm 7mm 6mm}
-.b2 h2{margin-top:9mm}.b2 p,.b2 .it{font-size:11pt}.b2 .line p{font-size:15pt}.b2 h2:first-child{margin-top:0}.b2 .line{margin-bottom:2mm}
-.principle h2{color:var(--teal);margin:0 0 3mm}
-.principle p{font-size:12pt;line-height:1.4;color:#fff;margin-bottom:2.6mm}
-.principle p.big{font-size:13.6pt;line-height:1.36;margin-bottom:3mm}
+.principle{margin-top:auto;flex:none;background:var(--navy);color:#fff;border-radius:3mm;padding:5mm 6.5mm 4.6mm}
+.b2 h2{margin-top:4.6mm}.b2 .line p{font-size:13.6pt}.b2 h2:first-child{margin-top:0}.b2 .line{margin-bottom:1mm}
+.principle h2{color:var(--teal);margin:0 0 2.4mm}
+.principle p{font-size:11.2pt;line-height:1.38;color:#fff;margin-bottom:2.2mm}
+.principle p.big{font-size:12.8pt;line-height:1.34;margin-bottom:2.4mm}
 .principle p.s{font-size:10.2pt;color:#B9BCD6;margin:0}
 """
 age = lambda n, h, ps: '<div class="age"><div class="n">%02d</div><div><h3>%s</h3>%s</div></div>' % (n, h, ''.join('<p>%s</p>' % p for p in ps))
 it = lambda a, b: '<div class="it"><b>%s</b> %s</div>' % (a, b)
 p1 = ''.join([
- '<h1>From gatekeepers <b>to the table</b></h1><div class="sub">A different way for ideas to earn trust.</div>',
+ '<h1>From gatekeepers <b>to the table</b></h1>',
  '<h2>The short version</h2>',
  '<p class="lead">For much of history, institutions controlled many of the channels through which ideas gained public recognition and legitimacy. Social media lowered the barriers to publishing, giving everyone a voice, but replaced traditional gatekeepers with algorithms and an economy driven by attention. TimeCapsule proposes a different approach: an open space where anyone can introduce an idea, but where ideas develop through conversation, questioning and disagreement. Rather than declaring what is true, it preserves the reasoning, perspectives and objections that allow ideas to be examined again.</p>',
  '<h2>The argument</h2>',
  '<div class="pair">', age(1, 'The age of gatekeepers', ['Universities, churches, publishers and the press traditionally controlled many of the major channels through which ideas gained public recognition and legitimacy. Ideas always circulated outside them too, through conversations, letters and communities, but rarely with the same reach. This provided mechanisms for scrutiny, but also restricted participation. Over time, trust in these institutions has eroded as their limitations, biases and failures have become increasingly visible.']),
  age(2, 'The age of the feed', ['Social media lowered the barriers to publishing and gave everyone a voice, and that was an important step forward. But it did not remove the gates. It replaced traditional gatekeepers with new ones: algorithms, platform owners and an attention economy. Ideas spread according to their ability to attract attention, provoke reactions or confirm existing beliefs. An idea can be open to everyone and still invisible to most. Reach became disconnected from scrutiny.']),
  '</div>',
- age(3, 'The table', ['TimeCapsule keeps the open door but brings scrutiny back, without restoring the gatekeepers. Anyone can introduce an idea. Nobody is appointed to decide in advance which ideas deserve a hearing. Instead, ideas enter small conversations where participants can question assumptions, challenge conclusions and offer different perspectives. Not everyone has equal expertise, and the table does not pretend otherwise: professional expertise, personal experience, research and critical reasoning are different forms of knowledge, and each can be brought to it.',
+ age(3, 'The table', ['TimeCapsule keeps the open door but brings scrutiny back, without restoring the gatekeepers. Anyone can introduce an idea. Nobody is appointed to decide in advance which ideas deserve a hearing. Instead, ideas enter small conversations where participants can question assumptions, challenge conclusions and offer different perspectives.',
+   'Not everyone has equal expertise, and the table does not pretend otherwise: professional expertise, personal experience, research and critical reasoning are different forms of knowledge, and each can be brought to it.',
    'Conversation does not guarantee truth. A group can reinforce the same misconception. Its value is that it makes the reasoning, the disagreements and the competing perspectives visible.',
    'What emerges is not a final verdict, but a record of the conversation: the ideas, the reasoning, the objections, the questions still unanswered and the challenges that come later. Preservation is not certification. Each new conversation can build on it, challenge it or change it.']),
 ])
 p2 = ''.join([
  '<h2>The central line</h2>',
- '<div class="line"><p>Institutions filtered who could be heard. Social media let algorithms and attention decide. TimeCapsule filters nothing at the door and lets ideas earn their weight in conversation.</p></div>',
+ '<div class="line"><p>Institutions controlled who could be heard. Social media handed visibility to algorithms and attention. TimeCapsule opens the door to everyone and lets ideas earn their weight through conversation.</p></div>',
  '<h2>Why this is already reflected in the product</h2>',
  it('Small tables:', 'You cannot simply broadcast. You have to participate and respond.'),
  it('No feed, followers or public counts:', 'Attention and popularity are not the currency of the platform.'),
  it('TimeCoins and Trusted:', 'Reputation develops through actual interactions and relationships with people who have sat at the table.'),
  it('Preserved conversations:', 'Ideas and disagreements remain accessible, allowing future participants to revisit and challenge what was previously discussed.'),
  '<h2>Ideas tested in conversation</h2>',
- '<p>A table of like-minded people can become an echo chamber. Ideas are only tested when different perspectives meet, so TimeCapsule is designed to bring them to the same table.</p>',
+ '<p>A table of like-minded people can become an echo chamber. Ideas are only genuinely tested when different perspectives meet. TimeCapsule is designed to bring those perspectives to the same table.</p>',
  '<h2>What makes TimeCapsule different</h2>',
- '<p>It isn\'t simply that people talk. It is that conversations become part of a continuing, revisitable record of how ideas are questioned, developed and understood.</p>',
- '<div class="principle"><h2>The principle</h2><p class="big">An idea doesn\'t become valuable because people agree with it. It becomes more valuable when people have had the opportunity to examine it.</p><p>We are not building a platform that decides what is true. We are building a platform where ideas have to meet other people before they become part of a shared record.</p>'
+ '<p>It isn\'t simply that people talk. It is the combination of three things:</p>',
+ it('Open participation:', 'Anyone can introduce an idea.'),
+ it('Structured discussion among peers:', 'Ideas are questioned, challenged and developed through conversation.'),
+ it('A persistent record:', 'Reasoning, perspectives and disagreements are carried forward, allowing future conversations to build on or challenge what came before.'),
+ '<p>Conversations become part of a continuing, revisitable record of how ideas are questioned, developed and understood.</p>',
+ '<div class="principle"><h2>The principle</h2><p class="big">An idea doesn\'t become valuable because people agree with it. It becomes more valuable when people have the opportunity to examine it.</p><p>We are not building a platform that decides what is true. We are building a platform where ideas meet other people, are questioned and developed, and become part of a shared, evolving record.</p>'
  '<p class="s">TimeCapsule doesn\'t determine what people should think.<br>It creates the conditions for people to think together.</p></div>',
 ])
 def page(n, b):
