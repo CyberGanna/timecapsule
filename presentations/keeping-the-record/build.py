@@ -100,7 +100,7 @@ td:last-child{width:150px;padding-right:0}
 .note{position:absolute;left:104px;bottom:84px;font-size:14px;color:var(--muted)}
 """
 
-TOTAL = 9
+TOTAL = 11
 
 
 def slide(n, body, dark=False, cls=''):
@@ -144,8 +144,18 @@ S.append(slide(4, '<div class="kick">01 &nbsp;Philosophy</div>'
                '</ul>'
                '<div class="quote">A conversation can become an enduring contribution: something to revisit, build on and pass forward.</div>'))
 
+# 5 continuity
+S.append(slide(5, '<div class="kick">01 &nbsp;Philosophy</div>'
+               '<h1>Understanding develops <b>between people</b> and <b>across generations</b>.</h1>'
+               '<div class="three">'
+               '<div class="card"><b>An archive</b><p>keeps what happened.</p></div>'
+               '<div class="card"><b>A knowledge base</b><p>keeps what was learned.</p></div>'
+               '<div class="card"><b>TimeCapsule</b><p>keeps how understanding grew: the questions, the disagreements and the experiences behind it.</p></div>'
+               '</div>'
+               '<div class="quote">Never frozen. What one conversation leaves open can start the next.</div>'))
+
 # 5 the risk
-S.append(slide(5, '<div class="kick">The risk, honestly</div>'
+S.append(slide(6, '<div class="kick">The risk, honestly</div>'
                '<h1>Where saving can scare people away</h1>'
                '<ul class="list">'
                '<li><b>Self-censorship.</b> Work, family, health, or an opinion you might regret later.</li>'
@@ -155,37 +165,46 @@ S.append(slide(5, '<div class="kick">The risk, honestly</div>'
                '</ul>'))
 
 # 6 experience
-S.append(slide(6, '<div class="kick">02 &nbsp;Experience</div>'
+S.append(slide(7, '<div class="kick">02 &nbsp;Experience</div>'
                '<h1>How people can feel safe speaking freely</h1>'
                '<ul class="list">'
-               '<li><b>Clear before you sit down.</b> &ldquo;This table is saved&rdquo; on the invite and the Table page, not only in the Terms.</li>'
+               '<li><b>Clear before you sit down.</b> Recording is set in the table settings, so everyone knows the conditions before joining.</li>'
                '<li><b>Visible while you talk.</b> A calm marker on the Live Table, never hidden.</li>'
                '<li><b>Off the record.</b> One tap for &ldquo;don&rsquo;t keep this part&rdquo;, so people can go deeper.</li>'
                '<li><b>Words, not faces.</b> Keep the transcript and notes, never video or audio, and say so plainly.</li>'
                '</ul>'))
 
+# 8 autonomy
+S.append(slide(8, '<div class="kick">03 &nbsp;Rules</div>'
+               '<h1>Taking part never means <b>giving up ownership</b> of what you said.</h1>'
+               '<div class="two">'
+               '<div class="card v"><h3>Three separate choices</h3><p>Recording a conversation.</p><p>Keeping it.</p><p>Sharing it beyond the table.</p></div>'
+               '<div class="card t"><h3>Yours to change</h3><p>Take part under your name, anonymously, or not recorded.</p><p>Change your mind before, during or after.</p></div>'
+               '</div>'
+               '<div class="quote">Participation is a contribution, not a resource the platform acquires.</div>'))
+
 # 7 rules
 rows = [
-    ('Recorded', 'The host decides when creating the table. Private tables start with saving off.', 'prop', 'Proposal'),
-    ('Left out', 'Anyone at the table can leave their words out of the saved conversation. The host sees how many, not who.', 'on', 'In the product'),
-    ('During the table', 'A switch on the Live Table to leave your words out while it happens.', 'open', 'Still open'),
-    ('Kept', 'Edit or delete your own lines after the table ends.', 'prop', 'Proposal'),
-    ('Shared', 'Open tables go to Conversations. Private tables stay with the people who were there.', 'prop', 'Proposal'),
+    ('Recorded', 'Set in advance in the table settings. Everyone sees it before joining.', 'prop', 'To build'),
+    ('Kept', 'Separate from recording. Anyone can leave their words out of what is kept.', 'open', 'Partly built'),
+    ('Named', 'Under your name, anonymously, or not recorded at all.', 'prop', 'To build'),
+    ('Reconsidered', 'Before, during or after: change how you are named, or withdraw your words.', 'open', 'Partly built'),
+    ('Shared', 'Kept within the community by default. Sharing wider needs a separate agreement.', 'prop', 'To build'),
     ('Used', 'Conversations are never used to train AI.', 'on', 'Decided'),
 ]
 tr = ''.join('<tr><td>%s</td><td>%s</td><td><span class="tag %s">%s</span></td></tr>' % r for r in rows)
-S.append(slide(7, '<div class="kick">03 &nbsp;Rules</div>'
+S.append(slide(9, '<div class="kick">03 &nbsp;Rules</div>'
                '<h1>Who controls what is recorded, kept and shared</h1>'
                '<table><thead><tr><th>What</th><th>Rule</th><th>Status</th></tr></thead><tbody>%s</tbody></table>' % tr, cls='wide'))
 
 # 8 central question
-S.append(slide(8, '<div class="kick">The question</div>'
+S.append(slide(10, '<div class="kick">The question</div>'
                '<h1>Can we create a culture in which people <b>want</b> their conversations to be preserved, without feeling that they are <b>being watched</b>?</h1>'
                '<div class="lead">Being watched is when someone else keeps a record of you. Preserving is when you choose to give it. The difference is control.</div>',
                dark=True, cls='q'))
 
 # 9 next step
-S.append(slide(9, '<div class="kick">Next step</div>'
+S.append(slide(11, '<div class="kick">Next step</div>'
                '<h1>Test it with a small pilot before we decide</h1>'
                '<div class="grid2"><ul class="list">'
                '<li><b>Two or three founding hosts.</b> A mix of Open and Private tables.</li>'
