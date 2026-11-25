@@ -1,4 +1,4 @@
-"""Tables page: a "My tables" chip at the end of the day filters (Karim 2026-11-18). Idempotent, marker "tc-mine".
+"""Tables page: a "My tables" chip at the end of the day filters (Gabriele 2026-11-18). Idempotent, marker "tc-mine".
 Shows only upcoming tables you host or saved a chair at, in the same cards. Sample: you saved chairs at
 "Is free will an illusion?" (1) and "Stoicism for hard times" (8), as in My tables."""
 import os, json

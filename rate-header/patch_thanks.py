@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: the "Thanks for your feedback" screen header is too big, especially the coin logo.
+"""Gabriele 2026-11-23: the "Thanks for your feedback" screen header is too big, especially the coin logo.
 Coin shown plain like the "Leave without a tip?" dialog (52px, no teal ring), smaller title, tighter spacing. Re-runnable (replaces block "tc-ratethanks")."""
 import os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

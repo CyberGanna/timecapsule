@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: the "Table ended" (Rate and Tip) header gets the new graphic, like the join sheet preview:
+"""Gabriele 2026-11-23: the "Table ended" (Rate and Tip) header gets the new graphic, like the join sheet preview:
 - "Table ended" is quiet text, no grey pill
 - the round topic disc becomes the list-row tile (64px rounded, topic glow + white topic icon)
 - title left-aligned next to the tile; under it: topic dot + topic · Today · 58 min · 7 people

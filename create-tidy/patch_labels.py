@@ -1,4 +1,4 @@
-"""Karim 2026-11-22: bigger field titles in Create a table (Topic, question, Picture, When, Who can join, Seats, Language, Host as...).
+"""Gabriele 2026-11-22: bigger field titles in Create a table (Topic, question, Picture, When, Who can join, Seats, Language, Host as...).
 15.5px, weight 500, full text colour; "optional" stays small and muted. Idempotent, marker "tc-labels"."""
 import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

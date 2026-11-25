@@ -1,4 +1,4 @@
-"""Karim 2026-11-22: Seats and Language boxes in Create a table are the same size (height 48, radius 12, equal columns).
+"""Gabriele 2026-11-22: Seats and Language boxes in Create a table are the same size (height 48, radius 12, equal columns).
 Idempotent, marker "tc-ntgrid"."""
 import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

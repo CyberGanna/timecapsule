@@ -1,4 +1,4 @@
-"""Send in a chat opens a new message with the table's invite card attached; you pick who gets it (Karim 2026-11-18).
+"""Send in a chat opens a new message with the table's invite card attached; you pick who gets it (Gabriele 2026-11-18).
 Chats: #compose&q=<title>&th=<topic>&when=<label>&free=N. Idempotent, marker "tc-compose". Run after invite-picker/patch.py and create-success/patch_back.py."""
 import os, sys, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

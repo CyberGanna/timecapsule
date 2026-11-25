@@ -1,4 +1,4 @@
-"""Karim 2026-11-19: one hover for every stat link: a soft box, label turns white (was teal text on two, gold box on Tips). Idempotent."""
+"""Gabriele 2026-11-19: one hover for every stat link: a soft box, label turns white (was teal text on two, gold box on Tips). Idempotent."""
 import subprocess
 def files(p): return subprocess.run("grep -rlF '"+p+"' --include=*.html --include=*.js .",shell=True,capture_output=True,text=True).stdout.split()
 R=[('.lbstats .lbsl{cursor:pointer}.lbstats .lbsl:hover dd,.lbstats .lbsl:hover dt{color:#17C3C8}','.lbstats .lbsl{cursor:pointer;position:relative}.lbstats .lbsl,.lbstats .coinstat{border-radius:0!important;background:none!important}.lbstats .lbsl::before,.lbstats .coinstat::before{content:"";position:absolute;inset:-4px 6px;border-radius:8px;pointer-events:none}.lbstats .lbsl:hover::before,.lbstats .coinstat:hover::before{background:rgba(255,255,255,.06)}.lbstats .lbsl:hover dt,.coinstat:hover dt{color:#EEF1FF!important}'),

@@ -1345,7 +1345,7 @@ function tdHdImg(){ /* new table: host's picture from Create, else topic icon on
 }
 function tdSection(){
   const t=T(),c=TOPIC_C[t.topic],m=isLive()?Math.round((Date.now()-st.liveSince)/60000):0;
-  /* two sections (Karim 2026-11-23): the card on the left, people and details on the right */
+  /* two sections (Gabriele 2026-11-23): the card on the left, people and details on the right */
   return `<section class="td tdc2${isLive()?" live":""}" style="--c:${c}">
     <article class="tdc">
      <div class="tdhd">${tdHdImg()}${isLive()?`<div class="cc-hour tdhour"><i style="width:${Math.min(100,m/60*100)}%"></i></div>`:""}</div>
@@ -1447,7 +1447,7 @@ function setTimes(){const now=Date.now();
   st.startAt=Math.ceil((now+134*60000)/3e5)*3e5; /* about 2h 15m from now, on a 5-minute mark */
   st.liveSince=now-41*60000;}
 setTimes();
-/* tc-mt: #t=N opens one of your tables from My tables (Karim 2026-11-18) */
+/* tc-mt: #t=N opens one of your tables from My tables (Gabriele 2026-11-18) */
 const MT={"1": {"you": "in", "live": true}, "2": {"title": "What do we owe strangers?", "topic": "Philosophy", "host": "You", "seats": 8, "lang": "English", "transcript": true, "people": ["You", "Amara", "Yuki", "Kofi", "Sofia", "David"], "talk": "Amara", "slug": "owe-strangers", "inMin": 25, "invites": 1, "desc": "Neighbours, newcomers, the person next to you on the train. We ask how far kindness should reach when nobody is watching, and what a stranger can fairly expect from us."}, "3": {"title": "Stoicism for hard times", "topic": "Philosophy", "host": "Marco", "seats": 10, "lang": "English", "transcript": true, "people": ["Marco", "Gregory", "Mia", "David", "Yuki", "Priya", "Jonas", "Elif"], "talk": "Marco", "slug": "stoicism-marco", "inDays": 1, "hh": [18, 30], "you": "in", "desc": "Seneca, Epictetus and Marcus Aurelius wrote for difficult days. Bring one moment that tested you, and we look at what the Stoics would have done with it."}, "4": {"title": "Stoics at the kitchen table", "topic": "Philosophy", "host": "You", "seats": 6, "lang": "English", "transcript": false, "people": ["You", "Tom", "Ana"], "talk": "Tom", "slug": "stoics-kitchen", "inDays": 2, "hh": [19, 0], "invites": 2, "desc": "An open circle about everyday Stoicism: cooking, chores and the small irritations of home. We take turns, no reading needed."}};
 Object.assign(MT,{"5": {"title": "Who writes history?", "topic": "History", "host": "Omar", "seats": 6, "lang": "English", "transcript": true, "people": ["Omar", "Priya", "Tom", "Sofia", "Kofi", "Elif"], "talk": "Omar", "slug": "who-writes-history", "inDays": 3, "hh": [17, 0], "you": "wait", "waitPos": 2, "desc": "Winners, archivists, grandmothers at the kitchen table. We ask whose stories get kept, whose get lost, and what we each would want remembered."}, "11": {"title": "Where is home?", "conv": "where-home", "topic": "Home", "host": "Yuki", "lang": "English", "transcript": true, "saved": true, "rated": true, "you": "in", "people": ["Yuki", "Lena", "You", "Omar", "Ana", "Jonas"], "slug": "where-is-home", "past": -1, "hh": [20, 0], "notes": ["Home might be a person, not a place. (Lena)", "Ask Yuki for the name of the tea house in Kyoto.", "Keep: 'You can be homesick for a place you never lived.'"], "desc": "The house you grew up in, the city you chose, the people who make a place feel right. We share where home is for us now, and how it changed."}, "12": {"title": "Is happiness a skill?", "conv": "happiness-skill", "topic": "Philosophy", "host": "You", "lang": "English", "transcript": true, "saved": true, "people": ["You", "Mia", "Kofi", "Elif", "Omar", "Yuki", "Amara", "Gregory"], "slug": "happiness-skill", "past": -2, "hh": [19, 0], "score": 4.8, "coins": 9, "notes": ["Next time open with the 'two lists' exercise.", "Kofi's point about gratitude and envy: follow up."], "desc": "Can we practise being happy, the way we practise an instrument? We try a few small exercises and talk about what really changed for us."}, "13": {"title": "Green technology versus nuclear", "conv": "green-nuclear", "topic": "Energy", "host": "Lena", "lang": "English", "transcript": true, "saved": true, "rated": false, "you": "in", "people": ["Lena", "Kofi", "David", "Ana", "You"], "slug": "green-vs-nuclear", "past": -5, "hh": [18, 0], "notes": ["Look up the Finnish storage project David mentioned."], "desc": "Solar, wind, storage or nuclear: what gets us to clean energy fastest? Bring one fact that surprised you."}, "14": {"title": "Are we free to change who we are?", "topic": "Philosophy", "host": "You", "lang": "English", "transcript": true, "saved": false, "left": 6, "people": ["You", "Mia", "Kofi", "Elif", "Omar", "Amara"], "slug": "free-to-change", "past": -1, "hh": [19, 30], "score": 4.7, "coins": 7, "notes": [], "desc": "Habits, character, the stories others tell about us. We ask how much of who we are is ours to change, and what it takes."}});/* tc-mt2 */
 (function(){const m=(location.hash||"").match(/[#&]t=(\d+)/),d=m&&MT[m[1]];if(!d)return;
@@ -1458,7 +1458,7 @@ Object.assign(MT,{"5": {"title": "Who writes history?", "topic": "History", "hos
   if(d.live)st.time="live";
   if(d.inMin)st.startAt=Math.ceil((Date.now()+d.inMin*60000)/3e5)*3e5;
   if(d.inDays){const x=new Date();x.setDate(x.getDate()+d.inDays);x.setHours(d.hh[0],d.hh[1],0,0);st.startAt=+x}})();
-/* tc-new: the table you just created (Karim 2026-11-18) */
+/* tc-new: the table you just created (Gabriele 2026-11-18) */
 (function(){const h=new URLSearchParams((location.hash||"").slice(1));if(!h.has("new"))return;
   const q=h.get("q")||"What you want to discuss";
   TABLES.host={title:q,topic:h.get("th")||"Philosophy",host:"You",seats:+h.get("seats")||8,lang:h.get("tl")||"English",transcript:h.get("tr")!=="0",
@@ -1685,7 +1685,7 @@ function showU(el){
   UC.style.left=x+"px";UC.style.top=Math.max(12,y)+"px";
 }
 function hideU(){UC.hidden=true;ucFor=null}
-const HOV=false; /* click only (Karim 2026-11-19) */
+const HOV=false; /* click only (Gabriele 2026-11-19) */
 if(HOV){document.addEventListener("mouseover",e=>{const el=e.target.closest("[data-u]");if(el){clearTimeout(ucT);if(ucFor!==el)showU(el)}else if(!e.target.closest(".ucard")&&ucFor){clearTimeout(ucT);ucT=setTimeout(hideU,180)}})}
 document.addEventListener("click",e=>{const el=e.target.closest("[data-u]");if(el){e.preventDefault();ucFor===el&&!HOV?hideU():showU(el);return}if(!e.target.closest(".ucard"))hideU()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")hideU();if((e.key==="Enter"||e.key===" ")&&e.target.dataset&&e.target.dataset.u){e.preventDefault();showU(e.target)}});
@@ -2289,7 +2289,7 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 .tdside .facts2>div{padding:10px 0;gap:14px}
 .tdside .facts2>div:last-child{border-bottom:0}
 .tdc2.live .tda .hint{display:none}
-.td.tdc2{align-items:stretch}.tdc{display:flex;flex-direction:column}.tdm{flex:1;display:flex;flex-direction:column}.tdm .tda{margin-top:auto}.tdm .cc-host{margin-bottom:24px}.tds-good{align-self:start} /* Karim 2026-11-23: no camera/turns line under Join table */
+.td.tdc2{align-items:stretch}.tdc{display:flex;flex-direction:column}.tdm{flex:1;display:flex;flex-direction:column}.tdm .tda{margin-top:auto}.tdm .cc-host{margin-bottom:24px}.tds-good{align-self:start} /* Gabriele 2026-11-23: no camera/turns line under Join table */
 .tdside .facts2>div>div{display:grid;grid-template-columns:110px minmax(0,1fr);column-gap:12px;flex:1}
 .tdside .facts2 dt{font-size:13.5px;color:var(--mute);margin-top:1px}
 .tdside .facts2 dd{margin:0;font-size:14.5px}

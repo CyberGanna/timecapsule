@@ -1,4 +1,4 @@
-"""Karim 2026-11-19: person stats everywhere (pop-up preview, profile header, Rate and tip host preview)
+"""Gabriele 2026-11-19: person stats everywhere (pop-up preview, profile header, Rate and tip host preview)
 = Tables · Conversations · TimeCoins received (was Tables · Feedbacks · TimeCoins). Idempotent; run on built pages and sources."""
 import re,sys,json,subprocess
 FILES=sys.argv[1:] or subprocess.run("grep -rlE 'dt>Feedbacks</dt' --include=*.html --include=*.js .",shell=True,capture_output=True,text=True).stdout.split()

@@ -1,4 +1,4 @@
-"""Karim 2026-11-22 "a bit messy": picture row in Create a table tidied.
+"""Gabriele 2026-11-22 "a bit messy": picture row in Create a table tidied.
 Thumbnail on the left; on the right one quiet line "Drag the picture to choose what shows" and a small Remove link.
 Idempotent, marker "tc-cvtidy". Run after photo-pos/patch.py."""
 import os, re, json

@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: Live Table top bar.
+"""Gabriele 2026-11-23: Live Table top bar.
 1) LIVE mark like the Tables page cards: green LIVE text + pulsing dot, no filled box; elapsed time quiet next to it.
 2) Language switch (EN|IT|ES|EL) moves from the header into the prototype bar, so the title gets the room.
 Idempotent: re-run after rebuilding live-table/timecapsule-live-table.html."""
@@ -11,7 +11,7 @@ n='<span class="lpill" data-noi18n><i></i><b>Live</b><span id="clock">41:00</spa
 assert s.count(o)==1; s=s.replace(o,n)
 o='document.getElementById("clock").textContent=`Live · ${'
 assert s.count(o)==1; s=s.replace(o,'document.getElementById("clock").textContent=`${')
-CSS='''<style id="tc-live-topbar">/* Karim 2026-11-23: LIVE as on the cards, language in the prototype bar */
+CSS='''<style id="tc-live-topbar">/* Gabriele 2026-11-23: LIVE as on the cards, language in the prototype bar */
 .lpill{background:none;padding:0;border-radius:0;gap:8px;color:#3DDC84;font-size:13px;font-weight:700;letter-spacing:.1em;white-space:nowrap}
 .lpill i{width:8px;height:8px;background:#3DDC84;position:relative;animation:none}
 .lpill i::after{content:"";position:absolute;inset:0;border-radius:50%;background:#3DDC84;animation:tclpulse 1.8s ease-out infinite}

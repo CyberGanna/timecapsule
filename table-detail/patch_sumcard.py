@@ -1,4 +1,4 @@
-"""Karim 2026-11-22 "big dot again": the Join / Welcome back / Save a chair sheets on the Table page showed a round orb.
+"""Gabriele 2026-11-22 "big dot again": the Join / Welcome back / Save a chair sheets on the Table page showed a round orb.
 Now they use the same card look as the Tables page sheets (#170): the table's picture (or topic colour + icon) across the top,
 then topic, title in Literata, "with host · country". Idempotent, marker "tc-sumcard"."""
 import os

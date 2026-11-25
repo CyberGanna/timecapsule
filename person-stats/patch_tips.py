@@ -1,4 +1,4 @@
-"""Karim 2026-11-19: "TimeCoins received" label is too long -> "Tips" (gold number = TimeCoins received). Run after patch.py. Idempotent."""
+"""Gabriele 2026-11-19: "TimeCoins received" label is too long -> "Tips" (gold number = TimeCoins received). Run after patch.py. Idempotent."""
 import re,json,subprocess
 FILES=subprocess.run("grep -rlF '<dt>TimeCoins received</dt>' --include=*.html --include=*.js .",shell=True,capture_output=True,text=True).stdout.split()
 T={"Tips":["Mance","Propinas","Φιλοδωρήματα"]}

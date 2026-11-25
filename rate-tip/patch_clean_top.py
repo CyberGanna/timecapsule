@@ -1,4 +1,4 @@
-"""Rate and tip pop-up: calmer top (Karim 2026-11-19, "this part is a mess").
+"""Rate and tip pop-up: calmer top (Gabriele 2026-11-19, "this part is a mess").
 Header = "Table ended" + close only (no truncated "Thanks for joining", language switch moved to the
 page corner, hidden inside My tables); table block centred without the gradient box. Idempotent."""
 import sys

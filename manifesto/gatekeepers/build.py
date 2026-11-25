@@ -1,4 +1,4 @@
-"""Two-page PDF (US Letter, portrait): From gatekeepers to the table (Karim's positioning text, public version).
+"""Two-page PDF (US Letter, portrait): From gatekeepers to the table (Gabriele's positioning text, public version).
 Run: python3 build.py && node render.js   -> ../From-Gatekeepers-to-the-Table.pdf
 Reuses manifesto/src (base.css, fonts, cut-out logo)."""
 import sys, os

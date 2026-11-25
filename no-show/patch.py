@@ -1,4 +1,4 @@
-"""No-show rule (Karim approved 2026-11-22):
+"""No-show rule (Gabriele approved 2026-11-22):
 - Notifications page: the "Starting in 10 min" reminder gets a "Can't make it?" button that gives the chair back.
 - FAQ: "What if I can't make it?" mentions the button and no penalty; new question "What if I don't show up?".
 - Guides, Save a chair: a line on the 10-minute release.

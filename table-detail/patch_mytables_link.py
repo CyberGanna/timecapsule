@@ -1,4 +1,4 @@
-"""Karim 2026-11-18: an upcoming table in My tables opens the full Table page instead of the "Manage table" pop-up.
+"""Gabriele 2026-11-18: an upcoming table in My tables opens the full Table page instead of the "Manage table" pop-up.
 
 Patches (idempotent, marker "tc-mt"):
   table-detail/timecapsule-table.html  #t=N shows one of your tables from My tables; host view with a host bar
@@ -89,7 +89,7 @@ def patch_table():
     s = rep(s, 'const TABLES={', 'Object.assign(PROF,' + json.dumps(PROF_ADD) + ');\nconst TABLES={')
     # #t=N: one of your tables from My tables
     s = rep(s, 'setTimes();\nconst T=()=>TABLES[st.kind];',
-            'setTimes();\n/* tc-mt: #t=N opens one of your tables from My tables (Karim 2026-11-18) */\nconst MT=' + json.dumps(MT) + ''';
+            'setTimes();\n/* tc-mt: #t=N opens one of your tables from My tables (Gabriele 2026-11-18) */\nconst MT=' + json.dumps(MT) + ''';
 (function(){const m=(location.hash||"").match(/[#&]t=(\\d+)/),d=m&&MT[m[1]];if(!d)return;st.mt=+m[1];
   if(d.host==="You"){st.kind="host";TABLES.host=d}else{if(d.title)TABLES.open=Object.assign({},TABLES.open,d);st.saved=d.you==="in"}
   if(d.live)st.time="live";
@@ -138,7 +138,7 @@ def patch_mytables():
     s = open(MP, encoding='utf8').read()
     if 'tc-mt:' in s:
         print('my tables already patched'); return
-    go = 'const TPAGE=id=>[1,2,3,4].includes(id)&&byId(id)&&!byId(id).past&&!byId(id).cancelled; /* tc-mt: these open the Table page (Karim 2026-11-18) */\nconst goTable=id=>{top.location.href=(window.TCI18N?TCI18N.u:(x=>x))("../../table-detail/timecapsule-table.html#t="+id)};\n'
+    go = 'const TPAGE=id=>[1,2,3,4].includes(id)&&byId(id)&&!byId(id).past&&!byId(id).cancelled; /* tc-mt: these open the Table page (Gabriele 2026-11-18) */\nconst goTable=id=>{top.location.href=(window.TCI18N?TCI18N.u:(x=>x))("../../table-detail/timecapsule-table.html#t="+id)};\n'
     s = rep(s, 'function fromHash(){', go + 'function fromHash(){')
     s = rep(s, 'function fromHash(){const m=/^#t-(\\d+)$/.exec(location.hash);const t=m&&byId(+m[1]);if(t&&!t.cancelled){',
             'function fromHash(){const m=/^#t-(\\d+)$/.exec(location.hash);const t=m&&byId(+m[1]);if(t&&TPAGE(t.id)){goTable(t.id);return}if(t&&!t.cancelled){')

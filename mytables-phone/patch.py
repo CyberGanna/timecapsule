@@ -1,14 +1,14 @@
-"""My tables on phones: a calmer, shorter row (Karim 2026-11-22, "Way too busy on mobile. Let's simplify.").
+"""My tables on phones: a calmer, shorter row (Gabriele 2026-11-22, "Way too busy on mobile. Let's simplify.").
 Phones only (max-width 640px); desktop and tablet unchanged.
 - Date and time on one small line at the top, with the ... menu at its right.
 - No coloured topic icon tile; the title uses the full width.
 - Topic and role stay on one small line under the title.
 - No avatar stack; only the short people line (e.g. "5 guests · Not saved").
 - Main button at the BOTTOM right of each table, with ... after it, so every action sits
-  on the right edge like the desktop column (Karim 2026-11-22: option A, then "A but bottom right", then
+  on the right edge like the desktop column (Gabriele 2026-11-22: option A, then "A but bottom right", then
   "fit them aligned with last line": button on the same line as the people line).
 - The prototype switch at the bottom drops its PROTOTYPE label and gets smaller.
-Labels (Karim 2026-11-22, "to save space you can lose the 'to' in both buttons"), all widths:
+Labels (Gabriele 2026-11-22, "to save space you can lose the 'to' in both buttons"), all widths:
   "Open the conversation" -> "Open conversation", "Save to Conversations" -> "Save conversation".
 Idempotent: re-run after any rebuild of My tables (after my-tabs/patch.py).  python3 mytables-phone/patch.py
 """

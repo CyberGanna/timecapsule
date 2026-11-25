@@ -1,4 +1,4 @@
-"""Karim 2026-11-22 "use this format": the Table page sheets (Ready to join? / Welcome back / Save a chair) show the table
+"""Gabriele 2026-11-22 "use this format": the Table page sheets (Ready to join? / Welcome back / Save a chair) show the table
 as a compact row like the Tables page list: a rounded tile (picture, or white topic icon on the topic-colour glow),
 then the title and the topic with its dot. Replaces the wide card from patch_sumcard.py. Idempotent, marker "tc-sumrow"."""
 import os, re

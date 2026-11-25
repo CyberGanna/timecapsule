@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: Chat and Follow on the person pop-up look the same as on the Profile page
+"""Gabriele 2026-11-23: Chat and Follow on the person pop-up look the same as on the Profile page
 (rounded rectangle radius 10, 34px, light fill, icon + word: violet chat icon "Chat", teal person icon "Follow").
 Idempotent, marker "tc-popbtn". Re-run after rebuilding pages with the person pop-up."""
 import os

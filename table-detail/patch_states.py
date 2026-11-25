@@ -1,5 +1,5 @@
 """Table page states Full and Cancelled (prototype bar) built on the Open table template
-(Karim 2026-11-23): photo card on the left with the state message where the buttons go,
+(Gabriele 2026-11-23): photo card on the left with the state message where the buttons go,
 Who's coming + Details on the right, Tables with free chairs below.
 Idempotent, marker "tce-v3". Run after patch_cardlook.py (uses its CSS and TD_IMG)."""
 import os, re

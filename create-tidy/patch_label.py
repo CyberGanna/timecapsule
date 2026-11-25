@@ -1,4 +1,4 @@
-"""Karim 2026-11-22: Create a table question label "What would you like to talk about?" (was "What do you want to discuss?").
+"""Gabriele 2026-11-22: Create a table question label "What would you like to talk about?" (was "What do you want to discuss?").
 Idempotent."""
 import os, re, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

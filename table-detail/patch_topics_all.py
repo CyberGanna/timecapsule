@@ -1,4 +1,4 @@
-"""Karim 2026-11-22: a new table with a topic the Table page didn't know (Religion, Craft, Travel, Science)
+"""Gabriele 2026-11-22: a new table with a topic the Table page didn't know (Religion, Craft, Travel, Science)
 showed a navy header with a dark Philosophy icon. Give the Table page every topic's colour and icon,
 copied from the Tables page (THEMES + TICON). Idempotent, marker "tc-alltopics". Re-run after topic-icons/apply.py."""
 import os, re

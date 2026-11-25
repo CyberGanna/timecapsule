@@ -1,13 +1,13 @@
 """Create a table form: the idea chips under "What do you want to discuss?"
 and the alias picker chips are labelled "Suggestions" instead of
-"From your k▪universe" / "Ideas from your k▪universe" (Karim 2026-11-22).
+"From your k▪universe" / "Ideas from your k▪universe" (Gabriele 2026-11-22).
 Usage: python3 suggestions/patch.py <page.html> ...  (idempotent)"""
 import sys
 OLD='<span class="sl">From your <b class="kb">k▪universe</b></span>'
 NEW='<span class="sl">Suggestions</span>'
 KEY='"From your":["Dal tuo","De tu","Από το"]'
 ADD=KEY+',"Suggestions":["Suggerimenti","Sugerencias","Προτάσεις"]'
-# Alias picker (join/rejoin a table): same label (Karim 2026-11-22)
+# Alias picker (join/rejoin a table): same label (Gabriele 2026-11-22)
 OLD2='<span class="kfrom">Ideas from your <b>k▪universe</b></span>'
 NEW2='<span class="kfrom">Suggestions</span>'
 KEY2='"Ideas from your":["Idee dal tuo","Ideas de tu","Ιδέες από το"]'

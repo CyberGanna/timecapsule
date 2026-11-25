@@ -1,4 +1,4 @@
-"""'Your table is open!': title under the heading, no extra copy; gold countdown for later tables, green "Live now" for now (Karim 2026-11-18).
+"""'Your table is open!': title under the heading, no extra copy; gold countdown for later tables, green "Live now" for now (Gabriele 2026-11-18).
 Idempotent, marker "tc-cok4". Run after patch_tidy.py."""
 import os, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

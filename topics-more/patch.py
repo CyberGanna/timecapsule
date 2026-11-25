@@ -1,4 +1,4 @@
-"""More table topics (Karim 2026-11-23, thread "Sort Clubhouse topics list").
+"""More table topics (Gabriele 2026-11-23, thread "Sort Clubhouse topics list").
 Adds Society, Wellbeing, Books & Films, Work, Languages, Art and Music as table topics:
 colour (THEMES), icon (TICON), IT/ES/EL names in every page's embedded i18n dict, the i18n
 source dicts, and one sample table per new topic on the Tables page. Idempotent.

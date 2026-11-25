@@ -1,6 +1,6 @@
 # Texts on preserving and recording conversations
 
-Shared by Karim in the project chat on 2026-11-25, to keep in mind for the argument for preserving and recording conversations. Wording as he sent it, except: paragraphs that were pasted twice appear once, and the name is written "TimeCapsule".
+Shared by Gabriele in the project chat on 2026-11-25, to keep in mind for the argument for preserving and recording conversations. Wording as he sent it, except: paragraphs that were pasted twice appear once, and the name is written "TimeCapsule".
 
 ## TimeCapsule | Participation, Autonomy and the Preservation of Understanding
 

@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: Conversations page cards (and the big featured box on top) get a soft shadow like the Tables page cards.
+"""Gabriele 2026-11-23: Conversations page cards (and the big featured box on top) get a soft shadow like the Tables page cards.
 PR #211 first version, lighter version after "less shadow, also on the big box on top". Re-runnable: replaces the tc-convshadow block."""
 import os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
