@@ -977,7 +977,7 @@ function line(l,i){
  return '<li class="'+(you?"you":"")+'"><span class="av" style="--a:'+(AC[sp]||"#7C5CFF")+'" aria-hidden="true">'+sp[0]+'</span><div><div class="who"><b><span data-noi18n>'+esc(sp)+'</span>'+(you?' <span>(you)</span>':'')+'</b>'+(l[1]==(rec().host||"Gregory")?'<em>Host</em>':'')+'<small>'+esc(l[0])+'</small></div><p data-noi18n>'+esc(l[2])+'</p></div></li>'}
 // In the "wasn't there" view Gabriele is the visitor, so the same seat belongs to Elias
 function who(n){return n=="Gabriele"&&S.role=="visitor"?"Elias":n}
-// Download transcript / my notes as a text file (Karim 2026-11-18: moved here from My tables)
+// Download transcript / my notes as a text file (Gabriele 2026-11-18: moved here from My tables)
 function dlFile(kind){
  var r=rec(),rd=r.rounds[S.round],tr=window.TCI18N&&TCI18N.t?TCI18N.t:function(x){return x};
  var head=r.title+"\n"+r.topic+" · "+rd.date+" · "+tr("Hosted by")+" "+(r.host||"Gregory")+"\n\n",body;
@@ -1073,7 +1073,7 @@ $("gDone").onclick=function(){var out=document.querySelector('input[name=me]:che
 function fromHash(){var m=location.hash.match(/r=([a-z-]+)/);S.rec=m&&D.byId[m[1]]?m[1]:"free-will";S.round=rec().rounds.length-1;if(/save/.test(location.hash)){S.scr="save";document.querySelectorAll("#scrSeg button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.scr=="save")})}
  var am=location.hash.match(/as=(host|guest|visitor)/);if(am){S.role=am[1];document.querySelectorAll("#roleSeg button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.role==S.role)})}}
 fromHash();pills();render();
-/* #save&q=<title>: a table saved later from My tables, not a new round (Karim 2026-11-18) */
+/* #save&q=<title>: a table saved later from My tables, not a new round (Gabriele 2026-11-18) */
 (function(){var qm=location.hash.match(/[#&]q=([^&]+)/);if(!qm)return;var q=decodeURIComponent(qm[1]);
  var l=document.querySelector(".s-host .lead [data-noi18n]");if(l)l.textContent=q;
  var g=document.querySelector(".s-guest .lead [data-noi18n]");if(g)g.textContent="“"+q+"”";

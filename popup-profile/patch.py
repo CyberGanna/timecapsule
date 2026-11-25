@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Every person pop-up shows "View profile" (Karim 2026-11-22: some had it, some not).
+"""Every person pop-up shows "View profile" (Gabriele 2026-11-22: some had it, some not).
 Before, only Gregory (and hosts with a profile link) got it. The prototype has one sample
 Profile page, so every person links to it. Also removes the gold (host) and violet (you)
-rings from the face stacks in the Tables page list view (Karim: rings are a distraction).
+rings from the face stacks in the Tables page list view (Gabriele: rings are a distraction).
 Idempotent. python3 popup-profile/patch.py"""
 import re,os,glob
 R=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..')

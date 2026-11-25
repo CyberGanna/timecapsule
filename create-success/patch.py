@@ -1,4 +1,4 @@
-"""'Your table is open!' screen, redesigned (Karim 2026-11-18). Idempotent, marker "tc-cok2".
+"""'Your table is open!' screen, redesigned (Gabriele 2026-11-18). Idempotent, marker "tc-cok2".
 Hero like a Tables card (blurred cover photo, or the topic glow), no link box: an "Invite people" button opens the picker,
 date + time always shown, Go to my table for later tables too. Run after invite-picker/patch.py."""
 import os

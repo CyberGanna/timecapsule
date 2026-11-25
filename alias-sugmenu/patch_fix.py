@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: the alias Suggestions menu on Create a table did not open. Two click handlers
+"""Gabriele 2026-11-23: the alias Suggestions menu on Create a table did not open. Two click handlers
 (tc-sugmenu for the topic Suggestions, tc-aliasmenu for aliases) both toggled the alias list, so it opened
 and closed in the same click. Scope tc-sugmenu's handlers to its own box (.sgm). Idempotent.
 Re-run after create-tidy/patch_sugmenu.py and alias-sugmenu/patch.py."""

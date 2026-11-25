@@ -1,4 +1,4 @@
-"""Community guidelines, second pass (Karim 2026-11-22): gaps found by comparing with Clubhouse's
+"""Community guidelines, second pass (Gabriele 2026-11-22): gaps found by comparing with Clubhouse's
 Trust & Safety articles and Terms, written in our own words (nothing copied):
 child safety and grooming, intimate images incl. AI-made, terrorism / violent extremism and graphic violence,
 a fuller hate list, doxxing details and threats to share, honest age (16+), a supportive line on self-harm,

@@ -1290,7 +1290,7 @@ function tdHdImg(){ /* new table: host's picture from Create, else topic icon on
 }
 function tdSection(){
   const t=T(),c=TOPIC_C[t.topic],m=isLive()?Math.round((Date.now()-st.liveSince)/60000):0;
-  /* two sections (Karim 2026-11-23): the card on the left, people and details on the right */
+  /* two sections (Gabriele 2026-11-23): the card on the left, people and details on the right */
   return `<section class="td tdc2${isLive()?" live":""}" style="--c:${c}">
     <article class="tdc">
      <div class="tdhd">${tdHdImg()}${isLive()?`<div class="cc-hour tdhour"><i style="width:${Math.min(100,m/60*100)}%"></i></div>`:""}</div>
@@ -1565,7 +1565,7 @@ function showU(el){
   UC.style.left=x+"px";UC.style.top=Math.max(12,y)+"px";
 }
 function hideU(){UC.hidden=true;ucFor=null}
-const HOV=false; /* click only (Karim 2026-11-19) */
+const HOV=false; /* click only (Gabriele 2026-11-19) */
 if(HOV){document.addEventListener("mouseover",e=>{const el=e.target.closest("[data-u]");if(el){clearTimeout(ucT);if(ucFor!==el)showU(el)}else if(!e.target.closest(".ucard")&&ucFor){clearTimeout(ucT);ucT=setTimeout(hideU,180)}})}
 document.addEventListener("click",e=>{const el=e.target.closest("[data-u]");if(el){e.preventDefault();ucFor===el&&!HOV?hideU():showU(el);return}if(!e.target.closest(".ucard"))hideU()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")hideU();if((e.key==="Enter"||e.key===" ")&&e.target.dataset&&e.target.dataset.u){e.preventDefault();showU(e.target)}});
@@ -1786,7 +1786,7 @@ addEventListener("tc-lang",()=>render());
 .tdside .facts2>div{padding:10px 0;gap:14px}
 .tdside .facts2>div:last-child{border-bottom:0}
 .tdc2.live .tda .hint{display:none}
-.td.tdc2{align-items:stretch}.tdc{display:flex;flex-direction:column}.tdm{flex:1;display:flex;flex-direction:column}.tdm .tda{margin-top:auto}.tdm .cc-host{margin-bottom:24px}.tds-good{align-self:start} /* Karim 2026-11-23: no camera/turns line under Join table */
+.td.tdc2{align-items:stretch}.tdc{display:flex;flex-direction:column}.tdm{flex:1;display:flex;flex-direction:column}.tdm .tda{margin-top:auto}.tdm .cc-host{margin-bottom:24px}.tds-good{align-self:start} /* Gabriele 2026-11-23: no camera/turns line under Join table */
 .tdside .facts2>div>div{display:grid;grid-template-columns:110px minmax(0,1fr);column-gap:12px;flex:1}
 .tdside .facts2 dt{font-size:13.5px;color:var(--mute);margin-top:1px}
 .tdside .facts2 dd{margin:0;font-size:14.5px}

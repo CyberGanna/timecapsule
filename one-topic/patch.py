@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One topic per table (Karim, 2026-11-22).
+"""One topic per table (Gabriele, 2026-11-22).
 A table, and the conversation it leaves behind, has exactly one topic. The Profile
 Tables tab showed two topic tags per row; cut every row to its main topic (the
 same topic the table has on the Tables page, Conversations and My tables).

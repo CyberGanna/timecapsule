@@ -1,4 +1,4 @@
-"""Invite people you've met (Karim 2026-11-18): one shared picker for the Invite panels.
+"""Invite people you've met (Gabriele 2026-11-18): one shared picker for the Invite panels.
 
 tcIPK(el, {title}) renders a search box; typing suggests people from your past tables
 ("Met at ..."), you pick a few as chips, then Send invites. Self-contained CSS + JS.

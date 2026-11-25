@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: the chat icon on a person pop-up opens Chats with that person's chat already open
+"""Gabriele 2026-11-23: the chat icon on a person pop-up opens Chats with that person's chat already open
 (not the list of all chats). Link: chats.html#with=<name>. Chats page opens the chat (or a new empty one).
 Idempotent, markers "tc-chatwith". Re-run after rebuilding pages with the person pop-up or Chats."""
 import os, re

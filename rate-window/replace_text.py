@@ -1,4 +1,4 @@
-"""Rating window = 7 days after the table ends (Karim 2026-11-19). Updates the old 3-day / "few days" /
+"""Rating window = 7 days after the table ends (Gabriele 2026-11-19). Updates the old 3-day / "few days" /
 "24 hours after" wording in every page, dict and source, with IT/ES/EL. Idempotent."""
 import os,sys
 R=[

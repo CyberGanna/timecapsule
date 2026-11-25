@@ -2,7 +2,7 @@
 
 A different way for ideas to earn trust.
 
-Karim's positioning text, public version (2026-11-25). Two-page PDF, US Letter portrait: From-Gatekeepers-to-the-Table.pdf (source: gatekeepers/build.py, run `python3 build.py && node render.js`). Changes from his draft: the closing distinction became "The principle"; the internal note on echo chambers became a public promise under "Ideas tested in conversation"; "Nobody is appointed to determine its value in advance" became "Nobody is appointed to decide in advance which ideas deserve a hearing"; paste leftovers and the internal comment ("That distinction could become the foundation of the entire project…") removed.
+Gabriele's positioning text, public version (2026-11-25). Two-page PDF, US Letter portrait: From-Gatekeepers-to-the-Table.pdf (source: gatekeepers/build.py, run `python3 build.py && node render.js`). Changes from his draft: the closing distinction became "The principle"; the internal note on echo chambers became a public promise under "Ideas tested in conversation"; "Nobody is appointed to determine its value in advance" became "Nobody is appointed to decide in advance which ideas deserve a hearing"; paste leftovers and the internal comment ("That distinction could become the foundation of the entire project…") removed.
 
 ## The short version
 

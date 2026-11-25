@@ -1,4 +1,4 @@
-"""Create a table: the Preview card is the new Tables page card (Karim 2026-11-23).
+"""Create a table: the Preview card is the new Tables page card (Gabriele 2026-11-23).
 Photo header (the picture the host adds, else the same backdrop the success screen uses), hour bar when
 "now", topic dot + LIVE / Starts in, the question in Literata, "with Gabriele · Switzerland",
 a full row of chairs (you + dashed free chairs), "N chairs free", "You're hosting".

@@ -1,4 +1,4 @@
-"""My tables: an unrated past table (guest) shows "N days left to rate" (7-day window, Karim 2026-11-19). Idempotent."""
+"""My tables: an unrated past table (guest) shows "N days left to rate" (7-day window, Gabriele 2026-11-19). Idempotent."""
 import re,json
 IT={1:"Ancora 1 giorno per votare"};ES={1:"Queda 1 día para valorar"};EL={1:"Απομένει 1 μέρα για βαθμολόγηση"}
 T={}

@@ -1,5 +1,5 @@
-"""Topic icons (Karim 2026-11-22): History = scroll (option C), Religion = prayer beads (option B).
-Craft = claw hammer crossed with a round brush (Karim, option 1 of craft-brush.png). Replaces the TICON paths in every page and patch file. Idempotent."""
+"""Topic icons (Gabriele 2026-11-22): History = scroll (option C), Religion = prayer beads (option B).
+Craft = claw hammer crossed with a round brush (Gabriele, option 1 of craft-brush.png). Replaces the TICON paths in every page and patch file. Idempotent."""
 import os, subprocess
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REP = {

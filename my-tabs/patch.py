@@ -1,11 +1,11 @@
-"""Unify the view switch on the "My ..." pages (Karim 2026-11-22).
-Karim 2026-11-22: view switch = BOXES like the Tables page day filter (36px, radius 10,
+"""Unify the view switch on the "My ..." pages (Gabriele 2026-11-22).
+Gabriele 2026-11-22: view switch = BOXES like the Tables page day filter (36px, radius 10,
 solid light box when selected, outlined otherwise); topic filters = round outlined pills.
 - My tables: Upcoming / Past boxes sized exactly like the Tables page, counts and purple dot kept,
   16px under the subtitle, no divider line.
 - My universe: Books / Films use the same boxes, 16px under the subtitle.
 - My universe / My conversations: topic pills start exactly on the page's left edge (was +2px).
-- Phones (Karim 2026-11-22, "My tables on mobile is unreadable"): every page gets the viewport
+- Phones (Gabriele 2026-11-22, "My tables on mobile is unreadable"): every page gets the viewport
   meta tag (My tables had none, so phones showed the desktop layout shrunk down), and the
   scrolling topic pills bleed exactly to the 20px gutter instead of 22px, so no page is 2px
   wider than the screen (My universe, My conversations, Host tables).

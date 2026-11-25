@@ -1,4 +1,4 @@
-"""FAQ: 'When can I rate a table?' (Karim 2026-11-19). Idempotent."""
+"""FAQ: 'When can I rate a table?' (Gabriele 2026-11-19). Idempotent."""
 import re
 Q="When can I rate a table?"
 A="When the table ends, if you sat at it for at least 10 minutes. Leaving early is fine: you can still rate once it's over. You have 7 days, and the bell reminds you the day before rating closes."

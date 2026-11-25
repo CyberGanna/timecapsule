@@ -1,4 +1,4 @@
-"""Polish the smaller cards view on the Tables page (Karim 2026-11-22).
+"""Polish the smaller cards view on the Tables page (Gabriele 2026-11-22).
 Whole-card blur in the topic colour, LIVE as plain green text (no minutes, no box),
 topic under LIVE, no coloured rings on avatars, seats free + button on one line.
 Idempotent: re-run after rebuilding help/live-pages/agenda.html."""
@@ -10,7 +10,7 @@ s=open(P,encoding="utf-8").read()
 s=re.sub(r'<style id="card-polish">.*?</style>','',s,flags=re.S)
 s=re.sub(r'<script id="card-polish-js">.*?</script>','',s,flags=re.S)
 block='<style id="card-polish">'+CSS+'</style><script id="card-polish-js">'+JS+'</script>'
-# "Save a chair" -> "Save chair" on the Tables page buttons (Karim 2026-11-22)
+# "Save a chair" -> "Save chair" on the Tables page buttons (Gabriele 2026-11-22)
 s=s.replace('data-id="${t.id}">Save a chair</button>','data-id="${t.id}">Save chair</button>')
 s=s.replace('<button class="jbtn" data-id="${t.id}">Join table</button>','<button class="jbtn" data-id="${t.id}">Join</button>')
 if '"Save chair":[' not in s:

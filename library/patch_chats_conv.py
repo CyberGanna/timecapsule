@@ -1,5 +1,5 @@
 """Chats: #compose&kind=conv&q=&th=&host=&rounds=&r= opens New message with a conversation card
-(Share this conversation → Send in a chat, Karim 2026-11-19). Run after invite-picker/patch_chats.py. Idempotent."""
+(Share this conversation → Send in a chat, Gabriele 2026-11-19). Run after invite-picker/patch_chats.py. Idempotent."""
 import re,json,sys
 FILES=sys.argv[1:] or ["help/live-pages/chats.html","invite/pages/chats.html"]
 CONV='''function convCard(t){return `<div class="inv ccv" style="--c:${THEMES[t.theme]}"><div class="top2"><div class="ico">${icon(t.theme)}</div></div><div class="b"><div class="k"><span>Conversation</span> · ${t.rounds} <span>${t.rounds===1?"round":"rounds"}</span></div><h3>${esc(t.title)}</h3><div class="m">${t.theme} · <span>hosted by</span> ${esc(t.host)}</div><a class="go" href="../../library/timecapsule-library.html#r=${encodeURIComponent(t.r)}&as=visitor" target="_top" style="display:flex;align-items:center;justify-content:center;text-decoration:none">Read the conversation</a></div></div>`}

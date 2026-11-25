@@ -1,4 +1,4 @@
-"""Remove the k▪universe name from the product UI (Karim 2026-11-22: "change all.
+"""Remove the k▪universe name from the product UI (Gabriele 2026-11-22: "change all.
 Knowledge orbits say my universe"). Idempotent.
 Usage: python3 no-kuniverse/patch.py <file.html> ..."""
 import sys

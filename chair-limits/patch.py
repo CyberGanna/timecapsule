@@ -1,4 +1,4 @@
-"""Chair limits on the Tables page (Karim approved 2026-11-22):
+"""Chair limits on the Tables page (Gabriele approved 2026-11-22):
 1. No overlaps: saving a chair at a table that clashes with one you already saved shows
    "You're at another table then" with Keep my chair / Swap tables.
 2. Up to 5 saved chairs at a time (upcoming tables you're a guest at; tables you host don't count).

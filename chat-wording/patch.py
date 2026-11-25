@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Chat, not Message (Karim, 2026-11-22: "in conference still say message instead of chat").
+"""Chat, not Message (Gabriele, 2026-11-22: "in conference still say message instead of chat").
 The feature is called Chat everywhere (header Chats, Profile "Chat with Gregory"); labels that
 still named it "Message(s)" now say Chat. Sentences that use "message" as an ordinary word
 ("Write a message…", "Amara sent you a message", "private messages") are kept on purpose.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Tables page: the cycling "Smaller cards / Show as list / Bigger cards" link becomes a two-box
-switch "Cards | List" (Karim 2026-11-22), boxes like the day filter (view switch rule).
+switch "Cards | List" (Gabriele 2026-11-22), boxes like the day filter (view switch rule).
 Idempotent: re-run after rebuilding help/live-pages/agenda.html."""
 import sys
 P=sys.argv[1] if len(sys.argv)>1 else "help/live-pages/agenda.html"

@@ -1,4 +1,4 @@
-"""Karim 2026-11-23 "try with the banner": the Table ended header shows the table's photo banner
+"""Gabriele 2026-11-23 "try with the banner": the Table ended header shows the table's photo banner
 (like the Tables cards' photo header) instead of the 64px tile; title and details stack under it, left-aligned.
 Run after rate-header/patch.py. Idempotent, marker "tc-ratebanner". Photo: banner.b64 (free-will card photo, 1000px)."""
 import os, re

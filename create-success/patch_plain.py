@@ -1,5 +1,5 @@
 """Create a table: with no picture added, the Preview card and the "Your table is open!" header
-show just the topic icon on the topic colour, like before (Karim 2026-11-23). The picture shows only
+show just the topic icon on the topic colour, like before (Gabriele 2026-11-23). The picture shows only
 when the host adds one. Idempotent, marker "tc-plain". Run after patch_cards.py and patch_preview.py."""
 import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

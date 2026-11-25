@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: "make it more calm so the attention is focused on the rating part; the user just came
+"""Gabriele 2026-11-23: "make it more calm so the attention is focused on the rating part; the user just came
 from the table so he doesn't need much info". Banner becomes a thin strip, title smaller, one quiet line,
 no Hosted by row. Run after patch.py and patch_banner.py. Re-runnable (replaces block "tc-ratecalm")."""
 import os, re

@@ -1,6 +1,6 @@
 """Slides: Keeping the record (does saving conversations help or hurt TimeCapsule?).
 Run from this folder: python3 build.py && node render.js  ->  TimeCapsule-Keeping-the-Record.pdf
-Fonts come from ../../build-plan/fonts.css (static woff, copyable text). Logo is the cut-out version (Karim's rule for PDFs and presentations).
+Fonts come from ../../build-plan/fonts.css (static woff, copyable text). Logo is the cut-out version (Gabriele's rule for PDFs and presentations).
 """
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

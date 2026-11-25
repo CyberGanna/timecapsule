@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: alias suggestions (join sheet, "An alias") become a dropdown like Create a table's Suggestions:
+"""Gabriele 2026-11-23: alias suggestions (join sheet, "An alias") become a dropdown like Create a table's Suggestions:
 a "Suggestions ▾" button opens a menu (alias + the book it comes from); picking one fills the box and closes the menu.
 Idempotent, marker "tc-aliasmenu". Re-run after rebuilding agenda/create."""
 import os

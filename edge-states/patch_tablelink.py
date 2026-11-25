@@ -1,5 +1,5 @@
 """Edge states page: "Table full" and "Cancelled" open the Table page's own Full / Cancelled states,
-which use the current card look (Karim 2026-11-23: no more ring-of-chairs graphic anywhere).
+which use the current card look (Gabriele 2026-11-23: no more ring-of-chairs graphic anywhere).
 The page now opens on "Removed". Idempotent, marker "tc-edge-tl"."""
 import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

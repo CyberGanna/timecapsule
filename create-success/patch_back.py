@@ -1,4 +1,4 @@
-"""Back from Send in a chat / Email returns to the "Your table is open!" screen (Karim 2026-11-18).
+"""Back from Send in a chat / Email returns to the "Your table is open!" screen (Gabriele 2026-11-18).
 The screen is kept as #created + sessionStorage "tc-created". Idempotent, marker "tc-created". Run after patch.py."""
 import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: People page gets a "Crossing universes" filter: people who share books and films
+"""Gabriele 2026-11-23: People page gets a "Crossing universes" filter: people who share books and films
 from your universe, most in common first, each card showing what you share.
 Sample data: Gabriele's universe (MINE) and the books/films each person shares (WL).
 Idempotent, marker "tc-wavelength". Re-run after rebuilding the People page."""

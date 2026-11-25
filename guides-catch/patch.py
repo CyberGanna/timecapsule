@@ -1,5 +1,5 @@
 """Guides, Notes, step "Write a note": a small picture of the Live Table transcript showing the note icon
-next to a line, above the example note that quotes it (Karim 2026-11-23). Idempotent, marker "gd-catch"."""
+next to a line, above the example note that quotes it (Gabriele 2026-11-23). Idempotent, marker "gd-catch"."""
 import os, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HERE = os.path.dirname(os.path.abspath(__file__))

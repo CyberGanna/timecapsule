@@ -1789,8 +1789,8 @@ function ntClick(b){
   if(b.id==="ntshare"){const o=sh.querySelector("#ntsopts");o.hidden=!o.hidden;if(!o.hidden&&window.tcIPK&&!o.dataset.ok){o.dataset.ok=1;tcIPK(sh.querySelector("#ntipk"))}if(!o.hidden)sh.querySelector("#ipkq").focus();b.setAttribute("aria-expanded",String(!o.hidden));return true}
   if(b.id==="ntnative"){const u=b.dataset.link;if(navigator.share)navigator.share({title:b.dataset.t,url:u}).catch(()=>{});else{navigator.clipboard&&navigator.clipboard.writeText(u).catch(()=>{});toast("Link copied")}return true}
   if(b.id==="ntcopy"){navigator.clipboard&&navigator.clipboard.writeText(b.dataset.link).catch(()=>{});b.textContent="Copied ✓";return true}
-  if(b.id==="ntgo"&&b.dataset.live){/* tc-start (Karim 2026-11-19) */top.location.href=(window.TCI18N?TCI18N.u:(x=>x))("../../live-table/timecapsule-live-table.html");return true}
-  if(b.id==="ntgo"){/* tc-new: open the new table's page (Karim 2026-11-18) */top.location.href=(window.TCI18N?TCI18N.u:(x=>x))("../../table-detail/timecapsule-table.html#"+window.tcNewTable);return true}
+  if(b.id==="ntgo"&&b.dataset.live){/* tc-start (Gabriele 2026-11-19) */top.location.href=(window.TCI18N?TCI18N.u:(x=>x))("../../live-table/timecapsule-live-table.html");return true}
+  if(b.id==="ntgo"){/* tc-new: open the new table's page (Gabriele 2026-11-18) */top.location.href=(window.TCI18N?TCI18N.u:(x=>x))("../../table-detail/timecapsule-table.html#"+window.tcNewTable);return true}
   return false;
 }
 function doCreate(L){

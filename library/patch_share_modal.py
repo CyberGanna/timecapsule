@@ -1,4 +1,4 @@
-"""Conversation page Share v3 (Karim 2026-11-19): button above the first right-column card,
+"""Conversation page Share v3 (Gabriele 2026-11-19): button above the first right-column card,
 opens a modal like the Table page's Invite one (people you've met, then the link, chat, email, more).
 Run after patch_share.py. Idempotent."""
 import re,json,sys,os
