@@ -1,7 +1,8 @@
-"""Two-page PDF (US Letter, portrait): From gatekeepers to the table (Gabriele's positioning text, public version).
+"""Internal text: TimeCapsule: From Gatekeepers to the Table (US Letter, portrait, flows over as many pages as needed).
 Run: python3 build.py && node render.js   -> ../From-Gatekeepers-to-the-Table.pdf
+Also builds the public one-pager (public.html -> ../TimeCapsule-Think-Together.pdf).
 Reuses manifesto/src (base.css, fonts, cut-out logo)."""
-import sys, os
+import sys, os, json
 HERE = os.path.dirname(os.path.abspath(__file__)); SRC = os.path.join(HERE, '..', 'src')
 sys.path.insert(0, SRC)
 from cutout import cut
@@ -12,69 +13,144 @@ css = open(os.path.join(SRC, 'base.css')).read().replace('url(fonts/', 'url(../s
 css += """
 @page{size:letter;margin:0}
 .page{width:8.5in;height:11in;padding:0}
-.body{position:absolute;left:20mm;right:20mm;top:26mm;bottom:23mm;display:flex;flex-direction:column}
-.head{top:13mm;left:20mm;right:20mm}.pagefoot{left:20mm;right:20mm;bottom:11.5mm}
-h1{font-size:29px;margin-bottom:1.5mm}
-.sub{font-family:'Sora',sans-serif;font-weight:300;font-size:16px;color:var(--muted);margin-bottom:4.5mm}
-p{font-size:10.4pt;line-height:1.45;margin-bottom:2.2mm}
-p.lead{font-size:11.6pt;line-height:1.44;margin-bottom:1mm}
-h2{font-family:'Sora',sans-serif;font-weight:600;font-size:8.6pt;letter-spacing:.22em;text-transform:uppercase;color:var(--violet);margin:5.5mm 0 3mm}
-h2:first-child{margin-top:0}
-.age{display:grid;grid-template-columns:11mm 1fr;border-top:1px solid var(--line);padding-top:3mm;margin-bottom:1.4mm}
-.age .n{font-family:'Sora',sans-serif;font-size:9pt;font-weight:600;letter-spacing:.12em;color:var(--violet);padding-top:.3em}
-.age h3{font-family:'Sora',sans-serif;font-weight:600;font-size:11pt;color:var(--navy);margin-bottom:2mm}
-.b1 p{font-size:10.2pt}.b1 p.lead{font-size:11.2pt}
-.pair{display:grid;grid-template-columns:1fr 1fr;column-gap:8mm}
-.line{margin:0 0 1mm;padding:3mm 0 3mm 7mm;border-left:3px solid;border-image:linear-gradient(var(--violet),var(--teal)) 1}
-.line p{font-size:14pt;line-height:1.4;color:var(--navy);margin:0}
-.it{position:relative;padding-left:9mm;font-size:10.4pt;line-height:1.45;margin-bottom:2.4mm}
-.it::before{content:"";position:absolute;left:0;top:.42em;width:10px;height:10px;border-radius:50%;border:2px solid var(--teal);background:#fff}
+.body{position:absolute;left:22mm;right:22mm;top:25.5mm;bottom:22.5mm;overflow:hidden}
+.head{top:13mm;left:22mm;right:22mm}.pagefoot{left:22mm;right:22mm;bottom:11.5mm}
+.tag{font-family:'Sora',sans-serif;font-size:8.6pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:3mm}
+h1{font-size:30px;margin-bottom:7mm}
+p{font-size:10.4pt;line-height:1.48;margin-bottom:2.4mm}
+p.lead{font-size:12pt;line-height:1.46;color:var(--navy)}
+p b{font-family:'Sora',sans-serif;font-weight:600;font-size:9.8pt;color:var(--navy)}
+h2{font-family:'Sora',sans-serif;font-weight:600;font-size:8.6pt;letter-spacing:.22em;text-transform:uppercase;color:var(--violet);margin:6mm 0 3mm}
+h3{font-family:'Sora',sans-serif;font-weight:600;font-size:12pt;color:var(--navy);margin:5mm 0 2.2mm;padding-top:3mm;border-top:1px solid var(--line)}
+h3 span{color:var(--violet);font-size:9pt;letter-spacing:.12em;margin-right:4mm}
+.body>:first-child{margin-top:0}
+.it{position:relative;padding-left:8mm;font-size:10.2pt;line-height:1.44;margin-bottom:1.8mm}
+.it::before{content:"";position:absolute;left:0;top:.45em;width:9px;height:9px;border-radius:50%;border:2px solid var(--teal);background:#fff}
 .it b{font-family:'Sora',sans-serif;font-weight:600;font-size:9.6pt;color:var(--navy)}
-.principle{margin-top:auto;flex:none;background:var(--navy);color:#fff;border-radius:3mm;padding:5mm 6.5mm 4.6mm}
-.b2 h2{margin-top:4.6mm}.b2 .line p{font-size:13.6pt}.b2 h2:first-child{margin-top:0}.b2 .line{margin-bottom:1mm}
-.principle h2{color:var(--teal);margin:0 0 2.4mm}
-.principle p{font-size:11.2pt;line-height:1.38;color:#fff;margin-bottom:2.2mm}
-.principle p.big{font-size:12.8pt;line-height:1.34;margin-bottom:2.4mm}
-.principle p.s{font-size:10.2pt;color:#B9BCD6;margin:0}
+.it.last{margin-bottom:3.4mm}
+.line{margin:1mm 0 2mm;padding:3mm 0 3mm 7mm;border-left:3px solid;border-image:linear-gradient(var(--violet),var(--teal)) 1}
+.line p{font-size:14.5pt;line-height:1.4;color:var(--navy);margin:0}
 """
-age = lambda n, h, ps: '<div class="age"><div class="n">%02d</div><div><h3>%s</h3>%s</div></div>' % (n, h, ''.join('<p>%s</p>' % p for p in ps))
-it = lambda a, b: '<div class="it"><b>%s</b> %s</div>' % (a, b)
-p1 = ''.join([
- '<h1>From gatekeepers <b>to the table</b></h1>',
- '<h2>The short version</h2>',
- '<p class="lead">For much of history, institutions controlled many of the channels through which ideas gained public recognition and legitimacy. Social media lowered the barriers to publishing, giving everyone a voice, but replaced traditional gatekeepers with algorithms and an economy driven by attention. TimeCapsule proposes a different approach: an open space where anyone can introduce an idea, but where ideas develop through conversation, questioning and disagreement. Rather than declaring what is true, it preserves the reasoning, perspectives and objections that allow ideas to be examined again.</p>',
- '<h2>The argument</h2>',
- '<div class="pair">', age(1, 'The age of gatekeepers', ['Universities, churches, publishers and the press traditionally controlled many of the major channels through which ideas gained public recognition and legitimacy. Ideas always circulated outside them too, through conversations, letters and communities, but rarely with the same reach. This provided mechanisms for scrutiny, but also restricted participation. Over time, trust in these institutions has eroded as their limitations, biases and failures have become increasingly visible.']),
- age(2, 'The age of the feed', ['Social media lowered the barriers to publishing and gave everyone a voice, and that was an important step forward. But it did not remove the gates. It replaced traditional gatekeepers with new ones: algorithms, platform owners and an attention economy. Ideas spread according to their ability to attract attention, provoke reactions or confirm existing beliefs. An idea can be open to everyone and still invisible to most. Reach became disconnected from scrutiny.']),
- '</div>',
- age(3, 'The table', ['TimeCapsule keeps the open door but brings scrutiny back, without restoring the gatekeepers. Anyone can introduce an idea. Nobody is appointed to decide in advance which ideas deserve a hearing. Instead, ideas enter small conversations where participants can question assumptions, challenge conclusions and offer different perspectives.',
-   'Not everyone has equal expertise, and the table does not pretend otherwise: professional expertise, personal experience, research and critical reasoning are different forms of knowledge, and each can be brought to it.',
-   'Conversation does not guarantee truth. A group can reinforce the same misconception. Its value is that it makes the reasoning, the disagreements and the competing perspectives visible.',
-   'What emerges is not a final verdict, but a record of the conversation: the ideas, the reasoning, the objections, the questions still unanswered and the challenges that come later. Preservation is not certification. Each new conversation can build on it, challenge it or change it.']),
+
+def P(t): return '<p>%s</p>' % t
+def H2(t): return '<h2 data-keep="1">%s</h2>' % t
+def H3(n, t): return '<h3 data-keep="1"><span>%02d</span>%s</h3>' % (n, t)
+def UL(items):
+    out = []
+    for i, x in enumerate(items):
+        cls = 'it last' if i == len(items) - 1 else 'it'
+        if isinstance(x, tuple): x = '<b>%s</b> %s' % x
+        out.append('<div class="%s">%s</div>' % (cls, x))
+    return out
+
+B = [
+ '<div class="tag" data-keep="1">Internal</div>',
+ '<h1 data-keep="1">From gatekeepers <b>to the table</b></h1>',
+ H2('The short version'),
+ '<p class="lead">Institutions once controlled who could be heard, and above all what words like &ldquo;knowledge,&rdquo; &ldquo;reason&rdquo; and &ldquo;serious&rdquo; were allowed to mean. Social media opened the door but replaced them with algorithms and attention. TimeCapsule starts from a different premise: every space for ideas has gates, so the question is whether they are hidden or visible. It is an open space where anyone can introduce an idea, and where the idea develops through conversation, questioning and disagreement. Nobody rules on what is true, but the rules of the conversation are public. What is preserved is the reasoning, the objections and the open questions, so they can be examined again.</p>',
+ H2('The argument'),
+ H3(1, 'The age of gatekeepers'),
+ P('Universities, churches, publishers and the press controlled many of the channels through which ideas gained recognition. But their deeper power was over language. They defined what counted as knowledge, evidence and a serious argument, and whoever did not speak that language was heard as noise. This provided scrutiny, but also restricted participation, and trust in these institutions has eroded as their biases and failures have become visible.'),
+ H3(2, 'The age of the feed'),
+ P('Social media lowered the barriers to publishing, and that was a real step forward. But it replaced the old gatekeepers with new ones: algorithms, platform owners and an attention economy. Ideas spread by their power to provoke, not by how well they hold up. Reach became disconnected from scrutiny. Anyone could speak, but only inside moderation systems and a vocabulary that someone else had set.'),
+ P('TimeCapsule has no feed, so it does not have this problem. It has the problem the feed was hiding: how people find each other and who gets seated at which table. That is a gate too, and it is designed openly. Tables form through invitation and shared questions, never through ranking by popularity.'),
+ H3(3, 'The table'),
+ P('Anyone can introduce an idea. Nobody is appointed to decide in advance which ideas deserve a hearing. Ideas enter small conversations where participants question assumptions, challenge conclusions and offer different perspectives. Professional expertise, lived experience, research and critical reasoning are different kinds of knowledge, and each can be brought to the table.'),
+ P('<b>Language belongs to the table.</b> No one has to speak in an academic register to be heard. A story, an example and a simple question all count as contributions. Tables run in the participants&rsquo; own language, with translation available. When a disagreement is really about what a word means, the table marks it as a dispute over meaning, not over facts. The platform&rsquo;s own terms are open to challenge in the same way.'),
+ P('<b>No verdict on truth, but a discipline of reasoning.</b> Conversation does not guarantee truth, and a group can reinforce the same mistake. So TimeCapsule separates verdicts from procedure. It never declares a claim true or false. It keeps the rules of criticism visible:'),
+] + UL([
+ 'Claims are marked by kind (factual, interpretive, value-based), because each needs a different kind of support.',
+ 'Sources are disclosed, and a claim with none is marked as unsupported.',
+ 'A fallacy can be named openly by any participant, and the name stays attached to the argument.',
+ 'An unanswered objection stays attached to the claim it challenges.',
+ 'The record shows the status of a claim (&ldquo;contested,&rdquo; &ldquo;unanswered&rdquo;), not a ruling.',
+]) + [
+ P('Rules need enforcement, and enforcement is a form of gatekeeping. We do not hide that. Moderation applies to the conduct and the rules of the conversation, never to opinions. It is public, it states its reasons, and it can be appealed.'),
+ P('<b>Guarding against indoctrination.</b> Indoctrination works through repetition, closed groups and imbalance. So a table of like-minded people is not enough. Tables are built to include different perspectives, a place for dissent is built into every table, and how a table was assembled is visible to everyone. Ideas are only truly tested when different perspectives meet.'),
+ H3(4, 'Private first, public by choice'),
+ P('A permanent record is valuable, but a record alone makes thinking difficult. Ideas need a space where people can be tentative, be wrong and change their minds unobserved. So TimeCapsule has two spaces:'),
+] + UL([
+ 'Direct, private conversation is never recorded unless every participant agrees.',
+ 'The record holds only what participants have chosen to place there.',
+ 'Participants can annotate or retract a position and mark that they have changed their mind. Revising is treated as honesty, not as defeat.',
+]) + [
+ P('A capsule is sealed first and opened later. The record works the same way.'),
+ H3(5, 'Weight without a scoreboard'),
+ P('Conversation does not mean counting agreement. An idea&rsquo;s weight comes from how well it stands up: which objections it has answered, and which remain open. Agreement can be manufactured and is no proof of truth. Reputation can be gamed too, and no system can prevent that completely. TimeCapsule makes it costly and visible:'),
+] + UL([
+ 'Agreement and trust from people who disagree with you count more than from allies.',
+ 'Reputation is tied to a domain and fades over time.',
+ 'There is no single public score, and trust cannot be transferred or traded.',
+ 'Anyone can reply to and appeal against damage to their reputation, and the reply is kept beside the claim.',
+ 'Patterns such as mutual vouching, coordinated groups and duplicate accounts are detected and shown openly.',
+]) + [
+ H2('The central line'),
+ '<div class="line"><p>Institutions controlled who could be heard and what words meant. Social media handed visibility to algorithms and attention. TimeCapsule opens the door to everyone, keeps its own gates visible and open to challenge, and lets ideas earn their weight through conversation.</p></div>',
+ H2('Why this is already reflected in the product'),
+] + UL([
+ ('Small tables:', 'You cannot simply broadcast. You have to participate and respond.'),
+ ('No feed, followers or public counts:', 'Attention and popularity are not the currency of the platform.'),
+ ('Private space and the chosen record:', 'What is said in private stays private. Only what participants choose enters the record.'),
+ ('TimeCoins and Trusted:', 'Reputation develops through real interactions with people who have sat at the table, and is tied to a domain and fades over time.'),
+ ('Preserved conversations:', 'Ideas, objections and open questions remain accessible, so future participants can revisit and challenge them.'),
+]) + [
+ H2('What makes TimeCapsule different'),
+ P('It isn&rsquo;t simply that people talk. It is the combination of three things:'),
+] + UL([
+ ('Conversation with a procedure.', 'Open participation, with public rules of criticism instead of a ruling on truth.'),
+ ('A record that people control.', 'Private by default, public by consent, and revisable.'),
+ ('Trust spread across many people.', 'Weight that comes from answered objections and varied relationships, never from a ranking.'),
 ])
-p2 = ''.join([
- '<h2>The central line</h2>',
- '<div class="line"><p>Institutions controlled who could be heard. Social media handed visibility to algorithms and attention. TimeCapsule opens the door to everyone and lets ideas earn their weight through conversation.</p></div>',
- '<h2>Why this is already reflected in the product</h2>',
- it('Small tables:', 'You cannot simply broadcast. You have to participate and respond.'),
- it('No feed, followers or public counts:', 'Attention and popularity are not the currency of the platform.'),
- it('TimeCoins and Trusted:', 'Reputation develops through actual interactions and relationships with people who have sat at the table.'),
- it('Preserved conversations:', 'Ideas and disagreements remain accessible, allowing future participants to revisit and challenge what was previously discussed.'),
- '<h2>Ideas tested in conversation</h2>',
- '<p>A table of like-minded people can become an echo chamber. Ideas are only genuinely tested when different perspectives meet. TimeCapsule is designed to bring those perspectives to the same table.</p>',
- '<h2>What makes TimeCapsule different</h2>',
- '<p>It isn\'t simply that people talk. It is the combination of three things:</p>',
- it('Open participation:', 'Anyone can introduce an idea.'),
- it('Structured discussion among peers:', 'Ideas are questioned, challenged and developed through conversation.'),
- it('A persistent record:', 'Reasoning, perspectives and disagreements are carried forward, allowing future conversations to build on or challenge what came before.'),
- '<p>Conversations become part of a continuing, revisitable record of how ideas are questioned, developed and understood.</p>',
- '<div class="principle"><h2>The principle</h2><p class="big">An idea doesn\'t become valuable because people agree with it. It becomes more valuable when people have the opportunity to examine it.</p><p>We are not building a platform that decides what is true. We are building a platform where ideas meet other people, are questioned and developed, and become part of a shared, evolving record.</p>'
- '<p class="s">TimeCapsule doesn\'t determine what people should think.<br>It creates the conditions for people to think together.</p></div>',
-])
-def page(n, b):
-    return ('<section class="page"><div class="head"><div class="logo">%s%s</div><div class="num">%d / 2</div></div><div class="body b%d">%s</div>'
-            '<div class="pagefoot"><span>From gatekeepers to the table</span><span>TimeCapsule</span></div></section>') % (SVG.replace('ID', 'h%d' % n), WT, n, n, b)
-html = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><title>From gatekeepers to the table · TimeCapsule</title><style>%s</style></head><body>'
-        '%s%s</body></html>') % (css, page(1, p1), page(2, p2))
-open(os.path.join(HERE, 'gatekeepers.html'), 'w').write(html)
+
+def doc(css_extra, blocks, foot, title, js=True):
+    head = '<div class="head"><div class="logo">%s%s</div><div class="num"></div></div>' % (SVG, WT)
+    script = """
+const DATA=%s, HEAD=%s, FOOT=%s;
+window.paginate=function(){
+let cid=0;
+function newPage(){const s=document.createElement('section');s.className='page';
+ s.innerHTML=HEAD.replace(/ID/g,'h'+(cid++))+'<div class="body"></div><div class="pagefoot"><span>'+FOOT+'</span><span>TimeCapsule</span></div>';
+ document.body.appendChild(s);return s.querySelector('.body');}
+const over=b=>b.scrollHeight>b.clientHeight+1;
+let body=newPage();
+for(const h of DATA){const t=document.createElement('div');t.innerHTML=h;const el=t.firstChild;body.appendChild(el);
+ if(over(body)){body.removeChild(el);const moved=[];
+  while(body.lastElementChild&&body.lastElementChild.dataset.keep){moved.unshift(body.lastElementChild);body.removeChild(body.lastElementChild);}
+  body=newPage();moved.forEach(m=>body.appendChild(m));body.appendChild(el);if(over(body))console.log('OVERFLOW');}}
+const ps=document.querySelectorAll('.page');if(ps.length>1)ps.forEach((p,i)=>p.querySelector('.num').textContent=(i+1)+' / '+ps.length);
+window.PAGES=ps.length;};
+""" % (json.dumps(blocks), json.dumps(head), json.dumps(foot))
+    return ('<!doctype html><html lang="en"><head><meta charset="utf-8"><title>%s</title><style>%s</style></head><body><script>%s</script></body></html>') % (title, css + css_extra, script)
+
+open(os.path.join(HERE, 'gatekeepers.html'), 'w').write(doc('', B, 'From gatekeepers to the table · Internal', 'From gatekeepers to the table · TimeCapsule'))
+
+# ---------- Public one-pager (the four elements, from Gabriele's draft opening) ----------
+PUB_CSS = """
+.pub h1{font-size:34px;line-height:1.18;margin-bottom:8mm}
+.pub p.lead{font-size:14pt;line-height:1.48;margin-bottom:4mm}
+.pub p{font-size:11.6pt;line-height:1.55;margin-bottom:3.4mm}
+.four{display:grid;grid-template-columns:1fr 1fr;gap:6mm 9mm;margin:3mm 0 4mm}
+.four>div{border-top:2px solid var(--line);padding-top:3.4mm}
+.four .k{font-family:'Sora',sans-serif;font-size:8.4pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--violet);margin-bottom:2mm}
+.four p{font-size:11pt;margin:0}
+.close{background:var(--navy);border-radius:3mm;padding:7mm 8mm;margin-top:6mm}
+.close p{color:#fff;font-size:15pt;line-height:1.4;margin:0}
+.close p.s{color:#B9BCD6;font-size:11pt;margin-top:2.5mm}
+"""
+PUB = [
+ '<div class="pub">'
+ '<h1>We have more ways to communicate than ever, <b>but fewer opportunities to really think together.</b></h1>'
+ '<p class="lead">Most online spaces are built around sharing, reacting and attracting attention. But some conversations deserve more time. They deserve different perspectives, thoughtful questions and the freedom to explore an idea without having to reduce it to a post or a quick reaction.</p>'
+ '<p>We are creating a place where people can come together around subjects they care about, exchange ideas and learn from different perspectives.</p>'
+ '<div class="four">'
+ '<div><div class="k">The problem</div><p>Online communication is abundant, but meaningful conversation is harder to find.</p></div>'
+ '<div><div class="k">The experience</div><p>People meet around subjects, exchange ideas and explore different perspectives.</p></div>'
+ '<div><div class="k">The difference</div><p>Conversations have room to develop, rather than being lost in an endless feed.</p></div>'
+ '<div><div class="k">The value</div><p>What emerges from a conversation can be preserved and revisited.</p></div>'
+ '</div>'
+ '<p>Conversations don&rsquo;t simply disappear. They can become something people return to, explore further and build upon.</p>'
+ '<div class="close"><p>Not just another place to share what you think. A place to discover what we can think together.</p></div>'
+ '</div>'
+]
+open(os.path.join(HERE, 'public.html'), 'w').write(doc(PUB_CSS, PUB, 'Think together', 'TimeCapsule · Think together'))
 print('ok')
