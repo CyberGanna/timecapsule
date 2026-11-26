@@ -1,5 +1,5 @@
 """Tables page: a live table you're in shows "Go back in" (opens the Welcome back camera check),
-instead of a gold "You're in" that silently made you leave (Karim 2026-11-19). Idempotent; run after satlock/patch.py."""
+instead of a gold "You're in" that silently made you leave (Gabriele 2026-11-19). Idempotent; run after satlock/patch.py."""
 import re,json,sys
 FILES=sys.argv[1:] or ["help/live-pages/agenda.html","invite/pages/agenda.html"]
 for f in FILES:

@@ -1,5 +1,5 @@
 """'You're in!' after Save chair (Tables page): the old ring-of-chairs picture is replaced by the card look
-(Karim 2026-11-23): the table's photo header (or the solid topic colour with its icon) across the top of the
+(Gabriele 2026-11-23): the table's photo header (or the solid topic colour with its icon) across the top of the
 sheet, then a row of all the chairs (faces, you, dashed free chairs) under the date.
 Idempotent, marker "tc-seatok". Run after card-v2/patch.py and create-success/patch_plain.py."""
 import os
@@ -47,7 +47,7 @@ for rel in FILES:
     i = s.rindex('</body>'); s = s[:i] + JS + CSS + s[i:]
     open(p, 'w', encoding='utf8').write(s); print(rel, 'seat ok')
 
-# Step 2 (Karim 2026-11-23): the table summary at the top of "Reserve your seat" and the Join sheet used a
+# Step 2 (Gabriele 2026-11-23): the table summary at the top of "Reserve your seat" and the Join sheet used a
 # round gradient orb and an uppercase coloured topic. Now it is the card look: photo header (or solid topic
 # colour), topic dot + name, the question in Literata, "with host · country". Marker "tc-seatok2".
 SUM_OLD = '''  const thumb= t.img!=null ? `<img src="${IMGS[t.img]}" alt="">` : art(t.theme);
@@ -79,7 +79,7 @@ for rel in FILES:
         s = s.replace('</title>', '</title>' + FONT, 1)
     open(p, 'w', encoding='utf8').write(s); print(rel, 'summary card')
 
-# Step 3 (Karim 2026-11-23): round the header corners on the summary (Safari clipping) and no boxes behind
+# Step 3 (Gabriele 2026-11-23): round the header corners on the summary (Safari clipping) and no boxes behind
 # the people at the table. Marker "tc-seatok3".
 CSS3 = '''<style id="tc-seatok3">
 .sum{isolation:isolate}

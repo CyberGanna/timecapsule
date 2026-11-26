@@ -1,4 +1,4 @@
-"""Karim 2026-11-22: after uploading a picture in Create a table, drag it to choose which part shows.
+"""Gabriele 2026-11-22: after uploading a picture in Create a table, drag it to choose which part shows.
 - The thumbnail takes the header's wide shape (160x67) and shows "Drag to move".
 - Dragging the thumbnail or the preview header moves the picture (object-position, kept in --tcpos).
 - The position travels with the new table: success screen, Tables page cards, and the Table page header.
@@ -63,7 +63,7 @@ if 'tc-pos' not in s:
 for f, line in (('help/dict-help.txt', 'Drag to move|Trascina per spostare|Arrastra para mover'), ('i18n/dict-el.txt', 'Drag to move|Σύρε για μετακίνηση')):
     q = os.path.join(ROOT, f); e = open(q, encoding='utf8').read()
     if '\nDrag to move|' not in '\n' + e: open(q, 'w', encoding='utf8').write(e.rstrip('\n') + '\n' + line + '\n')
-# Karim 2026-11-22: drop "Change" next to the picture; Remove is enough (marker "tc-nochange")
+# Gabriele 2026-11-22: drop "Change" next to the picture; Remove is enough (marker "tc-nochange")
 for rel in FILES:
     p = os.path.join(ROOT, rel); s = open(p, encoding='utf8').read()
     a = '<div class="cvact"><button data-cv="pick">Change</button><button data-cv="rm">Remove</button></div>'

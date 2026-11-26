@@ -1,4 +1,4 @@
-"""Tables page on phones: no pictures (Karim 2026-11-22, "Lose the pictures also on tables on mobile").
+"""Tables page on phones: no pictures (Gabriele 2026-11-22, "Lose the pictures also on tables on mobile").
 Phones only (max-width 640px): the table cards drop the left picture (ring of chairs) and the
 list rows drop the small topic icon tile, so text uses the full width. Desktop unchanged.
 Idempotent: re-run after any rebuild of the Tables page.  python3 tables-phone/patch.py

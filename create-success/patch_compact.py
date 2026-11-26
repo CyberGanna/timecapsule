@@ -1,4 +1,4 @@
-"""'Your table is open!' smaller so the whole card fits on a laptop screen (Karim 2026-11-23).
+"""'Your table is open!' smaller so the whole card fits on a laptop screen (Gabriele 2026-11-23).
 Idempotent, marker "tc-cok6". Run last of the create-success patches."""
 import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

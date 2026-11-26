@@ -1,5 +1,5 @@
-# Adds the "Mind-blown" reaction (option A Burst, Karim 2026-11-23) to the Live Table.
-# Karim: not a button in the bottom bar; you send it TO a person. So each other person's
+# Adds the "Mind-blown" reaction (option A Burst, chosen 2026-11-23) to the Live Table.
+# Decided: not a button in the bottom bar; you send it TO a person. So each other person's
 # video tile gets a small round mind-blown button (bottom-right; on hover/focus on desktop,
 # after tapping the tile on phones). Sending pops the emoji calmly over THAT person's tile
 # with a small "from <name>" caption. Re-run after rebuilding the Live Table. Idempotent.

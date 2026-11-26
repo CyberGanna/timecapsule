@@ -1,4 +1,4 @@
-# Live Table, host view: "Later" on a guest's question now KEEPS it (Karim 2026-11-23).
+# Live Table, host view: "Later" on a guest's question now KEEPS it (decided 2026-11-23).
 # It moves into a "Saved for later" list at the TOP of the Chat tab (under new questions,
 # above messages), where the host can still "Ask the table" or remove it.
 # Re-run after rebuilding the Live Table. Idempotent.

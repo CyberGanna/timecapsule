@@ -1,5 +1,5 @@
-"""Karim 2026-11-19: Tables and Conversations numbers are links. Pop-up (people with a profile, i.e. Gregory):
-Tables -> Gregory's tables page, Conversations -> his conversations. Profile header: open the full pages (same as the tabs' See all links; Karim 2026-11-19).
+"""Gabriele 2026-11-19: Tables and Conversations numbers are links. Pop-up (people with a profile, i.e. Gregory):
+Tables -> Gregory's tables page, Conversations -> his conversations. Profile header: open the full pages (same as the tabs' See all links; Gabriele 2026-11-19).
 Rate and tip host preview: same pages as the pop-up. Idempotent; run after patch.py and patch_tips.py."""
 import subprocess,re
 def files(pat): return subprocess.run("grep -rlF '"+pat+"' --include=*.html --include=*.js .",shell=True,capture_output=True,text=True).stdout.split()

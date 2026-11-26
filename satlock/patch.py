@@ -1,4 +1,4 @@
-"""Rejoining the same table keeps the name you first used there (Karim 2026-11-19).
+"""Rejoining the same table keeps the name you first used there (Gabriele 2026-11-19).
 After you press "Join the table", the camera check for that table shows "Welcome back" and your
 name or alias locked, for 3 hours (prototype stand-in for "until the table ends").
 Idempotent. Files: Tables page copies + Table page."""

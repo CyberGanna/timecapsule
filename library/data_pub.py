@@ -13,7 +13,7 @@ PUB = [
  ("stars","Nikos","Science","Space","Would you go to Mars and not come back?",[("Tue 3 Nov",6)],0,True),
  ("letters","Mia","History","Letters","Letters we would write by hand again",[("Fri 30 Oct",4)],0,True),
  ("forest","Kofi","Climate","Forests","What a forest knows that we don't",[("Wed 28 Oct",5)],0,True),
- # past tables from My tables (Gabriele was there), Karim 2026-11-18
+ # past tables from My tables (Gabriele was there), Gabriele 2026-11-18
  ("where-home","Yuki","Home","Belonging","Where is home?",[("Tue 17 Nov",6)],0,True),
  ("happiness-skill","Gabriele","Philosophy","Happiness","Is happiness a skill?",[("Mon 16 Nov",8)],0,False),
  ("green-nuclear","Lena","Energy","Nuclear","Green technology versus nuclear",[("Sat 14 Nov",5)],0,False),

@@ -1,5 +1,5 @@
 """Live Table: a guest who leaves early sees "You left the table" (Go back in / Done), not Rate and tip.
-Rating opens when the table ends (Karim 2026-11-19). Prototype bar gets "Skip to the end ›". Idempotent."""
+Rating opens when the table ends (Gabriele 2026-11-19). Prototype bar gets "Skip to the end ›". Idempotent."""
 import re,json
 f='live-table/timecapsule-live-table.html'; s=open(f).read()
 if 'id="leftov"' not in s:

@@ -1,4 +1,4 @@
-"""Conversation page: Share button next to the title with inline options (Karim 2026-11-19).
+"""Conversation page: Share button next to the title with inline options (Gabriele 2026-11-19).
 "Share" (not Invite) because a conversation is not a table. Idempotent; run on body.html and the built page."""
 import re,json,sys
 FILES=sys.argv[1:] or ["library/body.html","library/timecapsule-library.html"]

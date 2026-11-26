@@ -1,4 +1,4 @@
-"""Karim 2026-11-22: topics in Create a table = one line of smaller pills, no colour dots, scroll sideways
+"""Gabriele 2026-11-22: topics in Create a table = one line of smaller pills, no colour dots, scroll sideways
 (mouse wheel scrolls it too; soft fade at the edge shows there is more). Idempotent, marker "tc-trow". Run after create-tidy/patch.py."""
 import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -1,4 +1,4 @@
-"""Karim 2026-11-18: every table in My tables opens the Table page, not the pop-up.
+"""Gabriele 2026-11-18: every table in My tables opens the Table page, not the pop-up.
 Adds past tables (ids 11-14) and the waitlist table (id 5) to the Table page (#t=N), on top of patch_mytables_link.py.
 
 Idempotent, marker "tc-mt2". Run after patch_mytables_link.py:
@@ -142,7 +142,7 @@ def patch_table():
 ''')
     s = rep(s, '<div><b style="cursor:default">You</b><small>${st.kind==="host"?`<i class="mt">Host</i> · `:""}Gabriele</small>',
             '<div><b style="cursor:default">You</b><small>${st.kind==="host"?`<i class="mt">Host</i> · `:""}Gabriele</small>')
-    # the base page predates the rename "Discussions" -> "Conversations" (Karim 2026-11-18)
+    # the base page predates the rename "Discussions" -> "Conversations" (Gabriele 2026-11-18)
     s = re.sub(r'(?<![/#|(\w-])([Dd])iscussion(s?)\b(?!\.html)(?![\w-])', lambda m: ('C' if m.group(1) == 'D' else 'c') + 'onversation' + m.group(2), s)
     s = re.sub(r'(?<!in )([Dd])iscussion([ei])\b', lambda m: ('C' if m.group(1) == 'D' else 'c') + 'onversazion' + m.group(2), s)
     s = re.sub(r'in Discussion([ei])\b', r'in Conversazion\1', s)

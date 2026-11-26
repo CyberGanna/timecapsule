@@ -1,4 +1,4 @@
-"""Karim 2026-11-18: "Go to my table" on the Create a table success screen opens the Table page of the new table.
+"""Gabriele 2026-11-18: "Go to my table" on the Create a table success screen opens the Table page of the new table.
 
 Table page: #new=1&q=<title>&th=<topic>&seats=N&tl=<language>&tr=1|0&vis=open|private&now=1 shows that table in the host view.
 Run after patch_mytables_link.py and patch_mytables_past.py (idempotent, marker "tc-new").
@@ -10,7 +10,7 @@ s = open(TP, encoding='utf8').read()
 if 'tc-new' not in s:
     a = 'addEventListener("hashchange",()=>{if(/[#&]t=\\d+/.test(location.hash))location.reload()});'
     assert s.count(a) == 1
-    s = s.replace(a, '''/* tc-new: the table you just created (Karim 2026-11-18) */
+    s = s.replace(a, '''/* tc-new: the table you just created (Gabriele 2026-11-18) */
 (function(){const h=new URLSearchParams((location.hash||"").slice(1));if(!h.has("new"))return;
   const q=h.get("q")||"What you want to discuss";
   TABLES.host={title:q,topic:h.get("th")||"Philosophy",host:"You",seats:+h.get("seats")||8,lang:h.get("tl")||"English",transcript:h.get("tr")!=="0",

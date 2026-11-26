@@ -1,4 +1,4 @@
-"""Karim 2026-11-22 "tidy this section": Topic / What do you want to discuss / picture in Create a table.
+"""Gabriele 2026-11-22 "tidy this section": Topic / What do you want to discuss / picture in Create a table.
 - Topic: an even grid of round pills (4 per row on desktop, 2 on phones), each with its colour dot.
 - Suggestions move out of the text box to a wrapping row under it (no cut-off chips).
 - Picture gets its own label "Picture (optional)" and a dashed drop box the size of the thumbnail.

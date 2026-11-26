@@ -1,4 +1,4 @@
-# Conversations page: slightly thicker card border (Karim 2026-11-22). Safe to run twice.
+# Conversations page: slightly thicker card border (Gabriele 2026-11-22). Safe to run twice.
 import os
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSS = '<style id="disc-cardborder">.dp .card,.dp .feat{border-width:2px!important}</style>'

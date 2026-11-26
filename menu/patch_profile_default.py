@@ -1,4 +1,4 @@
-# Profile Version 2 is the default Profile (Karim, 2026-11-22): every link to profile/timecapsule-profile.html
+# Profile Version 2 is the default Profile (Gabriele, 2026-11-22): every link to profile/timecapsule-profile.html
 # now points to profile/timecapsule-profile-v2.html. The old page stays reachable from index.html only.
 # Skips the profile-options drafts and the old profile itself (it is the source for profile-options/build.py).
 # Run again after rebuilding any page with the header or avatar menu. Safe to run twice.

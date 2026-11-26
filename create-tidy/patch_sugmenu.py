@@ -1,4 +1,4 @@
-"""Karim 2026-11-22: suggestions in Create a table become a dropdown menu.
+"""Gabriele 2026-11-22: suggestions in Create a table become a dropdown menu.
 A small "Suggestions" button under the question box opens a list; picking one fills the box (and its topic) and closes it.
 Idempotent, marker "tc-sugmenu". Run after create-tidy/patch.py."""
 import os

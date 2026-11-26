@@ -1,4 +1,4 @@
-"""Karim 2026-11-22: on the host's Table page, Invite people sits next to Start table,
+"""Gabriele 2026-11-22: on the host's Table page, Invite people sits next to Start table,
 same size, sharing the card width; Host tools keep Edit and Cancel. Idempotent, marker "tc-hinv".
 Run after patch_mytables_link.py."""
 import os

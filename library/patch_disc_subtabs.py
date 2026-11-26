@@ -1,4 +1,4 @@
-# Conversations page, inside a topic (Karim 2026-11-23, option A):
+# Conversations page, inside a topic (Gabriele 2026-11-23, option A):
 # the chosen topic is a small heading (dot + name + count) under "‹ All topics",
 # and its subtopics are underlined text tabs ("All" first), not pills, so they
 # no longer look like topics. On phones the tabs are one line that scrolls; the

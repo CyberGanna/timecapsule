@@ -1,4 +1,4 @@
-"""Karim 2026-11-23: picking a suggestion in Create a table scrolls the topic row so the auto-selected topic is in view.
+"""Gabriele 2026-11-23: picking a suggestion in Create a table scrolls the topic row so the auto-selected topic is in view.
 Idempotent, marker "tc-sugscroll". Run after create-tidy/patch_sugmenu.py."""
 import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

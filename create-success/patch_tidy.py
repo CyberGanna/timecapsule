@@ -1,4 +1,4 @@
-"""'Your table is open!': button says "Show table"; no top-left Back to tables (the big button does it); card higher (Karim 2026-11-18).
+"""'Your table is open!': button says "Show table"; no top-left Back to tables (the big button does it); card higher (Gabriele 2026-11-18).
 Idempotent, marker "tc-cok3". Run after patch.py and patch_back.py."""
 import os, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

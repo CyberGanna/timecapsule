@@ -1,4 +1,4 @@
-"""Karim 2026-11-23, Tables page join sheet ("Ready to join?" / "Welcome back") and Save a chair sheet:
+"""Gabriele 2026-11-23, Tables page join sheet ("Ready to join?" / "Welcome back") and Save a chair sheet:
 - live badge = the card's LIVE line (green LIVE + "41 of 60 min"), no green box
 - table summary = the list view row: 64px tile (photo or topic icon on topic glow), title, topic dot · with host
 - drop the "Listen first and speak in turns..." note

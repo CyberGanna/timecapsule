@@ -39,3 +39,5 @@ body.opt-lineopen .opt-rows{margin-top:-24px!important}
 
 /* All topics: BOOKS | FILMS sits above the list */
 .opt-kind.opt-kind-all{position:static!important;display:flex!important;margin:0 0 4px}
+/* "You too" marks are for visitors only: never on your own profile (Gabriele 2026-11-24) */
+body:not(.visitor) em.yt,body:not(.visitor) .opt-items>div em{display:none!important}

@@ -1,4 +1,4 @@
-"""'Your table is open!' in the style of the new Tables page cards (Karim 2026-11-23).
+"""'Your table is open!' in the style of the new Tables page cards (Gabriele 2026-11-23).
 Photo header (the host's photo, else the same stand-in photo the card uses), topic dot + LIVE,
 the question in Literata, a row with your face and dashed free chairs, "N chairs free".
 Idempotent, marker "tc-cok5". Run after patch_look.py and patch_start.py."""

@@ -1,4 +1,4 @@
-"""Conversations page intro copy (Karim 2026-11-19). Idempotent text swap in page, body and dicts."""
+"""Conversations page intro copy (Gabriele 2026-11-19). Idempotent text swap in page, body and dicts."""
 R=[("Conversations saved at the end of their tables, sorted by topic. Read what was said, then ask the host to join the next round.",
     "Conversations are what a table leaves behind, saved when it ends and sorted by topic. Read what was said, then ask the host for a chair at the next round, and help write what comes next."),
    ("Conversazioni salvate alla fine dei loro tavoli, divise per argomento. Leggi cosa si è detto, poi chiedi all'host di unirti al prossimo giro.",

@@ -1,4 +1,4 @@
-"""Karim 2026-11-22: a photo uploaded in Create a table didn't show on the new table's page.
+"""Gabriele 2026-11-22: a photo uploaded in Create a table didn't show on the new table's page.
 Cause: the full-size photo (data URL) was too big for sessionStorage, so the hand-off fell back to no picture.
 Fix: shrink the photo to at most 1600px on its long side as JPEG (about 200-400 KB) when it is picked.
 Idempotent, marker "tc-shrink"."""

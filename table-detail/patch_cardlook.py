@@ -1,4 +1,4 @@
-"""Table page redesigned to match the new Tables page cards (Karim 2026-11-23).
+"""Table page redesigned to match the new Tables page cards (Gabriele 2026-11-23).
 
 Photo header (same photo as the table's card), hour bar, topic dot + LIVE / time line,
 the question in Literata, "with Host · Country", a row of seat faces with dashed free chairs,
@@ -38,7 +38,7 @@ function tdHdImg(){ /* new table: host's picture from Create, else topic icon on
 }
 function tdSection(){
   const t=T(),c=TOPIC_C[t.topic],m=isLive()?Math.round((Date.now()-st.liveSince)/60000):0;
-  /* two sections (Karim 2026-11-23): the card on the left, people and details on the right */
+  /* two sections (Gabriele 2026-11-23): the card on the left, people and details on the right */
   return `<section class="td tdc2${isLive()?" live":""}" style="--c:${c}">
     <article class="tdc">
      <div class="tdhd">${tdHdImg()}${isLive()?`<div class="cc-hour tdhour"><i style="width:${Math.min(100,m/60*100)}%%"></i></div>`:""}</div>
@@ -93,7 +93,7 @@ CSS = r'''<style id="td-card-css">
 .tdside .facts2>div{padding:10px 0;gap:14px}
 .tdside .facts2>div:last-child{border-bottom:0}
 .tdc2.live .tda .hint{display:none}
-.td.tdc2{align-items:stretch}.tdc{display:flex;flex-direction:column}.tdm{flex:1;display:flex;flex-direction:column}.tdm .tda{margin-top:auto}.tdm .cc-host{margin-bottom:24px}.tds-good{align-self:start} /* Karim 2026-11-23: no camera/turns line under Join table */
+.td.tdc2{align-items:stretch}.tdc{display:flex;flex-direction:column}.tdm{flex:1;display:flex;flex-direction:column}.tdm .tda{margin-top:auto}.tdm .cc-host{margin-bottom:24px}.tds-good{align-self:start} /* Gabriele 2026-11-23: no camera/turns line under Join table */
 .tdside .facts2>div>div{display:grid;grid-template-columns:110px minmax(0,1fr);column-gap:12px;flex:1}
 .tdside .facts2 dt{font-size:13.5px;color:var(--mute);margin-top:1px}
 .tdside .facts2 dd{margin:0;font-size:14.5px}

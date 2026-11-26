@@ -1,4 +1,4 @@
-"""Apply the Invite picker (Karim 2026-11-18). Idempotent, marker "tc-ipk".
+"""Apply the Invite picker (Gabriele 2026-11-18). Idempotent, marker "tc-ipk".
 Run from the repo root: python3 invite-picker/patch.py  (after the table-detail patch chain)."""
 import os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

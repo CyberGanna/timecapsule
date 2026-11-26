@@ -1,9 +1,9 @@
 # Evens out the shared header (#tch) icons: one 24-grid icon set (search, chats, bell) with the
 # same size, stroke and colour; one badge position for the chat count and the bell dot; even spacing
 # on desktop and phone. Re-runnable: replaces its own <style id="tch-even"> and the three icons.
-# Unread marks (rule, Karim 2026-11-22): every unread / needs-attention dot or count is teal:
+# Unread marks (rule, Gabriele 2026-11-22): every unread / needs-attention dot or count is teal:
 # header dropdown rows, Chats page counts, Notifications page dots.
-# Phones (Karim 2026-11-23): search, Chats and bell are quiet boxes the same size as the + button.
+# Phones (Gabriele 2026-11-23): search, Chats and bell are quiet boxes the same size as the + button.
 # Run after rebuilding any page with the header: python3 header-icons/patch.py
 import re, os, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -63,7 +63,7 @@ PG_BTN = ('<button class="tch-pg" type="button" data-tch="pages" aria-haspopup="
           '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>')
 PH = re.compile(r'(?:<a class="ph" [^>]*>[^<]*</a>)+')
 def pages(s):
-    # Phone page menu next to the logo (Karim 2026-11-23): the four page links move out of the avatar menu.
+    # Phone page menu next to the logo (Gabriele 2026-11-23): the four page links move out of the avatar menu.
     s = re.sub(r'<button class="tch-pg".*?</button>', '', s, flags=re.S)
     s = re.sub(r'<div class="tch-menu tch-pages".*?</div>\n?', '', s, flags=re.S)
     i = s.find('<a class="tch-logo"')

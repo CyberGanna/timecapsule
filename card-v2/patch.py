@@ -10,9 +10,9 @@ FN=r'''function liveCard(t){ /* card-v2 */
   const c=THEMES[t.theme], mine=S.joined.has(t.id), k=t.people.length+(mine?1:0), left=t.seats-k, soon=!t.live;
   const ppl=[...t.people]; if(mine) ppl.push("You");
   const faces=ppl.map(p=>`<span${p!=="You"?` data-u="${p}" tabindex="0"`:""}>${av(p)}</span>`).join("")+Array.from({length:Math.max(0,left)},()=>`<em aria-hidden="true"></em>`).join("");
-  /* photo header (Karim 2026-11-22): the host's photo; tables without one get a sample photo as a stand-in for the topic photo */
+  /* photo header (Gabriele 2026-11-22): the host's photo; tables without one get a sample photo as a stand-in for the topic photo */
   const hd=`<div class="cc-hd"><img src="${(t.img!=null?IMGS[t.img]:CCPOOL[(CCIMG[t.id]??t.id)%CCPOOL.length])}" alt="" loading="lazy"></div>`;
-  const q=false; /* quotes removed (Karim 2026-11-22) */
+  const q=false; /* quotes removed (Gabriele 2026-11-22) */
   let when, btn;
   if(soon){const m=Math.max(1,Math.round((t.at-NOW)/60000));
     when=`<span class="cc-when">${m<=60?`Starts <span class="cdn" data-at="${+t.at}">in ${m} min</span> · ${hhmm(t.at)}`:`${dayName(dayKey(t.at))} · ${hhmm(t.at)}`}</span>`;
@@ -39,7 +39,7 @@ const CCQ={
 '''
 a=s.index("function liveCard(t){"); b=s.index("\nfunction chairs(t){",a)
 s=s[:a]+FN.rstrip("\n")+s[b:]
-# Profile backdrops mixed with the sample photos (Karim 2026-11-22)
+# Profile backdrops mixed with the sample photos (Gabriele 2026-11-22)
 import os
 PROF=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','profile','timecapsule-profile-v2.html')
 ps=open(PROF,encoding='utf-8').read()
@@ -81,7 +81,7 @@ main .live .tbl.cc .cc-hour{border-radius:20px 20px 0 0}main .live .tbl.cc h3{di
 .cc-seats{font-size:13px;color:#A9B0D6;white-space:nowrap;flex:none;text-align:center}
 main .live .tbl.cc .cc-foot .jbtn{width:100%!important;margin:0!important;height:42px!important;padding:0 18px!important;border-radius:10px!important;justify-content:center}
 main .live .tbl.cc .cc-foot .jbtn.back{background:transparent!important;color:#F2C14E!important;box-shadow:inset 0 0 0 1.5px #17C3C8!important;border:0!important}
-/* List view: the question in the same serif as the cards (Karim 2026-11-22) */
+/* List view: the question in the same serif as the cards (Gabriele 2026-11-22) */
 @media (max-width:640px){.agenda .ev .et h3{font-size:17px!important}}
 @media (max-width:640px){.tbl.cc .cc-in{padding:18px 18px 16px}main .live .tbl.cc h3{font-size:20px!important;margin-top:12px!important}.tbl.cc blockquote{font-size:14.5px;margin-top:14px}.cc-foot{padding-top:18px}.cc-faces{gap:5px}.cc-hd{height:128px}}
 </style>'''
