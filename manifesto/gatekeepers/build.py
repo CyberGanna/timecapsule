@@ -12,24 +12,30 @@ WT = '<span class="wt"><b>time</b><i>capsule</i></span>'
 css = open(os.path.join(SRC, 'base.css')).read().replace('url(fonts/', 'url(../src/fonts/')
 css += """
 @page{size:letter;margin:0}
-.page{width:8.5in;height:11in;padding:0}
-.body{position:absolute;left:22mm;right:22mm;top:25.5mm;bottom:22.5mm;overflow:hidden}
-.head{top:13mm;left:22mm;right:22mm}.pagefoot{left:22mm;right:22mm;bottom:11.5mm}
-.tag{font-family:'Sora',sans-serif;font-size:8.6pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:3mm}
-h1{font-size:30px;margin-bottom:7mm}
-p{font-size:10.4pt;line-height:1.48;margin-bottom:2.4mm}
-p.lead{font-size:12pt;line-height:1.46;color:var(--navy)}
-p b{font-family:'Sora',sans-serif;font-weight:600;font-size:9.8pt;color:var(--navy)}
-h2{font-family:'Sora',sans-serif;font-weight:600;font-size:8.6pt;letter-spacing:.22em;text-transform:uppercase;color:var(--violet);margin:6mm 0 3mm}
-h3{font-family:'Sora',sans-serif;font-weight:600;font-size:12pt;color:var(--navy);margin:5mm 0 2.2mm;padding-top:3mm;border-top:1px solid var(--line)}
-h3 span{color:var(--violet);font-size:9pt;letter-spacing:.12em;margin-right:4mm}
+:root{--bg:#1B2144;--surface:#20264A;--raise:#252B52;--fg:#EEF1FF;--soft:#C9CFF0;--mute:#A9B0D6;--ln:#3A4175;--gold:#F2C14E}
+html,body{background:var(--bg)}
+body{font-family:'Sora',sans-serif;color:var(--fg)}
+.page{width:8.5in;height:11in;padding:0;background:var(--bg)}
+.body{position:absolute;left:21mm;right:21mm;top:24.5mm;bottom:21.5mm;overflow:hidden}
+.head{top:12.5mm;left:21mm;right:21mm}.pagefoot{left:21mm;right:21mm;bottom:11.5mm;border-top-color:var(--ln);color:var(--mute)}
+.head .wt{color:var(--fg)}.head .num{color:var(--mute)}
+.tag{display:inline-block;font-size:8pt;font-weight:400;color:var(--soft);border:1px solid var(--ln);border-radius:99px;padding:1.2mm 3.4mm;margin-bottom:4mm}
+h1{font-family:'Sora',sans-serif;font-weight:400;font-size:32px;letter-spacing:-.02em;color:var(--fg);line-height:1.15;margin-bottom:7mm}
+h1 b{font-weight:400}
+p{font-family:'Sora',sans-serif;font-weight:300;font-size:9.5pt;line-height:1.58;color:var(--soft);margin-bottom:2.4mm}
+p.lead{font-weight:400;font-size:10.8pt;line-height:1.55;color:var(--fg)}
+p b{font-weight:600;color:var(--fg)}
+h2{font-family:'Sora',sans-serif;font-weight:400;font-size:9.4pt;color:var(--fg);margin:6mm 0 2.8mm;display:flex;align-items:center;gap:2.4mm}
+h2::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--violet)}
+h3{font-family:'Sora',sans-serif;font-weight:600;font-size:12.5pt;color:var(--fg);margin:4.4mm 0 2.2mm;padding-top:3mm;border-top:1px solid var(--ln)}
+h3 span{color:var(--teal);font-weight:400;font-size:9pt;margin-right:3mm}
 .body>:first-child{margin-top:0}
-.it{position:relative;padding-left:8mm;font-size:10.2pt;line-height:1.44;margin-bottom:1.8mm}
-.it::before{content:"";position:absolute;left:0;top:.45em;width:9px;height:9px;border-radius:50%;border:2px solid var(--teal);background:#fff}
-.it b{font-family:'Sora',sans-serif;font-weight:600;font-size:9.6pt;color:var(--navy)}
+.it{position:relative;padding-left:6mm;font-weight:300;font-size:9.4pt;line-height:1.52;color:var(--soft);margin-bottom:1.6mm}
+.it::before{content:"";position:absolute;left:.5mm;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+.it b{font-weight:600;color:var(--fg)}
 .it.last{margin-bottom:3.4mm}
-.line{margin:1mm 0 2mm;padding:3mm 0 3mm 7mm;border-left:3px solid;border-image:linear-gradient(var(--violet),var(--teal)) 1}
-.line p{font-size:14.5pt;line-height:1.4;color:var(--navy);margin:0}
+.line{margin:1mm 0 2mm;background:var(--surface);border:1px solid var(--ln);border-radius:4mm;padding:5.5mm 6.5mm}
+.line p{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:400;font-size:15pt;line-height:1.42;color:var(--fg);margin:0}
 """
 
 def P(t): return '<p>%s</p>' % t
@@ -126,16 +132,18 @@ open(os.path.join(HERE, 'gatekeepers.html'), 'w').write(doc('', B, 'From gatekee
 
 # ---------- Public one-pager (the four elements, from Gabriele's draft opening) ----------
 PUB_CSS = """
-.pub h1{font-size:34px;line-height:1.18;margin-bottom:8mm}
-.pub p.lead{font-size:14pt;line-height:1.48;margin-bottom:4mm}
-.pub p{font-size:11.6pt;line-height:1.55;margin-bottom:3.4mm}
-.four{display:grid;grid-template-columns:1fr 1fr;gap:6mm 9mm;margin:3mm 0 4mm}
-.four>div{border-top:2px solid var(--line);padding-top:3.4mm}
-.four .k{font-family:'Sora',sans-serif;font-size:8.4pt;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--violet);margin-bottom:2mm}
-.four p{font-size:11pt;margin:0}
-.close{background:var(--navy);border-radius:3mm;padding:7mm 8mm;margin-top:6mm}
-.close p{color:#fff;font-size:15pt;line-height:1.4;margin:0}
-.close p.s{color:#B9BCD6;font-size:11pt;margin-top:2.5mm}
+.pub h1{font-size:34px;line-height:1.2;margin-bottom:8mm}
+.pub h1 b{color:var(--mute)}
+.pub p.lead{font-size:12.4pt;line-height:1.6;margin-bottom:4mm}
+.pub p{font-size:10.6pt;line-height:1.65;margin-bottom:3.4mm}
+.four{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm;margin:5mm 0 5mm}
+.four>div{background:var(--surface);border:1px solid var(--ln);border-radius:4mm;padding:4.6mm 5mm}
+.four .k{font-size:8.6pt;color:var(--fg);margin-bottom:2.4mm;display:flex;align-items:center;gap:2.2mm}
+.four .k::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--c,var(--violet))}
+.four>div:nth-child(2){--c:var(--teal)}.four>div:nth-child(3){--c:var(--gold)}.four>div:nth-child(4){--c:#FF8FB1}
+.four p{font-size:10.2pt;line-height:1.55;margin:0}
+.close{background:var(--surface);border:1px solid var(--ln);border-radius:4mm;padding:7mm 8mm;margin-top:6mm}
+.close p{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:400;color:var(--fg);font-size:17pt;line-height:1.4;margin:0}
 """
 PUB = [
  '<div class="pub">'
